@@ -15,6 +15,9 @@
 package ec2roleprovider
 
 import (
+	"context"
+	"time"
+
 	"github.com/aws/amazon-ssm-agent/common/identity/credentialproviders"
 	"github.com/aws/amazon-ssm-agent/common/identity/credentialproviders/ssmclient"
 
@@ -23,26 +26,37 @@ import (
 )
 
 const (
-	agentName                        = "amazon-ssm-agent"
-	CredentialSourceSSM              = "Systems Manager"
-	CredentialSourceEC2              = "EC2"
-	maxCredentialExpiryJitterSeconds = 300
+	agentName            = "amazon-ssm-agent"
+	CredentialSourceNone = "None"
+	CredentialSourceSSM  = "SSM"
+	CredentialSourceEC2  = "EC2"
+	IdentityTypeEC2      = "EC2"
 )
 
 var (
-	iprEmptyCredential                          = credentials.Value{ProviderName: ec2rolecreds.ProviderName}
-	newV4ServiceWithCreds ssmclient.Initializer = ssmclient.NewV4ServiceWithCreds
+	iprEmptyCredential                                 = credentials.Value{ProviderName: ec2rolecreds.ProviderName}
+	newV4ServiceWithCreds        ssmclient.Initializer = ssmclient.NewV4ServiceWithCreds
+	timeNowFunc                                        = time.Now
+	newCredentials                                     = credentials.NewCredentials
+	exceptionsForDefaultHostMgmt                       = map[string]struct{}{
+		"AccessDeniedException":        {},
+		"EC2RoleRequestError":          {},
+		"AssumeRoleUnauthorizedAccess": {},
+	}
 )
 
 type IInnerProvider interface {
 	credentials.Provider
 	credentials.Expirer
 	Retrieve() (credentials.Value, error)
+	RetrieveWithContext(ctx context.Context) (credentials.Value, error)
+	SetExpiration(expiration time.Time, window time.Duration)
 }
 
 type EC2InnerProviders struct {
-	IPRProvider    IInnerProvider
-	SsmEc2Provider IInnerProvider
+	IPRProvider               IInnerProvider
+	SsmEc2Provider            IInnerProvider
+	SharedCredentialsProvider IInnerProvider
 }
 
 type IEC2RoleProvider interface {
@@ -53,4 +67,6 @@ type IEC2RoleProvider interface {
 	ShareFile() string
 	ShareProfile() string
 	SharesCredentials() bool
+	RetrieveWithContext(ctx context.Context) (credentials.Value, error)
+	RemoteRetrieve(ctx context.Context) (credentials.Value, error)
 }

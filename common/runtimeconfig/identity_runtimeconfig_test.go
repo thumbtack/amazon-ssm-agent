@@ -29,12 +29,14 @@ func Test_identityRuntimeConfigClient_ConfigExists(t *testing.T) {
 func Test_identityRuntimeConfigClient_GetConfig(t *testing.T) {
 	var emptyConfig IdentityRuntimeConfig
 	parsedConfig := IdentityRuntimeConfig{
+		"1.1",
 		"InstanceId",
 		"IdentityType",
 		"ShareFile",
 		"ShareProfile",
 		time.Time{},
 		time.Time{},
+		"SSM",
 	}
 	handlerErrorMock := &mocks.IRuntimeConfigHandler{}
 	handlerErrorMock.On("GetConfig").Return(nil, fmt.Errorf("SomeError"))
@@ -99,15 +101,17 @@ func Test_identityRuntimeConfigClient_GetConfig(t *testing.T) {
 
 func Test_identityRuntimeConfigClient_SaveConfig(t *testing.T) {
 	successConfig := IdentityRuntimeConfig{
+		"1.1",
 		"InstanceId",
 		"IdentityType",
 		"ShareFile",
 		"ShareProfile",
 		time.Now(),
 		time.Now(),
+		"SSM",
 	}
 	successContent, _ := json.Marshal(successConfig)
-	failContent, _ := json.Marshal(IdentityRuntimeConfig{})
+	failContent, _ := json.Marshal(IdentityRuntimeConfig{SchemaVersion: "1.1"})
 
 	handlerMock := &mocks.IRuntimeConfigHandler{}
 	handlerMock.On("SaveConfig", successContent).Return(nil)
@@ -161,12 +165,14 @@ func Test_identityRuntimeConfigClient_SaveConfig(t *testing.T) {
 
 func Test_identityRuntimeConfigClient_SaveConfig_VerifyFailGetConfig(t *testing.T) {
 	config := IdentityRuntimeConfig{
+		"1.1",
 		"InstanceId",
 		"IdentityType",
 		"ShareFile",
 		"ShareProfile",
 		time.Now(),
 		time.Now(),
+		"SSM",
 	}
 	byteConfig, _ := json.Marshal(config)
 
@@ -186,21 +192,25 @@ func Test_identityRuntimeConfigClient_SaveConfig_VerifyFailGetConfig(t *testing.
 
 func Test_identityRuntimeConfigClient_SaveConfig_VerifyFailConfigEquals(t *testing.T) {
 	correctConfig := IdentityRuntimeConfig{
+		"1.1",
 		"InstanceId",
 		"IdentityType",
 		"ShareFile",
 		"ShareProfile",
 		time.Now(),
 		time.Now(),
+		"SSM",
 	}
 
 	wrongConfig := IdentityRuntimeConfig{
+		"1.1",
 		"InstanceId",
 		"SomeOtherIdentityType",
 		"ShareFile",
 		"ShareProfile",
 		time.Now(),
 		time.Now(),
+		"SSM",
 	}
 	wrongByteConfig, _ := json.Marshal(wrongConfig)
 
@@ -234,12 +244,14 @@ func TestIdentityRuntimeConfig_Equal(t *testing.T) {
 
 	baselineArg := args{
 		IdentityRuntimeConfig{
+			"1.1",
 			"InstanceId",
 			"IdentityType",
 			"ShareFile",
 			"ShareProfile",
 			time.Now(),
 			time.Now(),
+			"SSM",
 		},
 	}
 	tests := []struct {
@@ -300,7 +312,6 @@ func TestIdentityRuntimeConfig_Equal(t *testing.T) {
 			baselineArg,
 			false,
 		},
-
 		{
 			"NotSameShareProfile",
 			fields{

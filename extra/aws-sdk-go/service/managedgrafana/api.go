@@ -29,14 +29,13 @@ const opAssociateLicense = "AssociateLicense"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the AssociateLicenseRequest method.
+//	req, resp := client.AssociateLicenseRequest(params)
 //
-//    // Example sending a request using the AssociateLicenseRequest method.
-//    req, resp := client.AssociateLicenseRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/AssociateLicense
 func (c *ManagedGrafana) AssociateLicenseRequest(input *AssociateLicenseInput) (req *request.Request, output *AssociateLicenseOutput) {
@@ -57,9 +56,10 @@ func (c *ManagedGrafana) AssociateLicenseRequest(input *AssociateLicenseInput) (
 
 // AssociateLicense API operation for Amazon Managed Grafana.
 //
-// Assigns a Grafana Enterprise license to a workspace. Upgrading to Grafana
-// Enterprise incurs additional fees. For more information, see Upgrade a workspace
-// to Grafana Enterprise (https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html).
+// Assigns a Grafana Enterprise license to a workspace. To upgrade, you must
+// use ENTERPRISE for the licenseType, and pass in a valid Grafana Labs token
+// for the grafanaToken. Upgrading to Grafana Enterprise incurs additional fees.
+// For more information, see Upgrade a workspace to Grafana Enterprise (https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html).
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -69,20 +69,21 @@ func (c *ManagedGrafana) AssociateLicenseRequest(input *AssociateLicenseInput) (
 // API operation AssociateLicense for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/AssociateLicense
 func (c *ManagedGrafana) AssociateLicense(input *AssociateLicenseInput) (*AssociateLicenseOutput, error) {
@@ -122,14 +123,13 @@ const opCreateWorkspace = "CreateWorkspace"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateWorkspaceRequest method.
+//	req, resp := client.CreateWorkspaceRequest(params)
 //
-//    // Example sending a request using the CreateWorkspaceRequest method.
-//    req, resp := client.CreateWorkspaceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/CreateWorkspace
 func (c *ManagedGrafana) CreateWorkspaceRequest(input *CreateWorkspaceInput) (req *request.Request, output *CreateWorkspaceOutput) {
@@ -165,23 +165,24 @@ func (c *ManagedGrafana) CreateWorkspaceRequest(input *CreateWorkspaceInput) (re
 // API operation CreateWorkspace for usage and error information.
 //
 // Returned Error Types:
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
 //
-//   * ConflictException
-//   A resource was in an inconsistent state during an update or a deletion.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
 //
-//   * ServiceQuotaExceededException
-//   The request would cause a service quota to be exceeded.
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
+//
+//   - ServiceQuotaExceededException
+//     The request would cause a service quota to be exceeded.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/CreateWorkspace
 func (c *ManagedGrafana) CreateWorkspace(input *CreateWorkspaceInput) (*CreateWorkspaceOutput, error) {
@@ -221,14 +222,13 @@ const opCreateWorkspaceApiKey = "CreateWorkspaceApiKey"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateWorkspaceApiKeyRequest method.
+//	req, resp := client.CreateWorkspaceApiKeyRequest(params)
 //
-//    // Example sending a request using the CreateWorkspaceApiKeyRequest method.
-//    req, resp := client.CreateWorkspaceApiKeyRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/CreateWorkspaceApiKey
 func (c *ManagedGrafana) CreateWorkspaceApiKeyRequest(input *CreateWorkspaceApiKeyInput) (req *request.Request, output *CreateWorkspaceApiKeyOutput) {
@@ -249,10 +249,13 @@ func (c *ManagedGrafana) CreateWorkspaceApiKeyRequest(input *CreateWorkspaceApiK
 
 // CreateWorkspaceApiKey API operation for Amazon Managed Grafana.
 //
-// Creates an API key for the workspace. This key can be used to authenticate
+// Creates a Grafana API key for the workspace. This key can be used to authenticate
 // requests sent to the workspace's HTTP API. See https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html
 // (https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
 // for available APIs and example requests.
+//
+// In workspaces compatible with Grafana version 9 or above, use workspace service
+// accounts instead of API keys. API keys will be removed in a future release.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -262,26 +265,27 @@ func (c *ManagedGrafana) CreateWorkspaceApiKeyRequest(input *CreateWorkspaceApiK
 // API operation CreateWorkspaceApiKey for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ConflictException
-//   A resource was in an inconsistent state during an update or a deletion.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
 //
-//   * ServiceQuotaExceededException
-//   The request would cause a service quota to be exceeded.
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
+//
+//   - ServiceQuotaExceededException
+//     The request would cause a service quota to be exceeded.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/CreateWorkspaceApiKey
 func (c *ManagedGrafana) CreateWorkspaceApiKey(input *CreateWorkspaceApiKeyInput) (*CreateWorkspaceApiKeyOutput, error) {
@@ -305,6 +309,227 @@ func (c *ManagedGrafana) CreateWorkspaceApiKeyWithContext(ctx aws.Context, input
 	return out, req.Send()
 }
 
+const opCreateWorkspaceServiceAccount = "CreateWorkspaceServiceAccount"
+
+// CreateWorkspaceServiceAccountRequest generates a "aws/request.Request" representing the
+// client's request for the CreateWorkspaceServiceAccount operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateWorkspaceServiceAccount for more information on using the CreateWorkspaceServiceAccount
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateWorkspaceServiceAccountRequest method.
+//	req, resp := client.CreateWorkspaceServiceAccountRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/CreateWorkspaceServiceAccount
+func (c *ManagedGrafana) CreateWorkspaceServiceAccountRequest(input *CreateWorkspaceServiceAccountInput) (req *request.Request, output *CreateWorkspaceServiceAccountOutput) {
+	op := &request.Operation{
+		Name:       opCreateWorkspaceServiceAccount,
+		HTTPMethod: "POST",
+		HTTPPath:   "/workspaces/{workspaceId}/serviceaccounts",
+	}
+
+	if input == nil {
+		input = &CreateWorkspaceServiceAccountInput{}
+	}
+
+	output = &CreateWorkspaceServiceAccountOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateWorkspaceServiceAccount API operation for Amazon Managed Grafana.
+//
+// Creates a service account for the workspace. A service account can be used
+// to call Grafana HTTP APIs, and run automated workloads. After creating the
+// service account with the correct GrafanaRole for your use case, use CreateWorkspaceServiceAccountToken
+// to create a token that can be used to authenticate and authorize Grafana
+// HTTP API calls.
+//
+// You can only create service accounts for workspaces that are compatible with
+// Grafana version 9 and above.
+//
+// For more information about service accounts, see Service accounts (https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html)
+// in the Amazon Managed Grafana User Guide.
+//
+// For more information about the Grafana HTTP APIs, see Using Grafana HTTP
+// APIs (https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
+// in the Amazon Managed Grafana User Guide.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Managed Grafana's
+// API operation CreateWorkspaceServiceAccount for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
+//
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
+//
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
+//
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
+//
+//   - ServiceQuotaExceededException
+//     The request would cause a service quota to be exceeded.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/CreateWorkspaceServiceAccount
+func (c *ManagedGrafana) CreateWorkspaceServiceAccount(input *CreateWorkspaceServiceAccountInput) (*CreateWorkspaceServiceAccountOutput, error) {
+	req, out := c.CreateWorkspaceServiceAccountRequest(input)
+	return out, req.Send()
+}
+
+// CreateWorkspaceServiceAccountWithContext is the same as CreateWorkspaceServiceAccount with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateWorkspaceServiceAccount for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ManagedGrafana) CreateWorkspaceServiceAccountWithContext(ctx aws.Context, input *CreateWorkspaceServiceAccountInput, opts ...request.Option) (*CreateWorkspaceServiceAccountOutput, error) {
+	req, out := c.CreateWorkspaceServiceAccountRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateWorkspaceServiceAccountToken = "CreateWorkspaceServiceAccountToken"
+
+// CreateWorkspaceServiceAccountTokenRequest generates a "aws/request.Request" representing the
+// client's request for the CreateWorkspaceServiceAccountToken operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateWorkspaceServiceAccountToken for more information on using the CreateWorkspaceServiceAccountToken
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateWorkspaceServiceAccountTokenRequest method.
+//	req, resp := client.CreateWorkspaceServiceAccountTokenRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/CreateWorkspaceServiceAccountToken
+func (c *ManagedGrafana) CreateWorkspaceServiceAccountTokenRequest(input *CreateWorkspaceServiceAccountTokenInput) (req *request.Request, output *CreateWorkspaceServiceAccountTokenOutput) {
+	op := &request.Operation{
+		Name:       opCreateWorkspaceServiceAccountToken,
+		HTTPMethod: "POST",
+		HTTPPath:   "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens",
+	}
+
+	if input == nil {
+		input = &CreateWorkspaceServiceAccountTokenInput{}
+	}
+
+	output = &CreateWorkspaceServiceAccountTokenOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateWorkspaceServiceAccountToken API operation for Amazon Managed Grafana.
+//
+// Creates a token that can be used to authenticate and authorize Grafana HTTP
+// API operations for the given workspace service account (https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html).
+// The service account acts as a user for the API operations, and defines the
+// permissions that are used by the API.
+//
+// When you create the service account token, you will receive a key that is
+// used when calling Grafana APIs. Do not lose this key, as it will not be retrievable
+// again.
+//
+// If you do lose the key, you can delete the token and recreate it to receive
+// a new key. This will disable the initial key.
+//
+// Service accounts are only available for workspaces that are compatible with
+// Grafana version 9 and above.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Managed Grafana's
+// API operation CreateWorkspaceServiceAccountToken for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
+//
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
+//
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
+//
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
+//
+//   - ServiceQuotaExceededException
+//     The request would cause a service quota to be exceeded.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/CreateWorkspaceServiceAccountToken
+func (c *ManagedGrafana) CreateWorkspaceServiceAccountToken(input *CreateWorkspaceServiceAccountTokenInput) (*CreateWorkspaceServiceAccountTokenOutput, error) {
+	req, out := c.CreateWorkspaceServiceAccountTokenRequest(input)
+	return out, req.Send()
+}
+
+// CreateWorkspaceServiceAccountTokenWithContext is the same as CreateWorkspaceServiceAccountToken with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateWorkspaceServiceAccountToken for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ManagedGrafana) CreateWorkspaceServiceAccountTokenWithContext(ctx aws.Context, input *CreateWorkspaceServiceAccountTokenInput, opts ...request.Option) (*CreateWorkspaceServiceAccountTokenOutput, error) {
+	req, out := c.CreateWorkspaceServiceAccountTokenRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteWorkspace = "DeleteWorkspace"
 
 // DeleteWorkspaceRequest generates a "aws/request.Request" representing the
@@ -321,14 +546,13 @@ const opDeleteWorkspace = "DeleteWorkspace"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteWorkspaceRequest method.
+//	req, resp := client.DeleteWorkspaceRequest(params)
 //
-//    // Example sending a request using the DeleteWorkspaceRequest method.
-//    req, resp := client.DeleteWorkspaceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DeleteWorkspace
 func (c *ManagedGrafana) DeleteWorkspaceRequest(input *DeleteWorkspaceInput) (req *request.Request, output *DeleteWorkspaceOutput) {
@@ -359,23 +583,24 @@ func (c *ManagedGrafana) DeleteWorkspaceRequest(input *DeleteWorkspaceInput) (re
 // API operation DeleteWorkspace for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ConflictException
-//   A resource was in an inconsistent state during an update or a deletion.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DeleteWorkspace
 func (c *ManagedGrafana) DeleteWorkspace(input *DeleteWorkspaceInput) (*DeleteWorkspaceOutput, error) {
@@ -415,14 +640,13 @@ const opDeleteWorkspaceApiKey = "DeleteWorkspaceApiKey"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteWorkspaceApiKeyRequest method.
+//	req, resp := client.DeleteWorkspaceApiKeyRequest(params)
 //
-//    // Example sending a request using the DeleteWorkspaceApiKeyRequest method.
-//    req, resp := client.DeleteWorkspaceApiKeyRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DeleteWorkspaceApiKey
 func (c *ManagedGrafana) DeleteWorkspaceApiKeyRequest(input *DeleteWorkspaceApiKeyInput) (req *request.Request, output *DeleteWorkspaceApiKeyOutput) {
@@ -443,7 +667,10 @@ func (c *ManagedGrafana) DeleteWorkspaceApiKeyRequest(input *DeleteWorkspaceApiK
 
 // DeleteWorkspaceApiKey API operation for Amazon Managed Grafana.
 //
-// Deletes an API key for a workspace.
+// Deletes a Grafana API key for the workspace.
+//
+// In workspaces compatible with Grafana version 9 or above, use workspace service
+// accounts instead of API keys. API keys will be removed in a future release.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -453,23 +680,24 @@ func (c *ManagedGrafana) DeleteWorkspaceApiKeyRequest(input *DeleteWorkspaceApiK
 // API operation DeleteWorkspaceApiKey for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ConflictException
-//   A resource was in an inconsistent state during an update or a deletion.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DeleteWorkspaceApiKey
 func (c *ManagedGrafana) DeleteWorkspaceApiKey(input *DeleteWorkspaceApiKeyInput) (*DeleteWorkspaceApiKeyOutput, error) {
@@ -493,6 +721,208 @@ func (c *ManagedGrafana) DeleteWorkspaceApiKeyWithContext(ctx aws.Context, input
 	return out, req.Send()
 }
 
+const opDeleteWorkspaceServiceAccount = "DeleteWorkspaceServiceAccount"
+
+// DeleteWorkspaceServiceAccountRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteWorkspaceServiceAccount operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteWorkspaceServiceAccount for more information on using the DeleteWorkspaceServiceAccount
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteWorkspaceServiceAccountRequest method.
+//	req, resp := client.DeleteWorkspaceServiceAccountRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DeleteWorkspaceServiceAccount
+func (c *ManagedGrafana) DeleteWorkspaceServiceAccountRequest(input *DeleteWorkspaceServiceAccountInput) (req *request.Request, output *DeleteWorkspaceServiceAccountOutput) {
+	op := &request.Operation{
+		Name:       opDeleteWorkspaceServiceAccount,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}",
+	}
+
+	if input == nil {
+		input = &DeleteWorkspaceServiceAccountInput{}
+	}
+
+	output = &DeleteWorkspaceServiceAccountOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DeleteWorkspaceServiceAccount API operation for Amazon Managed Grafana.
+//
+// Deletes a workspace service account from the workspace.
+//
+// This will delete any tokens created for the service account, as well. If
+// the tokens are currently in use, the will fail to authenticate / authorize
+// after they are deleted.
+//
+// Service accounts are only available for workspaces that are compatible with
+// Grafana version 9 and above.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Managed Grafana's
+// API operation DeleteWorkspaceServiceAccount for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
+//
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
+//
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
+//
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DeleteWorkspaceServiceAccount
+func (c *ManagedGrafana) DeleteWorkspaceServiceAccount(input *DeleteWorkspaceServiceAccountInput) (*DeleteWorkspaceServiceAccountOutput, error) {
+	req, out := c.DeleteWorkspaceServiceAccountRequest(input)
+	return out, req.Send()
+}
+
+// DeleteWorkspaceServiceAccountWithContext is the same as DeleteWorkspaceServiceAccount with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteWorkspaceServiceAccount for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ManagedGrafana) DeleteWorkspaceServiceAccountWithContext(ctx aws.Context, input *DeleteWorkspaceServiceAccountInput, opts ...request.Option) (*DeleteWorkspaceServiceAccountOutput, error) {
+	req, out := c.DeleteWorkspaceServiceAccountRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteWorkspaceServiceAccountToken = "DeleteWorkspaceServiceAccountToken"
+
+// DeleteWorkspaceServiceAccountTokenRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteWorkspaceServiceAccountToken operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteWorkspaceServiceAccountToken for more information on using the DeleteWorkspaceServiceAccountToken
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteWorkspaceServiceAccountTokenRequest method.
+//	req, resp := client.DeleteWorkspaceServiceAccountTokenRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DeleteWorkspaceServiceAccountToken
+func (c *ManagedGrafana) DeleteWorkspaceServiceAccountTokenRequest(input *DeleteWorkspaceServiceAccountTokenInput) (req *request.Request, output *DeleteWorkspaceServiceAccountTokenOutput) {
+	op := &request.Operation{
+		Name:       opDeleteWorkspaceServiceAccountToken,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens/{tokenId}",
+	}
+
+	if input == nil {
+		input = &DeleteWorkspaceServiceAccountTokenInput{}
+	}
+
+	output = &DeleteWorkspaceServiceAccountTokenOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DeleteWorkspaceServiceAccountToken API operation for Amazon Managed Grafana.
+//
+// Deletes a token for the workspace service account.
+//
+// This will disable the key associated with the token. If any automation is
+// currently using the key, it will no longer be authenticated or authorized
+// to perform actions with the Grafana HTTP APIs.
+//
+// Service accounts are only available for workspaces that are compatible with
+// Grafana version 9 and above.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Managed Grafana's
+// API operation DeleteWorkspaceServiceAccountToken for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
+//
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
+//
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
+//
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DeleteWorkspaceServiceAccountToken
+func (c *ManagedGrafana) DeleteWorkspaceServiceAccountToken(input *DeleteWorkspaceServiceAccountTokenInput) (*DeleteWorkspaceServiceAccountTokenOutput, error) {
+	req, out := c.DeleteWorkspaceServiceAccountTokenRequest(input)
+	return out, req.Send()
+}
+
+// DeleteWorkspaceServiceAccountTokenWithContext is the same as DeleteWorkspaceServiceAccountToken with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteWorkspaceServiceAccountToken for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ManagedGrafana) DeleteWorkspaceServiceAccountTokenWithContext(ctx aws.Context, input *DeleteWorkspaceServiceAccountTokenInput, opts ...request.Option) (*DeleteWorkspaceServiceAccountTokenOutput, error) {
+	req, out := c.DeleteWorkspaceServiceAccountTokenRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDescribeWorkspace = "DescribeWorkspace"
 
 // DescribeWorkspaceRequest generates a "aws/request.Request" representing the
@@ -509,14 +939,13 @@ const opDescribeWorkspace = "DescribeWorkspace"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DescribeWorkspaceRequest method.
+//	req, resp := client.DescribeWorkspaceRequest(params)
 //
-//    // Example sending a request using the DescribeWorkspaceRequest method.
-//    req, resp := client.DescribeWorkspaceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DescribeWorkspace
 func (c *ManagedGrafana) DescribeWorkspaceRequest(input *DescribeWorkspaceInput) (req *request.Request, output *DescribeWorkspaceOutput) {
@@ -547,20 +976,21 @@ func (c *ManagedGrafana) DescribeWorkspaceRequest(input *DescribeWorkspaceInput)
 // API operation DescribeWorkspace for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DescribeWorkspace
 func (c *ManagedGrafana) DescribeWorkspace(input *DescribeWorkspaceInput) (*DescribeWorkspaceOutput, error) {
@@ -600,14 +1030,13 @@ const opDescribeWorkspaceAuthentication = "DescribeWorkspaceAuthentication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DescribeWorkspaceAuthenticationRequest method.
+//	req, resp := client.DescribeWorkspaceAuthenticationRequest(params)
 //
-//    // Example sending a request using the DescribeWorkspaceAuthenticationRequest method.
-//    req, resp := client.DescribeWorkspaceAuthenticationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DescribeWorkspaceAuthentication
 func (c *ManagedGrafana) DescribeWorkspaceAuthenticationRequest(input *DescribeWorkspaceAuthenticationInput) (req *request.Request, output *DescribeWorkspaceAuthenticationOutput) {
@@ -639,20 +1068,24 @@ func (c *ManagedGrafana) DescribeWorkspaceAuthenticationRequest(input *DescribeW
 // API operation DescribeWorkspaceAuthentication for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
+//
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DescribeWorkspaceAuthentication
 func (c *ManagedGrafana) DescribeWorkspaceAuthentication(input *DescribeWorkspaceAuthenticationInput) (*DescribeWorkspaceAuthenticationOutput, error) {
@@ -676,6 +1109,94 @@ func (c *ManagedGrafana) DescribeWorkspaceAuthenticationWithContext(ctx aws.Cont
 	return out, req.Send()
 }
 
+const opDescribeWorkspaceConfiguration = "DescribeWorkspaceConfiguration"
+
+// DescribeWorkspaceConfigurationRequest generates a "aws/request.Request" representing the
+// client's request for the DescribeWorkspaceConfiguration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeWorkspaceConfiguration for more information on using the DescribeWorkspaceConfiguration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DescribeWorkspaceConfigurationRequest method.
+//	req, resp := client.DescribeWorkspaceConfigurationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DescribeWorkspaceConfiguration
+func (c *ManagedGrafana) DescribeWorkspaceConfigurationRequest(input *DescribeWorkspaceConfigurationInput) (req *request.Request, output *DescribeWorkspaceConfigurationOutput) {
+	op := &request.Operation{
+		Name:       opDescribeWorkspaceConfiguration,
+		HTTPMethod: "GET",
+		HTTPPath:   "/workspaces/{workspaceId}/configuration",
+	}
+
+	if input == nil {
+		input = &DescribeWorkspaceConfigurationInput{}
+	}
+
+	output = &DescribeWorkspaceConfigurationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DescribeWorkspaceConfiguration API operation for Amazon Managed Grafana.
+//
+// Gets the current configuration string for the given workspace.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Managed Grafana's
+// API operation DescribeWorkspaceConfiguration for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
+//
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DescribeWorkspaceConfiguration
+func (c *ManagedGrafana) DescribeWorkspaceConfiguration(input *DescribeWorkspaceConfigurationInput) (*DescribeWorkspaceConfigurationOutput, error) {
+	req, out := c.DescribeWorkspaceConfigurationRequest(input)
+	return out, req.Send()
+}
+
+// DescribeWorkspaceConfigurationWithContext is the same as DescribeWorkspaceConfiguration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeWorkspaceConfiguration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ManagedGrafana) DescribeWorkspaceConfigurationWithContext(ctx aws.Context, input *DescribeWorkspaceConfigurationInput, opts ...request.Option) (*DescribeWorkspaceConfigurationOutput, error) {
+	req, out := c.DescribeWorkspaceConfigurationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDisassociateLicense = "DisassociateLicense"
 
 // DisassociateLicenseRequest generates a "aws/request.Request" representing the
@@ -692,14 +1213,13 @@ const opDisassociateLicense = "DisassociateLicense"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DisassociateLicenseRequest method.
+//	req, resp := client.DisassociateLicenseRequest(params)
 //
-//    // Example sending a request using the DisassociateLicenseRequest method.
-//    req, resp := client.DisassociateLicenseRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DisassociateLicense
 func (c *ManagedGrafana) DisassociateLicenseRequest(input *DisassociateLicenseInput) (req *request.Request, output *DisassociateLicenseOutput) {
@@ -730,20 +1250,21 @@ func (c *ManagedGrafana) DisassociateLicenseRequest(input *DisassociateLicenseIn
 // API operation DisassociateLicense for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/DisassociateLicense
 func (c *ManagedGrafana) DisassociateLicense(input *DisassociateLicenseInput) (*DisassociateLicenseOutput, error) {
@@ -783,14 +1304,13 @@ const opListPermissions = "ListPermissions"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListPermissionsRequest method.
+//	req, resp := client.ListPermissionsRequest(params)
 //
-//    // Example sending a request using the ListPermissionsRequest method.
-//    req, resp := client.ListPermissionsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/ListPermissions
 func (c *ManagedGrafana) ListPermissionsRequest(input *ListPermissionsInput) (req *request.Request, output *ListPermissionsOutput) {
@@ -831,20 +1351,21 @@ func (c *ManagedGrafana) ListPermissionsRequest(input *ListPermissionsInput) (re
 // API operation ListPermissions for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/ListPermissions
 func (c *ManagedGrafana) ListPermissions(input *ListPermissionsInput) (*ListPermissionsOutput, error) {
@@ -876,15 +1397,14 @@ func (c *ManagedGrafana) ListPermissionsWithContext(ctx aws.Context, input *List
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListPermissions operation.
-//    pageNum := 0
-//    err := client.ListPermissionsPages(params,
-//        func(page *managedgrafana.ListPermissionsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListPermissions operation.
+//	pageNum := 0
+//	err := client.ListPermissionsPages(params,
+//	    func(page *managedgrafana.ListPermissionsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *ManagedGrafana) ListPermissionsPages(input *ListPermissionsInput, fn func(*ListPermissionsOutput, bool) bool) error {
 	return c.ListPermissionsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -936,14 +1456,13 @@ const opListTagsForResource = "ListTagsForResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListTagsForResourceRequest method.
+//	req, resp := client.ListTagsForResourceRequest(params)
 //
-//    // Example sending a request using the ListTagsForResourceRequest method.
-//    req, resp := client.ListTagsForResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/ListTagsForResource
 func (c *ManagedGrafana) ListTagsForResourceRequest(input *ListTagsForResourceInput) (req *request.Request, output *ListTagsForResourceOutput) {
@@ -976,20 +1495,21 @@ func (c *ManagedGrafana) ListTagsForResourceRequest(input *ListTagsForResourceIn
 // API operation ListTagsForResource for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/ListTagsForResource
 func (c *ManagedGrafana) ListTagsForResource(input *ListTagsForResourceInput) (*ListTagsForResourceOutput, error) {
@@ -1013,6 +1533,466 @@ func (c *ManagedGrafana) ListTagsForResourceWithContext(ctx aws.Context, input *
 	return out, req.Send()
 }
 
+const opListVersions = "ListVersions"
+
+// ListVersionsRequest generates a "aws/request.Request" representing the
+// client's request for the ListVersions operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListVersions for more information on using the ListVersions
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListVersionsRequest method.
+//	req, resp := client.ListVersionsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/ListVersions
+func (c *ManagedGrafana) ListVersionsRequest(input *ListVersionsInput) (req *request.Request, output *ListVersionsOutput) {
+	op := &request.Operation{
+		Name:       opListVersions,
+		HTTPMethod: "GET",
+		HTTPPath:   "/versions",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListVersionsInput{}
+	}
+
+	output = &ListVersionsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListVersions API operation for Amazon Managed Grafana.
+//
+// Lists available versions of Grafana. These are available when calling CreateWorkspace.
+// Optionally, include a workspace to list the versions to which it can be upgraded.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Managed Grafana's
+// API operation ListVersions for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
+//
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
+//
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/ListVersions
+func (c *ManagedGrafana) ListVersions(input *ListVersionsInput) (*ListVersionsOutput, error) {
+	req, out := c.ListVersionsRequest(input)
+	return out, req.Send()
+}
+
+// ListVersionsWithContext is the same as ListVersions with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListVersions for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ManagedGrafana) ListVersionsWithContext(ctx aws.Context, input *ListVersionsInput, opts ...request.Option) (*ListVersionsOutput, error) {
+	req, out := c.ListVersionsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListVersionsPages iterates over the pages of a ListVersions operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListVersions method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//	// Example iterating over at most 3 pages of a ListVersions operation.
+//	pageNum := 0
+//	err := client.ListVersionsPages(params,
+//	    func(page *managedgrafana.ListVersionsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
+func (c *ManagedGrafana) ListVersionsPages(input *ListVersionsInput, fn func(*ListVersionsOutput, bool) bool) error {
+	return c.ListVersionsPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListVersionsPagesWithContext same as ListVersionsPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ManagedGrafana) ListVersionsPagesWithContext(ctx aws.Context, input *ListVersionsInput, fn func(*ListVersionsOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListVersionsInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListVersionsRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListVersionsOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
+const opListWorkspaceServiceAccountTokens = "ListWorkspaceServiceAccountTokens"
+
+// ListWorkspaceServiceAccountTokensRequest generates a "aws/request.Request" representing the
+// client's request for the ListWorkspaceServiceAccountTokens operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListWorkspaceServiceAccountTokens for more information on using the ListWorkspaceServiceAccountTokens
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListWorkspaceServiceAccountTokensRequest method.
+//	req, resp := client.ListWorkspaceServiceAccountTokensRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/ListWorkspaceServiceAccountTokens
+func (c *ManagedGrafana) ListWorkspaceServiceAccountTokensRequest(input *ListWorkspaceServiceAccountTokensInput) (req *request.Request, output *ListWorkspaceServiceAccountTokensOutput) {
+	op := &request.Operation{
+		Name:       opListWorkspaceServiceAccountTokens,
+		HTTPMethod: "GET",
+		HTTPPath:   "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListWorkspaceServiceAccountTokensInput{}
+	}
+
+	output = &ListWorkspaceServiceAccountTokensOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListWorkspaceServiceAccountTokens API operation for Amazon Managed Grafana.
+//
+// Returns a list of tokens for a workspace service account.
+//
+// This does not return the key for each token. You cannot access keys after
+// they are created. To create a new key, delete the token and recreate it.
+//
+// Service accounts are only available for workspaces that are compatible with
+// Grafana version 9 and above.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Managed Grafana's
+// API operation ListWorkspaceServiceAccountTokens for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
+//
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
+//
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
+//
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/ListWorkspaceServiceAccountTokens
+func (c *ManagedGrafana) ListWorkspaceServiceAccountTokens(input *ListWorkspaceServiceAccountTokensInput) (*ListWorkspaceServiceAccountTokensOutput, error) {
+	req, out := c.ListWorkspaceServiceAccountTokensRequest(input)
+	return out, req.Send()
+}
+
+// ListWorkspaceServiceAccountTokensWithContext is the same as ListWorkspaceServiceAccountTokens with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListWorkspaceServiceAccountTokens for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ManagedGrafana) ListWorkspaceServiceAccountTokensWithContext(ctx aws.Context, input *ListWorkspaceServiceAccountTokensInput, opts ...request.Option) (*ListWorkspaceServiceAccountTokensOutput, error) {
+	req, out := c.ListWorkspaceServiceAccountTokensRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListWorkspaceServiceAccountTokensPages iterates over the pages of a ListWorkspaceServiceAccountTokens operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListWorkspaceServiceAccountTokens method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//	// Example iterating over at most 3 pages of a ListWorkspaceServiceAccountTokens operation.
+//	pageNum := 0
+//	err := client.ListWorkspaceServiceAccountTokensPages(params,
+//	    func(page *managedgrafana.ListWorkspaceServiceAccountTokensOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
+func (c *ManagedGrafana) ListWorkspaceServiceAccountTokensPages(input *ListWorkspaceServiceAccountTokensInput, fn func(*ListWorkspaceServiceAccountTokensOutput, bool) bool) error {
+	return c.ListWorkspaceServiceAccountTokensPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListWorkspaceServiceAccountTokensPagesWithContext same as ListWorkspaceServiceAccountTokensPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ManagedGrafana) ListWorkspaceServiceAccountTokensPagesWithContext(ctx aws.Context, input *ListWorkspaceServiceAccountTokensInput, fn func(*ListWorkspaceServiceAccountTokensOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListWorkspaceServiceAccountTokensInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListWorkspaceServiceAccountTokensRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListWorkspaceServiceAccountTokensOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
+const opListWorkspaceServiceAccounts = "ListWorkspaceServiceAccounts"
+
+// ListWorkspaceServiceAccountsRequest generates a "aws/request.Request" representing the
+// client's request for the ListWorkspaceServiceAccounts operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListWorkspaceServiceAccounts for more information on using the ListWorkspaceServiceAccounts
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListWorkspaceServiceAccountsRequest method.
+//	req, resp := client.ListWorkspaceServiceAccountsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/ListWorkspaceServiceAccounts
+func (c *ManagedGrafana) ListWorkspaceServiceAccountsRequest(input *ListWorkspaceServiceAccountsInput) (req *request.Request, output *ListWorkspaceServiceAccountsOutput) {
+	op := &request.Operation{
+		Name:       opListWorkspaceServiceAccounts,
+		HTTPMethod: "GET",
+		HTTPPath:   "/workspaces/{workspaceId}/serviceaccounts",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListWorkspaceServiceAccountsInput{}
+	}
+
+	output = &ListWorkspaceServiceAccountsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListWorkspaceServiceAccounts API operation for Amazon Managed Grafana.
+//
+// Returns a list of service accounts for a workspace.
+//
+// Service accounts are only available for workspaces that are compatible with
+// Grafana version 9 and above.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Managed Grafana's
+// API operation ListWorkspaceServiceAccounts for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
+//
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
+//
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
+//
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/ListWorkspaceServiceAccounts
+func (c *ManagedGrafana) ListWorkspaceServiceAccounts(input *ListWorkspaceServiceAccountsInput) (*ListWorkspaceServiceAccountsOutput, error) {
+	req, out := c.ListWorkspaceServiceAccountsRequest(input)
+	return out, req.Send()
+}
+
+// ListWorkspaceServiceAccountsWithContext is the same as ListWorkspaceServiceAccounts with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListWorkspaceServiceAccounts for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ManagedGrafana) ListWorkspaceServiceAccountsWithContext(ctx aws.Context, input *ListWorkspaceServiceAccountsInput, opts ...request.Option) (*ListWorkspaceServiceAccountsOutput, error) {
+	req, out := c.ListWorkspaceServiceAccountsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListWorkspaceServiceAccountsPages iterates over the pages of a ListWorkspaceServiceAccounts operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListWorkspaceServiceAccounts method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//	// Example iterating over at most 3 pages of a ListWorkspaceServiceAccounts operation.
+//	pageNum := 0
+//	err := client.ListWorkspaceServiceAccountsPages(params,
+//	    func(page *managedgrafana.ListWorkspaceServiceAccountsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
+func (c *ManagedGrafana) ListWorkspaceServiceAccountsPages(input *ListWorkspaceServiceAccountsInput, fn func(*ListWorkspaceServiceAccountsOutput, bool) bool) error {
+	return c.ListWorkspaceServiceAccountsPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListWorkspaceServiceAccountsPagesWithContext same as ListWorkspaceServiceAccountsPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ManagedGrafana) ListWorkspaceServiceAccountsPagesWithContext(ctx aws.Context, input *ListWorkspaceServiceAccountsInput, fn func(*ListWorkspaceServiceAccountsOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListWorkspaceServiceAccountsInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListWorkspaceServiceAccountsRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListWorkspaceServiceAccountsOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
 const opListWorkspaces = "ListWorkspaces"
 
 // ListWorkspacesRequest generates a "aws/request.Request" representing the
@@ -1029,14 +2009,13 @@ const opListWorkspaces = "ListWorkspaces"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListWorkspacesRequest method.
+//	req, resp := client.ListWorkspacesRequest(params)
 //
-//    // Example sending a request using the ListWorkspacesRequest method.
-//    req, resp := client.ListWorkspacesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/ListWorkspaces
 func (c *ManagedGrafana) ListWorkspacesRequest(input *ListWorkspacesInput) (req *request.Request, output *ListWorkspacesOutput) {
@@ -1075,14 +2054,15 @@ func (c *ManagedGrafana) ListWorkspacesRequest(input *ListWorkspacesInput) (req 
 // API operation ListWorkspaces for usage and error information.
 //
 // Returned Error Types:
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/ListWorkspaces
 func (c *ManagedGrafana) ListWorkspaces(input *ListWorkspacesInput) (*ListWorkspacesOutput, error) {
@@ -1114,15 +2094,14 @@ func (c *ManagedGrafana) ListWorkspacesWithContext(ctx aws.Context, input *ListW
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListWorkspaces operation.
-//    pageNum := 0
-//    err := client.ListWorkspacesPages(params,
-//        func(page *managedgrafana.ListWorkspacesOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListWorkspaces operation.
+//	pageNum := 0
+//	err := client.ListWorkspacesPages(params,
+//	    func(page *managedgrafana.ListWorkspacesOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *ManagedGrafana) ListWorkspacesPages(input *ListWorkspacesInput, fn func(*ListWorkspacesOutput, bool) bool) error {
 	return c.ListWorkspacesPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -1174,14 +2153,13 @@ const opTagResource = "TagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the TagResourceRequest method.
+//	req, resp := client.TagResourceRequest(params)
 //
-//    // Example sending a request using the TagResourceRequest method.
-//    req, resp := client.TagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/TagResource
 func (c *ManagedGrafana) TagResourceRequest(input *TagResourceInput) (req *request.Request, output *TagResourceOutput) {
@@ -1219,20 +2197,21 @@ func (c *ManagedGrafana) TagResourceRequest(input *TagResourceInput) (req *reque
 // API operation TagResource for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/TagResource
 func (c *ManagedGrafana) TagResource(input *TagResourceInput) (*TagResourceOutput, error) {
@@ -1272,14 +2251,13 @@ const opUntagResource = "UntagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UntagResourceRequest method.
+//	req, resp := client.UntagResourceRequest(params)
 //
-//    // Example sending a request using the UntagResourceRequest method.
-//    req, resp := client.UntagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/UntagResource
 func (c *ManagedGrafana) UntagResourceRequest(input *UntagResourceInput) (req *request.Request, output *UntagResourceOutput) {
@@ -1312,20 +2290,21 @@ func (c *ManagedGrafana) UntagResourceRequest(input *UntagResourceInput) (req *r
 // API operation UntagResource for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/UntagResource
 func (c *ManagedGrafana) UntagResource(input *UntagResourceInput) (*UntagResourceOutput, error) {
@@ -1365,14 +2344,13 @@ const opUpdatePermissions = "UpdatePermissions"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdatePermissionsRequest method.
+//	req, resp := client.UpdatePermissionsRequest(params)
 //
-//    // Example sending a request using the UpdatePermissionsRequest method.
-//    req, resp := client.UpdatePermissionsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/UpdatePermissions
 func (c *ManagedGrafana) UpdatePermissionsRequest(input *UpdatePermissionsInput) (req *request.Request, output *UpdatePermissionsOutput) {
@@ -1403,20 +2381,21 @@ func (c *ManagedGrafana) UpdatePermissionsRequest(input *UpdatePermissionsInput)
 // API operation UpdatePermissions for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/UpdatePermissions
 func (c *ManagedGrafana) UpdatePermissions(input *UpdatePermissionsInput) (*UpdatePermissionsOutput, error) {
@@ -1456,14 +2435,13 @@ const opUpdateWorkspace = "UpdateWorkspace"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateWorkspaceRequest method.
+//	req, resp := client.UpdateWorkspaceRequest(params)
 //
-//    // Example sending a request using the UpdateWorkspaceRequest method.
-//    req, resp := client.UpdateWorkspaceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/UpdateWorkspace
 func (c *ManagedGrafana) UpdateWorkspaceRequest(input *UpdateWorkspaceInput) (req *request.Request, output *UpdateWorkspaceOutput) {
@@ -1489,7 +2467,7 @@ func (c *ManagedGrafana) UpdateWorkspaceRequest(input *UpdateWorkspaceInput) (re
 // are not changed.
 //
 // To modify the user authentication methods that the workspace uses, such as
-// SAML or Amazon Web Services SSO, use UpdateWorkspaceAuthentication (https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html).
+// SAML or IAM Identity Center, use UpdateWorkspaceAuthentication (https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html).
 //
 // To modify which users in the workspace have the Admin and Editor Grafana
 // roles, use UpdatePermissions (https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html).
@@ -1502,23 +2480,24 @@ func (c *ManagedGrafana) UpdateWorkspaceRequest(input *UpdateWorkspaceInput) (re
 // API operation UpdateWorkspace for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ConflictException
-//   A resource was in an inconsistent state during an update or a deletion.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/UpdateWorkspace
 func (c *ManagedGrafana) UpdateWorkspace(input *UpdateWorkspaceInput) (*UpdateWorkspaceOutput, error) {
@@ -1558,14 +2537,13 @@ const opUpdateWorkspaceAuthentication = "UpdateWorkspaceAuthentication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateWorkspaceAuthenticationRequest method.
+//	req, resp := client.UpdateWorkspaceAuthenticationRequest(params)
 //
-//    // Example sending a request using the UpdateWorkspaceAuthenticationRequest method.
-//    req, resp := client.UpdateWorkspaceAuthenticationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/UpdateWorkspaceAuthentication
 func (c *ManagedGrafana) UpdateWorkspaceAuthenticationRequest(input *UpdateWorkspaceAuthenticationInput) (req *request.Request, output *UpdateWorkspaceAuthenticationOutput) {
@@ -1591,6 +2569,9 @@ func (c *ManagedGrafana) UpdateWorkspaceAuthenticationRequest(input *UpdateWorks
 // to workspace user information and define which groups in the assertion attribute
 // are to have the Admin and Editor roles in the workspace.
 //
+// Changes to the authentication method for a workspace may take a few minutes
+// to take effect.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -1599,23 +2580,24 @@ func (c *ManagedGrafana) UpdateWorkspaceAuthenticationRequest(input *UpdateWorks
 // API operation UpdateWorkspaceAuthentication for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The request references a resource that does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because of request throttling. Retry the request.
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
 //
-//   * ConflictException
-//   A resource was in an inconsistent state during an update or a deletion.
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
 //
-//   * ValidationException
-//   The value of a parameter in the request caused an error.
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
 //
-//   * AccessDeniedException
-//   You do not have sufficient permissions to perform this action.
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
 //
-//   * InternalServerException
-//   Unexpected error while processing the request. Retry the request.
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/UpdateWorkspaceAuthentication
 func (c *ManagedGrafana) UpdateWorkspaceAuthentication(input *UpdateWorkspaceAuthenticationInput) (*UpdateWorkspaceAuthenticationOutput, error) {
@@ -1634,6 +2616,101 @@ func (c *ManagedGrafana) UpdateWorkspaceAuthentication(input *UpdateWorkspaceAut
 // for more information on using Contexts.
 func (c *ManagedGrafana) UpdateWorkspaceAuthenticationWithContext(ctx aws.Context, input *UpdateWorkspaceAuthenticationInput, opts ...request.Option) (*UpdateWorkspaceAuthenticationOutput, error) {
 	req, out := c.UpdateWorkspaceAuthenticationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUpdateWorkspaceConfiguration = "UpdateWorkspaceConfiguration"
+
+// UpdateWorkspaceConfigurationRequest generates a "aws/request.Request" representing the
+// client's request for the UpdateWorkspaceConfiguration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UpdateWorkspaceConfiguration for more information on using the UpdateWorkspaceConfiguration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the UpdateWorkspaceConfigurationRequest method.
+//	req, resp := client.UpdateWorkspaceConfigurationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/UpdateWorkspaceConfiguration
+func (c *ManagedGrafana) UpdateWorkspaceConfigurationRequest(input *UpdateWorkspaceConfigurationInput) (req *request.Request, output *UpdateWorkspaceConfigurationOutput) {
+	op := &request.Operation{
+		Name:       opUpdateWorkspaceConfiguration,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/workspaces/{workspaceId}/configuration",
+	}
+
+	if input == nil {
+		input = &UpdateWorkspaceConfigurationInput{}
+	}
+
+	output = &UpdateWorkspaceConfigurationOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// UpdateWorkspaceConfiguration API operation for Amazon Managed Grafana.
+//
+// # Updates the configuration string for the given workspace
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Managed Grafana's
+// API operation UpdateWorkspaceConfiguration for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The request references a resource that does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because of request throttling. Retry the request.
+//
+//   - ConflictException
+//     A resource was in an inconsistent state during an update or a deletion.
+//
+//   - ValidationException
+//     The value of a parameter in the request caused an error.
+//
+//   - AccessDeniedException
+//     You do not have sufficient permissions to perform this action.
+//
+//   - InternalServerException
+//     Unexpected error while processing the request. Retry the request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-18/UpdateWorkspaceConfiguration
+func (c *ManagedGrafana) UpdateWorkspaceConfiguration(input *UpdateWorkspaceConfigurationInput) (*UpdateWorkspaceConfigurationOutput, error) {
+	req, out := c.UpdateWorkspaceConfigurationRequest(input)
+	return out, req.Send()
+}
+
+// UpdateWorkspaceConfigurationWithContext is the same as UpdateWorkspaceConfiguration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UpdateWorkspaceConfiguration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ManagedGrafana) UpdateWorkspaceConfigurationWithContext(ctx aws.Context, input *UpdateWorkspaceConfigurationInput, opts ...request.Option) (*UpdateWorkspaceConfigurationOutput, error) {
+	req, out := c.UpdateWorkspaceConfigurationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -1818,7 +2895,15 @@ func (s *AssertionAttributes) SetRole(v string) *AssertionAttributes {
 type AssociateLicenseInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
+	// A token from Grafana Labs that ties your Amazon Web Services account with
+	// a Grafana Labs account. For more information, see Link your account with
+	// Grafana Labs (https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise).
+	GrafanaToken *string `location:"header" locationName:"Grafana-Token" min:"1" type:"string"`
+
 	// The type of license to associate with the workspace.
+	//
+	// Amazon Managed Grafana workspaces no longer support Grafana Enterprise free
+	// trials.
 	//
 	// LicenseType is a required field
 	LicenseType *string `location:"uri" locationName:"licenseType" type:"string" required:"true" enum:"LicenseType"`
@@ -1850,6 +2935,9 @@ func (s AssociateLicenseInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *AssociateLicenseInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AssociateLicenseInput"}
+	if s.GrafanaToken != nil && len(*s.GrafanaToken) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("GrafanaToken", 1))
+	}
 	if s.LicenseType == nil {
 		invalidParams.Add(request.NewErrParamRequired("LicenseType"))
 	}
@@ -1867,6 +2955,12 @@ func (s *AssociateLicenseInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetGrafanaToken sets the GrafanaToken field's value.
+func (s *AssociateLicenseInput) SetGrafanaToken(v string) *AssociateLicenseInput {
+	s.GrafanaToken = &v
+	return s
 }
 
 // SetLicenseType sets the LicenseType field's value.
@@ -1919,11 +3013,11 @@ func (s *AssociateLicenseOutput) SetWorkspace(v *WorkspaceDescription) *Associat
 type AuthenticationDescription struct {
 	_ struct{} `type:"structure"`
 
-	// A structure containing information about how this workspace works with Amazon
-	// Web Services SSO.
+	// A structure containing information about how this workspace works with IAM
+	// Identity Center.
 	AwsSso *AwsSsoAuthentication `locationName:"awsSso" type:"structure"`
 
-	// Specifies whether this workspace uses Amazon Web Services SSO, SAML, or both
+	// Specifies whether this workspace uses IAM Identity Center, SAML, or both
 	// methods to authenticate users to use the Grafana console in the Amazon Managed
 	// Grafana workspace.
 	//
@@ -1972,14 +3066,14 @@ func (s *AuthenticationDescription) SetSaml(v *SamlAuthentication) *Authenticati
 	return s
 }
 
-// A structure that describes whether the workspace uses SAML, Amazon Web Services
-// SSO, or both methods for user authentication, and whether that authentication
+// A structure that describes whether the workspace uses SAML, IAM Identity
+// Center, or both methods for user authentication, and whether that authentication
 // is fully configured.
 type AuthenticationSummary struct {
 	_ struct{} `type:"structure"`
 
-	// Specifies whether the workspace uses SAML, Amazon Web Services SSO, or both
-	// methods for user authentication.
+	// Specifies whether the workspace uses SAML, IAM Identity Center, or both methods
+	// for user authentication.
 	//
 	// Providers is a required field
 	Providers []*string `locationName:"providers" type:"list" required:"true" enum:"AuthenticationProviderTypes"`
@@ -2018,13 +3112,13 @@ func (s *AuthenticationSummary) SetSamlConfigurationStatus(v string) *Authentica
 	return s
 }
 
-// A structure containing information about how this workspace works with Amazon
-// Web Services SSO.
+// A structure containing information about how this workspace works with IAM
+// Identity Center.
 type AwsSsoAuthentication struct {
 	_ struct{} `type:"structure"`
 
-	// The ID of the Amazon Web Services SSO-managed application that is created
-	// by Amazon Managed Grafana.
+	// The ID of the IAM Identity Center-managed application that is created by
+	// Amazon Managed Grafana.
 	SsoClientId *string `locationName:"ssoClientId" type:"string"`
 }
 
@@ -2130,15 +3224,14 @@ func (s *ConflictException) RequestID() string {
 type CreateWorkspaceApiKeyInput struct {
 	_ struct{} `type:"structure"`
 
-	// Specifies the name of the key to create. Key names must be unique to the
-	// workspace.
+	// Specifies the name of the key. Keynames must be unique to the workspace.
 	//
 	// KeyName is a required field
 	KeyName *string `locationName:"keyName" min:"1" type:"string" required:"true"`
 
 	// Specifies the permission level of the key.
 	//
-	// Valid Values: VIEWER | EDITOR | ADMIN
+	// Valid values: ADMIN|EDITOR|VIEWER
 	//
 	// KeyRole is a required field
 	KeyRole *string `locationName:"keyRole" type:"string" required:"true"`
@@ -2149,7 +3242,7 @@ type CreateWorkspaceApiKeyInput struct {
 	// SecondsToLive is a required field
 	SecondsToLive *int64 `locationName:"secondsToLive" min:"1" type:"integer" required:"true"`
 
-	// The ID of the workspace in which to create an API key.
+	// The ID of the workspace to create an API key.
 	//
 	// WorkspaceId is a required field
 	WorkspaceId *string `location:"uri" locationName:"workspaceId" type:"string" required:"true"`
@@ -2231,8 +3324,8 @@ func (s *CreateWorkspaceApiKeyInput) SetWorkspaceId(v string) *CreateWorkspaceAp
 type CreateWorkspaceApiKeyOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The key token that was created. Use this value as a bearer token to authenticate
-	// HTTP requests to the workspace.
+	// The key token. Use this value as a bearer token to authenticate HTTP requests
+	// to the workspace.
 	//
 	// Key is a sensitive parameter and its value will be
 	// replaced with "sensitive" in string returned by CreateWorkspaceApiKeyOutput's
@@ -2300,10 +3393,9 @@ type CreateWorkspaceInput struct {
 	// AccountAccessType is a required field
 	AccountAccessType *string `locationName:"accountAccessType" type:"string" required:"true" enum:"AccountAccessType"`
 
-	// Specifies whether this workspace uses SAML 2.0, Amazon Web Services Single
-	// Sign On, or both to authenticate users for using the Grafana console within
-	// a workspace. For more information, see User authentication in Amazon Managed
-	// Grafana (https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html).
+	// Specifies whether this workspace uses SAML 2.0, IAM Identity Center, or both
+	// to authenticate users for using the Grafana console within a workspace. For
+	// more information, see User authentication in Amazon Managed Grafana (https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html).
 	//
 	// AuthenticationProviders is a required field
 	AuthenticationProviders []*string `locationName:"authenticationProviders" type:"list" required:"true" enum:"AuthenticationProviderTypes"`
@@ -2311,6 +3403,28 @@ type CreateWorkspaceInput struct {
 	// A unique, case-sensitive, user-provided identifier to ensure the idempotency
 	// of the request.
 	ClientToken *string `locationName:"clientToken" type:"string" idempotencyToken:"true"`
+
+	// The configuration string for the workspace that you create. For more information
+	// about the format and configuration options available, see Working in your
+	// Grafana workspace (https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	Configuration *string `locationName:"configuration" min:"2" type:"string"`
+
+	// Specifies the version of Grafana to support in the new workspace. If not
+	// specified, defaults to the latest version (for example, 10.4).
+	//
+	// To get a list of supported versions, use the ListVersions operation.
+	GrafanaVersion *string `locationName:"grafanaVersion" min:"1" type:"string"`
+
+	// Configuration for network access to your workspace.
+	//
+	// When this is configured, only listed IP addresses and VPC endpoints will
+	// be able to access your workspace. Standard Grafana authentication and authorization
+	// will still be required.
+	//
+	// If this is not configured, or is removed, then all IP addresses and VPC endpoints
+	// will be allowed. Standard Grafana authentication and authorization will still
+	// be required.
+	NetworkAccessControl *NetworkAccessConfiguration `locationName:"networkAccessControl" type:"structure"`
 
 	// The name of an IAM role that already exists to use with Organizations to
 	// access Amazon Web Services data sources and notification channels in other
@@ -2321,17 +3435,21 @@ type CreateWorkspaceInput struct {
 	// String and GoString methods.
 	OrganizationRoleName *string `locationName:"organizationRoleName" min:"1" type:"string" sensitive:"true"`
 
-	// If you specify SERVICE_MANAGED on AWS Grafana console, Amazon Managed Grafana
-	// automatically creates the IAM roles and provisions the permissions that the
-	// workspace needs to use Amazon Web Services data sources and notification
-	// channels. In CLI mode, the permissionType SERVICE_MANAGED will not create
-	// the IAM role for you.
+	// When creating a workspace through the Amazon Web Services API, CLI or Amazon
+	// Web Services CloudFormation, you must manage IAM roles and provision the
+	// permissions that the workspace needs to use Amazon Web Services data sources
+	// and notification channels.
 	//
-	// If you specify CUSTOMER_MANAGED, you will manage those roles and permissions
-	// yourself. If you are creating this workspace in a member account of an organization
-	// that is not a delegated administrator account, and you want the workspace
-	// to access data sources in other Amazon Web Services accounts in the organization,
-	// you must choose CUSTOMER_MANAGED.
+	// You must also specify a workspaceRoleArn for a role that you will manage
+	// for the workspace to use when accessing those datasources and notification
+	// channels.
+	//
+	// The ability for Amazon Managed Grafana to create and update IAM roles on
+	// behalf of the user is supported only in the Amazon Managed Grafana console,
+	// where this value may be set to SERVICE_MANAGED.
+	//
+	// Use only the CUSTOMER_MANAGED permission type when creating a workspace with
+	// the API, CLI or Amazon Web Services CloudFormation.
 	//
 	// For more information, see Amazon Managed Grafana permissions and policies
 	// for Amazon Web Services data sources and notification channels (https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html).
@@ -2346,15 +3464,14 @@ type CreateWorkspaceInput struct {
 	// The list of tags associated with the workspace.
 	Tags map[string]*string `locationName:"tags" type:"map"`
 
-	// Specify the Amazon Web Services data sources that you want to be queried
-	// in this workspace. Specifying these data sources here enables Amazon Managed
-	// Grafana to create IAM roles and permissions that allow Amazon Managed Grafana
-	// to read data from these sources. You must still add them as data sources
-	// in the Grafana console in the workspace.
+	// The configuration settings for an Amazon VPC that contains data sources for
+	// your Grafana workspace to connect to.
 	//
-	// If you don't specify a data source here, you can still add it as a data source
-	// in the workspace console later. However, you will then have to manually configure
-	// permissions for it.
+	// Connecting to a private VPC is not yet available in the Asia Pacific (Seoul)
+	// Region (ap-northeast-2).
+	VpcConfiguration *VpcConfiguration `locationName:"vpcConfiguration" type:"structure"`
+
+	// This parameter is for internal use only, and should not be used.
 	WorkspaceDataSources []*string `locationName:"workspaceDataSources" type:"list" enum:"DataSourceType"`
 
 	// A description for the workspace. This is used only to help you identify this
@@ -2389,10 +3506,10 @@ type CreateWorkspaceInput struct {
 	// String and GoString methods.
 	WorkspaceOrganizationalUnits []*string `locationName:"workspaceOrganizationalUnits" type:"list" sensitive:"true"`
 
-	// The workspace needs an IAM role that grants permissions to the Amazon Web
-	// Services resources that the workspace will view data from. If you already
-	// have a role that you want to use, specify it here. The permission type should
-	// be set to CUSTOMER_MANAGED.
+	// Specified the IAM role that grants permissions to the Amazon Web Services
+	// resources that the workspace will view data from, including both data sources
+	// and notification channels. You are responsible for managing the permissions
+	// for this role as new data sources or notification channels are added.
 	//
 	// WorkspaceRoleArn is a sensitive parameter and its value will be
 	// replaced with "sensitive" in string returned by CreateWorkspaceInput's
@@ -2427,6 +3544,12 @@ func (s *CreateWorkspaceInput) Validate() error {
 	if s.AuthenticationProviders == nil {
 		invalidParams.Add(request.NewErrParamRequired("AuthenticationProviders"))
 	}
+	if s.Configuration != nil && len(*s.Configuration) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("Configuration", 2))
+	}
+	if s.GrafanaVersion != nil && len(*s.GrafanaVersion) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("GrafanaVersion", 1))
+	}
 	if s.OrganizationRoleName != nil && len(*s.OrganizationRoleName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("OrganizationRoleName", 1))
 	}
@@ -2435,6 +3558,16 @@ func (s *CreateWorkspaceInput) Validate() error {
 	}
 	if s.WorkspaceRoleArn != nil && len(*s.WorkspaceRoleArn) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("WorkspaceRoleArn", 1))
+	}
+	if s.NetworkAccessControl != nil {
+		if err := s.NetworkAccessControl.Validate(); err != nil {
+			invalidParams.AddNested("NetworkAccessControl", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.VpcConfiguration != nil {
+		if err := s.VpcConfiguration.Validate(); err != nil {
+			invalidParams.AddNested("VpcConfiguration", err.(request.ErrInvalidParams))
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -2461,6 +3594,24 @@ func (s *CreateWorkspaceInput) SetClientToken(v string) *CreateWorkspaceInput {
 	return s
 }
 
+// SetConfiguration sets the Configuration field's value.
+func (s *CreateWorkspaceInput) SetConfiguration(v string) *CreateWorkspaceInput {
+	s.Configuration = &v
+	return s
+}
+
+// SetGrafanaVersion sets the GrafanaVersion field's value.
+func (s *CreateWorkspaceInput) SetGrafanaVersion(v string) *CreateWorkspaceInput {
+	s.GrafanaVersion = &v
+	return s
+}
+
+// SetNetworkAccessControl sets the NetworkAccessControl field's value.
+func (s *CreateWorkspaceInput) SetNetworkAccessControl(v *NetworkAccessConfiguration) *CreateWorkspaceInput {
+	s.NetworkAccessControl = v
+	return s
+}
+
 // SetOrganizationRoleName sets the OrganizationRoleName field's value.
 func (s *CreateWorkspaceInput) SetOrganizationRoleName(v string) *CreateWorkspaceInput {
 	s.OrganizationRoleName = &v
@@ -2482,6 +3633,12 @@ func (s *CreateWorkspaceInput) SetStackSetName(v string) *CreateWorkspaceInput {
 // SetTags sets the Tags field's value.
 func (s *CreateWorkspaceInput) SetTags(v map[string]*string) *CreateWorkspaceInput {
 	s.Tags = v
+	return s
+}
+
+// SetVpcConfiguration sets the VpcConfiguration field's value.
+func (s *CreateWorkspaceInput) SetVpcConfiguration(v *VpcConfiguration) *CreateWorkspaceInput {
+	s.VpcConfiguration = v
 	return s
 }
 
@@ -2554,6 +3711,314 @@ func (s *CreateWorkspaceOutput) SetWorkspace(v *WorkspaceDescription) *CreateWor
 	return s
 }
 
+type CreateWorkspaceServiceAccountInput struct {
+	_ struct{} `type:"structure"`
+
+	// The permission level to use for this service account.
+	//
+	// For more information about the roles and the permissions each has, see User
+	// roles (https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html)
+	// in the Amazon Managed Grafana User Guide.
+	//
+	// GrafanaRole is a required field
+	GrafanaRole *string `locationName:"grafanaRole" type:"string" required:"true" enum:"Role"`
+
+	// A name for the service account. The name must be unique within the workspace,
+	// as it determines the ID associated with the service account.
+	//
+	// Name is a required field
+	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+
+	// The ID of the workspace within which to create the service account.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `location:"uri" locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateWorkspaceServiceAccountInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateWorkspaceServiceAccountInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateWorkspaceServiceAccountInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateWorkspaceServiceAccountInput"}
+	if s.GrafanaRole == nil {
+		invalidParams.Add(request.NewErrParamRequired("GrafanaRole"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Name != nil && len(*s.Name) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
+	}
+	if s.WorkspaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkspaceId"))
+	}
+	if s.WorkspaceId != nil && len(*s.WorkspaceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("WorkspaceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetGrafanaRole sets the GrafanaRole field's value.
+func (s *CreateWorkspaceServiceAccountInput) SetGrafanaRole(v string) *CreateWorkspaceServiceAccountInput {
+	s.GrafanaRole = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *CreateWorkspaceServiceAccountInput) SetName(v string) *CreateWorkspaceServiceAccountInput {
+	s.Name = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *CreateWorkspaceServiceAccountInput) SetWorkspaceId(v string) *CreateWorkspaceServiceAccountInput {
+	s.WorkspaceId = &v
+	return s
+}
+
+type CreateWorkspaceServiceAccountOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The permission level given to the service account.
+	//
+	// GrafanaRole is a required field
+	GrafanaRole *string `locationName:"grafanaRole" type:"string" required:"true" enum:"Role"`
+
+	// The ID of the service account.
+	//
+	// Id is a required field
+	Id *string `locationName:"id" type:"string" required:"true"`
+
+	// The name of the service account.
+	//
+	// Name is a required field
+	Name *string `locationName:"name" type:"string" required:"true"`
+
+	// The workspace with which the service account is associated.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateWorkspaceServiceAccountOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateWorkspaceServiceAccountOutput) GoString() string {
+	return s.String()
+}
+
+// SetGrafanaRole sets the GrafanaRole field's value.
+func (s *CreateWorkspaceServiceAccountOutput) SetGrafanaRole(v string) *CreateWorkspaceServiceAccountOutput {
+	s.GrafanaRole = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *CreateWorkspaceServiceAccountOutput) SetId(v string) *CreateWorkspaceServiceAccountOutput {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *CreateWorkspaceServiceAccountOutput) SetName(v string) *CreateWorkspaceServiceAccountOutput {
+	s.Name = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *CreateWorkspaceServiceAccountOutput) SetWorkspaceId(v string) *CreateWorkspaceServiceAccountOutput {
+	s.WorkspaceId = &v
+	return s
+}
+
+type CreateWorkspaceServiceAccountTokenInput struct {
+	_ struct{} `type:"structure"`
+
+	// A name for the token to create.
+	//
+	// Name is a required field
+	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+
+	// Sets how long the token will be valid, in seconds. You can set the time up
+	// to 30 days in the future.
+	//
+	// SecondsToLive is a required field
+	SecondsToLive *int64 `locationName:"secondsToLive" min:"1" type:"integer" required:"true"`
+
+	// The ID of the service account for which to create a token.
+	//
+	// ServiceAccountId is a required field
+	ServiceAccountId *string `location:"uri" locationName:"serviceAccountId" type:"string" required:"true"`
+
+	// The ID of the workspace the service account resides within.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `location:"uri" locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateWorkspaceServiceAccountTokenInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateWorkspaceServiceAccountTokenInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateWorkspaceServiceAccountTokenInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateWorkspaceServiceAccountTokenInput"}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Name != nil && len(*s.Name) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
+	}
+	if s.SecondsToLive == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecondsToLive"))
+	}
+	if s.SecondsToLive != nil && *s.SecondsToLive < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("SecondsToLive", 1))
+	}
+	if s.ServiceAccountId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceAccountId"))
+	}
+	if s.ServiceAccountId != nil && len(*s.ServiceAccountId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceAccountId", 1))
+	}
+	if s.WorkspaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkspaceId"))
+	}
+	if s.WorkspaceId != nil && len(*s.WorkspaceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("WorkspaceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetName sets the Name field's value.
+func (s *CreateWorkspaceServiceAccountTokenInput) SetName(v string) *CreateWorkspaceServiceAccountTokenInput {
+	s.Name = &v
+	return s
+}
+
+// SetSecondsToLive sets the SecondsToLive field's value.
+func (s *CreateWorkspaceServiceAccountTokenInput) SetSecondsToLive(v int64) *CreateWorkspaceServiceAccountTokenInput {
+	s.SecondsToLive = &v
+	return s
+}
+
+// SetServiceAccountId sets the ServiceAccountId field's value.
+func (s *CreateWorkspaceServiceAccountTokenInput) SetServiceAccountId(v string) *CreateWorkspaceServiceAccountTokenInput {
+	s.ServiceAccountId = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *CreateWorkspaceServiceAccountTokenInput) SetWorkspaceId(v string) *CreateWorkspaceServiceAccountTokenInput {
+	s.WorkspaceId = &v
+	return s
+}
+
+type CreateWorkspaceServiceAccountTokenOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the service account where the token was created.
+	//
+	// ServiceAccountId is a required field
+	ServiceAccountId *string `locationName:"serviceAccountId" type:"string" required:"true"`
+
+	// Information about the created token, including the key. Be sure to store
+	// the key securely.
+	//
+	// ServiceAccountToken is a required field
+	ServiceAccountToken *ServiceAccountTokenSummaryWithKey `locationName:"serviceAccountToken" type:"structure" required:"true"`
+
+	// The ID of the workspace where the token was created.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateWorkspaceServiceAccountTokenOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateWorkspaceServiceAccountTokenOutput) GoString() string {
+	return s.String()
+}
+
+// SetServiceAccountId sets the ServiceAccountId field's value.
+func (s *CreateWorkspaceServiceAccountTokenOutput) SetServiceAccountId(v string) *CreateWorkspaceServiceAccountTokenOutput {
+	s.ServiceAccountId = &v
+	return s
+}
+
+// SetServiceAccountToken sets the ServiceAccountToken field's value.
+func (s *CreateWorkspaceServiceAccountTokenOutput) SetServiceAccountToken(v *ServiceAccountTokenSummaryWithKey) *CreateWorkspaceServiceAccountTokenOutput {
+	s.ServiceAccountToken = v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *CreateWorkspaceServiceAccountTokenOutput) SetWorkspaceId(v string) *CreateWorkspaceServiceAccountTokenOutput {
+	s.WorkspaceId = &v
+	return s
+}
+
 type DeleteWorkspaceApiKeyInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
@@ -2623,7 +4088,7 @@ func (s *DeleteWorkspaceApiKeyInput) SetWorkspaceId(v string) *DeleteWorkspaceAp
 type DeleteWorkspaceApiKeyOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The name of the API key that was deleted.
+	// The name of the key that was deleted.
 	//
 	// KeyName is a required field
 	KeyName *string `locationName:"keyName" min:"1" type:"string" required:"true"`
@@ -2746,6 +4211,254 @@ func (s *DeleteWorkspaceOutput) SetWorkspace(v *WorkspaceDescription) *DeleteWor
 	return s
 }
 
+type DeleteWorkspaceServiceAccountInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The ID of the service account to delete.
+	//
+	// ServiceAccountId is a required field
+	ServiceAccountId *string `location:"uri" locationName:"serviceAccountId" type:"string" required:"true"`
+
+	// The ID of the workspace where the service account resides.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `location:"uri" locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteWorkspaceServiceAccountInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteWorkspaceServiceAccountInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteWorkspaceServiceAccountInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteWorkspaceServiceAccountInput"}
+	if s.ServiceAccountId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceAccountId"))
+	}
+	if s.ServiceAccountId != nil && len(*s.ServiceAccountId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceAccountId", 1))
+	}
+	if s.WorkspaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkspaceId"))
+	}
+	if s.WorkspaceId != nil && len(*s.WorkspaceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("WorkspaceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceAccountId sets the ServiceAccountId field's value.
+func (s *DeleteWorkspaceServiceAccountInput) SetServiceAccountId(v string) *DeleteWorkspaceServiceAccountInput {
+	s.ServiceAccountId = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *DeleteWorkspaceServiceAccountInput) SetWorkspaceId(v string) *DeleteWorkspaceServiceAccountInput {
+	s.WorkspaceId = &v
+	return s
+}
+
+type DeleteWorkspaceServiceAccountOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the service account deleted.
+	//
+	// ServiceAccountId is a required field
+	ServiceAccountId *string `locationName:"serviceAccountId" type:"string" required:"true"`
+
+	// The ID of the workspace where the service account was deleted.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteWorkspaceServiceAccountOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteWorkspaceServiceAccountOutput) GoString() string {
+	return s.String()
+}
+
+// SetServiceAccountId sets the ServiceAccountId field's value.
+func (s *DeleteWorkspaceServiceAccountOutput) SetServiceAccountId(v string) *DeleteWorkspaceServiceAccountOutput {
+	s.ServiceAccountId = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *DeleteWorkspaceServiceAccountOutput) SetWorkspaceId(v string) *DeleteWorkspaceServiceAccountOutput {
+	s.WorkspaceId = &v
+	return s
+}
+
+type DeleteWorkspaceServiceAccountTokenInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The ID of the service account from which to delete the token.
+	//
+	// ServiceAccountId is a required field
+	ServiceAccountId *string `location:"uri" locationName:"serviceAccountId" type:"string" required:"true"`
+
+	// The ID of the token to delete.
+	//
+	// TokenId is a required field
+	TokenId *string `location:"uri" locationName:"tokenId" type:"string" required:"true"`
+
+	// The ID of the workspace from which to delete the token.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `location:"uri" locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteWorkspaceServiceAccountTokenInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteWorkspaceServiceAccountTokenInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteWorkspaceServiceAccountTokenInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteWorkspaceServiceAccountTokenInput"}
+	if s.ServiceAccountId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceAccountId"))
+	}
+	if s.ServiceAccountId != nil && len(*s.ServiceAccountId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceAccountId", 1))
+	}
+	if s.TokenId == nil {
+		invalidParams.Add(request.NewErrParamRequired("TokenId"))
+	}
+	if s.TokenId != nil && len(*s.TokenId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("TokenId", 1))
+	}
+	if s.WorkspaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkspaceId"))
+	}
+	if s.WorkspaceId != nil && len(*s.WorkspaceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("WorkspaceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetServiceAccountId sets the ServiceAccountId field's value.
+func (s *DeleteWorkspaceServiceAccountTokenInput) SetServiceAccountId(v string) *DeleteWorkspaceServiceAccountTokenInput {
+	s.ServiceAccountId = &v
+	return s
+}
+
+// SetTokenId sets the TokenId field's value.
+func (s *DeleteWorkspaceServiceAccountTokenInput) SetTokenId(v string) *DeleteWorkspaceServiceAccountTokenInput {
+	s.TokenId = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *DeleteWorkspaceServiceAccountTokenInput) SetWorkspaceId(v string) *DeleteWorkspaceServiceAccountTokenInput {
+	s.WorkspaceId = &v
+	return s
+}
+
+type DeleteWorkspaceServiceAccountTokenOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the service account where the token was deleted.
+	//
+	// ServiceAccountId is a required field
+	ServiceAccountId *string `locationName:"serviceAccountId" type:"string" required:"true"`
+
+	// The ID of the token that was deleted.
+	//
+	// TokenId is a required field
+	TokenId *string `locationName:"tokenId" type:"string" required:"true"`
+
+	// The ID of the workspace where the token was deleted.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteWorkspaceServiceAccountTokenOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteWorkspaceServiceAccountTokenOutput) GoString() string {
+	return s.String()
+}
+
+// SetServiceAccountId sets the ServiceAccountId field's value.
+func (s *DeleteWorkspaceServiceAccountTokenOutput) SetServiceAccountId(v string) *DeleteWorkspaceServiceAccountTokenOutput {
+	s.ServiceAccountId = &v
+	return s
+}
+
+// SetTokenId sets the TokenId field's value.
+func (s *DeleteWorkspaceServiceAccountTokenOutput) SetTokenId(v string) *DeleteWorkspaceServiceAccountTokenOutput {
+	s.TokenId = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *DeleteWorkspaceServiceAccountTokenOutput) SetWorkspaceId(v string) *DeleteWorkspaceServiceAccountTokenOutput {
+	s.WorkspaceId = &v
+	return s
+}
+
 type DescribeWorkspaceAuthenticationInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
@@ -2826,6 +4539,99 @@ func (s DescribeWorkspaceAuthenticationOutput) GoString() string {
 // SetAuthentication sets the Authentication field's value.
 func (s *DescribeWorkspaceAuthenticationOutput) SetAuthentication(v *AuthenticationDescription) *DescribeWorkspaceAuthenticationOutput {
 	s.Authentication = v
+	return s
+}
+
+type DescribeWorkspaceConfigurationInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The ID of the workspace to get configuration information for.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `location:"uri" locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeWorkspaceConfigurationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeWorkspaceConfigurationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeWorkspaceConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeWorkspaceConfigurationInput"}
+	if s.WorkspaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkspaceId"))
+	}
+	if s.WorkspaceId != nil && len(*s.WorkspaceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("WorkspaceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *DescribeWorkspaceConfigurationInput) SetWorkspaceId(v string) *DescribeWorkspaceConfigurationInput {
+	s.WorkspaceId = &v
+	return s
+}
+
+type DescribeWorkspaceConfigurationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The configuration string for the workspace that you requested. For more information
+	// about the format and configuration options available, see Working in your
+	// Grafana workspace (https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	//
+	// Configuration is a required field
+	Configuration *string `locationName:"configuration" min:"2" type:"string" required:"true"`
+
+	// The supported Grafana version for the workspace.
+	GrafanaVersion *string `locationName:"grafanaVersion" min:"1" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeWorkspaceConfigurationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeWorkspaceConfigurationOutput) GoString() string {
+	return s.String()
+}
+
+// SetConfiguration sets the Configuration field's value.
+func (s *DescribeWorkspaceConfigurationOutput) SetConfiguration(v string) *DescribeWorkspaceConfigurationOutput {
+	s.Configuration = &v
+	return s
+}
+
+// SetGrafanaVersion sets the GrafanaVersion field's value.
+func (s *DescribeWorkspaceConfigurationOutput) SetGrafanaVersion(v string) *DescribeWorkspaceConfigurationOutput {
+	s.GrafanaVersion = &v
 	return s
 }
 
@@ -3013,14 +4819,15 @@ func (s *DisassociateLicenseOutput) SetWorkspace(v *WorkspaceDescription) *Disas
 // A structure containing the identity provider (IdP) metadata used to integrate
 // the identity provider with this workspace. You can specify the metadata either
 // by providing a URL to its location in the url parameter, or by specifying
-// the full metadata in XML format in the xml parameter.
+// the full metadata in XML format in the xml parameter. Specifying both will
+// cause an error.
 type IdpMetadata struct {
 	_ struct{} `type:"structure"`
 
-	// The URL of the location containing the metadata.
+	// The URL of the location containing the IdP metadata.
 	Url *string `locationName:"url" min:"1" type:"string"`
 
-	// The actual full metadata file, in XML format.
+	// The full IdP metadata, in XML format.
 	Xml *string `locationName:"xml" type:"string"`
 }
 
@@ -3151,9 +4958,9 @@ type ListPermissionsInput struct {
 	// (Optional) Limits the results to only the user that matches this ID.
 	UserId *string `location:"querystring" locationName:"userId" min:"1" type:"string"`
 
-	// (Optional) If you specify SSO_USER, then only the permissions of Amazon Web
-	// Services SSO users are returned. If you specify SSO_GROUP, only the permissions
-	// of Amazon Web Services SSO groups are returned.
+	// (Optional) If you specify SSO_USER, then only the permissions of IAM Identity
+	// Center users are returned. If you specify SSO_GROUP, only the permissions
+	// of IAM Identity Center groups are returned.
 	UserType *string `location:"querystring" locationName:"userType" type:"string" enum:"UserType"`
 
 	// The ID of the workspace to list permissions for. This parameter is required.
@@ -3364,6 +5171,388 @@ func (s *ListTagsForResourceOutput) SetTags(v map[string]*string) *ListTagsForRe
 	return s
 }
 
+type ListVersionsInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The maximum number of results to include in the response.
+	MaxResults *int64 `location:"querystring" locationName:"maxResults" min:"1" type:"integer"`
+
+	// The token to use when requesting the next set of results. You receive this
+	// token from a previous ListVersions operation.
+	NextToken *string `location:"querystring" locationName:"nextToken" type:"string"`
+
+	// The ID of the workspace to list the available upgrade versions. If not included,
+	// lists all versions of Grafana that are supported for CreateWorkspace.
+	WorkspaceId *string `location:"querystring" locationName:"workspace-id" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListVersionsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListVersionsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListVersionsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListVersionsInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListVersionsInput) SetMaxResults(v int64) *ListVersionsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListVersionsInput) SetNextToken(v string) *ListVersionsInput {
+	s.NextToken = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *ListVersionsInput) SetWorkspaceId(v string) *ListVersionsInput {
+	s.WorkspaceId = &v
+	return s
+}
+
+type ListVersionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The Grafana versions available to create. If a workspace ID is included in
+	// the request, the Grafana versions to which this workspace can be upgraded.
+	GrafanaVersions []*string `locationName:"grafanaVersions" type:"list"`
+
+	// The token to use in a subsequent ListVersions operation to return the next
+	// set of results.
+	NextToken *string `locationName:"nextToken" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListVersionsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListVersionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetGrafanaVersions sets the GrafanaVersions field's value.
+func (s *ListVersionsOutput) SetGrafanaVersions(v []*string) *ListVersionsOutput {
+	s.GrafanaVersions = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListVersionsOutput) SetNextToken(v string) *ListVersionsOutput {
+	s.NextToken = &v
+	return s
+}
+
+type ListWorkspaceServiceAccountTokensInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The maximum number of tokens to include in the results.
+	MaxResults *int64 `location:"querystring" locationName:"maxResults" min:"1" type:"integer"`
+
+	// The token for the next set of service accounts to return. (You receive this
+	// token from a previous ListWorkspaceServiceAccountTokens operation.)
+	NextToken *string `location:"querystring" locationName:"nextToken" type:"string"`
+
+	// The ID of the service account for which to return tokens.
+	//
+	// ServiceAccountId is a required field
+	ServiceAccountId *string `location:"uri" locationName:"serviceAccountId" type:"string" required:"true"`
+
+	// The ID of the workspace for which to return tokens.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `location:"uri" locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListWorkspaceServiceAccountTokensInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListWorkspaceServiceAccountTokensInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListWorkspaceServiceAccountTokensInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListWorkspaceServiceAccountTokensInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.ServiceAccountId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServiceAccountId"))
+	}
+	if s.ServiceAccountId != nil && len(*s.ServiceAccountId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ServiceAccountId", 1))
+	}
+	if s.WorkspaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkspaceId"))
+	}
+	if s.WorkspaceId != nil && len(*s.WorkspaceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("WorkspaceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListWorkspaceServiceAccountTokensInput) SetMaxResults(v int64) *ListWorkspaceServiceAccountTokensInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListWorkspaceServiceAccountTokensInput) SetNextToken(v string) *ListWorkspaceServiceAccountTokensInput {
+	s.NextToken = &v
+	return s
+}
+
+// SetServiceAccountId sets the ServiceAccountId field's value.
+func (s *ListWorkspaceServiceAccountTokensInput) SetServiceAccountId(v string) *ListWorkspaceServiceAccountTokensInput {
+	s.ServiceAccountId = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *ListWorkspaceServiceAccountTokensInput) SetWorkspaceId(v string) *ListWorkspaceServiceAccountTokensInput {
+	s.WorkspaceId = &v
+	return s
+}
+
+type ListWorkspaceServiceAccountTokensOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The token to use when requesting the next set of service accounts.
+	NextToken *string `locationName:"nextToken" type:"string"`
+
+	// The ID of the service account where the tokens reside.
+	//
+	// ServiceAccountId is a required field
+	ServiceAccountId *string `locationName:"serviceAccountId" type:"string" required:"true"`
+
+	// An array of structures containing information about the tokens.
+	//
+	// ServiceAccountTokens is a required field
+	ServiceAccountTokens []*ServiceAccountTokenSummary `locationName:"serviceAccountTokens" type:"list" required:"true"`
+
+	// The ID of the workspace where the tokens reside.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListWorkspaceServiceAccountTokensOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListWorkspaceServiceAccountTokensOutput) GoString() string {
+	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListWorkspaceServiceAccountTokensOutput) SetNextToken(v string) *ListWorkspaceServiceAccountTokensOutput {
+	s.NextToken = &v
+	return s
+}
+
+// SetServiceAccountId sets the ServiceAccountId field's value.
+func (s *ListWorkspaceServiceAccountTokensOutput) SetServiceAccountId(v string) *ListWorkspaceServiceAccountTokensOutput {
+	s.ServiceAccountId = &v
+	return s
+}
+
+// SetServiceAccountTokens sets the ServiceAccountTokens field's value.
+func (s *ListWorkspaceServiceAccountTokensOutput) SetServiceAccountTokens(v []*ServiceAccountTokenSummary) *ListWorkspaceServiceAccountTokensOutput {
+	s.ServiceAccountTokens = v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *ListWorkspaceServiceAccountTokensOutput) SetWorkspaceId(v string) *ListWorkspaceServiceAccountTokensOutput {
+	s.WorkspaceId = &v
+	return s
+}
+
+type ListWorkspaceServiceAccountsInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The maximum number of service accounts to include in the results.
+	MaxResults *int64 `location:"querystring" locationName:"maxResults" min:"1" type:"integer"`
+
+	// The token for the next set of service accounts to return. (You receive this
+	// token from a previous ListWorkspaceServiceAccounts operation.)
+	NextToken *string `location:"querystring" locationName:"nextToken" type:"string"`
+
+	// The workspace for which to list service accounts.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `location:"uri" locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListWorkspaceServiceAccountsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListWorkspaceServiceAccountsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListWorkspaceServiceAccountsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListWorkspaceServiceAccountsInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.WorkspaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkspaceId"))
+	}
+	if s.WorkspaceId != nil && len(*s.WorkspaceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("WorkspaceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListWorkspaceServiceAccountsInput) SetMaxResults(v int64) *ListWorkspaceServiceAccountsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListWorkspaceServiceAccountsInput) SetNextToken(v string) *ListWorkspaceServiceAccountsInput {
+	s.NextToken = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *ListWorkspaceServiceAccountsInput) SetWorkspaceId(v string) *ListWorkspaceServiceAccountsInput {
+	s.WorkspaceId = &v
+	return s
+}
+
+type ListWorkspaceServiceAccountsOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The token to use when requesting the next set of service accounts.
+	NextToken *string `locationName:"nextToken" type:"string"`
+
+	// An array of structures containing information about the service accounts.
+	//
+	// ServiceAccounts is a required field
+	ServiceAccounts []*ServiceAccountSummary `locationName:"serviceAccounts" type:"list" required:"true"`
+
+	// The workspace to which the service accounts are associated.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListWorkspaceServiceAccountsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListWorkspaceServiceAccountsOutput) GoString() string {
+	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListWorkspaceServiceAccountsOutput) SetNextToken(v string) *ListWorkspaceServiceAccountsOutput {
+	s.NextToken = &v
+	return s
+}
+
+// SetServiceAccounts sets the ServiceAccounts field's value.
+func (s *ListWorkspaceServiceAccountsOutput) SetServiceAccounts(v []*ServiceAccountSummary) *ListWorkspaceServiceAccountsOutput {
+	s.ServiceAccounts = v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *ListWorkspaceServiceAccountsOutput) SetWorkspaceId(v string) *ListWorkspaceServiceAccountsOutput {
+	s.WorkspaceId = &v
+	return s
+}
+
 type ListWorkspacesInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
@@ -3461,12 +5650,115 @@ func (s *ListWorkspacesOutput) SetWorkspaces(v []*WorkspaceSummary) *ListWorkspa
 	return s
 }
 
-// A structure containing the identity of one user or group and the Admin or
-// Editor role that they have.
+// The configuration settings for in-bound network access to your workspace.
+//
+// When this is configured, only listed IP addresses and VPC endpoints will
+// be able to access your workspace. Standard Grafana authentication and authorization
+// are still required.
+//
+// Access is granted to a caller that is in either the IP address list or the
+// VPC endpoint list - they do not need to be in both.
+//
+// If this is not configured, or is removed, then all IP addresses and VPC endpoints
+// are allowed. Standard Grafana authentication and authorization are still
+// required.
+//
+// While both prefixListIds and vpceIds are required, you can pass in an empty
+// array of strings for either parameter if you do not want to allow any of
+// that type.
+//
+// If both are passed as empty arrays, no traffic is allowed to the workspace,
+// because only explicitly allowed connections are accepted.
+type NetworkAccessConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// An array of prefix list IDs. A prefix list is a list of CIDR ranges of IP
+	// addresses. The IP addresses specified are allowed to access your workspace.
+	// If the list is not included in the configuration (passed an empty array)
+	// then no IP addresses are allowed to access the workspace. You create a prefix
+	// list using the Amazon VPC console.
+	//
+	// Prefix list IDs have the format pl-1a2b3c4d .
+	//
+	// For more information about prefix lists, see Group CIDR blocks using managed
+	// prefix lists (https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html)in
+	// the Amazon Virtual Private Cloud User Guide.
+	//
+	// PrefixListIds is a required field
+	PrefixListIds []*string `locationName:"prefixListIds" type:"list" required:"true"`
+
+	// An array of Amazon VPC endpoint IDs for the workspace. You can create VPC
+	// endpoints to your Amazon Managed Grafana workspace for access from within
+	// a VPC. If a NetworkAccessConfiguration is specified then only VPC endpoints
+	// specified here are allowed to access the workspace. If you pass in an empty
+	// array of strings, then no VPCs are allowed to access the workspace.
+	//
+	// VPC endpoint IDs have the format vpce-1a2b3c4d .
+	//
+	// For more information about creating an interface VPC endpoint, see Interface
+	// VPC endpoints (https://docs.aws.amazon.com/grafana/latest/userguide/VPC-endpoints)
+	// in the Amazon Managed Grafana User Guide.
+	//
+	// The only VPC endpoints that can be specified here are interface VPC endpoints
+	// for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace
+	// service endpoint). Other VPC endpoints are ignored.
+	//
+	// VpceIds is a required field
+	VpceIds []*string `locationName:"vpceIds" type:"list" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s NetworkAccessConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s NetworkAccessConfiguration) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *NetworkAccessConfiguration) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "NetworkAccessConfiguration"}
+	if s.PrefixListIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("PrefixListIds"))
+	}
+	if s.VpceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpceIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetPrefixListIds sets the PrefixListIds field's value.
+func (s *NetworkAccessConfiguration) SetPrefixListIds(v []*string) *NetworkAccessConfiguration {
+	s.PrefixListIds = v
+	return s
+}
+
+// SetVpceIds sets the VpceIds field's value.
+func (s *NetworkAccessConfiguration) SetVpceIds(v []*string) *NetworkAccessConfiguration {
+	s.VpceIds = v
+	return s
+}
+
+// A structure containing the identity of one user or group and the Admin, Editor,
+// or Viewer role that they have.
 type PermissionEntry struct {
 	_ struct{} `type:"structure"`
 
-	// Specifies whether the user or group has the Admin or Editor role.
+	// Specifies whether the user or group has the Admin, Editor, or Viewer role.
 	//
 	// Role is a required field
 	Role *string `locationName:"role" type:"string" required:"true" enum:"Role"`
@@ -3584,16 +5876,26 @@ func (s *ResourceNotFoundException) RequestID() string {
 
 // This structure defines which groups defined in the SAML assertion attribute
 // are to be mapped to the Grafana Admin and Editor roles in the workspace.
+// SAML authenticated users not part of Admin or Editor role groups have Viewer
+// permission over the workspace.
 type RoleValues struct {
 	_ struct{} `type:"structure"`
 
 	// A list of groups from the SAML assertion attribute to grant the Grafana Admin
 	// role to.
-	Admin []*string `locationName:"admin" type:"list"`
+	//
+	// Admin is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by RoleValues's
+	// String and GoString methods.
+	Admin []*string `locationName:"admin" type:"list" sensitive:"true"`
 
 	// A list of groups from the SAML assertion attribute to grant the Grafana Editor
 	// role to.
-	Editor []*string `locationName:"editor" type:"list"`
+	//
+	// Editor is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by RoleValues's
+	// String and GoString methods.
+	Editor []*string `locationName:"editor" type:"list" sensitive:"true"`
 }
 
 // String returns the string representation.
@@ -3766,6 +6068,218 @@ func (s *SamlConfiguration) SetLoginValidityDuration(v int64) *SamlConfiguration
 // SetRoleValues sets the RoleValues field's value.
 func (s *SamlConfiguration) SetRoleValues(v *RoleValues) *SamlConfiguration {
 	s.RoleValues = v
+	return s
+}
+
+// A structure that contains the information about one service account.
+type ServiceAccountSummary struct {
+	_ struct{} `type:"structure"`
+
+	// The role of the service account, which sets the permission level used when
+	// calling Grafana APIs.
+	//
+	// GrafanaRole is a required field
+	GrafanaRole *string `locationName:"grafanaRole" type:"string" required:"true" enum:"Role"`
+
+	// The unique ID of the service account.
+	//
+	// Id is a required field
+	Id *string `locationName:"id" type:"string" required:"true"`
+
+	// Returns true if the service account is disabled. Service accounts can be
+	// disabled and enabled in the Amazon Managed Grafana console.
+	//
+	// IsDisabled is a required field
+	IsDisabled *string `locationName:"isDisabled" type:"string" required:"true"`
+
+	// The name of the service account.
+	//
+	// Name is a required field
+	Name *string `locationName:"name" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ServiceAccountSummary) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ServiceAccountSummary) GoString() string {
+	return s.String()
+}
+
+// SetGrafanaRole sets the GrafanaRole field's value.
+func (s *ServiceAccountSummary) SetGrafanaRole(v string) *ServiceAccountSummary {
+	s.GrafanaRole = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ServiceAccountSummary) SetId(v string) *ServiceAccountSummary {
+	s.Id = &v
+	return s
+}
+
+// SetIsDisabled sets the IsDisabled field's value.
+func (s *ServiceAccountSummary) SetIsDisabled(v string) *ServiceAccountSummary {
+	s.IsDisabled = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ServiceAccountSummary) SetName(v string) *ServiceAccountSummary {
+	s.Name = &v
+	return s
+}
+
+// A structure that contains the information about a service account token.
+type ServiceAccountTokenSummary struct {
+	_ struct{} `type:"structure"`
+
+	// When the service account token was created.
+	//
+	// CreatedAt is a required field
+	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" required:"true"`
+
+	// When the service account token will expire.
+	//
+	// ExpiresAt is a required field
+	ExpiresAt *time.Time `locationName:"expiresAt" type:"timestamp" required:"true"`
+
+	// The unique ID of the service account token.
+	//
+	// Id is a required field
+	Id *string `locationName:"id" type:"string" required:"true"`
+
+	// The last time the token was used to authorize a Grafana HTTP API.
+	LastUsedAt *time.Time `locationName:"lastUsedAt" type:"timestamp"`
+
+	// The name of the service account token.
+	//
+	// Name is a required field
+	Name *string `locationName:"name" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ServiceAccountTokenSummary) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ServiceAccountTokenSummary) GoString() string {
+	return s.String()
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ServiceAccountTokenSummary) SetCreatedAt(v time.Time) *ServiceAccountTokenSummary {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetExpiresAt sets the ExpiresAt field's value.
+func (s *ServiceAccountTokenSummary) SetExpiresAt(v time.Time) *ServiceAccountTokenSummary {
+	s.ExpiresAt = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ServiceAccountTokenSummary) SetId(v string) *ServiceAccountTokenSummary {
+	s.Id = &v
+	return s
+}
+
+// SetLastUsedAt sets the LastUsedAt field's value.
+func (s *ServiceAccountTokenSummary) SetLastUsedAt(v time.Time) *ServiceAccountTokenSummary {
+	s.LastUsedAt = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ServiceAccountTokenSummary) SetName(v string) *ServiceAccountTokenSummary {
+	s.Name = &v
+	return s
+}
+
+// A structure that contains the information about a service account token.
+//
+// This structure is returned when creating the token. It is important to store
+// the key that is returned, as it is not retrievable at a later time.
+//
+// If you lose the key, you can delete and recreate the token, which will create
+// a new key.
+type ServiceAccountTokenSummaryWithKey struct {
+	_ struct{} `type:"structure"`
+
+	// The unique ID of the service account token.
+	//
+	// Id is a required field
+	Id *string `locationName:"id" type:"string" required:"true"`
+
+	// The key for the service account token. Used when making calls to the Grafana
+	// HTTP APIs to authenticate and authorize the requests.
+	//
+	// Key is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by ServiceAccountTokenSummaryWithKey's
+	// String and GoString methods.
+	//
+	// Key is a required field
+	Key *string `locationName:"key" type:"string" required:"true" sensitive:"true"`
+
+	// The name of the service account token.
+	//
+	// Name is a required field
+	Name *string `locationName:"name" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ServiceAccountTokenSummaryWithKey) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ServiceAccountTokenSummaryWithKey) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *ServiceAccountTokenSummaryWithKey) SetId(v string) *ServiceAccountTokenSummaryWithKey {
+	s.Id = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *ServiceAccountTokenSummaryWithKey) SetKey(v string) *ServiceAccountTokenSummaryWithKey {
+	s.Key = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ServiceAccountTokenSummaryWithKey) SetName(v string) *ServiceAccountTokenSummaryWithKey {
+	s.Name = &v
 	return s
 }
 
@@ -4354,10 +6868,9 @@ func (s *UpdatePermissionsOutput) SetErrors(v []*UpdateError) *UpdatePermissions
 type UpdateWorkspaceAuthenticationInput struct {
 	_ struct{} `type:"structure"`
 
-	// Specifies whether this workspace uses SAML 2.0, Amazon Web Services Single
-	// Sign On, or both to authenticate users for using the Grafana console within
-	// a workspace. For more information, see User authentication in Amazon Managed
-	// Grafana (https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html).
+	// Specifies whether this workspace uses SAML 2.0, IAM Identity Center, or both
+	// to authenticate users for using the Grafana console within a workspace. For
+	// more information, see User authentication in Amazon Managed Grafana (https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html).
 	//
 	// AuthenticationProviders is a required field
 	AuthenticationProviders []*string `locationName:"authenticationProviders" type:"list" required:"true" enum:"AuthenticationProviderTypes"`
@@ -4467,6 +6980,116 @@ func (s *UpdateWorkspaceAuthenticationOutput) SetAuthentication(v *Authenticatio
 	return s
 }
 
+type UpdateWorkspaceConfigurationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The new configuration string for the workspace. For more information about
+	// the format and configuration options available, see Working in your Grafana
+	// workspace (https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	//
+	// Configuration is a required field
+	Configuration *string `locationName:"configuration" min:"2" type:"string" required:"true"`
+
+	// Specifies the version of Grafana to support in the workspace. If not specified,
+	// keeps the current version of the workspace.
+	//
+	// Can only be used to upgrade (for example, from 8.4 to 9.4), not downgrade
+	// (for example, from 9.4 to 8.4).
+	//
+	// To know what versions are available to upgrade to for a specific workspace,
+	// see the ListVersions (https://docs.aws.amazon.com/grafana/latest/APIReference/API_ListVersions.html)
+	// operation.
+	GrafanaVersion *string `locationName:"grafanaVersion" min:"1" type:"string"`
+
+	// The ID of the workspace to update.
+	//
+	// WorkspaceId is a required field
+	WorkspaceId *string `location:"uri" locationName:"workspaceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateWorkspaceConfigurationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateWorkspaceConfigurationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateWorkspaceConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateWorkspaceConfigurationInput"}
+	if s.Configuration == nil {
+		invalidParams.Add(request.NewErrParamRequired("Configuration"))
+	}
+	if s.Configuration != nil && len(*s.Configuration) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("Configuration", 2))
+	}
+	if s.GrafanaVersion != nil && len(*s.GrafanaVersion) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("GrafanaVersion", 1))
+	}
+	if s.WorkspaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkspaceId"))
+	}
+	if s.WorkspaceId != nil && len(*s.WorkspaceId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("WorkspaceId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetConfiguration sets the Configuration field's value.
+func (s *UpdateWorkspaceConfigurationInput) SetConfiguration(v string) *UpdateWorkspaceConfigurationInput {
+	s.Configuration = &v
+	return s
+}
+
+// SetGrafanaVersion sets the GrafanaVersion field's value.
+func (s *UpdateWorkspaceConfigurationInput) SetGrafanaVersion(v string) *UpdateWorkspaceConfigurationInput {
+	s.GrafanaVersion = &v
+	return s
+}
+
+// SetWorkspaceId sets the WorkspaceId field's value.
+func (s *UpdateWorkspaceConfigurationInput) SetWorkspaceId(v string) *UpdateWorkspaceConfigurationInput {
+	s.WorkspaceId = &v
+	return s
+}
+
+type UpdateWorkspaceConfigurationOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateWorkspaceConfigurationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateWorkspaceConfigurationOutput) GoString() string {
+	return s.String()
+}
+
 type UpdateWorkspaceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4477,41 +7100,74 @@ type UpdateWorkspaceInput struct {
 	// can access in the workspaceOrganizationalUnits parameter.
 	AccountAccessType *string `locationName:"accountAccessType" type:"string" enum:"AccountAccessType"`
 
+	// The configuration settings for network access to your workspace.
+	//
+	// When this is configured, only listed IP addresses and VPC endpoints will
+	// be able to access your workspace. Standard Grafana authentication and authorization
+	// will still be required.
+	//
+	// If this is not configured, or is removed, then all IP addresses and VPC endpoints
+	// will be allowed. Standard Grafana authentication and authorization will still
+	// be required.
+	NetworkAccessControl *NetworkAccessConfiguration `locationName:"networkAccessControl" type:"structure"`
+
 	// The name of an IAM role that already exists to use to access resources through
-	// Organizations.
+	// Organizations. This can only be used with a workspace that has the permissionType
+	// set to CUSTOMER_MANAGED.
 	//
 	// OrganizationRoleName is a sensitive parameter and its value will be
 	// replaced with "sensitive" in string returned by UpdateWorkspaceInput's
 	// String and GoString methods.
 	OrganizationRoleName *string `locationName:"organizationRoleName" min:"1" type:"string" sensitive:"true"`
 
-	// If you specify Service Managed, Amazon Managed Grafana automatically creates
-	// the IAM roles and provisions the permissions that the workspace needs to
-	// use Amazon Web Services data sources and notification channels.
+	// Use this parameter if you want to change a workspace from SERVICE_MANAGED
+	// to CUSTOMER_MANAGED. This allows you to manage the permissions that the workspace
+	// uses to access datasources and notification channels. If the workspace is
+	// in a member Amazon Web Services account of an organization, and that account
+	// is not a delegated administrator account, and you want the workspace to access
+	// data sources in other Amazon Web Services accounts in the organization, you
+	// must choose CUSTOMER_MANAGED.
 	//
-	// If you specify CUSTOMER_MANAGED, you will manage those roles and permissions
-	// yourself. If you are creating this workspace in a member account of an organization
-	// and that account is not a delegated administrator account, and you want the
-	// workspace to access data sources in other Amazon Web Services accounts in
-	// the organization, you must choose CUSTOMER_MANAGED.
+	// If you specify this as CUSTOMER_MANAGED, you must also specify a workspaceRoleArn
+	// that the workspace will use for accessing Amazon Web Services resources.
 	//
-	// For more information, see Amazon Managed Grafana permissions and policies
-	// for Amazon Web Services data sources and notification channels (https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
+	// For more information on the role and permissions needed, see Amazon Managed
+	// Grafana permissions and policies for Amazon Web Services data sources and
+	// notification channels (https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
+	//
+	// Do not use this to convert a CUSTOMER_MANAGED workspace to SERVICE_MANAGED.
+	// Do not include this parameter if you want to leave the workspace as SERVICE_MANAGED.
+	//
+	// You can convert a CUSTOMER_MANAGED workspace to SERVICE_MANAGED using the
+	// Amazon Managed Grafana console. For more information, see Managing permissions
+	// for data sources and notification channels (https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html).
 	PermissionType *string `locationName:"permissionType" type:"string" enum:"PermissionType"`
+
+	// Whether to remove the network access configuration from the workspace.
+	//
+	// Setting this to true and providing a networkAccessControl to set will return
+	// an error.
+	//
+	// If you remove this configuration by setting this to true, then all IP addresses
+	// and VPC endpoints will be allowed. Standard Grafana authentication and authorization
+	// will still be required.
+	RemoveNetworkAccessConfiguration *bool `locationName:"removeNetworkAccessConfiguration" type:"boolean"`
+
+	// Whether to remove the VPC configuration from the workspace.
+	//
+	// Setting this to true and providing a vpcConfiguration to set will return
+	// an error.
+	RemoveVpcConfiguration *bool `locationName:"removeVpcConfiguration" type:"boolean"`
 
 	// The name of the CloudFormation stack set to use to generate IAM roles to
 	// be used for this workspace.
 	StackSetName *string `locationName:"stackSetName" type:"string"`
 
-	// Specify the Amazon Web Services data sources that you want to be queried
-	// in this workspace. Specifying these data sources here enables Amazon Managed
-	// Grafana to create IAM roles and permissions that allow Amazon Managed Grafana
-	// to read data from these sources. You must still add them as data sources
-	// in the Grafana console in the workspace.
-	//
-	// If you don't specify a data source here, you can still add it as a data source
-	// later in the workspace console. However, you will then have to manually configure
-	// permissions for it.
+	// The configuration settings for an Amazon VPC that contains data sources for
+	// your Grafana workspace to connect to.
+	VpcConfiguration *VpcConfiguration `locationName:"vpcConfiguration" type:"structure"`
+
+	// This parameter is for internal use only, and should not be used.
 	WorkspaceDataSources []*string `locationName:"workspaceDataSources" type:"list" enum:"DataSourceType"`
 
 	// A description for the workspace. This is used only to help you identify this
@@ -4549,12 +7205,10 @@ type UpdateWorkspaceInput struct {
 	// String and GoString methods.
 	WorkspaceOrganizationalUnits []*string `locationName:"workspaceOrganizationalUnits" type:"list" sensitive:"true"`
 
-	// The workspace needs an IAM role that grants permissions to the Amazon Web
-	// Services resources that the workspace will view data from. If you already
-	// have a role that you want to use, specify it here. If you omit this field
-	// and you specify some Amazon Web Services resources in workspaceDataSources
-	// or workspaceNotificationDestinations, a new IAM role with the necessary permissions
-	// is automatically created.
+	// Specifies an IAM role that grants permissions to Amazon Web Services resources
+	// that the workspace accesses, such as data sources and notification channels.
+	// If this workspace has permissionType CUSTOMER_MANAGED, then this role is
+	// required.
 	//
 	// WorkspaceRoleArn is a sensitive parameter and its value will be
 	// replaced with "sensitive" in string returned by UpdateWorkspaceInput's
@@ -4595,6 +7249,16 @@ func (s *UpdateWorkspaceInput) Validate() error {
 	if s.WorkspaceRoleArn != nil && len(*s.WorkspaceRoleArn) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("WorkspaceRoleArn", 1))
 	}
+	if s.NetworkAccessControl != nil {
+		if err := s.NetworkAccessControl.Validate(); err != nil {
+			invalidParams.AddNested("NetworkAccessControl", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.VpcConfiguration != nil {
+		if err := s.VpcConfiguration.Validate(); err != nil {
+			invalidParams.AddNested("VpcConfiguration", err.(request.ErrInvalidParams))
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -4605,6 +7269,12 @@ func (s *UpdateWorkspaceInput) Validate() error {
 // SetAccountAccessType sets the AccountAccessType field's value.
 func (s *UpdateWorkspaceInput) SetAccountAccessType(v string) *UpdateWorkspaceInput {
 	s.AccountAccessType = &v
+	return s
+}
+
+// SetNetworkAccessControl sets the NetworkAccessControl field's value.
+func (s *UpdateWorkspaceInput) SetNetworkAccessControl(v *NetworkAccessConfiguration) *UpdateWorkspaceInput {
+	s.NetworkAccessControl = v
 	return s
 }
 
@@ -4620,9 +7290,27 @@ func (s *UpdateWorkspaceInput) SetPermissionType(v string) *UpdateWorkspaceInput
 	return s
 }
 
+// SetRemoveNetworkAccessConfiguration sets the RemoveNetworkAccessConfiguration field's value.
+func (s *UpdateWorkspaceInput) SetRemoveNetworkAccessConfiguration(v bool) *UpdateWorkspaceInput {
+	s.RemoveNetworkAccessConfiguration = &v
+	return s
+}
+
+// SetRemoveVpcConfiguration sets the RemoveVpcConfiguration field's value.
+func (s *UpdateWorkspaceInput) SetRemoveVpcConfiguration(v bool) *UpdateWorkspaceInput {
+	s.RemoveVpcConfiguration = &v
+	return s
+}
+
 // SetStackSetName sets the StackSetName field's value.
 func (s *UpdateWorkspaceInput) SetStackSetName(v string) *UpdateWorkspaceInput {
 	s.StackSetName = &v
+	return s
+}
+
+// SetVpcConfiguration sets the VpcConfiguration field's value.
+func (s *UpdateWorkspaceInput) SetVpcConfiguration(v *VpcConfiguration) *UpdateWorkspaceInput {
+	s.VpcConfiguration = v
 	return s
 }
 
@@ -4886,6 +7574,81 @@ func (s *ValidationExceptionField) SetName(v string) *ValidationExceptionField {
 	return s
 }
 
+// The configuration settings for an Amazon VPC that contains data sources for
+// your Grafana workspace to connect to.
+//
+// Provided securityGroupIds and subnetIds must be part of the same VPC.
+//
+// Connecting to a private VPC is not yet available in the Asia Pacific (Seoul)
+// Region (ap-northeast-2).
+type VpcConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// The list of Amazon EC2 security group IDs attached to the Amazon VPC for
+	// your Grafana workspace to connect. Duplicates not allowed.
+	//
+	// SecurityGroupIds is a required field
+	SecurityGroupIds []*string `locationName:"securityGroupIds" min:"1" type:"list" required:"true"`
+
+	// The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana
+	// workspace to connect. Duplicates not allowed.
+	//
+	// SubnetIds is a required field
+	SubnetIds []*string `locationName:"subnetIds" min:"2" type:"list" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s VpcConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s VpcConfiguration) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *VpcConfiguration) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "VpcConfiguration"}
+	if s.SecurityGroupIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupIds"))
+	}
+	if s.SecurityGroupIds != nil && len(s.SecurityGroupIds) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SecurityGroupIds", 1))
+	}
+	if s.SubnetIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetIds"))
+	}
+	if s.SubnetIds != nil && len(s.SubnetIds) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("SubnetIds", 2))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *VpcConfiguration) SetSecurityGroupIds(v []*string) *VpcConfiguration {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *VpcConfiguration) SetSubnetIds(v []*string) *VpcConfiguration {
+	s.SubnetIds = v
+	return s
+}
+
 // A structure containing information about an Amazon Managed Grafana workspace
 // in your account.
 type WorkspaceDescription struct {
@@ -4898,8 +7661,8 @@ type WorkspaceDescription struct {
 	// organizational units the workspace can access.
 	AccountAccessType *string `locationName:"accountAccessType" type:"string" enum:"AccountAccessType"`
 
-	// A structure that describes whether the workspace uses SAML, Amazon Web Services
-	// SSO, or both methods for user authentication.
+	// A structure that describes whether the workspace uses SAML, IAM Identity
+	// Center, or both methods for user authentication.
 	//
 	// Authentication is a required field
 	Authentication *AuthenticationSummary `locationName:"authentication" type:"structure" required:"true"`
@@ -4912,6 +7675,9 @@ type WorkspaceDescription struct {
 	// Specifies the Amazon Web Services data sources that have been configured
 	// to have IAM roles and permissions created to allow Amazon Managed Grafana
 	// to read data from these sources.
+	//
+	// This list is only used when the workspace was created through the Amazon
+	// Web Services console, and the permissionType is SERVICE_MANAGED.
 	//
 	// DataSources is a required field
 	DataSources []*string `locationName:"dataSources" type:"list" required:"true" enum:"DataSourceType"`
@@ -4930,11 +7696,21 @@ type WorkspaceDescription struct {
 
 	// Specifies whether this workspace has already fully used its free trial for
 	// Grafana Enterprise.
+	//
+	// Amazon Managed Grafana workspaces no longer support Grafana Enterprise free
+	// trials.
 	FreeTrialConsumed *bool `locationName:"freeTrialConsumed" type:"boolean"`
 
 	// If this workspace is currently in the free trial period for Grafana Enterprise,
 	// this value specifies when that free trial ends.
+	//
+	// Amazon Managed Grafana workspaces no longer support Grafana Enterprise free
+	// trials.
 	FreeTrialExpiration *time.Time `locationName:"freeTrialExpiration" type:"timestamp"`
+
+	// The token that ties this workspace to a Grafana Labs account. For more information,
+	// see Link your account with Grafana Labs (https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise).
+	GrafanaToken *string `locationName:"grafanaToken" min:"1" type:"string"`
 
 	// The version of Grafana supported in this workspace.
 	//
@@ -4946,12 +7722,17 @@ type WorkspaceDescription struct {
 	// Id is a required field
 	Id *string `locationName:"id" type:"string" required:"true"`
 
-	// If this workspace has a full Grafana Enterprise license, this specifies when
-	// the license ends and will need to be renewed.
+	// If this workspace has a full Grafana Enterprise license purchased through
+	// Amazon Web Services Marketplace, this specifies when the license ends and
+	// will need to be renewed. Purchasing the Enterprise plugins option through
+	// Amazon Managed Grafana does not have an expiration. It is valid until the
+	// license is removed.
 	LicenseExpiration *time.Time `locationName:"licenseExpiration" type:"timestamp"`
 
-	// Specifies whether this workspace has a full Grafana Enterprise license or
-	// a free trial license.
+	// Specifies whether this workspace has a full Grafana Enterprise license.
+	//
+	// Amazon Managed Grafana workspaces no longer support Grafana Enterprise free
+	// trials.
 	LicenseType *string `locationName:"licenseType" type:"string" enum:"LicenseType"`
 
 	// The most recent date that the workspace was modified.
@@ -4965,6 +7746,9 @@ type WorkspaceDescription struct {
 	// replaced with "sensitive" in string returned by WorkspaceDescription's
 	// String and GoString methods.
 	Name *string `locationName:"name" type:"string" sensitive:"true"`
+
+	// The configuration settings for network access to your workspace.
+	NetworkAccessControl *NetworkAccessConfiguration `locationName:"networkAccessControl" type:"structure"`
 
 	// The Amazon Web Services notification channels that Amazon Managed Grafana
 	// can automatically create IAM roles and permissions for, to allow Amazon Managed
@@ -4987,18 +7771,24 @@ type WorkspaceDescription struct {
 	// String and GoString methods.
 	OrganizationalUnits []*string `locationName:"organizationalUnits" type:"list" sensitive:"true"`
 
-	// If this is Service Managed, Amazon Managed Grafana automatically creates
+	// If this is SERVICE_MANAGED, and the workplace was created through the Amazon
+	// Managed Grafana console, then Amazon Managed Grafana automatically creates
 	// the IAM roles and provisions the permissions that the workspace needs to
 	// use Amazon Web Services data sources and notification channels.
 	//
-	// If this is CUSTOMER_MANAGED, you manage those roles and permissions yourself.
-	// If you are creating this workspace in a member account of an organization
+	// If this is CUSTOMER_MANAGED, you must manage those roles and permissions
+	// yourself.
+	//
+	// If you are working with a workspace in a member account of an organization
 	// and that account is not a delegated administrator account, and you want the
 	// workspace to access data sources in other Amazon Web Services accounts in
-	// the organization, you must choose CUSTOMER_MANAGED.
+	// the organization, this parameter must be set to CUSTOMER_MANAGED.
 	//
-	// For more information, see Amazon Managed Grafana permissions and policies
-	// for Amazon Web Services data sources and notification channels (https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
+	// For more information about converting between customer and service managed,
+	// see Managing permissions for data sources and notification channels (https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html).
+	// For more information about the roles and permissions that must be managed
+	// for customer managed workspaces, see Amazon Managed Grafana permissions and
+	// policies for Amazon Web Services data sources and notification channels (https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
 	PermissionType *string `locationName:"permissionType" type:"string" enum:"PermissionType"`
 
 	// The name of the CloudFormation stack set that is used to generate IAM roles
@@ -5012,6 +7802,10 @@ type WorkspaceDescription struct {
 
 	// The list of tags associated with the workspace.
 	Tags map[string]*string `locationName:"tags" type:"map"`
+
+	// The configuration for connecting to data sources in a private VPC (Amazon
+	// Virtual Private Cloud).
+	VpcConfiguration *VpcConfiguration `locationName:"vpcConfiguration" type:"structure"`
 
 	// The IAM role that grants permissions to the Amazon Web Services resources
 	// that the workspace will view data from. This role must already exist.
@@ -5088,6 +7882,12 @@ func (s *WorkspaceDescription) SetFreeTrialExpiration(v time.Time) *WorkspaceDes
 	return s
 }
 
+// SetGrafanaToken sets the GrafanaToken field's value.
+func (s *WorkspaceDescription) SetGrafanaToken(v string) *WorkspaceDescription {
+	s.GrafanaToken = &v
+	return s
+}
+
 // SetGrafanaVersion sets the GrafanaVersion field's value.
 func (s *WorkspaceDescription) SetGrafanaVersion(v string) *WorkspaceDescription {
 	s.GrafanaVersion = &v
@@ -5121,6 +7921,12 @@ func (s *WorkspaceDescription) SetModified(v time.Time) *WorkspaceDescription {
 // SetName sets the Name field's value.
 func (s *WorkspaceDescription) SetName(v string) *WorkspaceDescription {
 	s.Name = &v
+	return s
+}
+
+// SetNetworkAccessControl sets the NetworkAccessControl field's value.
+func (s *WorkspaceDescription) SetNetworkAccessControl(v *NetworkAccessConfiguration) *WorkspaceDescription {
+	s.NetworkAccessControl = v
 	return s
 }
 
@@ -5166,6 +7972,12 @@ func (s *WorkspaceDescription) SetTags(v map[string]*string) *WorkspaceDescripti
 	return s
 }
 
+// SetVpcConfiguration sets the VpcConfiguration field's value.
+func (s *WorkspaceDescription) SetVpcConfiguration(v *VpcConfiguration) *WorkspaceDescription {
+	s.VpcConfiguration = v
+	return s
+}
+
 // SetWorkspaceRoleArn sets the WorkspaceRoleArn field's value.
 func (s *WorkspaceDescription) SetWorkspaceRoleArn(v string) *WorkspaceDescription {
 	s.WorkspaceRoleArn = &v
@@ -5199,6 +8011,10 @@ type WorkspaceSummary struct {
 	// Endpoint is a required field
 	Endpoint *string `locationName:"endpoint" min:"1" type:"string" required:"true"`
 
+	// The token that ties this workspace to a Grafana Labs account. For more information,
+	// see Link your account with Grafana Labs (https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise).
+	GrafanaToken *string `locationName:"grafanaToken" min:"1" type:"string"`
+
 	// The Grafana version that the workspace is running.
 	//
 	// GrafanaVersion is a required field
@@ -5208,6 +8024,12 @@ type WorkspaceSummary struct {
 	//
 	// Id is a required field
 	Id *string `locationName:"id" type:"string" required:"true"`
+
+	// Specifies whether this workspace has a full Grafana Enterprise license.
+	//
+	// Amazon Managed Grafana workspaces no longer support Grafana Enterprise free
+	// trials.
+	LicenseType *string `locationName:"licenseType" type:"string" enum:"LicenseType"`
 
 	// The most recent date that the workspace was modified.
 	//
@@ -5277,6 +8099,12 @@ func (s *WorkspaceSummary) SetEndpoint(v string) *WorkspaceSummary {
 	return s
 }
 
+// SetGrafanaToken sets the GrafanaToken field's value.
+func (s *WorkspaceSummary) SetGrafanaToken(v string) *WorkspaceSummary {
+	s.GrafanaToken = &v
+	return s
+}
+
 // SetGrafanaVersion sets the GrafanaVersion field's value.
 func (s *WorkspaceSummary) SetGrafanaVersion(v string) *WorkspaceSummary {
 	s.GrafanaVersion = &v
@@ -5286,6 +8114,12 @@ func (s *WorkspaceSummary) SetGrafanaVersion(v string) *WorkspaceSummary {
 // SetId sets the Id field's value.
 func (s *WorkspaceSummary) SetId(v string) *WorkspaceSummary {
 	s.Id = &v
+	return s
+}
+
+// SetLicenseType sets the LicenseType field's value.
+func (s *WorkspaceSummary) SetLicenseType(v string) *WorkspaceSummary {
+	s.LicenseType = &v
 	return s
 }
 
@@ -5375,6 +8209,9 @@ const (
 
 	// DataSourceTypeRedshift is a DataSourceType enum value
 	DataSourceTypeRedshift = "REDSHIFT"
+
+	// DataSourceTypeTwinmaker is a DataSourceType enum value
+	DataSourceTypeTwinmaker = "TWINMAKER"
 )
 
 // DataSourceType_Values returns all elements of the DataSourceType enum
@@ -5388,6 +8225,7 @@ func DataSourceType_Values() []string {
 		DataSourceTypeSitewise,
 		DataSourceTypeAthena,
 		DataSourceTypeRedshift,
+		DataSourceTypeTwinmaker,
 	}
 }
 
@@ -5560,6 +8398,12 @@ const (
 
 	// WorkspaceStatusLicenseRemovalFailed is a WorkspaceStatus enum value
 	WorkspaceStatusLicenseRemovalFailed = "LICENSE_REMOVAL_FAILED"
+
+	// WorkspaceStatusVersionUpdating is a WorkspaceStatus enum value
+	WorkspaceStatusVersionUpdating = "VERSION_UPDATING"
+
+	// WorkspaceStatusVersionUpdateFailed is a WorkspaceStatus enum value
+	WorkspaceStatusVersionUpdateFailed = "VERSION_UPDATE_FAILED"
 )
 
 // WorkspaceStatus_Values returns all elements of the WorkspaceStatus enum
@@ -5576,5 +8420,7 @@ func WorkspaceStatus_Values() []string {
 		WorkspaceStatusUpdateFailed,
 		WorkspaceStatusUpgradeFailed,
 		WorkspaceStatusLicenseRemovalFailed,
+		WorkspaceStatusVersionUpdating,
+		WorkspaceStatusVersionUpdateFailed,
 	}
 }

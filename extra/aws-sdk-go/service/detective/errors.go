@@ -8,6 +8,13 @@ import (
 
 const (
 
+	// ErrCodeAccessDeniedException for service response error code
+	// "AccessDeniedException".
+	//
+	// The request issuer does not have permission to access this resource or perform
+	// this operation.
+	ErrCodeAccessDeniedException = "AccessDeniedException"
+
 	// ErrCodeConflictException for service response error code
 	// "ConflictException".
 	//
@@ -31,15 +38,13 @@ const (
 	//
 	// This request cannot be completed for one of the following reasons.
 	//
-	//    * The request would cause the number of member accounts in the behavior
-	//    graph to exceed the maximum allowed. A behavior graph cannot have more
-	//    than 1200 member accounts.
+	//    * This request cannot be completed if it would cause the number of member
+	//    accounts in the behavior graph to exceed the maximum allowed. A behavior
+	//    graph cannot have more than 1,200 member accounts.
 	//
-	//    * The request would cause the data rate for the behavior graph to exceed
-	//    the maximum allowed.
-	//
-	//    * Detective is unable to verify the data rate for the member account.
-	//    This is usually because the member account is not enrolled in Amazon GuardDuty.
+	//    * This request cannot be completed if the current volume ingested is above
+	//    the limit of 10 TB per day. Detective will not allow you to add additional
+	//    member accounts.
 	ErrCodeServiceQuotaExceededException = "ServiceQuotaExceededException"
 
 	// ErrCodeTooManyRequestsException for service response error code
@@ -57,6 +62,7 @@ const (
 )
 
 var exceptionFromCode = map[string]func(protocol.ResponseMetadata) error{
+	"AccessDeniedException":         newErrorAccessDeniedException,
 	"ConflictException":             newErrorConflictException,
 	"InternalServerException":       newErrorInternalServerException,
 	"ResourceNotFoundException":     newErrorResourceNotFoundException,

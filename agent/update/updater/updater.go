@@ -52,22 +52,23 @@ var (
 )
 
 var (
-	update           *bool
-	sourceVersion    *string
-	sourceLocation   *string
-	sourceHash       *string
-	targetVersion    *string
-	targetLocation   *string
-	targetHash       *string
-	packageName      *string
-	messageID        *string
-	stdout           *string
-	stderr           *string
-	outputKeyPrefix  *string
-	outputBucket     *string
-	manifestURL      *string
-	selfUpdate       *bool
-	disableDowngrade *bool
+	update              *bool
+	sourceVersion       *string
+	sourceLocation      *string
+	sourceHash          *string
+	targetVersion       *string
+	targetLocation      *string
+	targetHash          *string
+	packageName         *string
+	messageID           *string
+	stdout              *string
+	stderr              *string
+	outputKeyPrefix     *string
+	outputBucket        *string
+	manifestURL         *string
+	selfUpdate          *bool
+	disableDowngrade    *bool
+	upstreamServiceName *string
 )
 
 var (
@@ -98,6 +99,8 @@ func init() {
 
 	disableDowngrade = flag.Bool(updateconstants.DisableDowngradeCmd, false, "defines if updater is allowed to downgrade")
 
+	upstreamServiceName = flag.String(updateconstants.UpstreamServiceName, string(contracts.MessageDeliveryService), "defines the upstream messaging service")
+
 	// Legacy flags no longer used, need to be defined or we get this error: flag provided but not defined
 	flag.String(updateconstants.TargetLocationCmd, "", "target Agent installer source")
 	flag.String(updateconstants.TargetHashCmd, "", "target Agent installer hash")
@@ -113,6 +116,8 @@ func updateAgent() int {
 	defer log.Close()
 	defer log.Flush()
 
+	flag.Parse()
+
 	// Initialize agent config for agent identity
 	appConfig, err := appconfig.Config(true)
 	if err != nil {
@@ -126,6 +131,7 @@ func updateAgent() int {
 	}
 
 	agentContext = context.Default(log, appConfig, agentIdentity)
+	updateUtilRef := updateutil.NewUpdaterUtilWithLoadedDocContent(agentContext, *messageID)
 	updateSSMUserShellProperties(log)
 	// Create update info
 	updateInfo, err := updateinfo.New(agentContext)
@@ -137,7 +143,7 @@ func updateAgent() int {
 	// Sleep 3 seconds to allow agent to finishing up it's work
 	time.Sleep(defaultWaitTimeForAgentToFinish * time.Second)
 
-	updater = processor.NewUpdater(agentContext, updateInfo)
+	updater = processor.NewUpdater(agentContext, updateInfo, updateUtilRef)
 
 	// If the updater already owns the lockfile, no harm done
 	// If there is no lockfile, the updater will own it
@@ -155,8 +161,6 @@ func updateAgent() int {
 	}
 
 	defer lock.Unlock()
-
-	flag.Parse()
 
 	// Return if update is not present in the command
 	if !*update {
@@ -181,26 +185,27 @@ func updateAgent() int {
 
 	// Create new UpdateDetail
 	updateDetail := &processor.UpdateDetail{
-		State:              processor.NotStarted,
-		Result:             contracts.ResultStatusInProgress,
-		SourceVersion:      *sourceVersion,
-		SourceLocation:     *sourceLocation,
-		TargetVersion:      *targetVersion,
-		StdoutFileName:     *stdout,
-		StderrFileName:     *stderr,
-		OutputS3KeyPrefix:  *outputKeyPrefix,
-		OutputS3BucketName: *outputBucket,
-		PackageName:        *packageName,
-		MessageID:          *messageID,
-		StartDateTime:      time.Now().UTC(),
-		RequiresUninstall:  false,
-		ManifestURL:        *manifestURL,
-		Manifest:           updatemanifest.New(agentContext, updateInfo),
-		SelfUpdate:         *selfUpdate,
-		AllowDowngrade:     !*disableDowngrade,
+		State:               processor.NotStarted,
+		Result:              contracts.ResultStatusInProgress,
+		SourceVersion:       *sourceVersion,
+		SourceLocation:      *sourceLocation,
+		TargetVersion:       *targetVersion,
+		StdoutFileName:      *stdout,
+		StderrFileName:      *stderr,
+		OutputS3KeyPrefix:   *outputKeyPrefix,
+		OutputS3BucketName:  *outputBucket,
+		PackageName:         *packageName,
+		MessageID:           *messageID,
+		StartDateTime:       time.Now().UTC(),
+		RequiresUninstall:   false,
+		ManifestURL:         *manifestURL,
+		Manifest:            updatemanifest.New(agentContext, updateInfo, ""),
+		SelfUpdate:          *selfUpdate,
+		AllowDowngrade:      !*disableDowngrade,
+		UpstreamServiceName: *upstreamServiceName,
 	}
 
-	updateDetail.UpdateRoot, err = resolveUpdateRoot(updateDetail.SourceVersion)
+	updateDetail.UpdateRoot, err = updateutil.ResolveUpdateRoot(updateDetail.SourceVersion)
 	if err != nil {
 		log.Errorf("Failed to resolve update root: %v", err)
 		return nonErrorExitCode

@@ -31,9 +31,16 @@ var smokeTestsCustomizations = map[string]func(*SmokeTestSuite) error{
 	"waf":          wafSmokeTestCustomization,
 	"wafregional":  wafRegionalSmokeTestCustomization,
 	"iotdataplane": iotDataPlaneSmokeTestCustomization,
+	"opsworks":     removeSmokeTests,
+	"cloudsearch":  removeSmokeTests,
 }
 
 func iotDataPlaneSmokeTestCustomization(suite *SmokeTestSuite) error {
+	suite.TestCases = []SmokeTestCase{}
+	return nil
+}
+
+func removeSmokeTests(suite *SmokeTestSuite) error {
 	suite.TestCases = []SmokeTestCase{}
 	return nil
 }
@@ -173,6 +180,7 @@ func (a *API) APISmokeTestsGoCode() string {
 var smokeTestTmpl = template.Must(template.New(`smokeTestTmpl`).Parse(`
 {{- range $i, $testCase := $.TestCases }}
 	{{- $op := index $.API.Operations $testCase.OpName }}
+	{{- if $op }}
 	func TestInteg_{{ printf "%02d" $i }}_{{ $op.ExportedName }}(t *testing.T) {
 		ctx, cancelFn := context.WithTimeout(context.Background(), 5 *time.Second)
 		defer cancelFn()
@@ -206,5 +214,6 @@ var smokeTestTmpl = template.Must(template.New(`smokeTestTmpl`).Parse(`
 			}
 		{{- end }}
 	}
+	{{- end }}
 {{- end }}
 `))

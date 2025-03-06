@@ -53,6 +53,8 @@ const (
 	testFailed = "TestFailed"
 	// testPassed represents tests passed during update
 	testPassed = "TestPassed"
+	// updaterMetric represents intermediate metrics
+	updaterMetric = "UpdaterMetric"
 	// noAlarm represents suffix which will be added to unimportant error messages
 	noAlarm = "NoAlarm"
 )
@@ -88,19 +90,27 @@ func (s *svcManager) UpdateHealthCheck(log log.T, update *UpdateDetail, errorCod
 	}
 	status := PrepareHealthStatus(update, errorCode, update.TargetVersion)
 	appConfig := s.context.AppConfig()
-	ec2Identity := newEC2Identity(log)
-	ecsIdentity := newECSIdentity(log)
+	var isEC2, isECS, isOnPrem bool
+	var ec2Identity, ecsIdentity identity.IAgentIdentityInner
 	onpremIdentity := newOnPremIdentity(log, &appConfig)
-	isEC2 := ec2Identity != nil && ec2Identity.IsIdentityEnvironment()
-	isECS := ecsIdentity != nil && ecsIdentity.IsIdentityEnvironment()
-	isOnPrem := onpremIdentity != nil && onpremIdentity.IsIdentityEnvironment()
+	isOnPrem = onpremIdentity != nil && onpremIdentity.IsIdentityEnvironment()
+	if !isOnPrem {
+		ec2Identity = newEC2Identity(log)
+		ecsIdentity = newECSIdentity(log)
+		isEC2 = ec2Identity != nil && ec2Identity.IsIdentityEnvironment()
+		isECS = ecsIdentity != nil && ecsIdentity.IsIdentityEnvironment()
+	}
 	var availabilityZone = ""
 	var availabilityZoneId = ""
 	if isEC2 && !isECS && !isOnPrem {
 		availabilityZone, _ = ec2Identity.AvailabilityZone()
 		availabilityZoneId, _ = ec2Identity.AvailabilityZoneId()
 	}
-	if _, err = svc.UpdateInstanceInformation(log, update.SourceVersion, status, health.AgentName, availabilityZone, availabilityZoneId); err != nil {
+
+	//TODO populate ssmConnectionChannel if UUI call during Agent update requires data store update.
+	var ssmConnectionChannel = ""
+
+	if _, err = svc.UpdateInstanceInformation(log, update.SourceVersion, status, health.AgentName, availabilityZone, availabilityZoneId, ssmConnectionChannel); err != nil {
 		return
 	}
 
@@ -145,6 +155,8 @@ func PrepareHealthStatus(updateDetail *UpdateDetail, errorCode string, additiona
 		} else if updateDetail.Result == contracts.ResultStatusTestPass {
 			result = testPassed
 		}
+	case UpdaterMetric:
+		result = updaterMetric
 	case Rollback:
 		result = rollingBack
 	case RolledBack:

@@ -93,8 +93,14 @@ const (
 	// PlatformCentOS represents CentOS
 	PlatformCentOS = "centos"
 
-	// PlatformCentOS represents CentOS
+	// PlatformRockyLinux represents Rocky Linux
 	PlatformRockyLinux = "rocky"
+
+	// PlatformAlmaLinux represents AlmaLinux
+	PlatformAlmaLinux = "almalinux"
+
+	// PlatformFlatcar represents Flatcar
+	PlatformFlatcar = "flatcar"
 
 	// PlatformSuse represents SLES(SUSe)
 	PlatformSuseOS = "sles"
@@ -125,6 +131,8 @@ const (
 
 	SSMAgentWorkerMinVersion = "3.0.0.0"
 
+	DowngradeThroughMGSMinVersion = "3.1.821.0"
+
 	MinimumVersion = "0"
 
 	// Lock file expiry minutes
@@ -148,20 +156,45 @@ const (
 )
 
 // error status codes returned from the update scripts
+// Exit code should avoid using 1 - 2, 126 - 165, and 255
+// Exit code should be causious when using 3 - 7, 64 - 78, and 200 - 245
 type UpdateScriptExitCode int
 
 const (
+	// ExitCodeUpdateFailedDueToSnapd represents exit code from agent update install script
+	// due to snapd child process validation bug
+	ExitCodeUpdateFailedDueToSnapd UpdateScriptExitCode = 118
+
+	// ExitCodeInstallFailedDueToSigningIssue represents exit code when fail to install agent due to signing issue
+	ExitCodeInstallFailedDueToSigningIssue UpdateScriptExitCode = 119
+
+	// ExitCodeErrorPrepareUpdateCommand represents exit code when fail to prepare exec.Command to run agent update install script
+	ExitCodeErrorPrepareUpdateCommand UpdateScriptExitCode = 120
+
+	// ExitCodeUpdateErrorUsingYumAndRpm represents exit code from agent update install script yum and rpm command
+	ExitCodeUpdateErrorUsingYumAndRpm UpdateScriptExitCode = 121
+
+	// ExitCodeUpdateErrorUsingDpkg represents exit code from agent update install script dpkg command
+	ExitCodeUpdateErrorUsingDpkg UpdateScriptExitCode = 122
+
+	// ExitCodeUpdateErrorUsingSnap represents exit code from agent update install script snap command
+	ExitCodeUpdateErrorUsingSnap UpdateScriptExitCode = 123
+
 	// ExitCodeUnsupportedPlatform represents exit code when there is no service manager
 	// TODO: Move error to a update precondition
 	ExitCodeUnsupportedPlatform UpdateScriptExitCode = 124
 
-	// ExitCodeUpdateUsingPkgMgr represents exit code from agent update install script
-	ExitCodeUpdateUsingPkgMgr UpdateScriptExitCode = 125
-
-	// ExitCodeUpdateFailedDueToSnapd represents exit code from agent update install script
-	// due to snapd child process validation bug
-	ExitCodeUpdateFailedDueToSnapd UpdateScriptExitCode = 126
+	// ExitCodeUpdateErrorUsingPkgMgrLegacy represents exit code from agent update install script package manager command
+	// This was the exit code in legacy scripts before it was separated to yum/rpm/dpkg/snap
+	ExitCodeUpdateErrorUsingPkgMgrLegacy UpdateScriptExitCode = 125
 )
+
+var ExitCodesUpdateErrorUsingPkgMgr = []UpdateScriptExitCode{
+	ExitCodeUpdateErrorUsingYumAndRpm,
+	ExitCodeUpdateErrorUsingDpkg,
+	ExitCodeUpdateErrorUsingSnap,
+	ExitCodeUpdateErrorUsingPkgMgrLegacy,
+}
 
 // SUb status values
 const (
@@ -184,6 +217,9 @@ const (
 
 	// ErrorInvalidTargetVersion represents Target version is not supported
 	ErrorInvalidTargetVersion ErrorCode = "ErrorInvalidTargetVersion"
+
+	// ErrorIncompatibleTargetVersion represents Target version is incompatible
+	ErrorIncompatibleTargetVersion ErrorCode = "ErrorIncompatibleTargetVersion"
 
 	// ErrorSourcePkgDownload represents source version not able to download
 	ErrorSourcePkgDownload ErrorCode = "ErrorSourcePkgDownload"
@@ -245,6 +281,9 @@ const (
 	// ErrorGetLatestActiveVersionManifest represents failure to get latest active version from manifest
 	ErrorGetLatestActiveVersionManifest ErrorCode = "ErrorGetLatestActiveVersionManifest"
 
+	// ErrorGetStableVersionS3 represents failure to get the stable version from s3
+	ErrorGetStableVersionS3 ErrorCode = "ErrorGetStableVersionS3"
+
 	// ErrorInvalidManifest represents Invalid manifest file
 	ErrorInvalidManifest ErrorCode = "ErrorInvalidManifest"
 
@@ -260,11 +299,17 @@ const (
 	// ErrorInstallFailureDueToSnapd represents snapd child process bug failure
 	ErrorInstallFailureDueToSnapd ErrorCode = "ErrorInstallFailedDueToSnapd"
 
+	// ErrorInstallFailedDueToSigningIssue represents failure to install agent due to signing issue
+	ErrorInstallFailedDueToSigningIssue ErrorCode = "ErrorInstallFailedDueToSigningIssue"
+
 	// ErrorInstallFailed represents Install failed
 	ErrorInstallFailed ErrorCode = "ErrorInstallFailed"
 
 	// ErrorCannotStartService represents Cannot start Ec2Config service
 	ErrorCannotStartService ErrorCode = "ErrorCannotStartService"
+
+	// ErrorInstTargetVersionNotFoundViaReg represents that the target agent version could not be found using Registry
+	ErrorInstTargetVersionNotFoundViaReg ErrorCode = "ErrorInstTargetVersionNotFoundViaReg"
 
 	// ErrorCannotStopService represents Cannot stop Ec2Config service
 	ErrorCannotStopService ErrorCode = "ErrorCannotStopService"
@@ -287,6 +332,22 @@ const (
 	// ErrorLoadingAgentVersion represents failed for loading agent version
 	ErrorLoadingAgentVersion ErrorCode = "ErrorLoadingAgentVersion"
 
+	// ErrorPrepareUpdateCommandSuffix represents exit code when fail to prepare exec.Command to run agent update install script
+	ErrorPrepareUpdateCommandSuffix = "PrepareUpdateCommand"
+
+	// ErrorUsingYumAndRpmSuffix represents exit code from agent update install script yum and rpm command
+	ErrorUsingYumAndRpmSuffix = "UsingYumAndRpm"
+
+	// ErrorUsingDpkgSuffix represents exit code from agent update install script dpkg command
+	ErrorUsingDpkgSuffix = "UsingDpkg"
+
+	// ErrorUsingSnapSuffix represents exit code from agent update install script snap command
+	ErrorUsingSnapSuffix = "UsingSnap"
+
+	// ErrorUsingPkgMgrLegacySuffix represents exit code from agent update install script package manager command
+	// This was the exit code in legacy scripts before it was separated to yum/rpm/dpkg/snap
+	ErrorUsingPkgMgrLegacySuffix = "UsingPkgMgr"
+
 	SelfUpdatePrefix = "SelfUpdate"
 
 	// we have same below fields in processor package without underscore
@@ -301,6 +362,7 @@ const (
 	TargetVersionCustomerDefined = iota
 	TargetVersionLatest
 	TargetVersionSelfUpdate
+	TargetVersionStable
 )
 
 // NonAlarmingErrors contains error codes which are not important.

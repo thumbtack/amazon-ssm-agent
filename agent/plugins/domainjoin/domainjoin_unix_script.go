@@ -44,10 +44,13 @@ REALM=""
 INPUT_DNS_IP_ADDRESS1=""
 INPUT_DNS_IP_ADDRESS2=""
 LINUX_DISTRO=""
+LINUX_DISTRO_VERSION_ID=""
 CURTIME=""
 REGION=""
-# https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
+# https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html default install location
 AWSCLI="/usr/local/bin/aws"
+# Amazon Linux pre-installed location
+AWSCLI_PREINSTALL_PATH="/usr/bin/aws"
 # Service Creds from Secrets Manager
 DOMAIN_USERNAME=""
 DOMAIN_PASSWORD=""
@@ -66,7 +69,31 @@ UNMUTATED_DNS_RESOLVE_STATUS=1
 # https://docs.microsoft.com/en-us/windows/win32/sysinfo/computer-names?redirectedfrom=MSDN
 NETBIOS_COMPUTER_NAME_LEN=15
 
+###################################################
+## Check if utility is root protected  ############
+###################################################
+check_for_write_protect() {
+   UTILITY=$1
+   which $UTILITY
+   if [ $? -ne 0 ]; then
+      # utility needs to be installed
+      return 1
+   fi
+
+   PATH_TO_UTILITY=$(which $UTILITY)
+   FIND_USER=$(find $PATH_TO_UTILITY -user root)
+   if [ -z "$FIND_USER" ]; then
+       echo "***Failed: $(ls -al $UTILITY) is not owned by root" && exit 1
+   fi
+
+   FIND_PERMS=$(find $PATH_TO_UTILITY -follow -perm /o=w,g=w)
+   if [ ! -z "$FIND_PERMS" ]; then
+       echo "***Failed: $(ls -al $UTILITY) is writable by group or other" && exit 1
+   fi
+}
+
 get_default_hostname() {
+    check_for_write_protect hostname
     INSTANCE_NAME=$(hostname --short) 2>/dev/null
 
     # Naming conventions in Active Directory
@@ -85,6 +112,8 @@ set_hostname() {
        exit 1
     fi
 
+    check_for_write_protect hostnamectl
+    check_for_write_protect hostname
     HOSTNAMECTL=$(which hostnamectl)
     if [ ! -z "$HOSTNAMECTL" ]; then
         hostnamectl set-hostname $COMPUTER_NAME.$DIRECTORY_NAME >/dev/null
@@ -101,9 +130,9 @@ set_hostname() {
 }
 
 get_list_of_computers() {
+    check_for_write_protect ldapsearch
     LDAP_BASE_DN=$(echo $DIRECTORY_NAME | awk -F\. '{ for (i = 1; i <= NF; i++) { if (i != NF) printf "DC=%s,",$i ; else printf "DC=%s", $i} }')
-    DIRNAME_UPPER=$(echo "$DIRECTORY_NAME" | tr [:lower:] [:upper:])
-    ldapsearch -H ldap://$DIRECTORY_NAME -b $LDAP_BASE_DN 'objectClass=computer' -D "$DOMAIN_USERNAME@$DIRNAME_UPPER" -w "$DOMAIN_PASSWORD"  | grep "cn:" | sed 's/cn://g'
+    ldapsearch -H ldap://$DIRECTORY_NAME -b $LDAP_BASE_DN 'objectClass=computer' -D "$DOMAIN_USERNAME@$REALM" -w "$DOMAIN_PASSWORD"  | grep "cn:" | sed 's/cn://g'
 }
 
 cleanup_temp_files() {
@@ -236,6 +265,7 @@ find_unused_hostname() {
 ## Download AWS CLI zip file #####################
 ##################################################
 download_awscli_zipfile() {
+    check_for_write_protect curl
     MAX_RETRIES=3
     CURL_DOWNLOAD_URL="$1"
     if [ -z "$1" ]; then
@@ -312,7 +342,7 @@ check_awscli_install_dir() {
 ########## Install components ####################
 ##################################################
 install_components() {
-    LINUX_DISTRO=$(cat /etc/os-release | grep NAME | awk -F'=' '{print $2}')
+    LINUX_DISTRO=$(cat /etc/os-release | grep NAME | awk -F'=' '{print $2}' | head -1)
     LINUX_DISTRO_VERSION_ID=$(cat /etc/os-release | grep VERSION_ID | awk -F'=' '{print $2}' | tr -d '"')
     if [ -z $LINUX_DISTRO_VERSION_ID ]; then
        echo "**Failed : Unsupported OS version $LINUX_DISTRO : $LINUX_DISTRO_VERSION_ID"
@@ -327,9 +357,10 @@ install_components() {
         LINUX_DISTRO='CentOS'
         # yum -y update
         ## yum update takes too long
+        check_for_write_protect yum
         yum -y install realmd adcli oddjob-mkhomedir oddjob samba-winbind-clients samba-winbind samba-common-tools samba-winbind-krb5-locator krb5-workstation unzip bind-utils python3 openldap-clients vim-common >/dev/null
         if [ $? -ne 0 ]; then echo "install_components(): yum install errors for CentOS" && return 1; fi
-    elif grep -e 'Red Hat' /etc/os-release 1>/dev/null 2>/dev/null; then
+    elif grep -E -e 'Red Hat|Rocky' /etc/os-release 1>/dev/null 2>/dev/null; then
         LINUX_DISTRO='RHEL'
         RHEL_MAJOR_VERSION=$(echo $LINUX_DISTRO_VERSION_ID | awk -F'.' '{print $1}')
         RHEL_MINOR_VERSION=$(echo $LINUX_DISTRO_VERSION_ID | awk -F'.' '{print $2}')
@@ -343,13 +374,20 @@ install_components() {
             echo "**Failed : Unsupported OS version $LINUX_DISTRO : $LINUX_DISTRO_VERSION_ID"
             exit 1
         fi
+        check_for_write_protect yum
         # yum -y update
         ## yum update takes too long
         # https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_different_types_of_servers/index
-        yum -y  install realmd adcli oddjob-mkhomedir oddjob samba-winbind-clients samba-winbind samba-common-tools samba-winbind-krb5-locator krb5-workstation vim unzip bind-utils python3 openldap-clients NetworkManager >/dev/null
+        yum -y  install samba realmd adcli oddjob-mkhomedir oddjob samba-winbind-clients samba-winbind samba-common-tools samba-winbind-krb5-locator krb5-workstation vim unzip bind-utils python3 openldap-clients NetworkManager >/dev/null
+        if [ $? -ne 0 ]; then
+        # Retry without samba package
+           yum -y  install realmd adcli oddjob-mkhomedir oddjob samba-winbind-clients samba-winbind samba-common-tools samba-winbind-krb5-locator krb5-workstation vim unzip bind-utils python3 openldap-clients NetworkManager >/dev/null
+        fi
         if [ $? -ne 0 ]; then echo "install_components(): yum install errors for Red Hat" && return 1; fi
     elif grep -e 'Fedora' /etc/os-release 1>/dev/null 2>/dev/null; then
         LINUX_DISTRO='Fedora'
+        check_for_write_protect yum
+        check_for_write_protect systemctl
         ## yum update takes too long, but it is unavoidable here.
         yum -y update
         yum -y  install realmd adcli oddjob-mkhomedir oddjob samba-winbind-clients samba-winbind samba-common-tools samba-winbind-krb5-locator krb5-workstation vim unzip bind-utils python3 openldap-clients vim-common NetworkManager >/dev/null
@@ -359,7 +397,7 @@ install_components() {
          LINUX_DISTRO='AMAZON_LINUX'
          # yum -y update
          ## yum update takes too long
-         yum -y  install realmd adcli oddjob-mkhomedir oddjob samba-winbind-clients samba-winbind samba-common-tools samba-winbind-krb5-locator krb5-workstation unzip bind-utils python3 openldap-clients vim-common network-manager >/dev/null
+         yum -y  install realmd adcli oddjob-mkhomedir oddjob samba-winbind-clients samba-winbind samba-common-tools samba-winbind-krb5-locator krb5-workstation unzip bind-utils python3 openldap-clients >/dev/null
          if [ $? -ne 0 ]; then echo "install_components(): yum install errors for Amazon Linux" && return 1; fi
     elif grep 'Ubuntu' /etc/os-release 1>/dev/null 2>/dev/null; then
          LINUX_DISTRO='UBUNTU'
@@ -372,6 +410,7 @@ install_components() {
          fi
          # set DEBIAN_FRONTEND variable to noninteractive to skip any interactive post-install configuration steps.
          export DEBIAN_FRONTEND=noninteractive
+         check_for_write_protect apt-get
          apt-get -y update
          if [ $? -ne 0 ]; then echo "install_components(): apt-get update errors for Ubuntu" && return 1; fi
          apt-get -yq install realmd adcli winbind samba libnss-winbind libpam-winbind libpam-krb5 krb5-config krb5-locales krb5-user packagekit  ntp unzip dnsutils python3 ldap-utils network-manager > /dev/null
@@ -380,6 +419,7 @@ install_components() {
          sed -i "s/default_realm.*$/default_realm = $REALM\n\trdns = false/g" /etc/krb5.conf
          if [ $? -ne 0 ]; then echo "install_components(): access errors to /etc/krb5.conf"; return 1; fi
          if ! grep "Ubuntu 16.04" /etc/os-release 2>/dev/null; then
+             check_for_write_protect pam-auth-update
              pam-auth-update --enable mkhomedir
          fi
     elif grep 'SUSE Linux' /etc/os-release 1>/dev/null 2>/dev/null; then
@@ -390,14 +430,16 @@ install_components() {
             exit 1
          fi
          if [ "$SUSE_MAJOR_VERSION" -eq "15" ]; then
-            sudo SUSEConnect -p PackageHub/15.1/x86_64
+            check_for_write_protect SUSEConnect
+            sudo SUSEConnect -p PackageHub/$SUSE_MAJOR_VERSION.$SUSE_MINOR_VERSION/x86_64
             if [ $? -ne 0 ]; then
                sudo SUSEConnect
             fi
          fi
          LINUX_DISTRO='SUSE'
-         sudo zypper update -y
-         sudo zypper -n install realmd adcli sssd sssd-tools sssd-ad samba-client krb5-client samba-winbind krb5-client bind-utils python3 openldap2-client NetworkManager
+         check_for_write_protect zypper
+         sudo zypper -q update -y
+         sudo zypper -n -q install realmd adcli sssd sssd-tools sssd-ad samba-client krb5-client samba-winbind krb5-client bind-utils python3 openldap2-client NetworkManager
          if [ $? -ne 0 ]; then
             return 1
          fi
@@ -408,6 +450,7 @@ install_components() {
             echo "**Failed : Unsupported OS version $LINUX_DISTRO : $LINUX_DISTRO_VERSION_ID"
             exit 1
          fi
+         check_for_write_protect apt-get
          apt-get -y update
          LINUX_DISTRO='DEBIAN'
          DEBIAN_FRONTEND=noninteractive apt-get -yq install realmd adcli winbind samba libnss-winbind libpam-winbind libpam-krb5 krb5-config krb5-locales krb5-user packagekit ntp unzip dnsutils python3 ldapscripts network-manager > /dev/null
@@ -416,19 +459,43 @@ install_components() {
          fi
     fi
 
-    check_awscli_install_dir
-    if uname -a | grep -e "x86_64" -e "amd64"; then
-        download_awscli_zipfile "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
-    elif uname -a | grep "aarch64"; then
-        download_awscli_zipfile "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip"
-    else
-        echo "***Failed: install_components processor type is unsupported." && exit 1
+    IS_AWSCLI_INSTALLED="FALSE"
+    if [ -f "$AWSCLI" ]; then
+        echo "AWS CLI installation check: Local AWS CLI found at $AWSCLI. Domain join to use the existing AWS CLI."
+        check_for_write_protect $AWSCLI
+        $AWSCLI --version
+        if [ $? -ne 0 ]; then
+           echo "***Failed: Found non-working AWS CLI" && exit 1
+        fi
+        IS_AWSCLI_INSTALLED="TRUE"
+    fi
+    if [ -f "$AWSCLI_PREINSTALL_PATH" -a "$IS_AWSCLI_INSTALLED" = "FALSE" ]; then
+        AWSCLI=$AWSCLI_PREINSTALL_PATH
+        echo "AWS CLI installation check: Local AWS CLI found at $AWSCLI. Domain join to use the existing AWS CLI."
+        check_for_write_protect $AWSCLI
+        $AWSCLI --version
+        if [ $? -ne 0 ]; then
+           echo "***Failed: Found non-working AWS CLI" && exit 1
+        fi
+        IS_AWSCLI_INSTALLED="TRUE"
+    fi
+    if [ "$IS_AWSCLI_INSTALLED" = "FALSE" ]; then
+        echo "AWS CLI installation check: No AWS CLI found in the instance. Proceeding to download and install of the AWS CLI."
+        check_awscli_install_dir
+        if uname -a | grep -e "x86_64" -e "amd64"; then
+            download_awscli_zipfile "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+        elif uname -a | grep "aarch64"; then
+            download_awscli_zipfile "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip"
+        else
+            echo "***Failed: install_components processor type is unsupported." && exit 1
+        fi
+        check_for_write_protect unzip
+        unzip -o "$AWS_CLI_INSTALL_DIR"/awscliv2.zip 1>/dev/null
+        if [ $? -ne 0 ]; then echo "***Failed: unzip of awscliv2.zip" && exit 1; fi
+        "$AWS_CLI_INSTALL_DIR"/aws/install -u 1>/dev/null
+        if [ $? -ne 0 ]; then echo "***Failed: aws cli install" && exit 1; fi
     fi
 
-    unzip -o "$AWS_CLI_INSTALL_DIR"/awscliv2.zip 1>/dev/null
-    if [ $? -ne 0 ]; then echo "***Failed: unzip of awscliv2.zip" && exit 1; fi
-    "$AWS_CLI_INSTALL_DIR"/aws/install -u 1>/dev/null
-    if [ $? -ne 0 ]; then echo "***Failed: aws cli install" && exit 1; fi
     return 0
 }
 
@@ -437,8 +504,9 @@ install_components() {
 ######################################################################
 get_servicecreds() {
     SECRET_ID="${SECRET_ID_PREFIX}/$DIRECTORY_ID/seamless-domain-join"
+    check_for_write_protect $AWSCLI
     SECRET_VALUE=$($AWSCLI secretsmanager get-secret-value --secret-id "$SECRET_ID" --region $REGION --query "SecretString"  --output text 2>/dev/null)
-    if [ $? -ne 0 ]; then
+    if [ -z "$SECRET_VALUE"  ]; then
         PARENT_DIRECTORY_ID=$($AWSCLI ds describe-directories --region $REGION --query "DirectoryDescriptions[?DirectoryId =='$DIRECTORY_ID'].OwnerDirectoryDescription.DirectoryId | [0]" | sed 's/"//g')
         if [ $? -ne 0 ] || [ -z "$PARENT_DIRECTORY_ID" ] || [ "$PARENT_DIRECTORY_ID" = null ]; then
            echo "***Failed: Cannot find parent directory Id"
@@ -459,8 +527,10 @@ get_servicecreds() {
 
     which python3
     if [ $? -eq 0 ]; then
+         check_for_write_protect python3
          PYTHON=$(which python3)
     else
+         check_for_write_protect python
          PYTHON=$(which python);
     fi
     DOMAIN_USERNAME=$(echo "$SECRET_VALUE" | $PYTHON -c 'import sys, json; obj=json.load(sys.stdin); print(obj["awsSeamlessDomainUsername"])')
@@ -480,6 +550,9 @@ get_servicecreds() {
 ## to prevent overwriting of resolv.conf    ######
 ##################################################
 setup_resolv_conf_and_dhclient_conf() {
+    check_for_write_protect touch
+    check_for_write_protect mv
+    check_for_write_protect echo
     if [ ! -z "$INPUT_DNS_IP_ADDRESS1" ] && [ ! -z "$INPUT_DNS_IP_ADDRESS2" ]; then
         touch /etc/resolv.conf
         mv /etc/resolv.conf /etc/resolv.conf.backup."$CURTIME"
@@ -564,9 +637,13 @@ configure_hosts_file() {
 ## Restart NetworkManager if present ####################
 #########################################################
 restart_network_manager() {
+    check_for_write_protect systemctl
+    check_for_write_protect service
     if [ -d /etc/NetworkManager/conf.d/ ]; then
+       check_for_write_protect systemctl
        systemctl restart NetworkManager
        if [ $? -ne 0 ]; then
+          check_for_write_protect service
           service NetworkManager restart
        fi
        if [ $? -ne 0 ]; then
@@ -597,16 +674,55 @@ do_dns_config() {
     setup_resolv_conf_and_dhclient_conf
     if [ $LINUX_DISTRO = 'AMAZON_LINUX' ]; then
         set_peer_dns
+
+        if [ $LINUX_DISTRO_VERSION_ID -eq "2022" -o $LINUX_DISTRO_VERSION_ID -eq "2023" ]; then
+           IF_NAME=$(ip route list | grep default | grep -E  'dev (\w+)' -o | awk '{print $2}')
+           if [ -z $IF_NAME ]; then
+               echo "**Failed: IF_NAME is null"
+               exit 1
+           else
+               mkdir -p /etc/systemd/network/70-${IF_NAME}.network.d
+               if [ $? -ne 0 ]; then
+                   echo "**Failed : mkdir -p /etc/systemd/network/70-${IF_NAME}.network.d"
+                   exit 1
+               fi
+               # https://www.freedesktop.org/software/systemd/man/systemd.network.html#DNS=
+               echo "[Network]" > /etc/systemd/network/70-${IF_NAME}.network.d/dns.conf
+               if [ ! -z ${INPUT_DNS_IP_ADDRESS1} ]; then
+                   echo "DNS=${INPUT_DNS_IP_ADDRESS1}" >> /etc/systemd/network/70-${IF_NAME}.network.d/dns.conf
+               fi
+               if [ ! -z ${INPUT_DNS_IP_ADDRESS2} ]; then
+                   echo "DNS=${INPUT_DNS_IP_ADDRESS2}" >> /etc/systemd/network/70-${IF_NAME}.network.d/dns.conf
+               fi
+               echo "[DHCPv4]" >> /etc/systemd/network/70-${IF_NAME}.network.d/dns.conf
+               if [ $? -ne 0 ]; then
+                   echo "***Failed: modify /etc/systemd/network/70-${IF_NAME}.network.d/dns.conf failed"
+                   exit 1
+               fi
+               echo "UseDns=no" >> /etc/systemd/network/70-${IF_NAME}.network.d/dns.conf
+               echo "UseDomains=no" >> /etc/systemd/network/70-${IF_NAME}.network.d/dns.conf
+               check_for_write_protect networkctl
+               networkctl reload
+               if [ $? -ne 0 ]; then
+                   echo "***Failed: networkctl reload failed"
+                   exit 1
+               fi
+           fi
+        fi
     fi
 
     if [ $LINUX_DISTRO = "UBUNTU" ]; then
         if [ -d /etc/netplan ]; then
             # Ubuntu 18.04
+            IF_NAME=$(ip route list | grep default | grep -E  'dev (\w+)' -o | awk '{print $2}')
+            if [ -z $IF_NAME ]; then
+                 echo "**Failed: getting interface name on $LINUX_DISTRO" && exit 1
+            fi
             cat << EOF | tee /etc/netplan/99-custom-dns.yaml
 network:
     version: 2
     ethernets:
-        eth0:
+        $IF_NAME:
             nameservers:
                 addresses: [$INPUT_DNS_IP_ADDRESS1, $INPUT_DNS_IP_ADDRESS2]
             dhcp4-overrides:
@@ -644,6 +760,8 @@ resolve_name_to_ip() {
       echo "**Failed: resolve_name_to_ip - No input domain name" && exit 1
    fi
 
+   check_for_write_protect dig
+   check_for_write_protect $AWSCLI
    RESOLVED_DNS_IP_ADDRESSES=$(dig "$1" +short | tr '\n' ' ')
    echo "Resolved DNS IP addresses are $RESOLVED_DNS_IP_ADDRESSES"
 
@@ -692,6 +810,7 @@ resolve_name_to_ip() {
 ## sets are used.                               ##
 ##################################################
 is_directory_reachable() {
+    check_for_write_protect dig
     RESOLVED_DNS_IP_ADDRESSES=$(dig ${DIRECTORY_NAME} +short | tr '\n' ' ')
     if [ ! -z "$RESOLVED_DNS_IP_ADDRESSES" ]; then
        echo "Resolved $DIRECTORY_NAME to IP address(es): $RESOLVED_DNS_IP_ADDRESSES"
@@ -710,11 +829,31 @@ do_domainjoin() {
 
     if echo "$DOMAIN_USERNAME" | grep "@" 2>&1 > /dev/null; then
        # Use username@RemoteTrustedDir (Active Directory Trust) to join
-       echo "do_domainjoin(): Found directory in username as username@directory"
+       echo "do_domainjoin(): Found directory/realm in username as username@directory"
     else
-       DOMAIN_USERNAME=${DOMAIN_USERNAME}@${DIRECTORY_NAME}
+        if [ ${LINUX_DISTRO} == "RHEL" ]; then
+            # Redhat and derivatives require domain portion to be upper case, ie use Kerberos Realm
+            # https://access.redhat.com/solutions/5592351
+            DOMAIN_USERNAME=${DOMAIN_USERNAME}@${REALM}
+        else
+            DOMAIN_USERNAME=${DOMAIN_USERNAME}@${DIRECTORY_NAME}
+        fi
     fi
 
+    IS_VERSION_ID_2022="FALSE"
+    if [ ${LINUX_DISTRO_VERSION_ID} == "2022" -o ${LINUX_DISTRO_VERSION_ID} == "2023" ]; then
+        IS_VERSION_ID_2022="TRUE"
+    fi
+    if [ ${LINUX_DISTRO} == "AMAZON_LINUX" -a ${IS_VERSION_ID_2022} == "TRUE" ]; then
+       # Add kinit as a workaround for this issue:
+       #     WARNING: The option -k|--kerberos is deprecated!
+       USERNAME=$(echo ${DOMAIN_USERNAME} | sed 's/@.*$//g')
+       check_for_write_protect kinit
+       echo ${DOMAIN_PASSWORD} | kinit -V ${USERNAME}@${REALM}
+    fi
+
+    check_for_write_protect realm
+    STATUS=1
     for i in $(seq 1 $MAX_RETRIES)
     do
         if [ -z "$DIRECTORY_OU" ]; then
@@ -722,14 +861,15 @@ do_domainjoin() {
         else
             LOG_MSG=$(echo $DOMAIN_PASSWORD | realm join --client-software=winbind -U ${DOMAIN_USERNAME} "$DIRECTORY_NAME" --computer-ou="$DIRECTORY_OU" -v 2>&1)
         fi
-        STATUS=$?
-        if [ $STATUS -eq 0 ]; then
-            break
+        if echo "$LOG_MSG" | grep -q "Already joined to this domain"; then
+             echo "do_domainjoin(): Already joined to this domain : $LOG_MSG"
+             STATUS=0
+             break
         else
-            if echo "$LOG_MSG" | grep -q "Already joined to this domain"; then
-                echo "do_domainjoin(): Already joined to this domain : $LOG_MSG"
-                STATUS=0
-                break
+            REALM_LIST_OUT=$(realm list 2>/dev/null | grep "domain-name: ${DIRECTORY_NAME}\$")
+            if [ ! -z "$REALM_LIST_OUT"  ]; then
+               STATUS=0
+               break
             fi
         fi
         sleep 10
@@ -762,6 +902,7 @@ config_nsswitch() {
 ## Configure id-mappings in Samba                ##
 ###################################################
 config_samba() {
+    check_for_write_protect adcli
     AD_INFO=$(adcli info ${DIRECTORY_NAME} | grep '^domain-name = ' | awk '{print $3}')
     if [ -z $AD_INFO ]; then
         echo "**Failed: adcli info output is empty" && exit 1
@@ -785,14 +926,17 @@ config_samba() {
         /etc/samba/smb.conf
 
     # Flushing Samba Winbind databases
+    check_for_write_protect net
     net cache flush
 
     # Restarting Winbind daemon
+    check_for_write_protect service
     service winbind restart
 }
 
 reconfigure_samba() {
     sed -i 's/kerberos method = system keytab/kerberos method = secrets and keytab/g' /etc/samba/smb.conf
+    check_for_write_protect service
     service winbind restart
     if [ $? -ne 0 ]; then
         systemctl restart winbind
@@ -812,6 +956,8 @@ fix_idmap_ranges() {
     sed -i "s/\(idmap config .*: range = \)\([0-9]*-[0-9]*\)/\165536-99999999/g" /etc/samba/smb.conf
 
     # Restarting Winbind daemon
+    check_for_write_protect service
+    check_for_write_protect systemctl
     service winbind restart
     if [ $? -ne 0 ]; then
         systemctl restart winbind
@@ -821,6 +967,7 @@ fix_idmap_ranges() {
 ##################################################
 ## Main entry point ##############################
 ##################################################
+check_for_write_protect date
 CURTIME=$(date | sed 's/ //g')
 
 if [ $# -eq 0 ]; then
@@ -900,10 +1047,11 @@ fi
 # Deal with scenario where this script is run again after the domain is already joined.
 # We want to avoid rerunning as the set_hostname function can change the hostname of a server that is already
 # domain joined and cause a mismatch.
-realm list 2>/dev/null | grep -q "domain-name: ${DIRECTORY_NAME}\$"
-if [ $? -eq 0 ]; then
-    echo "########## SKIPPING Domain Join: ${DIRECTORY_NAME} already joined  ##########"
-    exit 0
+check_for_write_protect realm
+REALM_LIST_OUT=$(realm list 2>/dev/null | grep "domain-name: ${DIRECTORY_NAME}\$")
+if [ ! -z $REALM_LIST_OUT  ]; then
+   echo "########## SKIPPING Domain Join: ${DIRECTORY_NAME} already joined  ##########"
+   exit 0
 fi
 
 REALM=$(echo "$DIRECTORY_NAME" | tr [a-z] [A-Z])
@@ -929,6 +1077,7 @@ fi
 
 get_servicecreds
 
+check_for_write_protect hostname
 COMPUTER_NAME=$(hostname --short)
 
 if [ ! -z $SET_HOSTNAME ]; then
@@ -949,6 +1098,8 @@ fi
 configure_hosts_file
 
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+check_for_write_protect systemctl
+check_for_write_protect service
 systemctl restart sshd
 if [ $? -ne 0 ]; then
    systemctl restart ssh

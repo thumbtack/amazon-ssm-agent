@@ -14,6 +14,7 @@
 package ec2
 
 import (
+	"context"
 	"fmt"
 	"strings"
 	"sync"
@@ -30,6 +31,7 @@ import (
 	"github.com/aws/amazon-ssm-agent/common/identity/credentialproviders/ssmec2roleprovider"
 	"github.com/aws/amazon-ssm-agent/common/identity/endpoint"
 	"github.com/aws/amazon-ssm-agent/common/runtimeconfig"
+
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/credentials"
@@ -47,6 +49,7 @@ var (
 	updateServerInfo             = registration.UpdateServerInfo
 	getStoredInstanceId          = registration.InstanceID
 	getStoredPrivateKey          = registration.PrivateKey
+	getStoredPublicKey           = registration.PublicKey
 	getStoredPrivateKeyType      = registration.PrivateKeyType
 	backoffRetry                 = backoff.Retry
 	exponentialBackoffCfg        = backoffconfig.GetDefaultExponentialBackoff
@@ -55,16 +58,26 @@ var (
 
 // InstanceID returns the managed instance id
 func (i *Identity) InstanceID() (string, error) {
-	return i.Client.GetMetadata(ec2InstanceIDResource)
+	return i.InstanceIDWithContext(context.Background())
+}
+
+// InstanceIDWithContext returns the managed instance id
+func (i *Identity) InstanceIDWithContext(ctx context.Context) (string, error) {
+	return i.Client.GetMetadataWithContext(ctx, ec2InstanceIDResource)
 }
 
 // Region returns the region of the ec2 instance
 func (i *Identity) Region() (region string, err error) {
-	if region, err = i.Client.Region(); err == nil {
+	return i.RegionWithContext(context.Background())
+}
+
+// RegionWithContext returns the region of the ec2 instance
+func (i *Identity) RegionWithContext(ctx context.Context) (region string, err error) {
+	if region, err = i.Client.RegionWithContext(ctx); err == nil {
 		return
 	}
 	var document ec2metadata.EC2InstanceIdentityDocument
-	if document, err = i.Client.GetInstanceIdentityDocument(); err == nil {
+	if document, err = i.Client.GetInstanceIdentityDocumentWithContext(ctx); err == nil {
 		region = document.Region
 	}
 
@@ -94,21 +107,10 @@ func (i *Identity) Credentials() *credentials.Credentials {
 	i.shareLock.Lock()
 	defer i.shareLock.Unlock()
 
-	if i.credentials != nil {
-		return i.credentials
+	if i.credentials == nil {
+		i.credentials = credentials.NewCredentials(i.credentialsProvider)
 	}
 
-	// this condition is to make newer workers compatible with older agent
-	// Older core agent does not populate ShareFile and ShareProfile for EC2.
-	// Hence, we use IPR provider instead of Shared Provider when these values are blank
-	if configVal, err := i.runtimeConfigClient.GetConfig(); err == nil {
-		if strings.TrimSpace(configVal.ShareProfile) == "" || strings.TrimSpace(configVal.ShareFile) == "" {
-			// in this case, inner provider will always return IPR
-			return credentials.NewCredentials(i.credentialsProvider.GetInnerProvider())
-		}
-	}
-
-	i.initSharedCreds()
 	return i.credentials
 }
 
@@ -146,32 +148,42 @@ func (i *Identity) CredentialProvider() credentialproviders.IRemoteProvider {
 }
 
 // Register registers the EC2 identity with Systems Manager
-func (i *Identity) Register() error {
-	registrationInfo := i.loadRegistrationInfo()
-	if registrationInfo != nil {
-		i.Log.Debugf("registration info found for ec2 instance")
-		i.registrationReadyChan <- registrationInfo
-		return nil
-	}
-
-	i.Log.Infof("no registration info found for ec2 instance, attempting registration")
-	publicKey, privateKey, keyType, err := registration.GenerateKeyPair()
-	if err != nil {
-		return fmt.Errorf("error generating signing keys. %w", err)
-	}
-
-	region, err := i.Region()
+func (i *Identity) Register(ctx context.Context) error {
+	region, err := i.RegionWithContext(ctx)
 	if err != nil {
 		return fmt.Errorf("unable to get region for identity %w", err)
 	}
 
-	instanceId, err := i.InstanceID()
+	instanceId, err := i.InstanceIDWithContext(ctx)
 	if err != nil {
 		return fmt.Errorf("unable to get instance id for identity %w", err)
 	}
 
-	i.Log.Debug("checking write access before registering")
-	err = updateServerInfo("", "", privateKey, keyType, IdentityType, registration.EC2RegistrationVaultKey)
+	i.Log.Info("Checking disk for registration info")
+	registrationInfo := i.loadRegistrationInfo(instanceId)
+	if registrationInfo.InstanceId != "" {
+		i.Log.Info("Registration info found for ec2 instance")
+		return nil
+	}
+
+	i.Log.Infof("No registration info found for ec2 instance, attempting registration")
+
+	var publicKey, privateKey, keyType string
+	if registrationInfo.PrivateKey != "" && registrationInfo.PublicKey != "" && registrationInfo.KeyType != "" {
+		i.Log.Info("Found registration keys")
+		publicKey = registrationInfo.PublicKey
+		privateKey = registrationInfo.PrivateKey
+		keyType = registrationInfo.KeyType
+	} else {
+		i.Log.Info("Generating registration keypair")
+		publicKey, privateKey, keyType, err = registration.GenerateKeyPair()
+		if err != nil {
+			return fmt.Errorf("error generating registration keypair. %w", err)
+		}
+	}
+
+	i.Log.Info("Checking write access before registering")
+	err = updateServerInfo("", "", publicKey, privateKey, keyType, IdentityType, registration.EC2RegistrationVaultKey)
 	if err != nil {
 		return fmt.Errorf("unable to save registration information. %w\nTry running as sudo/administrator.", err)
 	}
@@ -181,15 +193,14 @@ func (i *Identity) Register() error {
 		return fmt.Errorf("unable to set up backoff config for registration. Aborting. %w", err)
 	}
 
-	_, err = i.authRegisterService.RegisterManagedInstance(publicKey, keyType, instanceId, "", "")
+	i.Log.Info("Registering EC2 instance with Systems Manager")
+	_, err = i.AuthRegisterService.RegisterManagedInstanceWithContext(ctx, publicKey, keyType, instanceId, "", "")
 	if err != nil {
 		if aerr, ok := err.(awserr.Error); ok {
 			if aerr.Code() == ssm.ErrCodeInstanceAlreadyRegistered {
 				i.Log.Errorf("Instance appears to already be registered. Err: %v", aerr)
-				close(i.registrationReadyChan)
 				return nil
 			}
-
 		}
 
 		return fmt.Errorf("error calling RegisterManagedInstance API: %w", err)
@@ -197,7 +208,7 @@ func (i *Identity) Register() error {
 
 	backoffConfig.Reset()
 	err = backoffRetry(func() (err error) {
-		return updateServerInfo(instanceId, region, privateKey, keyType, IdentityType, registration.EC2RegistrationVaultKey)
+		return updateServerInfo(instanceId, region, publicKey, privateKey, keyType, IdentityType, registration.EC2RegistrationVaultKey)
 	}, backoffConfig)
 
 	if err != nil {
@@ -207,33 +218,32 @@ func (i *Identity) Register() error {
 	registrationInfo = &authregister.RegistrationInfo{
 		PrivateKey: privateKey,
 		KeyType:    keyType,
+		PublicKey:  publicKey,
+		InstanceId: instanceId,
 	}
 
-	i.registrationReadyChan <- registrationInfo
-
+	i.Log.Info("EC2 registration was successful.")
 	return nil
 }
 
-func (i *Identity) loadRegistrationInfo() *authregister.RegistrationInfo {
-	instanceId := getStoredInstanceId(i.Log, IdentityType, registration.EC2RegistrationVaultKey)
-	privateKey := getStoredPrivateKey(i.Log, IdentityType, registration.EC2RegistrationVaultKey)
-	keyType := getStoredPrivateKeyType(i.Log, IdentityType, registration.EC2RegistrationVaultKey)
-
-	if instanceId == "" || privateKey == "" || keyType == "" {
-		return nil
+func (i *Identity) loadRegistrationInfo(instanceId string) *authregister.RegistrationInfo {
+	registrationInfo := &authregister.RegistrationInfo{
+		InstanceId: getStoredInstanceId(i.Log, IdentityType, registration.EC2RegistrationVaultKey),
+		PrivateKey: getStoredPrivateKey(i.Log, IdentityType, registration.EC2RegistrationVaultKey),
+		KeyType:    getStoredPrivateKeyType(i.Log, IdentityType, registration.EC2RegistrationVaultKey),
+		PublicKey:  getStoredPublicKey(i.Log, IdentityType, registration.EC2RegistrationVaultKey),
 	}
 
-	return &authregister.RegistrationInfo{
-		PrivateKey: privateKey,
-		KeyType:    keyType,
+	if registrationInfo.InstanceId == "" || registrationInfo.PrivateKey == "" ||
+		registrationInfo.KeyType == "" || registrationInfo.InstanceId != instanceId {
+		registrationInfo.InstanceId = "" // setting it as blank to try registration
 	}
+
+	return registrationInfo
 }
 
-// NewEC2Identity initializes the ec2 identity
-func NewEC2Identity(log log.T) *Identity {
-	awsConfig := &aws.Config{}
-	awsConfig = awsConfig.WithMaxRetries(3)
-	sess, err := session.NewSession(awsConfig)
+func NewEC2IdentityWithConfig(log log.T, imdsAwsConfig *aws.Config) *Identity {
+	sess, err := session.NewSession(imdsAwsConfig)
 	if err != nil {
 		log.Errorf("Failed to create session with aws config. Err: %v", err)
 		return nil
@@ -247,18 +257,17 @@ func NewEC2Identity(log log.T) *Identity {
 
 	log = log.WithContext("[EC2Identity]")
 	identity := &Identity{
-		Log:                   log,
-		Config:                &config,
-		registrationReadyChan: make(chan *authregister.RegistrationInfo, 1),
-		shareLock:             &sync.RWMutex{},
-		runtimeConfigClient:   runtimeconfig.NewIdentityRuntimeConfigClient(),
+		Log:                 log,
+		Config:              &config,
+		shareLock:           &sync.RWMutex{},
+		runtimeConfigClient: runtimeconfig.NewIdentityRuntimeConfigClient(),
 	}
 
 	// Ensure IMDS client is initialized before attempting to get instance info
 	identity.initIMDSClient(sess)
-	instanceInfo, err := getInstanceInfo(identity)
+	instanceInfo, err := getInstanceInfo(context.Background(), identity)
 	if err != nil {
-		log.Error(err)
+		log.Errorf("Failed to get instance info from IMDS. Err: %v", err)
 		return nil
 	}
 
@@ -268,6 +277,13 @@ func NewEC2Identity(log log.T) *Identity {
 	return identity
 }
 
+// NewEC2Identity initializes the ec2 identity
+func NewEC2Identity(log log.T) *Identity {
+	awsConfig := &aws.Config{}
+	awsConfig = awsConfig.WithMaxRetries(3).WithEC2MetadataEnableFallback(false)
+	return NewEC2IdentityWithConfig(log, awsConfig)
+}
+
 // initEc2RoleProvider initializes the role provider for the EC2 identity
 func (i *Identity) initEc2RoleProvider(endpointHelper endpoint.IEndpointHelper, instanceInfo *ssmec2roleprovider.InstanceInfo) {
 	if i.credentialsProvider != nil {
@@ -275,47 +291,41 @@ func (i *Identity) initEc2RoleProvider(endpointHelper endpoint.IEndpointHelper, 
 	}
 
 	ssmEC2RoleProvider := &ssmec2roleprovider.SSMEC2RoleProvider{
-		ExpiryWindow:          time.Duration(0),
-		Config:                i.Config,
-		Log:                   i.Log.WithContext("[SSMEC2RoleProvider]"),
-		IMDSClient:            i.Client,
-		InstanceInfo:          instanceInfo,
-		RegistrationReadyChan: i.registrationReadyChan,
+		ExpiryWindow: time.Duration(0),
+		Config:       i.Config,
+		Log:          i.Log.WithContext("[SSMEC2RoleProvider]"),
+		IMDSClient:   i.Client,
+		InstanceInfo: instanceInfo,
 	}
 
 	iprRoleProvider := &ec2rolecreds.EC2RoleProvider{
-		Client:       ec2metadata.New(session.New()),
-		ExpiryWindow: time.Hour * 5, // Credentials marked as expired 5 hours before token invalid
+		Client: ec2metadata.New(session.New()),
 	}
+
+	sharedCredentialsProvider := sharedprovider.NewCredentialsProvider(i.Log)
 
 	innerProviders := &ec2roleprovider.EC2InnerProviders{
-		IPRProvider:    iprRoleProvider,
-		SsmEc2Provider: ssmEC2RoleProvider,
+		IPRProvider:               iprRoleProvider,
+		SsmEc2Provider:            ssmEC2RoleProvider,
+		SharedCredentialsProvider: sharedCredentialsProvider,
 	}
 
-	ec2RoleProvider := &ec2roleprovider.EC2RoleProvider{
-		InnerProviders:         innerProviders,
-		Log:                    i.Log.WithContext(ec2rolecreds.ProviderName),
-		Config:                 i.Config,
-		InstanceInfo:           instanceInfo,
-		SsmEndpoint:            endpointHelper.GetServiceEndpoint("ssm", instanceInfo.Region),
-		ShareFileLocation:      appconfig.DefaultEC2SharedCredentialsFilePath,
-		CredentialProfile:      "default",
-		ShouldShareCredentials: true,
-	}
+	runtimeConfigClient := runtimeconfig.NewIdentityRuntimeConfigClient()
+	ssmEndpoint := endpointHelper.GetServiceEndpoint("ssm", instanceInfo.Region)
+	ec2RoleProvider := ec2roleprovider.NewEC2RoleProvider(i.Log, innerProviders, instanceInfo, ssmEndpoint, runtimeConfigClient)
 
 	i.credentialsProvider = ec2RoleProvider
 }
 
 // getInstanceInfo queries identity for instanceId and region
-func getInstanceInfo(identity *Identity) (*ssmec2roleprovider.InstanceInfo, error) {
-	instanceId, err := identity.InstanceID()
+func getInstanceInfo(ctx context.Context, identity *Identity) (*ssmec2roleprovider.InstanceInfo, error) {
+	instanceId, err := identity.InstanceIDWithContext(ctx)
 	if err != nil {
 		err = fmt.Errorf("failed to get identity instance id. Error: %w", err)
 		return nil, err
 	}
 
-	region, err := identity.Region()
+	region, err := identity.RegionWithContext(ctx)
 	if err != nil {
 		err = fmt.Errorf("failed to get identity region. Error: %w", err)
 		return nil, err
@@ -326,29 +336,6 @@ func getInstanceInfo(identity *Identity) (*ssmec2roleprovider.InstanceInfo, erro
 		Region:     region,
 	}
 	return instanceInfo, nil
-}
-
-// initSharedCreds initializes credentials using shared credentials provider that reads credentials from shared location, falls back to non-shared credentials provider for any failure
-func (i *Identity) initSharedCreds() {
-	if i.credentials != nil {
-		return
-	}
-
-	if shareCredsProvider, err := newSharedCredentialsProvider(i.Log); err != nil {
-		i.Log.Errorf("failed to initialize shared credentials provider, falling back to remote credentials provider: %v", err)
-		i.initNonSharedCreds()
-	} else {
-		i.credentials = credentials.NewCredentials(shareCredsProvider)
-	}
-}
-
-// initNonSharedCreds initializes credentials provider and credentials that do not share credentials via aws credentials file
-func (i *Identity) initNonSharedCreds() {
-	if i.credentials != nil {
-		return
-	}
-
-	i.credentials = credentials.NewCredentials(i.credentialsProvider)
 }
 
 // initIMDSClient initializes the client used to make instance metadata service requests
@@ -362,9 +349,9 @@ func (i *Identity) initIMDSClient(sess *session.Session) {
 
 // initAuthRegisterService initializes the client used to make requests to RegisterManagedInstance
 func (i *Identity) initAuthRegisterService(region string) {
-	if i.authRegisterService != nil {
+	if i.AuthRegisterService != nil {
 		return
 	}
 
-	i.authRegisterService = newAuthRegisterService(i.Log.WithContext("[AuthRegisterService]"), region, i.Client)
+	i.AuthRegisterService = newAuthRegisterService(i.Log.WithContext("[AuthRegisterService]"), region, i.Client)
 }

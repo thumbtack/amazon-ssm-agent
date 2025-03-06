@@ -23,37 +23,37 @@ import (
 // can be stubbed out for unit testing your code with the SDK without needing
 // to inject custom request handlers into the SDK's request pipeline.
 //
-//    // myFunc uses an SDK service client to make a request to
-//    // Amazon Timestream Query.
-//    func myFunc(svc timestreamqueryiface.TimestreamQueryAPI) bool {
-//        // Make svc.CancelQuery request
-//    }
+//	// myFunc uses an SDK service client to make a request to
+//	// Amazon Timestream Query.
+//	func myFunc(svc timestreamqueryiface.TimestreamQueryAPI) bool {
+//	    // Make svc.CancelQuery request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := timestreamquery.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := timestreamquery.New(sess)
 //
-//        myFunc(svc)
-//    }
+//	    myFunc(svc)
+//	}
 //
 // In your _test.go file:
 //
-//    // Define a mock struct to be used in your unit tests of myFunc.
-//    type mockTimestreamQueryClient struct {
-//        timestreamqueryiface.TimestreamQueryAPI
-//    }
-//    func (m *mockTimestreamQueryClient) CancelQuery(input *timestreamquery.CancelQueryInput) (*timestreamquery.CancelQueryOutput, error) {
-//        // mock response/functionality
-//    }
+//	// Define a mock struct to be used in your unit tests of myFunc.
+//	type mockTimestreamQueryClient struct {
+//	    timestreamqueryiface.TimestreamQueryAPI
+//	}
+//	func (m *mockTimestreamQueryClient) CancelQuery(input *timestreamquery.CancelQueryInput) (*timestreamquery.CancelQueryOutput, error) {
+//	    // mock response/functionality
+//	}
 //
-//    func TestMyFunc(t *testing.T) {
-//        // Setup Test
-//        mockSvc := &mockTimestreamQueryClient{}
+//	func TestMyFunc(t *testing.T) {
+//	    // Setup Test
+//	    mockSvc := &mockTimestreamQueryClient{}
 //
-//        myfunc(mockSvc)
+//	    myfunc(mockSvc)
 //
-//        // Verify myFunc's functionality
-//    }
+//	    // Verify myFunc's functionality
+//	}
 //
 // It is important to note that this interface will have breaking changes
 // when the service model is updated and adds new API operations, paginators,
@@ -71,6 +71,10 @@ type TimestreamQueryAPI interface {
 	DeleteScheduledQuery(*timestreamquery.DeleteScheduledQueryInput) (*timestreamquery.DeleteScheduledQueryOutput, error)
 	DeleteScheduledQueryWithContext(aws.Context, *timestreamquery.DeleteScheduledQueryInput, ...request.Option) (*timestreamquery.DeleteScheduledQueryOutput, error)
 	DeleteScheduledQueryRequest(*timestreamquery.DeleteScheduledQueryInput) (*request.Request, *timestreamquery.DeleteScheduledQueryOutput)
+
+	DescribeAccountSettings(*timestreamquery.DescribeAccountSettingsInput) (*timestreamquery.DescribeAccountSettingsOutput, error)
+	DescribeAccountSettingsWithContext(aws.Context, *timestreamquery.DescribeAccountSettingsInput, ...request.Option) (*timestreamquery.DescribeAccountSettingsOutput, error)
+	DescribeAccountSettingsRequest(*timestreamquery.DescribeAccountSettingsInput) (*request.Request, *timestreamquery.DescribeAccountSettingsOutput)
 
 	DescribeEndpoints(*timestreamquery.DescribeEndpointsInput) (*timestreamquery.DescribeEndpointsOutput, error)
 	DescribeEndpointsWithContext(aws.Context, *timestreamquery.DescribeEndpointsInput, ...request.Option) (*timestreamquery.DescribeEndpointsOutput, error)
@@ -116,6 +120,10 @@ type TimestreamQueryAPI interface {
 	UntagResource(*timestreamquery.UntagResourceInput) (*timestreamquery.UntagResourceOutput, error)
 	UntagResourceWithContext(aws.Context, *timestreamquery.UntagResourceInput, ...request.Option) (*timestreamquery.UntagResourceOutput, error)
 	UntagResourceRequest(*timestreamquery.UntagResourceInput) (*request.Request, *timestreamquery.UntagResourceOutput)
+
+	UpdateAccountSettings(*timestreamquery.UpdateAccountSettingsInput) (*timestreamquery.UpdateAccountSettingsOutput, error)
+	UpdateAccountSettingsWithContext(aws.Context, *timestreamquery.UpdateAccountSettingsInput, ...request.Option) (*timestreamquery.UpdateAccountSettingsOutput, error)
+	UpdateAccountSettingsRequest(*timestreamquery.UpdateAccountSettingsInput) (*request.Request, *timestreamquery.UpdateAccountSettingsOutput)
 
 	UpdateScheduledQuery(*timestreamquery.UpdateScheduledQueryInput) (*timestreamquery.UpdateScheduledQueryOutput, error)
 	UpdateScheduledQueryWithContext(aws.Context, *timestreamquery.UpdateScheduledQueryInput, ...request.Option) (*timestreamquery.UpdateScheduledQueryOutput, error)

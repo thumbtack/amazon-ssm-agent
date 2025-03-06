@@ -15,6 +15,7 @@
 package ssmec2roleprovider
 
 import (
+	"context"
 	"fmt"
 	"time"
 
@@ -31,11 +32,14 @@ import (
 	"github.com/aws/aws-sdk-go/service/ssm"
 )
 
+const RegistrationType = "EC2"
+
 var (
-	updateServerInfo   = registration.UpdateServerInfo
-	newIirRsaAuth      = rsaauth.NewIirRsaClient
-	loadPrivateKey     = registration.PrivateKey
-	loadPrivateKeyType = registration.PrivateKeyType
+	newIirRsaAuth           = rsaauth.NewIirRsaClient
+	getStoredInstanceId     = registration.InstanceID
+	getStoredPrivateKey     = registration.PrivateKey
+	getStoredPublicKey      = registration.PublicKey
+	getStoredPrivateKeyType = registration.PrivateKeyType
 )
 
 // SSMEC2RoleProvider sends requests for credentials to systems manager signed with AWS SigV4
@@ -58,26 +62,32 @@ type SSMEC2RoleProvider struct {
 	tokenRequestClient authtokenrequest.IClient
 	InstanceInfo       *InstanceInfo
 
-	RegistrationReadyChan chan *authregister.RegistrationInfo
-	registrationInfo      *authregister.RegistrationInfo
+	registrationInfo *authregister.RegistrationInfo
 }
 
 func (p *SSMEC2RoleProvider) isEC2InstanceRegistered() bool {
-	select {
-	case registrationInfo, ok := <-p.RegistrationReadyChan:
-		if ok {
-			p.registrationInfo = registrationInfo
-			close(p.RegistrationReadyChan)
+	if p.registrationInfo == nil {
+		registrationInfo := p.loadRegistrationInfo(p.InstanceInfo.InstanceId)
+		if registrationInfo == nil || registrationInfo.InstanceId == "" {
+			p.Log.Debug("EC2 instance is not yet registered with Systems Manager")
+			return false
 		}
-	default:
-		p.Log.Debugf("EC2 instance is not yet registered with Systems Manager")
+
+		p.registrationInfo = registrationInfo
 	}
 
-	return p.registrationInfo != nil && p.registrationInfo.PrivateKey != "" && p.registrationInfo.KeyType != ""
+	return p.registrationInfo.PrivateKey != "" && p.registrationInfo.KeyType != ""
 }
 
-// Retrieve retrieves EC2 credentials from Systems Manager
-func (p *SSMEC2RoleProvider) Retrieve() (credentials.Value, error) {
+// GetInstanceRegion gets the region of the instance for this provider.
+func (p *SSMEC2RoleProvider) GetInstanceRegion() string {
+	if p.InstanceInfo == nil {
+		return "" // Should never happen with proper initialization
+	}
+	return p.InstanceInfo.Region
+}
+
+func (p *SSMEC2RoleProvider) RetrieveWithContext(ctx context.Context) (credentials.Value, error) {
 	var err error
 	var roleCreds *ssm.RequestManagedInstanceRoleTokenOutput
 
@@ -89,7 +99,7 @@ func (p *SSMEC2RoleProvider) Retrieve() (credentials.Value, error) {
 		p.tokenRequestClient = newIirRsaAuth(p.Log.WithContext("[TokenRequestService]"),
 			p.Config,
 			p.IMDSClient,
-			p.InstanceInfo.Region,
+			p.GetInstanceRegion(),
 			p.registrationInfo.PrivateKey)
 	}
 
@@ -100,7 +110,7 @@ func (p *SSMEC2RoleProvider) Retrieve() (credentials.Value, error) {
 	}
 
 	// Get role token
-	roleCreds, err = p.tokenRequestClient.RequestManagedInstanceRoleToken(p.InstanceInfo.InstanceId)
+	roleCreds, err = p.tokenRequestClient.RequestManagedInstanceRoleTokenWithContext(ctx, p.InstanceInfo.InstanceId)
 	if err != nil {
 		return EmptyCredentials(), fmt.Errorf("error calling RequestManagedInstanceRoleToken: %w", err)
 	}
@@ -116,7 +126,28 @@ func (p *SSMEC2RoleProvider) Retrieve() (credentials.Value, error) {
 	}, nil
 }
 
+// Retrieve retrieves EC2 credentials from Systems Manager
+func (p *SSMEC2RoleProvider) Retrieve() (credentials.Value, error) {
+	return p.RetrieveWithContext(context.Background())
+}
+
 // EmptyCredentials returns empty SSMEC2RoleProvider credentials
 func EmptyCredentials() credentials.Value {
 	return credentials.Value{ProviderName: ProviderName}
+}
+
+func (p *SSMEC2RoleProvider) loadRegistrationInfo(instanceId string) *authregister.RegistrationInfo {
+	registrationInfo := &authregister.RegistrationInfo{
+		InstanceId: getStoredInstanceId(p.Log, RegistrationType, registration.EC2RegistrationVaultKey),
+		PrivateKey: getStoredPrivateKey(p.Log, RegistrationType, registration.EC2RegistrationVaultKey),
+		KeyType:    getStoredPrivateKeyType(p.Log, RegistrationType, registration.EC2RegistrationVaultKey),
+		PublicKey:  getStoredPublicKey(p.Log, RegistrationType, registration.EC2RegistrationVaultKey),
+	}
+
+	if registrationInfo.InstanceId == "" || registrationInfo.PrivateKey == "" ||
+		registrationInfo.KeyType == "" || registrationInfo.InstanceId != instanceId {
+		registrationInfo.InstanceId = "" // setting it as blank to try registration
+	}
+
+	return registrationInfo
 }

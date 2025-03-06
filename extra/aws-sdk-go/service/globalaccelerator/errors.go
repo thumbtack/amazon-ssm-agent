@@ -42,6 +42,12 @@ const (
 	// it.
 	ErrCodeAssociatedListenerFoundException = "AssociatedListenerFoundException"
 
+	// ErrCodeAttachmentNotFoundException for service response error code
+	// "AttachmentNotFoundException".
+	//
+	// No cross-account attachment was found.
+	ErrCodeAttachmentNotFoundException = "AttachmentNotFoundException"
+
 	// ErrCodeByoipCidrNotFoundException for service response error code
 	// "ByoipCidrNotFoundException".
 	//
@@ -121,6 +127,12 @@ const (
 	//
 	// The listener that you specified doesn't exist.
 	ErrCodeListenerNotFoundException = "ListenerNotFoundException"
+
+	// ErrCodeTransactionInProgressException for service response error code
+	// "TransactionInProgressException".
+	//
+	// There's already a transaction in progress. Another transaction can't be processed.
+	ErrCodeTransactionInProgressException = "TransactionInProgressException"
 )
 
 var exceptionFromCode = map[string]func(protocol.ResponseMetadata) error{
@@ -129,6 +141,7 @@ var exceptionFromCode = map[string]func(protocol.ResponseMetadata) error{
 	"AccessDeniedException":                 newErrorAccessDeniedException,
 	"AssociatedEndpointGroupFoundException": newErrorAssociatedEndpointGroupFoundException,
 	"AssociatedListenerFoundException":      newErrorAssociatedListenerFoundException,
+	"AttachmentNotFoundException":           newErrorAttachmentNotFoundException,
 	"ByoipCidrNotFoundException":            newErrorByoipCidrNotFoundException,
 	"ConflictException":                     newErrorConflictException,
 	"EndpointAlreadyExistsException":        newErrorEndpointAlreadyExistsException,
@@ -142,4 +155,5 @@ var exceptionFromCode = map[string]func(protocol.ResponseMetadata) error{
 	"InvalidPortRangeException":             newErrorInvalidPortRangeException,
 	"LimitExceededException":                newErrorLimitExceededException,
 	"ListenerNotFoundException":             newErrorListenerNotFoundException,
+	"TransactionInProgressException":        newErrorTransactionInProgressException,
 }

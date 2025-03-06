@@ -227,7 +227,7 @@ func TestUnInstallerFilePath(t *testing.T) {
 	}
 }
 
-func TestExeCommandSucceeded(t *testing.T) {
+func TestExeCommandStartSucceeded(t *testing.T) {
 	testCases := []struct {
 		cmd            string
 		workingDir     string
@@ -258,20 +258,136 @@ func TestExeCommandSucceeded(t *testing.T) {
 	}
 
 	for _, test := range testCases {
-		_, _, err := util.ExeCommand(logger,
-			test.cmd,
-			test.workingDir,
-			appconfig.UpdaterArtifactsRoot,
-			test.stdOut,
-			test.stdErr,
-			test.isAsync)
+		commandInput := CommandExecutionSettings{
+			Log:         logger,
+			Cmd:         strings.Fields(test.cmd),
+			WorkingDir:  test.workingDir,
+			UpdaterRoot: appconfig.UpdaterArtifactsRoot,
+			StdOut:      test.stdOut,
+			StdErr:      test.stdErr,
+			IsAsync:     test.isAsync,
+		}
+		_, exitCode, err := util.ExeCommand(&commandInput)
 
 		if test.expectingError {
-			assert.Error(t, err)
+			assert.Equal(t, -1, int(exitCode))
+			assert.ErrorContains(t, err, "exec: not started")
 		} else {
+			assert.Equal(t, -1, int(exitCode))
 			assert.NoError(t, err)
 		}
 	}
+}
+
+func TestExeCommandStartFailed(t *testing.T) {
+	testCases := []struct {
+		cmd        string
+		workingDir string
+		stdOut     string
+		stdErr     string
+		isAsync    bool
+	}{
+		// test system with upstart
+		{"-update -target.version 5.0.0", "temp", "stdout", "stderr", true},
+		// test system with systemD
+		{"-update -target.version 5.0.0", "temp", "stdout", "stderr", false},
+	}
+
+	mkDirAll = func(path string, perm os.FileMode) error {
+		return nil
+	}
+	openFile = func(name string, flag int, perm os.FileMode) (*os.File, error) {
+		return &os.File{}, nil
+	}
+
+	// Stub exec.Command
+	execCommand = fakeExecCommand
+	cmdStart = func(*exec.Cmd) error { return fmt.Errorf("start command error") }
+
+	util := Utility{
+		Context: context.NewMockDefault(),
+	}
+
+	for _, test := range testCases {
+		commandInput := CommandExecutionSettings{
+			Log:         logger,
+			Cmd:         strings.Fields(test.cmd),
+			WorkingDir:  test.workingDir,
+			UpdaterRoot: appconfig.UpdaterArtifactsRoot,
+			StdOut:      test.stdOut,
+			StdErr:      test.stdErr,
+			IsAsync:     test.isAsync,
+		}
+		_, exitCode, err := util.ExeCommand(&commandInput)
+		assert.Equal(t, updateconstants.ExitCodeErrorPrepareUpdateCommand, exitCode)
+		assert.ErrorContains(t, err, "start command error")
+	}
+}
+
+func TestExecCommandWithOutputStartSucceeded(t *testing.T) {
+	mkDirAll = func(path string, perm os.FileMode) error {
+		return nil
+	}
+	openFile = func(name string, flag int, perm os.FileMode) (*os.File, error) {
+		return &os.File{}, nil
+	}
+
+	// Stub exec.Command
+	execCommand = fakeExecCommand
+	cmdStart = func(*exec.Cmd) error { return nil }
+
+	util := Utility{
+		Context: context.NewMockDefault(),
+	}
+
+	commandInput := CommandExecutionSettings{
+		Log:         logger,
+		Cmd:         strings.Fields("-update -target.version 5.0.0"),
+		WorkingDir:  "temp",
+		UpdaterRoot: appconfig.UpdaterArtifactsRoot,
+		StdOut:      "stdout",
+		StdErr:      "stderr",
+		IsAsync:     false,
+	}
+
+	_, exitCode, stdOut, stdErr, err := util.ExecCommandWithOutput(&commandInput)
+	assert.Equal(t, -1, int(exitCode))
+	assert.Empty(t, stdOut)
+	assert.Empty(t, stdErr)
+	assert.ErrorContains(t, err, "exec: not started")
+}
+
+func TestExecCommandWithOutputStartFailed(t *testing.T) {
+	mkDirAll = func(path string, perm os.FileMode) error {
+		return nil
+	}
+	openFile = func(name string, flag int, perm os.FileMode) (*os.File, error) {
+		return &os.File{}, nil
+	}
+
+	// Stub exec.Command
+	execCommand = fakeExecCommand
+	cmdStart = func(*exec.Cmd) error { return fmt.Errorf("start command error") }
+
+	util := Utility{
+		Context: context.NewMockDefault(),
+	}
+
+	commandInput := CommandExecutionSettings{
+		Log:         logger,
+		Cmd:         strings.Fields("-update -target.version 5.0.0"),
+		WorkingDir:  "temp",
+		UpdaterRoot: appconfig.UpdaterArtifactsRoot,
+		StdOut:      "stdout",
+		StdErr:      "stderr",
+		IsAsync:     false,
+	}
+
+	_, exitCode, stdOut, stdErr, err := util.ExecCommandWithOutput(&commandInput)
+	assert.Equal(t, updateconstants.ExitCodeErrorPrepareUpdateCommand, exitCode)
+	assert.Empty(t, stdOut)
+	assert.Empty(t, stdErr)
+	assert.ErrorContains(t, err, "start command error")
 }
 
 func TestKillProcess(t *testing.T) {
@@ -289,7 +405,33 @@ func TestSetExeOutErrCannotCreateFolder(t *testing.T) {
 		return fmt.Errorf("create folder error")
 	}
 	_, _, err := setExeOutErr(appconfig.UpdaterArtifactsRoot, "std", "err")
-	assert.Error(t, err, "create folder error")
+	assert.ErrorContains(t, err, "create folder error")
+
+	// Stub exec.Command
+	execCommand = fakeExecCommand
+
+	util := Utility{
+		Context: context.NewMockDefault(),
+	}
+
+	commandInput := CommandExecutionSettings{
+		Log:         logger,
+		Cmd:         strings.Fields("-update -target.version 5.0.0"),
+		WorkingDir:  "temp",
+		UpdaterRoot: appconfig.UpdaterArtifactsRoot,
+		StdOut:      "stdout",
+		StdErr:      "stderr",
+		IsAsync:     false,
+	}
+	_, exitCode, err := util.ExeCommand(&commandInput)
+	assert.Equal(t, updateconstants.ExitCodeErrorPrepareUpdateCommand, exitCode)
+	assert.ErrorContains(t, err, "create folder error")
+
+	_, exitCode, stdOut, stdErr, err := util.ExecCommandWithOutput(&commandInput)
+	assert.Equal(t, updateconstants.ExitCodeErrorPrepareUpdateCommand, exitCode)
+	assert.Nil(t, stdOut)
+	assert.Nil(t, stdErr)
+	assert.ErrorContains(t, err, "create folder error")
 }
 
 func TestSetExeOutErrCannotOpenFile(t *testing.T) {
@@ -301,7 +443,34 @@ func TestSetExeOutErrCannotOpenFile(t *testing.T) {
 		return &os.File{}, fmt.Errorf("create file error")
 	}
 	_, _, err := setExeOutErr(appconfig.UpdaterArtifactsRoot, "std", "err")
-	assert.Error(t, err, "create file error")
+	assert.ErrorContains(t, err, "create file error")
+
+	// Stub exec.Command
+	execCommand = fakeExecCommand
+
+	util := Utility{
+		Context: context.NewMockDefault(),
+	}
+
+	commandInput := CommandExecutionSettings{
+		Log:         logger,
+		Cmd:         strings.Fields("-update -target.version 5.0.0"),
+		WorkingDir:  "temp",
+		UpdaterRoot: appconfig.UpdaterArtifactsRoot,
+		StdOut:      "stdout",
+		StdErr:      "stderr",
+		IsAsync:     false,
+	}
+	_, exitCode, err := util.ExeCommand(&commandInput)
+	fmt.Println(err)
+	assert.Equal(t, updateconstants.ExitCodeErrorPrepareUpdateCommand, exitCode)
+	assert.ErrorContains(t, err, "create file error")
+
+	_, exitCode, stdOut, stdErr, err := util.ExecCommandWithOutput(&commandInput)
+	assert.Equal(t, updateconstants.ExitCodeErrorPrepareUpdateCommand, exitCode)
+	assert.Nil(t, stdOut)
+	assert.Nil(t, stdErr)
+	assert.ErrorContains(t, err, "create file error")
 }
 
 func fakeExecCommand(command string, args ...string) *exec.Cmd {
@@ -475,6 +644,41 @@ func TestCompareVersion(t *testing.T) {
 
 }
 
+func TestGetStableURLFromManifestURL(t *testing.T) {
+	// Empty URL
+	agentIdentity := identityMocks.NewDefaultMockAgentIdentity()
+	agentIdentity.On("Region").Return("us-east-1", nil)
+
+	url, err := GetStableURLFromManifestURL("", agentIdentity)
+	assert.Error(t, err)
+	assert.Equal(t, "", url)
+
+	// Invalid URL
+	url, err = GetStableURLFromManifestURL("InvalidUrl", agentIdentity)
+	assert.Error(t, err)
+	assert.Equal(t, "", url)
+
+	// Invalid manifest url - artifact url
+	url, err = GetStableURLFromManifestURL("https://bucket.s3.region.amazonaws.com/amazon-ssm-agent/version/amazon-ssm-agent.tar.gz", agentIdentity)
+	assert.Error(t, err)
+	assert.Equal(t, "", url)
+
+	// Prod manifest url with region placeholder
+	url, err = GetStableURLFromManifestURL("https://s3.{Region}.amazonaws.com/amazon-ssm-{Region}/ssm-agent-manifest.json", agentIdentity)
+	assert.NoError(t, err)
+	assert.Equal(t, "https://s3.us-east-1.amazonaws.com/amazon-ssm-us-east-1/stable/VERSION", url)
+
+	// Valid s3 manifest link bucket in Path
+	url, err = GetStableURLFromManifestURL("https://s3.region.amazonaws.com/bucket/ssm-agent-manifest.json", agentIdentity)
+	assert.NoError(t, err)
+	assert.Equal(t, "https://s3.region.amazonaws.com/bucket/stable/VERSION", url)
+
+	// Valid s3 manifest link with bucket in url
+	url, err = GetStableURLFromManifestURL("https://bucket.s3.region.amazonaws.com/ssm-agent-manifest.json", agentIdentity)
+	assert.NoError(t, err)
+	assert.Equal(t, "https://bucket.s3.region.amazonaws.com/stable/VERSION", url)
+}
+
 func TestGetManifestURLFromSourceUrl(t *testing.T) {
 	// Empty URL
 	url, err := GetManifestURLFromSourceUrl("")
@@ -551,14 +755,14 @@ func TestUtility_setShareCredsEnvironment_SetsCommandAWSEnvironmentVariables_Whe
 	ctx.On("Identity").Return(agentIdentity)
 	ctx.On("Log").Return(log.NewMockLog())
 
-	remoteProvier := &mocks.IRemoteProvider{}
-	remoteProvier.On("SharesCredentials").Return(true)
+	remoteProvider := &mocks.IRemoteProvider{}
+	remoteProvider.On("SharesCredentials").Return(true)
 	expectedShareProfile := "SomeShareFileLocation"
 	expectedShareFile := "SomeShareFileLocation"
-	remoteProvier.On("ShareProfile").Return(expectedShareProfile)
-	remoteProvier.On("ShareFile").Return(expectedShareFile)
+	remoteProvider.On("ShareProfile").Return(expectedShareProfile)
+	remoteProvider.On("ShareFile").Return(expectedShareFile)
 	getRemoteProvider = func(agentIdentity identity.IAgentIdentity) (credentialproviders.IRemoteProvider, bool) {
-		return remoteProvier, true
+		return remoteProvider, true
 	}
 
 	utility := &Utility{
@@ -566,7 +770,7 @@ func TestUtility_setShareCredsEnvironment_SetsCommandAWSEnvironmentVariables_Whe
 	}
 
 	command := &exec.Cmd{}
-	utility.setCommandEnvironmentVariables(command)
+	utility.setCommandEnvironmentVariables(command, nil)
 
 	expectedProfileVar := fmt.Sprintf("AWS_PROFILE=%s", expectedShareProfile)
 	expectedSharedFileVar := fmt.Sprintf("AWS_SHARED_CREDENTIALS_FILE=%s", expectedShareFile)

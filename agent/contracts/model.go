@@ -171,6 +171,17 @@ const (
 	ParamTypeStringMap = "StringMap"
 )
 
+type SSMConnectionChannel string
+
+const (
+	MGS SSMConnectionChannel = "ssmmessages"
+	MDS SSMConnectionChannel = "ec2messages"
+)
+
+type ConnectionChannel struct {
+	SSMConnectionChannel SSMConnectionChannel
+}
+
 // A Parameter in the DocumentContent of an MDS message.
 type Parameter struct {
 	DefaultVal     interface{} `json:"default" yaml:"default"`
@@ -248,10 +259,11 @@ type SessionDocumentContent struct {
 
 // AdditionalInfo section in agent response
 type AdditionalInfo struct {
-	Agent               AgentInfo      `json:"agent"`
-	DateTime            string         `json:"dateTime"`
-	RunID               string         `json:"runId"`
-	RuntimeStatusCounts map[string]int `json:"runtimeStatusCounts"`
+	Agent                   AgentInfo      `json:"agent"`
+	DateTime                string         `json:"dateTime"`
+	RunID                   string         `json:"runId"`
+	RuntimeStatusCounts     map[string]int `json:"runtimeStatusCounts"`
+	AbleToOpenMGSConnection *bool          `json:"ableToOpenMGSConnection,omitempty"`
 }
 
 // AgentInfo represents the agent response

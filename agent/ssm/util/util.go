@@ -32,10 +32,14 @@ func AwsConfig(logger log.T, appConfig appconfig.SsmagentConfig, service, region
 	return &aws.Config{
 		Retryer:    newRetryer(),
 		SleepDelay: sleepDelay,
-		HTTPClient: &http.Client{Transport: network.GetDefaultTransport(logger, appConfig)},
-		Region:     aws.String(region),
-		Endpoint:   aws.String(endpointHelper.GetServiceEndpoint(service, region)),
-		Logger:     logger,
+		HTTPClient: &http.Client{
+			Transport:     network.GetDefaultTransport(logger, appConfig),
+			CheckRedirect: network.DisableHTTPDowngrade,
+			Timeout:       60 * time.Second,
+		},
+		Region:   aws.String(region),
+		Endpoint: aws.String(endpointHelper.GetServiceEndpoint(service, region)),
+		Logger:   logger,
 	}
 
 }

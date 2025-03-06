@@ -26,7 +26,6 @@ func parseTime(layout, value string) *time.Time {
 }
 
 // To add tags to a load balancer
-//
 // This example adds the specified tags to the specified load balancer.
 func ExampleELBV2_AddTags_shared00() {
 	svc := elbv2.New(session.New())
@@ -62,6 +61,8 @@ func ExampleELBV2_AddTags_shared00() {
 				fmt.Println(elbv2.ErrCodeListenerNotFoundException, aerr.Error())
 			case elbv2.ErrCodeRuleNotFoundException:
 				fmt.Println(elbv2.ErrCodeRuleNotFoundException, aerr.Error())
+			case elbv2.ErrCodeTrustStoreNotFoundException:
+				fmt.Println(elbv2.ErrCodeTrustStoreNotFoundException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -77,7 +78,6 @@ func ExampleELBV2_AddTags_shared00() {
 }
 
 // To create an HTTP listener
-//
 // This example creates an HTTP listener for the specified load balancer that forwards
 // requests to the specified target group.
 func ExampleELBV2_CreateListener_shared00() {
@@ -134,6 +134,10 @@ func ExampleELBV2_CreateListener_shared00() {
 				fmt.Println(elbv2.ErrCodeALPNPolicyNotSupportedException, aerr.Error())
 			case elbv2.ErrCodeTooManyTagsException:
 				fmt.Println(elbv2.ErrCodeTooManyTagsException, aerr.Error())
+			case elbv2.ErrCodeTrustStoreNotFoundException:
+				fmt.Println(elbv2.ErrCodeTrustStoreNotFoundException, aerr.Error())
+			case elbv2.ErrCodeTrustStoreNotReadyException:
+				fmt.Println(elbv2.ErrCodeTrustStoreNotReadyException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -149,7 +153,6 @@ func ExampleELBV2_CreateListener_shared00() {
 }
 
 // To create an HTTPS listener
-//
 // This example creates an HTTPS listener for the specified load balancer that forwards
 // requests to the specified target group. Note that you must specify an SSL certificate
 // for an HTTPS listener. You can create and manage certificates using AWS Certificate
@@ -216,6 +219,10 @@ func ExampleELBV2_CreateListener_shared01() {
 				fmt.Println(elbv2.ErrCodeALPNPolicyNotSupportedException, aerr.Error())
 			case elbv2.ErrCodeTooManyTagsException:
 				fmt.Println(elbv2.ErrCodeTooManyTagsException, aerr.Error())
+			case elbv2.ErrCodeTrustStoreNotFoundException:
+				fmt.Println(elbv2.ErrCodeTrustStoreNotFoundException, aerr.Error())
+			case elbv2.ErrCodeTrustStoreNotReadyException:
+				fmt.Println(elbv2.ErrCodeTrustStoreNotReadyException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -231,7 +238,6 @@ func ExampleELBV2_CreateListener_shared01() {
 }
 
 // To create an Internet-facing load balancer
-//
 // This example creates an Internet-facing load balancer and enables the Availability
 // Zones for the specified subnets.
 func ExampleELBV2_CreateLoadBalancer_shared00() {
@@ -289,7 +295,6 @@ func ExampleELBV2_CreateLoadBalancer_shared00() {
 }
 
 // To create an internal load balancer
-//
 // This example creates an internal load balancer and enables the Availability Zones
 // for the specified subnets.
 func ExampleELBV2_CreateLoadBalancer_shared01() {
@@ -348,7 +353,6 @@ func ExampleELBV2_CreateLoadBalancer_shared01() {
 }
 
 // To create a rule
-//
 // This example creates a rule that forwards requests to the specified target group
 // if the URL contains the specified pattern (for example, /img/*).
 func ExampleELBV2_CreateRule_shared00() {
@@ -421,7 +425,6 @@ func ExampleELBV2_CreateRule_shared00() {
 }
 
 // To create a target group
-//
 // This example creates a target group that you can use to route traffic to targets
 // using HTTP on port 80. This target group uses the default health check configuration.
 func ExampleELBV2_CreateTargetGroup_shared00() {
@@ -460,7 +463,6 @@ func ExampleELBV2_CreateTargetGroup_shared00() {
 }
 
 // To delete a listener
-//
 // This example deletes the specified listener.
 func ExampleELBV2_DeleteListener_shared00() {
 	svc := elbv2.New(session.New())
@@ -491,7 +493,6 @@ func ExampleELBV2_DeleteListener_shared00() {
 }
 
 // To delete a load balancer
-//
 // This example deletes the specified load balancer.
 func ExampleELBV2_DeleteLoadBalancer_shared00() {
 	svc := elbv2.New(session.New())
@@ -524,7 +525,6 @@ func ExampleELBV2_DeleteLoadBalancer_shared00() {
 }
 
 // To delete a rule
-//
 // This example deletes the specified rule.
 func ExampleELBV2_DeleteRule_shared00() {
 	svc := elbv2.New(session.New())
@@ -554,8 +554,41 @@ func ExampleELBV2_DeleteRule_shared00() {
 	fmt.Println(result)
 }
 
+// Delete a shared trust store association
+// This example deletes the association between the specified trust store and the specified
+// load balancer.
+func ExampleELBV2_DeleteSharedTrustStoreAssociation_shared00() {
+	svc := elbv2.New(session.New())
+	input := &elbv2.DeleteSharedTrustStoreAssociationInput{
+		ResourceArn:   aws.String("arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-load-balancer/80233fa81d678c2c"),
+		TrustStoreArn: aws.String("arn:aws:elasticloadbalancing:us-east-1:123456789012:truststore/my-trust-store/73e2d6bc24d8a063"),
+	}
+
+	result, err := svc.DeleteSharedTrustStoreAssociation(input)
+	if err != nil {
+		if aerr, ok := err.(awserr.Error); ok {
+			switch aerr.Code() {
+			case elbv2.ErrCodeTrustStoreNotFoundException:
+				fmt.Println(elbv2.ErrCodeTrustStoreNotFoundException, aerr.Error())
+			case elbv2.ErrCodeDeleteAssociationSameAccountException:
+				fmt.Println(elbv2.ErrCodeDeleteAssociationSameAccountException, aerr.Error())
+			case elbv2.ErrCodeTrustStoreAssociationNotFoundException:
+				fmt.Println(elbv2.ErrCodeTrustStoreAssociationNotFoundException, aerr.Error())
+			default:
+				fmt.Println(aerr.Error())
+			}
+		} else {
+			// Print the error, cast err to awserr.Error to get the Code and
+			// Message from an error.
+			fmt.Println(err.Error())
+		}
+		return
+	}
+
+	fmt.Println(result)
+}
+
 // To delete a target group
-//
 // This example deletes the specified target group.
 func ExampleELBV2_DeleteTargetGroup_shared00() {
 	svc := elbv2.New(session.New())
@@ -584,7 +617,6 @@ func ExampleELBV2_DeleteTargetGroup_shared00() {
 }
 
 // To deregister a target from a target group
-//
 // This example deregisters the specified instance from the specified target group.
 func ExampleELBV2_DeregisterTargets_shared00() {
 	svc := elbv2.New(session.New())
@@ -620,7 +652,6 @@ func ExampleELBV2_DeregisterTargets_shared00() {
 }
 
 // To describe a listener
-//
 // This example describes the specified listener.
 func ExampleELBV2_DescribeListeners_shared00() {
 	svc := elbv2.New(session.New())
@@ -655,7 +686,6 @@ func ExampleELBV2_DescribeListeners_shared00() {
 }
 
 // To describe load balancer attributes
-//
 // This example describes the attributes of the specified load balancer.
 func ExampleELBV2_DescribeLoadBalancerAttributes_shared00() {
 	svc := elbv2.New(session.New())
@@ -684,7 +714,6 @@ func ExampleELBV2_DescribeLoadBalancerAttributes_shared00() {
 }
 
 // To describe a load balancer
-//
 // This example describes the specified load balancer.
 func ExampleELBV2_DescribeLoadBalancers_shared00() {
 	svc := elbv2.New(session.New())
@@ -715,7 +744,6 @@ func ExampleELBV2_DescribeLoadBalancers_shared00() {
 }
 
 // To describe a rule
-//
 // This example describes the specified rule.
 func ExampleELBV2_DescribeRules_shared00() {
 	svc := elbv2.New(session.New())
@@ -750,7 +778,6 @@ func ExampleELBV2_DescribeRules_shared00() {
 }
 
 // To describe a policy used for SSL negotiation
-//
 // This example describes the specified policy used for SSL negotiation.
 func ExampleELBV2_DescribeSSLPolicies_shared00() {
 	svc := elbv2.New(session.New())
@@ -781,7 +808,6 @@ func ExampleELBV2_DescribeSSLPolicies_shared00() {
 }
 
 // To describe the tags assigned to a load balancer
-//
 // This example describes the tags assigned to the specified load balancer.
 func ExampleELBV2_DescribeTags_shared00() {
 	svc := elbv2.New(session.New())
@@ -803,6 +829,8 @@ func ExampleELBV2_DescribeTags_shared00() {
 				fmt.Println(elbv2.ErrCodeListenerNotFoundException, aerr.Error())
 			case elbv2.ErrCodeRuleNotFoundException:
 				fmt.Println(elbv2.ErrCodeRuleNotFoundException, aerr.Error())
+			case elbv2.ErrCodeTrustStoreNotFoundException:
+				fmt.Println(elbv2.ErrCodeTrustStoreNotFoundException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -818,7 +846,6 @@ func ExampleELBV2_DescribeTags_shared00() {
 }
 
 // To describe target group attributes
-//
 // This example describes the attributes of the specified target group.
 func ExampleELBV2_DescribeTargetGroupAttributes_shared00() {
 	svc := elbv2.New(session.New())
@@ -847,7 +874,6 @@ func ExampleELBV2_DescribeTargetGroupAttributes_shared00() {
 }
 
 // To describe a target group
-//
 // This example describes the specified target group.
 func ExampleELBV2_DescribeTargetGroups_shared00() {
 	svc := elbv2.New(session.New())
@@ -880,7 +906,6 @@ func ExampleELBV2_DescribeTargetGroups_shared00() {
 }
 
 // To describe the health of the targets for a target group
-//
 // This example describes the health of the targets for the specified target group.
 // One target is healthy but the other is not specified in an action, so it can't receive
 // traffic from the load balancer.
@@ -915,7 +940,6 @@ func ExampleELBV2_DescribeTargetHealth_shared00() {
 }
 
 // To describe the health of a target
-//
 // This example describes the health of the specified target. This target is healthy.
 func ExampleELBV2_DescribeTargetHealth_shared01() {
 	svc := elbv2.New(session.New())
@@ -953,8 +977,35 @@ func ExampleELBV2_DescribeTargetHealth_shared01() {
 	fmt.Println(result)
 }
 
+// Retrieve a resource policy
+// This example retrieves the resource policy for the specified trust store.
+func ExampleELBV2_GetResourcePolicy_shared00() {
+	svc := elbv2.New(session.New())
+	input := &elbv2.GetResourcePolicyInput{
+		ResourceArn: aws.String("arn:aws:elasticloadbalancing:us-east-1:123456789012:truststore/my-trust-store/73e2d6bc24d8a067"),
+	}
+
+	result, err := svc.GetResourcePolicy(input)
+	if err != nil {
+		if aerr, ok := err.(awserr.Error); ok {
+			switch aerr.Code() {
+			case elbv2.ErrCodeResourceNotFoundException:
+				fmt.Println(elbv2.ErrCodeResourceNotFoundException, aerr.Error())
+			default:
+				fmt.Println(aerr.Error())
+			}
+		} else {
+			// Print the error, cast err to awserr.Error to get the Code and
+			// Message from an error.
+			fmt.Println(err.Error())
+		}
+		return
+	}
+
+	fmt.Println(result)
+}
+
 // To change the default action for a listener
-//
 // This example changes the default action for the specified listener.
 func ExampleELBV2_ModifyListener_shared00() {
 	svc := elbv2.New(session.New())
@@ -1006,6 +1057,10 @@ func ExampleELBV2_ModifyListener_shared00() {
 				fmt.Println(elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException, aerr.Error())
 			case elbv2.ErrCodeALPNPolicyNotSupportedException:
 				fmt.Println(elbv2.ErrCodeALPNPolicyNotSupportedException, aerr.Error())
+			case elbv2.ErrCodeTrustStoreNotFoundException:
+				fmt.Println(elbv2.ErrCodeTrustStoreNotFoundException, aerr.Error())
+			case elbv2.ErrCodeTrustStoreNotReadyException:
+				fmt.Println(elbv2.ErrCodeTrustStoreNotReadyException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -1021,7 +1076,6 @@ func ExampleELBV2_ModifyListener_shared00() {
 }
 
 // To change the server certificate
-//
 // This example changes the server certificate for the specified HTTPS listener.
 func ExampleELBV2_ModifyListener_shared01() {
 	svc := elbv2.New(session.New())
@@ -1072,6 +1126,10 @@ func ExampleELBV2_ModifyListener_shared01() {
 				fmt.Println(elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException, aerr.Error())
 			case elbv2.ErrCodeALPNPolicyNotSupportedException:
 				fmt.Println(elbv2.ErrCodeALPNPolicyNotSupportedException, aerr.Error())
+			case elbv2.ErrCodeTrustStoreNotFoundException:
+				fmt.Println(elbv2.ErrCodeTrustStoreNotFoundException, aerr.Error())
+			case elbv2.ErrCodeTrustStoreNotReadyException:
+				fmt.Println(elbv2.ErrCodeTrustStoreNotReadyException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -1087,7 +1145,6 @@ func ExampleELBV2_ModifyListener_shared01() {
 }
 
 // To enable deletion protection
-//
 // This example enables deletion protection for the specified load balancer.
 func ExampleELBV2_ModifyLoadBalancerAttributes_shared00() {
 	svc := elbv2.New(session.New())
@@ -1124,7 +1181,6 @@ func ExampleELBV2_ModifyLoadBalancerAttributes_shared00() {
 }
 
 // To change the idle timeout
-//
 // This example changes the idle timeout value for the specified load balancer.
 func ExampleELBV2_ModifyLoadBalancerAttributes_shared01() {
 	svc := elbv2.New(session.New())
@@ -1161,7 +1217,6 @@ func ExampleELBV2_ModifyLoadBalancerAttributes_shared01() {
 }
 
 // To enable access logs
-//
 // This example enables access logs for the specified load balancer. Note that the S3
 // bucket must exist in the same region as the load balancer and must have a policy
 // attached that grants access to the Elastic Load Balancing service.
@@ -1208,7 +1263,6 @@ func ExampleELBV2_ModifyLoadBalancerAttributes_shared02() {
 }
 
 // To modify a rule
-//
 // This example modifies the condition for the specified rule.
 func ExampleELBV2_ModifyRule_shared00() {
 	svc := elbv2.New(session.New())
@@ -1265,7 +1319,6 @@ func ExampleELBV2_ModifyRule_shared00() {
 }
 
 // To modify the health check configuration for a target group
-//
 // This example changes the configuration of the health checks used to evaluate the
 // health of the targets for the specified target group.
 func ExampleELBV2_ModifyTargetGroup_shared00() {
@@ -1299,7 +1352,6 @@ func ExampleELBV2_ModifyTargetGroup_shared00() {
 }
 
 // To modify the deregistration delay timeout
-//
 // This example sets the deregistration delay timeout to the specified value for the
 // specified target group.
 func ExampleELBV2_ModifyTargetGroupAttributes_shared00() {
@@ -1337,7 +1389,6 @@ func ExampleELBV2_ModifyTargetGroupAttributes_shared00() {
 }
 
 // To register targets with a target group
-//
 // This example registers the specified instances with the specified target group.
 func ExampleELBV2_RegisterTargets_shared00() {
 	svc := elbv2.New(session.New())
@@ -1380,7 +1431,6 @@ func ExampleELBV2_RegisterTargets_shared00() {
 }
 
 // To register targets with a target group using port overrides
-//
 // This example registers the specified instance with the specified target group using
 // multiple ports. This enables you to register ECS containers on the same instance
 // as targets in the target group.
@@ -1427,7 +1477,6 @@ func ExampleELBV2_RegisterTargets_shared01() {
 }
 
 // To remove tags from a load balancer
-//
 // This example removes the specified tags from the specified load balancer.
 func ExampleELBV2_RemoveTags_shared00() {
 	svc := elbv2.New(session.New())
@@ -1455,6 +1504,8 @@ func ExampleELBV2_RemoveTags_shared00() {
 				fmt.Println(elbv2.ErrCodeRuleNotFoundException, aerr.Error())
 			case elbv2.ErrCodeTooManyTagsException:
 				fmt.Println(elbv2.ErrCodeTooManyTagsException, aerr.Error())
+			case elbv2.ErrCodeTrustStoreNotFoundException:
+				fmt.Println(elbv2.ErrCodeTrustStoreNotFoundException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -1470,7 +1521,6 @@ func ExampleELBV2_RemoveTags_shared00() {
 }
 
 // To set the rule priority
-//
 // This example sets the priority of the specified rule.
 func ExampleELBV2_SetRulePriorities_shared00() {
 	svc := elbv2.New(session.New())
@@ -1508,7 +1558,6 @@ func ExampleELBV2_SetRulePriorities_shared00() {
 }
 
 // To associate a security group with a load balancer
-//
 // This example associates the specified security group with the specified load balancer.
 func ExampleELBV2_SetSecurityGroups_shared00() {
 	svc := elbv2.New(session.New())
@@ -1544,7 +1593,6 @@ func ExampleELBV2_SetSecurityGroups_shared00() {
 }
 
 // To enable Availability Zones for a load balancer
-//
 // This example enables the Availability Zones for the specified subnets for the specified
 // load balancer.
 func ExampleELBV2_SetSubnets_shared00() {

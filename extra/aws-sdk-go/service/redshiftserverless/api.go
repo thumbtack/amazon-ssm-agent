@@ -29,14 +29,13 @@ const opConvertRecoveryPointToSnapshot = "ConvertRecoveryPointToSnapshot"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ConvertRecoveryPointToSnapshotRequest method.
+//	req, resp := client.ConvertRecoveryPointToSnapshotRequest(params)
 //
-//    // Example sending a request using the ConvertRecoveryPointToSnapshotRequest method.
-//    req, resp := client.ConvertRecoveryPointToSnapshotRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ConvertRecoveryPointToSnapshot
 func (c *RedshiftServerless) ConvertRecoveryPointToSnapshotRequest(input *ConvertRecoveryPointToSnapshotInput) (req *request.Request, output *ConvertRecoveryPointToSnapshotOutput) {
@@ -68,21 +67,25 @@ func (c *RedshiftServerless) ConvertRecoveryPointToSnapshotRequest(input *Conver
 // API operation ConvertRecoveryPointToSnapshot for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
 //
-//   * ServiceQuotaExceededException
-//   The service limit was exceeded.
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - TooManyTagsException
+//     The request exceeded the number of tags allowed for a resource.
+//
+//   - ServiceQuotaExceededException
+//     The service limit was exceeded.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ConvertRecoveryPointToSnapshot
 func (c *RedshiftServerless) ConvertRecoveryPointToSnapshot(input *ConvertRecoveryPointToSnapshotInput) (*ConvertRecoveryPointToSnapshotOutput, error) {
@@ -106,6 +109,101 @@ func (c *RedshiftServerless) ConvertRecoveryPointToSnapshotWithContext(ctx aws.C
 	return out, req.Send()
 }
 
+const opCreateCustomDomainAssociation = "CreateCustomDomainAssociation"
+
+// CreateCustomDomainAssociationRequest generates a "aws/request.Request" representing the
+// client's request for the CreateCustomDomainAssociation operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateCustomDomainAssociation for more information on using the CreateCustomDomainAssociation
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateCustomDomainAssociationRequest method.
+//	req, resp := client.CreateCustomDomainAssociationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateCustomDomainAssociation
+func (c *RedshiftServerless) CreateCustomDomainAssociationRequest(input *CreateCustomDomainAssociationInput) (req *request.Request, output *CreateCustomDomainAssociationOutput) {
+	op := &request.Operation{
+		Name:       opCreateCustomDomainAssociation,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateCustomDomainAssociationInput{}
+	}
+
+	output = &CreateCustomDomainAssociationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateCustomDomainAssociation API operation for Redshift Serverless.
+//
+// Creates a custom domain association for Amazon Redshift Serverless.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation CreateCustomDomainAssociation for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateCustomDomainAssociation
+func (c *RedshiftServerless) CreateCustomDomainAssociation(input *CreateCustomDomainAssociationInput) (*CreateCustomDomainAssociationOutput, error) {
+	req, out := c.CreateCustomDomainAssociationRequest(input)
+	return out, req.Send()
+}
+
+// CreateCustomDomainAssociationWithContext is the same as CreateCustomDomainAssociation with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateCustomDomainAssociation for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) CreateCustomDomainAssociationWithContext(ctx aws.Context, input *CreateCustomDomainAssociationInput, opts ...request.Option) (*CreateCustomDomainAssociationOutput, error) {
+	req, out := c.CreateCustomDomainAssociationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCreateEndpointAccess = "CreateEndpointAccess"
 
 // CreateEndpointAccessRequest generates a "aws/request.Request" representing the
@@ -122,14 +220,13 @@ const opCreateEndpointAccess = "CreateEndpointAccess"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateEndpointAccessRequest method.
+//	req, resp := client.CreateEndpointAccessRequest(params)
 //
-//    // Example sending a request using the CreateEndpointAccessRequest method.
-//    req, resp := client.CreateEndpointAccessRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateEndpointAccess
 func (c *RedshiftServerless) CreateEndpointAccessRequest(input *CreateEndpointAccessInput) (req *request.Request, output *CreateEndpointAccessOutput) {
@@ -160,24 +257,25 @@ func (c *RedshiftServerless) CreateEndpointAccessRequest(input *CreateEndpointAc
 // API operation CreateEndpointAccess for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
-//   * ServiceQuotaExceededException
-//   The service limit was exceeded.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ServiceQuotaExceededException
+//     The service limit was exceeded.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateEndpointAccess
 func (c *RedshiftServerless) CreateEndpointAccess(input *CreateEndpointAccessInput) (*CreateEndpointAccessOutput, error) {
@@ -217,14 +315,13 @@ const opCreateNamespace = "CreateNamespace"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateNamespaceRequest method.
+//	req, resp := client.CreateNamespaceRequest(params)
 //
-//    // Example sending a request using the CreateNamespaceRequest method.
-//    req, resp := client.CreateNamespaceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateNamespace
 func (c *RedshiftServerless) CreateNamespaceRequest(input *CreateNamespaceInput) (req *request.Request, output *CreateNamespaceOutput) {
@@ -255,18 +352,19 @@ func (c *RedshiftServerless) CreateNamespaceRequest(input *CreateNamespaceInput)
 // API operation CreateNamespace for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
 //
-//   * TooManyTagsException
-//   The request exceeded the number of tags allowed for a resource.
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - TooManyTagsException
+//     The request exceeded the number of tags allowed for a resource.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateNamespace
 func (c *RedshiftServerless) CreateNamespace(input *CreateNamespaceInput) (*CreateNamespaceOutput, error) {
@@ -290,6 +388,97 @@ func (c *RedshiftServerless) CreateNamespaceWithContext(ctx aws.Context, input *
 	return out, req.Send()
 }
 
+const opCreateScheduledAction = "CreateScheduledAction"
+
+// CreateScheduledActionRequest generates a "aws/request.Request" representing the
+// client's request for the CreateScheduledAction operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateScheduledAction for more information on using the CreateScheduledAction
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateScheduledActionRequest method.
+//	req, resp := client.CreateScheduledActionRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateScheduledAction
+func (c *RedshiftServerless) CreateScheduledActionRequest(input *CreateScheduledActionInput) (req *request.Request, output *CreateScheduledActionOutput) {
+	op := &request.Operation{
+		Name:       opCreateScheduledAction,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateScheduledActionInput{}
+	}
+
+	output = &CreateScheduledActionOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateScheduledAction API operation for Redshift Serverless.
+//
+// Creates a scheduled action. A scheduled action contains a schedule and an
+// Amazon Redshift API action. For example, you can create a schedule of when
+// to run the CreateSnapshot API operation.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation CreateScheduledAction for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateScheduledAction
+func (c *RedshiftServerless) CreateScheduledAction(input *CreateScheduledActionInput) (*CreateScheduledActionOutput, error) {
+	req, out := c.CreateScheduledActionRequest(input)
+	return out, req.Send()
+}
+
+// CreateScheduledActionWithContext is the same as CreateScheduledAction with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateScheduledAction for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) CreateScheduledActionWithContext(ctx aws.Context, input *CreateScheduledActionInput, opts ...request.Option) (*CreateScheduledActionOutput, error) {
+	req, out := c.CreateScheduledActionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCreateSnapshot = "CreateSnapshot"
 
 // CreateSnapshotRequest generates a "aws/request.Request" representing the
@@ -306,14 +495,13 @@ const opCreateSnapshot = "CreateSnapshot"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateSnapshotRequest method.
+//	req, resp := client.CreateSnapshotRequest(params)
 //
-//    // Example sending a request using the CreateSnapshotRequest method.
-//    req, resp := client.CreateSnapshotRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateSnapshot
 func (c *RedshiftServerless) CreateSnapshotRequest(input *CreateSnapshotInput) (req *request.Request, output *CreateSnapshotOutput) {
@@ -345,21 +533,25 @@ func (c *RedshiftServerless) CreateSnapshotRequest(input *CreateSnapshotInput) (
 // API operation CreateSnapshot for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
 //
-//   * ServiceQuotaExceededException
-//   The service limit was exceeded.
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - TooManyTagsException
+//     The request exceeded the number of tags allowed for a resource.
+//
+//   - ServiceQuotaExceededException
+//     The service limit was exceeded.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateSnapshot
 func (c *RedshiftServerless) CreateSnapshot(input *CreateSnapshotInput) (*CreateSnapshotOutput, error) {
@@ -383,6 +575,102 @@ func (c *RedshiftServerless) CreateSnapshotWithContext(ctx aws.Context, input *C
 	return out, req.Send()
 }
 
+const opCreateSnapshotCopyConfiguration = "CreateSnapshotCopyConfiguration"
+
+// CreateSnapshotCopyConfigurationRequest generates a "aws/request.Request" representing the
+// client's request for the CreateSnapshotCopyConfiguration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateSnapshotCopyConfiguration for more information on using the CreateSnapshotCopyConfiguration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateSnapshotCopyConfigurationRequest method.
+//	req, resp := client.CreateSnapshotCopyConfigurationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateSnapshotCopyConfiguration
+func (c *RedshiftServerless) CreateSnapshotCopyConfigurationRequest(input *CreateSnapshotCopyConfigurationInput) (req *request.Request, output *CreateSnapshotCopyConfigurationOutput) {
+	op := &request.Operation{
+		Name:       opCreateSnapshotCopyConfiguration,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateSnapshotCopyConfigurationInput{}
+	}
+
+	output = &CreateSnapshotCopyConfigurationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateSnapshotCopyConfiguration API operation for Redshift Serverless.
+//
+// Creates a snapshot copy configuration that lets you copy snapshots to another
+// Amazon Web Services Region.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation CreateSnapshotCopyConfiguration for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ServiceQuotaExceededException
+//     The service limit was exceeded.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateSnapshotCopyConfiguration
+func (c *RedshiftServerless) CreateSnapshotCopyConfiguration(input *CreateSnapshotCopyConfigurationInput) (*CreateSnapshotCopyConfigurationOutput, error) {
+	req, out := c.CreateSnapshotCopyConfigurationRequest(input)
+	return out, req.Send()
+}
+
+// CreateSnapshotCopyConfigurationWithContext is the same as CreateSnapshotCopyConfiguration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateSnapshotCopyConfiguration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) CreateSnapshotCopyConfigurationWithContext(ctx aws.Context, input *CreateSnapshotCopyConfigurationInput, opts ...request.Option) (*CreateSnapshotCopyConfigurationOutput, error) {
+	req, out := c.CreateSnapshotCopyConfigurationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCreateUsageLimit = "CreateUsageLimit"
 
 // CreateUsageLimitRequest generates a "aws/request.Request" representing the
@@ -399,14 +687,13 @@ const opCreateUsageLimit = "CreateUsageLimit"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateUsageLimitRequest method.
+//	req, resp := client.CreateUsageLimitRequest(params)
 //
-//    // Example sending a request using the CreateUsageLimitRequest method.
-//    req, resp := client.CreateUsageLimitRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateUsageLimit
 func (c *RedshiftServerless) CreateUsageLimitRequest(input *CreateUsageLimitInput) (req *request.Request, output *CreateUsageLimitOutput) {
@@ -438,21 +725,22 @@ func (c *RedshiftServerless) CreateUsageLimitRequest(input *CreateUsageLimitInpu
 // API operation CreateUsageLimit for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
 //
-//   * ServiceQuotaExceededException
-//   The service limit was exceeded.
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - ServiceQuotaExceededException
+//     The service limit was exceeded.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateUsageLimit
 func (c *RedshiftServerless) CreateUsageLimit(input *CreateUsageLimitInput) (*CreateUsageLimitOutput, error) {
@@ -492,14 +780,13 @@ const opCreateWorkgroup = "CreateWorkgroup"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateWorkgroupRequest method.
+//	req, resp := client.CreateWorkgroupRequest(params)
 //
-//    // Example sending a request using the CreateWorkgroupRequest method.
-//    req, resp := client.CreateWorkgroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateWorkgroup
 func (c *RedshiftServerless) CreateWorkgroupRequest(input *CreateWorkgroupInput) (req *request.Request, output *CreateWorkgroupOutput) {
@@ -530,24 +817,29 @@ func (c *RedshiftServerless) CreateWorkgroupRequest(input *CreateWorkgroupInput)
 // API operation CreateWorkgroup for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * InsufficientCapacityException
-//   There is an insufficient capacity to perform the action.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InsufficientCapacityException
+//     There is an insufficient capacity to perform the action.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
 //
-//   * TooManyTagsException
-//   The request exceeded the number of tags allowed for a resource.
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - TooManyTagsException
+//     The request exceeded the number of tags allowed for a resource.
+//
+//   - Ipv6CidrBlockNotFoundException
+//     There are no subnets in your VPC with associated IPv6 CIDR blocks. To use
+//     dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/CreateWorkgroup
 func (c *RedshiftServerless) CreateWorkgroup(input *CreateWorkgroupInput) (*CreateWorkgroupOutput, error) {
@@ -571,6 +863,102 @@ func (c *RedshiftServerless) CreateWorkgroupWithContext(ctx aws.Context, input *
 	return out, req.Send()
 }
 
+const opDeleteCustomDomainAssociation = "DeleteCustomDomainAssociation"
+
+// DeleteCustomDomainAssociationRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteCustomDomainAssociation operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteCustomDomainAssociation for more information on using the DeleteCustomDomainAssociation
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteCustomDomainAssociationRequest method.
+//	req, resp := client.DeleteCustomDomainAssociationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteCustomDomainAssociation
+func (c *RedshiftServerless) DeleteCustomDomainAssociationRequest(input *DeleteCustomDomainAssociationInput) (req *request.Request, output *DeleteCustomDomainAssociationOutput) {
+	op := &request.Operation{
+		Name:       opDeleteCustomDomainAssociation,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteCustomDomainAssociationInput{}
+	}
+
+	output = &DeleteCustomDomainAssociationOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteCustomDomainAssociation API operation for Redshift Serverless.
+//
+// Deletes a custom domain association for Amazon Redshift Serverless.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation DeleteCustomDomainAssociation for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteCustomDomainAssociation
+func (c *RedshiftServerless) DeleteCustomDomainAssociation(input *DeleteCustomDomainAssociationInput) (*DeleteCustomDomainAssociationOutput, error) {
+	req, out := c.DeleteCustomDomainAssociationRequest(input)
+	return out, req.Send()
+}
+
+// DeleteCustomDomainAssociationWithContext is the same as DeleteCustomDomainAssociation with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteCustomDomainAssociation for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) DeleteCustomDomainAssociationWithContext(ctx aws.Context, input *DeleteCustomDomainAssociationInput, opts ...request.Option) (*DeleteCustomDomainAssociationOutput, error) {
+	req, out := c.DeleteCustomDomainAssociationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteEndpointAccess = "DeleteEndpointAccess"
 
 // DeleteEndpointAccessRequest generates a "aws/request.Request" representing the
@@ -587,14 +975,13 @@ const opDeleteEndpointAccess = "DeleteEndpointAccess"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteEndpointAccessRequest method.
+//	req, resp := client.DeleteEndpointAccessRequest(params)
 //
-//    // Example sending a request using the DeleteEndpointAccessRequest method.
-//    req, resp := client.DeleteEndpointAccessRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteEndpointAccess
 func (c *RedshiftServerless) DeleteEndpointAccessRequest(input *DeleteEndpointAccessInput) (req *request.Request, output *DeleteEndpointAccessOutput) {
@@ -625,18 +1012,19 @@ func (c *RedshiftServerless) DeleteEndpointAccessRequest(input *DeleteEndpointAc
 // API operation DeleteEndpointAccess for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteEndpointAccess
 func (c *RedshiftServerless) DeleteEndpointAccess(input *DeleteEndpointAccessInput) (*DeleteEndpointAccessOutput, error) {
@@ -676,14 +1064,13 @@ const opDeleteNamespace = "DeleteNamespace"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteNamespaceRequest method.
+//	req, resp := client.DeleteNamespaceRequest(params)
 //
-//    // Example sending a request using the DeleteNamespaceRequest method.
-//    req, resp := client.DeleteNamespaceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteNamespace
 func (c *RedshiftServerless) DeleteNamespaceRequest(input *DeleteNamespaceInput) (req *request.Request, output *DeleteNamespaceOutput) {
@@ -716,18 +1103,19 @@ func (c *RedshiftServerless) DeleteNamespaceRequest(input *DeleteNamespaceInput)
 // API operation DeleteNamespace for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteNamespace
 func (c *RedshiftServerless) DeleteNamespace(input *DeleteNamespaceInput) (*DeleteNamespaceOutput, error) {
@@ -767,14 +1155,13 @@ const opDeleteResourcePolicy = "DeleteResourcePolicy"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteResourcePolicyRequest method.
+//	req, resp := client.DeleteResourcePolicyRequest(params)
 //
-//    // Example sending a request using the DeleteResourcePolicyRequest method.
-//    req, resp := client.DeleteResourcePolicyRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteResourcePolicy
 func (c *RedshiftServerless) DeleteResourcePolicyRequest(input *DeleteResourcePolicyInput) (req *request.Request, output *DeleteResourcePolicyOutput) {
@@ -806,15 +1193,16 @@ func (c *RedshiftServerless) DeleteResourcePolicyRequest(input *DeleteResourcePo
 // API operation DeleteResourcePolicy for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteResourcePolicy
 func (c *RedshiftServerless) DeleteResourcePolicy(input *DeleteResourcePolicyInput) (*DeleteResourcePolicyOutput, error) {
@@ -838,6 +1226,92 @@ func (c *RedshiftServerless) DeleteResourcePolicyWithContext(ctx aws.Context, in
 	return out, req.Send()
 }
 
+const opDeleteScheduledAction = "DeleteScheduledAction"
+
+// DeleteScheduledActionRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteScheduledAction operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteScheduledAction for more information on using the DeleteScheduledAction
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteScheduledActionRequest method.
+//	req, resp := client.DeleteScheduledActionRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteScheduledAction
+func (c *RedshiftServerless) DeleteScheduledActionRequest(input *DeleteScheduledActionInput) (req *request.Request, output *DeleteScheduledActionOutput) {
+	op := &request.Operation{
+		Name:       opDeleteScheduledAction,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteScheduledActionInput{}
+	}
+
+	output = &DeleteScheduledActionOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DeleteScheduledAction API operation for Redshift Serverless.
+//
+// Deletes a scheduled action.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation DeleteScheduledAction for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteScheduledAction
+func (c *RedshiftServerless) DeleteScheduledAction(input *DeleteScheduledActionInput) (*DeleteScheduledActionOutput, error) {
+	req, out := c.DeleteScheduledActionRequest(input)
+	return out, req.Send()
+}
+
+// DeleteScheduledActionWithContext is the same as DeleteScheduledAction with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteScheduledAction for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) DeleteScheduledActionWithContext(ctx aws.Context, input *DeleteScheduledActionInput, opts ...request.Option) (*DeleteScheduledActionOutput, error) {
+	req, out := c.DeleteScheduledActionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteSnapshot = "DeleteSnapshot"
 
 // DeleteSnapshotRequest generates a "aws/request.Request" representing the
@@ -854,14 +1328,13 @@ const opDeleteSnapshot = "DeleteSnapshot"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteSnapshotRequest method.
+//	req, resp := client.DeleteSnapshotRequest(params)
 //
-//    // Example sending a request using the DeleteSnapshotRequest method.
-//    req, resp := client.DeleteSnapshotRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteSnapshot
 func (c *RedshiftServerless) DeleteSnapshotRequest(input *DeleteSnapshotInput) (req *request.Request, output *DeleteSnapshotOutput) {
@@ -892,18 +1365,19 @@ func (c *RedshiftServerless) DeleteSnapshotRequest(input *DeleteSnapshotInput) (
 // API operation DeleteSnapshot for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteSnapshot
 func (c *RedshiftServerless) DeleteSnapshot(input *DeleteSnapshotInput) (*DeleteSnapshotOutput, error) {
@@ -927,6 +1401,98 @@ func (c *RedshiftServerless) DeleteSnapshotWithContext(ctx aws.Context, input *D
 	return out, req.Send()
 }
 
+const opDeleteSnapshotCopyConfiguration = "DeleteSnapshotCopyConfiguration"
+
+// DeleteSnapshotCopyConfigurationRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteSnapshotCopyConfiguration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteSnapshotCopyConfiguration for more information on using the DeleteSnapshotCopyConfiguration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteSnapshotCopyConfigurationRequest method.
+//	req, resp := client.DeleteSnapshotCopyConfigurationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteSnapshotCopyConfiguration
+func (c *RedshiftServerless) DeleteSnapshotCopyConfigurationRequest(input *DeleteSnapshotCopyConfigurationInput) (req *request.Request, output *DeleteSnapshotCopyConfigurationOutput) {
+	op := &request.Operation{
+		Name:       opDeleteSnapshotCopyConfiguration,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteSnapshotCopyConfigurationInput{}
+	}
+
+	output = &DeleteSnapshotCopyConfigurationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DeleteSnapshotCopyConfiguration API operation for Redshift Serverless.
+//
+// # Deletes a snapshot copy configuration
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation DeleteSnapshotCopyConfiguration for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteSnapshotCopyConfiguration
+func (c *RedshiftServerless) DeleteSnapshotCopyConfiguration(input *DeleteSnapshotCopyConfigurationInput) (*DeleteSnapshotCopyConfigurationOutput, error) {
+	req, out := c.DeleteSnapshotCopyConfigurationRequest(input)
+	return out, req.Send()
+}
+
+// DeleteSnapshotCopyConfigurationWithContext is the same as DeleteSnapshotCopyConfiguration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteSnapshotCopyConfiguration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) DeleteSnapshotCopyConfigurationWithContext(ctx aws.Context, input *DeleteSnapshotCopyConfigurationInput, opts ...request.Option) (*DeleteSnapshotCopyConfigurationOutput, error) {
+	req, out := c.DeleteSnapshotCopyConfigurationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteUsageLimit = "DeleteUsageLimit"
 
 // DeleteUsageLimitRequest generates a "aws/request.Request" representing the
@@ -943,14 +1509,13 @@ const opDeleteUsageLimit = "DeleteUsageLimit"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteUsageLimitRequest method.
+//	req, resp := client.DeleteUsageLimitRequest(params)
 //
-//    // Example sending a request using the DeleteUsageLimitRequest method.
-//    req, resp := client.DeleteUsageLimitRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteUsageLimit
 func (c *RedshiftServerless) DeleteUsageLimitRequest(input *DeleteUsageLimitInput) (req *request.Request, output *DeleteUsageLimitOutput) {
@@ -981,18 +1546,19 @@ func (c *RedshiftServerless) DeleteUsageLimitRequest(input *DeleteUsageLimitInpu
 // API operation DeleteUsageLimit for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteUsageLimit
 func (c *RedshiftServerless) DeleteUsageLimit(input *DeleteUsageLimitInput) (*DeleteUsageLimitOutput, error) {
@@ -1032,14 +1598,13 @@ const opDeleteWorkgroup = "DeleteWorkgroup"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteWorkgroupRequest method.
+//	req, resp := client.DeleteWorkgroupRequest(params)
 //
-//    // Example sending a request using the DeleteWorkgroupRequest method.
-//    req, resp := client.DeleteWorkgroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteWorkgroup
 func (c *RedshiftServerless) DeleteWorkgroupRequest(input *DeleteWorkgroupInput) (req *request.Request, output *DeleteWorkgroupOutput) {
@@ -1070,18 +1635,19 @@ func (c *RedshiftServerless) DeleteWorkgroupRequest(input *DeleteWorkgroupInput)
 // API operation DeleteWorkgroup for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/DeleteWorkgroup
 func (c *RedshiftServerless) DeleteWorkgroup(input *DeleteWorkgroupInput) (*DeleteWorkgroupOutput, error) {
@@ -1121,14 +1687,13 @@ const opGetCredentials = "GetCredentials"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetCredentialsRequest method.
+//	req, resp := client.GetCredentialsRequest(params)
 //
-//    // Example sending a request using the GetCredentialsRequest method.
-//    req, resp := client.GetCredentialsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetCredentials
 func (c *RedshiftServerless) GetCredentialsRequest(input *GetCredentialsInput) (req *request.Request, output *GetCredentialsOutput) {
@@ -1156,11 +1721,11 @@ func (c *RedshiftServerless) GetCredentialsRequest(input *GetCredentialsInput) (
 // specify a duration between 900 seconds (15 minutes) and 3600 seconds (60
 // minutes).
 //
-//    <p> The Identity and Access Management (IAM) user or role that runs GetCredentials
-//    must have an IAM policy attached that allows access to all necessary actions
-//    and resources. </p> <p> If the <code>DbName</code> parameter is specified,
-//    the IAM policy must allow access to the resource dbname for the specified
-//    database name.</p>
+//	<p>The Identity and Access Management (IAM) user or role that runs GetCredentials
+//	must have an IAM policy attached that allows access to all necessary actions
+//	and resources.</p> <p>If the <code>DbName</code> parameter is specified,
+//	the IAM policy must allow access to the resource dbname for the specified
+//	database name.</p>
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1170,15 +1735,16 @@ func (c *RedshiftServerless) GetCredentialsRequest(input *GetCredentialsInput) (
 // API operation GetCredentials for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetCredentials
 func (c *RedshiftServerless) GetCredentials(input *GetCredentialsInput) (*GetCredentialsOutput, error) {
@@ -1202,6 +1768,101 @@ func (c *RedshiftServerless) GetCredentialsWithContext(ctx aws.Context, input *G
 	return out, req.Send()
 }
 
+const opGetCustomDomainAssociation = "GetCustomDomainAssociation"
+
+// GetCustomDomainAssociationRequest generates a "aws/request.Request" representing the
+// client's request for the GetCustomDomainAssociation operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetCustomDomainAssociation for more information on using the GetCustomDomainAssociation
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the GetCustomDomainAssociationRequest method.
+//	req, resp := client.GetCustomDomainAssociationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetCustomDomainAssociation
+func (c *RedshiftServerless) GetCustomDomainAssociationRequest(input *GetCustomDomainAssociationInput) (req *request.Request, output *GetCustomDomainAssociationOutput) {
+	op := &request.Operation{
+		Name:       opGetCustomDomainAssociation,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &GetCustomDomainAssociationInput{}
+	}
+
+	output = &GetCustomDomainAssociationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetCustomDomainAssociation API operation for Redshift Serverless.
+//
+// Gets information about a specific custom domain association.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation GetCustomDomainAssociation for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetCustomDomainAssociation
+func (c *RedshiftServerless) GetCustomDomainAssociation(input *GetCustomDomainAssociationInput) (*GetCustomDomainAssociationOutput, error) {
+	req, out := c.GetCustomDomainAssociationRequest(input)
+	return out, req.Send()
+}
+
+// GetCustomDomainAssociationWithContext is the same as GetCustomDomainAssociation with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetCustomDomainAssociation for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) GetCustomDomainAssociationWithContext(ctx aws.Context, input *GetCustomDomainAssociationInput, opts ...request.Option) (*GetCustomDomainAssociationOutput, error) {
+	req, out := c.GetCustomDomainAssociationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetEndpointAccess = "GetEndpointAccess"
 
 // GetEndpointAccessRequest generates a "aws/request.Request" representing the
@@ -1218,14 +1879,13 @@ const opGetEndpointAccess = "GetEndpointAccess"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetEndpointAccessRequest method.
+//	req, resp := client.GetEndpointAccessRequest(params)
 //
-//    // Example sending a request using the GetEndpointAccessRequest method.
-//    req, resp := client.GetEndpointAccessRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetEndpointAccess
 func (c *RedshiftServerless) GetEndpointAccessRequest(input *GetEndpointAccessInput) (req *request.Request, output *GetEndpointAccessOutput) {
@@ -1256,18 +1916,19 @@ func (c *RedshiftServerless) GetEndpointAccessRequest(input *GetEndpointAccessIn
 // API operation GetEndpointAccess for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetEndpointAccess
 func (c *RedshiftServerless) GetEndpointAccess(input *GetEndpointAccessInput) (*GetEndpointAccessOutput, error) {
@@ -1307,14 +1968,13 @@ const opGetNamespace = "GetNamespace"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetNamespaceRequest method.
+//	req, resp := client.GetNamespaceRequest(params)
 //
-//    // Example sending a request using the GetNamespaceRequest method.
-//    req, resp := client.GetNamespaceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetNamespace
 func (c *RedshiftServerless) GetNamespaceRequest(input *GetNamespaceInput) (req *request.Request, output *GetNamespaceOutput) {
@@ -1345,15 +2005,16 @@ func (c *RedshiftServerless) GetNamespaceRequest(input *GetNamespaceInput) (req 
 // API operation GetNamespace for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetNamespace
 func (c *RedshiftServerless) GetNamespace(input *GetNamespaceInput) (*GetNamespaceOutput, error) {
@@ -1393,14 +2054,13 @@ const opGetRecoveryPoint = "GetRecoveryPoint"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetRecoveryPointRequest method.
+//	req, resp := client.GetRecoveryPointRequest(params)
 //
-//    // Example sending a request using the GetRecoveryPointRequest method.
-//    req, resp := client.GetRecoveryPointRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetRecoveryPoint
 func (c *RedshiftServerless) GetRecoveryPointRequest(input *GetRecoveryPointInput) (req *request.Request, output *GetRecoveryPointOutput) {
@@ -1431,18 +2091,19 @@ func (c *RedshiftServerless) GetRecoveryPointRequest(input *GetRecoveryPointInpu
 // API operation GetRecoveryPoint for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetRecoveryPoint
 func (c *RedshiftServerless) GetRecoveryPoint(input *GetRecoveryPointInput) (*GetRecoveryPointOutput, error) {
@@ -1482,14 +2143,13 @@ const opGetResourcePolicy = "GetResourcePolicy"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetResourcePolicyRequest method.
+//	req, resp := client.GetResourcePolicyRequest(params)
 //
-//    // Example sending a request using the GetResourcePolicyRequest method.
-//    req, resp := client.GetResourcePolicyRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetResourcePolicy
 func (c *RedshiftServerless) GetResourcePolicyRequest(input *GetResourcePolicyInput) (req *request.Request, output *GetResourcePolicyOutput) {
@@ -1520,15 +2180,16 @@ func (c *RedshiftServerless) GetResourcePolicyRequest(input *GetResourcePolicyIn
 // API operation GetResourcePolicy for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetResourcePolicy
 func (c *RedshiftServerless) GetResourcePolicy(input *GetResourcePolicyInput) (*GetResourcePolicyOutput, error) {
@@ -1552,6 +2213,92 @@ func (c *RedshiftServerless) GetResourcePolicyWithContext(ctx aws.Context, input
 	return out, req.Send()
 }
 
+const opGetScheduledAction = "GetScheduledAction"
+
+// GetScheduledActionRequest generates a "aws/request.Request" representing the
+// client's request for the GetScheduledAction operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetScheduledAction for more information on using the GetScheduledAction
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the GetScheduledActionRequest method.
+//	req, resp := client.GetScheduledActionRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetScheduledAction
+func (c *RedshiftServerless) GetScheduledActionRequest(input *GetScheduledActionInput) (req *request.Request, output *GetScheduledActionOutput) {
+	op := &request.Operation{
+		Name:       opGetScheduledAction,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &GetScheduledActionInput{}
+	}
+
+	output = &GetScheduledActionOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetScheduledAction API operation for Redshift Serverless.
+//
+// Returns information about a scheduled action.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation GetScheduledAction for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetScheduledAction
+func (c *RedshiftServerless) GetScheduledAction(input *GetScheduledActionInput) (*GetScheduledActionOutput, error) {
+	req, out := c.GetScheduledActionRequest(input)
+	return out, req.Send()
+}
+
+// GetScheduledActionWithContext is the same as GetScheduledAction with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetScheduledAction for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) GetScheduledActionWithContext(ctx aws.Context, input *GetScheduledActionInput, opts ...request.Option) (*GetScheduledActionOutput, error) {
+	req, out := c.GetScheduledActionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetSnapshot = "GetSnapshot"
 
 // GetSnapshotRequest generates a "aws/request.Request" representing the
@@ -1568,14 +2315,13 @@ const opGetSnapshot = "GetSnapshot"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetSnapshotRequest method.
+//	req, resp := client.GetSnapshotRequest(params)
 //
-//    // Example sending a request using the GetSnapshotRequest method.
-//    req, resp := client.GetSnapshotRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetSnapshot
 func (c *RedshiftServerless) GetSnapshotRequest(input *GetSnapshotInput) (req *request.Request, output *GetSnapshotOutput) {
@@ -1606,15 +2352,16 @@ func (c *RedshiftServerless) GetSnapshotRequest(input *GetSnapshotInput) (req *r
 // API operation GetSnapshot for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetSnapshot
 func (c *RedshiftServerless) GetSnapshot(input *GetSnapshotInput) (*GetSnapshotOutput, error) {
@@ -1638,6 +2385,88 @@ func (c *RedshiftServerless) GetSnapshotWithContext(ctx aws.Context, input *GetS
 	return out, req.Send()
 }
 
+const opGetTableRestoreStatus = "GetTableRestoreStatus"
+
+// GetTableRestoreStatusRequest generates a "aws/request.Request" representing the
+// client's request for the GetTableRestoreStatus operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetTableRestoreStatus for more information on using the GetTableRestoreStatus
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the GetTableRestoreStatusRequest method.
+//	req, resp := client.GetTableRestoreStatusRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetTableRestoreStatus
+func (c *RedshiftServerless) GetTableRestoreStatusRequest(input *GetTableRestoreStatusInput) (req *request.Request, output *GetTableRestoreStatusOutput) {
+	op := &request.Operation{
+		Name:       opGetTableRestoreStatus,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &GetTableRestoreStatusInput{}
+	}
+
+	output = &GetTableRestoreStatusOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetTableRestoreStatus API operation for Redshift Serverless.
+//
+// Returns information about a TableRestoreStatus object.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation GetTableRestoreStatus for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetTableRestoreStatus
+func (c *RedshiftServerless) GetTableRestoreStatus(input *GetTableRestoreStatusInput) (*GetTableRestoreStatusOutput, error) {
+	req, out := c.GetTableRestoreStatusRequest(input)
+	return out, req.Send()
+}
+
+// GetTableRestoreStatusWithContext is the same as GetTableRestoreStatus with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetTableRestoreStatus for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) GetTableRestoreStatusWithContext(ctx aws.Context, input *GetTableRestoreStatusInput, opts ...request.Option) (*GetTableRestoreStatusOutput, error) {
+	req, out := c.GetTableRestoreStatusRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetUsageLimit = "GetUsageLimit"
 
 // GetUsageLimitRequest generates a "aws/request.Request" representing the
@@ -1654,14 +2483,13 @@ const opGetUsageLimit = "GetUsageLimit"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetUsageLimitRequest method.
+//	req, resp := client.GetUsageLimitRequest(params)
 //
-//    // Example sending a request using the GetUsageLimitRequest method.
-//    req, resp := client.GetUsageLimitRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetUsageLimit
 func (c *RedshiftServerless) GetUsageLimitRequest(input *GetUsageLimitInput) (req *request.Request, output *GetUsageLimitOutput) {
@@ -1692,18 +2520,19 @@ func (c *RedshiftServerless) GetUsageLimitRequest(input *GetUsageLimitInput) (re
 // API operation GetUsageLimit for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetUsageLimit
 func (c *RedshiftServerless) GetUsageLimit(input *GetUsageLimitInput) (*GetUsageLimitOutput, error) {
@@ -1743,14 +2572,13 @@ const opGetWorkgroup = "GetWorkgroup"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetWorkgroupRequest method.
+//	req, resp := client.GetWorkgroupRequest(params)
 //
-//    // Example sending a request using the GetWorkgroupRequest method.
-//    req, resp := client.GetWorkgroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetWorkgroup
 func (c *RedshiftServerless) GetWorkgroupRequest(input *GetWorkgroupInput) (req *request.Request, output *GetWorkgroupOutput) {
@@ -1781,15 +2609,16 @@ func (c *RedshiftServerless) GetWorkgroupRequest(input *GetWorkgroupInput) (req 
 // API operation GetWorkgroup for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/GetWorkgroup
 func (c *RedshiftServerless) GetWorkgroup(input *GetWorkgroupInput) (*GetWorkgroupOutput, error) {
@@ -1813,6 +2642,155 @@ func (c *RedshiftServerless) GetWorkgroupWithContext(ctx aws.Context, input *Get
 	return out, req.Send()
 }
 
+const opListCustomDomainAssociations = "ListCustomDomainAssociations"
+
+// ListCustomDomainAssociationsRequest generates a "aws/request.Request" representing the
+// client's request for the ListCustomDomainAssociations operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListCustomDomainAssociations for more information on using the ListCustomDomainAssociations
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListCustomDomainAssociationsRequest method.
+//	req, resp := client.ListCustomDomainAssociationsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListCustomDomainAssociations
+func (c *RedshiftServerless) ListCustomDomainAssociationsRequest(input *ListCustomDomainAssociationsInput) (req *request.Request, output *ListCustomDomainAssociationsOutput) {
+	op := &request.Operation{
+		Name:       opListCustomDomainAssociations,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListCustomDomainAssociationsInput{}
+	}
+
+	output = &ListCustomDomainAssociationsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListCustomDomainAssociations API operation for Redshift Serverless.
+//
+// Lists custom domain associations for Amazon Redshift Serverless.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation ListCustomDomainAssociations for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - InvalidPaginationException
+//     The provided pagination token is invalid.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListCustomDomainAssociations
+func (c *RedshiftServerless) ListCustomDomainAssociations(input *ListCustomDomainAssociationsInput) (*ListCustomDomainAssociationsOutput, error) {
+	req, out := c.ListCustomDomainAssociationsRequest(input)
+	return out, req.Send()
+}
+
+// ListCustomDomainAssociationsWithContext is the same as ListCustomDomainAssociations with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListCustomDomainAssociations for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) ListCustomDomainAssociationsWithContext(ctx aws.Context, input *ListCustomDomainAssociationsInput, opts ...request.Option) (*ListCustomDomainAssociationsOutput, error) {
+	req, out := c.ListCustomDomainAssociationsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListCustomDomainAssociationsPages iterates over the pages of a ListCustomDomainAssociations operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListCustomDomainAssociations method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//	// Example iterating over at most 3 pages of a ListCustomDomainAssociations operation.
+//	pageNum := 0
+//	err := client.ListCustomDomainAssociationsPages(params,
+//	    func(page *redshiftserverless.ListCustomDomainAssociationsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
+func (c *RedshiftServerless) ListCustomDomainAssociationsPages(input *ListCustomDomainAssociationsInput, fn func(*ListCustomDomainAssociationsOutput, bool) bool) error {
+	return c.ListCustomDomainAssociationsPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListCustomDomainAssociationsPagesWithContext same as ListCustomDomainAssociationsPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) ListCustomDomainAssociationsPagesWithContext(ctx aws.Context, input *ListCustomDomainAssociationsInput, fn func(*ListCustomDomainAssociationsOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListCustomDomainAssociationsInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListCustomDomainAssociationsRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListCustomDomainAssociationsOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
 const opListEndpointAccess = "ListEndpointAccess"
 
 // ListEndpointAccessRequest generates a "aws/request.Request" representing the
@@ -1829,14 +2807,13 @@ const opListEndpointAccess = "ListEndpointAccess"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListEndpointAccessRequest method.
+//	req, resp := client.ListEndpointAccessRequest(params)
 //
-//    // Example sending a request using the ListEndpointAccessRequest method.
-//    req, resp := client.ListEndpointAccessRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListEndpointAccess
 func (c *RedshiftServerless) ListEndpointAccessRequest(input *ListEndpointAccessInput) (req *request.Request, output *ListEndpointAccessOutput) {
@@ -1873,18 +2850,19 @@ func (c *RedshiftServerless) ListEndpointAccessRequest(input *ListEndpointAccess
 // API operation ListEndpointAccess for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListEndpointAccess
 func (c *RedshiftServerless) ListEndpointAccess(input *ListEndpointAccessInput) (*ListEndpointAccessOutput, error) {
@@ -1916,15 +2894,14 @@ func (c *RedshiftServerless) ListEndpointAccessWithContext(ctx aws.Context, inpu
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListEndpointAccess operation.
-//    pageNum := 0
-//    err := client.ListEndpointAccessPages(params,
-//        func(page *redshiftserverless.ListEndpointAccessOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListEndpointAccess operation.
+//	pageNum := 0
+//	err := client.ListEndpointAccessPages(params,
+//	    func(page *redshiftserverless.ListEndpointAccessOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *RedshiftServerless) ListEndpointAccessPages(input *ListEndpointAccessInput, fn func(*ListEndpointAccessOutput, bool) bool) error {
 	return c.ListEndpointAccessPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -1976,14 +2953,13 @@ const opListNamespaces = "ListNamespaces"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListNamespacesRequest method.
+//	req, resp := client.ListNamespacesRequest(params)
 //
-//    // Example sending a request using the ListNamespacesRequest method.
-//    req, resp := client.ListNamespacesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListNamespaces
 func (c *RedshiftServerless) ListNamespacesRequest(input *ListNamespacesInput) (req *request.Request, output *ListNamespacesOutput) {
@@ -2020,12 +2996,13 @@ func (c *RedshiftServerless) ListNamespacesRequest(input *ListNamespacesInput) (
 // API operation ListNamespaces for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListNamespaces
 func (c *RedshiftServerless) ListNamespaces(input *ListNamespacesInput) (*ListNamespacesOutput, error) {
@@ -2057,15 +3034,14 @@ func (c *RedshiftServerless) ListNamespacesWithContext(ctx aws.Context, input *L
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListNamespaces operation.
-//    pageNum := 0
-//    err := client.ListNamespacesPages(params,
-//        func(page *redshiftserverless.ListNamespacesOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListNamespaces operation.
+//	pageNum := 0
+//	err := client.ListNamespacesPages(params,
+//	    func(page *redshiftserverless.ListNamespacesOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *RedshiftServerless) ListNamespacesPages(input *ListNamespacesInput, fn func(*ListNamespacesOutput, bool) bool) error {
 	return c.ListNamespacesPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2117,14 +3093,13 @@ const opListRecoveryPoints = "ListRecoveryPoints"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListRecoveryPointsRequest method.
+//	req, resp := client.ListRecoveryPointsRequest(params)
 //
-//    // Example sending a request using the ListRecoveryPointsRequest method.
-//    req, resp := client.ListRecoveryPointsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListRecoveryPoints
 func (c *RedshiftServerless) ListRecoveryPointsRequest(input *ListRecoveryPointsInput) (req *request.Request, output *ListRecoveryPointsOutput) {
@@ -2161,12 +3136,13 @@ func (c *RedshiftServerless) ListRecoveryPointsRequest(input *ListRecoveryPoints
 // API operation ListRecoveryPoints for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListRecoveryPoints
 func (c *RedshiftServerless) ListRecoveryPoints(input *ListRecoveryPointsInput) (*ListRecoveryPointsOutput, error) {
@@ -2198,15 +3174,14 @@ func (c *RedshiftServerless) ListRecoveryPointsWithContext(ctx aws.Context, inpu
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListRecoveryPoints operation.
-//    pageNum := 0
-//    err := client.ListRecoveryPointsPages(params,
-//        func(page *redshiftserverless.ListRecoveryPointsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListRecoveryPoints operation.
+//	pageNum := 0
+//	err := client.ListRecoveryPointsPages(params,
+//	    func(page *redshiftserverless.ListRecoveryPointsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *RedshiftServerless) ListRecoveryPointsPages(input *ListRecoveryPointsInput, fn func(*ListRecoveryPointsOutput, bool) bool) error {
 	return c.ListRecoveryPointsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2242,6 +3217,302 @@ func (c *RedshiftServerless) ListRecoveryPointsPagesWithContext(ctx aws.Context,
 	return p.Err()
 }
 
+const opListScheduledActions = "ListScheduledActions"
+
+// ListScheduledActionsRequest generates a "aws/request.Request" representing the
+// client's request for the ListScheduledActions operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListScheduledActions for more information on using the ListScheduledActions
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListScheduledActionsRequest method.
+//	req, resp := client.ListScheduledActionsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListScheduledActions
+func (c *RedshiftServerless) ListScheduledActionsRequest(input *ListScheduledActionsInput) (req *request.Request, output *ListScheduledActionsOutput) {
+	op := &request.Operation{
+		Name:       opListScheduledActions,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListScheduledActionsInput{}
+	}
+
+	output = &ListScheduledActionsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListScheduledActions API operation for Redshift Serverless.
+//
+// Returns a list of scheduled actions. You can use the flags to filter the
+// list of returned scheduled actions.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation ListScheduledActions for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - InvalidPaginationException
+//     The provided pagination token is invalid.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListScheduledActions
+func (c *RedshiftServerless) ListScheduledActions(input *ListScheduledActionsInput) (*ListScheduledActionsOutput, error) {
+	req, out := c.ListScheduledActionsRequest(input)
+	return out, req.Send()
+}
+
+// ListScheduledActionsWithContext is the same as ListScheduledActions with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListScheduledActions for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) ListScheduledActionsWithContext(ctx aws.Context, input *ListScheduledActionsInput, opts ...request.Option) (*ListScheduledActionsOutput, error) {
+	req, out := c.ListScheduledActionsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListScheduledActionsPages iterates over the pages of a ListScheduledActions operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListScheduledActions method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//	// Example iterating over at most 3 pages of a ListScheduledActions operation.
+//	pageNum := 0
+//	err := client.ListScheduledActionsPages(params,
+//	    func(page *redshiftserverless.ListScheduledActionsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
+func (c *RedshiftServerless) ListScheduledActionsPages(input *ListScheduledActionsInput, fn func(*ListScheduledActionsOutput, bool) bool) error {
+	return c.ListScheduledActionsPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListScheduledActionsPagesWithContext same as ListScheduledActionsPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) ListScheduledActionsPagesWithContext(ctx aws.Context, input *ListScheduledActionsInput, fn func(*ListScheduledActionsOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListScheduledActionsInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListScheduledActionsRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListScheduledActionsOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
+const opListSnapshotCopyConfigurations = "ListSnapshotCopyConfigurations"
+
+// ListSnapshotCopyConfigurationsRequest generates a "aws/request.Request" representing the
+// client's request for the ListSnapshotCopyConfigurations operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListSnapshotCopyConfigurations for more information on using the ListSnapshotCopyConfigurations
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListSnapshotCopyConfigurationsRequest method.
+//	req, resp := client.ListSnapshotCopyConfigurationsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListSnapshotCopyConfigurations
+func (c *RedshiftServerless) ListSnapshotCopyConfigurationsRequest(input *ListSnapshotCopyConfigurationsInput) (req *request.Request, output *ListSnapshotCopyConfigurationsOutput) {
+	op := &request.Operation{
+		Name:       opListSnapshotCopyConfigurations,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListSnapshotCopyConfigurationsInput{}
+	}
+
+	output = &ListSnapshotCopyConfigurationsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListSnapshotCopyConfigurations API operation for Redshift Serverless.
+//
+// Returns a list of snapshot copy configurations.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation ListSnapshotCopyConfigurations for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - InvalidPaginationException
+//     The provided pagination token is invalid.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListSnapshotCopyConfigurations
+func (c *RedshiftServerless) ListSnapshotCopyConfigurations(input *ListSnapshotCopyConfigurationsInput) (*ListSnapshotCopyConfigurationsOutput, error) {
+	req, out := c.ListSnapshotCopyConfigurationsRequest(input)
+	return out, req.Send()
+}
+
+// ListSnapshotCopyConfigurationsWithContext is the same as ListSnapshotCopyConfigurations with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListSnapshotCopyConfigurations for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) ListSnapshotCopyConfigurationsWithContext(ctx aws.Context, input *ListSnapshotCopyConfigurationsInput, opts ...request.Option) (*ListSnapshotCopyConfigurationsOutput, error) {
+	req, out := c.ListSnapshotCopyConfigurationsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListSnapshotCopyConfigurationsPages iterates over the pages of a ListSnapshotCopyConfigurations operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListSnapshotCopyConfigurations method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//	// Example iterating over at most 3 pages of a ListSnapshotCopyConfigurations operation.
+//	pageNum := 0
+//	err := client.ListSnapshotCopyConfigurationsPages(params,
+//	    func(page *redshiftserverless.ListSnapshotCopyConfigurationsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
+func (c *RedshiftServerless) ListSnapshotCopyConfigurationsPages(input *ListSnapshotCopyConfigurationsInput, fn func(*ListSnapshotCopyConfigurationsOutput, bool) bool) error {
+	return c.ListSnapshotCopyConfigurationsPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListSnapshotCopyConfigurationsPagesWithContext same as ListSnapshotCopyConfigurationsPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) ListSnapshotCopyConfigurationsPagesWithContext(ctx aws.Context, input *ListSnapshotCopyConfigurationsInput, fn func(*ListSnapshotCopyConfigurationsOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListSnapshotCopyConfigurationsInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListSnapshotCopyConfigurationsRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListSnapshotCopyConfigurationsOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
 const opListSnapshots = "ListSnapshots"
 
 // ListSnapshotsRequest generates a "aws/request.Request" representing the
@@ -2258,14 +3529,13 @@ const opListSnapshots = "ListSnapshots"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListSnapshotsRequest method.
+//	req, resp := client.ListSnapshotsRequest(params)
 //
-//    // Example sending a request using the ListSnapshotsRequest method.
-//    req, resp := client.ListSnapshotsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListSnapshots
 func (c *RedshiftServerless) ListSnapshotsRequest(input *ListSnapshotsInput) (req *request.Request, output *ListSnapshotsOutput) {
@@ -2302,15 +3572,16 @@ func (c *RedshiftServerless) ListSnapshotsRequest(input *ListSnapshotsInput) (re
 // API operation ListSnapshots for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListSnapshots
 func (c *RedshiftServerless) ListSnapshots(input *ListSnapshotsInput) (*ListSnapshotsOutput, error) {
@@ -2342,15 +3613,14 @@ func (c *RedshiftServerless) ListSnapshotsWithContext(ctx aws.Context, input *Li
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListSnapshots operation.
-//    pageNum := 0
-//    err := client.ListSnapshotsPages(params,
-//        func(page *redshiftserverless.ListSnapshotsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListSnapshots operation.
+//	pageNum := 0
+//	err := client.ListSnapshotsPages(params,
+//	    func(page *redshiftserverless.ListSnapshotsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *RedshiftServerless) ListSnapshotsPages(input *ListSnapshotsInput, fn func(*ListSnapshotsOutput, bool) bool) error {
 	return c.ListSnapshotsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2386,6 +3656,148 @@ func (c *RedshiftServerless) ListSnapshotsPagesWithContext(ctx aws.Context, inpu
 	return p.Err()
 }
 
+const opListTableRestoreStatus = "ListTableRestoreStatus"
+
+// ListTableRestoreStatusRequest generates a "aws/request.Request" representing the
+// client's request for the ListTableRestoreStatus operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListTableRestoreStatus for more information on using the ListTableRestoreStatus
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListTableRestoreStatusRequest method.
+//	req, resp := client.ListTableRestoreStatusRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListTableRestoreStatus
+func (c *RedshiftServerless) ListTableRestoreStatusRequest(input *ListTableRestoreStatusInput) (req *request.Request, output *ListTableRestoreStatusOutput) {
+	op := &request.Operation{
+		Name:       opListTableRestoreStatus,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListTableRestoreStatusInput{}
+	}
+
+	output = &ListTableRestoreStatusOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListTableRestoreStatus API operation for Redshift Serverless.
+//
+// Returns information about an array of TableRestoreStatus objects.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation ListTableRestoreStatus for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InvalidPaginationException
+//     The provided pagination token is invalid.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListTableRestoreStatus
+func (c *RedshiftServerless) ListTableRestoreStatus(input *ListTableRestoreStatusInput) (*ListTableRestoreStatusOutput, error) {
+	req, out := c.ListTableRestoreStatusRequest(input)
+	return out, req.Send()
+}
+
+// ListTableRestoreStatusWithContext is the same as ListTableRestoreStatus with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListTableRestoreStatus for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) ListTableRestoreStatusWithContext(ctx aws.Context, input *ListTableRestoreStatusInput, opts ...request.Option) (*ListTableRestoreStatusOutput, error) {
+	req, out := c.ListTableRestoreStatusRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListTableRestoreStatusPages iterates over the pages of a ListTableRestoreStatus operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListTableRestoreStatus method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//	// Example iterating over at most 3 pages of a ListTableRestoreStatus operation.
+//	pageNum := 0
+//	err := client.ListTableRestoreStatusPages(params,
+//	    func(page *redshiftserverless.ListTableRestoreStatusOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
+func (c *RedshiftServerless) ListTableRestoreStatusPages(input *ListTableRestoreStatusInput, fn func(*ListTableRestoreStatusOutput, bool) bool) error {
+	return c.ListTableRestoreStatusPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListTableRestoreStatusPagesWithContext same as ListTableRestoreStatusPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) ListTableRestoreStatusPagesWithContext(ctx aws.Context, input *ListTableRestoreStatusInput, fn func(*ListTableRestoreStatusOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListTableRestoreStatusInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListTableRestoreStatusRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListTableRestoreStatusOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
 const opListTagsForResource = "ListTagsForResource"
 
 // ListTagsForResourceRequest generates a "aws/request.Request" representing the
@@ -2402,14 +3814,13 @@ const opListTagsForResource = "ListTagsForResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListTagsForResourceRequest method.
+//	req, resp := client.ListTagsForResourceRequest(params)
 //
-//    // Example sending a request using the ListTagsForResourceRequest method.
-//    req, resp := client.ListTagsForResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListTagsForResource
 func (c *RedshiftServerless) ListTagsForResourceRequest(input *ListTagsForResourceInput) (req *request.Request, output *ListTagsForResourceOutput) {
@@ -2440,18 +3851,19 @@ func (c *RedshiftServerless) ListTagsForResourceRequest(input *ListTagsForResour
 // API operation ListTagsForResource for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListTagsForResource
 func (c *RedshiftServerless) ListTagsForResource(input *ListTagsForResourceInput) (*ListTagsForResourceOutput, error) {
@@ -2491,14 +3903,13 @@ const opListUsageLimits = "ListUsageLimits"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListUsageLimitsRequest method.
+//	req, resp := client.ListUsageLimitsRequest(params)
 //
-//    // Example sending a request using the ListUsageLimitsRequest method.
-//    req, resp := client.ListUsageLimitsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListUsageLimits
 func (c *RedshiftServerless) ListUsageLimitsRequest(input *ListUsageLimitsInput) (req *request.Request, output *ListUsageLimitsOutput) {
@@ -2535,21 +3946,22 @@ func (c *RedshiftServerless) ListUsageLimitsRequest(input *ListUsageLimitsInput)
 // API operation ListUsageLimits for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * InvalidPaginationException
-//   The provided pagination token is invalid.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InvalidPaginationException
+//     The provided pagination token is invalid.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListUsageLimits
 func (c *RedshiftServerless) ListUsageLimits(input *ListUsageLimitsInput) (*ListUsageLimitsOutput, error) {
@@ -2581,15 +3993,14 @@ func (c *RedshiftServerless) ListUsageLimitsWithContext(ctx aws.Context, input *
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListUsageLimits operation.
-//    pageNum := 0
-//    err := client.ListUsageLimitsPages(params,
-//        func(page *redshiftserverless.ListUsageLimitsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListUsageLimits operation.
+//	pageNum := 0
+//	err := client.ListUsageLimitsPages(params,
+//	    func(page *redshiftserverless.ListUsageLimitsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *RedshiftServerless) ListUsageLimitsPages(input *ListUsageLimitsInput, fn func(*ListUsageLimitsOutput, bool) bool) error {
 	return c.ListUsageLimitsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2641,14 +4052,13 @@ const opListWorkgroups = "ListWorkgroups"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListWorkgroupsRequest method.
+//	req, resp := client.ListWorkgroupsRequest(params)
 //
-//    // Example sending a request using the ListWorkgroupsRequest method.
-//    req, resp := client.ListWorkgroupsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListWorkgroups
 func (c *RedshiftServerless) ListWorkgroupsRequest(input *ListWorkgroupsInput) (req *request.Request, output *ListWorkgroupsOutput) {
@@ -2685,12 +4095,13 @@ func (c *RedshiftServerless) ListWorkgroupsRequest(input *ListWorkgroupsInput) (
 // API operation ListWorkgroups for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/ListWorkgroups
 func (c *RedshiftServerless) ListWorkgroups(input *ListWorkgroupsInput) (*ListWorkgroupsOutput, error) {
@@ -2722,15 +4133,14 @@ func (c *RedshiftServerless) ListWorkgroupsWithContext(ctx aws.Context, input *L
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListWorkgroups operation.
-//    pageNum := 0
-//    err := client.ListWorkgroupsPages(params,
-//        func(page *redshiftserverless.ListWorkgroupsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListWorkgroups operation.
+//	pageNum := 0
+//	err := client.ListWorkgroupsPages(params,
+//	    func(page *redshiftserverless.ListWorkgroupsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *RedshiftServerless) ListWorkgroupsPages(input *ListWorkgroupsInput, fn func(*ListWorkgroupsOutput, bool) bool) error {
 	return c.ListWorkgroupsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2782,14 +4192,13 @@ const opPutResourcePolicy = "PutResourcePolicy"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutResourcePolicyRequest method.
+//	req, resp := client.PutResourcePolicyRequest(params)
 //
-//    // Example sending a request using the PutResourcePolicyRequest method.
-//    req, resp := client.PutResourcePolicyRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/PutResourcePolicy
 func (c *RedshiftServerless) PutResourcePolicyRequest(input *PutResourcePolicyInput) (req *request.Request, output *PutResourcePolicyOutput) {
@@ -2821,21 +4230,22 @@ func (c *RedshiftServerless) PutResourcePolicyRequest(input *PutResourcePolicyIn
 // API operation PutResourcePolicy for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
 //
-//   * ServiceQuotaExceededException
-//   The service limit was exceeded.
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - ServiceQuotaExceededException
+//     The service limit was exceeded.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/PutResourcePolicy
 func (c *RedshiftServerless) PutResourcePolicy(input *PutResourcePolicyInput) (*PutResourcePolicyOutput, error) {
@@ -2875,14 +4285,13 @@ const opRestoreFromRecoveryPoint = "RestoreFromRecoveryPoint"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the RestoreFromRecoveryPointRequest method.
+//	req, resp := client.RestoreFromRecoveryPointRequest(params)
 //
-//    // Example sending a request using the RestoreFromRecoveryPointRequest method.
-//    req, resp := client.RestoreFromRecoveryPointRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/RestoreFromRecoveryPoint
 func (c *RedshiftServerless) RestoreFromRecoveryPointRequest(input *RestoreFromRecoveryPointInput) (req *request.Request, output *RestoreFromRecoveryPointOutput) {
@@ -2913,18 +4322,19 @@ func (c *RedshiftServerless) RestoreFromRecoveryPointRequest(input *RestoreFromR
 // API operation RestoreFromRecoveryPoint for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/RestoreFromRecoveryPoint
 func (c *RedshiftServerless) RestoreFromRecoveryPoint(input *RestoreFromRecoveryPointInput) (*RestoreFromRecoveryPointOutput, error) {
@@ -2964,14 +4374,13 @@ const opRestoreFromSnapshot = "RestoreFromSnapshot"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the RestoreFromSnapshotRequest method.
+//	req, resp := client.RestoreFromSnapshotRequest(params)
 //
-//    // Example sending a request using the RestoreFromSnapshotRequest method.
-//    req, resp := client.RestoreFromSnapshotRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/RestoreFromSnapshot
 func (c *RedshiftServerless) RestoreFromSnapshotRequest(input *RestoreFromSnapshotInput) (req *request.Request, output *RestoreFromSnapshotOutput) {
@@ -3002,21 +4411,22 @@ func (c *RedshiftServerless) RestoreFromSnapshotRequest(input *RestoreFromSnapsh
 // API operation RestoreFromSnapshot for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
 //
-//   * ServiceQuotaExceededException
-//   The service limit was exceeded.
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - ServiceQuotaExceededException
+//     The service limit was exceeded.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/RestoreFromSnapshot
 func (c *RedshiftServerless) RestoreFromSnapshot(input *RestoreFromSnapshotInput) (*RestoreFromSnapshotOutput, error) {
@@ -3040,6 +4450,188 @@ func (c *RedshiftServerless) RestoreFromSnapshotWithContext(ctx aws.Context, inp
 	return out, req.Send()
 }
 
+const opRestoreTableFromRecoveryPoint = "RestoreTableFromRecoveryPoint"
+
+// RestoreTableFromRecoveryPointRequest generates a "aws/request.Request" representing the
+// client's request for the RestoreTableFromRecoveryPoint operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See RestoreTableFromRecoveryPoint for more information on using the RestoreTableFromRecoveryPoint
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the RestoreTableFromRecoveryPointRequest method.
+//	req, resp := client.RestoreTableFromRecoveryPointRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/RestoreTableFromRecoveryPoint
+func (c *RedshiftServerless) RestoreTableFromRecoveryPointRequest(input *RestoreTableFromRecoveryPointInput) (req *request.Request, output *RestoreTableFromRecoveryPointOutput) {
+	op := &request.Operation{
+		Name:       opRestoreTableFromRecoveryPoint,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &RestoreTableFromRecoveryPointInput{}
+	}
+
+	output = &RestoreTableFromRecoveryPointOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// RestoreTableFromRecoveryPoint API operation for Redshift Serverless.
+//
+// Restores a table from a recovery point to your Amazon Redshift Serverless
+// instance. You can't use this operation to restore tables with interleaved
+// sort keys.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation RestoreTableFromRecoveryPoint for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/RestoreTableFromRecoveryPoint
+func (c *RedshiftServerless) RestoreTableFromRecoveryPoint(input *RestoreTableFromRecoveryPointInput) (*RestoreTableFromRecoveryPointOutput, error) {
+	req, out := c.RestoreTableFromRecoveryPointRequest(input)
+	return out, req.Send()
+}
+
+// RestoreTableFromRecoveryPointWithContext is the same as RestoreTableFromRecoveryPoint with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RestoreTableFromRecoveryPoint for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) RestoreTableFromRecoveryPointWithContext(ctx aws.Context, input *RestoreTableFromRecoveryPointInput, opts ...request.Option) (*RestoreTableFromRecoveryPointOutput, error) {
+	req, out := c.RestoreTableFromRecoveryPointRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRestoreTableFromSnapshot = "RestoreTableFromSnapshot"
+
+// RestoreTableFromSnapshotRequest generates a "aws/request.Request" representing the
+// client's request for the RestoreTableFromSnapshot operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See RestoreTableFromSnapshot for more information on using the RestoreTableFromSnapshot
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the RestoreTableFromSnapshotRequest method.
+//	req, resp := client.RestoreTableFromSnapshotRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/RestoreTableFromSnapshot
+func (c *RedshiftServerless) RestoreTableFromSnapshotRequest(input *RestoreTableFromSnapshotInput) (req *request.Request, output *RestoreTableFromSnapshotOutput) {
+	op := &request.Operation{
+		Name:       opRestoreTableFromSnapshot,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &RestoreTableFromSnapshotInput{}
+	}
+
+	output = &RestoreTableFromSnapshotOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// RestoreTableFromSnapshot API operation for Redshift Serverless.
+//
+// Restores a table from a snapshot to your Amazon Redshift Serverless instance.
+// You can't use this operation to restore tables with interleaved sort keys
+// (https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation RestoreTableFromSnapshot for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/RestoreTableFromSnapshot
+func (c *RedshiftServerless) RestoreTableFromSnapshot(input *RestoreTableFromSnapshotInput) (*RestoreTableFromSnapshotOutput, error) {
+	req, out := c.RestoreTableFromSnapshotRequest(input)
+	return out, req.Send()
+}
+
+// RestoreTableFromSnapshotWithContext is the same as RestoreTableFromSnapshot with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RestoreTableFromSnapshot for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) RestoreTableFromSnapshotWithContext(ctx aws.Context, input *RestoreTableFromSnapshotInput, opts ...request.Option) (*RestoreTableFromSnapshotOutput, error) {
+	req, out := c.RestoreTableFromSnapshotRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opTagResource = "TagResource"
 
 // TagResourceRequest generates a "aws/request.Request" representing the
@@ -3056,14 +4648,13 @@ const opTagResource = "TagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the TagResourceRequest method.
+//	req, resp := client.TagResourceRequest(params)
 //
-//    // Example sending a request using the TagResourceRequest method.
-//    req, resp := client.TagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/TagResource
 func (c *RedshiftServerless) TagResourceRequest(input *TagResourceInput) (req *request.Request, output *TagResourceOutput) {
@@ -3095,21 +4686,22 @@ func (c *RedshiftServerless) TagResourceRequest(input *TagResourceInput) (req *r
 // API operation TagResource for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * TooManyTagsException
-//   The request exceeded the number of tags allowed for a resource.
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - TooManyTagsException
+//     The request exceeded the number of tags allowed for a resource.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/TagResource
 func (c *RedshiftServerless) TagResource(input *TagResourceInput) (*TagResourceOutput, error) {
@@ -3149,14 +4741,13 @@ const opUntagResource = "UntagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UntagResourceRequest method.
+//	req, resp := client.UntagResourceRequest(params)
 //
-//    // Example sending a request using the UntagResourceRequest method.
-//    req, resp := client.UntagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UntagResource
 func (c *RedshiftServerless) UntagResourceRequest(input *UntagResourceInput) (req *request.Request, output *UntagResourceOutput) {
@@ -3188,18 +4779,19 @@ func (c *RedshiftServerless) UntagResourceRequest(input *UntagResourceInput) (re
 // API operation UntagResource for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UntagResource
 func (c *RedshiftServerless) UntagResource(input *UntagResourceInput) (*UntagResourceOutput, error) {
@@ -3223,6 +4815,102 @@ func (c *RedshiftServerless) UntagResourceWithContext(ctx aws.Context, input *Un
 	return out, req.Send()
 }
 
+const opUpdateCustomDomainAssociation = "UpdateCustomDomainAssociation"
+
+// UpdateCustomDomainAssociationRequest generates a "aws/request.Request" representing the
+// client's request for the UpdateCustomDomainAssociation operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UpdateCustomDomainAssociation for more information on using the UpdateCustomDomainAssociation
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the UpdateCustomDomainAssociationRequest method.
+//	req, resp := client.UpdateCustomDomainAssociationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateCustomDomainAssociation
+func (c *RedshiftServerless) UpdateCustomDomainAssociationRequest(input *UpdateCustomDomainAssociationInput) (req *request.Request, output *UpdateCustomDomainAssociationOutput) {
+	op := &request.Operation{
+		Name:       opUpdateCustomDomainAssociation,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UpdateCustomDomainAssociationInput{}
+	}
+
+	output = &UpdateCustomDomainAssociationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// UpdateCustomDomainAssociation API operation for Redshift Serverless.
+//
+// Updates an Amazon Redshift Serverless certificate associated with a custom
+// domain.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation UpdateCustomDomainAssociation for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateCustomDomainAssociation
+func (c *RedshiftServerless) UpdateCustomDomainAssociation(input *UpdateCustomDomainAssociationInput) (*UpdateCustomDomainAssociationOutput, error) {
+	req, out := c.UpdateCustomDomainAssociationRequest(input)
+	return out, req.Send()
+}
+
+// UpdateCustomDomainAssociationWithContext is the same as UpdateCustomDomainAssociation with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UpdateCustomDomainAssociation for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) UpdateCustomDomainAssociationWithContext(ctx aws.Context, input *UpdateCustomDomainAssociationInput, opts ...request.Option) (*UpdateCustomDomainAssociationOutput, error) {
+	req, out := c.UpdateCustomDomainAssociationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opUpdateEndpointAccess = "UpdateEndpointAccess"
 
 // UpdateEndpointAccessRequest generates a "aws/request.Request" representing the
@@ -3239,14 +4927,13 @@ const opUpdateEndpointAccess = "UpdateEndpointAccess"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateEndpointAccessRequest method.
+//	req, resp := client.UpdateEndpointAccessRequest(params)
 //
-//    // Example sending a request using the UpdateEndpointAccessRequest method.
-//    req, resp := client.UpdateEndpointAccessRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateEndpointAccess
 func (c *RedshiftServerless) UpdateEndpointAccessRequest(input *UpdateEndpointAccessInput) (req *request.Request, output *UpdateEndpointAccessOutput) {
@@ -3277,21 +4964,22 @@ func (c *RedshiftServerless) UpdateEndpointAccessRequest(input *UpdateEndpointAc
 // API operation UpdateEndpointAccess for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateEndpointAccess
 func (c *RedshiftServerless) UpdateEndpointAccess(input *UpdateEndpointAccessInput) (*UpdateEndpointAccessOutput, error) {
@@ -3331,14 +5019,13 @@ const opUpdateNamespace = "UpdateNamespace"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateNamespaceRequest method.
+//	req, resp := client.UpdateNamespaceRequest(params)
 //
-//    // Example sending a request using the UpdateNamespaceRequest method.
-//    req, resp := client.UpdateNamespaceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateNamespace
 func (c *RedshiftServerless) UpdateNamespaceRequest(input *UpdateNamespaceInput) (req *request.Request, output *UpdateNamespaceOutput) {
@@ -3359,7 +5046,10 @@ func (c *RedshiftServerless) UpdateNamespaceRequest(input *UpdateNamespaceInput)
 
 // UpdateNamespace API operation for Redshift Serverless.
 //
-// Updates a namespace with the specified settings.
+// Updates a namespace with the specified settings. Unless required, you can't
+// update multiple parameters in one request. For example, you must specify
+// both adminUsername and adminUserPassword to update either field, but you
+// can't update both kmsKeyId and logExports in a single request.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3369,18 +5059,19 @@ func (c *RedshiftServerless) UpdateNamespaceRequest(input *UpdateNamespaceInput)
 // API operation UpdateNamespace for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateNamespace
 func (c *RedshiftServerless) UpdateNamespace(input *UpdateNamespaceInput) (*UpdateNamespaceOutput, error) {
@@ -3404,6 +5095,95 @@ func (c *RedshiftServerless) UpdateNamespaceWithContext(ctx aws.Context, input *
 	return out, req.Send()
 }
 
+const opUpdateScheduledAction = "UpdateScheduledAction"
+
+// UpdateScheduledActionRequest generates a "aws/request.Request" representing the
+// client's request for the UpdateScheduledAction operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UpdateScheduledAction for more information on using the UpdateScheduledAction
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the UpdateScheduledActionRequest method.
+//	req, resp := client.UpdateScheduledActionRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateScheduledAction
+func (c *RedshiftServerless) UpdateScheduledActionRequest(input *UpdateScheduledActionInput) (req *request.Request, output *UpdateScheduledActionOutput) {
+	op := &request.Operation{
+		Name:       opUpdateScheduledAction,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UpdateScheduledActionInput{}
+	}
+
+	output = &UpdateScheduledActionOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// UpdateScheduledAction API operation for Redshift Serverless.
+//
+// Updates a scheduled action.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation UpdateScheduledAction for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateScheduledAction
+func (c *RedshiftServerless) UpdateScheduledAction(input *UpdateScheduledActionInput) (*UpdateScheduledActionOutput, error) {
+	req, out := c.UpdateScheduledActionRequest(input)
+	return out, req.Send()
+}
+
+// UpdateScheduledActionWithContext is the same as UpdateScheduledAction with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UpdateScheduledAction for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) UpdateScheduledActionWithContext(ctx aws.Context, input *UpdateScheduledActionInput, opts ...request.Option) (*UpdateScheduledActionOutput, error) {
+	req, out := c.UpdateScheduledActionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opUpdateSnapshot = "UpdateSnapshot"
 
 // UpdateSnapshotRequest generates a "aws/request.Request" representing the
@@ -3420,14 +5200,13 @@ const opUpdateSnapshot = "UpdateSnapshot"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateSnapshotRequest method.
+//	req, resp := client.UpdateSnapshotRequest(params)
 //
-//    // Example sending a request using the UpdateSnapshotRequest method.
-//    req, resp := client.UpdateSnapshotRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateSnapshot
 func (c *RedshiftServerless) UpdateSnapshotRequest(input *UpdateSnapshotInput) (req *request.Request, output *UpdateSnapshotOutput) {
@@ -3458,18 +5237,19 @@ func (c *RedshiftServerless) UpdateSnapshotRequest(input *UpdateSnapshotInput) (
 // API operation UpdateSnapshot for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateSnapshot
 func (c *RedshiftServerless) UpdateSnapshot(input *UpdateSnapshotInput) (*UpdateSnapshotOutput, error) {
@@ -3493,6 +5273,98 @@ func (c *RedshiftServerless) UpdateSnapshotWithContext(ctx aws.Context, input *U
 	return out, req.Send()
 }
 
+const opUpdateSnapshotCopyConfiguration = "UpdateSnapshotCopyConfiguration"
+
+// UpdateSnapshotCopyConfigurationRequest generates a "aws/request.Request" representing the
+// client's request for the UpdateSnapshotCopyConfiguration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UpdateSnapshotCopyConfiguration for more information on using the UpdateSnapshotCopyConfiguration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the UpdateSnapshotCopyConfigurationRequest method.
+//	req, resp := client.UpdateSnapshotCopyConfigurationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateSnapshotCopyConfiguration
+func (c *RedshiftServerless) UpdateSnapshotCopyConfigurationRequest(input *UpdateSnapshotCopyConfigurationInput) (req *request.Request, output *UpdateSnapshotCopyConfigurationOutput) {
+	op := &request.Operation{
+		Name:       opUpdateSnapshotCopyConfiguration,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UpdateSnapshotCopyConfigurationInput{}
+	}
+
+	output = &UpdateSnapshotCopyConfigurationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// UpdateSnapshotCopyConfiguration API operation for Redshift Serverless.
+//
+// Updates a snapshot copy configuration.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Redshift Serverless's
+// API operation UpdateSnapshotCopyConfiguration for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ResourceNotFoundException
+//     The resource could not be found.
+//
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateSnapshotCopyConfiguration
+func (c *RedshiftServerless) UpdateSnapshotCopyConfiguration(input *UpdateSnapshotCopyConfigurationInput) (*UpdateSnapshotCopyConfigurationOutput, error) {
+	req, out := c.UpdateSnapshotCopyConfigurationRequest(input)
+	return out, req.Send()
+}
+
+// UpdateSnapshotCopyConfigurationWithContext is the same as UpdateSnapshotCopyConfiguration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UpdateSnapshotCopyConfiguration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RedshiftServerless) UpdateSnapshotCopyConfigurationWithContext(ctx aws.Context, input *UpdateSnapshotCopyConfigurationInput, opts ...request.Option) (*UpdateSnapshotCopyConfigurationOutput, error) {
+	req, out := c.UpdateSnapshotCopyConfigurationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opUpdateUsageLimit = "UpdateUsageLimit"
 
 // UpdateUsageLimitRequest generates a "aws/request.Request" representing the
@@ -3509,14 +5381,13 @@ const opUpdateUsageLimit = "UpdateUsageLimit"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateUsageLimitRequest method.
+//	req, resp := client.UpdateUsageLimitRequest(params)
 //
-//    // Example sending a request using the UpdateUsageLimitRequest method.
-//    req, resp := client.UpdateUsageLimitRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateUsageLimit
 func (c *RedshiftServerless) UpdateUsageLimitRequest(input *UpdateUsageLimitInput) (req *request.Request, output *UpdateUsageLimitOutput) {
@@ -3548,18 +5419,19 @@ func (c *RedshiftServerless) UpdateUsageLimitRequest(input *UpdateUsageLimitInpu
 // API operation UpdateUsageLimit for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateUsageLimit
 func (c *RedshiftServerless) UpdateUsageLimit(input *UpdateUsageLimitInput) (*UpdateUsageLimitOutput, error) {
@@ -3599,14 +5471,13 @@ const opUpdateWorkgroup = "UpdateWorkgroup"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateWorkgroupRequest method.
+//	req, resp := client.UpdateWorkgroupRequest(params)
 //
-//    // Example sending a request using the UpdateWorkgroupRequest method.
-//    req, resp := client.UpdateWorkgroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateWorkgroup
 func (c *RedshiftServerless) UpdateWorkgroupRequest(input *UpdateWorkgroupInput) (req *request.Request, output *UpdateWorkgroupOutput) {
@@ -3627,7 +5498,9 @@ func (c *RedshiftServerless) UpdateWorkgroupRequest(input *UpdateWorkgroupInput)
 
 // UpdateWorkgroup API operation for Redshift Serverless.
 //
-// Updates a workgroup with the specified configuration settings.
+// Updates a workgroup with the specified configuration settings. You can't
+// update multiple parameters in one request. For example, you can update baseCapacity
+// or port in a single request, but you can't update both in the same request.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3637,21 +5510,26 @@ func (c *RedshiftServerless) UpdateWorkgroupRequest(input *UpdateWorkgroupInput)
 // API operation UpdateWorkgroup for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * InsufficientCapacityException
-//   There is an insufficient capacity to perform the action.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ResourceNotFoundException
-//   The resource could not be found.
+//   - InsufficientCapacityException
+//     There is an insufficient capacity to perform the action.
 //
-//   * ConflictException
-//   The submitted action has conflicts.
+//   - ResourceNotFoundException
+//     The resource could not be found.
 //
-//   * ValidationException
-//   The input failed to satisfy the constraints specified by an AWS service.
+//   - ConflictException
+//     The submitted action has conflicts.
+//
+//   - ValidationException
+//     The input failed to satisfy the constraints specified by an AWS service.
+//
+//   - Ipv6CidrBlockNotFoundException
+//     There are no subnets in your VPC with associated IPv6 CIDR blocks. To use
+//     dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/redshift-serverless-2021-04-21/UpdateWorkgroup
 func (c *RedshiftServerless) UpdateWorkgroup(input *UpdateWorkgroupInput) (*UpdateWorkgroupOutput, error) {
@@ -3741,13 +5619,75 @@ func (s *AccessDeniedException) RequestID() string {
 	return s.RespMetadata.RequestID
 }
 
+// An object that represents the custom domain name association.
+type Association struct {
+	_ struct{} `type:"structure"`
+
+	// The custom domain name’s certificate Amazon resource name (ARN).
+	CustomDomainCertificateArn *string `locationName:"customDomainCertificateArn" min:"20" type:"string"`
+
+	// The expiration time for the certificate.
+	CustomDomainCertificateExpiryTime *time.Time `locationName:"customDomainCertificateExpiryTime" type:"timestamp" timestampFormat:"iso8601"`
+
+	// The custom domain name associated with the workgroup.
+	CustomDomainName *string `locationName:"customDomainName" min:"1" type:"string"`
+
+	// The name of the workgroup associated with the database.
+	WorkgroupName *string `locationName:"workgroupName" min:"3" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Association) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Association) GoString() string {
+	return s.String()
+}
+
+// SetCustomDomainCertificateArn sets the CustomDomainCertificateArn field's value.
+func (s *Association) SetCustomDomainCertificateArn(v string) *Association {
+	s.CustomDomainCertificateArn = &v
+	return s
+}
+
+// SetCustomDomainCertificateExpiryTime sets the CustomDomainCertificateExpiryTime field's value.
+func (s *Association) SetCustomDomainCertificateExpiryTime(v time.Time) *Association {
+	s.CustomDomainCertificateExpiryTime = &v
+	return s
+}
+
+// SetCustomDomainName sets the CustomDomainName field's value.
+func (s *Association) SetCustomDomainName(v string) *Association {
+	s.CustomDomainName = &v
+	return s
+}
+
+// SetWorkgroupName sets the WorkgroupName field's value.
+func (s *Association) SetWorkgroupName(v string) *Association {
+	s.WorkgroupName = &v
+	return s
+}
+
 // An array of key-value pairs to set for advanced control over Amazon Redshift
 // Serverless.
 type ConfigParameter struct {
 	_ struct{} `type:"structure"`
 
-	// The key of the parameter. The options are datestyle, enable_user_activity_logging,
-	// query_group, search_path, and max_query_execution_time.
+	// The key of the parameter. The options are auto_mv, datestyle, enable_case_sensitive_identifier,
+	// enable_user_activity_logging, query_group, search_path, require_ssl, use_fips_ssl,
+	// and query monitoring metrics that let you define performance boundaries.
+	// For more information about query monitoring rules and available metrics,
+	// see Query monitoring metrics for Amazon Redshift Serverless (https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless).
 	ParameterKey *string `locationName:"parameterKey" type:"string"`
 
 	// The value of the parameter to set.
@@ -3863,6 +5803,10 @@ type ConvertRecoveryPointToSnapshotInput struct {
 	//
 	// SnapshotName is a required field
 	SnapshotName *string `locationName:"snapshotName" type:"string" required:"true"`
+
+	// An array of Tag objects (https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html)
+	// to associate with the created snapshot.
+	Tags []*Tag `locationName:"tags" type:"list"`
 }
 
 // String returns the string representation.
@@ -3892,6 +5836,16 @@ func (s *ConvertRecoveryPointToSnapshotInput) Validate() error {
 	if s.SnapshotName == nil {
 		invalidParams.Add(request.NewErrParamRequired("SnapshotName"))
 	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -3914,6 +5868,12 @@ func (s *ConvertRecoveryPointToSnapshotInput) SetRetentionPeriod(v int64) *Conve
 // SetSnapshotName sets the SnapshotName field's value.
 func (s *ConvertRecoveryPointToSnapshotInput) SetSnapshotName(v string) *ConvertRecoveryPointToSnapshotInput {
 	s.SnapshotName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ConvertRecoveryPointToSnapshotInput) SetTags(v []*Tag) *ConvertRecoveryPointToSnapshotInput {
+	s.Tags = v
 	return s
 }
 
@@ -3948,6 +5908,147 @@ func (s *ConvertRecoveryPointToSnapshotOutput) SetSnapshot(v *Snapshot) *Convert
 	return s
 }
 
+type CreateCustomDomainAssociationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The custom domain name’s certificate Amazon resource name (ARN).
+	//
+	// CustomDomainCertificateArn is a required field
+	CustomDomainCertificateArn *string `locationName:"customDomainCertificateArn" min:"20" type:"string" required:"true"`
+
+	// The custom domain name to associate with the workgroup.
+	//
+	// CustomDomainName is a required field
+	CustomDomainName *string `locationName:"customDomainName" min:"1" type:"string" required:"true"`
+
+	// The name of the workgroup associated with the database.
+	//
+	// WorkgroupName is a required field
+	WorkgroupName *string `locationName:"workgroupName" min:"3" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateCustomDomainAssociationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateCustomDomainAssociationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateCustomDomainAssociationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateCustomDomainAssociationInput"}
+	if s.CustomDomainCertificateArn == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomDomainCertificateArn"))
+	}
+	if s.CustomDomainCertificateArn != nil && len(*s.CustomDomainCertificateArn) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("CustomDomainCertificateArn", 20))
+	}
+	if s.CustomDomainName == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomDomainName"))
+	}
+	if s.CustomDomainName != nil && len(*s.CustomDomainName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CustomDomainName", 1))
+	}
+	if s.WorkgroupName == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkgroupName"))
+	}
+	if s.WorkgroupName != nil && len(*s.WorkgroupName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("WorkgroupName", 3))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCustomDomainCertificateArn sets the CustomDomainCertificateArn field's value.
+func (s *CreateCustomDomainAssociationInput) SetCustomDomainCertificateArn(v string) *CreateCustomDomainAssociationInput {
+	s.CustomDomainCertificateArn = &v
+	return s
+}
+
+// SetCustomDomainName sets the CustomDomainName field's value.
+func (s *CreateCustomDomainAssociationInput) SetCustomDomainName(v string) *CreateCustomDomainAssociationInput {
+	s.CustomDomainName = &v
+	return s
+}
+
+// SetWorkgroupName sets the WorkgroupName field's value.
+func (s *CreateCustomDomainAssociationInput) SetWorkgroupName(v string) *CreateCustomDomainAssociationInput {
+	s.WorkgroupName = &v
+	return s
+}
+
+type CreateCustomDomainAssociationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The custom domain name’s certificate Amazon resource name (ARN).
+	CustomDomainCertificateArn *string `locationName:"customDomainCertificateArn" min:"20" type:"string"`
+
+	// The expiration time for the certificate.
+	CustomDomainCertificateExpiryTime *time.Time `locationName:"customDomainCertificateExpiryTime" type:"timestamp" timestampFormat:"iso8601"`
+
+	// The custom domain name to associate with the workgroup.
+	CustomDomainName *string `locationName:"customDomainName" min:"1" type:"string"`
+
+	// The name of the workgroup associated with the database.
+	WorkgroupName *string `locationName:"workgroupName" min:"3" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateCustomDomainAssociationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateCustomDomainAssociationOutput) GoString() string {
+	return s.String()
+}
+
+// SetCustomDomainCertificateArn sets the CustomDomainCertificateArn field's value.
+func (s *CreateCustomDomainAssociationOutput) SetCustomDomainCertificateArn(v string) *CreateCustomDomainAssociationOutput {
+	s.CustomDomainCertificateArn = &v
+	return s
+}
+
+// SetCustomDomainCertificateExpiryTime sets the CustomDomainCertificateExpiryTime field's value.
+func (s *CreateCustomDomainAssociationOutput) SetCustomDomainCertificateExpiryTime(v time.Time) *CreateCustomDomainAssociationOutput {
+	s.CustomDomainCertificateExpiryTime = &v
+	return s
+}
+
+// SetCustomDomainName sets the CustomDomainName field's value.
+func (s *CreateCustomDomainAssociationOutput) SetCustomDomainName(v string) *CreateCustomDomainAssociationOutput {
+	s.CustomDomainName = &v
+	return s
+}
+
+// SetWorkgroupName sets the WorkgroupName field's value.
+func (s *CreateCustomDomainAssociationOutput) SetWorkgroupName(v string) *CreateCustomDomainAssociationOutput {
+	s.WorkgroupName = &v
+	return s
+}
+
 type CreateEndpointAccessInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3958,6 +6059,10 @@ type CreateEndpointAccessInput struct {
 	//
 	// EndpointName is a required field
 	EndpointName *string `locationName:"endpointName" type:"string" required:"true"`
+
+	// The owner Amazon Web Services account for the Amazon Redshift Serverless
+	// workgroup.
+	OwnerAccount *string `locationName:"ownerAccount" min:"1" type:"string"`
 
 	// The unique identifers of subnets from which Amazon Redshift Serverless chooses
 	// one to deploy a VPC endpoint.
@@ -3999,6 +6104,9 @@ func (s *CreateEndpointAccessInput) Validate() error {
 	if s.EndpointName == nil {
 		invalidParams.Add(request.NewErrParamRequired("EndpointName"))
 	}
+	if s.OwnerAccount != nil && len(*s.OwnerAccount) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("OwnerAccount", 1))
+	}
 	if s.SubnetIds == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetIds"))
 	}
@@ -4015,6 +6123,12 @@ func (s *CreateEndpointAccessInput) Validate() error {
 // SetEndpointName sets the EndpointName field's value.
 func (s *CreateEndpointAccessInput) SetEndpointName(v string) *CreateEndpointAccessInput {
 	s.EndpointName = &v
+	return s
+}
+
+// SetOwnerAccount sets the OwnerAccount field's value.
+func (s *CreateEndpointAccessInput) SetOwnerAccount(v string) *CreateEndpointAccessInput {
+	s.OwnerAccount = &v
 	return s
 }
 
@@ -4070,7 +6184,14 @@ func (s *CreateEndpointAccessOutput) SetEndpoint(v *EndpointAccess) *CreateEndpo
 type CreateNamespaceInput struct {
 	_ struct{} `type:"structure"`
 
+	// The ID of the Key Management Service (KMS) key used to encrypt and store
+	// the namespace's admin credentials secret. You can only use this parameter
+	// if manageAdminPassword is true.
+	AdminPasswordSecretKmsKeyId *string `locationName:"adminPasswordSecretKmsKeyId" type:"string"`
+
 	// The password of the administrator for the first database created in the namespace.
+	//
+	// You can't use adminUserPassword if manageAdminPassword is true.
 	//
 	// AdminUserPassword is a sensitive parameter and its value will be
 	// replaced with "sensitive" in string returned by CreateNamespaceInput's
@@ -4102,10 +6223,19 @@ type CreateNamespaceInput struct {
 	// connectionlog, and useractivitylog.
 	LogExports []*string `locationName:"logExports" type:"list" enum:"LogExport"`
 
+	// If true, Amazon Redshift uses Secrets Manager to manage the namespace's admin
+	// credentials. You can't use adminUserPassword if manageAdminPassword is true.
+	// If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword
+	// for the admin user account's password.
+	ManageAdminPassword *bool `locationName:"manageAdminPassword" type:"boolean"`
+
 	// The name of the namespace.
 	//
 	// NamespaceName is a required field
 	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string" required:"true"`
+
+	// The ARN for the Redshift application that integrates with IAM Identity Center.
+	RedshiftIdcApplicationArn *string `locationName:"redshiftIdcApplicationArn" min:"1" type:"string"`
 
 	// A list of tag instances.
 	Tags []*Tag `locationName:"tags" type:"list"`
@@ -4138,6 +6268,9 @@ func (s *CreateNamespaceInput) Validate() error {
 	if s.NamespaceName != nil && len(*s.NamespaceName) < 3 {
 		invalidParams.Add(request.NewErrParamMinLen("NamespaceName", 3))
 	}
+	if s.RedshiftIdcApplicationArn != nil && len(*s.RedshiftIdcApplicationArn) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RedshiftIdcApplicationArn", 1))
+	}
 	if s.Tags != nil {
 		for i, v := range s.Tags {
 			if v == nil {
@@ -4153,6 +6286,12 @@ func (s *CreateNamespaceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAdminPasswordSecretKmsKeyId sets the AdminPasswordSecretKmsKeyId field's value.
+func (s *CreateNamespaceInput) SetAdminPasswordSecretKmsKeyId(v string) *CreateNamespaceInput {
+	s.AdminPasswordSecretKmsKeyId = &v
+	return s
 }
 
 // SetAdminUserPassword sets the AdminUserPassword field's value.
@@ -4197,9 +6336,21 @@ func (s *CreateNamespaceInput) SetLogExports(v []*string) *CreateNamespaceInput 
 	return s
 }
 
+// SetManageAdminPassword sets the ManageAdminPassword field's value.
+func (s *CreateNamespaceInput) SetManageAdminPassword(v bool) *CreateNamespaceInput {
+	s.ManageAdminPassword = &v
+	return s
+}
+
 // SetNamespaceName sets the NamespaceName field's value.
 func (s *CreateNamespaceInput) SetNamespaceName(v string) *CreateNamespaceInput {
 	s.NamespaceName = &v
+	return s
+}
+
+// SetRedshiftIdcApplicationArn sets the RedshiftIdcApplicationArn field's value.
+func (s *CreateNamespaceInput) SetRedshiftIdcApplicationArn(v string) *CreateNamespaceInput {
+	s.RedshiftIdcApplicationArn = &v
 	return s
 }
 
@@ -4240,6 +6391,328 @@ func (s *CreateNamespaceOutput) SetNamespace(v *Namespace) *CreateNamespaceOutpu
 	return s
 }
 
+type CreateScheduledActionInput struct {
+	_ struct{} `type:"structure"`
+
+	// Indicates whether the schedule is enabled. If false, the scheduled action
+	// does not trigger. For more information about state of the scheduled action,
+	// see ScheduledAction (https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ScheduledAction.html).
+	Enabled *bool `locationName:"enabled" type:"boolean"`
+
+	// The end time in UTC when the schedule is no longer active. After this time,
+	// the scheduled action does not trigger.
+	EndTime *time.Time `locationName:"endTime" type:"timestamp"`
+
+	// The name of the namespace for which to create a scheduled action.
+	//
+	// NamespaceName is a required field
+	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string" required:"true"`
+
+	// The ARN of the IAM role to assume to run the scheduled action. This IAM role
+	// must have permission to run the Amazon Redshift Serverless API operation
+	// in the scheduled action. This IAM role must allow the Amazon Redshift scheduler
+	// to schedule creating snapshots. (Principal scheduler.redshift.amazonaws.com)
+	// to assume permissions on your behalf. For more information about the IAM
+	// role to use with the Amazon Redshift scheduler, see Using Identity-Based
+	// Policies for Amazon Redshift (https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html)
+	// in the Amazon Redshift Management Guide
+	//
+	// RoleArn is a required field
+	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+
+	// The schedule for a one-time (at timestamp format) or recurring (cron format)
+	// scheduled action. Schedule invocations must be separated by at least one
+	// hour. Times are in UTC.
+	//
+	//    * Format of at timestamp is yyyy-mm-ddThh:mm:ss. For example, 2016-03-04T17:27:00.
+	//
+	//    * Format of cron expression is (Minutes Hours Day-of-month Month Day-of-week
+	//    Year). For example, "(0 10 ? * MON *)". For more information, see Cron
+	//    Expressions (https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions)
+	//    in the Amazon CloudWatch Events User Guide.
+	//
+	// Schedule is a required field
+	Schedule *Schedule `locationName:"schedule" type:"structure" required:"true"`
+
+	// The description of the scheduled action.
+	ScheduledActionDescription *string `locationName:"scheduledActionDescription" type:"string"`
+
+	// The name of the scheduled action.
+	//
+	// ScheduledActionName is a required field
+	ScheduledActionName *string `locationName:"scheduledActionName" min:"3" type:"string" required:"true"`
+
+	// The start time in UTC when the schedule is active. Before this time, the
+	// scheduled action does not trigger.
+	StartTime *time.Time `locationName:"startTime" type:"timestamp"`
+
+	// A JSON format string of the Amazon Redshift Serverless API operation with
+	// input parameters. The following is an example of a target action.
+	//
+	// "{"CreateSnapshot": {"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot",
+	// "retentionPeriod": "1"}}"
+	//
+	// TargetAction is a required field
+	TargetAction *TargetAction `locationName:"targetAction" type:"structure" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateScheduledActionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateScheduledActionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateScheduledActionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateScheduledActionInput"}
+	if s.NamespaceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("NamespaceName"))
+	}
+	if s.NamespaceName != nil && len(*s.NamespaceName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("NamespaceName", 3))
+	}
+	if s.RoleArn == nil {
+		invalidParams.Add(request.NewErrParamRequired("RoleArn"))
+	}
+	if s.Schedule == nil {
+		invalidParams.Add(request.NewErrParamRequired("Schedule"))
+	}
+	if s.ScheduledActionName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScheduledActionName"))
+	}
+	if s.ScheduledActionName != nil && len(*s.ScheduledActionName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("ScheduledActionName", 3))
+	}
+	if s.TargetAction == nil {
+		invalidParams.Add(request.NewErrParamRequired("TargetAction"))
+	}
+	if s.TargetAction != nil {
+		if err := s.TargetAction.Validate(); err != nil {
+			invalidParams.AddNested("TargetAction", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *CreateScheduledActionInput) SetEnabled(v bool) *CreateScheduledActionInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *CreateScheduledActionInput) SetEndTime(v time.Time) *CreateScheduledActionInput {
+	s.EndTime = &v
+	return s
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *CreateScheduledActionInput) SetNamespaceName(v string) *CreateScheduledActionInput {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetRoleArn sets the RoleArn field's value.
+func (s *CreateScheduledActionInput) SetRoleArn(v string) *CreateScheduledActionInput {
+	s.RoleArn = &v
+	return s
+}
+
+// SetSchedule sets the Schedule field's value.
+func (s *CreateScheduledActionInput) SetSchedule(v *Schedule) *CreateScheduledActionInput {
+	s.Schedule = v
+	return s
+}
+
+// SetScheduledActionDescription sets the ScheduledActionDescription field's value.
+func (s *CreateScheduledActionInput) SetScheduledActionDescription(v string) *CreateScheduledActionInput {
+	s.ScheduledActionDescription = &v
+	return s
+}
+
+// SetScheduledActionName sets the ScheduledActionName field's value.
+func (s *CreateScheduledActionInput) SetScheduledActionName(v string) *CreateScheduledActionInput {
+	s.ScheduledActionName = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *CreateScheduledActionInput) SetStartTime(v time.Time) *CreateScheduledActionInput {
+	s.StartTime = &v
+	return s
+}
+
+// SetTargetAction sets the TargetAction field's value.
+func (s *CreateScheduledActionInput) SetTargetAction(v *TargetAction) *CreateScheduledActionInput {
+	s.TargetAction = v
+	return s
+}
+
+type CreateScheduledActionOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The returned ScheduledAction object that describes the properties of a scheduled
+	// action.
+	ScheduledAction *ScheduledActionResponse `locationName:"scheduledAction" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateScheduledActionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateScheduledActionOutput) GoString() string {
+	return s.String()
+}
+
+// SetScheduledAction sets the ScheduledAction field's value.
+func (s *CreateScheduledActionOutput) SetScheduledAction(v *ScheduledActionResponse) *CreateScheduledActionOutput {
+	s.ScheduledAction = v
+	return s
+}
+
+type CreateSnapshotCopyConfigurationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The KMS key to use to encrypt your snapshots in the destination Amazon Web
+	// Services Region.
+	DestinationKmsKeyId *string `locationName:"destinationKmsKeyId" type:"string"`
+
+	// The destination Amazon Web Services Region that you want to copy snapshots
+	// to.
+	//
+	// DestinationRegion is a required field
+	DestinationRegion *string `locationName:"destinationRegion" type:"string" required:"true"`
+
+	// The name of the namespace to copy snapshots from.
+	//
+	// NamespaceName is a required field
+	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string" required:"true"`
+
+	// The retention period of the snapshots that you copy to the destination Amazon
+	// Web Services Region.
+	SnapshotRetentionPeriod *int64 `locationName:"snapshotRetentionPeriod" type:"integer"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateSnapshotCopyConfigurationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateSnapshotCopyConfigurationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateSnapshotCopyConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateSnapshotCopyConfigurationInput"}
+	if s.DestinationRegion == nil {
+		invalidParams.Add(request.NewErrParamRequired("DestinationRegion"))
+	}
+	if s.NamespaceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("NamespaceName"))
+	}
+	if s.NamespaceName != nil && len(*s.NamespaceName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("NamespaceName", 3))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDestinationKmsKeyId sets the DestinationKmsKeyId field's value.
+func (s *CreateSnapshotCopyConfigurationInput) SetDestinationKmsKeyId(v string) *CreateSnapshotCopyConfigurationInput {
+	s.DestinationKmsKeyId = &v
+	return s
+}
+
+// SetDestinationRegion sets the DestinationRegion field's value.
+func (s *CreateSnapshotCopyConfigurationInput) SetDestinationRegion(v string) *CreateSnapshotCopyConfigurationInput {
+	s.DestinationRegion = &v
+	return s
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *CreateSnapshotCopyConfigurationInput) SetNamespaceName(v string) *CreateSnapshotCopyConfigurationInput {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetSnapshotRetentionPeriod sets the SnapshotRetentionPeriod field's value.
+func (s *CreateSnapshotCopyConfigurationInput) SetSnapshotRetentionPeriod(v int64) *CreateSnapshotCopyConfigurationInput {
+	s.SnapshotRetentionPeriod = &v
+	return s
+}
+
+type CreateSnapshotCopyConfigurationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The snapshot copy configuration object that is returned.
+	//
+	// SnapshotCopyConfiguration is a required field
+	SnapshotCopyConfiguration *SnapshotCopyConfiguration `locationName:"snapshotCopyConfiguration" type:"structure" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateSnapshotCopyConfigurationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateSnapshotCopyConfigurationOutput) GoString() string {
+	return s.String()
+}
+
+// SetSnapshotCopyConfiguration sets the SnapshotCopyConfiguration field's value.
+func (s *CreateSnapshotCopyConfigurationOutput) SetSnapshotCopyConfiguration(v *SnapshotCopyConfiguration) *CreateSnapshotCopyConfigurationOutput {
+	s.SnapshotCopyConfiguration = v
+	return s
+}
+
 type CreateSnapshotInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4255,6 +6728,10 @@ type CreateSnapshotInput struct {
 	//
 	// SnapshotName is a required field
 	SnapshotName *string `locationName:"snapshotName" type:"string" required:"true"`
+
+	// An array of Tag objects (https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html)
+	// to associate with the snapshot.
+	Tags []*Tag `locationName:"tags" type:"list"`
 }
 
 // String returns the string representation.
@@ -4284,6 +6761,16 @@ func (s *CreateSnapshotInput) Validate() error {
 	if s.SnapshotName == nil {
 		invalidParams.Add(request.NewErrParamRequired("SnapshotName"))
 	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -4306,6 +6793,12 @@ func (s *CreateSnapshotInput) SetRetentionPeriod(v int64) *CreateSnapshotInput {
 // SetSnapshotName sets the SnapshotName field's value.
 func (s *CreateSnapshotInput) SetSnapshotName(v string) *CreateSnapshotInput {
 	s.SnapshotName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateSnapshotInput) SetTags(v []*Tag) *CreateSnapshotInput {
+	s.Tags = v
 	return s
 }
 
@@ -4337,6 +6830,107 @@ func (s CreateSnapshotOutput) GoString() string {
 // SetSnapshot sets the Snapshot field's value.
 func (s *CreateSnapshotOutput) SetSnapshot(v *Snapshot) *CreateSnapshotOutput {
 	s.Snapshot = v
+	return s
+}
+
+// The parameters that you can use to configure a scheduled action (https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html)
+// to create a snapshot. For more information about creating a scheduled action,
+// see CreateScheduledAction (https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html).
+type CreateSnapshotScheduleActionParameters struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the namespace for which you want to configure a scheduled action
+	// to create a snapshot.
+	//
+	// NamespaceName is a required field
+	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string" required:"true"`
+
+	// The retention period of the snapshot created by the scheduled action.
+	RetentionPeriod *int64 `locationName:"retentionPeriod" type:"integer"`
+
+	// A string prefix that is attached to the name of the snapshot created by the
+	// scheduled action. The final name of the snapshot is the string prefix appended
+	// by the date and time of when the snapshot was created.
+	//
+	// SnapshotNamePrefix is a required field
+	SnapshotNamePrefix *string `locationName:"snapshotNamePrefix" min:"1" type:"string" required:"true"`
+
+	// An array of Tag objects (https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html)
+	// to associate with the snapshot.
+	Tags []*Tag `locationName:"tags" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateSnapshotScheduleActionParameters) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateSnapshotScheduleActionParameters) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateSnapshotScheduleActionParameters) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateSnapshotScheduleActionParameters"}
+	if s.NamespaceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("NamespaceName"))
+	}
+	if s.NamespaceName != nil && len(*s.NamespaceName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("NamespaceName", 3))
+	}
+	if s.SnapshotNamePrefix == nil {
+		invalidParams.Add(request.NewErrParamRequired("SnapshotNamePrefix"))
+	}
+	if s.SnapshotNamePrefix != nil && len(*s.SnapshotNamePrefix) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SnapshotNamePrefix", 1))
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *CreateSnapshotScheduleActionParameters) SetNamespaceName(v string) *CreateSnapshotScheduleActionParameters {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetRetentionPeriod sets the RetentionPeriod field's value.
+func (s *CreateSnapshotScheduleActionParameters) SetRetentionPeriod(v int64) *CreateSnapshotScheduleActionParameters {
+	s.RetentionPeriod = &v
+	return s
+}
+
+// SetSnapshotNamePrefix sets the SnapshotNamePrefix field's value.
+func (s *CreateSnapshotScheduleActionParameters) SetSnapshotNamePrefix(v string) *CreateSnapshotScheduleActionParameters {
+	s.SnapshotNamePrefix = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateSnapshotScheduleActionParameters) SetTags(v []*Tag) *CreateSnapshotScheduleActionParameters {
+	s.Tags = v
 	return s
 }
 
@@ -4476,9 +7070,12 @@ type CreateWorkgroupInput struct {
 	// Units (RPUs).
 	BaseCapacity *int64 `locationName:"baseCapacity" type:"integer"`
 
-	// An array of parameters to set for more control over a serverless database.
-	// The options are datestyle, enable_user_activity_logging, query_group, search_path,
-	// and max_query_execution_time.
+	// An array of parameters to set for advanced control over a database. The options
+	// are auto_mv, datestyle, enable_case_sensitive_identifier, enable_user_activity_logging,
+	// query_group, search_path, require_ssl, use_fips_ssl, and query monitoring
+	// metrics that let you define performance boundaries. For more information
+	// about query monitoring rules and available metrics, see Query monitoring
+	// metrics for Amazon Redshift Serverless (https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless).
 	ConfigParameters []*ConfigParameter `locationName:"configParameters" type:"list"`
 
 	// The value that specifies whether to turn on enhanced virtual private cloud
@@ -4486,10 +7083,22 @@ type CreateWorkgroupInput struct {
 	// your VPC instead of over the internet.
 	EnhancedVpcRouting *bool `locationName:"enhancedVpcRouting" type:"boolean"`
 
+	// The IP address type that the workgroup supports. Possible values are ipv4
+	// and dualstack.
+	IpAddressType *string `locationName:"ipAddressType" type:"string"`
+
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve
+	// queries. The max capacity is specified in RPUs.
+	MaxCapacity *int64 `locationName:"maxCapacity" type:"integer"`
+
 	// The name of the namespace to associate with the workgroup.
 	//
 	// NamespaceName is a required field
 	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string" required:"true"`
+
+	// The custom port to use when connecting to a workgroup. Valid port ranges
+	// are 5431-5455 and 8191-8215. The default is 5439.
+	Port *int64 `locationName:"port" type:"integer"`
 
 	// A value that specifies whether the workgroup can be accessed from a public
 	// network.
@@ -4578,9 +7187,27 @@ func (s *CreateWorkgroupInput) SetEnhancedVpcRouting(v bool) *CreateWorkgroupInp
 	return s
 }
 
+// SetIpAddressType sets the IpAddressType field's value.
+func (s *CreateWorkgroupInput) SetIpAddressType(v string) *CreateWorkgroupInput {
+	s.IpAddressType = &v
+	return s
+}
+
+// SetMaxCapacity sets the MaxCapacity field's value.
+func (s *CreateWorkgroupInput) SetMaxCapacity(v int64) *CreateWorkgroupInput {
+	s.MaxCapacity = &v
+	return s
+}
+
 // SetNamespaceName sets the NamespaceName field's value.
 func (s *CreateWorkgroupInput) SetNamespaceName(v string) *CreateWorkgroupInput {
 	s.NamespaceName = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *CreateWorkgroupInput) SetPort(v int64) *CreateWorkgroupInput {
+	s.Port = &v
 	return s
 }
 
@@ -4643,6 +7270,94 @@ func (s CreateWorkgroupOutput) GoString() string {
 func (s *CreateWorkgroupOutput) SetWorkgroup(v *Workgroup) *CreateWorkgroupOutput {
 	s.Workgroup = v
 	return s
+}
+
+type DeleteCustomDomainAssociationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The custom domain name associated with the workgroup.
+	//
+	// CustomDomainName is a required field
+	CustomDomainName *string `locationName:"customDomainName" min:"1" type:"string" required:"true"`
+
+	// The name of the workgroup associated with the database.
+	//
+	// WorkgroupName is a required field
+	WorkgroupName *string `locationName:"workgroupName" min:"3" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteCustomDomainAssociationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteCustomDomainAssociationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteCustomDomainAssociationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteCustomDomainAssociationInput"}
+	if s.CustomDomainName == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomDomainName"))
+	}
+	if s.CustomDomainName != nil && len(*s.CustomDomainName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CustomDomainName", 1))
+	}
+	if s.WorkgroupName == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkgroupName"))
+	}
+	if s.WorkgroupName != nil && len(*s.WorkgroupName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("WorkgroupName", 3))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCustomDomainName sets the CustomDomainName field's value.
+func (s *DeleteCustomDomainAssociationInput) SetCustomDomainName(v string) *DeleteCustomDomainAssociationInput {
+	s.CustomDomainName = &v
+	return s
+}
+
+// SetWorkgroupName sets the WorkgroupName field's value.
+func (s *DeleteCustomDomainAssociationInput) SetWorkgroupName(v string) *DeleteCustomDomainAssociationInput {
+	s.WorkgroupName = &v
+	return s
+}
+
+type DeleteCustomDomainAssociationOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteCustomDomainAssociationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteCustomDomainAssociationOutput) GoString() string {
+	return s.String()
 }
 
 type DeleteEndpointAccessInput struct {
@@ -4888,6 +7603,165 @@ func (s DeleteResourcePolicyOutput) String() string {
 // value will be replaced with "sensitive".
 func (s DeleteResourcePolicyOutput) GoString() string {
 	return s.String()
+}
+
+type DeleteScheduledActionInput struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the scheduled action to delete.
+	//
+	// ScheduledActionName is a required field
+	ScheduledActionName *string `locationName:"scheduledActionName" min:"3" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteScheduledActionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteScheduledActionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteScheduledActionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteScheduledActionInput"}
+	if s.ScheduledActionName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScheduledActionName"))
+	}
+	if s.ScheduledActionName != nil && len(*s.ScheduledActionName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("ScheduledActionName", 3))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetScheduledActionName sets the ScheduledActionName field's value.
+func (s *DeleteScheduledActionInput) SetScheduledActionName(v string) *DeleteScheduledActionInput {
+	s.ScheduledActionName = &v
+	return s
+}
+
+type DeleteScheduledActionOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The deleted scheduled action object.
+	ScheduledAction *ScheduledActionResponse `locationName:"scheduledAction" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteScheduledActionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteScheduledActionOutput) GoString() string {
+	return s.String()
+}
+
+// SetScheduledAction sets the ScheduledAction field's value.
+func (s *DeleteScheduledActionOutput) SetScheduledAction(v *ScheduledActionResponse) *DeleteScheduledActionOutput {
+	s.ScheduledAction = v
+	return s
+}
+
+type DeleteSnapshotCopyConfigurationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the snapshot copy configuration to delete.
+	//
+	// SnapshotCopyConfigurationId is a required field
+	SnapshotCopyConfigurationId *string `locationName:"snapshotCopyConfigurationId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteSnapshotCopyConfigurationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteSnapshotCopyConfigurationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteSnapshotCopyConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteSnapshotCopyConfigurationInput"}
+	if s.SnapshotCopyConfigurationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SnapshotCopyConfigurationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSnapshotCopyConfigurationId sets the SnapshotCopyConfigurationId field's value.
+func (s *DeleteSnapshotCopyConfigurationInput) SetSnapshotCopyConfigurationId(v string) *DeleteSnapshotCopyConfigurationInput {
+	s.SnapshotCopyConfigurationId = &v
+	return s
+}
+
+type DeleteSnapshotCopyConfigurationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The deleted snapshot copy configuration object.
+	//
+	// SnapshotCopyConfiguration is a required field
+	SnapshotCopyConfiguration *SnapshotCopyConfiguration `locationName:"snapshotCopyConfiguration" type:"structure" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteSnapshotCopyConfigurationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteSnapshotCopyConfigurationOutput) GoString() string {
+	return s.String()
+}
+
+// SetSnapshotCopyConfiguration sets the SnapshotCopyConfiguration field's value.
+func (s *DeleteSnapshotCopyConfigurationOutput) SetSnapshotCopyConfiguration(v *SnapshotCopyConfiguration) *DeleteSnapshotCopyConfigurationOutput {
+	s.SnapshotCopyConfiguration = v
+	return s
 }
 
 type DeleteSnapshotInput struct {
@@ -5293,14 +8167,18 @@ func (s *EndpointAccess) SetWorkgroupName(v string) *EndpointAccess {
 type GetCredentialsInput struct {
 	_ struct{} `type:"structure"`
 
+	// The custom domain name associated with the workgroup. The custom domain name
+	// or the workgroup name must be included in the request.
+	CustomDomainName *string `locationName:"customDomainName" min:"1" type:"string"`
+
 	// The name of the database to get temporary authorization to log on to.
 	//
 	// Constraints:
 	//
 	//    * Must be 1 to 64 alphanumeric characters or hyphens.
 	//
-	//    * Must contain only lowercase letters, numbers, underscore, plus sign,
-	//    period (dot), at symbol (@), or hyphen.
+	//    * Must contain only uppercase or lowercase letters, numbers, underscore,
+	//    plus sign, period (dot), at symbol (@), or hyphen.
 	//
 	//    * The first character must be a letter.
 	//
@@ -5316,9 +8194,7 @@ type GetCredentialsInput struct {
 	DurationSeconds *int64 `locationName:"durationSeconds" type:"integer"`
 
 	// The name of the workgroup associated with the database.
-	//
-	// WorkgroupName is a required field
-	WorkgroupName *string `locationName:"workgroupName" min:"3" type:"string" required:"true"`
+	WorkgroupName *string `locationName:"workgroupName" min:"3" type:"string"`
 }
 
 // String returns the string representation.
@@ -5342,8 +8218,8 @@ func (s GetCredentialsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetCredentialsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetCredentialsInput"}
-	if s.WorkgroupName == nil {
-		invalidParams.Add(request.NewErrParamRequired("WorkgroupName"))
+	if s.CustomDomainName != nil && len(*s.CustomDomainName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CustomDomainName", 1))
 	}
 	if s.WorkgroupName != nil && len(*s.WorkgroupName) < 3 {
 		invalidParams.Add(request.NewErrParamMinLen("WorkgroupName", 3))
@@ -5353,6 +8229,12 @@ func (s *GetCredentialsInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetCustomDomainName sets the CustomDomainName field's value.
+func (s *GetCredentialsInput) SetCustomDomainName(v string) *GetCredentialsInput {
+	s.CustomDomainName = &v
+	return s
 }
 
 // SetDbName sets the DbName field's value.
@@ -5440,6 +8322,130 @@ func (s *GetCredentialsOutput) SetExpiration(v time.Time) *GetCredentialsOutput 
 // SetNextRefreshTime sets the NextRefreshTime field's value.
 func (s *GetCredentialsOutput) SetNextRefreshTime(v time.Time) *GetCredentialsOutput {
 	s.NextRefreshTime = &v
+	return s
+}
+
+type GetCustomDomainAssociationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The custom domain name associated with the workgroup.
+	//
+	// CustomDomainName is a required field
+	CustomDomainName *string `locationName:"customDomainName" min:"1" type:"string" required:"true"`
+
+	// The name of the workgroup associated with the database.
+	//
+	// WorkgroupName is a required field
+	WorkgroupName *string `locationName:"workgroupName" min:"3" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetCustomDomainAssociationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetCustomDomainAssociationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetCustomDomainAssociationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetCustomDomainAssociationInput"}
+	if s.CustomDomainName == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomDomainName"))
+	}
+	if s.CustomDomainName != nil && len(*s.CustomDomainName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CustomDomainName", 1))
+	}
+	if s.WorkgroupName == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkgroupName"))
+	}
+	if s.WorkgroupName != nil && len(*s.WorkgroupName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("WorkgroupName", 3))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCustomDomainName sets the CustomDomainName field's value.
+func (s *GetCustomDomainAssociationInput) SetCustomDomainName(v string) *GetCustomDomainAssociationInput {
+	s.CustomDomainName = &v
+	return s
+}
+
+// SetWorkgroupName sets the WorkgroupName field's value.
+func (s *GetCustomDomainAssociationInput) SetWorkgroupName(v string) *GetCustomDomainAssociationInput {
+	s.WorkgroupName = &v
+	return s
+}
+
+type GetCustomDomainAssociationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The custom domain name’s certificate Amazon resource name (ARN).
+	CustomDomainCertificateArn *string `locationName:"customDomainCertificateArn" min:"20" type:"string"`
+
+	// The expiration time for the certificate.
+	CustomDomainCertificateExpiryTime *time.Time `locationName:"customDomainCertificateExpiryTime" type:"timestamp" timestampFormat:"iso8601"`
+
+	// The custom domain name associated with the workgroup.
+	CustomDomainName *string `locationName:"customDomainName" min:"1" type:"string"`
+
+	// The name of the workgroup associated with the database.
+	WorkgroupName *string `locationName:"workgroupName" min:"3" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetCustomDomainAssociationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetCustomDomainAssociationOutput) GoString() string {
+	return s.String()
+}
+
+// SetCustomDomainCertificateArn sets the CustomDomainCertificateArn field's value.
+func (s *GetCustomDomainAssociationOutput) SetCustomDomainCertificateArn(v string) *GetCustomDomainAssociationOutput {
+	s.CustomDomainCertificateArn = &v
+	return s
+}
+
+// SetCustomDomainCertificateExpiryTime sets the CustomDomainCertificateExpiryTime field's value.
+func (s *GetCustomDomainAssociationOutput) SetCustomDomainCertificateExpiryTime(v time.Time) *GetCustomDomainAssociationOutput {
+	s.CustomDomainCertificateExpiryTime = &v
+	return s
+}
+
+// SetCustomDomainName sets the CustomDomainName field's value.
+func (s *GetCustomDomainAssociationOutput) SetCustomDomainName(v string) *GetCustomDomainAssociationOutput {
+	s.CustomDomainName = &v
+	return s
+}
+
+// SetWorkgroupName sets the WorkgroupName field's value.
+func (s *GetCustomDomainAssociationOutput) SetWorkgroupName(v string) *GetCustomDomainAssociationOutput {
+	s.WorkgroupName = &v
 	return s
 }
 
@@ -5756,6 +8762,86 @@ func (s *GetResourcePolicyOutput) SetResourcePolicy(v *ResourcePolicy) *GetResou
 	return s
 }
 
+type GetScheduledActionInput struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the scheduled action.
+	//
+	// ScheduledActionName is a required field
+	ScheduledActionName *string `locationName:"scheduledActionName" min:"3" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetScheduledActionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetScheduledActionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetScheduledActionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetScheduledActionInput"}
+	if s.ScheduledActionName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScheduledActionName"))
+	}
+	if s.ScheduledActionName != nil && len(*s.ScheduledActionName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("ScheduledActionName", 3))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetScheduledActionName sets the ScheduledActionName field's value.
+func (s *GetScheduledActionInput) SetScheduledActionName(v string) *GetScheduledActionInput {
+	s.ScheduledActionName = &v
+	return s
+}
+
+type GetScheduledActionOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The returned scheduled action object.
+	ScheduledAction *ScheduledActionResponse `locationName:"scheduledAction" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetScheduledActionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetScheduledActionOutput) GoString() string {
+	return s.String()
+}
+
+// SetScheduledAction sets the ScheduledAction field's value.
+func (s *GetScheduledActionOutput) SetScheduledAction(v *ScheduledActionResponse) *GetScheduledActionOutput {
+	s.ScheduledAction = v
+	return s
+}
+
 type GetSnapshotInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5833,6 +8919,84 @@ func (s GetSnapshotOutput) GoString() string {
 // SetSnapshot sets the Snapshot field's value.
 func (s *GetSnapshotOutput) SetSnapshot(v *Snapshot) *GetSnapshotOutput {
 	s.Snapshot = v
+	return s
+}
+
+type GetTableRestoreStatusInput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the RestoreTableFromSnapshot request to return status for.
+	//
+	// TableRestoreRequestId is a required field
+	TableRestoreRequestId *string `locationName:"tableRestoreRequestId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetTableRestoreStatusInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetTableRestoreStatusInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetTableRestoreStatusInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetTableRestoreStatusInput"}
+	if s.TableRestoreRequestId == nil {
+		invalidParams.Add(request.NewErrParamRequired("TableRestoreRequestId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetTableRestoreRequestId sets the TableRestoreRequestId field's value.
+func (s *GetTableRestoreStatusInput) SetTableRestoreRequestId(v string) *GetTableRestoreStatusInput {
+	s.TableRestoreRequestId = &v
+	return s
+}
+
+type GetTableRestoreStatusOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The returned TableRestoreStatus object that contains information about the
+	// status of your RestoreTableFromSnapshot request.
+	TableRestoreStatus *TableRestoreStatus `locationName:"tableRestoreStatus" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetTableRestoreStatusOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetTableRestoreStatusOutput) GoString() string {
+	return s.String()
+}
+
+// SetTableRestoreStatus sets the TableRestoreStatus field's value.
+func (s *GetTableRestoreStatusOutput) SetTableRestoreStatus(v *TableRestoreStatus) *GetTableRestoreStatusOutput {
+	s.TableRestoreStatus = v
 	return s
 }
 
@@ -6188,17 +9352,211 @@ func (s *InvalidPaginationException) RequestID() string {
 	return s.RespMetadata.RequestID
 }
 
+// There are no subnets in your VPC with associated IPv6 CIDR blocks. To use
+// dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.
+type Ipv6CidrBlockNotFoundException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Ipv6CidrBlockNotFoundException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Ipv6CidrBlockNotFoundException) GoString() string {
+	return s.String()
+}
+
+func newErrorIpv6CidrBlockNotFoundException(v protocol.ResponseMetadata) error {
+	return &Ipv6CidrBlockNotFoundException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *Ipv6CidrBlockNotFoundException) Code() string {
+	return "Ipv6CidrBlockNotFoundException"
+}
+
+// Message returns the exception's message.
+func (s *Ipv6CidrBlockNotFoundException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *Ipv6CidrBlockNotFoundException) OrigErr() error {
+	return nil
+}
+
+func (s *Ipv6CidrBlockNotFoundException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *Ipv6CidrBlockNotFoundException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *Ipv6CidrBlockNotFoundException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+type ListCustomDomainAssociationsInput struct {
+	_ struct{} `type:"structure"`
+
+	// The custom domain name’s certificate Amazon resource name (ARN).
+	CustomDomainCertificateArn *string `locationName:"customDomainCertificateArn" min:"20" type:"string"`
+
+	// The custom domain name associated with the workgroup.
+	CustomDomainName *string `locationName:"customDomainName" min:"1" type:"string"`
+
+	// An optional parameter that specifies the maximum number of results to return.
+	// You can use nextToken to display the next page of results.
+	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
+
+	// When nextToken is returned, there are more results available. The value of
+	// nextToken is a unique pagination token for each page. Make the call again
+	// using the returned token to retrieve the next page.
+	NextToken *string `locationName:"nextToken" min:"8" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListCustomDomainAssociationsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListCustomDomainAssociationsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListCustomDomainAssociationsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListCustomDomainAssociationsInput"}
+	if s.CustomDomainCertificateArn != nil && len(*s.CustomDomainCertificateArn) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("CustomDomainCertificateArn", 20))
+	}
+	if s.CustomDomainName != nil && len(*s.CustomDomainName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CustomDomainName", 1))
+	}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.NextToken != nil && len(*s.NextToken) < 8 {
+		invalidParams.Add(request.NewErrParamMinLen("NextToken", 8))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCustomDomainCertificateArn sets the CustomDomainCertificateArn field's value.
+func (s *ListCustomDomainAssociationsInput) SetCustomDomainCertificateArn(v string) *ListCustomDomainAssociationsInput {
+	s.CustomDomainCertificateArn = &v
+	return s
+}
+
+// SetCustomDomainName sets the CustomDomainName field's value.
+func (s *ListCustomDomainAssociationsInput) SetCustomDomainName(v string) *ListCustomDomainAssociationsInput {
+	s.CustomDomainName = &v
+	return s
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListCustomDomainAssociationsInput) SetMaxResults(v int64) *ListCustomDomainAssociationsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListCustomDomainAssociationsInput) SetNextToken(v string) *ListCustomDomainAssociationsInput {
+	s.NextToken = &v
+	return s
+}
+
+type ListCustomDomainAssociationsOutput struct {
+	_ struct{} `type:"structure"`
+
+	// A list of Association objects.
+	Associations []*Association `locationName:"associations" type:"list"`
+
+	// When nextToken is returned, there are more results available. The value of
+	// nextToken is a unique pagination token for each page. Make the call again
+	// using the returned token to retrieve the next page.
+	NextToken *string `locationName:"nextToken" min:"8" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListCustomDomainAssociationsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListCustomDomainAssociationsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAssociations sets the Associations field's value.
+func (s *ListCustomDomainAssociationsOutput) SetAssociations(v []*Association) *ListCustomDomainAssociationsOutput {
+	s.Associations = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListCustomDomainAssociationsOutput) SetNextToken(v string) *ListCustomDomainAssociationsOutput {
+	s.NextToken = &v
+	return s
+}
+
 type ListEndpointAccessInput struct {
 	_ struct{} `type:"structure"`
 
 	// An optional parameter that specifies the maximum number of results to return.
-	// You can use nextToken to get the next page of results.
+	// You can use nextToken to display the next page of results.
 	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
 
 	// If your initial ListEndpointAccess operation returns a nextToken, you can
-	// include the returned nextToken in subsequent ListEndpointAccess operations,
+	// include the returned nextToken in following ListEndpointAccess operations,
 	// which returns results in the next page.
 	NextToken *string `locationName:"nextToken" type:"string"`
+
+	// The owner Amazon Web Services account for the Amazon Redshift Serverless
+	// workgroup.
+	OwnerAccount *string `locationName:"ownerAccount" min:"1" type:"string"`
 
 	// The unique identifier of the virtual private cloud with access to Amazon
 	// Redshift Serverless.
@@ -6232,6 +9590,9 @@ func (s *ListEndpointAccessInput) Validate() error {
 	if s.MaxResults != nil && *s.MaxResults < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
 	}
+	if s.OwnerAccount != nil && len(*s.OwnerAccount) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("OwnerAccount", 1))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -6248,6 +9609,12 @@ func (s *ListEndpointAccessInput) SetMaxResults(v int64) *ListEndpointAccessInpu
 // SetNextToken sets the NextToken field's value.
 func (s *ListEndpointAccessInput) SetNextToken(v string) *ListEndpointAccessInput {
 	s.NextToken = &v
+	return s
+}
+
+// SetOwnerAccount sets the OwnerAccount field's value.
+func (s *ListEndpointAccessInput) SetOwnerAccount(v string) *ListEndpointAccessInput {
+	s.OwnerAccount = &v
 	return s
 }
 
@@ -6311,11 +9678,11 @@ type ListNamespacesInput struct {
 	_ struct{} `type:"structure"`
 
 	// An optional parameter that specifies the maximum number of results to return.
-	// You can use nextToken to get the next page of results.
+	// You can use nextToken to display the next page of results.
 	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
 
 	// If your initial ListNamespaces operation returns a nextToken, you can include
-	// the returned nextToken in subsequent ListNamespaces operations, which returns
+	// the returned nextToken in following ListNamespaces operations, which returns
 	// results in the next page.
 	NextToken *string `locationName:"nextToken" type:"string"`
 }
@@ -6414,14 +9781,18 @@ type ListRecoveryPointsInput struct {
 	EndTime *time.Time `locationName:"endTime" type:"timestamp"`
 
 	// An optional parameter that specifies the maximum number of results to return.
-	// You can use nextToken to get the next page of results.
+	// You can use nextToken to display the next page of results.
 	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
+
+	// The Amazon Resource Name (ARN) of the namespace from which to list recovery
+	// points.
+	NamespaceArn *string `locationName:"namespaceArn" type:"string"`
 
 	// The name of the namespace to list recovery points for.
 	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string"`
 
 	// If your initial ListRecoveryPoints operation returns a nextToken, you can
-	// include the returned nextToken in subsequent ListRecoveryPoints operations,
+	// include the returned nextToken in following ListRecoveryPoints operations,
 	// which returns results in the next page.
 	NextToken *string `locationName:"nextToken" type:"string"`
 
@@ -6472,6 +9843,12 @@ func (s *ListRecoveryPointsInput) SetEndTime(v time.Time) *ListRecoveryPointsInp
 // SetMaxResults sets the MaxResults field's value.
 func (s *ListRecoveryPointsInput) SetMaxResults(v int64) *ListRecoveryPointsInput {
 	s.MaxResults = &v
+	return s
+}
+
+// SetNamespaceArn sets the NamespaceArn field's value.
+func (s *ListRecoveryPointsInput) SetNamespaceArn(v string) *ListRecoveryPointsInput {
+	s.NamespaceArn = &v
 	return s
 }
 
@@ -6535,6 +9912,234 @@ func (s *ListRecoveryPointsOutput) SetRecoveryPoints(v []*RecoveryPoint) *ListRe
 	return s
 }
 
+type ListScheduledActionsInput struct {
+	_ struct{} `type:"structure"`
+
+	// An optional parameter that specifies the maximum number of results to return.
+	// Use nextToken to display the next page of results.
+	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
+
+	// The name of namespace associated with the scheduled action to retrieve.
+	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string"`
+
+	// If nextToken is returned, there are more results available. The value of
+	// nextToken is a unique pagination token for each page. Make the call again
+	// using the returned token to retrieve the next page.
+	NextToken *string `locationName:"nextToken" min:"8" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListScheduledActionsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListScheduledActionsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListScheduledActionsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListScheduledActionsInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.NamespaceName != nil && len(*s.NamespaceName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("NamespaceName", 3))
+	}
+	if s.NextToken != nil && len(*s.NextToken) < 8 {
+		invalidParams.Add(request.NewErrParamMinLen("NextToken", 8))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListScheduledActionsInput) SetMaxResults(v int64) *ListScheduledActionsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *ListScheduledActionsInput) SetNamespaceName(v string) *ListScheduledActionsInput {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListScheduledActionsInput) SetNextToken(v string) *ListScheduledActionsInput {
+	s.NextToken = &v
+	return s
+}
+
+type ListScheduledActionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	// If nextToken is returned, there are more results available. The value of
+	// nextToken is a unique pagination token for each page. Make the call again
+	// using the returned token to retrieve the next page.
+	NextToken *string `locationName:"nextToken" min:"8" type:"string"`
+
+	// All of the returned scheduled action association objects.
+	ScheduledActions []*ScheduledActionAssociation `locationName:"scheduledActions" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListScheduledActionsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListScheduledActionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListScheduledActionsOutput) SetNextToken(v string) *ListScheduledActionsOutput {
+	s.NextToken = &v
+	return s
+}
+
+// SetScheduledActions sets the ScheduledActions field's value.
+func (s *ListScheduledActionsOutput) SetScheduledActions(v []*ScheduledActionAssociation) *ListScheduledActionsOutput {
+	s.ScheduledActions = v
+	return s
+}
+
+type ListSnapshotCopyConfigurationsInput struct {
+	_ struct{} `type:"structure"`
+
+	// An optional parameter that specifies the maximum number of results to return.
+	// You can use nextToken to display the next page of results.
+	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
+
+	// The namespace from which to list all snapshot copy configurations.
+	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string"`
+
+	// If nextToken is returned, there are more results available. The value of
+	// nextToken is a unique pagination token for each page. Make the call again
+	// using the returned token to retrieve the next page.
+	NextToken *string `locationName:"nextToken" min:"8" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListSnapshotCopyConfigurationsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListSnapshotCopyConfigurationsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListSnapshotCopyConfigurationsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListSnapshotCopyConfigurationsInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.NamespaceName != nil && len(*s.NamespaceName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("NamespaceName", 3))
+	}
+	if s.NextToken != nil && len(*s.NextToken) < 8 {
+		invalidParams.Add(request.NewErrParamMinLen("NextToken", 8))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListSnapshotCopyConfigurationsInput) SetMaxResults(v int64) *ListSnapshotCopyConfigurationsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *ListSnapshotCopyConfigurationsInput) SetNamespaceName(v string) *ListSnapshotCopyConfigurationsInput {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListSnapshotCopyConfigurationsInput) SetNextToken(v string) *ListSnapshotCopyConfigurationsInput {
+	s.NextToken = &v
+	return s
+}
+
+type ListSnapshotCopyConfigurationsOutput struct {
+	_ struct{} `type:"structure"`
+
+	// If nextToken is returned, there are more results available. The value of
+	// nextToken is a unique pagination token for each page. Make the call again
+	// using the returned token to retrieve the next page.
+	NextToken *string `locationName:"nextToken" min:"8" type:"string"`
+
+	// All of the returned snapshot copy configurations.
+	//
+	// SnapshotCopyConfigurations is a required field
+	SnapshotCopyConfigurations []*SnapshotCopyConfiguration `locationName:"snapshotCopyConfigurations" min:"1" type:"list" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListSnapshotCopyConfigurationsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListSnapshotCopyConfigurationsOutput) GoString() string {
+	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListSnapshotCopyConfigurationsOutput) SetNextToken(v string) *ListSnapshotCopyConfigurationsOutput {
+	s.NextToken = &v
+	return s
+}
+
+// SetSnapshotCopyConfigurations sets the SnapshotCopyConfigurations field's value.
+func (s *ListSnapshotCopyConfigurationsOutput) SetSnapshotCopyConfigurations(v []*SnapshotCopyConfiguration) *ListSnapshotCopyConfigurationsOutput {
+	s.SnapshotCopyConfigurations = v
+	return s
+}
+
 type ListSnapshotsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6542,7 +10147,7 @@ type ListSnapshotsInput struct {
 	EndTime *time.Time `locationName:"endTime" type:"timestamp"`
 
 	// An optional parameter that specifies the maximum number of results to return.
-	// You can use nextToken to get the next page of results.
+	// You can use nextToken to display the next page of results.
 	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the namespace from which to list all snapshots.
@@ -6678,6 +10283,127 @@ func (s *ListSnapshotsOutput) SetSnapshots(v []*Snapshot) *ListSnapshotsOutput {
 	return s
 }
 
+type ListTableRestoreStatusInput struct {
+	_ struct{} `type:"structure"`
+
+	// An optional parameter that specifies the maximum number of results to return.
+	// You can use nextToken to display the next page of results.
+	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
+
+	// The namespace from which to list all of the statuses of RestoreTableFromSnapshot
+	// operations .
+	NamespaceName *string `locationName:"namespaceName" type:"string"`
+
+	// If your initial ListTableRestoreStatus operation returns a nextToken, you
+	// can include the returned nextToken in following ListTableRestoreStatus operations.
+	// This will return results on the next page.
+	NextToken *string `locationName:"nextToken" min:"8" type:"string"`
+
+	// The workgroup from which to list all of the statuses of RestoreTableFromSnapshot
+	// operations.
+	WorkgroupName *string `locationName:"workgroupName" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListTableRestoreStatusInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListTableRestoreStatusInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListTableRestoreStatusInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListTableRestoreStatusInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.NextToken != nil && len(*s.NextToken) < 8 {
+		invalidParams.Add(request.NewErrParamMinLen("NextToken", 8))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListTableRestoreStatusInput) SetMaxResults(v int64) *ListTableRestoreStatusInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *ListTableRestoreStatusInput) SetNamespaceName(v string) *ListTableRestoreStatusInput {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListTableRestoreStatusInput) SetNextToken(v string) *ListTableRestoreStatusInput {
+	s.NextToken = &v
+	return s
+}
+
+// SetWorkgroupName sets the WorkgroupName field's value.
+func (s *ListTableRestoreStatusInput) SetWorkgroupName(v string) *ListTableRestoreStatusInput {
+	s.WorkgroupName = &v
+	return s
+}
+
+type ListTableRestoreStatusOutput struct {
+	_ struct{} `type:"structure"`
+
+	// If your initial ListTableRestoreStatus operation returns a nextToken, you
+	// can include the returned nextToken in following ListTableRestoreStatus operations.
+	// This will returns results on the next page.
+	NextToken *string `locationName:"nextToken" min:"8" type:"string"`
+
+	// The array of returned TableRestoreStatus objects.
+	TableRestoreStatuses []*TableRestoreStatus `locationName:"tableRestoreStatuses" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListTableRestoreStatusOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListTableRestoreStatusOutput) GoString() string {
+	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListTableRestoreStatusOutput) SetNextToken(v string) *ListTableRestoreStatusOutput {
+	s.NextToken = &v
+	return s
+}
+
+// SetTableRestoreStatuses sets the TableRestoreStatuses field's value.
+func (s *ListTableRestoreStatusOutput) SetTableRestoreStatuses(v []*TableRestoreStatus) *ListTableRestoreStatusOutput {
+	s.TableRestoreStatuses = v
+	return s
+}
+
 type ListTagsForResourceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6766,7 +10492,7 @@ type ListUsageLimitsInput struct {
 	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
 
 	// If your initial ListUsageLimits operation returns a nextToken, you can include
-	// the returned nextToken in subsequent ListUsageLimits operations, which returns
+	// the returned nextToken in following ListUsageLimits operations, which returns
 	// results in the next page.
 	NextToken *string `locationName:"nextToken" min:"8" type:"string"`
 
@@ -6882,13 +10608,17 @@ type ListWorkgroupsInput struct {
 	_ struct{} `type:"structure"`
 
 	// An optional parameter that specifies the maximum number of results to return.
-	// You can use nextToken to get the next page of results.
+	// You can use nextToken to display the next page of results.
 	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
 
 	// If your initial ListWorkgroups operation returns a nextToken, you can include
-	// the returned nextToken in subsequent ListNamespaces operations, which returns
+	// the returned nextToken in following ListNamespaces operations, which returns
 	// results in the next page.
 	NextToken *string `locationName:"nextToken" type:"string"`
+
+	// The owner Amazon Web Services account for the Amazon Redshift Serverless
+	// workgroup.
+	OwnerAccount *string `locationName:"ownerAccount" min:"1" type:"string"`
 }
 
 // String returns the string representation.
@@ -6915,6 +10645,9 @@ func (s *ListWorkgroupsInput) Validate() error {
 	if s.MaxResults != nil && *s.MaxResults < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
 	}
+	if s.OwnerAccount != nil && len(*s.OwnerAccount) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("OwnerAccount", 1))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -6931,6 +10664,12 @@ func (s *ListWorkgroupsInput) SetMaxResults(v int64) *ListWorkgroupsInput {
 // SetNextToken sets the NextToken field's value.
 func (s *ListWorkgroupsInput) SetNextToken(v string) *ListWorkgroupsInput {
 	s.NextToken = &v
+	return s
+}
+
+// SetOwnerAccount sets the OwnerAccount field's value.
+func (s *ListWorkgroupsInput) SetOwnerAccount(v string) *ListWorkgroupsInput {
+	s.OwnerAccount = &v
 	return s
 }
 
@@ -6981,6 +10720,14 @@ func (s *ListWorkgroupsOutput) SetWorkgroups(v []*Workgroup) *ListWorkgroupsOutp
 // A collection of database objects and users.
 type Namespace struct {
 	_ struct{} `type:"structure"`
+
+	// The Amazon Resource Name (ARN) for the namespace's admin user credentials
+	// secret.
+	AdminPasswordSecretArn *string `locationName:"adminPasswordSecretArn" type:"string"`
+
+	// The ID of the Key Management Service (KMS) key used to encrypt and store
+	// the namespace's admin credentials secret.
+	AdminPasswordSecretKmsKeyId *string `locationName:"adminPasswordSecretKmsKeyId" type:"string"`
 
 	// The username of the administrator for the first database created in the namespace.
 	//
@@ -7042,6 +10789,18 @@ func (s Namespace) String() string {
 // value will be replaced with "sensitive".
 func (s Namespace) GoString() string {
 	return s.String()
+}
+
+// SetAdminPasswordSecretArn sets the AdminPasswordSecretArn field's value.
+func (s *Namespace) SetAdminPasswordSecretArn(v string) *Namespace {
+	s.AdminPasswordSecretArn = &v
+	return s
+}
+
+// SetAdminPasswordSecretKmsKeyId sets the AdminPasswordSecretKmsKeyId field's value.
+func (s *Namespace) SetAdminPasswordSecretKmsKeyId(v string) *Namespace {
+	s.AdminPasswordSecretKmsKeyId = &v
+	return s
 }
 
 // SetAdminUsername sets the AdminUsername field's value.
@@ -7118,6 +10877,9 @@ type NetworkInterface struct {
 	// The availability Zone.
 	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
 
+	// The IPv6 address of the network interface within the subnet.
+	Ipv6Address *string `locationName:"ipv6Address" type:"string"`
+
 	// The unique identifier of the network interface.
 	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
 
@@ -7149,6 +10911,12 @@ func (s NetworkInterface) GoString() string {
 // SetAvailabilityZone sets the AvailabilityZone field's value.
 func (s *NetworkInterface) SetAvailabilityZone(v string) *NetworkInterface {
 	s.AvailabilityZone = &v
+	return s
+}
+
+// SetIpv6Address sets the Ipv6Address field's value.
+func (s *NetworkInterface) SetIpv6Address(v string) *NetworkInterface {
+	s.Ipv6Address = &v
 	return s
 }
 
@@ -7272,6 +11040,10 @@ func (s *PutResourcePolicyOutput) SetResourcePolicy(v *ResourcePolicy) *PutResou
 type RecoveryPoint struct {
 	_ struct{} `type:"structure"`
 
+	// The Amazon Resource Name (ARN) of the namespace the recovery point is associated
+	// with.
+	NamespaceArn *string `locationName:"namespaceArn" type:"string"`
+
 	// The name of the namespace the recovery point is associated with.
 	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string"`
 
@@ -7304,6 +11076,12 @@ func (s RecoveryPoint) String() string {
 // value will be replaced with "sensitive".
 func (s RecoveryPoint) GoString() string {
 	return s.String()
+}
+
+// SetNamespaceArn sets the NamespaceArn field's value.
+func (s *RecoveryPoint) SetNamespaceArn(v string) *RecoveryPoint {
+	s.NamespaceArn = &v
+	return s
 }
 
 // SetNamespaceName sets the NamespaceName field's value.
@@ -7568,6 +11346,16 @@ func (s *RestoreFromRecoveryPointOutput) SetRecoveryPointId(v string) *RestoreFr
 type RestoreFromSnapshotInput struct {
 	_ struct{} `type:"structure"`
 
+	// The ID of the Key Management Service (KMS) key used to encrypt and store
+	// the namespace's admin credentials secret.
+	AdminPasswordSecretKmsKeyId *string `locationName:"adminPasswordSecretKmsKeyId" type:"string"`
+
+	// If true, Amazon Redshift uses Secrets Manager to manage the restored snapshot's
+	// admin credentials. If MmanageAdminPassword is false or not set, Amazon Redshift
+	// uses the admin credentials that the namespace or cluster had at the time
+	// the snapshot was taken.
+	ManageAdminPassword *bool `locationName:"manageAdminPassword" type:"boolean"`
+
 	// The name of the namespace to restore the snapshot to.
 	//
 	// NamespaceName is a required field
@@ -7576,10 +11364,15 @@ type RestoreFromSnapshotInput struct {
 	// The Amazon Web Services account that owns the snapshot.
 	OwnerAccount *string `locationName:"ownerAccount" type:"string"`
 
-	// The Amazon Resource Name (ARN) of the snapshot to restore from.
+	// The Amazon Resource Name (ARN) of the snapshot to restore from. Required
+	// if restoring from Amazon Redshift Serverless to a provisioned cluster. Must
+	// not be specified at the same time as snapshotName.
+	//
+	// The format of the ARN is arn:aws:redshift:<region>:<account_id>:snapshot:<cluster_identifier>/<snapshot_identifier>.
 	SnapshotArn *string `locationName:"snapshotArn" type:"string"`
 
-	// The name of the snapshot to restore from.
+	// The name of the snapshot to restore from. Must not be specified at the same
+	// time as snapshotArn.
 	SnapshotName *string `locationName:"snapshotName" type:"string"`
 
 	// The name of the workgroup used to restore the snapshot.
@@ -7626,6 +11419,18 @@ func (s *RestoreFromSnapshotInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAdminPasswordSecretKmsKeyId sets the AdminPasswordSecretKmsKeyId field's value.
+func (s *RestoreFromSnapshotInput) SetAdminPasswordSecretKmsKeyId(v string) *RestoreFromSnapshotInput {
+	s.AdminPasswordSecretKmsKeyId = &v
+	return s
+}
+
+// SetManageAdminPassword sets the ManageAdminPassword field's value.
+func (s *RestoreFromSnapshotInput) SetManageAdminPassword(v bool) *RestoreFromSnapshotInput {
+	s.ManageAdminPassword = &v
+	return s
 }
 
 // SetNamespaceName sets the NamespaceName field's value.
@@ -7707,6 +11512,611 @@ func (s *RestoreFromSnapshotOutput) SetSnapshotName(v string) *RestoreFromSnapsh
 	return s
 }
 
+type RestoreTableFromRecoveryPointInput struct {
+	_ struct{} `type:"structure"`
+
+	// Indicates whether name identifiers for database, schema, and table are case
+	// sensitive. If true, the names are case sensitive. If false, the names are
+	// not case sensitive. The default is false.
+	ActivateCaseSensitiveIdentifier *bool `locationName:"activateCaseSensitiveIdentifier" type:"boolean"`
+
+	// Namespace of the recovery point to restore from.
+	//
+	// NamespaceName is a required field
+	NamespaceName *string `locationName:"namespaceName" type:"string" required:"true"`
+
+	// The name of the table to create from the restore operation.
+	//
+	// NewTableName is a required field
+	NewTableName *string `locationName:"newTableName" type:"string" required:"true"`
+
+	// The ID of the recovery point to restore the table from.
+	//
+	// RecoveryPointId is a required field
+	RecoveryPointId *string `locationName:"recoveryPointId" type:"string" required:"true"`
+
+	// The name of the source database that contains the table being restored.
+	//
+	// SourceDatabaseName is a required field
+	SourceDatabaseName *string `locationName:"sourceDatabaseName" type:"string" required:"true"`
+
+	// The name of the source schema that contains the table being restored.
+	SourceSchemaName *string `locationName:"sourceSchemaName" type:"string"`
+
+	// The name of the source table being restored.
+	//
+	// SourceTableName is a required field
+	SourceTableName *string `locationName:"sourceTableName" type:"string" required:"true"`
+
+	// The name of the database to restore the table to.
+	TargetDatabaseName *string `locationName:"targetDatabaseName" type:"string"`
+
+	// The name of the schema to restore the table to.
+	TargetSchemaName *string `locationName:"targetSchemaName" type:"string"`
+
+	// The workgroup to restore the table to.
+	//
+	// WorkgroupName is a required field
+	WorkgroupName *string `locationName:"workgroupName" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestoreTableFromRecoveryPointInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestoreTableFromRecoveryPointInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RestoreTableFromRecoveryPointInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RestoreTableFromRecoveryPointInput"}
+	if s.NamespaceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("NamespaceName"))
+	}
+	if s.NewTableName == nil {
+		invalidParams.Add(request.NewErrParamRequired("NewTableName"))
+	}
+	if s.RecoveryPointId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RecoveryPointId"))
+	}
+	if s.SourceDatabaseName == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceDatabaseName"))
+	}
+	if s.SourceTableName == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceTableName"))
+	}
+	if s.WorkgroupName == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkgroupName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetActivateCaseSensitiveIdentifier sets the ActivateCaseSensitiveIdentifier field's value.
+func (s *RestoreTableFromRecoveryPointInput) SetActivateCaseSensitiveIdentifier(v bool) *RestoreTableFromRecoveryPointInput {
+	s.ActivateCaseSensitiveIdentifier = &v
+	return s
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *RestoreTableFromRecoveryPointInput) SetNamespaceName(v string) *RestoreTableFromRecoveryPointInput {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetNewTableName sets the NewTableName field's value.
+func (s *RestoreTableFromRecoveryPointInput) SetNewTableName(v string) *RestoreTableFromRecoveryPointInput {
+	s.NewTableName = &v
+	return s
+}
+
+// SetRecoveryPointId sets the RecoveryPointId field's value.
+func (s *RestoreTableFromRecoveryPointInput) SetRecoveryPointId(v string) *RestoreTableFromRecoveryPointInput {
+	s.RecoveryPointId = &v
+	return s
+}
+
+// SetSourceDatabaseName sets the SourceDatabaseName field's value.
+func (s *RestoreTableFromRecoveryPointInput) SetSourceDatabaseName(v string) *RestoreTableFromRecoveryPointInput {
+	s.SourceDatabaseName = &v
+	return s
+}
+
+// SetSourceSchemaName sets the SourceSchemaName field's value.
+func (s *RestoreTableFromRecoveryPointInput) SetSourceSchemaName(v string) *RestoreTableFromRecoveryPointInput {
+	s.SourceSchemaName = &v
+	return s
+}
+
+// SetSourceTableName sets the SourceTableName field's value.
+func (s *RestoreTableFromRecoveryPointInput) SetSourceTableName(v string) *RestoreTableFromRecoveryPointInput {
+	s.SourceTableName = &v
+	return s
+}
+
+// SetTargetDatabaseName sets the TargetDatabaseName field's value.
+func (s *RestoreTableFromRecoveryPointInput) SetTargetDatabaseName(v string) *RestoreTableFromRecoveryPointInput {
+	s.TargetDatabaseName = &v
+	return s
+}
+
+// SetTargetSchemaName sets the TargetSchemaName field's value.
+func (s *RestoreTableFromRecoveryPointInput) SetTargetSchemaName(v string) *RestoreTableFromRecoveryPointInput {
+	s.TargetSchemaName = &v
+	return s
+}
+
+// SetWorkgroupName sets the WorkgroupName field's value.
+func (s *RestoreTableFromRecoveryPointInput) SetWorkgroupName(v string) *RestoreTableFromRecoveryPointInput {
+	s.WorkgroupName = &v
+	return s
+}
+
+type RestoreTableFromRecoveryPointOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Contains information about a table restore request.
+	TableRestoreStatus *TableRestoreStatus `locationName:"tableRestoreStatus" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestoreTableFromRecoveryPointOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestoreTableFromRecoveryPointOutput) GoString() string {
+	return s.String()
+}
+
+// SetTableRestoreStatus sets the TableRestoreStatus field's value.
+func (s *RestoreTableFromRecoveryPointOutput) SetTableRestoreStatus(v *TableRestoreStatus) *RestoreTableFromRecoveryPointOutput {
+	s.TableRestoreStatus = v
+	return s
+}
+
+type RestoreTableFromSnapshotInput struct {
+	_ struct{} `type:"structure"`
+
+	// Indicates whether name identifiers for database, schema, and table are case
+	// sensitive. If true, the names are case sensitive. If false, the names are
+	// not case sensitive. The default is false.
+	ActivateCaseSensitiveIdentifier *bool `locationName:"activateCaseSensitiveIdentifier" type:"boolean"`
+
+	// The namespace of the snapshot to restore from.
+	//
+	// NamespaceName is a required field
+	NamespaceName *string `locationName:"namespaceName" type:"string" required:"true"`
+
+	// The name of the table to create from the restore operation.
+	//
+	// NewTableName is a required field
+	NewTableName *string `locationName:"newTableName" type:"string" required:"true"`
+
+	// The name of the snapshot to restore the table from.
+	//
+	// SnapshotName is a required field
+	SnapshotName *string `locationName:"snapshotName" type:"string" required:"true"`
+
+	// The name of the source database that contains the table being restored.
+	//
+	// SourceDatabaseName is a required field
+	SourceDatabaseName *string `locationName:"sourceDatabaseName" type:"string" required:"true"`
+
+	// The name of the source schema that contains the table being restored.
+	SourceSchemaName *string `locationName:"sourceSchemaName" type:"string"`
+
+	// The name of the source table being restored.
+	//
+	// SourceTableName is a required field
+	SourceTableName *string `locationName:"sourceTableName" type:"string" required:"true"`
+
+	// The name of the database to restore the table to.
+	TargetDatabaseName *string `locationName:"targetDatabaseName" type:"string"`
+
+	// The name of the schema to restore the table to.
+	TargetSchemaName *string `locationName:"targetSchemaName" type:"string"`
+
+	// The workgroup to restore the table to.
+	//
+	// WorkgroupName is a required field
+	WorkgroupName *string `locationName:"workgroupName" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestoreTableFromSnapshotInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestoreTableFromSnapshotInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RestoreTableFromSnapshotInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RestoreTableFromSnapshotInput"}
+	if s.NamespaceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("NamespaceName"))
+	}
+	if s.NewTableName == nil {
+		invalidParams.Add(request.NewErrParamRequired("NewTableName"))
+	}
+	if s.SnapshotName == nil {
+		invalidParams.Add(request.NewErrParamRequired("SnapshotName"))
+	}
+	if s.SourceDatabaseName == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceDatabaseName"))
+	}
+	if s.SourceTableName == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceTableName"))
+	}
+	if s.WorkgroupName == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkgroupName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetActivateCaseSensitiveIdentifier sets the ActivateCaseSensitiveIdentifier field's value.
+func (s *RestoreTableFromSnapshotInput) SetActivateCaseSensitiveIdentifier(v bool) *RestoreTableFromSnapshotInput {
+	s.ActivateCaseSensitiveIdentifier = &v
+	return s
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *RestoreTableFromSnapshotInput) SetNamespaceName(v string) *RestoreTableFromSnapshotInput {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetNewTableName sets the NewTableName field's value.
+func (s *RestoreTableFromSnapshotInput) SetNewTableName(v string) *RestoreTableFromSnapshotInput {
+	s.NewTableName = &v
+	return s
+}
+
+// SetSnapshotName sets the SnapshotName field's value.
+func (s *RestoreTableFromSnapshotInput) SetSnapshotName(v string) *RestoreTableFromSnapshotInput {
+	s.SnapshotName = &v
+	return s
+}
+
+// SetSourceDatabaseName sets the SourceDatabaseName field's value.
+func (s *RestoreTableFromSnapshotInput) SetSourceDatabaseName(v string) *RestoreTableFromSnapshotInput {
+	s.SourceDatabaseName = &v
+	return s
+}
+
+// SetSourceSchemaName sets the SourceSchemaName field's value.
+func (s *RestoreTableFromSnapshotInput) SetSourceSchemaName(v string) *RestoreTableFromSnapshotInput {
+	s.SourceSchemaName = &v
+	return s
+}
+
+// SetSourceTableName sets the SourceTableName field's value.
+func (s *RestoreTableFromSnapshotInput) SetSourceTableName(v string) *RestoreTableFromSnapshotInput {
+	s.SourceTableName = &v
+	return s
+}
+
+// SetTargetDatabaseName sets the TargetDatabaseName field's value.
+func (s *RestoreTableFromSnapshotInput) SetTargetDatabaseName(v string) *RestoreTableFromSnapshotInput {
+	s.TargetDatabaseName = &v
+	return s
+}
+
+// SetTargetSchemaName sets the TargetSchemaName field's value.
+func (s *RestoreTableFromSnapshotInput) SetTargetSchemaName(v string) *RestoreTableFromSnapshotInput {
+	s.TargetSchemaName = &v
+	return s
+}
+
+// SetWorkgroupName sets the WorkgroupName field's value.
+func (s *RestoreTableFromSnapshotInput) SetWorkgroupName(v string) *RestoreTableFromSnapshotInput {
+	s.WorkgroupName = &v
+	return s
+}
+
+type RestoreTableFromSnapshotOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The TableRestoreStatus object that contains the status of the restore operation.
+	TableRestoreStatus *TableRestoreStatus `locationName:"tableRestoreStatus" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestoreTableFromSnapshotOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestoreTableFromSnapshotOutput) GoString() string {
+	return s.String()
+}
+
+// SetTableRestoreStatus sets the TableRestoreStatus field's value.
+func (s *RestoreTableFromSnapshotOutput) SetTableRestoreStatus(v *TableRestoreStatus) *RestoreTableFromSnapshotOutput {
+	s.TableRestoreStatus = v
+	return s
+}
+
+// The schedule of when Amazon Redshift Serverless should run the scheduled
+// action.
+type Schedule struct {
+	_ struct{} `type:"structure"`
+
+	// The timestamp of when Amazon Redshift Serverless should run the scheduled
+	// action. Timestamp is in UTC. Format of at expression is yyyy-mm-ddThh:mm:ss.
+	// For example, 2016-03-04T17:27:00.
+	At *time.Time `locationName:"at" type:"timestamp"`
+
+	// The cron expression to use to schedule a recurring scheduled action. Schedule
+	// invocations must be separated by at least one hour. Times are in UTC.
+	//
+	// Format of cron expressions is (Minutes Hours Day-of-month Month Day-of-week
+	// Year). For example, "(0 10 ? * MON *)". For more information, see Cron Expressions
+	// (https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions)
+	// in the Amazon CloudWatch Events User Guide.
+	Cron *string `locationName:"cron" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Schedule) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Schedule) GoString() string {
+	return s.String()
+}
+
+// SetAt sets the At field's value.
+func (s *Schedule) SetAt(v time.Time) *Schedule {
+	s.At = &v
+	return s
+}
+
+// SetCron sets the Cron field's value.
+func (s *Schedule) SetCron(v string) *Schedule {
+	s.Cron = &v
+	return s
+}
+
+// Contains names of objects associated with a scheduled action.
+type ScheduledActionAssociation struct {
+	_ struct{} `type:"structure"`
+
+	// Name of associated Amazon Redshift Serverless namespace.
+	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string"`
+
+	// Name of associated scheduled action.
+	ScheduledActionName *string `locationName:"scheduledActionName" min:"3" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ScheduledActionAssociation) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ScheduledActionAssociation) GoString() string {
+	return s.String()
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *ScheduledActionAssociation) SetNamespaceName(v string) *ScheduledActionAssociation {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetScheduledActionName sets the ScheduledActionName field's value.
+func (s *ScheduledActionAssociation) SetScheduledActionName(v string) *ScheduledActionAssociation {
+	s.ScheduledActionName = &v
+	return s
+}
+
+// The returned scheduled action object.
+type ScheduledActionResponse struct {
+	_ struct{} `type:"structure"`
+
+	// The end time of
+	EndTime *time.Time `locationName:"endTime" type:"timestamp"`
+
+	// The end time in UTC when the schedule is no longer active. After this time,
+	// the scheduled action does not trigger.
+	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string"`
+
+	// An array of timestamps of when the next scheduled actions will trigger.
+	NextInvocations []*time.Time `locationName:"nextInvocations" type:"list"`
+
+	// The ARN of the IAM role to assume to run the scheduled action. This IAM role
+	// must have permission to run the Amazon Redshift Serverless API operation
+	// in the scheduled action. This IAM role must allow the Amazon Redshift scheduler
+	// to schedule creating snapshots. (Principal scheduler.redshift.amazonaws.com)
+	// to assume permissions on your behalf. For more information about the IAM
+	// role to use with the Amazon Redshift scheduler, see Using Identity-Based
+	// Policies for Amazon Redshift (https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html)
+	// in the Amazon Redshift Management Guide
+	RoleArn *string `locationName:"roleArn" type:"string"`
+
+	// The schedule for a one-time (at timestamp format) or recurring (cron format)
+	// scheduled action. Schedule invocations must be separated by at least one
+	// hour. Times are in UTC.
+	//
+	//    * Format of at timestamp is yyyy-mm-ddThh:mm:ss. For example, 2016-03-04T17:27:00.
+	//
+	//    * Format of cron expression is (Minutes Hours Day-of-month Month Day-of-week
+	//    Year). For example, "(0 10 ? * MON *)". For more information, see Cron
+	//    Expressions (https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions)
+	//    in the Amazon CloudWatch Events User Guide.
+	Schedule *Schedule `locationName:"schedule" type:"structure"`
+
+	// The description of the scheduled action.
+	ScheduledActionDescription *string `locationName:"scheduledActionDescription" type:"string"`
+
+	// The name of the scheduled action.
+	ScheduledActionName *string `locationName:"scheduledActionName" min:"3" type:"string"`
+
+	// The uuid of the scheduled action.
+	ScheduledActionUuid *string `locationName:"scheduledActionUuid" type:"string"`
+
+	// The start time in UTC when the schedule is active. Before this time, the
+	// scheduled action does not trigger.
+	StartTime *time.Time `locationName:"startTime" type:"timestamp"`
+
+	// The state of the scheduled action.
+	State *string `locationName:"state" type:"string" enum:"State"`
+
+	// A JSON format string of the Amazon Redshift Serverless API operation with
+	// input parameters. The following is an example of a target action.
+	//
+	// "{"CreateSnapshot": {"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot",
+	// "retentionPeriod": "1"}}"
+	TargetAction *TargetAction `locationName:"targetAction" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ScheduledActionResponse) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ScheduledActionResponse) GoString() string {
+	return s.String()
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *ScheduledActionResponse) SetEndTime(v time.Time) *ScheduledActionResponse {
+	s.EndTime = &v
+	return s
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *ScheduledActionResponse) SetNamespaceName(v string) *ScheduledActionResponse {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetNextInvocations sets the NextInvocations field's value.
+func (s *ScheduledActionResponse) SetNextInvocations(v []*time.Time) *ScheduledActionResponse {
+	s.NextInvocations = v
+	return s
+}
+
+// SetRoleArn sets the RoleArn field's value.
+func (s *ScheduledActionResponse) SetRoleArn(v string) *ScheduledActionResponse {
+	s.RoleArn = &v
+	return s
+}
+
+// SetSchedule sets the Schedule field's value.
+func (s *ScheduledActionResponse) SetSchedule(v *Schedule) *ScheduledActionResponse {
+	s.Schedule = v
+	return s
+}
+
+// SetScheduledActionDescription sets the ScheduledActionDescription field's value.
+func (s *ScheduledActionResponse) SetScheduledActionDescription(v string) *ScheduledActionResponse {
+	s.ScheduledActionDescription = &v
+	return s
+}
+
+// SetScheduledActionName sets the ScheduledActionName field's value.
+func (s *ScheduledActionResponse) SetScheduledActionName(v string) *ScheduledActionResponse {
+	s.ScheduledActionName = &v
+	return s
+}
+
+// SetScheduledActionUuid sets the ScheduledActionUuid field's value.
+func (s *ScheduledActionResponse) SetScheduledActionUuid(v string) *ScheduledActionResponse {
+	s.ScheduledActionUuid = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *ScheduledActionResponse) SetStartTime(v time.Time) *ScheduledActionResponse {
+	s.StartTime = &v
+	return s
+}
+
+// SetState sets the State field's value.
+func (s *ScheduledActionResponse) SetState(v string) *ScheduledActionResponse {
+	s.State = &v
+	return s
+}
+
+// SetTargetAction sets the TargetAction field's value.
+func (s *ScheduledActionResponse) SetTargetAction(v *TargetAction) *ScheduledActionResponse {
+	s.TargetAction = v
+	return s
+}
+
 // The service limit was exceeded.
 type ServiceQuotaExceededException struct {
 	_            struct{}                  `type:"structure"`
@@ -7785,6 +12195,14 @@ type Snapshot struct {
 
 	// The size of the incremental backup in megabytes.
 	ActualIncrementalBackupSizeInMegaBytes *float64 `locationName:"actualIncrementalBackupSizeInMegaBytes" type:"double"`
+
+	// The Amazon Resource Name (ARN) for the namespace's admin user credentials
+	// secret.
+	AdminPasswordSecretArn *string `locationName:"adminPasswordSecretArn" type:"string"`
+
+	// The ID of the Key Management Service (KMS) key used to encrypt and store
+	// the namespace's admin credentials secret.
+	AdminPasswordSecretKmsKeyId *string `locationName:"adminPasswordSecretKmsKeyId" type:"string"`
 
 	// The username of the database within a snapshot.
 	AdminUsername *string `locationName:"adminUsername" type:"string"`
@@ -7872,6 +12290,18 @@ func (s *Snapshot) SetAccountsWithRestoreAccess(v []*string) *Snapshot {
 // SetActualIncrementalBackupSizeInMegaBytes sets the ActualIncrementalBackupSizeInMegaBytes field's value.
 func (s *Snapshot) SetActualIncrementalBackupSizeInMegaBytes(v float64) *Snapshot {
 	s.ActualIncrementalBackupSizeInMegaBytes = &v
+	return s
+}
+
+// SetAdminPasswordSecretArn sets the AdminPasswordSecretArn field's value.
+func (s *Snapshot) SetAdminPasswordSecretArn(v string) *Snapshot {
+	s.AdminPasswordSecretArn = &v
+	return s
+}
+
+// SetAdminPasswordSecretKmsKeyId sets the AdminPasswordSecretKmsKeyId field's value.
+func (s *Snapshot) SetAdminPasswordSecretKmsKeyId(v string) *Snapshot {
+	s.AdminPasswordSecretKmsKeyId = &v
 	return s
 }
 
@@ -7974,6 +12404,257 @@ func (s *Snapshot) SetStatus(v string) *Snapshot {
 // SetTotalBackupSizeInMegaBytes sets the TotalBackupSizeInMegaBytes field's value.
 func (s *Snapshot) SetTotalBackupSizeInMegaBytes(v float64) *Snapshot {
 	s.TotalBackupSizeInMegaBytes = &v
+	return s
+}
+
+// The object that you configure to copy snapshots from one namespace to a namespace
+// in another Amazon Web Services Region.
+type SnapshotCopyConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the KMS key to use to encrypt your snapshots in the destination
+	// Amazon Web Services Region.
+	DestinationKmsKeyId *string `locationName:"destinationKmsKeyId" type:"string"`
+
+	// The destination Amazon Web Services Region to copy snapshots to.
+	DestinationRegion *string `locationName:"destinationRegion" type:"string"`
+
+	// The name of the namespace to copy snapshots from in the source Amazon Web
+	// Services Region.
+	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string"`
+
+	// The ARN of the snapshot copy configuration object.
+	SnapshotCopyConfigurationArn *string `locationName:"snapshotCopyConfigurationArn" type:"string"`
+
+	// The ID of the snapshot copy configuration object.
+	SnapshotCopyConfigurationId *string `locationName:"snapshotCopyConfigurationId" type:"string"`
+
+	// The retention period of snapshots that are copied to the destination Amazon
+	// Web Services Region.
+	SnapshotRetentionPeriod *int64 `locationName:"snapshotRetentionPeriod" type:"integer"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SnapshotCopyConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SnapshotCopyConfiguration) GoString() string {
+	return s.String()
+}
+
+// SetDestinationKmsKeyId sets the DestinationKmsKeyId field's value.
+func (s *SnapshotCopyConfiguration) SetDestinationKmsKeyId(v string) *SnapshotCopyConfiguration {
+	s.DestinationKmsKeyId = &v
+	return s
+}
+
+// SetDestinationRegion sets the DestinationRegion field's value.
+func (s *SnapshotCopyConfiguration) SetDestinationRegion(v string) *SnapshotCopyConfiguration {
+	s.DestinationRegion = &v
+	return s
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *SnapshotCopyConfiguration) SetNamespaceName(v string) *SnapshotCopyConfiguration {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetSnapshotCopyConfigurationArn sets the SnapshotCopyConfigurationArn field's value.
+func (s *SnapshotCopyConfiguration) SetSnapshotCopyConfigurationArn(v string) *SnapshotCopyConfiguration {
+	s.SnapshotCopyConfigurationArn = &v
+	return s
+}
+
+// SetSnapshotCopyConfigurationId sets the SnapshotCopyConfigurationId field's value.
+func (s *SnapshotCopyConfiguration) SetSnapshotCopyConfigurationId(v string) *SnapshotCopyConfiguration {
+	s.SnapshotCopyConfigurationId = &v
+	return s
+}
+
+// SetSnapshotRetentionPeriod sets the SnapshotRetentionPeriod field's value.
+func (s *SnapshotCopyConfiguration) SetSnapshotRetentionPeriod(v int64) *SnapshotCopyConfiguration {
+	s.SnapshotRetentionPeriod = &v
+	return s
+}
+
+// Contains information about a table restore request.
+type TableRestoreStatus struct {
+	_ struct{} `type:"structure"`
+
+	// A message that explains the returned status. For example, if the status of
+	// the operation is FAILED, the message explains why the operation failed.
+	Message *string `locationName:"message" type:"string"`
+
+	// The namespace of the table being restored from.
+	NamespaceName *string `locationName:"namespaceName" type:"string"`
+
+	// The name of the table to create from the restore operation.
+	NewTableName *string `locationName:"newTableName" type:"string"`
+
+	// The amount of data restored to the new table so far, in megabytes (MB).
+	ProgressInMegaBytes *int64 `locationName:"progressInMegaBytes" type:"long"`
+
+	// The ID of the recovery point being restored from.
+	RecoveryPointId *string `locationName:"recoveryPointId" type:"string"`
+
+	// The time that the table restore request was made, in Universal Coordinated
+	// Time (UTC).
+	RequestTime *time.Time `locationName:"requestTime" type:"timestamp"`
+
+	// The name of the snapshot being restored from.
+	SnapshotName *string `locationName:"snapshotName" type:"string"`
+
+	// The name of the source database being restored from.
+	SourceDatabaseName *string `locationName:"sourceDatabaseName" type:"string"`
+
+	// The name of the source schema being restored from.
+	SourceSchemaName *string `locationName:"sourceSchemaName" type:"string"`
+
+	// The name of the source table being restored from.
+	SourceTableName *string `locationName:"sourceTableName" type:"string"`
+
+	// A value that describes the current state of the table restore request. Possible
+	// values are SUCCEEDED, FAILED, CANCELED, PENDING, and IN_PROGRESS.
+	Status *string `locationName:"status" type:"string"`
+
+	// The ID of the RestoreTableFromSnapshot request.
+	TableRestoreRequestId *string `locationName:"tableRestoreRequestId" type:"string"`
+
+	// The name of the database to restore to.
+	TargetDatabaseName *string `locationName:"targetDatabaseName" type:"string"`
+
+	// The name of the schema to restore to.
+	TargetSchemaName *string `locationName:"targetSchemaName" type:"string"`
+
+	// The total amount of data to restore to the new table, in megabytes (MB).
+	TotalDataInMegaBytes *int64 `locationName:"totalDataInMegaBytes" type:"long"`
+
+	// The name of the workgroup being restored from.
+	WorkgroupName *string `locationName:"workgroupName" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TableRestoreStatus) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TableRestoreStatus) GoString() string {
+	return s.String()
+}
+
+// SetMessage sets the Message field's value.
+func (s *TableRestoreStatus) SetMessage(v string) *TableRestoreStatus {
+	s.Message = &v
+	return s
+}
+
+// SetNamespaceName sets the NamespaceName field's value.
+func (s *TableRestoreStatus) SetNamespaceName(v string) *TableRestoreStatus {
+	s.NamespaceName = &v
+	return s
+}
+
+// SetNewTableName sets the NewTableName field's value.
+func (s *TableRestoreStatus) SetNewTableName(v string) *TableRestoreStatus {
+	s.NewTableName = &v
+	return s
+}
+
+// SetProgressInMegaBytes sets the ProgressInMegaBytes field's value.
+func (s *TableRestoreStatus) SetProgressInMegaBytes(v int64) *TableRestoreStatus {
+	s.ProgressInMegaBytes = &v
+	return s
+}
+
+// SetRecoveryPointId sets the RecoveryPointId field's value.
+func (s *TableRestoreStatus) SetRecoveryPointId(v string) *TableRestoreStatus {
+	s.RecoveryPointId = &v
+	return s
+}
+
+// SetRequestTime sets the RequestTime field's value.
+func (s *TableRestoreStatus) SetRequestTime(v time.Time) *TableRestoreStatus {
+	s.RequestTime = &v
+	return s
+}
+
+// SetSnapshotName sets the SnapshotName field's value.
+func (s *TableRestoreStatus) SetSnapshotName(v string) *TableRestoreStatus {
+	s.SnapshotName = &v
+	return s
+}
+
+// SetSourceDatabaseName sets the SourceDatabaseName field's value.
+func (s *TableRestoreStatus) SetSourceDatabaseName(v string) *TableRestoreStatus {
+	s.SourceDatabaseName = &v
+	return s
+}
+
+// SetSourceSchemaName sets the SourceSchemaName field's value.
+func (s *TableRestoreStatus) SetSourceSchemaName(v string) *TableRestoreStatus {
+	s.SourceSchemaName = &v
+	return s
+}
+
+// SetSourceTableName sets the SourceTableName field's value.
+func (s *TableRestoreStatus) SetSourceTableName(v string) *TableRestoreStatus {
+	s.SourceTableName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *TableRestoreStatus) SetStatus(v string) *TableRestoreStatus {
+	s.Status = &v
+	return s
+}
+
+// SetTableRestoreRequestId sets the TableRestoreRequestId field's value.
+func (s *TableRestoreStatus) SetTableRestoreRequestId(v string) *TableRestoreStatus {
+	s.TableRestoreRequestId = &v
+	return s
+}
+
+// SetTargetDatabaseName sets the TargetDatabaseName field's value.
+func (s *TableRestoreStatus) SetTargetDatabaseName(v string) *TableRestoreStatus {
+	s.TargetDatabaseName = &v
+	return s
+}
+
+// SetTargetSchemaName sets the TargetSchemaName field's value.
+func (s *TableRestoreStatus) SetTargetSchemaName(v string) *TableRestoreStatus {
+	s.TargetSchemaName = &v
+	return s
+}
+
+// SetTotalDataInMegaBytes sets the TotalDataInMegaBytes field's value.
+func (s *TableRestoreStatus) SetTotalDataInMegaBytes(v int64) *TableRestoreStatus {
+	s.TotalDataInMegaBytes = &v
+	return s
+}
+
+// SetWorkgroupName sets the WorkgroupName field's value.
+func (s *TableRestoreStatus) SetWorkgroupName(v string) *TableRestoreStatus {
+	s.WorkgroupName = &v
 	return s
 }
 
@@ -8134,6 +12815,59 @@ func (s TagResourceOutput) String() string {
 // value will be replaced with "sensitive".
 func (s TagResourceOutput) GoString() string {
 	return s.String()
+}
+
+// A JSON format string of the Amazon Redshift Serverless API operation with
+// input parameters. The following is an example of a target action.
+//
+// "{"CreateSnapshot": {"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot",
+// "retentionPeriod": "1"}}"
+type TargetAction struct {
+	_ struct{} `type:"structure"`
+
+	// The parameters that you can use to configure a scheduled action (https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html)
+	// to create a snapshot. For more information about creating a scheduled action,
+	// see CreateScheduledAction (https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html).
+	CreateSnapshot *CreateSnapshotScheduleActionParameters `locationName:"createSnapshot" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TargetAction) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TargetAction) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TargetAction) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TargetAction"}
+	if s.CreateSnapshot != nil {
+		if err := s.CreateSnapshot.Validate(); err != nil {
+			invalidParams.AddNested("CreateSnapshot", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCreateSnapshot sets the CreateSnapshot field's value.
+func (s *TargetAction) SetCreateSnapshot(v *CreateSnapshotScheduleActionParameters) *TargetAction {
+	s.CreateSnapshot = v
+	return s
 }
 
 // The request was denied due to request throttling.
@@ -8354,6 +13088,148 @@ func (s UntagResourceOutput) GoString() string {
 	return s.String()
 }
 
+type UpdateCustomDomainAssociationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The custom domain name’s certificate Amazon resource name (ARN). This is
+	// optional.
+	//
+	// CustomDomainCertificateArn is a required field
+	CustomDomainCertificateArn *string `locationName:"customDomainCertificateArn" min:"20" type:"string" required:"true"`
+
+	// The custom domain name associated with the workgroup.
+	//
+	// CustomDomainName is a required field
+	CustomDomainName *string `locationName:"customDomainName" min:"1" type:"string" required:"true"`
+
+	// The name of the workgroup associated with the database.
+	//
+	// WorkgroupName is a required field
+	WorkgroupName *string `locationName:"workgroupName" min:"3" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateCustomDomainAssociationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateCustomDomainAssociationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateCustomDomainAssociationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateCustomDomainAssociationInput"}
+	if s.CustomDomainCertificateArn == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomDomainCertificateArn"))
+	}
+	if s.CustomDomainCertificateArn != nil && len(*s.CustomDomainCertificateArn) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("CustomDomainCertificateArn", 20))
+	}
+	if s.CustomDomainName == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomDomainName"))
+	}
+	if s.CustomDomainName != nil && len(*s.CustomDomainName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CustomDomainName", 1))
+	}
+	if s.WorkgroupName == nil {
+		invalidParams.Add(request.NewErrParamRequired("WorkgroupName"))
+	}
+	if s.WorkgroupName != nil && len(*s.WorkgroupName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("WorkgroupName", 3))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCustomDomainCertificateArn sets the CustomDomainCertificateArn field's value.
+func (s *UpdateCustomDomainAssociationInput) SetCustomDomainCertificateArn(v string) *UpdateCustomDomainAssociationInput {
+	s.CustomDomainCertificateArn = &v
+	return s
+}
+
+// SetCustomDomainName sets the CustomDomainName field's value.
+func (s *UpdateCustomDomainAssociationInput) SetCustomDomainName(v string) *UpdateCustomDomainAssociationInput {
+	s.CustomDomainName = &v
+	return s
+}
+
+// SetWorkgroupName sets the WorkgroupName field's value.
+func (s *UpdateCustomDomainAssociationInput) SetWorkgroupName(v string) *UpdateCustomDomainAssociationInput {
+	s.WorkgroupName = &v
+	return s
+}
+
+type UpdateCustomDomainAssociationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The custom domain name’s certificate Amazon resource name (ARN).
+	CustomDomainCertificateArn *string `locationName:"customDomainCertificateArn" min:"20" type:"string"`
+
+	// The expiration time for the certificate.
+	CustomDomainCertificateExpiryTime *time.Time `locationName:"customDomainCertificateExpiryTime" type:"timestamp" timestampFormat:"iso8601"`
+
+	// The custom domain name associated with the workgroup.
+	CustomDomainName *string `locationName:"customDomainName" min:"1" type:"string"`
+
+	// The name of the workgroup associated with the database.
+	WorkgroupName *string `locationName:"workgroupName" min:"3" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateCustomDomainAssociationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateCustomDomainAssociationOutput) GoString() string {
+	return s.String()
+}
+
+// SetCustomDomainCertificateArn sets the CustomDomainCertificateArn field's value.
+func (s *UpdateCustomDomainAssociationOutput) SetCustomDomainCertificateArn(v string) *UpdateCustomDomainAssociationOutput {
+	s.CustomDomainCertificateArn = &v
+	return s
+}
+
+// SetCustomDomainCertificateExpiryTime sets the CustomDomainCertificateExpiryTime field's value.
+func (s *UpdateCustomDomainAssociationOutput) SetCustomDomainCertificateExpiryTime(v time.Time) *UpdateCustomDomainAssociationOutput {
+	s.CustomDomainCertificateExpiryTime = &v
+	return s
+}
+
+// SetCustomDomainName sets the CustomDomainName field's value.
+func (s *UpdateCustomDomainAssociationOutput) SetCustomDomainName(v string) *UpdateCustomDomainAssociationOutput {
+	s.CustomDomainName = &v
+	return s
+}
+
+// SetWorkgroupName sets the WorkgroupName field's value.
+func (s *UpdateCustomDomainAssociationOutput) SetWorkgroupName(v string) *UpdateCustomDomainAssociationOutput {
+	s.WorkgroupName = &v
+	return s
+}
+
 type UpdateEndpointAccessInput struct {
 	_ struct{} `type:"structure"`
 
@@ -8444,7 +13320,15 @@ func (s *UpdateEndpointAccessOutput) SetEndpoint(v *EndpointAccess) *UpdateEndpo
 type UpdateNamespaceInput struct {
 	_ struct{} `type:"structure"`
 
+	// The ID of the Key Management Service (KMS) key used to encrypt and store
+	// the namespace's admin credentials secret. You can only use this parameter
+	// if manageAdminPassword is true.
+	AdminPasswordSecretKmsKeyId *string `locationName:"adminPasswordSecretKmsKeyId" type:"string"`
+
 	// The password of the administrator for the first database created in the namespace.
+	// This parameter must be updated together with adminUsername.
+	//
+	// You can't use adminUserPassword if manageAdminPassword is true.
 	//
 	// AdminUserPassword is a sensitive parameter and its value will be
 	// replaced with "sensitive" in string returned by UpdateNamespaceInput's
@@ -8452,6 +13336,7 @@ type UpdateNamespaceInput struct {
 	AdminUserPassword *string `locationName:"adminUserPassword" type:"string" sensitive:"true"`
 
 	// The username of the administrator for the first database created in the namespace.
+	// This parameter must be updated together with adminUserPassword.
 	//
 	// AdminUsername is a sensitive parameter and its value will be
 	// replaced with "sensitive" in string returned by UpdateNamespaceInput's
@@ -8459,10 +13344,11 @@ type UpdateNamespaceInput struct {
 	AdminUsername *string `locationName:"adminUsername" type:"string" sensitive:"true"`
 
 	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the
-	// namespace.
+	// namespace. This parameter must be updated together with iamRoles.
 	DefaultIamRoleArn *string `locationName:"defaultIamRoleArn" type:"string"`
 
-	// A list of IAM roles to associate with the namespace.
+	// A list of IAM roles to associate with the namespace. This parameter must
+	// be updated together with defaultIamRoleArn.
 	IamRoles []*string `locationName:"iamRoles" type:"list"`
 
 	// The ID of the Amazon Web Services Key Management Service key used to encrypt
@@ -8473,7 +13359,14 @@ type UpdateNamespaceInput struct {
 	// connectionlog, and useractivitylog.
 	LogExports []*string `locationName:"logExports" type:"list" enum:"LogExport"`
 
-	// The name of the namespace.
+	// If true, Amazon Redshift uses Secrets Manager to manage the namespace's admin
+	// credentials. You can't use adminUserPassword if manageAdminPassword is true.
+	// If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword
+	// for the admin user account's password.
+	ManageAdminPassword *bool `locationName:"manageAdminPassword" type:"boolean"`
+
+	// The name of the namespace to update. You can't update the name of a namespace
+	// once it is created.
 	//
 	// NamespaceName is a required field
 	NamespaceName *string `locationName:"namespaceName" min:"3" type:"string" required:"true"`
@@ -8513,6 +13406,12 @@ func (s *UpdateNamespaceInput) Validate() error {
 	return nil
 }
 
+// SetAdminPasswordSecretKmsKeyId sets the AdminPasswordSecretKmsKeyId field's value.
+func (s *UpdateNamespaceInput) SetAdminPasswordSecretKmsKeyId(v string) *UpdateNamespaceInput {
+	s.AdminPasswordSecretKmsKeyId = &v
+	return s
+}
+
 // SetAdminUserPassword sets the AdminUserPassword field's value.
 func (s *UpdateNamespaceInput) SetAdminUserPassword(v string) *UpdateNamespaceInput {
 	s.AdminUserPassword = &v
@@ -8546,6 +13445,12 @@ func (s *UpdateNamespaceInput) SetKmsKeyId(v string) *UpdateNamespaceInput {
 // SetLogExports sets the LogExports field's value.
 func (s *UpdateNamespaceInput) SetLogExports(v []*string) *UpdateNamespaceInput {
 	s.LogExports = v
+	return s
+}
+
+// SetManageAdminPassword sets the ManageAdminPassword field's value.
+func (s *UpdateNamespaceInput) SetManageAdminPassword(v bool) *UpdateNamespaceInput {
+	s.ManageAdminPassword = &v
 	return s
 }
 
@@ -8585,6 +13490,263 @@ func (s UpdateNamespaceOutput) GoString() string {
 // SetNamespace sets the Namespace field's value.
 func (s *UpdateNamespaceOutput) SetNamespace(v *Namespace) *UpdateNamespaceOutput {
 	s.Namespace = v
+	return s
+}
+
+type UpdateScheduledActionInput struct {
+	_ struct{} `type:"structure"`
+
+	// Specifies whether to enable the scheduled action.
+	Enabled *bool `locationName:"enabled" type:"boolean"`
+
+	// The end time in UTC of the scheduled action to update.
+	EndTime *time.Time `locationName:"endTime" type:"timestamp"`
+
+	// The ARN of the IAM role to assume to run the scheduled action. This IAM role
+	// must have permission to run the Amazon Redshift Serverless API operation
+	// in the scheduled action. This IAM role must allow the Amazon Redshift scheduler
+	// to schedule creating snapshots (Principal scheduler.redshift.amazonaws.com)
+	// to assume permissions on your behalf. For more information about the IAM
+	// role to use with the Amazon Redshift scheduler, see Using Identity-Based
+	// Policies for Amazon Redshift (https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html)
+	// in the Amazon Redshift Management Guide
+	RoleArn *string `locationName:"roleArn" type:"string"`
+
+	// The schedule for a one-time (at timestamp format) or recurring (cron format)
+	// scheduled action. Schedule invocations must be separated by at least one
+	// hour. Times are in UTC.
+	//
+	//    * Format of at timestamp is yyyy-mm-ddThh:mm:ss. For example, 2016-03-04T17:27:00.
+	//
+	//    * Format of cron expression is (Minutes Hours Day-of-month Month Day-of-week
+	//    Year). For example, "(0 10 ? * MON *)". For more information, see Cron
+	//    Expressions (https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions)
+	//    in the Amazon CloudWatch Events User Guide.
+	Schedule *Schedule `locationName:"schedule" type:"structure"`
+
+	// The descripion of the scheduled action to update to.
+	ScheduledActionDescription *string `locationName:"scheduledActionDescription" type:"string"`
+
+	// The name of the scheduled action to update to.
+	//
+	// ScheduledActionName is a required field
+	ScheduledActionName *string `locationName:"scheduledActionName" min:"3" type:"string" required:"true"`
+
+	// The start time in UTC of the scheduled action to update to.
+	StartTime *time.Time `locationName:"startTime" type:"timestamp"`
+
+	// A JSON format string of the Amazon Redshift Serverless API operation with
+	// input parameters. The following is an example of a target action.
+	//
+	// "{"CreateSnapshot": {"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot",
+	// "retentionPeriod": "1"}}"
+	TargetAction *TargetAction `locationName:"targetAction" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateScheduledActionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateScheduledActionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateScheduledActionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateScheduledActionInput"}
+	if s.ScheduledActionName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScheduledActionName"))
+	}
+	if s.ScheduledActionName != nil && len(*s.ScheduledActionName) < 3 {
+		invalidParams.Add(request.NewErrParamMinLen("ScheduledActionName", 3))
+	}
+	if s.TargetAction != nil {
+		if err := s.TargetAction.Validate(); err != nil {
+			invalidParams.AddNested("TargetAction", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *UpdateScheduledActionInput) SetEnabled(v bool) *UpdateScheduledActionInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *UpdateScheduledActionInput) SetEndTime(v time.Time) *UpdateScheduledActionInput {
+	s.EndTime = &v
+	return s
+}
+
+// SetRoleArn sets the RoleArn field's value.
+func (s *UpdateScheduledActionInput) SetRoleArn(v string) *UpdateScheduledActionInput {
+	s.RoleArn = &v
+	return s
+}
+
+// SetSchedule sets the Schedule field's value.
+func (s *UpdateScheduledActionInput) SetSchedule(v *Schedule) *UpdateScheduledActionInput {
+	s.Schedule = v
+	return s
+}
+
+// SetScheduledActionDescription sets the ScheduledActionDescription field's value.
+func (s *UpdateScheduledActionInput) SetScheduledActionDescription(v string) *UpdateScheduledActionInput {
+	s.ScheduledActionDescription = &v
+	return s
+}
+
+// SetScheduledActionName sets the ScheduledActionName field's value.
+func (s *UpdateScheduledActionInput) SetScheduledActionName(v string) *UpdateScheduledActionInput {
+	s.ScheduledActionName = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *UpdateScheduledActionInput) SetStartTime(v time.Time) *UpdateScheduledActionInput {
+	s.StartTime = &v
+	return s
+}
+
+// SetTargetAction sets the TargetAction field's value.
+func (s *UpdateScheduledActionInput) SetTargetAction(v *TargetAction) *UpdateScheduledActionInput {
+	s.TargetAction = v
+	return s
+}
+
+type UpdateScheduledActionOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The ScheduledAction object that was updated.
+	ScheduledAction *ScheduledActionResponse `locationName:"scheduledAction" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateScheduledActionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateScheduledActionOutput) GoString() string {
+	return s.String()
+}
+
+// SetScheduledAction sets the ScheduledAction field's value.
+func (s *UpdateScheduledActionOutput) SetScheduledAction(v *ScheduledActionResponse) *UpdateScheduledActionOutput {
+	s.ScheduledAction = v
+	return s
+}
+
+type UpdateSnapshotCopyConfigurationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the snapshot copy configuration to update.
+	//
+	// SnapshotCopyConfigurationId is a required field
+	SnapshotCopyConfigurationId *string `locationName:"snapshotCopyConfigurationId" type:"string" required:"true"`
+
+	// The new retention period of how long to keep a snapshot in the destination
+	// Amazon Web Services Region.
+	SnapshotRetentionPeriod *int64 `locationName:"snapshotRetentionPeriod" type:"integer"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateSnapshotCopyConfigurationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateSnapshotCopyConfigurationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateSnapshotCopyConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateSnapshotCopyConfigurationInput"}
+	if s.SnapshotCopyConfigurationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SnapshotCopyConfigurationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSnapshotCopyConfigurationId sets the SnapshotCopyConfigurationId field's value.
+func (s *UpdateSnapshotCopyConfigurationInput) SetSnapshotCopyConfigurationId(v string) *UpdateSnapshotCopyConfigurationInput {
+	s.SnapshotCopyConfigurationId = &v
+	return s
+}
+
+// SetSnapshotRetentionPeriod sets the SnapshotRetentionPeriod field's value.
+func (s *UpdateSnapshotCopyConfigurationInput) SetSnapshotRetentionPeriod(v int64) *UpdateSnapshotCopyConfigurationInput {
+	s.SnapshotRetentionPeriod = &v
+	return s
+}
+
+type UpdateSnapshotCopyConfigurationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The updated snapshot copy configuration object.
+	//
+	// SnapshotCopyConfiguration is a required field
+	SnapshotCopyConfiguration *SnapshotCopyConfiguration `locationName:"snapshotCopyConfiguration" type:"structure" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateSnapshotCopyConfigurationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateSnapshotCopyConfigurationOutput) GoString() string {
+	return s.String()
+}
+
+// SetSnapshotCopyConfiguration sets the SnapshotCopyConfiguration field's value.
+func (s *UpdateSnapshotCopyConfigurationOutput) SetSnapshotCopyConfiguration(v *SnapshotCopyConfiguration) *UpdateSnapshotCopyConfigurationOutput {
+	s.SnapshotCopyConfiguration = v
 	return s
 }
 
@@ -8677,7 +13839,10 @@ func (s *UpdateSnapshotOutput) SetSnapshot(v *Snapshot) *UpdateSnapshotOutput {
 type UpdateUsageLimitInput struct {
 	_ struct{} `type:"structure"`
 
-	// The new limit amount. For more information about this parameter.
+	// The new limit amount. If time-based, this amount is in Redshift Processing
+	// Units (RPU) consumed per hour. If data-based, this amount is in terabytes
+	// (TB) of data transferred between Regions in cross-account sharing. The value
+	// must be a positive number.
 	Amount *int64 `locationName:"amount" type:"long"`
 
 	// The new action that Amazon Redshift Serverless takes when the limit is reached.
@@ -8776,14 +13941,29 @@ type UpdateWorkgroupInput struct {
 	BaseCapacity *int64 `locationName:"baseCapacity" type:"integer"`
 
 	// An array of parameters to set for advanced control over a database. The options
-	// are datestyle, enable_user_activity_logging, query_group, search_path, and
-	// max_query_execution_time.
+	// are auto_mv, datestyle, enable_case_sensitive_identifier, enable_user_activity_logging,
+	// query_group, search_path, require_ssl, use_fips_ssl, and query monitoring
+	// metrics that let you define performance boundaries. For more information
+	// about query monitoring rules and available metrics, see Query monitoring
+	// metrics for Amazon Redshift Serverless (https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless).
 	ConfigParameters []*ConfigParameter `locationName:"configParameters" type:"list"`
 
 	// The value that specifies whether to turn on enhanced virtual private cloud
 	// (VPC) routing, which forces Amazon Redshift Serverless to route traffic through
 	// your VPC.
 	EnhancedVpcRouting *bool `locationName:"enhancedVpcRouting" type:"boolean"`
+
+	// The IP address type that the workgroup supports. Possible values are ipv4
+	// and dualstack.
+	IpAddressType *string `locationName:"ipAddressType" type:"string"`
+
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve
+	// queries. The max capacity is specified in RPUs.
+	MaxCapacity *int64 `locationName:"maxCapacity" type:"integer"`
+
+	// The custom port to use when connecting to a workgroup. Valid port ranges
+	// are 5431-5455 and 8191-8215. The default is 5439.
+	Port *int64 `locationName:"port" type:"integer"`
 
 	// A value that specifies whether the workgroup can be accessible from a public
 	// network.
@@ -8795,7 +13975,8 @@ type UpdateWorkgroupInput struct {
 	// An array of VPC subnet IDs to associate with the workgroup.
 	SubnetIds []*string `locationName:"subnetIds" type:"list"`
 
-	// The name of the workgroup to update.
+	// The name of the workgroup to update. You can't update the name of a workgroup
+	// once it is created.
 	//
 	// WorkgroupName is a required field
 	WorkgroupName *string `locationName:"workgroupName" min:"3" type:"string" required:"true"`
@@ -8850,6 +14031,24 @@ func (s *UpdateWorkgroupInput) SetConfigParameters(v []*ConfigParameter) *Update
 // SetEnhancedVpcRouting sets the EnhancedVpcRouting field's value.
 func (s *UpdateWorkgroupInput) SetEnhancedVpcRouting(v bool) *UpdateWorkgroupInput {
 	s.EnhancedVpcRouting = &v
+	return s
+}
+
+// SetIpAddressType sets the IpAddressType field's value.
+func (s *UpdateWorkgroupInput) SetIpAddressType(v string) *UpdateWorkgroupInput {
+	s.IpAddressType = &v
+	return s
+}
+
+// SetMaxCapacity sets the MaxCapacity field's value.
+func (s *UpdateWorkgroupInput) SetMaxCapacity(v int64) *UpdateWorkgroupInput {
+	s.MaxCapacity = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *UpdateWorkgroupInput) SetPort(v int64) *UpdateWorkgroupInput {
+	s.Port = &v
 	return s
 }
 
@@ -9166,13 +14365,30 @@ type Workgroup struct {
 	// Units (RPUs).
 	BaseCapacity *int64 `locationName:"baseCapacity" type:"integer"`
 
-	// An array of parameters to set for finer control over a database. The options
-	// are datestyle, enable_user_activity_logging, query_group, search_path, and
-	// max_query_execution_time.
+	// An array of parameters to set for advanced control over a database. The options
+	// are auto_mv, datestyle, enable_case_sensitive_identifier, enable_user_activity_logging,
+	// query_group, search_path, require_ssl, use_fips_ssl, and query monitoring
+	// metrics that let you define performance boundaries. For more information
+	// about query monitoring rules and available metrics, see Query monitoring
+	// metrics for Amazon Redshift Serverless (https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless).
 	ConfigParameters []*ConfigParameter `locationName:"configParameters" type:"list"`
 
 	// The creation date of the workgroup.
 	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"iso8601"`
+
+	// A list of VPCs. Each entry is the unique identifier of a virtual private
+	// cloud with access to Amazon Redshift Serverless. If all of the VPCs for the
+	// grantee are allowed, it shows an asterisk.
+	CrossAccountVpcs []*string `locationName:"crossAccountVpcs" type:"list"`
+
+	// The custom domain name’s certificate Amazon resource name (ARN).
+	CustomDomainCertificateArn *string `locationName:"customDomainCertificateArn" min:"20" type:"string"`
+
+	// The expiration time for the certificate.
+	CustomDomainCertificateExpiryTime *time.Time `locationName:"customDomainCertificateExpiryTime" type:"timestamp" timestampFormat:"iso8601"`
+
+	// The custom domain name associated with the workgroup.
+	CustomDomainName *string `locationName:"customDomainName" min:"1" type:"string"`
 
 	// The endpoint that is created from the workgroup.
 	Endpoint *Endpoint `locationName:"endpoint" type:"structure"`
@@ -9182,11 +14398,28 @@ type Workgroup struct {
 	// your VPC.
 	EnhancedVpcRouting *bool `locationName:"enhancedVpcRouting" type:"boolean"`
 
+	// The IP address type that the workgroup supports. Possible values are ipv4
+	// and dualstack.
+	IpAddressType *string `locationName:"ipAddressType" type:"string"`
+
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve
+	// queries. The max capacity is specified in RPUs.
+	MaxCapacity *int64 `locationName:"maxCapacity" type:"integer"`
+
 	// The namespace the workgroup is associated with.
 	NamespaceName *string `locationName:"namespaceName" type:"string"`
 
+	// The patch version of your Amazon Redshift Serverless workgroup. For more
+	// information about patch versions, see Cluster versions for Amazon Redshift
+	// (https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html).
+	PatchVersion *string `locationName:"patchVersion" type:"string"`
+
+	// The custom port to use when connecting to a workgroup. Valid port ranges
+	// are 5431-5455 and 8191-8215. The default is 5439.
+	Port *int64 `locationName:"port" type:"integer"`
+
 	// A value that specifies whether the workgroup can be accessible from a public
-	// network
+	// network.
 	PubliclyAccessible *bool `locationName:"publiclyAccessible" type:"boolean"`
 
 	// An array of security group IDs to associate with the workgroup.
@@ -9206,6 +14439,11 @@ type Workgroup struct {
 
 	// The name of the workgroup.
 	WorkgroupName *string `locationName:"workgroupName" min:"3" type:"string"`
+
+	// The Amazon Redshift Serverless version of your workgroup. For more information
+	// about Amazon Redshift Serverless versions, seeCluster versions for Amazon
+	// Redshift (https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html).
+	WorkgroupVersion *string `locationName:"workgroupVersion" type:"string"`
 }
 
 // String returns the string representation.
@@ -9244,6 +14482,30 @@ func (s *Workgroup) SetCreationDate(v time.Time) *Workgroup {
 	return s
 }
 
+// SetCrossAccountVpcs sets the CrossAccountVpcs field's value.
+func (s *Workgroup) SetCrossAccountVpcs(v []*string) *Workgroup {
+	s.CrossAccountVpcs = v
+	return s
+}
+
+// SetCustomDomainCertificateArn sets the CustomDomainCertificateArn field's value.
+func (s *Workgroup) SetCustomDomainCertificateArn(v string) *Workgroup {
+	s.CustomDomainCertificateArn = &v
+	return s
+}
+
+// SetCustomDomainCertificateExpiryTime sets the CustomDomainCertificateExpiryTime field's value.
+func (s *Workgroup) SetCustomDomainCertificateExpiryTime(v time.Time) *Workgroup {
+	s.CustomDomainCertificateExpiryTime = &v
+	return s
+}
+
+// SetCustomDomainName sets the CustomDomainName field's value.
+func (s *Workgroup) SetCustomDomainName(v string) *Workgroup {
+	s.CustomDomainName = &v
+	return s
+}
+
 // SetEndpoint sets the Endpoint field's value.
 func (s *Workgroup) SetEndpoint(v *Endpoint) *Workgroup {
 	s.Endpoint = v
@@ -9256,9 +14518,33 @@ func (s *Workgroup) SetEnhancedVpcRouting(v bool) *Workgroup {
 	return s
 }
 
+// SetIpAddressType sets the IpAddressType field's value.
+func (s *Workgroup) SetIpAddressType(v string) *Workgroup {
+	s.IpAddressType = &v
+	return s
+}
+
+// SetMaxCapacity sets the MaxCapacity field's value.
+func (s *Workgroup) SetMaxCapacity(v int64) *Workgroup {
+	s.MaxCapacity = &v
+	return s
+}
+
 // SetNamespaceName sets the NamespaceName field's value.
 func (s *Workgroup) SetNamespaceName(v string) *Workgroup {
 	s.NamespaceName = &v
+	return s
+}
+
+// SetPatchVersion sets the PatchVersion field's value.
+func (s *Workgroup) SetPatchVersion(v string) *Workgroup {
+	s.PatchVersion = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *Workgroup) SetPort(v int64) *Workgroup {
+	s.Port = &v
 	return s
 }
 
@@ -9301,6 +14587,12 @@ func (s *Workgroup) SetWorkgroupId(v string) *Workgroup {
 // SetWorkgroupName sets the WorkgroupName field's value.
 func (s *Workgroup) SetWorkgroupName(v string) *Workgroup {
 	s.WorkgroupName = &v
+	return s
+}
+
+// SetWorkgroupVersion sets the WorkgroupVersion field's value.
+func (s *Workgroup) SetWorkgroupVersion(v string) *Workgroup {
+	s.WorkgroupVersion = &v
 	return s
 }
 
@@ -9373,6 +14665,22 @@ func SnapshotStatus_Values() []string {
 		SnapshotStatusCancelled,
 		SnapshotStatusFailed,
 		SnapshotStatusCopying,
+	}
+}
+
+const (
+	// StateActive is a State enum value
+	StateActive = "ACTIVE"
+
+	// StateDisabled is a State enum value
+	StateDisabled = "DISABLED"
+)
+
+// State_Values returns all elements of the State enum
+func State_Values() []string {
+	return []string{
+		StateActive,
+		StateDisabled,
 	}
 }
 

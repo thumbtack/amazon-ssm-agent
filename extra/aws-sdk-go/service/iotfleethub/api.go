@@ -28,14 +28,13 @@ const opCreateApplication = "CreateApplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateApplicationRequest method.
+//	req, resp := client.CreateApplicationRequest(params)
 //
-//    // Example sending a request using the CreateApplicationRequest method.
-//    req, resp := client.CreateApplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/CreateApplication
 func (c *IoTFleetHub) CreateApplicationRequest(input *CreateApplicationInput) (req *request.Request, output *CreateApplicationOutput) {
@@ -56,10 +55,14 @@ func (c *IoTFleetHub) CreateApplicationRequest(input *CreateApplicationInput) (r
 
 // CreateApplication API operation for AWS IoT Fleet Hub.
 //
-// Creates a Fleet Hub for AWS IoT Device Management web application.
+// Creates a Fleet Hub for IoT Device Management web application.
 //
-// Fleet Hub for AWS IoT Device Management is in public preview and is subject
-// to change.
+// When creating a Fleet Hub application, you must create an organization instance
+// of IAM Identity Center if you don't already have one. The Fleet Hub application
+// you create must also be in the same Amazon Web Services Region of the organization
+// instance of IAM Identity Center. For more information see Enabling IAM Identity
+// Center (https://docs.aws.amazon.com/singlesignon/latest/userguide/get-set-up-for-idc.html)
+// and Organization instances of IAM Identity Center (https://docs.aws.amazon.com/singlesignon/latest/userguide/organization-instances-identity-center.html).
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -69,17 +72,18 @@ func (c *IoTFleetHub) CreateApplicationRequest(input *CreateApplicationInput) (r
 // API operation CreateApplication for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidRequestException
-//   The request is not valid.
 //
-//   * InternalFailureException
-//   An unexpected error has occurred.
+//   - InvalidRequestException
+//     The request is not valid.
 //
-//   * ThrottlingException
-//   The rate exceeds the limit.
+//   - InternalFailureException
+//     An unexpected error has occurred.
 //
-//   * LimitExceededException
-//   A limit has been exceeded.
+//   - ThrottlingException
+//     The rate exceeds the limit.
+//
+//   - LimitExceededException
+//     A limit has been exceeded.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/CreateApplication
 func (c *IoTFleetHub) CreateApplication(input *CreateApplicationInput) (*CreateApplicationOutput, error) {
@@ -119,14 +123,13 @@ const opDeleteApplication = "DeleteApplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteApplicationRequest method.
+//	req, resp := client.DeleteApplicationRequest(params)
 //
-//    // Example sending a request using the DeleteApplicationRequest method.
-//    req, resp := client.DeleteApplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/DeleteApplication
 func (c *IoTFleetHub) DeleteApplicationRequest(input *DeleteApplicationInput) (req *request.Request, output *DeleteApplicationOutput) {
@@ -148,10 +151,7 @@ func (c *IoTFleetHub) DeleteApplicationRequest(input *DeleteApplicationInput) (r
 
 // DeleteApplication API operation for AWS IoT Fleet Hub.
 //
-// Deletes a Fleet Hub for AWS IoT Device Management web application.
-//
-// Fleet Hub for AWS IoT Device Management is in public preview and is subject
-// to change.
+// Deletes a Fleet Hub for IoT Device Management web application.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -161,17 +161,18 @@ func (c *IoTFleetHub) DeleteApplicationRequest(input *DeleteApplicationInput) (r
 // API operation DeleteApplication for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidRequestException
-//   The request is not valid.
 //
-//   * ResourceNotFoundException
-//   The specified resource does not exist.
+//   - InvalidRequestException
+//     The request is not valid.
 //
-//   * InternalFailureException
-//   An unexpected error has occurred.
+//   - ResourceNotFoundException
+//     The specified resource does not exist.
 //
-//   * ThrottlingException
-//   The rate exceeds the limit.
+//   - InternalFailureException
+//     An unexpected error has occurred.
+//
+//   - ThrottlingException
+//     The rate exceeds the limit.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/DeleteApplication
 func (c *IoTFleetHub) DeleteApplication(input *DeleteApplicationInput) (*DeleteApplicationOutput, error) {
@@ -211,14 +212,13 @@ const opDescribeApplication = "DescribeApplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DescribeApplicationRequest method.
+//	req, resp := client.DescribeApplicationRequest(params)
 //
-//    // Example sending a request using the DescribeApplicationRequest method.
-//    req, resp := client.DescribeApplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/DescribeApplication
 func (c *IoTFleetHub) DescribeApplicationRequest(input *DescribeApplicationInput) (req *request.Request, output *DescribeApplicationOutput) {
@@ -239,10 +239,7 @@ func (c *IoTFleetHub) DescribeApplicationRequest(input *DescribeApplicationInput
 
 // DescribeApplication API operation for AWS IoT Fleet Hub.
 //
-// Gets information about a Fleet Hub for AWS IoT Device Management web application.
-//
-// Fleet Hub for AWS IoT Device Management is in public preview and is subject
-// to change.
+// Gets information about a Fleet Hub for IoT Device Management web application.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -252,17 +249,18 @@ func (c *IoTFleetHub) DescribeApplicationRequest(input *DescribeApplicationInput
 // API operation DescribeApplication for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidRequestException
-//   The request is not valid.
 //
-//   * ResourceNotFoundException
-//   The specified resource does not exist.
+//   - InvalidRequestException
+//     The request is not valid.
 //
-//   * InternalFailureException
-//   An unexpected error has occurred.
+//   - ResourceNotFoundException
+//     The specified resource does not exist.
 //
-//   * ThrottlingException
-//   The rate exceeds the limit.
+//   - InternalFailureException
+//     An unexpected error has occurred.
+//
+//   - ThrottlingException
+//     The rate exceeds the limit.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/DescribeApplication
 func (c *IoTFleetHub) DescribeApplication(input *DescribeApplicationInput) (*DescribeApplicationOutput, error) {
@@ -302,14 +300,13 @@ const opListApplications = "ListApplications"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListApplicationsRequest method.
+//	req, resp := client.ListApplicationsRequest(params)
 //
-//    // Example sending a request using the ListApplicationsRequest method.
-//    req, resp := client.ListApplicationsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/ListApplications
 func (c *IoTFleetHub) ListApplicationsRequest(input *ListApplicationsInput) (req *request.Request, output *ListApplicationsOutput) {
@@ -336,11 +333,8 @@ func (c *IoTFleetHub) ListApplicationsRequest(input *ListApplicationsInput) (req
 
 // ListApplications API operation for AWS IoT Fleet Hub.
 //
-// Gets a list of Fleet Hub for AWS IoT Device Management web applications for
-// the current account.
-//
-// Fleet Hub for AWS IoT Device Management is in public preview and is subject
-// to change.
+// Gets a list of Fleet Hub for IoT Device Management web applications for the
+// current account.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -350,14 +344,15 @@ func (c *IoTFleetHub) ListApplicationsRequest(input *ListApplicationsInput) (req
 // API operation ListApplications for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidRequestException
-//   The request is not valid.
 //
-//   * InternalFailureException
-//   An unexpected error has occurred.
+//   - InvalidRequestException
+//     The request is not valid.
 //
-//   * ThrottlingException
-//   The rate exceeds the limit.
+//   - InternalFailureException
+//     An unexpected error has occurred.
+//
+//   - ThrottlingException
+//     The rate exceeds the limit.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/ListApplications
 func (c *IoTFleetHub) ListApplications(input *ListApplicationsInput) (*ListApplicationsOutput, error) {
@@ -389,15 +384,14 @@ func (c *IoTFleetHub) ListApplicationsWithContext(ctx aws.Context, input *ListAp
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListApplications operation.
-//    pageNum := 0
-//    err := client.ListApplicationsPages(params,
-//        func(page *iotfleethub.ListApplicationsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListApplications operation.
+//	pageNum := 0
+//	err := client.ListApplicationsPages(params,
+//	    func(page *iotfleethub.ListApplicationsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *IoTFleetHub) ListApplicationsPages(input *ListApplicationsInput, fn func(*ListApplicationsOutput, bool) bool) error {
 	return c.ListApplicationsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -449,14 +443,13 @@ const opListTagsForResource = "ListTagsForResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListTagsForResourceRequest method.
+//	req, resp := client.ListTagsForResourceRequest(params)
 //
-//    // Example sending a request using the ListTagsForResourceRequest method.
-//    req, resp := client.ListTagsForResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/ListTagsForResource
 func (c *IoTFleetHub) ListTagsForResourceRequest(input *ListTagsForResourceInput) (req *request.Request, output *ListTagsForResourceOutput) {
@@ -479,9 +472,6 @@ func (c *IoTFleetHub) ListTagsForResourceRequest(input *ListTagsForResourceInput
 //
 // Lists the tags for the specified resource.
 //
-// Fleet Hub for AWS IoT Device Management is in public preview and is subject
-// to change.
-//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -490,14 +480,15 @@ func (c *IoTFleetHub) ListTagsForResourceRequest(input *ListTagsForResourceInput
 // API operation ListTagsForResource for usage and error information.
 //
 // Returned Error Types:
-//   * InternalFailureException
-//   An unexpected error has occurred.
 //
-//   * InvalidRequestException
-//   The request is not valid.
+//   - InternalFailureException
+//     An unexpected error has occurred.
 //
-//   * ResourceNotFoundException
-//   The specified resource does not exist.
+//   - InvalidRequestException
+//     The request is not valid.
+//
+//   - ResourceNotFoundException
+//     The specified resource does not exist.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/ListTagsForResource
 func (c *IoTFleetHub) ListTagsForResource(input *ListTagsForResourceInput) (*ListTagsForResourceOutput, error) {
@@ -537,14 +528,13 @@ const opTagResource = "TagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the TagResourceRequest method.
+//	req, resp := client.TagResourceRequest(params)
 //
-//    // Example sending a request using the TagResourceRequest method.
-//    req, resp := client.TagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/TagResource
 func (c *IoTFleetHub) TagResourceRequest(input *TagResourceInput) (req *request.Request, output *TagResourceOutput) {
@@ -569,9 +559,6 @@ func (c *IoTFleetHub) TagResourceRequest(input *TagResourceInput) (req *request.
 // Adds to or modifies the tags of the specified resource. Tags are metadata
 // which can be used to manage a resource.
 //
-// Fleet Hub for AWS IoT Device Management is in public preview and is subject
-// to change.
-//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -580,14 +567,15 @@ func (c *IoTFleetHub) TagResourceRequest(input *TagResourceInput) (req *request.
 // API operation TagResource for usage and error information.
 //
 // Returned Error Types:
-//   * InternalFailureException
-//   An unexpected error has occurred.
 //
-//   * InvalidRequestException
-//   The request is not valid.
+//   - InternalFailureException
+//     An unexpected error has occurred.
 //
-//   * ResourceNotFoundException
-//   The specified resource does not exist.
+//   - InvalidRequestException
+//     The request is not valid.
+//
+//   - ResourceNotFoundException
+//     The specified resource does not exist.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/TagResource
 func (c *IoTFleetHub) TagResource(input *TagResourceInput) (*TagResourceOutput, error) {
@@ -627,14 +615,13 @@ const opUntagResource = "UntagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UntagResourceRequest method.
+//	req, resp := client.UntagResourceRequest(params)
 //
-//    // Example sending a request using the UntagResourceRequest method.
-//    req, resp := client.UntagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/UntagResource
 func (c *IoTFleetHub) UntagResourceRequest(input *UntagResourceInput) (req *request.Request, output *UntagResourceOutput) {
@@ -658,9 +645,6 @@ func (c *IoTFleetHub) UntagResourceRequest(input *UntagResourceInput) (req *requ
 //
 // Removes the specified tags (metadata) from the resource.
 //
-// Fleet Hub for AWS IoT Device Management is in public preview and is subject
-// to change.
-//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -669,14 +653,15 @@ func (c *IoTFleetHub) UntagResourceRequest(input *UntagResourceInput) (req *requ
 // API operation UntagResource for usage and error information.
 //
 // Returned Error Types:
-//   * InternalFailureException
-//   An unexpected error has occurred.
 //
-//   * InvalidRequestException
-//   The request is not valid.
+//   - InternalFailureException
+//     An unexpected error has occurred.
 //
-//   * ResourceNotFoundException
-//   The specified resource does not exist.
+//   - InvalidRequestException
+//     The request is not valid.
+//
+//   - ResourceNotFoundException
+//     The specified resource does not exist.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/UntagResource
 func (c *IoTFleetHub) UntagResource(input *UntagResourceInput) (*UntagResourceOutput, error) {
@@ -716,14 +701,13 @@ const opUpdateApplication = "UpdateApplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateApplicationRequest method.
+//	req, resp := client.UpdateApplicationRequest(params)
 //
-//    // Example sending a request using the UpdateApplicationRequest method.
-//    req, resp := client.UpdateApplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/UpdateApplication
 func (c *IoTFleetHub) UpdateApplicationRequest(input *UpdateApplicationInput) (req *request.Request, output *UpdateApplicationOutput) {
@@ -745,11 +729,7 @@ func (c *IoTFleetHub) UpdateApplicationRequest(input *UpdateApplicationInput) (r
 
 // UpdateApplication API operation for AWS IoT Fleet Hub.
 //
-// Updates information about a Fleet Hub for a AWS IoT Device Management web
-// application.
-//
-// Fleet Hub for AWS IoT Device Management is in public preview and is subject
-// to change.
+// Updates information about a Fleet Hub for IoT Device Management web application.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -759,20 +739,21 @@ func (c *IoTFleetHub) UpdateApplicationRequest(input *UpdateApplicationInput) (r
 // API operation UpdateApplication for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidRequestException
-//   The request is not valid.
 //
-//   * ResourceNotFoundException
-//   The specified resource does not exist.
+//   - InvalidRequestException
+//     The request is not valid.
 //
-//   * InternalFailureException
-//   An unexpected error has occurred.
+//   - ResourceNotFoundException
+//     The specified resource does not exist.
 //
-//   * ConflictException
-//   The request conflicts with the current state of the resource.
+//   - InternalFailureException
+//     An unexpected error has occurred.
 //
-//   * ThrottlingException
-//   The rate exceeds the limit.
+//   - ConflictException
+//     The request conflicts with the current state of the resource.
+//
+//   - ThrottlingException
+//     The rate exceeds the limit.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotfleethub-2020-11-03/UpdateApplication
 func (c *IoTFleetHub) UpdateApplication(input *UpdateApplicationInput) (*UpdateApplicationOutput, error) {
@@ -796,10 +777,8 @@ func (c *IoTFleetHub) UpdateApplicationWithContext(ctx aws.Context, input *Updat
 	return out, req.Send()
 }
 
-// A summary of information about a AWS IoT Device Management web application.
-//
-// Fleet Hub for AWS IoT Device Management is in public preview and is subject
-// to change.
+// A summary of information about a Fleet Hub for IoT Device Management web
+// application.
 type ApplicationSummary struct {
 	_ struct{} `type:"structure"`
 
@@ -972,7 +951,7 @@ type CreateApplicationInput struct {
 	ClientToken *string `locationName:"clientToken" min:"1" type:"string" idempotencyToken:"true"`
 
 	// The ARN of the role that the web application assumes when it interacts with
-	// AWS IoT Core.
+	// Amazon Web Services IoT Core.
 	//
 	// The name of the role must be in the form AWSIotFleetHub_random_string .
 	//
@@ -1281,11 +1260,13 @@ type DescribeApplicationOutput struct {
 	// ApplicationUrl is a required field
 	ApplicationUrl *string `locationName:"applicationUrl" min:"1" type:"string" required:"true"`
 
-	// A message indicating why the DescribeApplication API failed.
+	// A message that explains any failures included in the applicationState response
+	// field. This message explains failures in the CreateApplication and DeleteApplication
+	// actions.
 	ErrorMessage *string `locationName:"errorMessage" type:"string"`
 
 	// The ARN of the role that the web application assumes when it interacts with
-	// AWS IoT Core.
+	// Amazon Web Services IoT Core.
 	//
 	// RoleArn is a required field
 	RoleArn *string `locationName:"roleArn" min:"1" type:"string" required:"true"`

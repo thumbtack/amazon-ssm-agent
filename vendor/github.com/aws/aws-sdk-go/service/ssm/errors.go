@@ -57,14 +57,6 @@ const (
 	// Each association has a limit of 1,000 versions.
 	ErrCodeAssociationVersionLimitExceeded = "AssociationVersionLimitExceeded"
 
-	// ErrCodeAuthRuntimeException for service response error code
-	// "AuthRuntimeException".
-	ErrCodeAuthRuntimeException = "AuthRuntimeException"
-
-	// ErrCodeAuthorizationException for service response error code
-	// "AuthorizationException".
-	ErrCodeAuthorizationException = "AuthorizationException"
-
 	// ErrCodeAutomationActionNotFoundException for service response error code
 	// "AutomationActionNotFoundException".
 	ErrCodeAutomationActionNotFoundException = "AutomationActionNotFoundException"
@@ -154,10 +146,15 @@ const (
 	// ErrCodeDocumentPermissionLimit for service response error code
 	// "DocumentPermissionLimit".
 	//
-	// The document can't be shared with more Amazon Web Services user accounts.
-	// You can share a document with a maximum of 20 accounts. You can publicly
-	// share up to five documents. If you need to increase this limit, contact Amazon
-	// Web Services Support.
+	// The document can't be shared with more Amazon Web Services accounts. You
+	// can specify a maximum of 20 accounts per API operation to share a private
+	// document.
+	//
+	// By default, you can share a private document with a maximum of 1,000 accounts
+	// and publicly share up to five documents.
+	//
+	// If you need to increase the quota for privately or publicly shared Systems
+	// Manager documents, contact Amazon Web Services Support.
 	ErrCodeDocumentPermissionLimit = "DocumentPermissionLimit"
 
 	// ErrCodeDocumentVersionLimitExceeded for service response error code
@@ -201,6 +198,26 @@ const (
 	//
 	// You can't specify a managed node ID in more than one association.
 	ErrCodeDuplicateInstanceId = "DuplicateInstanceId"
+
+	// ErrCodeExecuteApiAccessDeniedException for service response error code
+	// "ExecuteApiAccessDeniedException".
+	ErrCodeExecuteApiAccessDeniedException = "ExecuteApiAccessDeniedException"
+
+	// ErrCodeExecuteApiIncompletePermissionException for service response error code
+	// "ExecuteApiIncompletePermissionException".
+	ErrCodeExecuteApiIncompletePermissionException = "ExecuteApiIncompletePermissionException"
+
+	// ErrCodeExecuteApiInvalidParameterException for service response error code
+	// "ExecuteApiInvalidParameterException".
+	ErrCodeExecuteApiInvalidParameterException = "ExecuteApiInvalidParameterException"
+
+	// ErrCodeExecuteApiSourceServiceExecutionException for service response error code
+	// "ExecuteApiSourceServiceExecutionException".
+	ErrCodeExecuteApiSourceServiceExecutionException = "ExecuteApiSourceServiceExecutionException"
+
+	// ErrCodeExecuteApiUnknownOperationException for service response error code
+	// "ExecuteApiUnknownOperationException".
+	ErrCodeExecuteApiUnknownOperationException = "ExecuteApiUnknownOperationException"
 
 	// ErrCodeFeatureNotAvailableException for service response error code
 	// "FeatureNotAvailableException".
@@ -260,15 +277,15 @@ const (
 	// ErrCodeInvalidActivationId for service response error code
 	// "InvalidActivationId".
 	//
-	// The activation ID isn't valid. Verify the you entered the correct ActivationId
+	// The activation ID isn't valid. Verify that you entered the correct ActivationId
 	// or ActivationCode and try again.
 	ErrCodeInvalidActivationId = "InvalidActivationId"
 
 	// ErrCodeInvalidAggregatorException for service response error code
 	// "InvalidAggregatorException".
 	//
-	// The specified aggregator isn't valid for inventory groups. Verify that the
-	// aggregator uses a valid inventory type such as AWS:Application or AWS:InstanceInformation.
+	// The specified aggregator isn't valid for the group type. Verify that the
+	// aggregator you provided is supported.
 	ErrCodeInvalidAggregatorException = "InvalidAggregatorException"
 
 	// ErrCodeInvalidAllowedPatternException for service response error code
@@ -372,7 +389,7 @@ const (
 	// ErrCodeInvalidFilter for service response error code
 	// "InvalidFilter".
 	//
-	// The filter name isn't valid. Verify the you entered the correct name and
+	// The filter name isn't valid. Verify that you entered the correct name and
 	// try again.
 	ErrCodeInvalidFilter = "InvalidFilter"
 
@@ -402,14 +419,15 @@ const (
 	//
 	//    * You don't have permission to access the managed node.
 	//
-	//    * Amazon Web Services Systems Manager Agent(SSM Agent) isn't running.
+	//    * Amazon Web Services Systems Manager Agent (SSM Agent) isn't running.
 	//    Verify that SSM Agent is running.
 	//
 	//    * SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM
 	//    Agent.
 	//
-	//    * The managed node isn't in valid state. Valid states are: Running, Pending,
-	//    Stopped, and Stopping. Invalid states are: Shutting-down and Terminated.
+	//    * The managed node isn't in a valid state. Valid states are: Running,
+	//    Pending, Stopped, and Stopping. Invalid states are: Shutting-down and
+	//    Terminated.
 	ErrCodeInvalidInstanceId = "InvalidInstanceId"
 
 	// ErrCodeInvalidInstanceInformationFilterValue for service response error code
@@ -424,6 +442,8 @@ const (
 
 	// ErrCodeInvalidInstancePropertyFilterValue for service response error code
 	// "InvalidInstancePropertyFilterValue".
+	//
+	// The specified filter value isn't valid.
 	ErrCodeInvalidInstancePropertyFilterValue = "InvalidInstancePropertyFilterValue"
 
 	// ErrCodeInvalidInventoryGroupException for service response error code
@@ -497,6 +517,10 @@ const (
 	// The output location isn't valid or doesn't exist.
 	ErrCodeInvalidOutputLocation = "InvalidOutputLocation"
 
+	// ErrCodeInvalidParameterException for service response error code
+	// "InvalidParameterException".
+	ErrCodeInvalidParameterException = "InvalidParameterException"
+
 	// ErrCodeInvalidParameters for service response error code
 	// "InvalidParameters".
 	//
@@ -561,7 +585,8 @@ const (
 	// The role name can't contain invalid characters. Also verify that you specified
 	// an IAM role for notifications that includes the required trust policy. For
 	// information about configuring the IAM role for Run Command notifications,
-	// see Configuring Amazon SNS Notifications for Run Command (https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html)
+	// see Monitoring Systems Manager status changes using Amazon SNS notifications
+	// (https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html)
 	// in the Amazon Web Services Systems Manager User Guide.
 	ErrCodeInvalidRole = "InvalidRole"
 
@@ -573,6 +598,8 @@ const (
 
 	// ErrCodeInvalidTag for service response error code
 	// "InvalidTag".
+	//
+	// The specified tag key or value isn't valid.
 	ErrCodeInvalidTag = "InvalidTag"
 
 	// ErrCodeInvalidTarget for service response error code
@@ -623,12 +650,11 @@ const (
 	// "MachineFingerprintDoesNotMatch".
 	ErrCodeMachineFingerprintDoesNotMatch = "MachineFingerprintDoesNotMatch"
 
-	// ErrCodeMalformedRequestException for service response error code
-	// "MalformedRequestException".
-	ErrCodeMalformedRequestException = "MalformedRequestException"
-
 	// ErrCodeMalformedResourcePolicyDocumentException for service response error code
 	// "MalformedResourcePolicyDocumentException".
+	//
+	// The specified policy document is malformed or invalid, or excessive PutResourcePolicy
+	// or DeleteResourcePolicy calls have been made.
 	ErrCodeMalformedResourcePolicyDocumentException = "MalformedResourcePolicyDocumentException"
 
 	// ErrCodeMaxDocumentSizeExceeded for service response error code
@@ -641,11 +667,29 @@ const (
 	// "OpsCenterInvalidArgumentException".
 	ErrCodeOpsCenterInvalidArgumentException = "OpsCenterInvalidArgumentException"
 
+	// ErrCodeOpsItemAccessDeniedException for service response error code
+	// "OpsItemAccessDeniedException".
+	//
+	// You don't have permission to view OpsItems in the specified account. Verify
+	// that your account is configured either as a Systems Manager delegated administrator
+	// or that you are logged into the Organizations management account.
+	ErrCodeOpsItemAccessDeniedException = "OpsItemAccessDeniedException"
+
 	// ErrCodeOpsItemAlreadyExistsException for service response error code
 	// "OpsItemAlreadyExistsException".
 	//
 	// The OpsItem already exists.
 	ErrCodeOpsItemAlreadyExistsException = "OpsItemAlreadyExistsException"
+
+	// ErrCodeOpsItemConflictException for service response error code
+	// "OpsItemConflictException".
+	//
+	// The specified OpsItem is in the process of being deleted.
+	ErrCodeOpsItemConflictException = "OpsItemConflictException"
+
+	// ErrCodeOpsItemGroupNotFoundException for service response error code
+	// "OpsItemGroupNotFoundException".
+	ErrCodeOpsItemGroupNotFoundException = "OpsItemGroupNotFoundException"
 
 	// ErrCodeOpsItemInvalidParameterException for service response error code
 	// "OpsItemInvalidParameterException".
@@ -657,8 +701,7 @@ const (
 	// ErrCodeOpsItemLimitExceededException for service response error code
 	// "OpsItemLimitExceededException".
 	//
-	// The request caused OpsItems to exceed one or more quotas. For information
-	// about OpsItem quotas, see What are the resource limits for OpsCenter? (https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits).
+	// The request caused OpsItems to exceed one or more quotas.
 	ErrCodeOpsItemLimitExceededException = "OpsItemLimitExceededException"
 
 	// ErrCodeOpsItemNotFoundException for service response error code
@@ -799,6 +842,12 @@ const (
 	// InternalId provided by RAM does not match current Internal ID in ROS
 	ErrCodeRAMInternalIdMismatchException = "RAMInternalIdMismatchException"
 
+	// ErrCodeRAMInvalidParameterException for service response error code
+	// "RAMInvalidParameterException".
+	//
+	// RAM call contains invalid parameter
+	ErrCodeRAMInvalidParameterException = "RAMInvalidParameterException"
+
 	// ErrCodeRAMInvalidSequenceNumberException for service response error code
 	// "RAMInvalidSequenceNumberException".
 	//
@@ -872,10 +921,29 @@ const (
 
 	// ErrCodeResourceNotFoundException for service response error code
 	// "ResourceNotFoundException".
+	//
+	// The specified parameter to be shared could not be found.
 	ErrCodeResourceNotFoundException = "ResourceNotFoundException"
+
+	// ErrCodeResourcePolicyConflictException for service response error code
+	// "ResourcePolicyConflictException".
+	//
+	// The hash provided in the call doesn't match the stored hash. This exception
+	// is thrown when trying to update an obsolete policy version or when multiple
+	// requests to update a policy are sent.
+	ErrCodeResourcePolicyConflictException = "ResourcePolicyConflictException"
+
+	// ErrCodeResourcePolicyInvalidParameterException for service response error code
+	// "ResourcePolicyInvalidParameterException".
+	//
+	// One or more parameters specified for the call aren't valid. Verify the parameters
+	// and their values and try again.
+	ErrCodeResourcePolicyInvalidParameterException = "ResourcePolicyInvalidParameterException"
 
 	// ErrCodeResourcePolicyNotFoundException for service response error code
 	// "ResourcePolicyNotFoundException".
+	//
+	// No policies with the specified policy ID and hash could be found.
 	ErrCodeResourcePolicyNotFoundException = "ResourcePolicyNotFoundException"
 
 	// ErrCodeServiceLinkedRoleLockClientException for service response error code
@@ -886,16 +954,16 @@ const (
 	// "ServiceLinkedRoleLockServiceException".
 	ErrCodeServiceLinkedRoleLockServiceException = "ServiceLinkedRoleLockServiceException"
 
+	// ErrCodeServiceQuotaExceededException for service response error code
+	// "ServiceQuotaExceededException".
+	ErrCodeServiceQuotaExceededException = "ServiceQuotaExceededException"
+
 	// ErrCodeServiceSettingNotFound for service response error code
 	// "ServiceSettingNotFound".
 	//
 	// The specified service setting wasn't found. Either the service name or the
 	// setting hasn't been provisioned by the Amazon Web Services service team.
 	ErrCodeServiceSettingNotFound = "ServiceSettingNotFound"
-
-	// ErrCodeSourceServiceExecutionException for service response error code
-	// "SourceServiceExecutionException".
-	ErrCodeSourceServiceExecutionException = "SourceServiceExecutionException"
 
 	// ErrCodeStatusUnchanged for service response error code
 	// "StatusUnchanged".
@@ -920,8 +988,8 @@ const (
 	// "TargetNotConnected".
 	//
 	// The specified target managed node for the session isn't fully configured
-	// for use with Session Manager. For more information, see Getting started with
-	// Session Manager (https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html)
+	// for use with Session Manager. For more information, see Setting up Session
+	// Manager (https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html)
 	// in the Amazon Web Services Systems Manager User Guide. This error is also
 	// returned if you attempt to start a session on a managed node that is located
 	// in a different account or Region
@@ -959,7 +1027,7 @@ const (
 	// Patching for applications released by Microsoft is only available on EC2
 	// instances and advanced instances. To patch applications released by Microsoft
 	// on on-premises servers and VMs, you must enable advanced instances. For more
-	// information, see Enabling the advanced-instances tier (https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html)
+	// information, see Turning on the advanced-instances tier (https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html)
 	// in the Amazon Web Services Systems Manager User Guide.
 	ErrCodeUnsupportedFeatureRequiredException = "UnsupportedFeatureRequiredException"
 
@@ -986,6 +1054,13 @@ const (
 	// supported for the operating system.
 	ErrCodeUnsupportedOperatingSystem = "UnsupportedOperatingSystem"
 
+	// ErrCodeUnsupportedOperationException for service response error code
+	// "UnsupportedOperationException".
+	//
+	// This operation is not supported for the current account. You must first enable
+	// the Systems Manager integrated experience in your account.
+	ErrCodeUnsupportedOperationException = "UnsupportedOperationException"
+
 	// ErrCodeUnsupportedParameterType for service response error code
 	// "UnsupportedParameterType".
 	//
@@ -996,8 +1071,8 @@ const (
 	// "UnsupportedPlatformType".
 	//
 	// The document doesn't support the platform type of the given managed node
-	// ID(s). For example, you sent an document for a Windows managed node to a
-	// Linux node.
+	// IDs. For example, you sent an document for a Windows managed node to a Linux
+	// node.
 	ErrCodeUnsupportedPlatformType = "UnsupportedPlatformType"
 )
 
@@ -1010,8 +1085,6 @@ var exceptionFromCode = map[string]func(protocol.ResponseMetadata) error{
 	"AssociationExecutionDoesNotExist":               newErrorAssociationExecutionDoesNotExist,
 	"AssociationLimitExceeded":                       newErrorAssociationLimitExceeded,
 	"AssociationVersionLimitExceeded":                newErrorAssociationVersionLimitExceeded,
-	"AuthRuntimeException":                           newErrorAuthRuntimeException,
-	"AuthorizationException":                         newErrorAuthorizationException,
 	"AutomationActionNotFoundException":              newErrorAutomationActionNotFoundException,
 	"AutomationDefinitionNotApprovedException":       newErrorAutomationDefinitionNotApprovedException,
 	"AutomationDefinitionNotFoundException":          newErrorAutomationDefinitionNotFoundException,
@@ -1034,6 +1107,11 @@ var exceptionFromCode = map[string]func(protocol.ResponseMetadata) error{
 	"DuplicateDocumentContent":                       newErrorDuplicateDocumentContent,
 	"DuplicateDocumentVersionName":                   newErrorDuplicateDocumentVersionName,
 	"DuplicateInstanceId":                            newErrorDuplicateInstanceId,
+	"ExecuteApiAccessDeniedException":                newErrorExecuteApiAccessDeniedException,
+	"ExecuteApiIncompletePermissionException":        newErrorExecuteApiIncompletePermissionException,
+	"ExecuteApiInvalidParameterException":            newErrorExecuteApiInvalidParameterException,
+	"ExecuteApiSourceServiceExecutionException":      newErrorExecuteApiSourceServiceExecutionException,
+	"ExecuteApiUnknownOperationException":            newErrorExecuteApiUnknownOperationException,
 	"FeatureNotAvailableException":                   newErrorFeatureNotAvailableException,
 	"HierarchyLevelLimitExceededException":           newErrorHierarchyLevelLimitExceededException,
 	"HierarchyTypeMismatchException":                 newErrorHierarchyTypeMismatchException,
@@ -1079,6 +1157,7 @@ var exceptionFromCode = map[string]func(protocol.ResponseMetadata) error{
 	"InvalidOptionException":                         newErrorInvalidOptionException,
 	"InvalidOutputFolder":                            newErrorInvalidOutputFolder,
 	"InvalidOutputLocation":                          newErrorInvalidOutputLocation,
+	"InvalidParameterException":                      newErrorInvalidParameterException,
 	"InvalidParameters":                              newErrorInvalidParameters,
 	"InvalidPermissionType":                          newErrorInvalidPermissionType,
 	"InvalidPluginName":                              newErrorInvalidPluginName,
@@ -1099,11 +1178,13 @@ var exceptionFromCode = map[string]func(protocol.ResponseMetadata) error{
 	"ItemContentMismatchException":                   newErrorItemContentMismatchException,
 	"ItemSizeLimitExceededException":                 newErrorItemSizeLimitExceededException,
 	"MachineFingerprintDoesNotMatch":                 newErrorMachineFingerprintDoesNotMatch,
-	"MalformedRequestException":                      newErrorMalformedRequestException,
 	"MalformedResourcePolicyDocumentException":       newErrorMalformedResourcePolicyDocumentException,
 	"MaxDocumentSizeExceeded":                        newErrorMaxDocumentSizeExceeded,
 	"OpsCenterInvalidArgumentException":              newErrorOpsCenterInvalidArgumentException,
+	"OpsItemAccessDeniedException":                   newErrorOpsItemAccessDeniedException,
 	"OpsItemAlreadyExistsException":                  newErrorOpsItemAlreadyExistsException,
+	"OpsItemConflictException":                       newErrorOpsItemConflictException,
+	"OpsItemGroupNotFoundException":                  newErrorOpsItemGroupNotFoundException,
 	"OpsItemInvalidParameterException":               newErrorOpsItemInvalidParameterException,
 	"OpsItemLimitExceededException":                  newErrorOpsItemLimitExceededException,
 	"OpsItemNotFoundException":                       newErrorOpsItemNotFoundException,
@@ -1125,6 +1206,7 @@ var exceptionFromCode = map[string]func(protocol.ResponseMetadata) error{
 	"PoliciesLimitExceededException":                 newErrorPoliciesLimitExceededException,
 	"PublicKeyAlreadyRegistered":                     newErrorPublicKeyAlreadyRegistered,
 	"RAMInternalIdMismatchException":                 newErrorRAMInternalIdMismatchException,
+	"RAMInvalidParameterException":                   newErrorRAMInvalidParameterException,
 	"RAMInvalidSequenceNumberException":              newErrorRAMInvalidSequenceNumberException,
 	"RAMResourceNotFoundException":                   newErrorRAMResourceNotFoundException,
 	"RAMResourceNotSharedException":                  newErrorRAMResourceNotSharedException,
@@ -1137,11 +1219,13 @@ var exceptionFromCode = map[string]func(protocol.ResponseMetadata) error{
 	"ResourceInUseException":                         newErrorResourceInUseException,
 	"ResourceLimitExceededException":                 newErrorResourceLimitExceededException,
 	"ResourceNotFoundException":                      newErrorResourceNotFoundException,
+	"ResourcePolicyConflictException":                newErrorResourcePolicyConflictException,
+	"ResourcePolicyInvalidParameterException":        newErrorResourcePolicyInvalidParameterException,
 	"ResourcePolicyNotFoundException":                newErrorResourcePolicyNotFoundException,
 	"ServiceLinkedRoleLockClientException":           newErrorServiceLinkedRoleLockClientException,
 	"ServiceLinkedRoleLockServiceException":          newErrorServiceLinkedRoleLockServiceException,
+	"ServiceQuotaExceededException":                  newErrorServiceQuotaExceededException,
 	"ServiceSettingNotFound":                         newErrorServiceSettingNotFound,
-	"SourceServiceExecutionException":                newErrorSourceServiceExecutionException,
 	"StatusUnchanged":                                newErrorStatusUnchanged,
 	"SubTypeCountLimitExceededException":             newErrorSubTypeCountLimitExceededException,
 	"TargetInUseException":                           newErrorTargetInUseException,
@@ -1154,6 +1238,7 @@ var exceptionFromCode = map[string]func(protocol.ResponseMetadata) error{
 	"UnsupportedInventoryItemContextException":       newErrorUnsupportedInventoryItemContextException,
 	"UnsupportedInventorySchemaVersionException":     newErrorUnsupportedInventorySchemaVersionException,
 	"UnsupportedOperatingSystem":                     newErrorUnsupportedOperatingSystem,
+	"UnsupportedOperationException":                  newErrorUnsupportedOperationException,
 	"UnsupportedParameterType":                       newErrorUnsupportedParameterType,
 	"UnsupportedPlatformType":                        newErrorUnsupportedPlatformType,
 }

@@ -21,6 +21,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
@@ -52,10 +53,11 @@ type DownloadInput struct {
 	SourceURL            string
 	DestinationDirectory string
 	SourceChecksums      map[string]string
+	ExpectedBucketOwner  string
 }
 
 // httpDownload attempts to download a file via http/s call
-func httpDownload(ctx context.T, fileURL string, destFile string) (output DownloadOutput, err error) {
+func httpDownload(ctx context.T, fileURL string, destFile string, expectedBucketOwner string) (output DownloadOutput, err error) {
 	log := ctx.Log()
 	log.Debugf("attempting to download as http/https download from %v to %v", fileURL, destFile)
 
@@ -77,6 +79,11 @@ func httpDownload(ctx context.T, fileURL string, destFile string) (output Downlo
 			var existingETag string
 			existingETag, err = fileutil.ReadAllText(eTagFile)
 			httpRequest.Header.Add("If-None-Match", existingETag)
+
+			expectedBucketOwner = strings.TrimSpace(expectedBucketOwner)
+			if expectedBucketOwner != "" {
+				httpRequest.Header.Add("x-amz-expected-bucket-owner", expectedBucketOwner)
+			}
 		}
 		customTransport := network.GetDefaultTransport(log, ctx.AppConfig())
 		customTransport.TLSHandshakeTimeout = 20 * time.Second
@@ -249,7 +256,7 @@ func ListS3Directory(context context.T, amazonS3URL s3util.AmazonS3URL) (folderN
 }
 
 // s3Download attempts to download a file via the aws sdk.
-func s3Download(context context.T, amazonS3URL s3util.AmazonS3URL, destFile string) (output DownloadOutput, err error) {
+func s3Download(context context.T, amazonS3URL s3util.AmazonS3URL, destFile string, expectedBucketOwner string) (output DownloadOutput, err error) {
 	log := context.Log()
 	log.Debugf("attempting to download as s3 download %v", destFile)
 	eTagFile := destFile + ".etag"
@@ -257,6 +264,11 @@ func s3Download(context context.T, amazonS3URL s3util.AmazonS3URL, destFile stri
 	params := &s3.GetObjectInput{
 		Bucket: aws.String(amazonS3URL.Bucket),
 		Key:    aws.String(amazonS3URL.Key),
+	}
+
+	expectedBucketOwner = strings.TrimSpace(expectedBucketOwner)
+	if strings.TrimSpace(expectedBucketOwner) != "" {
+		params.ExpectedBucketOwner = aws.String(expectedBucketOwner)
 	}
 
 	if fileutil.Exists(destFile) == true && fileutil.Exists(eTagFile) == true {
@@ -281,8 +293,6 @@ func s3Download(context context.T, amazonS3URL s3util.AmazonS3URL, destFile stri
 	if err != nil {
 		if req.HTTPResponse == nil || req.HTTPResponse.StatusCode != http.StatusNotModified {
 			log.Debug("failed to download from s3, ", err)
-			fileutil.DeleteFile(destFile)
-			fileutil.DeleteFile(eTagFile)
 			return
 		}
 
@@ -310,6 +320,40 @@ func s3Download(context context.T, amazonS3URL s3util.AmazonS3URL, destFile stri
 		log.Errorf("failed to write destFile %v, %v ", destFile, err)
 	}
 	return
+}
+
+// S3FileRead attempts to read a file content from S3 via s3 client.
+func S3FileRead(context context.T, s3FullPath string) (output []byte, err error) {
+	log := context.Log()
+
+	var fileURL *url.URL
+	fileURL, err = url.Parse(s3FullPath)
+	amazonS3URL := s3util.ParseAmazonS3URL(log, fileURL)
+	params := &s3.GetObjectInput{
+		Bucket: aws.String(amazonS3URL.Bucket),
+		Key:    aws.String(amazonS3URL.Key),
+	}
+
+	sess, err := s3util.GetS3CrossRegionCapableSession(context, amazonS3URL.Bucket)
+	if err != nil {
+		log.Errorf("failed to get S3 session: %v", err)
+		return nil, err
+	}
+
+	s3client := s3.New(sess)
+	resp, err := s3client.GetObject(params)
+	if err != nil {
+		return nil, err
+	}
+	if resp == nil {
+		return nil, fmt.Errorf("response is nil")
+	}
+	defer resp.Body.Close()
+	content, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+	return content, nil
 }
 
 // FileCopy copies the content from reader to destinationPath file
@@ -376,14 +420,14 @@ func Download(context context.T, input DownloadInput) (output DownloadOutput, er
 		amazonS3URL := s3util.ParseAmazonS3URL(log, fileURL)
 		if amazonS3URL.IsBucketAndKeyPresent() {
 			var tempOutput DownloadOutput
-			tempOutput, err = s3Download(context, amazonS3URL, output.LocalFilePath)
+			tempOutput, err = s3Download(context, amazonS3URL, output.LocalFilePath, input.ExpectedBucketOwner)
 			if err != nil {
 				log.Info("An error occurred when attempting s3 download. Attempting http/https download as fallback.")
-				tempOutput, err = httpDownload(context, input.SourceURL, output.LocalFilePath)
+				tempOutput, err = httpDownload(context, input.SourceURL, output.LocalFilePath, input.ExpectedBucketOwner)
 			}
 			output = tempOutput
 		} else {
-			output, err = httpDownload(context, input.SourceURL, output.LocalFilePath)
+			output, err = httpDownload(context, input.SourceURL, output.LocalFilePath, "")
 		}
 
 		if err != nil {

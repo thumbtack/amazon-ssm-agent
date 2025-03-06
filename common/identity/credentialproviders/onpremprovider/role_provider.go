@@ -14,6 +14,7 @@
 package onpremprovider
 
 import (
+	"context"
 	"fmt"
 	"time"
 
@@ -35,7 +36,8 @@ import (
 
 const (
 	// ProviderName provides a name of managed instance Role provider
-	ProviderName = "OnPremRoleProvider"
+	ProviderName           = "OnPremRoleProvider"
+	CredentialSourceOnPrem = "SSM"
 )
 
 // NewCredentialsProvider initializes a new credential provider that retrieves OnPrem credentials from Systems Manager
@@ -89,7 +91,16 @@ func shouldRetryAwsRequest(err error) bool {
 // Retrieve retrieves OnPrem credentials from the SSM Auth service.
 // Error will be returned if the request fails, or unable to extract
 // the desired credentials.
+// This function is intended for use by agent workers that require credentials
 func (m *onpremCredentialsProvider) Retrieve() (credentials.Value, error) {
+	return m.RemoteRetrieve(context.Background())
+}
+
+// RemoteRetrieve retrieves OnPrem credentials from the SSM Auth service.
+// Error will be returned if the request fails, or unable to extract
+// the desired credentials.
+// This function is intended for use by the core module's credential refresher routine
+func (m *onpremCredentialsProvider) RemoteRetrieve(ctx context.Context) (credentials.Value, error) {
 	var err error
 	var roleCreds *ssm.RequestManagedInstanceRoleTokenOutput
 
@@ -107,7 +118,7 @@ func (m *onpremCredentialsProvider) Retrieve() (credentials.Value, error) {
 
 	// Get role token
 	err = backoffRetry(func() error {
-		roleCreds, err = m.client.RequestManagedInstanceRoleToken(fingerprint)
+		roleCreds, err = m.client.RequestManagedInstanceRoleTokenWithContext(ctx, fingerprint)
 		if err == nil {
 			return nil
 		}
@@ -154,6 +165,11 @@ func (m *onpremCredentialsProvider) Retrieve() (credentials.Value, error) {
 		SessionToken:    *roleCreds.SessionToken,
 		ProviderName:    ProviderName,
 	}, nil
+}
+
+// RemoteExpiresAt is used by the core module's credential refresher to check credential expiry
+func (m *onpremCredentialsProvider) RemoteExpiresAt() time.Time {
+	return m.ExpiresAt()
 }
 
 // rotatePrivateKey attempts to rotate the instance private key
@@ -242,7 +258,7 @@ func (m *onpremCredentialsProvider) rotatePrivateKey(fingerprint string, exponen
 		}, exponentialBackoff)
 
 		if err != nil {
-			m.log.Error("Failed to roll-back remove public key change, instance most likely needs to be re-registed: %v", err)
+			m.log.Error("Failed to roll-back remove public key change, instance most likely needs to be re-registered: %v", err)
 			return fmt.Errorf("Failed to update remote public key after saving locally failed: %v", err)
 		}
 
@@ -272,6 +288,11 @@ func (m *onpremCredentialsProvider) ShareFile() string {
 // SharesCredentials returns true if the role provider requires credentials to be saved to disk
 func (m *onpremCredentialsProvider) SharesCredentials() bool {
 	return m.isSharingCreds
+}
+
+// CredentialSource returns the name of the current provider being used
+func (m *onpremCredentialsProvider) CredentialSource() string {
+	return CredentialSourceOnPrem
 }
 
 // Assigning function to variable to be able to mock out during tests

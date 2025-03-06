@@ -11,8 +11,8 @@
 // either express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 
-//go:build windows
-// +build windows
+//go:build windows && e2e
+// +build windows,e2e
 
 // Package shell implements session shell plugin.
 package shell
@@ -138,7 +138,7 @@ func (suite *ShellTestSuite) TestExecuteWithCWLoggingEnabled() {
 	// When CW logging is enabled with streaming disabled then IsFileComplete is expected to be true since log to CW is uploaded once at the end of the session
 	expectedIsFileComplete := true
 	suite.mockCWL.On("IsLogGroupPresent", testCwLogGroupName).Return(true, &testCwlLogGroup)
-	suite.mockCWL.On("StreamData", testCwLogGroupName, sessionId, sessionId+mgsConfig.LogFileExtension, expectedIsFileComplete, false, mock.Anything, false, false).Return(true)
+	suite.mockCWL.On("StreamData", testCwLogGroupName, sessionId, mgsConfig.LogFileName+mgsConfig.LogFileExtension, expectedIsFileComplete, false, mock.Anything, false, false).Return(true)
 
 	suite.plugin.Execute(
 		contracts.Configuration{

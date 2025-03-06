@@ -600,7 +600,7 @@ func (ref *ShapeRef) GoTags(toplevel bool, isRequired bool) string {
 		tags = append(tags, ShapeTag{"ignore", "true"})
 	}
 
-	if ref.Shape.Sensitive {
+	if ref.Shape.IsSensitive() {
 		tags = append(tags, ShapeTag{"sensitive", "true"})
 	}
 
@@ -616,6 +616,21 @@ func (s *Shape) HasPayloadMembers() bool {
 		}
 	}
 
+	return false
+}
+
+// IsSensitive checks whether the Shape itself is sensitive, or if the Shape is
+// a collection/map with a sensitive member.
+func (s *Shape) IsSensitive() bool {
+	if s.Sensitive {
+		return true
+	}
+	if s.MemberRef.Shape != nil && s.MemberRef.Shape.Sensitive {
+		return true
+	}
+	if s.ValueRef.Shape != nil && s.ValueRef.Shape.Sensitive {
+		return true
+	}
 	return false
 }
 
@@ -783,6 +798,9 @@ type {{ $.ShapeName }} struct {
 	{{- if $.Exception }}
 		{{- $_ := $.API.AddSDKImport "private/protocol" }}
 		RespMetadata protocol.ResponseMetadata` + "`json:\"-\" xml:\"-\"`" + `
+	{{- if $.API.Metadata.AWSQueryCompatible }}
+		Code_ *string
+	{{- end }}
 	{{- end }}
 
 	{{- if $.OutputEventStreamAPI }}
@@ -922,8 +940,22 @@ func newError{{ $.ShapeName }}(v protocol.ResponseMetadata) error {
 	}
 }
 
+{{- if $.API.Metadata.AWSQueryCompatible }}
+func newQueryCompatibleError{{ $.ShapeName }}(v protocol.ResponseMetadata, code string) error {
+	return &{{ $.ShapeName }}{
+		RespMetadata: v,
+		Code_: &code,
+	}
+}
+{{- end }}
+
 // Code returns the exception type name.
 func (s *{{ $.ShapeName }}) Code() string {
+	{{- if $.API.Metadata.AWSQueryCompatible }}
+	if s.Code_ != nil {
+		return *s.Code_
+	}
+	{{- end }}
 	return "{{ $.ErrorName }}"
 }
 

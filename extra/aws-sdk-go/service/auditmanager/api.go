@@ -29,14 +29,13 @@ const opAssociateAssessmentReportEvidenceFolder = "AssociateAssessmentReportEvid
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the AssociateAssessmentReportEvidenceFolderRequest method.
+//	req, resp := client.AssociateAssessmentReportEvidenceFolderRequest(params)
 //
-//    // Example sending a request using the AssociateAssessmentReportEvidenceFolderRequest method.
-//    req, resp := client.AssociateAssessmentReportEvidenceFolderRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/AssociateAssessmentReportEvidenceFolder
 func (c *AuditManager) AssociateAssessmentReportEvidenceFolderRequest(input *AssociateAssessmentReportEvidenceFolderInput) (req *request.Request, output *AssociateAssessmentReportEvidenceFolderOutput) {
@@ -58,7 +57,7 @@ func (c *AuditManager) AssociateAssessmentReportEvidenceFolderRequest(input *Ass
 
 // AssociateAssessmentReportEvidenceFolder API operation for AWS Audit Manager.
 //
-// Associates an evidence folder to an assessment report in a Audit Manager
+// Associates an evidence folder to an assessment report in an Audit Manager
 // assessment.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
@@ -69,19 +68,20 @@ func (c *AuditManager) AssociateAssessmentReportEvidenceFolderRequest(input *Ass
 // API operation AssociateAssessmentReportEvidenceFolder for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/AssociateAssessmentReportEvidenceFolder
 func (c *AuditManager) AssociateAssessmentReportEvidenceFolder(input *AssociateAssessmentReportEvidenceFolderInput) (*AssociateAssessmentReportEvidenceFolderOutput, error) {
@@ -121,14 +121,13 @@ const opBatchAssociateAssessmentReportEvidence = "BatchAssociateAssessmentReport
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the BatchAssociateAssessmentReportEvidenceRequest method.
+//	req, resp := client.BatchAssociateAssessmentReportEvidenceRequest(params)
 //
-//    // Example sending a request using the BatchAssociateAssessmentReportEvidenceRequest method.
-//    req, resp := client.BatchAssociateAssessmentReportEvidenceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/BatchAssociateAssessmentReportEvidence
 func (c *AuditManager) BatchAssociateAssessmentReportEvidenceRequest(input *BatchAssociateAssessmentReportEvidenceInput) (req *request.Request, output *BatchAssociateAssessmentReportEvidenceOutput) {
@@ -160,19 +159,20 @@ func (c *AuditManager) BatchAssociateAssessmentReportEvidenceRequest(input *Batc
 // API operation BatchAssociateAssessmentReportEvidence for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/BatchAssociateAssessmentReportEvidence
 func (c *AuditManager) BatchAssociateAssessmentReportEvidence(input *BatchAssociateAssessmentReportEvidenceInput) (*BatchAssociateAssessmentReportEvidenceOutput, error) {
@@ -212,14 +212,13 @@ const opBatchCreateDelegationByAssessment = "BatchCreateDelegationByAssessment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the BatchCreateDelegationByAssessmentRequest method.
+//	req, resp := client.BatchCreateDelegationByAssessmentRequest(params)
 //
-//    // Example sending a request using the BatchCreateDelegationByAssessmentRequest method.
-//    req, resp := client.BatchCreateDelegationByAssessmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/BatchCreateDelegationByAssessment
 func (c *AuditManager) BatchCreateDelegationByAssessmentRequest(input *BatchCreateDelegationByAssessmentInput) (req *request.Request, output *BatchCreateDelegationByAssessmentOutput) {
@@ -250,19 +249,20 @@ func (c *AuditManager) BatchCreateDelegationByAssessmentRequest(input *BatchCrea
 // API operation BatchCreateDelegationByAssessment for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/BatchCreateDelegationByAssessment
 func (c *AuditManager) BatchCreateDelegationByAssessment(input *BatchCreateDelegationByAssessmentInput) (*BatchCreateDelegationByAssessmentOutput, error) {
@@ -302,14 +302,13 @@ const opBatchDeleteDelegationByAssessment = "BatchDeleteDelegationByAssessment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the BatchDeleteDelegationByAssessmentRequest method.
+//	req, resp := client.BatchDeleteDelegationByAssessmentRequest(params)
 //
-//    // Example sending a request using the BatchDeleteDelegationByAssessmentRequest method.
-//    req, resp := client.BatchDeleteDelegationByAssessmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/BatchDeleteDelegationByAssessment
 func (c *AuditManager) BatchDeleteDelegationByAssessmentRequest(input *BatchDeleteDelegationByAssessmentInput) (req *request.Request, output *BatchDeleteDelegationByAssessmentOutput) {
@@ -340,19 +339,20 @@ func (c *AuditManager) BatchDeleteDelegationByAssessmentRequest(input *BatchDele
 // API operation BatchDeleteDelegationByAssessment for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/BatchDeleteDelegationByAssessment
 func (c *AuditManager) BatchDeleteDelegationByAssessment(input *BatchDeleteDelegationByAssessmentInput) (*BatchDeleteDelegationByAssessmentOutput, error) {
@@ -392,14 +392,13 @@ const opBatchDisassociateAssessmentReportEvidence = "BatchDisassociateAssessment
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the BatchDisassociateAssessmentReportEvidenceRequest method.
+//	req, resp := client.BatchDisassociateAssessmentReportEvidenceRequest(params)
 //
-//    // Example sending a request using the BatchDisassociateAssessmentReportEvidenceRequest method.
-//    req, resp := client.BatchDisassociateAssessmentReportEvidenceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/BatchDisassociateAssessmentReportEvidence
 func (c *AuditManager) BatchDisassociateAssessmentReportEvidenceRequest(input *BatchDisassociateAssessmentReportEvidenceInput) (req *request.Request, output *BatchDisassociateAssessmentReportEvidenceOutput) {
@@ -430,19 +429,20 @@ func (c *AuditManager) BatchDisassociateAssessmentReportEvidenceRequest(input *B
 // API operation BatchDisassociateAssessmentReportEvidence for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/BatchDisassociateAssessmentReportEvidence
 func (c *AuditManager) BatchDisassociateAssessmentReportEvidence(input *BatchDisassociateAssessmentReportEvidenceInput) (*BatchDisassociateAssessmentReportEvidenceOutput, error) {
@@ -482,14 +482,13 @@ const opBatchImportEvidenceToAssessmentControl = "BatchImportEvidenceToAssessmen
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the BatchImportEvidenceToAssessmentControlRequest method.
+//	req, resp := client.BatchImportEvidenceToAssessmentControlRequest(params)
 //
-//    // Example sending a request using the BatchImportEvidenceToAssessmentControlRequest method.
-//    req, resp := client.BatchImportEvidenceToAssessmentControlRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/BatchImportEvidenceToAssessmentControl
 func (c *AuditManager) BatchImportEvidenceToAssessmentControlRequest(input *BatchImportEvidenceToAssessmentControlInput) (req *request.Request, output *BatchImportEvidenceToAssessmentControlOutput) {
@@ -510,7 +509,27 @@ func (c *AuditManager) BatchImportEvidenceToAssessmentControlRequest(input *Batc
 
 // BatchImportEvidenceToAssessmentControl API operation for AWS Audit Manager.
 //
-// Uploads one or more pieces of evidence to a control in an Audit Manager assessment.
+// Adds one or more pieces of evidence to a control in an Audit Manager assessment.
+//
+// You can import manual evidence from any S3 bucket by specifying the S3 URI
+// of the object. You can also upload a file from your browser, or enter plain
+// text in response to a risk assessment question.
+//
+// The following restrictions apply to this action:
+//
+//   - manualEvidence can be only one of the following: evidenceFileName, s3ResourcePath,
+//     or textResponse
+//
+//   - Maximum size of an individual evidence file: 100 MB
+//
+//   - Number of daily manual evidence uploads per control: 100
+//
+//   - Supported file formats: See Supported file types for manual evidence
+//     (https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files)
+//     in the Audit Manager User Guide
+//
+// For more information about Audit Manager service restrictions, see Quotas
+// and restrictions for Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -520,19 +539,23 @@ func (c *AuditManager) BatchImportEvidenceToAssessmentControlRequest(input *Batc
 // API operation BatchImportEvidenceToAssessmentControl for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/BatchImportEvidenceToAssessmentControl
 func (c *AuditManager) BatchImportEvidenceToAssessmentControl(input *BatchImportEvidenceToAssessmentControlInput) (*BatchImportEvidenceToAssessmentControlOutput, error) {
@@ -572,14 +595,13 @@ const opCreateAssessment = "CreateAssessment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateAssessmentRequest method.
+//	req, resp := client.CreateAssessmentRequest(params)
 //
-//    // Example sending a request using the CreateAssessmentRequest method.
-//    req, resp := client.CreateAssessmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/CreateAssessment
 func (c *AuditManager) CreateAssessmentRequest(input *CreateAssessmentInput) (req *request.Request, output *CreateAssessmentOutput) {
@@ -610,26 +632,30 @@ func (c *AuditManager) CreateAssessmentRequest(input *CreateAssessmentInput) (re
 // API operation CreateAssessment for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ServiceQuotaExceededException
-//   You've reached your account quota for this resource type. To perform the
-//   requested action, delete some existing resources or request a quota increase
-//   (https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) from
-//   the Service Quotas console. For a list of Audit Manager service quotas, see
-//   Quotas and restrictions for Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ServiceQuotaExceededException
+//     You've reached your account quota for this resource type. To perform the
+//     requested action, delete some existing resources or request a quota increase
+//     (https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) from
+//     the Service Quotas console. For a list of Audit Manager service quotas, see
+//     Quotas and restrictions for Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/CreateAssessment
 func (c *AuditManager) CreateAssessment(input *CreateAssessmentInput) (*CreateAssessmentOutput, error) {
@@ -669,14 +695,13 @@ const opCreateAssessmentFramework = "CreateAssessmentFramework"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateAssessmentFrameworkRequest method.
+//	req, resp := client.CreateAssessmentFrameworkRequest(params)
 //
-//    // Example sending a request using the CreateAssessmentFrameworkRequest method.
-//    req, resp := client.CreateAssessmentFrameworkRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/CreateAssessmentFramework
 func (c *AuditManager) CreateAssessmentFrameworkRequest(input *CreateAssessmentFrameworkInput) (req *request.Request, output *CreateAssessmentFrameworkOutput) {
@@ -707,26 +732,27 @@ func (c *AuditManager) CreateAssessmentFrameworkRequest(input *CreateAssessmentF
 // API operation CreateAssessmentFramework for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ServiceQuotaExceededException
-//   You've reached your account quota for this resource type. To perform the
-//   requested action, delete some existing resources or request a quota increase
-//   (https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) from
-//   the Service Quotas console. For a list of Audit Manager service quotas, see
-//   Quotas and restrictions for Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ServiceQuotaExceededException
+//     You've reached your account quota for this resource type. To perform the
+//     requested action, delete some existing resources or request a quota increase
+//     (https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) from
+//     the Service Quotas console. For a list of Audit Manager service quotas, see
+//     Quotas and restrictions for Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/CreateAssessmentFramework
 func (c *AuditManager) CreateAssessmentFramework(input *CreateAssessmentFrameworkInput) (*CreateAssessmentFrameworkOutput, error) {
@@ -766,14 +792,13 @@ const opCreateAssessmentReport = "CreateAssessmentReport"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateAssessmentReportRequest method.
+//	req, resp := client.CreateAssessmentReportRequest(params)
 //
-//    // Example sending a request using the CreateAssessmentReportRequest method.
-//    req, resp := client.CreateAssessmentReportRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/CreateAssessmentReport
 func (c *AuditManager) CreateAssessmentReportRequest(input *CreateAssessmentReportInput) (req *request.Request, output *CreateAssessmentReportOutput) {
@@ -804,19 +829,20 @@ func (c *AuditManager) CreateAssessmentReportRequest(input *CreateAssessmentRepo
 // API operation CreateAssessmentReport for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/CreateAssessmentReport
 func (c *AuditManager) CreateAssessmentReport(input *CreateAssessmentReportInput) (*CreateAssessmentReportOutput, error) {
@@ -856,14 +882,13 @@ const opCreateControl = "CreateControl"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateControlRequest method.
+//	req, resp := client.CreateControlRequest(params)
 //
-//    // Example sending a request using the CreateControlRequest method.
-//    req, resp := client.CreateControlRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/CreateControl
 func (c *AuditManager) CreateControlRequest(input *CreateControlInput) (req *request.Request, output *CreateControlOutput) {
@@ -894,26 +919,27 @@ func (c *AuditManager) CreateControlRequest(input *CreateControlInput) (req *req
 // API operation CreateControl for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ServiceQuotaExceededException
-//   You've reached your account quota for this resource type. To perform the
-//   requested action, delete some existing resources or request a quota increase
-//   (https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) from
-//   the Service Quotas console. For a list of Audit Manager service quotas, see
-//   Quotas and restrictions for Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ServiceQuotaExceededException
+//     You've reached your account quota for this resource type. To perform the
+//     requested action, delete some existing resources or request a quota increase
+//     (https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) from
+//     the Service Quotas console. For a list of Audit Manager service quotas, see
+//     Quotas and restrictions for Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/CreateControl
 func (c *AuditManager) CreateControl(input *CreateControlInput) (*CreateControlOutput, error) {
@@ -953,14 +979,13 @@ const opDeleteAssessment = "DeleteAssessment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteAssessmentRequest method.
+//	req, resp := client.DeleteAssessmentRequest(params)
 //
-//    // Example sending a request using the DeleteAssessmentRequest method.
-//    req, resp := client.DeleteAssessmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeleteAssessment
 func (c *AuditManager) DeleteAssessmentRequest(input *DeleteAssessmentInput) (req *request.Request, output *DeleteAssessmentOutput) {
@@ -992,19 +1017,20 @@ func (c *AuditManager) DeleteAssessmentRequest(input *DeleteAssessmentInput) (re
 // API operation DeleteAssessment for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeleteAssessment
 func (c *AuditManager) DeleteAssessment(input *DeleteAssessmentInput) (*DeleteAssessmentOutput, error) {
@@ -1044,14 +1070,13 @@ const opDeleteAssessmentFramework = "DeleteAssessmentFramework"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteAssessmentFrameworkRequest method.
+//	req, resp := client.DeleteAssessmentFrameworkRequest(params)
 //
-//    // Example sending a request using the DeleteAssessmentFrameworkRequest method.
-//    req, resp := client.DeleteAssessmentFrameworkRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeleteAssessmentFramework
 func (c *AuditManager) DeleteAssessmentFrameworkRequest(input *DeleteAssessmentFrameworkInput) (req *request.Request, output *DeleteAssessmentFrameworkOutput) {
@@ -1083,19 +1108,20 @@ func (c *AuditManager) DeleteAssessmentFrameworkRequest(input *DeleteAssessmentF
 // API operation DeleteAssessmentFramework for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeleteAssessmentFramework
 func (c *AuditManager) DeleteAssessmentFramework(input *DeleteAssessmentFrameworkInput) (*DeleteAssessmentFrameworkOutput, error) {
@@ -1135,14 +1161,13 @@ const opDeleteAssessmentFrameworkShare = "DeleteAssessmentFrameworkShare"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteAssessmentFrameworkShareRequest method.
+//	req, resp := client.DeleteAssessmentFrameworkShareRequest(params)
 //
-//    // Example sending a request using the DeleteAssessmentFrameworkShareRequest method.
-//    req, resp := client.DeleteAssessmentFrameworkShareRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeleteAssessmentFrameworkShare
 func (c *AuditManager) DeleteAssessmentFrameworkShareRequest(input *DeleteAssessmentFrameworkShareInput) (req *request.Request, output *DeleteAssessmentFrameworkShareOutput) {
@@ -1174,19 +1199,20 @@ func (c *AuditManager) DeleteAssessmentFrameworkShareRequest(input *DeleteAssess
 // API operation DeleteAssessmentFrameworkShare for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeleteAssessmentFrameworkShare
 func (c *AuditManager) DeleteAssessmentFrameworkShare(input *DeleteAssessmentFrameworkShareInput) (*DeleteAssessmentFrameworkShareOutput, error) {
@@ -1226,14 +1252,13 @@ const opDeleteAssessmentReport = "DeleteAssessmentReport"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteAssessmentReportRequest method.
+//	req, resp := client.DeleteAssessmentReportRequest(params)
 //
-//    // Example sending a request using the DeleteAssessmentReportRequest method.
-//    req, resp := client.DeleteAssessmentReportRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeleteAssessmentReport
 func (c *AuditManager) DeleteAssessmentReportRequest(input *DeleteAssessmentReportInput) (req *request.Request, output *DeleteAssessmentReportOutput) {
@@ -1260,9 +1285,9 @@ func (c *AuditManager) DeleteAssessmentReportRequest(input *DeleteAssessmentRepo
 // When you run the DeleteAssessmentReport operation, Audit Manager attempts
 // to delete the following data:
 //
-// The specified assessment report that’s stored in your S3 bucket
+// # The specified assessment report that’s stored in your S3 bucket
 //
-// The associated metadata that’s stored in Audit Manager
+// # The associated metadata that’s stored in Audit Manager
 //
 // If Audit Manager can’t access the assessment report in your S3 bucket,
 // the report isn’t deleted. In this event, the DeleteAssessmentReport operation
@@ -1287,19 +1312,20 @@ func (c *AuditManager) DeleteAssessmentReportRequest(input *DeleteAssessmentRepo
 // API operation DeleteAssessmentReport for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeleteAssessmentReport
 func (c *AuditManager) DeleteAssessmentReport(input *DeleteAssessmentReportInput) (*DeleteAssessmentReportOutput, error) {
@@ -1339,14 +1365,13 @@ const opDeleteControl = "DeleteControl"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteControlRequest method.
+//	req, resp := client.DeleteControlRequest(params)
 //
-//    // Example sending a request using the DeleteControlRequest method.
-//    req, resp := client.DeleteControlRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeleteControl
 func (c *AuditManager) DeleteControlRequest(input *DeleteControlInput) (req *request.Request, output *DeleteControlOutput) {
@@ -1370,6 +1395,12 @@ func (c *AuditManager) DeleteControlRequest(input *DeleteControlInput) (req *req
 //
 // Deletes a custom control in Audit Manager.
 //
+// When you invoke this operation, the custom control is deleted from any frameworks
+// or assessments that it’s currently part of. As a result, Audit Manager
+// will stop collecting evidence for that custom control in all of your assessments.
+// This includes assessments that you previously created before you deleted
+// the custom control.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -1378,19 +1409,20 @@ func (c *AuditManager) DeleteControlRequest(input *DeleteControlInput) (req *req
 // API operation DeleteControl for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeleteControl
 func (c *AuditManager) DeleteControl(input *DeleteControlInput) (*DeleteControlOutput, error) {
@@ -1430,14 +1462,13 @@ const opDeregisterAccount = "DeregisterAccount"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeregisterAccountRequest method.
+//	req, resp := client.DeregisterAccountRequest(params)
 //
-//    // Example sending a request using the DeregisterAccountRequest method.
-//    req, resp := client.DeregisterAccountRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeregisterAccount
 func (c *AuditManager) DeregisterAccountRequest(input *DeregisterAccountInput) (req *request.Request, output *DeregisterAccountOutput) {
@@ -1460,36 +1491,13 @@ func (c *AuditManager) DeregisterAccountRequest(input *DeregisterAccountInput) (
 //
 // Deregisters an account in Audit Manager.
 //
-// When you deregister your account from Audit Manager, your data isn’t deleted.
-// If you want to delete your resource data, you must perform that task separately
-// before you deregister your account. Either, you can do this in the Audit
-// Manager console. Or, you can use one of the delete API operations that are
-// provided by Audit Manager.
+// Before you deregister, you can use the UpdateSettings (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html)
+// API operation to set your preferred data retention policy. By default, Audit
+// Manager retains your data. If you want to delete your data, you can use the
+// DeregistrationPolicy attribute to request the deletion of your data.
 //
-// To delete your Audit Manager resource data, see the following instructions:
-//
-//    * DeleteAssessment (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html)
-//    (see also: Deleting an assessment (https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html)
-//    in the Audit Manager User Guide)
-//
-//    * DeleteAssessmentFramework (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html)
-//    (see also: Deleting a custom framework (https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html)
-//    in the Audit Manager User Guide)
-//
-//    * DeleteAssessmentFrameworkShare (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html)
-//    (see also: Deleting a share request (https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html)
-//    in the Audit Manager User Guide)
-//
-//    * DeleteAssessmentReport (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html)
-//    (see also: Deleting an assessment report (https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps)
-//    in the Audit Manager User Guide)
-//
-//    * DeleteControl (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html)
-//    (see also: Deleting a custom control (https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html)
-//    in the Audit Manager User Guide)
-//
-// At this time, Audit Manager doesn't provide an option to delete evidence.
-// All available delete operations are listed above.
+// For more information about data retention, see Data Protection (https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html)
+// in the Audit Manager User Guide.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1499,19 +1507,20 @@ func (c *AuditManager) DeregisterAccountRequest(input *DeregisterAccountInput) (
 // API operation DeregisterAccount for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeregisterAccount
 func (c *AuditManager) DeregisterAccount(input *DeregisterAccountInput) (*DeregisterAccountOutput, error) {
@@ -1551,14 +1560,13 @@ const opDeregisterOrganizationAdminAccount = "DeregisterOrganizationAdminAccount
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeregisterOrganizationAdminAccountRequest method.
+//	req, resp := client.DeregisterOrganizationAdminAccountRequest(params)
 //
-//    // Example sending a request using the DeregisterOrganizationAdminAccountRequest method.
-//    req, resp := client.DeregisterOrganizationAdminAccountRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeregisterOrganizationAdminAccount
 func (c *AuditManager) DeregisterOrganizationAdminAccountRequest(input *DeregisterOrganizationAdminAccountInput) (req *request.Request, output *DeregisterOrganizationAdminAccountOutput) {
@@ -1586,8 +1594,25 @@ func (c *AuditManager) DeregisterOrganizationAdminAccountRequest(input *Deregist
 // When you remove a delegated administrator from your Audit Manager settings,
 // you continue to have access to the evidence that you previously collected
 // under that account. This is also the case when you deregister a delegated
-// administrator from Organizations. However, Audit Manager will stop collecting
+// administrator from Organizations. However, Audit Manager stops collecting
 // and attaching evidence to that delegated administrator account moving forward.
+//
+// Keep in mind the following cleanup task if you use evidence finder:
+//
+// Before you use your management account to remove a delegated administrator,
+// make sure that the current delegated administrator account signs in to Audit
+// Manager and disables evidence finder first. Disabling evidence finder automatically
+// deletes the event data store that was created in their account when they
+// enabled evidence finder. If this task isn’t completed, the event data store
+// remains in their account. In this case, we recommend that the original delegated
+// administrator goes to CloudTrail Lake and manually deletes the event data
+// store (https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html).
+//
+// This cleanup task is necessary to ensure that you don't end up with multiple
+// event data stores. Audit Manager ignores an unused event data store after
+// you remove or change a delegated administrator account. However, the unused
+// event data store continues to incur storage costs from CloudTrail Lake if
+// you don't delete it.
 //
 // When you deregister a delegated administrator account for Audit Manager,
 // the data for that account isn’t deleted. If you want to delete resource
@@ -1598,28 +1623,30 @@ func (c *AuditManager) DeregisterOrganizationAdminAccountRequest(input *Deregist
 //
 // To delete your Audit Manager resource data, see the following instructions:
 //
-//    * DeleteAssessment (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html)
-//    (see also: Deleting an assessment (https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html)
-//    in the Audit Manager User Guide)
+//   - DeleteAssessment (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html)
+//     (see also: Deleting an assessment (https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html)
+//     in the Audit Manager User Guide)
 //
-//    * DeleteAssessmentFramework (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html)
-//    (see also: Deleting a custom framework (https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html)
-//    in the Audit Manager User Guide)
+//   - DeleteAssessmentFramework (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html)
+//     (see also: Deleting a custom framework (https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html)
+//     in the Audit Manager User Guide)
 //
-//    * DeleteAssessmentFrameworkShare (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html)
-//    (see also: Deleting a share request (https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html)
-//    in the Audit Manager User Guide)
+//   - DeleteAssessmentFrameworkShare (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html)
+//     (see also: Deleting a share request (https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html)
+//     in the Audit Manager User Guide)
 //
-//    * DeleteAssessmentReport (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html)
-//    (see also: Deleting an assessment report (https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps)
-//    in the Audit Manager User Guide)
+//   - DeleteAssessmentReport (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html)
+//     (see also: Deleting an assessment report (https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps)
+//     in the Audit Manager User Guide)
 //
-//    * DeleteControl (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html)
-//    (see also: Deleting a custom control (https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html)
-//    in the Audit Manager User Guide)
+//   - DeleteControl (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html)
+//     (see also: Deleting a custom control (https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html)
+//     in the Audit Manager User Guide)
 //
-// At this time, Audit Manager doesn't provide an option to delete evidence.
-// All available delete operations are listed above.
+// At this time, Audit Manager doesn't provide an option to delete evidence
+// for a specific delegated administrator. Instead, when your management account
+// deregisters Audit Manager, we perform a cleanup for the current delegated
+// administrator account at the time of deregistration.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1629,19 +1656,20 @@ func (c *AuditManager) DeregisterOrganizationAdminAccountRequest(input *Deregist
 // API operation DeregisterOrganizationAdminAccount for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DeregisterOrganizationAdminAccount
 func (c *AuditManager) DeregisterOrganizationAdminAccount(input *DeregisterOrganizationAdminAccountInput) (*DeregisterOrganizationAdminAccountOutput, error) {
@@ -1681,14 +1709,13 @@ const opDisassociateAssessmentReportEvidenceFolder = "DisassociateAssessmentRepo
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DisassociateAssessmentReportEvidenceFolderRequest method.
+//	req, resp := client.DisassociateAssessmentReportEvidenceFolderRequest(params)
 //
-//    // Example sending a request using the DisassociateAssessmentReportEvidenceFolderRequest method.
-//    req, resp := client.DisassociateAssessmentReportEvidenceFolderRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DisassociateAssessmentReportEvidenceFolder
 func (c *AuditManager) DisassociateAssessmentReportEvidenceFolderRequest(input *DisassociateAssessmentReportEvidenceFolderInput) (req *request.Request, output *DisassociateAssessmentReportEvidenceFolderOutput) {
@@ -1721,19 +1748,20 @@ func (c *AuditManager) DisassociateAssessmentReportEvidenceFolderRequest(input *
 // API operation DisassociateAssessmentReportEvidenceFolder for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/DisassociateAssessmentReportEvidenceFolder
 func (c *AuditManager) DisassociateAssessmentReportEvidenceFolder(input *DisassociateAssessmentReportEvidenceFolderInput) (*DisassociateAssessmentReportEvidenceFolderOutput, error) {
@@ -1773,14 +1801,13 @@ const opGetAccountStatus = "GetAccountStatus"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetAccountStatusRequest method.
+//	req, resp := client.GetAccountStatusRequest(params)
 //
-//    // Example sending a request using the GetAccountStatusRequest method.
-//    req, resp := client.GetAccountStatusRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetAccountStatus
 func (c *AuditManager) GetAccountStatusRequest(input *GetAccountStatusInput) (req *request.Request, output *GetAccountStatusOutput) {
@@ -1801,7 +1828,7 @@ func (c *AuditManager) GetAccountStatusRequest(input *GetAccountStatusInput) (re
 
 // GetAccountStatus API operation for AWS Audit Manager.
 //
-// Returns the registration status of an account in Audit Manager.
+// Gets the registration status of an account in Audit Manager.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1811,9 +1838,9 @@ func (c *AuditManager) GetAccountStatusRequest(input *GetAccountStatusInput) (re
 // API operation GetAccountStatus for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetAccountStatus
 func (c *AuditManager) GetAccountStatus(input *GetAccountStatusInput) (*GetAccountStatusOutput, error) {
@@ -1853,14 +1880,13 @@ const opGetAssessment = "GetAssessment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetAssessmentRequest method.
+//	req, resp := client.GetAssessmentRequest(params)
 //
-//    // Example sending a request using the GetAssessmentRequest method.
-//    req, resp := client.GetAssessmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetAssessment
 func (c *AuditManager) GetAssessmentRequest(input *GetAssessmentInput) (req *request.Request, output *GetAssessmentOutput) {
@@ -1881,7 +1907,7 @@ func (c *AuditManager) GetAssessmentRequest(input *GetAssessmentInput) (req *req
 
 // GetAssessment API operation for AWS Audit Manager.
 //
-// Returns an assessment from Audit Manager.
+// Gets information about a specified assessment.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1891,19 +1917,20 @@ func (c *AuditManager) GetAssessmentRequest(input *GetAssessmentInput) (req *req
 // API operation GetAssessment for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetAssessment
 func (c *AuditManager) GetAssessment(input *GetAssessmentInput) (*GetAssessmentOutput, error) {
@@ -1943,14 +1970,13 @@ const opGetAssessmentFramework = "GetAssessmentFramework"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetAssessmentFrameworkRequest method.
+//	req, resp := client.GetAssessmentFrameworkRequest(params)
 //
-//    // Example sending a request using the GetAssessmentFrameworkRequest method.
-//    req, resp := client.GetAssessmentFrameworkRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetAssessmentFramework
 func (c *AuditManager) GetAssessmentFrameworkRequest(input *GetAssessmentFrameworkInput) (req *request.Request, output *GetAssessmentFrameworkOutput) {
@@ -1971,7 +1997,7 @@ func (c *AuditManager) GetAssessmentFrameworkRequest(input *GetAssessmentFramewo
 
 // GetAssessmentFramework API operation for AWS Audit Manager.
 //
-// Returns a framework from Audit Manager.
+// Gets information about a specified framework.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1981,19 +2007,20 @@ func (c *AuditManager) GetAssessmentFrameworkRequest(input *GetAssessmentFramewo
 // API operation GetAssessmentFramework for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetAssessmentFramework
 func (c *AuditManager) GetAssessmentFramework(input *GetAssessmentFrameworkInput) (*GetAssessmentFrameworkOutput, error) {
@@ -2033,14 +2060,13 @@ const opGetAssessmentReportUrl = "GetAssessmentReportUrl"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetAssessmentReportUrlRequest method.
+//	req, resp := client.GetAssessmentReportUrlRequest(params)
 //
-//    // Example sending a request using the GetAssessmentReportUrlRequest method.
-//    req, resp := client.GetAssessmentReportUrlRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetAssessmentReportUrl
 func (c *AuditManager) GetAssessmentReportUrlRequest(input *GetAssessmentReportUrlInput) (req *request.Request, output *GetAssessmentReportUrlOutput) {
@@ -2061,7 +2087,7 @@ func (c *AuditManager) GetAssessmentReportUrlRequest(input *GetAssessmentReportU
 
 // GetAssessmentReportUrl API operation for AWS Audit Manager.
 //
-// Returns the URL of an assessment report in Audit Manager.
+// Gets the URL of an assessment report in Audit Manager.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2071,19 +2097,20 @@ func (c *AuditManager) GetAssessmentReportUrlRequest(input *GetAssessmentReportU
 // API operation GetAssessmentReportUrl for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetAssessmentReportUrl
 func (c *AuditManager) GetAssessmentReportUrl(input *GetAssessmentReportUrlInput) (*GetAssessmentReportUrlOutput, error) {
@@ -2123,14 +2150,13 @@ const opGetChangeLogs = "GetChangeLogs"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetChangeLogsRequest method.
+//	req, resp := client.GetChangeLogsRequest(params)
 //
-//    // Example sending a request using the GetChangeLogsRequest method.
-//    req, resp := client.GetChangeLogsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetChangeLogs
 func (c *AuditManager) GetChangeLogsRequest(input *GetChangeLogsInput) (req *request.Request, output *GetChangeLogsOutput) {
@@ -2157,7 +2183,7 @@ func (c *AuditManager) GetChangeLogsRequest(input *GetChangeLogsInput) (req *req
 
 // GetChangeLogs API operation for AWS Audit Manager.
 //
-// Returns a list of changelogs from Audit Manager.
+// Gets a list of changelogs from Audit Manager.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2167,19 +2193,20 @@ func (c *AuditManager) GetChangeLogsRequest(input *GetChangeLogsInput) (req *req
 // API operation GetChangeLogs for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetChangeLogs
 func (c *AuditManager) GetChangeLogs(input *GetChangeLogsInput) (*GetChangeLogsOutput, error) {
@@ -2211,15 +2238,14 @@ func (c *AuditManager) GetChangeLogsWithContext(ctx aws.Context, input *GetChang
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a GetChangeLogs operation.
-//    pageNum := 0
-//    err := client.GetChangeLogsPages(params,
-//        func(page *auditmanager.GetChangeLogsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a GetChangeLogs operation.
+//	pageNum := 0
+//	err := client.GetChangeLogsPages(params,
+//	    func(page *auditmanager.GetChangeLogsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) GetChangeLogsPages(input *GetChangeLogsInput, fn func(*GetChangeLogsOutput, bool) bool) error {
 	return c.GetChangeLogsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2271,14 +2297,13 @@ const opGetControl = "GetControl"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetControlRequest method.
+//	req, resp := client.GetControlRequest(params)
 //
-//    // Example sending a request using the GetControlRequest method.
-//    req, resp := client.GetControlRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetControl
 func (c *AuditManager) GetControlRequest(input *GetControlInput) (req *request.Request, output *GetControlOutput) {
@@ -2299,7 +2324,7 @@ func (c *AuditManager) GetControlRequest(input *GetControlInput) (req *request.R
 
 // GetControl API operation for AWS Audit Manager.
 //
-// Returns a control from Audit Manager.
+// Gets information about a specified control.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2309,19 +2334,20 @@ func (c *AuditManager) GetControlRequest(input *GetControlInput) (req *request.R
 // API operation GetControl for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetControl
 func (c *AuditManager) GetControl(input *GetControlInput) (*GetControlOutput, error) {
@@ -2361,14 +2387,13 @@ const opGetDelegations = "GetDelegations"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetDelegationsRequest method.
+//	req, resp := client.GetDelegationsRequest(params)
 //
-//    // Example sending a request using the GetDelegationsRequest method.
-//    req, resp := client.GetDelegationsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetDelegations
 func (c *AuditManager) GetDelegationsRequest(input *GetDelegationsInput) (req *request.Request, output *GetDelegationsOutput) {
@@ -2395,7 +2420,7 @@ func (c *AuditManager) GetDelegationsRequest(input *GetDelegationsInput) (req *r
 
 // GetDelegations API operation for AWS Audit Manager.
 //
-// Returns a list of delegations from an audit owner to a delegate.
+// Gets a list of delegations from an audit owner to a delegate.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2405,16 +2430,17 @@ func (c *AuditManager) GetDelegationsRequest(input *GetDelegationsInput) (req *r
 // API operation GetDelegations for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetDelegations
 func (c *AuditManager) GetDelegations(input *GetDelegationsInput) (*GetDelegationsOutput, error) {
@@ -2446,15 +2472,14 @@ func (c *AuditManager) GetDelegationsWithContext(ctx aws.Context, input *GetDele
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a GetDelegations operation.
-//    pageNum := 0
-//    err := client.GetDelegationsPages(params,
-//        func(page *auditmanager.GetDelegationsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a GetDelegations operation.
+//	pageNum := 0
+//	err := client.GetDelegationsPages(params,
+//	    func(page *auditmanager.GetDelegationsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) GetDelegationsPages(input *GetDelegationsInput, fn func(*GetDelegationsOutput, bool) bool) error {
 	return c.GetDelegationsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2506,14 +2531,13 @@ const opGetEvidence = "GetEvidence"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetEvidenceRequest method.
+//	req, resp := client.GetEvidenceRequest(params)
 //
-//    // Example sending a request using the GetEvidenceRequest method.
-//    req, resp := client.GetEvidenceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetEvidence
 func (c *AuditManager) GetEvidenceRequest(input *GetEvidenceInput) (req *request.Request, output *GetEvidenceOutput) {
@@ -2534,7 +2558,7 @@ func (c *AuditManager) GetEvidenceRequest(input *GetEvidenceInput) (req *request
 
 // GetEvidence API operation for AWS Audit Manager.
 //
-// Returns evidence from Audit Manager.
+// Gets information about a specified evidence item.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2544,19 +2568,20 @@ func (c *AuditManager) GetEvidenceRequest(input *GetEvidenceInput) (req *request
 // API operation GetEvidence for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetEvidence
 func (c *AuditManager) GetEvidence(input *GetEvidenceInput) (*GetEvidenceOutput, error) {
@@ -2596,14 +2621,13 @@ const opGetEvidenceByEvidenceFolder = "GetEvidenceByEvidenceFolder"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetEvidenceByEvidenceFolderRequest method.
+//	req, resp := client.GetEvidenceByEvidenceFolderRequest(params)
 //
-//    // Example sending a request using the GetEvidenceByEvidenceFolderRequest method.
-//    req, resp := client.GetEvidenceByEvidenceFolderRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetEvidenceByEvidenceFolder
 func (c *AuditManager) GetEvidenceByEvidenceFolderRequest(input *GetEvidenceByEvidenceFolderInput) (req *request.Request, output *GetEvidenceByEvidenceFolderOutput) {
@@ -2630,7 +2654,7 @@ func (c *AuditManager) GetEvidenceByEvidenceFolderRequest(input *GetEvidenceByEv
 
 // GetEvidenceByEvidenceFolder API operation for AWS Audit Manager.
 //
-// Returns all evidence from a specified evidence folder in Audit Manager.
+// Gets all evidence from a specified evidence folder in Audit Manager.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2640,19 +2664,20 @@ func (c *AuditManager) GetEvidenceByEvidenceFolderRequest(input *GetEvidenceByEv
 // API operation GetEvidenceByEvidenceFolder for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetEvidenceByEvidenceFolder
 func (c *AuditManager) GetEvidenceByEvidenceFolder(input *GetEvidenceByEvidenceFolderInput) (*GetEvidenceByEvidenceFolderOutput, error) {
@@ -2684,15 +2709,14 @@ func (c *AuditManager) GetEvidenceByEvidenceFolderWithContext(ctx aws.Context, i
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a GetEvidenceByEvidenceFolder operation.
-//    pageNum := 0
-//    err := client.GetEvidenceByEvidenceFolderPages(params,
-//        func(page *auditmanager.GetEvidenceByEvidenceFolderOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a GetEvidenceByEvidenceFolder operation.
+//	pageNum := 0
+//	err := client.GetEvidenceByEvidenceFolderPages(params,
+//	    func(page *auditmanager.GetEvidenceByEvidenceFolderOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) GetEvidenceByEvidenceFolderPages(input *GetEvidenceByEvidenceFolderInput, fn func(*GetEvidenceByEvidenceFolderOutput, bool) bool) error {
 	return c.GetEvidenceByEvidenceFolderPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2728,6 +2752,112 @@ func (c *AuditManager) GetEvidenceByEvidenceFolderPagesWithContext(ctx aws.Conte
 	return p.Err()
 }
 
+const opGetEvidenceFileUploadUrl = "GetEvidenceFileUploadUrl"
+
+// GetEvidenceFileUploadUrlRequest generates a "aws/request.Request" representing the
+// client's request for the GetEvidenceFileUploadUrl operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetEvidenceFileUploadUrl for more information on using the GetEvidenceFileUploadUrl
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the GetEvidenceFileUploadUrlRequest method.
+//	req, resp := client.GetEvidenceFileUploadUrlRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetEvidenceFileUploadUrl
+func (c *AuditManager) GetEvidenceFileUploadUrlRequest(input *GetEvidenceFileUploadUrlInput) (req *request.Request, output *GetEvidenceFileUploadUrlOutput) {
+	op := &request.Operation{
+		Name:       opGetEvidenceFileUploadUrl,
+		HTTPMethod: "GET",
+		HTTPPath:   "/evidenceFileUploadUrl",
+	}
+
+	if input == nil {
+		input = &GetEvidenceFileUploadUrlInput{}
+	}
+
+	output = &GetEvidenceFileUploadUrlOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetEvidenceFileUploadUrl API operation for AWS Audit Manager.
+//
+// Creates a presigned Amazon S3 URL that can be used to upload a file as manual
+// evidence. For instructions on how to use this operation, see Upload a file
+// from your browser (https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files)
+// in the Audit Manager User Guide.
+//
+// The following restrictions apply to this operation:
+//
+//   - Maximum size of an individual evidence file: 100 MB
+//
+//   - Number of daily manual evidence uploads per control: 100
+//
+//   - Supported file formats: See Supported file types for manual evidence
+//     (https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files)
+//     in the Audit Manager User Guide
+//
+// For more information about Audit Manager service restrictions, see Quotas
+// and restrictions for Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Audit Manager's
+// API operation GetEvidenceFileUploadUrl for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetEvidenceFileUploadUrl
+func (c *AuditManager) GetEvidenceFileUploadUrl(input *GetEvidenceFileUploadUrlInput) (*GetEvidenceFileUploadUrlOutput, error) {
+	req, out := c.GetEvidenceFileUploadUrlRequest(input)
+	return out, req.Send()
+}
+
+// GetEvidenceFileUploadUrlWithContext is the same as GetEvidenceFileUploadUrl with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetEvidenceFileUploadUrl for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AuditManager) GetEvidenceFileUploadUrlWithContext(ctx aws.Context, input *GetEvidenceFileUploadUrlInput, opts ...request.Option) (*GetEvidenceFileUploadUrlOutput, error) {
+	req, out := c.GetEvidenceFileUploadUrlRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetEvidenceFolder = "GetEvidenceFolder"
 
 // GetEvidenceFolderRequest generates a "aws/request.Request" representing the
@@ -2744,14 +2874,13 @@ const opGetEvidenceFolder = "GetEvidenceFolder"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetEvidenceFolderRequest method.
+//	req, resp := client.GetEvidenceFolderRequest(params)
 //
-//    // Example sending a request using the GetEvidenceFolderRequest method.
-//    req, resp := client.GetEvidenceFolderRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetEvidenceFolder
 func (c *AuditManager) GetEvidenceFolderRequest(input *GetEvidenceFolderInput) (req *request.Request, output *GetEvidenceFolderOutput) {
@@ -2772,7 +2901,7 @@ func (c *AuditManager) GetEvidenceFolderRequest(input *GetEvidenceFolderInput) (
 
 // GetEvidenceFolder API operation for AWS Audit Manager.
 //
-// Returns an evidence folder from the specified assessment in Audit Manager.
+// Gets an evidence folder from a specified assessment in Audit Manager.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2782,19 +2911,20 @@ func (c *AuditManager) GetEvidenceFolderRequest(input *GetEvidenceFolderInput) (
 // API operation GetEvidenceFolder for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetEvidenceFolder
 func (c *AuditManager) GetEvidenceFolder(input *GetEvidenceFolderInput) (*GetEvidenceFolderOutput, error) {
@@ -2834,14 +2964,13 @@ const opGetEvidenceFoldersByAssessment = "GetEvidenceFoldersByAssessment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetEvidenceFoldersByAssessmentRequest method.
+//	req, resp := client.GetEvidenceFoldersByAssessmentRequest(params)
 //
-//    // Example sending a request using the GetEvidenceFoldersByAssessmentRequest method.
-//    req, resp := client.GetEvidenceFoldersByAssessmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetEvidenceFoldersByAssessment
 func (c *AuditManager) GetEvidenceFoldersByAssessmentRequest(input *GetEvidenceFoldersByAssessmentInput) (req *request.Request, output *GetEvidenceFoldersByAssessmentOutput) {
@@ -2868,7 +2997,7 @@ func (c *AuditManager) GetEvidenceFoldersByAssessmentRequest(input *GetEvidenceF
 
 // GetEvidenceFoldersByAssessment API operation for AWS Audit Manager.
 //
-// Returns the evidence folders from a specified assessment in Audit Manager.
+// Gets the evidence folders from a specified assessment in Audit Manager.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2878,19 +3007,20 @@ func (c *AuditManager) GetEvidenceFoldersByAssessmentRequest(input *GetEvidenceF
 // API operation GetEvidenceFoldersByAssessment for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetEvidenceFoldersByAssessment
 func (c *AuditManager) GetEvidenceFoldersByAssessment(input *GetEvidenceFoldersByAssessmentInput) (*GetEvidenceFoldersByAssessmentOutput, error) {
@@ -2922,15 +3052,14 @@ func (c *AuditManager) GetEvidenceFoldersByAssessmentWithContext(ctx aws.Context
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a GetEvidenceFoldersByAssessment operation.
-//    pageNum := 0
-//    err := client.GetEvidenceFoldersByAssessmentPages(params,
-//        func(page *auditmanager.GetEvidenceFoldersByAssessmentOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a GetEvidenceFoldersByAssessment operation.
+//	pageNum := 0
+//	err := client.GetEvidenceFoldersByAssessmentPages(params,
+//	    func(page *auditmanager.GetEvidenceFoldersByAssessmentOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) GetEvidenceFoldersByAssessmentPages(input *GetEvidenceFoldersByAssessmentInput, fn func(*GetEvidenceFoldersByAssessmentOutput, bool) bool) error {
 	return c.GetEvidenceFoldersByAssessmentPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2982,14 +3111,13 @@ const opGetEvidenceFoldersByAssessmentControl = "GetEvidenceFoldersByAssessmentC
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetEvidenceFoldersByAssessmentControlRequest method.
+//	req, resp := client.GetEvidenceFoldersByAssessmentControlRequest(params)
 //
-//    // Example sending a request using the GetEvidenceFoldersByAssessmentControlRequest method.
-//    req, resp := client.GetEvidenceFoldersByAssessmentControlRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetEvidenceFoldersByAssessmentControl
 func (c *AuditManager) GetEvidenceFoldersByAssessmentControlRequest(input *GetEvidenceFoldersByAssessmentControlInput) (req *request.Request, output *GetEvidenceFoldersByAssessmentControlOutput) {
@@ -3016,8 +3144,8 @@ func (c *AuditManager) GetEvidenceFoldersByAssessmentControlRequest(input *GetEv
 
 // GetEvidenceFoldersByAssessmentControl API operation for AWS Audit Manager.
 //
-// Returns a list of evidence folders that are associated with a specified control
-// of an assessment in Audit Manager.
+// Gets a list of evidence folders that are associated with a specified control
+// in an Audit Manager assessment.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3027,19 +3155,20 @@ func (c *AuditManager) GetEvidenceFoldersByAssessmentControlRequest(input *GetEv
 // API operation GetEvidenceFoldersByAssessmentControl for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetEvidenceFoldersByAssessmentControl
 func (c *AuditManager) GetEvidenceFoldersByAssessmentControl(input *GetEvidenceFoldersByAssessmentControlInput) (*GetEvidenceFoldersByAssessmentControlOutput, error) {
@@ -3071,15 +3200,14 @@ func (c *AuditManager) GetEvidenceFoldersByAssessmentControlWithContext(ctx aws.
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a GetEvidenceFoldersByAssessmentControl operation.
-//    pageNum := 0
-//    err := client.GetEvidenceFoldersByAssessmentControlPages(params,
-//        func(page *auditmanager.GetEvidenceFoldersByAssessmentControlOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a GetEvidenceFoldersByAssessmentControl operation.
+//	pageNum := 0
+//	err := client.GetEvidenceFoldersByAssessmentControlPages(params,
+//	    func(page *auditmanager.GetEvidenceFoldersByAssessmentControlOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) GetEvidenceFoldersByAssessmentControlPages(input *GetEvidenceFoldersByAssessmentControlInput, fn func(*GetEvidenceFoldersByAssessmentControlOutput, bool) bool) error {
 	return c.GetEvidenceFoldersByAssessmentControlPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -3131,14 +3259,13 @@ const opGetInsights = "GetInsights"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetInsightsRequest method.
+//	req, resp := client.GetInsightsRequest(params)
 //
-//    // Example sending a request using the GetInsightsRequest method.
-//    req, resp := client.GetInsightsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetInsights
 func (c *AuditManager) GetInsightsRequest(input *GetInsightsInput) (req *request.Request, output *GetInsightsOutput) {
@@ -3169,13 +3296,14 @@ func (c *AuditManager) GetInsightsRequest(input *GetInsightsInput) (req *request
 // API operation GetInsights for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetInsights
 func (c *AuditManager) GetInsights(input *GetInsightsInput) (*GetInsightsOutput, error) {
@@ -3215,14 +3343,13 @@ const opGetInsightsByAssessment = "GetInsightsByAssessment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetInsightsByAssessmentRequest method.
+//	req, resp := client.GetInsightsByAssessmentRequest(params)
 //
-//    // Example sending a request using the GetInsightsByAssessmentRequest method.
-//    req, resp := client.GetInsightsByAssessmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetInsightsByAssessment
 func (c *AuditManager) GetInsightsByAssessmentRequest(input *GetInsightsByAssessmentInput) (req *request.Request, output *GetInsightsByAssessmentOutput) {
@@ -3253,19 +3380,20 @@ func (c *AuditManager) GetInsightsByAssessmentRequest(input *GetInsightsByAssess
 // API operation GetInsightsByAssessment for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetInsightsByAssessment
 func (c *AuditManager) GetInsightsByAssessment(input *GetInsightsByAssessmentInput) (*GetInsightsByAssessmentOutput, error) {
@@ -3305,14 +3433,13 @@ const opGetOrganizationAdminAccount = "GetOrganizationAdminAccount"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetOrganizationAdminAccountRequest method.
+//	req, resp := client.GetOrganizationAdminAccountRequest(params)
 //
-//    // Example sending a request using the GetOrganizationAdminAccountRequest method.
-//    req, resp := client.GetOrganizationAdminAccountRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetOrganizationAdminAccount
 func (c *AuditManager) GetOrganizationAdminAccountRequest(input *GetOrganizationAdminAccountInput) (req *request.Request, output *GetOrganizationAdminAccountOutput) {
@@ -3333,8 +3460,8 @@ func (c *AuditManager) GetOrganizationAdminAccountRequest(input *GetOrganization
 
 // GetOrganizationAdminAccount API operation for AWS Audit Manager.
 //
-// Returns the name of the delegated Amazon Web Services administrator account
-// for the organization.
+// Gets the name of the delegated Amazon Web Services administrator account
+// for a specified organization.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3344,19 +3471,20 @@ func (c *AuditManager) GetOrganizationAdminAccountRequest(input *GetOrganization
 // API operation GetOrganizationAdminAccount for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetOrganizationAdminAccount
 func (c *AuditManager) GetOrganizationAdminAccount(input *GetOrganizationAdminAccountInput) (*GetOrganizationAdminAccountOutput, error) {
@@ -3396,14 +3524,13 @@ const opGetServicesInScope = "GetServicesInScope"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetServicesInScopeRequest method.
+//	req, resp := client.GetServicesInScopeRequest(params)
 //
-//    // Example sending a request using the GetServicesInScopeRequest method.
-//    req, resp := client.GetServicesInScopeRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetServicesInScope
 func (c *AuditManager) GetServicesInScopeRequest(input *GetServicesInScopeInput) (req *request.Request, output *GetServicesInScopeOutput) {
@@ -3424,7 +3551,18 @@ func (c *AuditManager) GetServicesInScopeRequest(input *GetServicesInScopeInput)
 
 // GetServicesInScope API operation for AWS Audit Manager.
 //
-// Returns a list of the in-scope Amazon Web Services for the specified assessment.
+// Gets a list of the Amazon Web Services from which Audit Manager can collect
+// evidence.
+//
+// Audit Manager defines which Amazon Web Services are in scope for an assessment.
+// Audit Manager infers this scope by examining the assessment’s controls
+// and their data sources, and then mapping this information to one or more
+// of the corresponding Amazon Web Services that are in this list.
+//
+// For information about why it's no longer possible to specify services in
+// scope manually, see I can't edit the services in scope for my assessment
+// (https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-collection-issues.html#unable-to-edit-services)
+// in the Troubleshooting section of the Audit Manager user guide.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3434,16 +3572,17 @@ func (c *AuditManager) GetServicesInScopeRequest(input *GetServicesInScopeInput)
 // API operation GetServicesInScope for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetServicesInScope
 func (c *AuditManager) GetServicesInScope(input *GetServicesInScopeInput) (*GetServicesInScopeOutput, error) {
@@ -3483,14 +3622,13 @@ const opGetSettings = "GetSettings"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetSettingsRequest method.
+//	req, resp := client.GetSettingsRequest(params)
 //
-//    // Example sending a request using the GetSettingsRequest method.
-//    req, resp := client.GetSettingsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetSettings
 func (c *AuditManager) GetSettingsRequest(input *GetSettingsInput) (req *request.Request, output *GetSettingsOutput) {
@@ -3511,7 +3649,7 @@ func (c *AuditManager) GetSettingsRequest(input *GetSettingsInput) (req *request
 
 // GetSettings API operation for AWS Audit Manager.
 //
-// Returns the settings for the specified Amazon Web Services account.
+// Gets the settings for a specified Amazon Web Services account.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3521,13 +3659,14 @@ func (c *AuditManager) GetSettingsRequest(input *GetSettingsInput) (req *request
 // API operation GetSettings for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/GetSettings
 func (c *AuditManager) GetSettings(input *GetSettingsInput) (*GetSettingsOutput, error) {
@@ -3567,14 +3706,13 @@ const opListAssessmentControlInsightsByControlDomain = "ListAssessmentControlIns
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListAssessmentControlInsightsByControlDomainRequest method.
+//	req, resp := client.ListAssessmentControlInsightsByControlDomainRequest(params)
 //
-//    // Example sending a request using the ListAssessmentControlInsightsByControlDomainRequest method.
-//    req, resp := client.ListAssessmentControlInsightsByControlDomainRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListAssessmentControlInsightsByControlDomain
 func (c *AuditManager) ListAssessmentControlInsightsByControlDomainRequest(input *ListAssessmentControlInsightsByControlDomainInput) (req *request.Request, output *ListAssessmentControlInsightsByControlDomainOutput) {
@@ -3617,19 +3755,20 @@ func (c *AuditManager) ListAssessmentControlInsightsByControlDomainRequest(input
 // API operation ListAssessmentControlInsightsByControlDomain for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListAssessmentControlInsightsByControlDomain
 func (c *AuditManager) ListAssessmentControlInsightsByControlDomain(input *ListAssessmentControlInsightsByControlDomainInput) (*ListAssessmentControlInsightsByControlDomainOutput, error) {
@@ -3661,15 +3800,14 @@ func (c *AuditManager) ListAssessmentControlInsightsByControlDomainWithContext(c
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListAssessmentControlInsightsByControlDomain operation.
-//    pageNum := 0
-//    err := client.ListAssessmentControlInsightsByControlDomainPages(params,
-//        func(page *auditmanager.ListAssessmentControlInsightsByControlDomainOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListAssessmentControlInsightsByControlDomain operation.
+//	pageNum := 0
+//	err := client.ListAssessmentControlInsightsByControlDomainPages(params,
+//	    func(page *auditmanager.ListAssessmentControlInsightsByControlDomainOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) ListAssessmentControlInsightsByControlDomainPages(input *ListAssessmentControlInsightsByControlDomainInput, fn func(*ListAssessmentControlInsightsByControlDomainOutput, bool) bool) error {
 	return c.ListAssessmentControlInsightsByControlDomainPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -3721,14 +3859,13 @@ const opListAssessmentFrameworkShareRequests = "ListAssessmentFrameworkShareRequ
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListAssessmentFrameworkShareRequestsRequest method.
+//	req, resp := client.ListAssessmentFrameworkShareRequestsRequest(params)
 //
-//    // Example sending a request using the ListAssessmentFrameworkShareRequestsRequest method.
-//    req, resp := client.ListAssessmentFrameworkShareRequestsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListAssessmentFrameworkShareRequests
 func (c *AuditManager) ListAssessmentFrameworkShareRequestsRequest(input *ListAssessmentFrameworkShareRequestsInput) (req *request.Request, output *ListAssessmentFrameworkShareRequestsOutput) {
@@ -3766,16 +3903,17 @@ func (c *AuditManager) ListAssessmentFrameworkShareRequestsRequest(input *ListAs
 // API operation ListAssessmentFrameworkShareRequests for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListAssessmentFrameworkShareRequests
 func (c *AuditManager) ListAssessmentFrameworkShareRequests(input *ListAssessmentFrameworkShareRequestsInput) (*ListAssessmentFrameworkShareRequestsOutput, error) {
@@ -3807,15 +3945,14 @@ func (c *AuditManager) ListAssessmentFrameworkShareRequestsWithContext(ctx aws.C
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListAssessmentFrameworkShareRequests operation.
-//    pageNum := 0
-//    err := client.ListAssessmentFrameworkShareRequestsPages(params,
-//        func(page *auditmanager.ListAssessmentFrameworkShareRequestsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListAssessmentFrameworkShareRequests operation.
+//	pageNum := 0
+//	err := client.ListAssessmentFrameworkShareRequestsPages(params,
+//	    func(page *auditmanager.ListAssessmentFrameworkShareRequestsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) ListAssessmentFrameworkShareRequestsPages(input *ListAssessmentFrameworkShareRequestsInput, fn func(*ListAssessmentFrameworkShareRequestsOutput, bool) bool) error {
 	return c.ListAssessmentFrameworkShareRequestsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -3867,14 +4004,13 @@ const opListAssessmentFrameworks = "ListAssessmentFrameworks"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListAssessmentFrameworksRequest method.
+//	req, resp := client.ListAssessmentFrameworksRequest(params)
 //
-//    // Example sending a request using the ListAssessmentFrameworksRequest method.
-//    req, resp := client.ListAssessmentFrameworksRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListAssessmentFrameworks
 func (c *AuditManager) ListAssessmentFrameworksRequest(input *ListAssessmentFrameworksInput) (req *request.Request, output *ListAssessmentFrameworksOutput) {
@@ -3912,16 +4048,17 @@ func (c *AuditManager) ListAssessmentFrameworksRequest(input *ListAssessmentFram
 // API operation ListAssessmentFrameworks for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListAssessmentFrameworks
 func (c *AuditManager) ListAssessmentFrameworks(input *ListAssessmentFrameworksInput) (*ListAssessmentFrameworksOutput, error) {
@@ -3953,15 +4090,14 @@ func (c *AuditManager) ListAssessmentFrameworksWithContext(ctx aws.Context, inpu
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListAssessmentFrameworks operation.
-//    pageNum := 0
-//    err := client.ListAssessmentFrameworksPages(params,
-//        func(page *auditmanager.ListAssessmentFrameworksOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListAssessmentFrameworks operation.
+//	pageNum := 0
+//	err := client.ListAssessmentFrameworksPages(params,
+//	    func(page *auditmanager.ListAssessmentFrameworksOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) ListAssessmentFrameworksPages(input *ListAssessmentFrameworksInput, fn func(*ListAssessmentFrameworksOutput, bool) bool) error {
 	return c.ListAssessmentFrameworksPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -4013,14 +4149,13 @@ const opListAssessmentReports = "ListAssessmentReports"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListAssessmentReportsRequest method.
+//	req, resp := client.ListAssessmentReportsRequest(params)
 //
-//    // Example sending a request using the ListAssessmentReportsRequest method.
-//    req, resp := client.ListAssessmentReportsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListAssessmentReports
 func (c *AuditManager) ListAssessmentReportsRequest(input *ListAssessmentReportsInput) (req *request.Request, output *ListAssessmentReportsOutput) {
@@ -4057,16 +4192,17 @@ func (c *AuditManager) ListAssessmentReportsRequest(input *ListAssessmentReports
 // API operation ListAssessmentReports for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListAssessmentReports
 func (c *AuditManager) ListAssessmentReports(input *ListAssessmentReportsInput) (*ListAssessmentReportsOutput, error) {
@@ -4098,15 +4234,14 @@ func (c *AuditManager) ListAssessmentReportsWithContext(ctx aws.Context, input *
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListAssessmentReports operation.
-//    pageNum := 0
-//    err := client.ListAssessmentReportsPages(params,
-//        func(page *auditmanager.ListAssessmentReportsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListAssessmentReports operation.
+//	pageNum := 0
+//	err := client.ListAssessmentReportsPages(params,
+//	    func(page *auditmanager.ListAssessmentReportsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) ListAssessmentReportsPages(input *ListAssessmentReportsInput, fn func(*ListAssessmentReportsOutput, bool) bool) error {
 	return c.ListAssessmentReportsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -4158,14 +4293,13 @@ const opListAssessments = "ListAssessments"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListAssessmentsRequest method.
+//	req, resp := client.ListAssessmentsRequest(params)
 //
-//    // Example sending a request using the ListAssessmentsRequest method.
-//    req, resp := client.ListAssessmentsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListAssessments
 func (c *AuditManager) ListAssessmentsRequest(input *ListAssessmentsInput) (req *request.Request, output *ListAssessmentsOutput) {
@@ -4202,16 +4336,17 @@ func (c *AuditManager) ListAssessmentsRequest(input *ListAssessmentsInput) (req 
 // API operation ListAssessments for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListAssessments
 func (c *AuditManager) ListAssessments(input *ListAssessmentsInput) (*ListAssessmentsOutput, error) {
@@ -4243,15 +4378,14 @@ func (c *AuditManager) ListAssessmentsWithContext(ctx aws.Context, input *ListAs
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListAssessments operation.
-//    pageNum := 0
-//    err := client.ListAssessmentsPages(params,
-//        func(page *auditmanager.ListAssessmentsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListAssessments operation.
+//	pageNum := 0
+//	err := client.ListAssessmentsPages(params,
+//	    func(page *auditmanager.ListAssessmentsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) ListAssessmentsPages(input *ListAssessmentsInput, fn func(*ListAssessmentsOutput, bool) bool) error {
 	return c.ListAssessmentsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -4303,14 +4437,13 @@ const opListControlDomainInsights = "ListControlDomainInsights"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListControlDomainInsightsRequest method.
+//	req, resp := client.ListControlDomainInsightsRequest(params)
 //
-//    // Example sending a request using the ListControlDomainInsightsRequest method.
-//    req, resp := client.ListControlDomainInsightsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListControlDomainInsights
 func (c *AuditManager) ListControlDomainInsightsRequest(input *ListControlDomainInsightsInput) (req *request.Request, output *ListControlDomainInsightsOutput) {
@@ -4340,6 +4473,11 @@ func (c *AuditManager) ListControlDomainInsightsRequest(input *ListControlDomain
 // Lists the latest analytics data for control domains across all of your active
 // assessments.
 //
+// Audit Manager supports the control domains that are provided by Amazon Web
+// Services Control Catalog. For information about how to find a list of available
+// control domains, see ListDomains (https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html)
+// in the Amazon Web Services Control Catalog API Reference.
+//
 // A control domain is listed only if at least one of the controls within that
 // domain collected evidence on the lastUpdated date of controlDomainInsights.
 // If this condition isn’t met, no data is listed for that control domain.
@@ -4352,19 +4490,20 @@ func (c *AuditManager) ListControlDomainInsightsRequest(input *ListControlDomain
 // API operation ListControlDomainInsights for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListControlDomainInsights
 func (c *AuditManager) ListControlDomainInsights(input *ListControlDomainInsightsInput) (*ListControlDomainInsightsOutput, error) {
@@ -4396,15 +4535,14 @@ func (c *AuditManager) ListControlDomainInsightsWithContext(ctx aws.Context, inp
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListControlDomainInsights operation.
-//    pageNum := 0
-//    err := client.ListControlDomainInsightsPages(params,
-//        func(page *auditmanager.ListControlDomainInsightsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListControlDomainInsights operation.
+//	pageNum := 0
+//	err := client.ListControlDomainInsightsPages(params,
+//	    func(page *auditmanager.ListControlDomainInsightsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) ListControlDomainInsightsPages(input *ListControlDomainInsightsInput, fn func(*ListControlDomainInsightsOutput, bool) bool) error {
 	return c.ListControlDomainInsightsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -4456,14 +4594,13 @@ const opListControlDomainInsightsByAssessment = "ListControlDomainInsightsByAsse
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListControlDomainInsightsByAssessmentRequest method.
+//	req, resp := client.ListControlDomainInsightsByAssessmentRequest(params)
 //
-//    // Example sending a request using the ListControlDomainInsightsByAssessmentRequest method.
-//    req, resp := client.ListControlDomainInsightsByAssessmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListControlDomainInsightsByAssessment
 func (c *AuditManager) ListControlDomainInsightsByAssessmentRequest(input *ListControlDomainInsightsByAssessmentInput) (req *request.Request, output *ListControlDomainInsightsByAssessmentOutput) {
@@ -4492,6 +4629,11 @@ func (c *AuditManager) ListControlDomainInsightsByAssessmentRequest(input *ListC
 //
 // Lists analytics data for control domains within a specified active assessment.
 //
+// Audit Manager supports the control domains that are provided by Amazon Web
+// Services Control Catalog. For information about how to find a list of available
+// control domains, see ListDomains (https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html)
+// in the Amazon Web Services Control Catalog API Reference.
+//
 // A control domain is listed only if at least one of the controls within that
 // domain collected evidence on the lastUpdated date of controlDomainInsights.
 // If this condition isn’t met, no data is listed for that domain.
@@ -4504,19 +4646,20 @@ func (c *AuditManager) ListControlDomainInsightsByAssessmentRequest(input *ListC
 // API operation ListControlDomainInsightsByAssessment for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListControlDomainInsightsByAssessment
 func (c *AuditManager) ListControlDomainInsightsByAssessment(input *ListControlDomainInsightsByAssessmentInput) (*ListControlDomainInsightsByAssessmentOutput, error) {
@@ -4548,15 +4691,14 @@ func (c *AuditManager) ListControlDomainInsightsByAssessmentWithContext(ctx aws.
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListControlDomainInsightsByAssessment operation.
-//    pageNum := 0
-//    err := client.ListControlDomainInsightsByAssessmentPages(params,
-//        func(page *auditmanager.ListControlDomainInsightsByAssessmentOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListControlDomainInsightsByAssessment operation.
+//	pageNum := 0
+//	err := client.ListControlDomainInsightsByAssessmentPages(params,
+//	    func(page *auditmanager.ListControlDomainInsightsByAssessmentOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) ListControlDomainInsightsByAssessmentPages(input *ListControlDomainInsightsByAssessmentInput, fn func(*ListControlDomainInsightsByAssessmentOutput, bool) bool) error {
 	return c.ListControlDomainInsightsByAssessmentPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -4608,14 +4750,13 @@ const opListControlInsightsByControlDomain = "ListControlInsightsByControlDomain
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListControlInsightsByControlDomainRequest method.
+//	req, resp := client.ListControlInsightsByControlDomainRequest(params)
 //
-//    // Example sending a request using the ListControlInsightsByControlDomainRequest method.
-//    req, resp := client.ListControlInsightsByControlDomainRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListControlInsightsByControlDomain
 func (c *AuditManager) ListControlInsightsByControlDomainRequest(input *ListControlInsightsByControlDomainInput) (req *request.Request, output *ListControlInsightsByControlDomainOutput) {
@@ -4658,19 +4799,20 @@ func (c *AuditManager) ListControlInsightsByControlDomainRequest(input *ListCont
 // API operation ListControlInsightsByControlDomain for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListControlInsightsByControlDomain
 func (c *AuditManager) ListControlInsightsByControlDomain(input *ListControlInsightsByControlDomainInput) (*ListControlInsightsByControlDomainOutput, error) {
@@ -4702,15 +4844,14 @@ func (c *AuditManager) ListControlInsightsByControlDomainWithContext(ctx aws.Con
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListControlInsightsByControlDomain operation.
-//    pageNum := 0
-//    err := client.ListControlInsightsByControlDomainPages(params,
-//        func(page *auditmanager.ListControlInsightsByControlDomainOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListControlInsightsByControlDomain operation.
+//	pageNum := 0
+//	err := client.ListControlInsightsByControlDomainPages(params,
+//	    func(page *auditmanager.ListControlInsightsByControlDomainOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) ListControlInsightsByControlDomainPages(input *ListControlInsightsByControlDomainInput, fn func(*ListControlInsightsByControlDomainOutput, bool) bool) error {
 	return c.ListControlInsightsByControlDomainPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -4762,14 +4903,13 @@ const opListControls = "ListControls"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListControlsRequest method.
+//	req, resp := client.ListControlsRequest(params)
 //
-//    // Example sending a request using the ListControlsRequest method.
-//    req, resp := client.ListControlsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListControls
 func (c *AuditManager) ListControlsRequest(input *ListControlsInput) (req *request.Request, output *ListControlsOutput) {
@@ -4806,16 +4946,17 @@ func (c *AuditManager) ListControlsRequest(input *ListControlsInput) (req *reque
 // API operation ListControls for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListControls
 func (c *AuditManager) ListControls(input *ListControlsInput) (*ListControlsOutput, error) {
@@ -4847,15 +4988,14 @@ func (c *AuditManager) ListControlsWithContext(ctx aws.Context, input *ListContr
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListControls operation.
-//    pageNum := 0
-//    err := client.ListControlsPages(params,
-//        func(page *auditmanager.ListControlsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListControls operation.
+//	pageNum := 0
+//	err := client.ListControlsPages(params,
+//	    func(page *auditmanager.ListControlsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) ListControlsPages(input *ListControlsInput, fn func(*ListControlsOutput, bool) bool) error {
 	return c.ListControlsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -4907,14 +5047,13 @@ const opListKeywordsForDataSource = "ListKeywordsForDataSource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListKeywordsForDataSourceRequest method.
+//	req, resp := client.ListKeywordsForDataSourceRequest(params)
 //
-//    // Example sending a request using the ListKeywordsForDataSourceRequest method.
-//    req, resp := client.ListKeywordsForDataSourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListKeywordsForDataSource
 func (c *AuditManager) ListKeywordsForDataSourceRequest(input *ListKeywordsForDataSourceInput) (req *request.Request, output *ListKeywordsForDataSourceOutput) {
@@ -4952,16 +5091,17 @@ func (c *AuditManager) ListKeywordsForDataSourceRequest(input *ListKeywordsForDa
 // API operation ListKeywordsForDataSource for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListKeywordsForDataSource
 func (c *AuditManager) ListKeywordsForDataSource(input *ListKeywordsForDataSourceInput) (*ListKeywordsForDataSourceOutput, error) {
@@ -4993,15 +5133,14 @@ func (c *AuditManager) ListKeywordsForDataSourceWithContext(ctx aws.Context, inp
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListKeywordsForDataSource operation.
-//    pageNum := 0
-//    err := client.ListKeywordsForDataSourcePages(params,
-//        func(page *auditmanager.ListKeywordsForDataSourceOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListKeywordsForDataSource operation.
+//	pageNum := 0
+//	err := client.ListKeywordsForDataSourcePages(params,
+//	    func(page *auditmanager.ListKeywordsForDataSourceOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) ListKeywordsForDataSourcePages(input *ListKeywordsForDataSourceInput, fn func(*ListKeywordsForDataSourceOutput, bool) bool) error {
 	return c.ListKeywordsForDataSourcePagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -5053,14 +5192,13 @@ const opListNotifications = "ListNotifications"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListNotificationsRequest method.
+//	req, resp := client.ListNotificationsRequest(params)
 //
-//    // Example sending a request using the ListNotificationsRequest method.
-//    req, resp := client.ListNotificationsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListNotifications
 func (c *AuditManager) ListNotificationsRequest(input *ListNotificationsInput) (req *request.Request, output *ListNotificationsOutput) {
@@ -5097,16 +5235,17 @@ func (c *AuditManager) ListNotificationsRequest(input *ListNotificationsInput) (
 // API operation ListNotifications for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListNotifications
 func (c *AuditManager) ListNotifications(input *ListNotificationsInput) (*ListNotificationsOutput, error) {
@@ -5138,15 +5277,14 @@ func (c *AuditManager) ListNotificationsWithContext(ctx aws.Context, input *List
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListNotifications operation.
-//    pageNum := 0
-//    err := client.ListNotificationsPages(params,
-//        func(page *auditmanager.ListNotificationsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListNotifications operation.
+//	pageNum := 0
+//	err := client.ListNotificationsPages(params,
+//	    func(page *auditmanager.ListNotificationsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *AuditManager) ListNotificationsPages(input *ListNotificationsInput, fn func(*ListNotificationsOutput, bool) bool) error {
 	return c.ListNotificationsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -5198,14 +5336,13 @@ const opListTagsForResource = "ListTagsForResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListTagsForResourceRequest method.
+//	req, resp := client.ListTagsForResourceRequest(params)
 //
-//    // Example sending a request using the ListTagsForResourceRequest method.
-//    req, resp := client.ListTagsForResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListTagsForResource
 func (c *AuditManager) ListTagsForResourceRequest(input *ListTagsForResourceInput) (req *request.Request, output *ListTagsForResourceOutput) {
@@ -5236,15 +5373,16 @@ func (c *AuditManager) ListTagsForResourceRequest(input *ListTagsForResourceInpu
 // API operation ListTagsForResource for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ListTagsForResource
 func (c *AuditManager) ListTagsForResource(input *ListTagsForResourceInput) (*ListTagsForResourceOutput, error) {
@@ -5284,14 +5422,13 @@ const opRegisterAccount = "RegisterAccount"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the RegisterAccountRequest method.
+//	req, resp := client.RegisterAccountRequest(params)
 //
-//    // Example sending a request using the RegisterAccountRequest method.
-//    req, resp := client.RegisterAccountRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/RegisterAccount
 func (c *AuditManager) RegisterAccountRequest(input *RegisterAccountInput) (req *request.Request, output *RegisterAccountOutput) {
@@ -5322,22 +5459,23 @@ func (c *AuditManager) RegisterAccountRequest(input *RegisterAccountInput) (req 
 // API operation RegisterAccount for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/RegisterAccount
 func (c *AuditManager) RegisterAccount(input *RegisterAccountInput) (*RegisterAccountOutput, error) {
@@ -5377,14 +5515,13 @@ const opRegisterOrganizationAdminAccount = "RegisterOrganizationAdminAccount"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the RegisterOrganizationAdminAccountRequest method.
+//	req, resp := client.RegisterOrganizationAdminAccountRequest(params)
 //
-//    // Example sending a request using the RegisterOrganizationAdminAccountRequest method.
-//    req, resp := client.RegisterOrganizationAdminAccountRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/RegisterOrganizationAdminAccount
 func (c *AuditManager) RegisterOrganizationAdminAccountRequest(input *RegisterOrganizationAdminAccountInput) (req *request.Request, output *RegisterOrganizationAdminAccountOutput) {
@@ -5416,19 +5553,20 @@ func (c *AuditManager) RegisterOrganizationAdminAccountRequest(input *RegisterOr
 // API operation RegisterOrganizationAdminAccount for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/RegisterOrganizationAdminAccount
 func (c *AuditManager) RegisterOrganizationAdminAccount(input *RegisterOrganizationAdminAccountInput) (*RegisterOrganizationAdminAccountOutput, error) {
@@ -5468,14 +5606,13 @@ const opStartAssessmentFrameworkShare = "StartAssessmentFrameworkShare"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StartAssessmentFrameworkShareRequest method.
+//	req, resp := client.StartAssessmentFrameworkShareRequest(params)
 //
-//    // Example sending a request using the StartAssessmentFrameworkShareRequest method.
-//    req, resp := client.StartAssessmentFrameworkShareRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/StartAssessmentFrameworkShare
 func (c *AuditManager) StartAssessmentFrameworkShareRequest(input *StartAssessmentFrameworkShareInput) (req *request.Request, output *StartAssessmentFrameworkShareOutput) {
@@ -5510,14 +5647,14 @@ func (c *AuditManager) StartAssessmentFrameworkShareRequest(input *StartAssessme
 // Audit Manager deletes the snapshot and the backup snapshot when one of the
 // following events occurs:
 //
-//    * The sender revokes the share request.
+//   - The sender revokes the share request.
 //
-//    * The recipient declines the share request.
+//   - The recipient declines the share request.
 //
-//    * The recipient encounters an error and doesn't successfully accept the
-//    share request.
+//   - The recipient encounters an error and doesn't successfully accept the
+//     share request.
 //
-//    * The share request expires before the recipient responds to the request.
+//   - The share request expires before the recipient responds to the request.
 //
 // When a sender resends a share request (https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html#framework-sharing-resend),
 // the snapshot is replaced with an updated version that corresponds with the
@@ -5544,19 +5681,20 @@ func (c *AuditManager) StartAssessmentFrameworkShareRequest(input *StartAssessme
 // API operation StartAssessmentFrameworkShare for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/StartAssessmentFrameworkShare
 func (c *AuditManager) StartAssessmentFrameworkShare(input *StartAssessmentFrameworkShareInput) (*StartAssessmentFrameworkShareOutput, error) {
@@ -5596,14 +5734,13 @@ const opTagResource = "TagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the TagResourceRequest method.
+//	req, resp := client.TagResourceRequest(params)
 //
-//    // Example sending a request using the TagResourceRequest method.
-//    req, resp := client.TagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/TagResource
 func (c *AuditManager) TagResourceRequest(input *TagResourceInput) (req *request.Request, output *TagResourceOutput) {
@@ -5635,15 +5772,16 @@ func (c *AuditManager) TagResourceRequest(input *TagResourceInput) (req *request
 // API operation TagResource for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/TagResource
 func (c *AuditManager) TagResource(input *TagResourceInput) (*TagResourceOutput, error) {
@@ -5683,14 +5821,13 @@ const opUntagResource = "UntagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UntagResourceRequest method.
+//	req, resp := client.UntagResourceRequest(params)
 //
-//    // Example sending a request using the UntagResourceRequest method.
-//    req, resp := client.UntagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UntagResource
 func (c *AuditManager) UntagResourceRequest(input *UntagResourceInput) (req *request.Request, output *UntagResourceOutput) {
@@ -5722,15 +5859,16 @@ func (c *AuditManager) UntagResourceRequest(input *UntagResourceInput) (req *req
 // API operation UntagResource for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - ValidationException
+//     The request has invalid or missing parameters.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UntagResource
 func (c *AuditManager) UntagResource(input *UntagResourceInput) (*UntagResourceOutput, error) {
@@ -5770,14 +5908,13 @@ const opUpdateAssessment = "UpdateAssessment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateAssessmentRequest method.
+//	req, resp := client.UpdateAssessmentRequest(params)
 //
-//    // Example sending a request using the UpdateAssessmentRequest method.
-//    req, resp := client.UpdateAssessmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateAssessment
 func (c *AuditManager) UpdateAssessmentRequest(input *UpdateAssessmentInput) (req *request.Request, output *UpdateAssessmentOutput) {
@@ -5808,19 +5945,23 @@ func (c *AuditManager) UpdateAssessmentRequest(input *UpdateAssessmentInput) (re
 // API operation UpdateAssessment for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateAssessment
 func (c *AuditManager) UpdateAssessment(input *UpdateAssessmentInput) (*UpdateAssessmentOutput, error) {
@@ -5860,14 +6001,13 @@ const opUpdateAssessmentControl = "UpdateAssessmentControl"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateAssessmentControlRequest method.
+//	req, resp := client.UpdateAssessmentControlRequest(params)
 //
-//    // Example sending a request using the UpdateAssessmentControlRequest method.
-//    req, resp := client.UpdateAssessmentControlRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateAssessmentControl
 func (c *AuditManager) UpdateAssessmentControlRequest(input *UpdateAssessmentControlInput) (req *request.Request, output *UpdateAssessmentControlOutput) {
@@ -5898,19 +6038,20 @@ func (c *AuditManager) UpdateAssessmentControlRequest(input *UpdateAssessmentCon
 // API operation UpdateAssessmentControl for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateAssessmentControl
 func (c *AuditManager) UpdateAssessmentControl(input *UpdateAssessmentControlInput) (*UpdateAssessmentControlOutput, error) {
@@ -5950,14 +6091,13 @@ const opUpdateAssessmentControlSetStatus = "UpdateAssessmentControlSetStatus"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateAssessmentControlSetStatusRequest method.
+//	req, resp := client.UpdateAssessmentControlSetStatusRequest(params)
 //
-//    // Example sending a request using the UpdateAssessmentControlSetStatusRequest method.
-//    req, resp := client.UpdateAssessmentControlSetStatusRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateAssessmentControlSetStatus
 func (c *AuditManager) UpdateAssessmentControlSetStatusRequest(input *UpdateAssessmentControlSetStatusInput) (req *request.Request, output *UpdateAssessmentControlSetStatusOutput) {
@@ -5988,19 +6128,20 @@ func (c *AuditManager) UpdateAssessmentControlSetStatusRequest(input *UpdateAsse
 // API operation UpdateAssessmentControlSetStatus for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateAssessmentControlSetStatus
 func (c *AuditManager) UpdateAssessmentControlSetStatus(input *UpdateAssessmentControlSetStatusInput) (*UpdateAssessmentControlSetStatusOutput, error) {
@@ -6040,14 +6181,13 @@ const opUpdateAssessmentFramework = "UpdateAssessmentFramework"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateAssessmentFrameworkRequest method.
+//	req, resp := client.UpdateAssessmentFrameworkRequest(params)
 //
-//    // Example sending a request using the UpdateAssessmentFrameworkRequest method.
-//    req, resp := client.UpdateAssessmentFrameworkRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateAssessmentFramework
 func (c *AuditManager) UpdateAssessmentFrameworkRequest(input *UpdateAssessmentFrameworkInput) (req *request.Request, output *UpdateAssessmentFrameworkOutput) {
@@ -6078,19 +6218,20 @@ func (c *AuditManager) UpdateAssessmentFrameworkRequest(input *UpdateAssessmentF
 // API operation UpdateAssessmentFramework for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateAssessmentFramework
 func (c *AuditManager) UpdateAssessmentFramework(input *UpdateAssessmentFrameworkInput) (*UpdateAssessmentFrameworkOutput, error) {
@@ -6130,14 +6271,13 @@ const opUpdateAssessmentFrameworkShare = "UpdateAssessmentFrameworkShare"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateAssessmentFrameworkShareRequest method.
+//	req, resp := client.UpdateAssessmentFrameworkShareRequest(params)
 //
-//    // Example sending a request using the UpdateAssessmentFrameworkShareRequest method.
-//    req, resp := client.UpdateAssessmentFrameworkShareRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateAssessmentFrameworkShare
 func (c *AuditManager) UpdateAssessmentFrameworkShareRequest(input *UpdateAssessmentFrameworkShareInput) (req *request.Request, output *UpdateAssessmentFrameworkShareOutput) {
@@ -6168,19 +6308,27 @@ func (c *AuditManager) UpdateAssessmentFrameworkShareRequest(input *UpdateAssess
 // API operation UpdateAssessmentFrameworkShare for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ServiceQuotaExceededException
+//     You've reached your account quota for this resource type. To perform the
+//     requested action, delete some existing resources or request a quota increase
+//     (https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) from
+//     the Service Quotas console. For a list of Audit Manager service quotas, see
+//     Quotas and restrictions for Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateAssessmentFrameworkShare
 func (c *AuditManager) UpdateAssessmentFrameworkShare(input *UpdateAssessmentFrameworkShareInput) (*UpdateAssessmentFrameworkShareOutput, error) {
@@ -6220,14 +6368,13 @@ const opUpdateAssessmentStatus = "UpdateAssessmentStatus"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateAssessmentStatusRequest method.
+//	req, resp := client.UpdateAssessmentStatusRequest(params)
 //
-//    // Example sending a request using the UpdateAssessmentStatusRequest method.
-//    req, resp := client.UpdateAssessmentStatusRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateAssessmentStatus
 func (c *AuditManager) UpdateAssessmentStatusRequest(input *UpdateAssessmentStatusInput) (req *request.Request, output *UpdateAssessmentStatusOutput) {
@@ -6258,26 +6405,27 @@ func (c *AuditManager) UpdateAssessmentStatusRequest(input *UpdateAssessmentStat
 // API operation UpdateAssessmentStatus for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ServiceQuotaExceededException
-//   You've reached your account quota for this resource type. To perform the
-//   requested action, delete some existing resources or request a quota increase
-//   (https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) from
-//   the Service Quotas console. For a list of Audit Manager service quotas, see
-//   Quotas and restrictions for Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ServiceQuotaExceededException
+//     You've reached your account quota for this resource type. To perform the
+//     requested action, delete some existing resources or request a quota increase
+//     (https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) from
+//     the Service Quotas console. For a list of Audit Manager service quotas, see
+//     Quotas and restrictions for Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateAssessmentStatus
 func (c *AuditManager) UpdateAssessmentStatus(input *UpdateAssessmentStatusInput) (*UpdateAssessmentStatusOutput, error) {
@@ -6317,14 +6465,13 @@ const opUpdateControl = "UpdateControl"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateControlRequest method.
+//	req, resp := client.UpdateControlRequest(params)
 //
-//    // Example sending a request using the UpdateControlRequest method.
-//    req, resp := client.UpdateControlRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateControl
 func (c *AuditManager) UpdateControlRequest(input *UpdateControlInput) (req *request.Request, output *UpdateControlOutput) {
@@ -6355,19 +6502,20 @@ func (c *AuditManager) UpdateControlRequest(input *UpdateControlInput) (req *req
 // API operation UpdateControl for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
 //
-//   * ValidationException
-//   The request has invalid or missing parameters.
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateControl
 func (c *AuditManager) UpdateControl(input *UpdateControlInput) (*UpdateControlOutput, error) {
@@ -6407,14 +6555,13 @@ const opUpdateSettings = "UpdateSettings"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateSettingsRequest method.
+//	req, resp := client.UpdateSettingsRequest(params)
 //
-//    // Example sending a request using the UpdateSettingsRequest method.
-//    req, resp := client.UpdateSettingsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateSettings
 func (c *AuditManager) UpdateSettingsRequest(input *UpdateSettingsInput) (req *request.Request, output *UpdateSettingsOutput) {
@@ -6435,7 +6582,7 @@ func (c *AuditManager) UpdateSettingsRequest(input *UpdateSettingsInput) (req *r
 
 // UpdateSettings API operation for AWS Audit Manager.
 //
-// Updates Audit Manager settings for the current user account.
+// Updates Audit Manager settings for the current account.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -6445,16 +6592,17 @@ func (c *AuditManager) UpdateSettingsRequest(input *UpdateSettingsInput) (req *r
 // API operation UpdateSettings for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
+//
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/UpdateSettings
 func (c *AuditManager) UpdateSettings(input *UpdateSettingsInput) (*UpdateSettingsOutput, error) {
@@ -6494,14 +6642,13 @@ const opValidateAssessmentReportIntegrity = "ValidateAssessmentReportIntegrity"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ValidateAssessmentReportIntegrityRequest method.
+//	req, resp := client.ValidateAssessmentReportIntegrityRequest(params)
 //
-//    // Example sending a request using the ValidateAssessmentReportIntegrityRequest method.
-//    req, resp := client.ValidateAssessmentReportIntegrityRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ValidateAssessmentReportIntegrity
 func (c *AuditManager) ValidateAssessmentReportIntegrityRequest(input *ValidateAssessmentReportIntegrityInput) (req *request.Request, output *ValidateAssessmentReportIntegrityOutput) {
@@ -6532,19 +6679,20 @@ func (c *AuditManager) ValidateAssessmentReportIntegrityRequest(input *ValidateA
 // API operation ValidateAssessmentReportIntegrity for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The request has invalid or missing parameters.
 //
-//   * AccessDeniedException
-//   Your account isn't registered with Audit Manager. Check the delegated administrator
-//   setup on the Audit Manager settings page, and try again.
+//   - ValidationException
+//     The request has invalid or missing parameters.
 //
-//   * InternalServerException
-//   An internal service error occurred during the processing of your request.
-//   Try again later.
+//   - AccessDeniedException
+//     Your account isn't registered with Audit Manager. Check the delegated administrator
+//     setup on the Audit Manager settings page, and try again.
 //
-//   * ResourceNotFoundException
-//   The resource that's specified in the request can't be found.
+//   - InternalServerException
+//     An internal service error occurred during the processing of your request.
+//     Try again later.
+//
+//   - ResourceNotFoundException
+//     The resource that's specified in the request can't be found.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/auditmanager-2017-07-25/ValidateAssessmentReportIntegrity
 func (c *AuditManager) ValidateAssessmentReportIntegrity(input *ValidateAssessmentReportIntegrityInput) (*ValidateAssessmentReportIntegrityOutput, error) {
@@ -6574,7 +6722,11 @@ type AWSAccount struct {
 	_ struct{} `type:"structure"`
 
 	// The email address that's associated with the Amazon Web Services account.
-	EmailAddress *string `locationName:"emailAddress" min:"1" type:"string"`
+	//
+	// EmailAddress is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AWSAccount's
+	// String and GoString methods.
+	EmailAddress *string `locationName:"emailAddress" min:"1" type:"string" sensitive:"true"`
 
 	// The identifier for the Amazon Web Services account.
 	Id *string `locationName:"id" min:"12" type:"string"`
@@ -6639,6 +6791,13 @@ func (s *AWSAccount) SetName(v string) *AWSAccount {
 }
 
 // An Amazon Web Service such as Amazon S3 or CloudTrail.
+//
+// For an example of how to find an Amazon Web Service name and how to define
+// it in your assessment scope, see the following:
+//
+//   - Finding an Amazon Web Service name to use in your assessment scope (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_2)
+//
+//   - Defining an Amazon Web Service name in your assessment scope (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_3)
 type AWSService struct {
 	_ struct{} `type:"structure"`
 
@@ -6760,7 +6919,11 @@ type Assessment struct {
 	AwsAccount *AWSAccount `locationName:"awsAccount" type:"structure"`
 
 	// The framework that the assessment was created from.
-	Framework *AssessmentFramework `locationName:"framework" type:"structure"`
+	//
+	// Framework is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Assessment's
+	// String and GoString methods.
+	Framework *AssessmentFramework `locationName:"framework" type:"structure" sensitive:"true"`
 
 	// The metadata for the assessment.
 	Metadata *AssessmentMetadata `locationName:"metadata" type:"structure"`
@@ -6829,9 +6992,13 @@ type AssessmentControl struct {
 	Comments []*ControlComment `locationName:"comments" type:"list"`
 
 	// The description of the control.
-	Description *string `locationName:"description" type:"string"`
+	//
+	// Description is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentControl's
+	// String and GoString methods.
+	Description *string `locationName:"description" type:"string" sensitive:"true"`
 
-	// The amount of evidence that's generated for the control.
+	// The amount of evidence that's collected for the control.
 	EvidenceCount *int64 `locationName:"evidenceCount" type:"integer"`
 
 	// The list of data sources for the evidence.
@@ -6930,7 +7097,7 @@ type AssessmentControlSet struct {
 	Controls []*AssessmentControl `locationName:"controls" type:"list"`
 
 	// The delegations that are associated with the control set.
-	Delegations []*Delegation `locationName:"delegations" type:"list"`
+	Delegations []*Delegation `locationName:"delegations" type:"list" sensitive:"true"`
 
 	// The description for the control set.
 	Description *string `locationName:"description" min:"1" type:"string"`
@@ -6944,9 +7111,13 @@ type AssessmentControlSet struct {
 	ManualEvidenceCount *int64 `locationName:"manualEvidenceCount" type:"integer"`
 
 	// The roles that are associated with the control set.
-	Roles []*Role `locationName:"roles" type:"list"`
+	//
+	// Roles is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentControlSet's
+	// String and GoString methods.
+	Roles []*Role `locationName:"roles" type:"list" sensitive:"true"`
 
-	// Specifies the current status of the control set.
+	// The current status of the control set.
 	Status *string `locationName:"status" type:"string" enum:"ControlSetStatus"`
 
 	// The total number of evidence objects that are retrieved automatically for
@@ -7215,7 +7386,7 @@ func (s *AssessmentEvidenceFolder) SetTotalEvidence(v int64) *AssessmentEvidence
 // The file used to structure and automate Audit Manager assessments for a given
 // compliance standard.
 type AssessmentFramework struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" sensitive:"true"`
 
 	// The Amazon Resource Name (ARN) of the framework.
 	Arn *string `locationName:"arn" min:"20" type:"string"`
@@ -7281,7 +7452,11 @@ type AssessmentFrameworkMetadata struct {
 
 	// The compliance type that the new custom framework supports, such as CIS or
 	// HIPAA.
-	ComplianceType *string `locationName:"complianceType" type:"string"`
+	//
+	// ComplianceType is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentFrameworkMetadata's
+	// String and GoString methods.
+	ComplianceType *string `locationName:"complianceType" type:"string" sensitive:"true"`
 
 	// The number of control sets that are associated with the framework.
 	ControlSetsCount *int64 `locationName:"controlSetsCount" type:"integer"`
@@ -7289,7 +7464,7 @@ type AssessmentFrameworkMetadata struct {
 	// The number of controls that are associated with the framework.
 	ControlsCount *int64 `locationName:"controlsCount" type:"integer"`
 
-	// Specifies when the framework was created.
+	// The time when the framework was created.
 	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp"`
 
 	// The description of the framework.
@@ -7298,7 +7473,7 @@ type AssessmentFrameworkMetadata struct {
 	// The unique identifier for the framework.
 	Id *string `locationName:"id" min:"36" type:"string"`
 
-	// Specifies when the framework was most recently updated.
+	// The time when the framework was most recently updated.
 	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp"`
 
 	// The logo that's associated with the framework.
@@ -7404,7 +7579,11 @@ type AssessmentFrameworkShareRequest struct {
 
 	// The compliance type that the shared custom framework supports, such as CIS
 	// or HIPAA.
-	ComplianceType *string `locationName:"complianceType" type:"string"`
+	//
+	// ComplianceType is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentFrameworkShareRequest's
+	// String and GoString methods.
+	ComplianceType *string `locationName:"complianceType" type:"string" sensitive:"true"`
 
 	// The time when the share request was created.
 	CreationTime *time.Time `locationName:"creationTime" type:"timestamp"`
@@ -7559,20 +7738,32 @@ type AssessmentMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The destination that evidence reports are stored in for the assessment.
-	AssessmentReportsDestination *AssessmentReportsDestination `locationName:"assessmentReportsDestination" type:"structure"`
+	//
+	// AssessmentReportsDestination is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentMetadata's
+	// String and GoString methods.
+	AssessmentReportsDestination *AssessmentReportsDestination `locationName:"assessmentReportsDestination" type:"structure" sensitive:"true"`
 
 	// The name of the compliance standard that's related to the assessment, such
 	// as PCI-DSS.
-	ComplianceType *string `locationName:"complianceType" type:"string"`
+	//
+	// ComplianceType is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentMetadata's
+	// String and GoString methods.
+	ComplianceType *string `locationName:"complianceType" type:"string" sensitive:"true"`
 
 	// Specifies when the assessment was created.
 	CreationTime *time.Time `locationName:"creationTime" type:"timestamp"`
 
 	// The delegations that are associated with the assessment.
-	Delegations []*Delegation `locationName:"delegations" type:"list"`
+	Delegations []*Delegation `locationName:"delegations" type:"list" sensitive:"true"`
 
 	// The description of the assessment.
-	Description *string `locationName:"description" type:"string"`
+	//
+	// Description is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentMetadata's
+	// String and GoString methods.
+	Description *string `locationName:"description" type:"string" sensitive:"true"`
 
 	// The unique identifier for the assessment.
 	Id *string `locationName:"id" min:"36" type:"string"`
@@ -7581,14 +7772,26 @@ type AssessmentMetadata struct {
 	LastUpdated *time.Time `locationName:"lastUpdated" type:"timestamp"`
 
 	// The name of the assessment.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	//
+	// Name is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentMetadata's
+	// String and GoString methods.
+	Name *string `locationName:"name" min:"1" type:"string" sensitive:"true"`
 
 	// The roles that are associated with the assessment.
-	Roles []*Role `locationName:"roles" type:"list"`
+	//
+	// Roles is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentMetadata's
+	// String and GoString methods.
+	Roles []*Role `locationName:"roles" type:"list" sensitive:"true"`
 
 	// The wrapper of Amazon Web Services accounts and services that are in scope
 	// for the assessment.
-	Scope *Scope `locationName:"scope" type:"structure"`
+	//
+	// Scope is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentMetadata's
+	// String and GoString methods.
+	Scope *Scope `locationName:"scope" type:"structure" sensitive:"true"`
 
 	// The overall status of the assessment.
 	Status *string `locationName:"status" type:"string" enum:"AssessmentStatus"`
@@ -7684,13 +7887,17 @@ type AssessmentMetadataItem struct {
 
 	// The name of the compliance standard that's related to the assessment, such
 	// as PCI-DSS.
-	ComplianceType *string `locationName:"complianceType" type:"string"`
+	//
+	// ComplianceType is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentMetadataItem's
+	// String and GoString methods.
+	ComplianceType *string `locationName:"complianceType" type:"string" sensitive:"true"`
 
 	// Specifies when the assessment was created.
 	CreationTime *time.Time `locationName:"creationTime" type:"timestamp"`
 
 	// The delegations that are associated with the assessment.
-	Delegations []*Delegation `locationName:"delegations" type:"list"`
+	Delegations []*Delegation `locationName:"delegations" type:"list" sensitive:"true"`
 
 	// The unique identifier for the assessment.
 	Id *string `locationName:"id" min:"36" type:"string"`
@@ -7699,10 +7906,18 @@ type AssessmentMetadataItem struct {
 	LastUpdated *time.Time `locationName:"lastUpdated" type:"timestamp"`
 
 	// The name of the assessment.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	//
+	// Name is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentMetadataItem's
+	// String and GoString methods.
+	Name *string `locationName:"name" min:"1" type:"string" sensitive:"true"`
 
 	// The roles that are associated with the assessment.
-	Roles []*Role `locationName:"roles" type:"list"`
+	//
+	// Roles is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentMetadataItem's
+	// String and GoString methods.
+	Roles []*Role `locationName:"roles" type:"list" sensitive:"true"`
 
 	// The current status of the assessment.
 	Status *string `locationName:"status" type:"string" enum:"AssessmentStatus"`
@@ -7785,10 +8000,18 @@ type AssessmentReport struct {
 	AssessmentId *string `locationName:"assessmentId" min:"36" type:"string"`
 
 	// The name of the associated assessment.
-	AssessmentName *string `locationName:"assessmentName" min:"1" type:"string"`
+	//
+	// AssessmentName is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentReport's
+	// String and GoString methods.
+	AssessmentName *string `locationName:"assessmentName" min:"1" type:"string" sensitive:"true"`
 
 	// The name of the user who created the assessment report.
-	Author *string `locationName:"author" min:"1" type:"string"`
+	//
+	// Author is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentReport's
+	// String and GoString methods.
+	Author *string `locationName:"author" min:"1" type:"string" sensitive:"true"`
 
 	// The identifier for the specified Amazon Web Services account.
 	AwsAccountId *string `locationName:"awsAccountId" min:"12" type:"string"`
@@ -7797,7 +8020,11 @@ type AssessmentReport struct {
 	CreationTime *time.Time `locationName:"creationTime" type:"timestamp"`
 
 	// The description of the specified assessment report.
-	Description *string `locationName:"description" type:"string"`
+	//
+	// Description is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentReport's
+	// String and GoString methods.
+	Description *string `locationName:"description" type:"string" sensitive:"true"`
 
 	// The unique identifier for the assessment report.
 	Id *string `locationName:"id" min:"36" type:"string"`
@@ -7881,15 +8108,15 @@ func (s *AssessmentReport) SetStatus(v string) *AssessmentReport {
 	return s
 }
 
-// An error entity for the AssessmentReportEvidence API. This is used to provide
+// An error entity for assessment report evidence errors. This is used to provide
 // more meaningful errors than a simple string message.
 type AssessmentReportEvidenceError struct {
 	_ struct{} `type:"structure"`
 
-	// The error code that the AssessmentReportEvidence API returned.
+	// The error code that was returned.
 	ErrorCode *string `locationName:"errorCode" min:"3" type:"string"`
 
-	// The error message that the AssessmentReportEvidence API returned.
+	// The error message that was returned.
 	ErrorMessage *string `locationName:"errorMessage" type:"string"`
 
 	// The identifier for the evidence.
@@ -7940,16 +8167,28 @@ type AssessmentReportMetadata struct {
 	AssessmentId *string `locationName:"assessmentId" min:"36" type:"string"`
 
 	// The name of the associated assessment.
-	AssessmentName *string `locationName:"assessmentName" min:"1" type:"string"`
+	//
+	// AssessmentName is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentReportMetadata's
+	// String and GoString methods.
+	AssessmentName *string `locationName:"assessmentName" min:"1" type:"string" sensitive:"true"`
 
 	// The name of the user who created the assessment report.
-	Author *string `locationName:"author" min:"1" type:"string"`
+	//
+	// Author is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentReportMetadata's
+	// String and GoString methods.
+	Author *string `locationName:"author" min:"1" type:"string" sensitive:"true"`
 
 	// Specifies when the assessment report was created.
 	CreationTime *time.Time `locationName:"creationTime" type:"timestamp"`
 
 	// The description of the assessment report.
-	Description *string `locationName:"description" type:"string"`
+	//
+	// Description is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssessmentReportMetadata's
+	// String and GoString methods.
+	Description *string `locationName:"description" type:"string" sensitive:"true"`
 
 	// The unique identifier for the assessment report.
 	Id *string `locationName:"id" min:"36" type:"string"`
@@ -8029,9 +8268,9 @@ func (s *AssessmentReportMetadata) SetStatus(v string) *AssessmentReportMetadata
 
 // The location where Audit Manager saves assessment reports for the given assessment.
 type AssessmentReportsDestination struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" sensitive:"true"`
 
-	// The destination of the assessment report.
+	// The destination bucket where Audit Manager stores assessment reports.
 	Destination *string `locationName:"destination" min:"1" type:"string"`
 
 	// The destination type, such as Amazon S3.
@@ -8350,8 +8589,12 @@ type BatchCreateDelegationByAssessmentInput struct {
 
 	// The API request to batch create delegations in Audit Manager.
 	//
+	// CreateDelegationRequests is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by BatchCreateDelegationByAssessmentInput's
+	// String and GoString methods.
+	//
 	// CreateDelegationRequests is a required field
-	CreateDelegationRequests []*CreateDelegationRequest `locationName:"createDelegationRequests" min:"1" type:"list" required:"true"`
+	CreateDelegationRequests []*CreateDelegationRequest `locationName:"createDelegationRequests" min:"1" type:"list" required:"true" sensitive:"true"`
 }
 
 // String returns the string representation.
@@ -8420,10 +8663,14 @@ type BatchCreateDelegationByAssessmentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The delegations that are associated with the assessment.
-	Delegations []*Delegation `locationName:"delegations" type:"list"`
+	Delegations []*Delegation `locationName:"delegations" type:"list" sensitive:"true"`
 
 	// A list of errors that the BatchCreateDelegationByAssessment API returned.
-	Errors []*BatchCreateDelegationByAssessmentError `locationName:"errors" type:"list"`
+	//
+	// Errors is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by BatchCreateDelegationByAssessmentOutput's
+	// String and GoString methods.
+	Errors []*BatchCreateDelegationByAssessmentError `locationName:"errors" type:"list" sensitive:"true"`
 }
 
 // String returns the string representation.
@@ -8577,7 +8824,11 @@ type BatchDeleteDelegationByAssessmentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of errors that the BatchDeleteDelegationByAssessment API returned.
-	Errors []*BatchDeleteDelegationByAssessmentError `locationName:"errors" type:"list"`
+	//
+	// Errors is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by BatchDeleteDelegationByAssessmentOutput's
+	// String and GoString methods.
+	Errors []*BatchDeleteDelegationByAssessmentError `locationName:"errors" type:"list" sensitive:"true"`
 }
 
 // String returns the string representation.
@@ -8927,7 +9178,7 @@ type ChangeLog struct {
 	// The time when the action was performed and the changelog record was created.
 	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp"`
 
-	// The IAM user or role that performed the action.
+	// The user or role that performed the action.
 	CreatedBy *string `locationName:"createdBy" min:"20" type:"string"`
 
 	// The name of the object that changed. This could be the name of an assessment,
@@ -8991,10 +9242,18 @@ type Control struct {
 	_ struct{} `type:"structure"`
 
 	// The recommended actions to carry out if the control isn't fulfilled.
-	ActionPlanInstructions *string `locationName:"actionPlanInstructions" type:"string"`
+	//
+	// ActionPlanInstructions is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Control's
+	// String and GoString methods.
+	ActionPlanInstructions *string `locationName:"actionPlanInstructions" type:"string" sensitive:"true"`
 
 	// The title of the action plan for remediating the control.
-	ActionPlanTitle *string `locationName:"actionPlanTitle" type:"string"`
+	//
+	// ActionPlanTitle is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Control's
+	// String and GoString methods.
+	ActionPlanTitle *string `locationName:"actionPlanTitle" type:"string" sensitive:"true"`
 
 	// The Amazon Resource Name (ARN) of the control.
 	Arn *string `locationName:"arn" min:"20" type:"string"`
@@ -9002,38 +9261,60 @@ type Control struct {
 	// The data mapping sources for the control.
 	ControlMappingSources []*ControlMappingSource `locationName:"controlMappingSources" min:"1" type:"list"`
 
-	// The data source that determines where Audit Manager collects evidence from
-	// for the control.
+	// The data source types that determine where Audit Manager collects evidence
+	// from for the control.
 	ControlSources *string `locationName:"controlSources" min:"1" type:"string"`
 
-	// Specifies when the control was created.
+	// The time when the control was created.
 	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp"`
 
-	// The IAM user or role that created the control.
-	CreatedBy *string `locationName:"createdBy" min:"1" type:"string"`
+	// The user or role that created the control.
+	//
+	// CreatedBy is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Control's
+	// String and GoString methods.
+	CreatedBy *string `locationName:"createdBy" min:"1" type:"string" sensitive:"true"`
 
 	// The description of the control.
-	Description *string `locationName:"description" type:"string"`
+	//
+	// Description is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Control's
+	// String and GoString methods.
+	Description *string `locationName:"description" type:"string" sensitive:"true"`
 
 	// The unique identifier for the control.
 	Id *string `locationName:"id" min:"36" type:"string"`
 
-	// Specifies when the control was most recently updated.
+	// The time when the control was most recently updated.
 	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp"`
 
-	// The IAM user or role that most recently updated the control.
-	LastUpdatedBy *string `locationName:"lastUpdatedBy" min:"1" type:"string"`
+	// The user or role that most recently updated the control.
+	//
+	// LastUpdatedBy is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Control's
+	// String and GoString methods.
+	LastUpdatedBy *string `locationName:"lastUpdatedBy" min:"1" type:"string" sensitive:"true"`
 
 	// The name of the control.
 	Name *string `locationName:"name" min:"1" type:"string"`
+
+	// The state of the control. The END_OF_SUPPORT state is applicable to standard
+	// controls only. This state indicates that the standard control can still be
+	// used to collect evidence, but Audit Manager is no longer updating or maintaining
+	// that control.
+	State *string `locationName:"state" type:"string" enum:"ControlState"`
 
 	// The tags associated with the control.
 	Tags map[string]*string `locationName:"tags" type:"map"`
 
 	// The steps that you should follow to determine if the control has been satisfied.
-	TestingInformation *string `locationName:"testingInformation" type:"string"`
+	//
+	// TestingInformation is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Control's
+	// String and GoString methods.
+	TestingInformation *string `locationName:"testingInformation" type:"string" sensitive:"true"`
 
-	// The type of control, such as a custom control or a standard control.
+	// Specifies whether the control is a standard control or a custom control.
 	Type *string `locationName:"type" type:"string" enum:"ControlType"`
 }
 
@@ -9127,6 +9408,12 @@ func (s *Control) SetName(v string) *Control {
 	return s
 }
 
+// SetState sets the State field's value.
+func (s *Control) SetState(v string) *Control {
+	s.State = &v
+	return s
+}
+
 // SetTags sets the Tags field's value.
 func (s *Control) SetTags(v map[string]*string) *Control {
 	s.Tags = v
@@ -9151,10 +9438,18 @@ type ControlComment struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the user who authored the comment.
-	AuthorName *string `locationName:"authorName" min:"1" type:"string"`
+	//
+	// AuthorName is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by ControlComment's
+	// String and GoString methods.
+	AuthorName *string `locationName:"authorName" min:"1" type:"string" sensitive:"true"`
 
 	// The body text of a control comment.
-	CommentBody *string `locationName:"commentBody" type:"string"`
+	//
+	// CommentBody is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by ControlComment's
+	// String and GoString methods.
+	CommentBody *string `locationName:"commentBody" type:"string" sensitive:"true"`
 
 	// The time when the comment was posted.
 	PostedDate *time.Time `locationName:"postedDate" type:"timestamp"`
@@ -9211,14 +9506,18 @@ type ControlDomainInsights struct {
 	// with the control domain.
 	EvidenceInsights *EvidenceInsights `locationName:"evidenceInsights" type:"structure"`
 
-	// The unique identifier for the control domain.
-	Id *string `locationName:"id" min:"36" type:"string"`
+	// The unique identifier for the control domain. Audit Manager supports the
+	// control domains that are provided by Amazon Web Services Control Catalog.
+	// For information about how to find a list of available control domains, see
+	// ListDomains (https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html)
+	// in the Amazon Web Services Control Catalog API Reference.
+	Id *string `locationName:"id" min:"13" type:"string"`
 
 	// The time when the control domain insights were last updated.
 	LastUpdated *time.Time `locationName:"lastUpdated" type:"timestamp"`
 
 	// The name of the control domain.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `locationName:"name" type:"string"`
 
 	// The total number of controls in the control domain.
 	TotalControlsCount *int64 `locationName:"totalControlsCount" type:"integer"`
@@ -9294,13 +9593,13 @@ type ControlInsightsMetadataByAssessmentItem struct {
 	EvidenceInsights *EvidenceInsights `locationName:"evidenceInsights" type:"structure"`
 
 	// The unique identifier for the assessment control.
-	Id *string `locationName:"id" min:"36" type:"string"`
+	Id *string `locationName:"id" min:"13" type:"string"`
 
 	// The time when the assessment control insights were last updated.
 	LastUpdated *time.Time `locationName:"lastUpdated" type:"timestamp"`
 
 	// The name of the assessment control.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `locationName:"name" type:"string"`
 }
 
 // String returns the string representation.
@@ -9364,13 +9663,13 @@ type ControlInsightsMetadataItem struct {
 	EvidenceInsights *EvidenceInsights `locationName:"evidenceInsights" type:"structure"`
 
 	// The unique identifier for the control.
-	Id *string `locationName:"id" min:"36" type:"string"`
+	Id *string `locationName:"id" min:"13" type:"string"`
 
 	// The time when the control insights were last updated.
 	LastUpdated *time.Time `locationName:"lastUpdated" type:"timestamp"`
 
 	// The name of the control.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `locationName:"name" type:"string"`
 }
 
 // String returns the string representation.
@@ -9423,22 +9722,27 @@ type ControlMappingSource struct {
 	// The description of the source.
 	SourceDescription *string `locationName:"sourceDescription" type:"string"`
 
-	// The frequency of evidence collection for the control mapping source.
+	// Specifies how often evidence is collected from the control mapping source.
 	SourceFrequency *string `locationName:"sourceFrequency" type:"string" enum:"SourceFrequency"`
 
 	// The unique identifier for the source.
 	SourceId *string `locationName:"sourceId" min:"36" type:"string"`
 
-	// The keyword to search for in CloudTrail logs, Config rules, Security Hub
-	// checks, and Amazon Web Services API names.
+	// A keyword that relates to the control data source.
+	//
+	// For manual evidence, this keyword indicates if the manual evidence is a file
+	// or text.
+	//
+	// For automated evidence, this keyword identifies a specific CloudTrail event,
+	// Config rule, Security Hub control, or Amazon Web Services API name.
 	//
 	// To learn more about the supported keywords that you can use when mapping
 	// a control data source, see the following pages in the Audit Manager User
 	// Guide:
 	//
-	//    * Config rules supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html)
+	//    * Config rules supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html)
 	//
-	//    * Security Hub controls supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html)
+	//    * Security Hub controls supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html)
 	//
 	//    * API calls supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html)
 	//
@@ -9449,14 +9753,26 @@ type ControlMappingSource struct {
 	SourceName *string `locationName:"sourceName" min:"1" type:"string"`
 
 	// The setup option for the data source. This option reflects if the evidence
-	// collection is automated or manual.
+	// collection method is automated or manual. If you don’t provide a value
+	// for sourceSetUpOption, Audit Manager automatically infers and populates the
+	// correct value based on the sourceType that you specify.
 	SourceSetUpOption *string `locationName:"sourceSetUpOption" type:"string" enum:"SourceSetUpOption"`
 
-	// Specifies one of the five types of data sources for evidence collection.
+	// Specifies which type of data source is used to collect evidence.
+	//
+	//    * The source can be an individual data source type, such as AWS_Cloudtrail,
+	//    AWS_Config, AWS_Security_Hub, AWS_API_Call, or MANUAL.
+	//
+	//    * The source can also be a managed grouping of data sources, such as a
+	//    Core_Control or a Common_Control.
 	SourceType *string `locationName:"sourceType" type:"string" enum:"SourceType"`
 
 	// The instructions for troubleshooting the control.
-	TroubleshootingText *string `locationName:"troubleshootingText" type:"string"`
+	//
+	// TroubleshootingText is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by ControlMappingSource's
+	// String and GoString methods.
+	TroubleshootingText *string `locationName:"troubleshootingText" type:"string" sensitive:"true"`
 }
 
 // String returns the string representation.
@@ -9557,13 +9873,13 @@ type ControlMetadata struct {
 	// for the control.
 	ControlSources *string `locationName:"controlSources" min:"1" type:"string"`
 
-	// Specifies when the control was created.
+	// The time when the control was created.
 	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp"`
 
 	// The unique identifier for the control.
 	Id *string `locationName:"id" min:"36" type:"string"`
 
-	// Specifies when the control was most recently updated.
+	// The time when the control was most recently updated.
 	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp"`
 
 	// The name of the control.
@@ -9805,7 +10121,11 @@ type CreateAssessmentFrameworkInput struct {
 
 	// The compliance type that the new custom framework supports, such as CIS or
 	// HIPAA.
-	ComplianceType *string `locationName:"complianceType" type:"string"`
+	//
+	// ComplianceType is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateAssessmentFrameworkInput's
+	// String and GoString methods.
+	ComplianceType *string `locationName:"complianceType" type:"string" sensitive:"true"`
 
 	// The control sets that are associated with the framework.
 	//
@@ -9944,11 +10264,19 @@ type CreateAssessmentInput struct {
 	// The assessment report storage destination for the assessment that's being
 	// created.
 	//
+	// AssessmentReportsDestination is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateAssessmentInput's
+	// String and GoString methods.
+	//
 	// AssessmentReportsDestination is a required field
-	AssessmentReportsDestination *AssessmentReportsDestination `locationName:"assessmentReportsDestination" type:"structure" required:"true"`
+	AssessmentReportsDestination *AssessmentReportsDestination `locationName:"assessmentReportsDestination" type:"structure" required:"true" sensitive:"true"`
 
 	// The optional description of the assessment to be created.
-	Description *string `locationName:"description" type:"string"`
+	//
+	// Description is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateAssessmentInput's
+	// String and GoString methods.
+	Description *string `locationName:"description" type:"string" sensitive:"true"`
 
 	// The identifier for the framework that the assessment will be created from.
 	//
@@ -9957,19 +10285,41 @@ type CreateAssessmentInput struct {
 
 	// The name of the assessment to be created.
 	//
+	// Name is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateAssessmentInput's
+	// String and GoString methods.
+	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `locationName:"name" min:"1" type:"string" required:"true" sensitive:"true"`
 
 	// The list of roles for the assessment.
 	//
+	// Roles is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateAssessmentInput's
+	// String and GoString methods.
+	//
 	// Roles is a required field
-	Roles []*Role `locationName:"roles" type:"list" required:"true"`
+	Roles []*Role `locationName:"roles" type:"list" required:"true" sensitive:"true"`
 
-	// The wrapper that contains the Amazon Web Services accounts and services that
-	// are in scope for the assessment.
+	// The wrapper that contains the Amazon Web Services accounts that are in scope
+	// for the assessment.
+	//
+	// You no longer need to specify which Amazon Web Services are in scope when
+	// you create or update an assessment. Audit Manager infers the services in
+	// scope by examining your assessment controls and their data sources, and then
+	// mapping this information to the relevant Amazon Web Services.
+	//
+	// If an underlying data source changes for your assessment, we automatically
+	// update the services scope as needed to reflect the correct Amazon Web Services.
+	// This ensures that your assessment collects accurate and comprehensive evidence
+	// about all of the relevant services in your AWS environment.
+	//
+	// Scope is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateAssessmentInput's
+	// String and GoString methods.
 	//
 	// Scope is a required field
-	Scope *Scope `locationName:"scope" type:"structure" required:"true"`
+	Scope *Scope `locationName:"scope" type:"structure" required:"true" sensitive:"true"`
 
 	// The tags that are associated with the assessment.
 	Tags map[string]*string `locationName:"tags" type:"map"`
@@ -10127,12 +10477,33 @@ type CreateAssessmentReportInput struct {
 	AssessmentId *string `location:"uri" locationName:"assessmentId" min:"36" type:"string" required:"true"`
 
 	// The description of the assessment report.
-	Description *string `locationName:"description" type:"string"`
+	//
+	// Description is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateAssessmentReportInput's
+	// String and GoString methods.
+	Description *string `locationName:"description" type:"string" sensitive:"true"`
 
 	// The name of the new assessment report.
 	//
 	// Name is a required field
 	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+
+	// A SQL statement that represents an evidence finder query.
+	//
+	// Provide this parameter when you want to generate an assessment report from
+	// the results of an evidence finder search query. When you use this parameter,
+	// Audit Manager generates a one-time report using only the evidence from the
+	// query output. This report does not include any assessment evidence that was
+	// manually added to a report using the console (https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence),
+	// or associated with a report using the API (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchAssociateAssessmentReportEvidence.html).
+	//
+	// To use this parameter, the enablementStatus (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_EvidenceFinderEnablement.html#auditmanager-Type-EvidenceFinderEnablement-enablementStatus)
+	// of evidence finder must be ENABLED.
+	//
+	// For examples and help resolving queryStatement validation exceptions, see
+	// Troubleshooting evidence finder issues (https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions)
+	// in the Audit Manager User Guide.
+	QueryStatement *string `locationName:"queryStatement" min:"1" type:"string"`
 }
 
 // String returns the string representation.
@@ -10168,6 +10539,9 @@ func (s *CreateAssessmentReportInput) Validate() error {
 	if s.Name != nil && len(*s.Name) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
 	}
+	if s.QueryStatement != nil && len(*s.QueryStatement) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("QueryStatement", 1))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -10190,6 +10564,12 @@ func (s *CreateAssessmentReportInput) SetDescription(v string) *CreateAssessment
 // SetName sets the Name field's value.
 func (s *CreateAssessmentReportInput) SetName(v string) *CreateAssessmentReportInput {
 	s.Name = &v
+	return s
+}
+
+// SetQueryStatement sets the QueryStatement field's value.
+func (s *CreateAssessmentReportInput) SetQueryStatement(v string) *CreateAssessmentReportInput {
+	s.QueryStatement = &v
 	return s
 }
 
@@ -10228,10 +10608,18 @@ type CreateControlInput struct {
 	_ struct{} `type:"structure"`
 
 	// The recommended actions to carry out if the control isn't fulfilled.
-	ActionPlanInstructions *string `locationName:"actionPlanInstructions" type:"string"`
+	//
+	// ActionPlanInstructions is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateControlInput's
+	// String and GoString methods.
+	ActionPlanInstructions *string `locationName:"actionPlanInstructions" type:"string" sensitive:"true"`
 
 	// The title of the action plan for remediating the control.
-	ActionPlanTitle *string `locationName:"actionPlanTitle" type:"string"`
+	//
+	// ActionPlanTitle is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateControlInput's
+	// String and GoString methods.
+	ActionPlanTitle *string `locationName:"actionPlanTitle" type:"string" sensitive:"true"`
 
 	// The data mapping sources for the control.
 	//
@@ -10239,7 +10627,11 @@ type CreateControlInput struct {
 	ControlMappingSources []*CreateControlMappingSource `locationName:"controlMappingSources" min:"1" type:"list" required:"true"`
 
 	// The description of the control.
-	Description *string `locationName:"description" type:"string"`
+	//
+	// Description is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateControlInput's
+	// String and GoString methods.
+	Description *string `locationName:"description" type:"string" sensitive:"true"`
 
 	// The name of the control.
 	//
@@ -10250,7 +10642,11 @@ type CreateControlInput struct {
 	Tags map[string]*string `locationName:"tags" type:"map"`
 
 	// The steps to follow to determine if the control is satisfied.
-	TestingInformation *string `locationName:"testingInformation" type:"string"`
+	//
+	// TestingInformation is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateControlInput's
+	// String and GoString methods.
+	TestingInformation *string `locationName:"testingInformation" type:"string" sensitive:"true"`
 }
 
 // String returns the string representation.
@@ -10345,7 +10741,7 @@ func (s *CreateControlInput) SetTestingInformation(v string) *CreateControlInput
 	return s
 }
 
-// The control mapping fields that represent the source for evidence collection,
+// The mapping attributes that determine the evidence source for a given control,
 // along with related parameters and metadata. This doesn't contain mappingID.
 type CreateControlMappingSource struct {
 	_ struct{} `type:"structure"`
@@ -10354,19 +10750,24 @@ type CreateControlMappingSource struct {
 	// evidence from for the control.
 	SourceDescription *string `locationName:"sourceDescription" type:"string"`
 
-	// The frequency of evidence collection for the control mapping source.
+	// Specifies how often evidence is collected from the control mapping source.
 	SourceFrequency *string `locationName:"sourceFrequency" type:"string" enum:"SourceFrequency"`
 
-	// The keyword to search for in CloudTrail logs, Config rules, Security Hub
-	// checks, and Amazon Web Services API names.
+	// A keyword that relates to the control data source.
+	//
+	// For manual evidence, this keyword indicates if the manual evidence is a file
+	// or text.
+	//
+	// For automated evidence, this keyword identifies a specific CloudTrail event,
+	// Config rule, Security Hub control, or Amazon Web Services API name.
 	//
 	// To learn more about the supported keywords that you can use when mapping
 	// a control data source, see the following pages in the Audit Manager User
 	// Guide:
 	//
-	//    * Config rules supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html)
+	//    * Config rules supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html)
 	//
-	//    * Security Hub controls supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html)
+	//    * Security Hub controls supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html)
 	//
 	//    * API calls supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html)
 	//
@@ -10376,15 +10777,27 @@ type CreateControlMappingSource struct {
 	// The name of the control mapping data source.
 	SourceName *string `locationName:"sourceName" min:"1" type:"string"`
 
-	// The setup option for the data source, which reflects if the evidence collection
-	// is automated or manual.
+	// The setup option for the data source. This option reflects if the evidence
+	// collection method is automated or manual. If you don’t provide a value
+	// for sourceSetUpOption, Audit Manager automatically infers and populates the
+	// correct value based on the sourceType that you specify.
 	SourceSetUpOption *string `locationName:"sourceSetUpOption" type:"string" enum:"SourceSetUpOption"`
 
-	// Specifies one of the five types of data sources for evidence collection.
+	// Specifies which type of data source is used to collect evidence.
+	//
+	//    * The source can be an individual data source type, such as AWS_Cloudtrail,
+	//    AWS_Config, AWS_Security_Hub, AWS_API_Call, or MANUAL.
+	//
+	//    * The source can also be a managed grouping of data sources, such as a
+	//    Core_Control or a Common_Control.
 	SourceType *string `locationName:"sourceType" type:"string" enum:"SourceType"`
 
 	// The instructions for troubleshooting the control.
-	TroubleshootingText *string `locationName:"troubleshootingText" type:"string"`
+	//
+	// TroubleshootingText is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateControlMappingSource's
+	// String and GoString methods.
+	TroubleshootingText *string `locationName:"troubleshootingText" type:"string" sensitive:"true"`
 }
 
 // String returns the string representation.
@@ -10502,7 +10915,11 @@ type CreateDelegationRequest struct {
 	_ struct{} `type:"structure"`
 
 	// A comment that's related to the delegation request.
-	Comment *string `locationName:"comment" type:"string"`
+	//
+	// Comment is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateDelegationRequest's
+	// String and GoString methods.
+	Comment *string `locationName:"comment" type:"string" sensitive:"true"`
 
 	// The unique identifier for the control set.
 	ControlSetId *string `locationName:"controlSetId" min:"1" type:"string"`
@@ -10578,24 +10995,91 @@ func (s *CreateDelegationRequest) SetRoleType(v string) *CreateDelegationRequest
 	return s
 }
 
+// The default s3 bucket where Audit Manager saves the files that you export
+// from evidence finder.
+type DefaultExportDestination struct {
+	_ struct{} `type:"structure"`
+
+	// The destination bucket where Audit Manager stores exported files.
+	Destination *string `locationName:"destination" min:"1" type:"string"`
+
+	// The destination type, such as Amazon S3.
+	DestinationType *string `locationName:"destinationType" type:"string" enum:"ExportDestinationType"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DefaultExportDestination) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DefaultExportDestination) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DefaultExportDestination) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DefaultExportDestination"}
+	if s.Destination != nil && len(*s.Destination) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Destination", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDestination sets the Destination field's value.
+func (s *DefaultExportDestination) SetDestination(v string) *DefaultExportDestination {
+	s.Destination = &v
+	return s
+}
+
+// SetDestinationType sets the DestinationType field's value.
+func (s *DefaultExportDestination) SetDestinationType(v string) *DefaultExportDestination {
+	s.DestinationType = &v
+	return s
+}
+
 // The assignment of a control set to a delegate for review.
 type Delegation struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" sensitive:"true"`
 
 	// The identifier for the assessment that's associated with the delegation.
 	AssessmentId *string `locationName:"assessmentId" min:"36" type:"string"`
 
 	// The name of the assessment that's associated with the delegation.
-	AssessmentName *string `locationName:"assessmentName" min:"1" type:"string"`
+	//
+	// AssessmentName is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Delegation's
+	// String and GoString methods.
+	AssessmentName *string `locationName:"assessmentName" min:"1" type:"string" sensitive:"true"`
 
 	// The comment that's related to the delegation.
-	Comment *string `locationName:"comment" type:"string"`
+	//
+	// Comment is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Delegation's
+	// String and GoString methods.
+	Comment *string `locationName:"comment" type:"string" sensitive:"true"`
 
 	// The identifier for the control set that's associated with the delegation.
 	ControlSetId *string `locationName:"controlSetId" min:"1" type:"string"`
 
-	// The IAM user or role that created the delegation.
-	CreatedBy *string `locationName:"createdBy" min:"1" type:"string"`
+	// The user or role that created the delegation.
+	//
+	// CreatedBy is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Delegation's
+	// String and GoString methods.
+	CreatedBy *string `locationName:"createdBy" min:"1" type:"string" sensitive:"true"`
 
 	// Specifies when the delegation was created.
 	CreationTime *time.Time `locationName:"creationTime" type:"timestamp"`
@@ -10714,7 +11198,11 @@ type DelegationMetadata struct {
 	AssessmentId *string `locationName:"assessmentId" min:"36" type:"string"`
 
 	// The name of the associated assessment.
-	AssessmentName *string `locationName:"assessmentName" min:"1" type:"string"`
+	//
+	// AssessmentName is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by DelegationMetadata's
+	// String and GoString methods.
+	AssessmentName *string `locationName:"assessmentName" min:"1" type:"string" sensitive:"true"`
 
 	// Specifies the name of the control set that was delegated for review.
 	ControlSetName *string `locationName:"controlSetName" min:"1" type:"string"`
@@ -11297,6 +11785,64 @@ func (s DeregisterOrganizationAdminAccountOutput) GoString() string {
 	return s.String()
 }
 
+// The deregistration policy for the data that's stored in Audit Manager. You
+// can use this attribute to determine how your data is handled when you deregister
+// Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html).
+//
+// By default, Audit Manager retains evidence data for two years from the time
+// of its creation. Other Audit Manager resources (including assessments, custom
+// controls, and custom frameworks) remain in Audit Manager indefinitely, and
+// are available if you re-register Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html)
+// in the future. For more information about data retention, see Data Protection
+// (https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html)
+// in the Audit Manager User Guide.
+//
+// If you choose to delete all data, this action permanently deletes all evidence
+// data in your account within seven days. It also deletes all of the Audit
+// Manager resources that you created, including assessments, custom controls,
+// and custom frameworks. Your data will not be available if you re-register
+// Audit Manager in the future.
+type DeregistrationPolicy struct {
+	_ struct{} `type:"structure"`
+
+	// Specifies which Audit Manager data will be deleted when you deregister Audit
+	// Manager.
+	//
+	//    * If you set the value to ALL, all of your data is deleted within seven
+	//    days of deregistration.
+	//
+	//    * If you set the value to DEFAULT, none of your data is deleted at the
+	//    time of deregistration. However, keep in mind that the Audit Manager data
+	//    retention policy still applies. As a result, any evidence data will be
+	//    deleted two years after its creation date. Your other Audit Manager resources
+	//    will continue to exist indefinitely.
+	DeleteResources *string `locationName:"deleteResources" type:"string" enum:"DeleteResources"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeregistrationPolicy) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeregistrationPolicy) GoString() string {
+	return s.String()
+}
+
+// SetDeleteResources sets the DeleteResources field's value.
+func (s *DeregistrationPolicy) SetDeleteResources(v string) *DeregistrationPolicy {
+	s.DeleteResources = &v
+	return s
+}
+
 type DisassociateAssessmentReportEvidenceFolderInput struct {
 	_ struct{} `type:"structure"`
 
@@ -11387,7 +11933,7 @@ func (s DisassociateAssessmentReportEvidenceFolderOutput) GoString() string {
 
 // A record that contains the information needed to demonstrate compliance with
 // the requirements specified by a control. Examples of evidence include change
-// activity triggered by a user, or a system configuration snapshot.
+// activity invoked by a user, or a system configuration snapshot.
 type Evidence struct {
 	_ struct{} `type:"structure"`
 
@@ -11406,10 +11952,21 @@ type Evidence struct {
 	// its organization path.
 	AwsOrganization *string `locationName:"awsOrganization" type:"string"`
 
-	// The evaluation status for evidence that falls under the compliance check
-	// category. For evidence collected from Security Hub, a Pass or Fail result
-	// is shown. For evidence collected from Config, a Compliant or Noncompliant
-	// result is shown.
+	// The evaluation status for automated evidence that falls under the compliance
+	// check category.
+	//
+	//    * Audit Manager classes evidence as non-compliant if Security Hub reports
+	//    a Fail result, or if Config reports a Non-compliant result.
+	//
+	//    * Audit Manager classes evidence as compliant if Security Hub reports
+	//    a Pass result, or if Config reports a Compliant result.
+	//
+	//    * If a compliance check isn't available or applicable, then no compliance
+	//    evaluation can be made for that evidence. This is the case if the evidence
+	//    uses Config or Security Hub as the underlying data source type, but those
+	//    services aren't enabled. This is also the case if the evidence uses an
+	//    underlying data source type that doesn't support compliance checks (such
+	//    as manual evidence, Amazon Web Services API calls, or CloudTrail).
 	ComplianceCheck *string `locationName:"complianceCheck" type:"string"`
 
 	// The data source where the evidence was collected from.
@@ -11430,8 +11987,7 @@ type Evidence struct {
 	// The identifier for the folder that the evidence is stored in.
 	EvidenceFolderId *string `locationName:"evidenceFolderId" min:"36" type:"string"`
 
-	// The unique identifier for the IAM user or role that's associated with the
-	// evidence.
+	// The unique identifier for the user or role that's associated with the evidence.
 	IamId *string `locationName:"iamId" min:"20" type:"string"`
 
 	// The identifier for the evidence.
@@ -11552,6 +12108,99 @@ func (s *Evidence) SetTime(v time.Time) *Evidence {
 	return s
 }
 
+// The settings object that specifies whether evidence finder is enabled. This
+// object also describes the related event data store, and the backfill status
+// for populating the event data store with evidence data.
+type EvidenceFinderEnablement struct {
+	_ struct{} `type:"structure"`
+
+	// The current status of the evidence data backfill process.
+	//
+	// The backfill starts after you enable evidence finder. During this task, Audit
+	// Manager populates an event data store with your past two years’ worth of
+	// evidence data so that your evidence can be queried.
+	//
+	//    * NOT_STARTED means that the backfill hasn’t started yet.
+	//
+	//    * IN_PROGRESS means that the backfill is in progress. This can take up
+	//    to 7 days to complete, depending on the amount of evidence data.
+	//
+	//    * COMPLETED means that the backfill is complete. All of your past evidence
+	//    is now queryable.
+	BackfillStatus *string `locationName:"backfillStatus" type:"string" enum:"EvidenceFinderBackfillStatus"`
+
+	// The current status of the evidence finder feature and the related event data
+	// store.
+	//
+	//    * ENABLE_IN_PROGRESS means that you requested to enable evidence finder.
+	//    An event data store is currently being created to support evidence finder
+	//    queries.
+	//
+	//    * ENABLED means that an event data store was successfully created and
+	//    evidence finder is enabled. We recommend that you wait 7 days until the
+	//    event data store is backfilled with your past two years’ worth of evidence
+	//    data. You can use evidence finder in the meantime, but not all data might
+	//    be available until the backfill is complete.
+	//
+	//    * DISABLE_IN_PROGRESS means that you requested to disable evidence finder,
+	//    and your request is pending the deletion of the event data store.
+	//
+	//    * DISABLED means that you have permanently disabled evidence finder and
+	//    the event data store has been deleted. You can't re-enable evidence finder
+	//    after this point.
+	EnablementStatus *string `locationName:"enablementStatus" type:"string" enum:"EvidenceFinderEnablementStatus"`
+
+	// Represents any errors that occurred when enabling or disabling evidence finder.
+	Error *string `locationName:"error" type:"string"`
+
+	// The Amazon Resource Name (ARN) of the CloudTrail Lake event data store that’s
+	// used by evidence finder. The event data store is the lake of evidence data
+	// that evidence finder runs queries against.
+	EventDataStoreArn *string `locationName:"eventDataStoreArn" min:"20" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s EvidenceFinderEnablement) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s EvidenceFinderEnablement) GoString() string {
+	return s.String()
+}
+
+// SetBackfillStatus sets the BackfillStatus field's value.
+func (s *EvidenceFinderEnablement) SetBackfillStatus(v string) *EvidenceFinderEnablement {
+	s.BackfillStatus = &v
+	return s
+}
+
+// SetEnablementStatus sets the EnablementStatus field's value.
+func (s *EvidenceFinderEnablement) SetEnablementStatus(v string) *EvidenceFinderEnablement {
+	s.EnablementStatus = &v
+	return s
+}
+
+// SetError sets the Error field's value.
+func (s *EvidenceFinderEnablement) SetError(v string) *EvidenceFinderEnablement {
+	s.Error = &v
+	return s
+}
+
+// SetEventDataStoreArn sets the EventDataStoreArn field's value.
+func (s *EvidenceFinderEnablement) SetEventDataStoreArn(v string) *EvidenceFinderEnablement {
+	s.EventDataStoreArn = &v
+	return s
+}
+
 // A breakdown of the latest compliance check status for the evidence in your
 // Audit Manager assessments.
 type EvidenceInsights struct {
@@ -11622,21 +12271,32 @@ type Framework struct {
 	// The Amazon Resource Name (ARN) of the framework.
 	Arn *string `locationName:"arn" min:"20" type:"string"`
 
-	// The compliance type that the new custom framework supports, such as CIS or
-	// HIPAA.
-	ComplianceType *string `locationName:"complianceType" type:"string"`
+	// The compliance type that the framework supports, such as CIS or HIPAA.
+	//
+	// ComplianceType is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Framework's
+	// String and GoString methods.
+	ComplianceType *string `locationName:"complianceType" type:"string" sensitive:"true"`
 
 	// The control sets that are associated with the framework.
-	ControlSets []*ControlSet `locationName:"controlSets" min:"1" type:"list"`
+	//
+	// ControlSets is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Framework's
+	// String and GoString methods.
+	ControlSets []*ControlSet `locationName:"controlSets" min:"1" type:"list" sensitive:"true"`
 
-	// The sources that Audit Manager collects evidence from for the control.
+	// The control data sources where Audit Manager collects evidence from.
 	ControlSources *string `locationName:"controlSources" min:"1" type:"string"`
 
-	// Specifies when the framework was created.
+	// The time when the framework was created.
 	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp"`
 
-	// The IAM user or role that created the framework.
-	CreatedBy *string `locationName:"createdBy" min:"1" type:"string"`
+	// The user or role that created the framework.
+	//
+	// CreatedBy is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Framework's
+	// String and GoString methods.
+	CreatedBy *string `locationName:"createdBy" min:"1" type:"string" sensitive:"true"`
 
 	// The description of the framework.
 	Description *string `locationName:"description" min:"1" type:"string"`
@@ -11644,11 +12304,15 @@ type Framework struct {
 	// The unique identifier for the framework.
 	Id *string `locationName:"id" min:"36" type:"string"`
 
-	// Specifies when the framework was most recently updated.
+	// The time when the framework was most recently updated.
 	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp"`
 
-	// The IAM user or role that most recently updated the framework.
-	LastUpdatedBy *string `locationName:"lastUpdatedBy" min:"1" type:"string"`
+	// The user or role that most recently updated the framework.
+	//
+	// LastUpdatedBy is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Framework's
+	// String and GoString methods.
+	LastUpdatedBy *string `locationName:"lastUpdatedBy" min:"1" type:"string" sensitive:"true"`
 
 	// The logo that's associated with the framework.
 	Logo *string `locationName:"logo" min:"1" type:"string"`
@@ -11659,7 +12323,7 @@ type Framework struct {
 	// The tags that are associated with the framework.
 	Tags map[string]*string `locationName:"tags" type:"map"`
 
-	// The framework type, such as a custom framework or a standard framework.
+	// Specifies whether the framework is a standard framework or a custom framework.
 	Type *string `locationName:"type" type:"string" enum:"FrameworkType"`
 }
 
@@ -11771,7 +12435,11 @@ type FrameworkMetadata struct {
 
 	// The compliance standard that's associated with the framework. For example,
 	// this could be PCI DSS or HIPAA.
-	ComplianceType *string `locationName:"complianceType" type:"string"`
+	//
+	// ComplianceType is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by FrameworkMetadata's
+	// String and GoString methods.
+	ComplianceType *string `locationName:"complianceType" type:"string" sensitive:"true"`
 
 	// The description of the framework.
 	Description *string `locationName:"description" min:"1" type:"string"`
@@ -11780,7 +12448,11 @@ type FrameworkMetadata struct {
 	Logo *string `locationName:"logo" min:"1" type:"string"`
 
 	// The name of the framework.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	//
+	// Name is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by FrameworkMetadata's
+	// String and GoString methods.
+	Name *string `locationName:"name" min:"1" type:"string" sensitive:"true"`
 }
 
 // String returns the string representation.
@@ -12337,7 +13009,7 @@ func (s *GetControlInput) SetControlId(v string) *GetControlInput {
 type GetControlOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The name of the control that the GetControl API returned.
+	// The details of the control that the GetControl API returned.
 	Control *Control `locationName:"control" type:"structure"`
 }
 
@@ -12607,6 +13279,102 @@ func (s *GetEvidenceByEvidenceFolderOutput) SetEvidence(v []*Evidence) *GetEvide
 // SetNextToken sets the NextToken field's value.
 func (s *GetEvidenceByEvidenceFolderOutput) SetNextToken(v string) *GetEvidenceByEvidenceFolderOutput {
 	s.NextToken = &v
+	return s
+}
+
+type GetEvidenceFileUploadUrlInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The file that you want to upload. For a list of supported file formats, see
+	// Supported file types for manual evidence (https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files)
+	// in the Audit Manager User Guide.
+	//
+	// FileName is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by GetEvidenceFileUploadUrlInput's
+	// String and GoString methods.
+	//
+	// FileName is a required field
+	FileName *string `location:"querystring" locationName:"fileName" min:"1" type:"string" required:"true" sensitive:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetEvidenceFileUploadUrlInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetEvidenceFileUploadUrlInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetEvidenceFileUploadUrlInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetEvidenceFileUploadUrlInput"}
+	if s.FileName == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileName"))
+	}
+	if s.FileName != nil && len(*s.FileName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("FileName", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetFileName sets the FileName field's value.
+func (s *GetEvidenceFileUploadUrlInput) SetFileName(v string) *GetEvidenceFileUploadUrlInput {
+	s.FileName = &v
+	return s
+}
+
+type GetEvidenceFileUploadUrlOutput struct {
+	_ struct{} `type:"structure" sensitive:"true"`
+
+	// The name of the uploaded manual evidence file that the presigned URL was
+	// generated for.
+	EvidenceFileName *string `locationName:"evidenceFileName" min:"1" type:"string"`
+
+	// The presigned URL that was generated.
+	UploadUrl *string `locationName:"uploadUrl" min:"1" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetEvidenceFileUploadUrlOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetEvidenceFileUploadUrlOutput) GoString() string {
+	return s.String()
+}
+
+// SetEvidenceFileName sets the EvidenceFileName field's value.
+func (s *GetEvidenceFileUploadUrlOutput) SetEvidenceFileName(v string) *GetEvidenceFileUploadUrlOutput {
+	s.EvidenceFileName = &v
+	return s
+}
+
+// SetUploadUrl sets the UploadUrl field's value.
+func (s *GetEvidenceFileUploadUrlOutput) SetUploadUrl(v string) *GetEvidenceFileUploadUrlOutput {
+	s.UploadUrl = &v
 	return s
 }
 
@@ -13091,7 +13859,7 @@ func (s *GetEvidenceInput) SetEvidenceId(v string) *GetEvidenceInput {
 type GetEvidenceOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The evidence that the GetEvidenceResponse API returned.
+	// The evidence that the GetEvidence API returned.
 	Evidence *Evidence `locationName:"evidence" type:"structure"`
 }
 
@@ -13370,7 +14138,7 @@ func (s *GetServicesInScopeOutput) SetServiceMetadata(v []*ServiceMetadata) *Get
 type GetSettingsInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
-	// The list of SettingAttribute enum values.
+	// The list of setting attribute enum values.
 	//
 	// Attribute is a required field
 	Attribute *string `location:"uri" locationName:"attribute" type:"string" required:"true" enum:"SettingAttribute"`
@@ -13462,13 +14230,13 @@ func (s *GetSettingsOutput) SetSettings(v *Settings) *GetSettingsOutput {
 // If you delete an assessment or change its status to inactive, InsightsByAssessment
 // includes data for that assessment as follows.
 //
-//    * Inactive assessments - If Audit Manager collected evidence for your
-//    assessment before you changed it inactive, that evidence is included in
-//    the InsightsByAssessment counts for that day.
+//   - Inactive assessments - If Audit Manager collected evidence for your
+//     assessment before you changed it inactive, that evidence is included in
+//     the InsightsByAssessment counts for that day.
 //
-//    * Deleted assessments - If Audit Manager collected evidence for your assessment
-//    before you deleted it, that evidence isn't included in the InsightsByAssessment
-//    counts for that day.
+//   - Deleted assessments - If Audit Manager collected evidence for your assessment
+//     before you deleted it, that evidence isn't included in the InsightsByAssessment
+//     counts for that day.
 type Insights struct {
 	_ struct{} `type:"structure"`
 
@@ -13583,13 +14351,13 @@ func (s *Insights) SetTotalAssessmentControlsCount(v int64) *Insights {
 // If you delete an assessment or change its status to inactive, InsightsByAssessment
 // includes data for that assessment as follows.
 //
-//    * Inactive assessments - If Audit Manager collected evidence for your
-//    assessment before you changed it inactive, that evidence is included in
-//    the InsightsByAssessment counts for that day.
+//   - Inactive assessments - If Audit Manager collected evidence for your
+//     assessment before you changed it inactive, that evidence is included in
+//     the InsightsByAssessment counts for that day.
 //
-//    * Deleted assessments - If Audit Manager collected evidence for your assessment
-//    before you deleted it, that evidence isn't included in the InsightsByAssessment
-//    counts for that day.
+//   - Deleted assessments - If Audit Manager collected evidence for your assessment
+//     before you deleted it, that evidence isn't included in the InsightsByAssessment
+//     counts for that day.
 type InsightsByAssessment struct {
 	_ struct{} `type:"structure"`
 
@@ -13753,8 +14521,13 @@ type ListAssessmentControlInsightsByControlDomainInput struct {
 
 	// The unique identifier for the control domain.
 	//
+	// Audit Manager supports the control domains that are provided by Amazon Web
+	// Services Control Catalog. For information about how to find a list of available
+	// control domains, see ListDomains (https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html)
+	// in the Amazon Web Services Control Catalog API Reference.
+	//
 	// ControlDomainId is a required field
-	ControlDomainId *string `location:"querystring" locationName:"controlDomainId" min:"36" type:"string" required:"true"`
+	ControlDomainId *string `location:"querystring" locationName:"controlDomainId" min:"13" type:"string" required:"true"`
 
 	// Represents the maximum number of results on a page or for an API request
 	// call.
@@ -13794,8 +14567,8 @@ func (s *ListAssessmentControlInsightsByControlDomainInput) Validate() error {
 	if s.ControlDomainId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ControlDomainId"))
 	}
-	if s.ControlDomainId != nil && len(*s.ControlDomainId) < 36 {
-		invalidParams.Add(request.NewErrParamMinLen("ControlDomainId", 36))
+	if s.ControlDomainId != nil && len(*s.ControlDomainId) < 13 {
+		invalidParams.Add(request.NewErrParamMinLen("ControlDomainId", 13))
 	}
 	if s.MaxResults != nil && *s.MaxResults < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
@@ -14061,7 +14834,8 @@ func (s *ListAssessmentFrameworksInput) SetNextToken(v string) *ListAssessmentFr
 type ListAssessmentFrameworksOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The list of metadata objects for the framework.
+	// A list of metadata that the ListAssessmentFrameworks API returns for each
+	// framework.
 	FrameworkMetadataList []*AssessmentFrameworkMetadata `locationName:"frameworkMetadataList" type:"list"`
 
 	// The pagination token that's used to fetch the next set of results.
@@ -14264,7 +15038,7 @@ func (s *ListAssessmentsInput) SetStatus(v string) *ListAssessmentsInput {
 type ListAssessmentsOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The metadata that's associated with the assessment.
+	// The metadata that the ListAssessments API returns for each assessment.
 	AssessmentMetadata []*AssessmentMetadataItem `locationName:"assessmentMetadata" type:"list"`
 
 	// The pagination token that's used to fetch the next set of results.
@@ -14519,8 +15293,13 @@ type ListControlInsightsByControlDomainInput struct {
 
 	// The unique identifier for the control domain.
 	//
+	// Audit Manager supports the control domains that are provided by Amazon Web
+	// Services Control Catalog. For information about how to find a list of available
+	// control domains, see ListDomains (https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html)
+	// in the Amazon Web Services Control Catalog API Reference.
+	//
 	// ControlDomainId is a required field
-	ControlDomainId *string `location:"querystring" locationName:"controlDomainId" min:"36" type:"string" required:"true"`
+	ControlDomainId *string `location:"querystring" locationName:"controlDomainId" min:"13" type:"string" required:"true"`
 
 	// Represents the maximum number of results on a page or for an API request
 	// call.
@@ -14554,8 +15333,8 @@ func (s *ListControlInsightsByControlDomainInput) Validate() error {
 	if s.ControlDomainId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ControlDomainId"))
 	}
-	if s.ControlDomainId != nil && len(*s.ControlDomainId) < 36 {
-		invalidParams.Add(request.NewErrParamMinLen("ControlDomainId", 36))
+	if s.ControlDomainId != nil && len(*s.ControlDomainId) < 13 {
+		invalidParams.Add(request.NewErrParamMinLen("ControlDomainId", 13))
 	}
 	if s.MaxResults != nil && *s.MaxResults < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
@@ -14632,13 +15411,33 @@ func (s *ListControlInsightsByControlDomainOutput) SetNextToken(v string) *ListC
 type ListControlsInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
-	// The type of control, such as a standard control or a custom control.
+	// A filter that narrows the list of controls to a specific resource from the
+	// Amazon Web Services Control Catalog.
+	//
+	// To use this parameter, specify the ARN of the Control Catalog resource. You
+	// can specify either a control domain, a control objective, or a common control.
+	// For information about how to find the ARNs for these resources, see ListDomains
+	// (https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html),
+	// ListObjectives (https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListObjectives.html),
+	// and ListCommonControls (https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListCommonControls.html).
+	//
+	// You can only filter by one Control Catalog resource at a time. Specifying
+	// multiple resource ARNs isn’t currently supported. If you want to filter
+	// by more than one ARN, we recommend that you run the ListControls operation
+	// separately for each ARN.
+	//
+	// Alternatively, specify UNCATEGORIZED to list controls that aren't mapped
+	// to a Control Catalog resource. For example, this operation might return a
+	// list of custom controls that don't belong to any control domain or control
+	// objective.
+	ControlCatalogId *string `location:"querystring" locationName:"controlCatalogId" min:"13" type:"string"`
+
+	// A filter that narrows the list of controls to a specific type.
 	//
 	// ControlType is a required field
 	ControlType *string `location:"querystring" locationName:"controlType" type:"string" required:"true" enum:"ControlType"`
 
-	// Represents the maximum number of results on a page or for an API request
-	// call.
+	// The maximum number of results on a page or for an API request call.
 	MaxResults *int64 `location:"querystring" locationName:"maxResults" min:"1" type:"integer"`
 
 	// The pagination token that's used to fetch the next set of results.
@@ -14666,6 +15465,9 @@ func (s ListControlsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListControlsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListControlsInput"}
+	if s.ControlCatalogId != nil && len(*s.ControlCatalogId) < 13 {
+		invalidParams.Add(request.NewErrParamMinLen("ControlCatalogId", 13))
+	}
 	if s.ControlType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ControlType"))
 	}
@@ -14680,6 +15482,12 @@ func (s *ListControlsInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetControlCatalogId sets the ControlCatalogId field's value.
+func (s *ListControlsInput) SetControlCatalogId(v string) *ListControlsInput {
+	s.ControlCatalogId = &v
+	return s
 }
 
 // SetControlType sets the ControlType field's value.
@@ -14703,7 +15511,7 @@ func (s *ListControlsInput) SetNextToken(v string) *ListControlsInput {
 type ListControlsOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The list of control metadata objects that the ListControls API returned.
+	// A list of metadata that the ListControls API returns for each control.
 	ControlMetadataList []*ControlMetadata `locationName:"controlMetadataList" type:"list"`
 
 	// The pagination token that's used to fetch the next set of results.
@@ -14753,7 +15561,7 @@ type ListKeywordsForDataSourceInput struct {
 	// The control mapping data source that the keywords apply to.
 	//
 	// Source is a required field
-	Source *string `location:"querystring" locationName:"source" type:"string" required:"true" enum:"SourceType"`
+	Source *string `location:"querystring" locationName:"source" type:"string" required:"true" enum:"DataSourceType"`
 }
 
 // String returns the string representation.
@@ -14814,7 +15622,7 @@ func (s *ListKeywordsForDataSourceInput) SetSource(v string) *ListKeywordsForDat
 type ListKeywordsForDataSourceOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The list of keywords for the event mapping source.
+	// The list of keywords for the control mapping source.
 	Keywords []*string `locationName:"keywords" type:"list"`
 
 	// The pagination token that's used to fetch the next set of results.
@@ -15028,12 +15836,29 @@ func (s *ListTagsForResourceOutput) SetTags(v map[string]*string) *ListTagsForRe
 	return s
 }
 
-// Evidence that's uploaded to Audit Manager manually.
+// Evidence that's manually added to a control in Audit Manager. manualEvidence
+// can be one of the following: evidenceFileName, s3ResourcePath, or textResponse.
 type ManualEvidence struct {
 	_ struct{} `type:"structure"`
 
-	// The Amazon S3 URL that points to a manual evidence object.
+	// The name of the file that's uploaded as manual evidence. This name is populated
+	// using the evidenceFileName value from the GetEvidenceFileUploadUrl (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetEvidenceFileUploadUrl.html)
+	// API response.
+	//
+	// EvidenceFileName is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by ManualEvidence's
+	// String and GoString methods.
+	EvidenceFileName *string `locationName:"evidenceFileName" min:"1" type:"string" sensitive:"true"`
+
+	// The S3 URL of the object that's imported as manual evidence.
 	S3ResourcePath *string `locationName:"s3ResourcePath" min:"1" type:"string"`
+
+	// The plain text response that's entered and saved as manual evidence.
+	//
+	// TextResponse is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by ManualEvidence's
+	// String and GoString methods.
+	TextResponse *string `locationName:"textResponse" min:"1" type:"string" sensitive:"true"`
 }
 
 // String returns the string representation.
@@ -15057,8 +15882,14 @@ func (s ManualEvidence) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ManualEvidence) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ManualEvidence"}
+	if s.EvidenceFileName != nil && len(*s.EvidenceFileName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("EvidenceFileName", 1))
+	}
 	if s.S3ResourcePath != nil && len(*s.S3ResourcePath) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("S3ResourcePath", 1))
+	}
+	if s.TextResponse != nil && len(*s.TextResponse) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("TextResponse", 1))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -15067,9 +15898,21 @@ func (s *ManualEvidence) Validate() error {
 	return nil
 }
 
+// SetEvidenceFileName sets the EvidenceFileName field's value.
+func (s *ManualEvidence) SetEvidenceFileName(v string) *ManualEvidence {
+	s.EvidenceFileName = &v
+	return s
+}
+
 // SetS3ResourcePath sets the S3ResourcePath field's value.
 func (s *ManualEvidence) SetS3ResourcePath(v string) *ManualEvidence {
 	s.S3ResourcePath = &v
+	return s
+}
+
+// SetTextResponse sets the TextResponse field's value.
+func (s *ManualEvidence) SetTextResponse(v string) *ManualEvidence {
+	s.TextResponse = &v
 	return s
 }
 
@@ -15083,7 +15926,11 @@ type Notification struct {
 	AssessmentId *string `locationName:"assessmentId" min:"36" type:"string"`
 
 	// The name of the related assessment.
-	AssessmentName *string `locationName:"assessmentName" min:"1" type:"string"`
+	//
+	// AssessmentName is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Notification's
+	// String and GoString methods.
+	AssessmentName *string `locationName:"assessmentName" min:"1" type:"string" sensitive:"true"`
 
 	// The identifier for the control set.
 	ControlSetId *string `locationName:"controlSetId" min:"1" type:"string"`
@@ -15353,6 +16200,23 @@ type Resource struct {
 	// The Amazon Resource Name (ARN) for the resource.
 	Arn *string `locationName:"arn" min:"20" type:"string"`
 
+	// The evaluation status for a resource that was assessed when collecting compliance
+	// check evidence.
+	//
+	//    * Audit Manager classes the resource as non-compliant if Security Hub
+	//    reports a Fail result, or if Config reports a Non-compliant result.
+	//
+	//    * Audit Manager classes the resource as compliant if Security Hub reports
+	//    a Pass result, or if Config reports a Compliant result.
+	//
+	//    * If a compliance check isn't available or applicable, then no compliance
+	//    evaluation can be made for that resource. This is the case if a resource
+	//    assessment uses Config or Security Hub as the underlying data source type,
+	//    but those services aren't enabled. This is also the case if the resource
+	//    assessment uses an underlying data source type that doesn't support compliance
+	//    checks (such as manual evidence, Amazon Web Services API calls, or CloudTrail).
+	ComplianceCheck *string `locationName:"complianceCheck" type:"string"`
+
 	// The value of the resource.
 	Value *string `locationName:"value" type:"string"`
 }
@@ -15378,6 +16242,12 @@ func (s Resource) GoString() string {
 // SetArn sets the Arn field's value.
 func (s *Resource) SetArn(v string) *Resource {
 	s.Arn = &v
+	return s
+}
+
+// SetComplianceCheck sets the ComplianceCheck field's value.
+func (s *Resource) SetComplianceCheck(v string) *Resource {
+	s.ComplianceCheck = &v
 	return s
 }
 
@@ -15532,16 +16402,36 @@ func (s *Role) SetRoleType(v string) *Role {
 	return s
 }
 
-// The wrapper that contains the Amazon Web Services accounts and services that
-// are in scope for the assessment.
+// The wrapper that contains the Amazon Web Services accounts that are in scope
+// for the assessment.
+//
+// You no longer need to specify which Amazon Web Services are in scope when
+// you create or update an assessment. Audit Manager infers the services in
+// scope by examining your assessment controls and their data sources, and then
+// mapping this information to the relevant Amazon Web Services.
+//
+// If an underlying data source changes for your assessment, we automatically
+// update the services scope as needed to reflect the correct Amazon Web Services.
+// This ensures that your assessment collects accurate and comprehensive evidence
+// about all of the relevant services in your AWS environment.
 type Scope struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" sensitive:"true"`
 
 	// The Amazon Web Services accounts that are included in the scope of the assessment.
-	AwsAccounts []*AWSAccount `locationName:"awsAccounts" type:"list"`
+	//
+	// AwsAccounts is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Scope's
+	// String and GoString methods.
+	AwsAccounts []*AWSAccount `locationName:"awsAccounts" min:"1" type:"list" sensitive:"true"`
 
 	// The Amazon Web Services services that are included in the scope of the assessment.
-	AwsServices []*AWSService `locationName:"awsServices" type:"list"`
+	//
+	// This API parameter is no longer supported. If you use this parameter to specify
+	// one or more Amazon Web Services, Audit Manager ignores this input. Instead,
+	// the value for awsServices will show as empty.
+	//
+	// Deprecated: You can't specify services in scope when creating/updating an assessment. If you use the parameter to specify one or more AWS services, Audit Manager ignores the input. Instead the value of the parameter will show as empty indicating that the services are defined and managed by Audit Manager.
+	AwsServices []*AWSService `locationName:"awsServices" deprecated:"true" type:"list"`
 }
 
 // String returns the string representation.
@@ -15565,6 +16455,9 @@ func (s Scope) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *Scope) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "Scope"}
+	if s.AwsAccounts != nil && len(s.AwsAccounts) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("AwsAccounts", 1))
+	}
 	if s.AwsAccounts != nil {
 		for i, v := range s.AwsAccounts {
 			if v == nil {
@@ -15736,11 +16629,29 @@ func (s *ServiceQuotaExceededException) RequestID() string {
 type Settings struct {
 	_ struct{} `type:"structure"`
 
-	// The default storage destination for assessment reports.
-	DefaultAssessmentReportsDestination *AssessmentReportsDestination `locationName:"defaultAssessmentReportsDestination" type:"structure"`
+	// The default S3 destination bucket for storing assessment reports.
+	//
+	// DefaultAssessmentReportsDestination is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Settings's
+	// String and GoString methods.
+	DefaultAssessmentReportsDestination *AssessmentReportsDestination `locationName:"defaultAssessmentReportsDestination" type:"structure" sensitive:"true"`
+
+	// The default S3 destination bucket for storing evidence finder exports.
+	DefaultExportDestination *DefaultExportDestination `locationName:"defaultExportDestination" type:"structure"`
 
 	// The designated default audit owners.
-	DefaultProcessOwners []*Role `locationName:"defaultProcessOwners" type:"list"`
+	//
+	// DefaultProcessOwners is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Settings's
+	// String and GoString methods.
+	DefaultProcessOwners []*Role `locationName:"defaultProcessOwners" type:"list" sensitive:"true"`
+
+	// The deregistration policy for your Audit Manager data. You can use this attribute
+	// to determine how your data is handled when you deregister Audit Manager.
+	DeregistrationPolicy *DeregistrationPolicy `locationName:"deregistrationPolicy" type:"structure"`
+
+	// The current evidence finder status and event data store details.
+	EvidenceFinderEnablement *EvidenceFinderEnablement `locationName:"evidenceFinderEnablement" type:"structure"`
 
 	// Specifies whether Organizations is enabled.
 	IsAwsOrgEnabled *bool `locationName:"isAwsOrgEnabled" type:"boolean"`
@@ -15749,7 +16660,11 @@ type Settings struct {
 	KmsKey *string `locationName:"kmsKey" min:"7" type:"string"`
 
 	// The designated Amazon Simple Notification Service (Amazon SNS) topic.
-	SnsTopic *string `locationName:"snsTopic" min:"1" type:"string"`
+	//
+	// SnsTopic is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Settings's
+	// String and GoString methods.
+	SnsTopic *string `locationName:"snsTopic" min:"1" type:"string" sensitive:"true"`
 }
 
 // String returns the string representation.
@@ -15776,9 +16691,27 @@ func (s *Settings) SetDefaultAssessmentReportsDestination(v *AssessmentReportsDe
 	return s
 }
 
+// SetDefaultExportDestination sets the DefaultExportDestination field's value.
+func (s *Settings) SetDefaultExportDestination(v *DefaultExportDestination) *Settings {
+	s.DefaultExportDestination = v
+	return s
+}
+
 // SetDefaultProcessOwners sets the DefaultProcessOwners field's value.
 func (s *Settings) SetDefaultProcessOwners(v []*Role) *Settings {
 	s.DefaultProcessOwners = v
+	return s
+}
+
+// SetDeregistrationPolicy sets the DeregistrationPolicy field's value.
+func (s *Settings) SetDeregistrationPolicy(v *DeregistrationPolicy) *Settings {
+	s.DeregistrationPolicy = v
+	return s
+}
+
+// SetEvidenceFinderEnablement sets the EvidenceFinderEnablement field's value.
+func (s *Settings) SetEvidenceFinderEnablement(v *EvidenceFinderEnablement) *Settings {
+	s.EvidenceFinderEnablement = v
 	return s
 }
 
@@ -15800,24 +16733,40 @@ func (s *Settings) SetSnsTopic(v string) *Settings {
 	return s
 }
 
-// The keyword to search for in CloudTrail logs, Config rules, Security Hub
-// checks, and Amazon Web Services API names.
+// A keyword that relates to the control data source.
+//
+// For manual evidence, this keyword indicates if the manual evidence is a file
+// or text.
+//
+// For automated evidence, this keyword identifies a specific CloudTrail event,
+// Config rule, Security Hub control, or Amazon Web Services API name.
 //
 // To learn more about the supported keywords that you can use when mapping
 // a control data source, see the following pages in the Audit Manager User
 // Guide:
 //
-//    * Config rules supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html)
+//   - Config rules supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html)
 //
-//    * Security Hub controls supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html)
+//   - Security Hub controls supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html)
 //
-//    * API calls supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html)
+//   - API calls supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html)
 //
-//    * CloudTrail event names supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-cloudtrail.html)
+//   - CloudTrail event names supported by Audit Manager (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-cloudtrail.html)
 type SourceKeyword struct {
 	_ struct{} `type:"structure"`
 
 	// The input method for the keyword.
+	//
+	//    * SELECT_FROM_LIST is used when mapping a data source for automated evidence.
+	//    When keywordInputType is SELECT_FROM_LIST, a keyword must be selected
+	//    to collect automated evidence. For example, this keyword can be a CloudTrail
+	//    event name, a rule name for Config, a Security Hub control, or the name
+	//    of an Amazon Web Services API call.
+	//
+	//    * UPLOAD_FILE and INPUT_TEXT are only used when mapping a data source
+	//    for manual evidence. When keywordInputType is UPLOAD_FILE, a file must
+	//    be uploaded as manual evidence. When keywordInputType is INPUT_TEXT, text
+	//    must be entered as manual evidence.
 	KeywordInputType *string `locationName:"keywordInputType" type:"string" enum:"KeywordInputType"`
 
 	// The value of the keyword that's used when mapping a control data source.
@@ -15830,22 +16779,58 @@ type SourceKeyword struct {
 	//    * For managed rules (https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html),
 	//    you can use the rule identifier as the keywordValue. You can find the
 	//    rule identifier from the list of Config managed rules (https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
-	//    Managed rule name: s3-bucket-acl-prohibited (https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html)
+	//    For some rules, the rule identifier is different from the rule name. For
+	//    example, the rule name restricted-ssh has the following rule identifier:
+	//    INCOMING_SSH_DISABLED. Make sure to use the rule identifier, not the rule
+	//    name. Keyword example for managed rules: Managed rule name: s3-bucket-acl-prohibited
+	//    (https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html)
 	//    keywordValue: S3_BUCKET_ACL_PROHIBITED
 	//
 	//    * For custom rules (https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html),
 	//    you form the keywordValue by adding the Custom_ prefix to the rule name.
-	//    This prefix distinguishes the rule from a managed rule. Custom rule name:
-	//    my-custom-config-rule keywordValue: Custom_my-custom-config-rule
+	//    This prefix distinguishes the custom rule from a managed rule. Keyword
+	//    example for custom rules: Custom rule name: my-custom-config-rule keywordValue:
+	//    Custom_my-custom-config-rule
 	//
 	//    * For service-linked rules (https://docs.aws.amazon.com/config/latest/developerguide/service-linked-awsconfig-rules.html),
 	//    you form the keywordValue by adding the Custom_ prefix to the rule name.
 	//    In addition, you remove the suffix ID that appears at the end of the rule
-	//    name. Service-linked rule name: CustomRuleForAccount-conformance-pack-szsm1uv0w
-	//    keywordValue: Custom_CustomRuleForAccount-conformance-pack Service-linked
-	//    rule name: securityhub-api-gw-cache-encrypted-101104e1 keywordValue: Custom_securityhub-api-gw-cache-encrypted
+	//    name. Keyword examples for service-linked rules: Service-linked rule name:
+	//    CustomRuleForAccount-conformance-pack-szsm1uv0w keywordValue: Custom_CustomRuleForAccount-conformance-pack
 	//    Service-linked rule name: OrgConfigRule-s3-bucket-versioning-enabled-dbgzf8ba
 	//    keywordValue: Custom_OrgConfigRule-s3-bucket-versioning-enabled
+	//
+	// The keywordValue is case sensitive. If you enter a value incorrectly, Audit
+	// Manager might not recognize the data source mapping. As a result, you might
+	// not successfully collect evidence from that data source as intended.
+	//
+	// Keep in mind the following requirements, depending on the data source type
+	// that you're using.
+	//
+	// For Config:
+	//
+	//    * For managed rules, make sure that the keywordValue is the rule identifier
+	//    in ALL_CAPS_WITH_UNDERSCORES. For example, CLOUDWATCH_LOG_GROUP_ENCRYPTED.
+	//    For accuracy, we recommend that you reference the list of supported Config
+	//    managed rules (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html).
+	//
+	//    * For custom rules, make sure that the keywordValue has the Custom_ prefix
+	//    followed by the custom rule name. The format of the custom rule name itself
+	//    may vary. For accuracy, we recommend that you visit the Config console
+	//    (https://console.aws.amazon.com/config/) to verify your custom rule name.
+	//
+	// For Security Hub: The format varies for Security Hub control names. For accuracy,
+	// we recommend that you reference the list of supported Security Hub controls
+	// (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html).
+	//
+	// For Amazon Web Services API calls: Make sure that the keywordValue is written
+	// as serviceprefix_ActionName. For example, iam_ListGroups. For accuracy, we
+	// recommend that you reference the list of supported API calls (https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html).
+	//
+	// For CloudTrail: Make sure that the keywordValue is written as serviceprefix_ActionName.
+	// For example, cloudtrail_StartLogging. For accuracy, we recommend that you
+	// review the Amazon Web Service prefix and action names in the Service Authorization
+	// Reference (https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html).
 	KeywordValue *string `locationName:"keywordValue" min:"1" type:"string"`
 }
 
@@ -16300,7 +17285,11 @@ type UpdateAssessmentControlInput struct {
 	AssessmentId *string `location:"uri" locationName:"assessmentId" min:"36" type:"string" required:"true"`
 
 	// The comment body text for the control.
-	CommentBody *string `locationName:"commentBody" type:"string"`
+	//
+	// CommentBody is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateAssessmentControlInput's
+	// String and GoString methods.
+	CommentBody *string `locationName:"commentBody" type:"string" sensitive:"true"`
 
 	// The unique identifier for the control.
 	//
@@ -16434,8 +17423,12 @@ type UpdateAssessmentControlSetStatusInput struct {
 
 	// The comment that's related to the status update.
 	//
+	// Comment is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateAssessmentControlSetStatusInput's
+	// String and GoString methods.
+	//
 	// Comment is a required field
-	Comment *string `locationName:"comment" type:"string" required:"true"`
+	Comment *string `locationName:"comment" type:"string" required:"true" sensitive:"true"`
 
 	// The unique identifier for the control set.
 	//
@@ -16645,7 +17638,11 @@ type UpdateAssessmentFrameworkInput struct {
 
 	// The compliance type that the new custom framework supports, such as CIS or
 	// HIPAA.
-	ComplianceType *string `locationName:"complianceType" type:"string"`
+	//
+	// ComplianceType is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateAssessmentFrameworkInput's
+	// String and GoString methods.
+	ComplianceType *string `locationName:"complianceType" type:"string" sensitive:"true"`
 
 	// The control sets that are associated with the framework.
 	//
@@ -16899,7 +17896,11 @@ type UpdateAssessmentInput struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the assessment.
-	AssessmentDescription *string `locationName:"assessmentDescription" type:"string"`
+	//
+	// AssessmentDescription is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateAssessmentInput's
+	// String and GoString methods.
+	AssessmentDescription *string `locationName:"assessmentDescription" type:"string" sensitive:"true"`
 
 	// The unique identifier for the assessment.
 	//
@@ -16907,19 +17908,35 @@ type UpdateAssessmentInput struct {
 	AssessmentId *string `location:"uri" locationName:"assessmentId" min:"36" type:"string" required:"true"`
 
 	// The name of the assessment to be updated.
-	AssessmentName *string `locationName:"assessmentName" min:"1" type:"string"`
+	//
+	// AssessmentName is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateAssessmentInput's
+	// String and GoString methods.
+	AssessmentName *string `locationName:"assessmentName" min:"1" type:"string" sensitive:"true"`
 
 	// The assessment report storage destination for the assessment that's being
 	// updated.
-	AssessmentReportsDestination *AssessmentReportsDestination `locationName:"assessmentReportsDestination" type:"structure"`
+	//
+	// AssessmentReportsDestination is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateAssessmentInput's
+	// String and GoString methods.
+	AssessmentReportsDestination *AssessmentReportsDestination `locationName:"assessmentReportsDestination" type:"structure" sensitive:"true"`
 
 	// The list of roles for the assessment.
-	Roles []*Role `locationName:"roles" type:"list"`
+	//
+	// Roles is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateAssessmentInput's
+	// String and GoString methods.
+	Roles []*Role `locationName:"roles" type:"list" sensitive:"true"`
 
 	// The scope of the assessment.
 	//
+	// Scope is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateAssessmentInput's
+	// String and GoString methods.
+	//
 	// Scope is a required field
-	Scope *Scope `locationName:"scope" type:"structure" required:"true"`
+	Scope *Scope `locationName:"scope" type:"structure" required:"true" sensitive:"true"`
 }
 
 // String returns the string representation.
@@ -17021,8 +18038,8 @@ func (s *UpdateAssessmentInput) SetScope(v *Scope) *UpdateAssessmentInput {
 type UpdateAssessmentOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The response object for the UpdateAssessmentRequest API. This is the name
-	// of the updated assessment.
+	// The response object for the UpdateAssessment API. This is the name of the
+	// updated assessment.
 	Assessment *Assessment `locationName:"assessment" type:"structure"`
 }
 
@@ -17148,10 +18165,18 @@ type UpdateControlInput struct {
 	_ struct{} `type:"structure"`
 
 	// The recommended actions to carry out if the control isn't fulfilled.
-	ActionPlanInstructions *string `locationName:"actionPlanInstructions" type:"string"`
+	//
+	// ActionPlanInstructions is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateControlInput's
+	// String and GoString methods.
+	ActionPlanInstructions *string `locationName:"actionPlanInstructions" type:"string" sensitive:"true"`
 
 	// The title of the action plan for remediating the control.
-	ActionPlanTitle *string `locationName:"actionPlanTitle" type:"string"`
+	//
+	// ActionPlanTitle is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateControlInput's
+	// String and GoString methods.
+	ActionPlanTitle *string `locationName:"actionPlanTitle" type:"string" sensitive:"true"`
 
 	// The identifier for the control.
 	//
@@ -17164,7 +18189,11 @@ type UpdateControlInput struct {
 	ControlMappingSources []*ControlMappingSource `locationName:"controlMappingSources" min:"1" type:"list" required:"true"`
 
 	// The optional description of the control.
-	Description *string `locationName:"description" type:"string"`
+	//
+	// Description is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateControlInput's
+	// String and GoString methods.
+	Description *string `locationName:"description" type:"string" sensitive:"true"`
 
 	// The name of the updated control.
 	//
@@ -17172,7 +18201,11 @@ type UpdateControlInput struct {
 	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The steps that you should follow to determine if the control is met.
-	TestingInformation *string `locationName:"testingInformation" type:"string"`
+	//
+	// TestingInformation is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateControlInput's
+	// String and GoString methods.
+	TestingInformation *string `locationName:"testingInformation" type:"string" sensitive:"true"`
 }
 
 // String returns the string representation.
@@ -17307,11 +18340,37 @@ func (s *UpdateControlOutput) SetControl(v *Control) *UpdateControlOutput {
 type UpdateSettingsInput struct {
 	_ struct{} `type:"structure"`
 
-	// The default storage destination for assessment reports.
-	DefaultAssessmentReportsDestination *AssessmentReportsDestination `locationName:"defaultAssessmentReportsDestination" type:"structure"`
+	// The default S3 destination bucket for storing assessment reports.
+	//
+	// DefaultAssessmentReportsDestination is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateSettingsInput's
+	// String and GoString methods.
+	DefaultAssessmentReportsDestination *AssessmentReportsDestination `locationName:"defaultAssessmentReportsDestination" type:"structure" sensitive:"true"`
+
+	// The default S3 destination bucket for storing evidence finder exports.
+	DefaultExportDestination *DefaultExportDestination `locationName:"defaultExportDestination" type:"structure"`
 
 	// A list of the default audit owners.
-	DefaultProcessOwners []*Role `locationName:"defaultProcessOwners" type:"list"`
+	//
+	// DefaultProcessOwners is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by UpdateSettingsInput's
+	// String and GoString methods.
+	DefaultProcessOwners []*Role `locationName:"defaultProcessOwners" type:"list" sensitive:"true"`
+
+	// The deregistration policy for your Audit Manager data. You can use this attribute
+	// to determine how your data is handled when you deregister Audit Manager.
+	DeregistrationPolicy *DeregistrationPolicy `locationName:"deregistrationPolicy" type:"structure"`
+
+	// Specifies whether the evidence finder feature is enabled. Change this attribute
+	// to enable or disable evidence finder.
+	//
+	// When you use this attribute to disable evidence finder, Audit Manager deletes
+	// the event data store that’s used to query your evidence data. As a result,
+	// you can’t re-enable evidence finder and use the feature again. Your only
+	// alternative is to deregister (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html)
+	// and then re-register (https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html)
+	// Audit Manager.
+	EvidenceFinderEnabled *bool `locationName:"evidenceFinderEnabled" type:"boolean"`
 
 	// The KMS key details.
 	KmsKey *string `locationName:"kmsKey" min:"7" type:"string"`
@@ -17353,6 +18412,11 @@ func (s *UpdateSettingsInput) Validate() error {
 			invalidParams.AddNested("DefaultAssessmentReportsDestination", err.(request.ErrInvalidParams))
 		}
 	}
+	if s.DefaultExportDestination != nil {
+		if err := s.DefaultExportDestination.Validate(); err != nil {
+			invalidParams.AddNested("DefaultExportDestination", err.(request.ErrInvalidParams))
+		}
+	}
 	if s.DefaultProcessOwners != nil {
 		for i, v := range s.DefaultProcessOwners {
 			if v == nil {
@@ -17376,9 +18440,27 @@ func (s *UpdateSettingsInput) SetDefaultAssessmentReportsDestination(v *Assessme
 	return s
 }
 
+// SetDefaultExportDestination sets the DefaultExportDestination field's value.
+func (s *UpdateSettingsInput) SetDefaultExportDestination(v *DefaultExportDestination) *UpdateSettingsInput {
+	s.DefaultExportDestination = v
+	return s
+}
+
 // SetDefaultProcessOwners sets the DefaultProcessOwners field's value.
 func (s *UpdateSettingsInput) SetDefaultProcessOwners(v []*Role) *UpdateSettingsInput {
 	s.DefaultProcessOwners = v
+	return s
+}
+
+// SetDeregistrationPolicy sets the DeregistrationPolicy field's value.
+func (s *UpdateSettingsInput) SetDeregistrationPolicy(v *DeregistrationPolicy) *UpdateSettingsInput {
+	s.DeregistrationPolicy = v
+	return s
+}
+
+// SetEvidenceFinderEnabled sets the EvidenceFinderEnabled field's value.
+func (s *UpdateSettingsInput) SetEvidenceFinderEnabled(v bool) *UpdateSettingsInput {
+	s.EvidenceFinderEnabled = &v
 	return s
 }
 
@@ -17811,6 +18893,22 @@ func ControlSetStatus_Values() []string {
 }
 
 const (
+	// ControlStateActive is a ControlState enum value
+	ControlStateActive = "ACTIVE"
+
+	// ControlStateEndOfSupport is a ControlState enum value
+	ControlStateEndOfSupport = "END_OF_SUPPORT"
+)
+
+// ControlState_Values returns all elements of the ControlState enum
+func ControlState_Values() []string {
+	return []string{
+		ControlStateActive,
+		ControlStateEndOfSupport,
+	}
+}
+
+const (
 	// ControlStatusUnderReview is a ControlStatus enum value
 	ControlStatusUnderReview = "UNDER_REVIEW"
 
@@ -17836,6 +18934,9 @@ const (
 
 	// ControlTypeCustom is a ControlType enum value
 	ControlTypeCustom = "Custom"
+
+	// ControlTypeCore is a ControlType enum value
+	ControlTypeCore = "Core"
 )
 
 // ControlType_Values returns all elements of the ControlType enum
@@ -17843,6 +18944,35 @@ func ControlType_Values() []string {
 	return []string{
 		ControlTypeStandard,
 		ControlTypeCustom,
+		ControlTypeCore,
+	}
+}
+
+const (
+	// DataSourceTypeAwsCloudtrail is a DataSourceType enum value
+	DataSourceTypeAwsCloudtrail = "AWS_Cloudtrail"
+
+	// DataSourceTypeAwsConfig is a DataSourceType enum value
+	DataSourceTypeAwsConfig = "AWS_Config"
+
+	// DataSourceTypeAwsSecurityHub is a DataSourceType enum value
+	DataSourceTypeAwsSecurityHub = "AWS_Security_Hub"
+
+	// DataSourceTypeAwsApiCall is a DataSourceType enum value
+	DataSourceTypeAwsApiCall = "AWS_API_Call"
+
+	// DataSourceTypeManual is a DataSourceType enum value
+	DataSourceTypeManual = "MANUAL"
+)
+
+// DataSourceType_Values returns all elements of the DataSourceType enum
+func DataSourceType_Values() []string {
+	return []string{
+		DataSourceTypeAwsCloudtrail,
+		DataSourceTypeAwsConfig,
+		DataSourceTypeAwsSecurityHub,
+		DataSourceTypeAwsApiCall,
+		DataSourceTypeManual,
 	}
 }
 
@@ -17867,6 +18997,78 @@ func DelegationStatus_Values() []string {
 }
 
 const (
+	// DeleteResourcesAll is a DeleteResources enum value
+	DeleteResourcesAll = "ALL"
+
+	// DeleteResourcesDefault is a DeleteResources enum value
+	DeleteResourcesDefault = "DEFAULT"
+)
+
+// DeleteResources_Values returns all elements of the DeleteResources enum
+func DeleteResources_Values() []string {
+	return []string{
+		DeleteResourcesAll,
+		DeleteResourcesDefault,
+	}
+}
+
+const (
+	// EvidenceFinderBackfillStatusNotStarted is a EvidenceFinderBackfillStatus enum value
+	EvidenceFinderBackfillStatusNotStarted = "NOT_STARTED"
+
+	// EvidenceFinderBackfillStatusInProgress is a EvidenceFinderBackfillStatus enum value
+	EvidenceFinderBackfillStatusInProgress = "IN_PROGRESS"
+
+	// EvidenceFinderBackfillStatusCompleted is a EvidenceFinderBackfillStatus enum value
+	EvidenceFinderBackfillStatusCompleted = "COMPLETED"
+)
+
+// EvidenceFinderBackfillStatus_Values returns all elements of the EvidenceFinderBackfillStatus enum
+func EvidenceFinderBackfillStatus_Values() []string {
+	return []string{
+		EvidenceFinderBackfillStatusNotStarted,
+		EvidenceFinderBackfillStatusInProgress,
+		EvidenceFinderBackfillStatusCompleted,
+	}
+}
+
+const (
+	// EvidenceFinderEnablementStatusEnabled is a EvidenceFinderEnablementStatus enum value
+	EvidenceFinderEnablementStatusEnabled = "ENABLED"
+
+	// EvidenceFinderEnablementStatusDisabled is a EvidenceFinderEnablementStatus enum value
+	EvidenceFinderEnablementStatusDisabled = "DISABLED"
+
+	// EvidenceFinderEnablementStatusEnableInProgress is a EvidenceFinderEnablementStatus enum value
+	EvidenceFinderEnablementStatusEnableInProgress = "ENABLE_IN_PROGRESS"
+
+	// EvidenceFinderEnablementStatusDisableInProgress is a EvidenceFinderEnablementStatus enum value
+	EvidenceFinderEnablementStatusDisableInProgress = "DISABLE_IN_PROGRESS"
+)
+
+// EvidenceFinderEnablementStatus_Values returns all elements of the EvidenceFinderEnablementStatus enum
+func EvidenceFinderEnablementStatus_Values() []string {
+	return []string{
+		EvidenceFinderEnablementStatusEnabled,
+		EvidenceFinderEnablementStatusDisabled,
+		EvidenceFinderEnablementStatusEnableInProgress,
+		EvidenceFinderEnablementStatusDisableInProgress,
+	}
+}
+
+const (
+	// ExportDestinationTypeS3 is a ExportDestinationType enum value
+	ExportDestinationTypeS3 = "S3"
+)
+
+// ExportDestinationType_Values returns all elements of the ExportDestinationType enum
+func ExportDestinationType_Values() []string {
+	return []string{
+		ExportDestinationTypeS3,
+	}
+}
+
+const (
 	// FrameworkTypeStandard is a FrameworkType enum value
 	FrameworkTypeStandard = "Standard"
 
@@ -17885,12 +19087,20 @@ func FrameworkType_Values() []string {
 const (
 	// KeywordInputTypeSelectFromList is a KeywordInputType enum value
 	KeywordInputTypeSelectFromList = "SELECT_FROM_LIST"
+
+	// KeywordInputTypeUploadFile is a KeywordInputType enum value
+	KeywordInputTypeUploadFile = "UPLOAD_FILE"
+
+	// KeywordInputTypeInputText is a KeywordInputType enum value
+	KeywordInputTypeInputText = "INPUT_TEXT"
 )
 
 // KeywordInputType_Values returns all elements of the KeywordInputType enum
 func KeywordInputType_Values() []string {
 	return []string{
 		KeywordInputTypeSelectFromList,
+		KeywordInputTypeUploadFile,
+		KeywordInputTypeInputText,
 	}
 }
 
@@ -17953,6 +19163,15 @@ const (
 
 	// SettingAttributeDefaultProcessOwners is a SettingAttribute enum value
 	SettingAttributeDefaultProcessOwners = "DEFAULT_PROCESS_OWNERS"
+
+	// SettingAttributeEvidenceFinderEnablement is a SettingAttribute enum value
+	SettingAttributeEvidenceFinderEnablement = "EVIDENCE_FINDER_ENABLEMENT"
+
+	// SettingAttributeDeregistrationPolicy is a SettingAttribute enum value
+	SettingAttributeDeregistrationPolicy = "DEREGISTRATION_POLICY"
+
+	// SettingAttributeDefaultExportDestination is a SettingAttribute enum value
+	SettingAttributeDefaultExportDestination = "DEFAULT_EXPORT_DESTINATION"
 )
 
 // SettingAttribute_Values returns all elements of the SettingAttribute enum
@@ -17963,6 +19182,9 @@ func SettingAttribute_Values() []string {
 		SettingAttributeSnsTopic,
 		SettingAttributeDefaultAssessmentReportsDestination,
 		SettingAttributeDefaultProcessOwners,
+		SettingAttributeEvidenceFinderEnablement,
+		SettingAttributeDeregistrationPolicy,
+		SettingAttributeDefaultExportDestination,
 	}
 }
 
@@ -18093,6 +19315,12 @@ const (
 
 	// SourceTypeManual is a SourceType enum value
 	SourceTypeManual = "MANUAL"
+
+	// SourceTypeCommonControl is a SourceType enum value
+	SourceTypeCommonControl = "Common_Control"
+
+	// SourceTypeCoreControl is a SourceType enum value
+	SourceTypeCoreControl = "Core_Control"
 )
 
 // SourceType_Values returns all elements of the SourceType enum
@@ -18103,6 +19331,8 @@ func SourceType_Values() []string {
 		SourceTypeAwsSecurityHub,
 		SourceTypeAwsApiCall,
 		SourceTypeManual,
+		SourceTypeCommonControl,
+		SourceTypeCoreControl,
 	}
 }
 

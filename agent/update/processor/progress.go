@@ -49,9 +49,16 @@ func (u *updateManager) inProgress(updateDetail *UpdateDetail, log logPkg.T, sta
 	updateDetail.Result = contracts.ResultStatusInProgress
 
 	if updateDetail.HasMessageID() && !updateDetail.SelfUpdate {
-		err = u.svc.SendReply(log, updateDetail)
-		if err != nil {
-			log.Errorf(err.Error())
+		if updateDetail.UpstreamServiceName == string(contracts.MessageGatewayService) {
+			agentResult := prepareAgentResult(u.Context, updateDetail)
+			if err = persistPayload(log, updateDetail, u.Context.Identity(), agentResult); err != nil {
+				log.Errorf(err.Error())
+			}
+		} else {
+			err = u.svc.SendReply(log, updateDetail)
+			if err != nil {
+				log.Errorf(err.Error())
+			}
 		}
 	}
 
@@ -71,9 +78,29 @@ func (u *updateManager) reportTestResultGenerator(updateDetail *UpdateDetail, lo
 		}
 
 		if err := u.svc.UpdateHealthCheck(log, updateStatus, testName); err != nil {
-			log.Errorf("error while sending test failure metric: %v", err.Error())
+			log.Errorf("Error while sending test failure metric: %v", err.Error())
 		}
 	}
+}
+
+// reportIntermediateMetric reports initial (un)installation ErrorCode without setting update to failed and continue to rollback
+func reportIntermediateMetric(u *updateManager, updateDetail *UpdateDetail, code updateconstants.ErrorCode) (err error) {
+	log := u.Context.Log()
+
+	updateStatus := &UpdateDetail{
+		State:         UpdaterMetric,
+		Result:        updateDetail.Result,
+		TargetVersion: updateDetail.TargetVersion,
+		SourceVersion: updateDetail.SourceVersion,
+	}
+
+	errorCode := u.subStatus + string(code)
+
+	if err := u.svc.UpdateHealthCheck(log, updateStatus, errorCode); err != nil {
+		log.Errorf("Error while reporting intermediate metric: %v", err.Error())
+	}
+
+	return nil
 }
 
 // succeeded sets update to completed
@@ -166,12 +193,19 @@ func finalizeUpdateAndSendReply(u *updateManager, updateDetail *UpdateDetail, er
 		}
 		// send reply except for self update, don't send any response back to service side for self update
 		if updateDetail.HasMessageID() {
-			if err = u.svc.SendReply(log, updateDetail); err != nil {
-				log.Errorf(err.Error())
-			}
+			if updateDetail.UpstreamServiceName == string(contracts.MessageGatewayService) {
+				agentResult := prepareAgentResult(u.Context, updateDetail)
+				if err = persistPayload(log, updateDetail, u.Context.Identity(), agentResult); err != nil {
+					log.Errorf(err.Error())
+				}
+			} else {
+				if err = u.svc.SendReply(log, updateDetail); err != nil {
+					log.Errorf(err.Error())
+				}
 
-			if err = u.svc.DeleteMessage(log, updateDetail); err != nil {
-				log.Errorf(err.Error())
+				if err = u.svc.DeleteMessage(log, updateDetail); err != nil {
+					log.Errorf(err.Error())
+				}
 			}
 		}
 

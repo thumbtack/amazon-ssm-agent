@@ -77,6 +77,18 @@ const (
 
 	// InvalidDocument represents invalid document received in processor
 	InvalidDocument ErrorCode = "InvalidDocument"
+
+	// ContainerNotSupported represents agent job messages are not supported for containers
+	ContainerNotSupported ErrorCode = "ContainerNotSupported"
+
+	// AgentJobMessageParseError represents agent job messages cannot be parsed to Document State
+	AgentJobMessageParseError ErrorCode = "AgentJobMessageParseError"
+
+	// UnexpectedError represents unexpected error
+	UnexpectedError ErrorCode = "UnexpectedError"
+
+	// Successful represent agent job messages can be processed successfully
+	Successful ErrorCode = "Successful"
 )
 
 // NewMessageHandler returns new message handler
@@ -108,6 +120,8 @@ func (mh *MessageHandler) Initialize() (err error) {
 		processor.InvalidDocumentId:  InvalidDocument,
 		processor.UnsupportedDocType: UnexpectedDocumentType,
 	}
+	// Creates idempotency directory if not present
+	idempotency.CreateIdempotencyDirectory(mh.context)
 	if mh.persistedCommandDeletionJob == nil {
 		if mh.persistedCommandDeletionJob, err = scheduler.Every(idempotencyFileDeletionTimeout).Minutes().NotImmediately().Run(func() {
 			mh.context.Log().Info("started idempotency deletion thread")

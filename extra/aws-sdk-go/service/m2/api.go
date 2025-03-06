@@ -29,14 +29,13 @@ const opCancelBatchJobExecution = "CancelBatchJobExecution"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CancelBatchJobExecutionRequest method.
+//	req, resp := client.CancelBatchJobExecutionRequest(params)
 //
-//    // Example sending a request using the CancelBatchJobExecutionRequest method.
-//    req, resp := client.CancelBatchJobExecutionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/CancelBatchJobExecution
 func (c *M2) CancelBatchJobExecutionRequest(input *CancelBatchJobExecutionInput) (req *request.Request, output *CancelBatchJobExecutionOutput) {
@@ -68,23 +67,24 @@ func (c *M2) CancelBatchJobExecutionRequest(input *CancelBatchJobExecutionInput)
 // API operation CancelBatchJobExecution for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/CancelBatchJobExecution
 func (c *M2) CancelBatchJobExecution(input *CancelBatchJobExecutionInput) (*CancelBatchJobExecutionOutput, error) {
@@ -124,14 +124,13 @@ const opCreateApplication = "CreateApplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateApplicationRequest method.
+//	req, resp := client.CreateApplicationRequest(params)
 //
-//    // Example sending a request using the CreateApplicationRequest method.
-//    req, resp := client.CreateApplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/CreateApplication
 func (c *M2) CreateApplicationRequest(input *CreateApplicationInput) (req *request.Request, output *CreateApplicationOutput) {
@@ -152,8 +151,8 @@ func (c *M2) CreateApplicationRequest(input *CreateApplicationInput) (req *reque
 
 // CreateApplication API operation for AWSMainframeModernization.
 //
-// Creates a new application with given parameters. Requires an existing environment
-// and application definition file.
+// Creates a new application with given parameters. Requires an existing runtime
+// environment and application definition file.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -163,24 +162,25 @@ func (c *M2) CreateApplicationRequest(input *CreateApplicationInput) (req *reque
 // API operation CreateApplication for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ServiceQuotaExceededException
-//   One or more quotas for Amazon Web Services Mainframe Modernization exceeds
-//   the limit.
+//   - ServiceQuotaExceededException
+//     One or more quotas for Amazon Web Services Mainframe Modernization exceeds
+//     the limit.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/CreateApplication
 func (c *M2) CreateApplication(input *CreateApplicationInput) (*CreateApplicationOutput, error) {
@@ -220,14 +220,13 @@ const opCreateDataSetImportTask = "CreateDataSetImportTask"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateDataSetImportTaskRequest method.
+//	req, resp := client.CreateDataSetImportTaskRequest(params)
 //
-//    // Example sending a request using the CreateDataSetImportTaskRequest method.
-//    req, resp := client.CreateDataSetImportTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/CreateDataSetImportTask
 func (c *M2) CreateDataSetImportTaskRequest(input *CreateDataSetImportTaskInput) (req *request.Request, output *CreateDataSetImportTaskOutput) {
@@ -258,27 +257,28 @@ func (c *M2) CreateDataSetImportTaskRequest(input *CreateDataSetImportTaskInput)
 // API operation CreateDataSetImportTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ServiceQuotaExceededException
-//   One or more quotas for Amazon Web Services Mainframe Modernization exceeds
-//   the limit.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ServiceQuotaExceededException
+//     One or more quotas for Amazon Web Services Mainframe Modernization exceeds
+//     the limit.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/CreateDataSetImportTask
 func (c *M2) CreateDataSetImportTask(input *CreateDataSetImportTaskInput) (*CreateDataSetImportTaskOutput, error) {
@@ -318,14 +318,13 @@ const opCreateDeployment = "CreateDeployment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateDeploymentRequest method.
+//	req, resp := client.CreateDeploymentRequest(params)
 //
-//    // Example sending a request using the CreateDeploymentRequest method.
-//    req, resp := client.CreateDeploymentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/CreateDeployment
 func (c *M2) CreateDeploymentRequest(input *CreateDeploymentInput) (req *request.Request, output *CreateDeploymentOutput) {
@@ -346,7 +345,7 @@ func (c *M2) CreateDeploymentRequest(input *CreateDeploymentInput) (req *request
 
 // CreateDeployment API operation for AWSMainframeModernization.
 //
-// Creates and starts a deployment to deploy an application into an environment.
+// Creates and starts a deployment to deploy an application into a runtime environment.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -356,27 +355,28 @@ func (c *M2) CreateDeploymentRequest(input *CreateDeploymentInput) (req *request
 // API operation CreateDeployment for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ServiceQuotaExceededException
-//   One or more quotas for Amazon Web Services Mainframe Modernization exceeds
-//   the limit.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ServiceQuotaExceededException
+//     One or more quotas for Amazon Web Services Mainframe Modernization exceeds
+//     the limit.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/CreateDeployment
 func (c *M2) CreateDeployment(input *CreateDeploymentInput) (*CreateDeploymentOutput, error) {
@@ -416,14 +416,13 @@ const opCreateEnvironment = "CreateEnvironment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateEnvironmentRequest method.
+//	req, resp := client.CreateEnvironmentRequest(params)
 //
-//    // Example sending a request using the CreateEnvironmentRequest method.
-//    req, resp := client.CreateEnvironmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/CreateEnvironment
 func (c *M2) CreateEnvironmentRequest(input *CreateEnvironmentInput) (req *request.Request, output *CreateEnvironmentOutput) {
@@ -454,24 +453,25 @@ func (c *M2) CreateEnvironmentRequest(input *CreateEnvironmentInput) (req *reque
 // API operation CreateEnvironment for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ServiceQuotaExceededException
-//   One or more quotas for Amazon Web Services Mainframe Modernization exceeds
-//   the limit.
+//   - ServiceQuotaExceededException
+//     One or more quotas for Amazon Web Services Mainframe Modernization exceeds
+//     the limit.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/CreateEnvironment
 func (c *M2) CreateEnvironment(input *CreateEnvironmentInput) (*CreateEnvironmentOutput, error) {
@@ -511,14 +511,13 @@ const opDeleteApplication = "DeleteApplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteApplicationRequest method.
+//	req, resp := client.DeleteApplicationRequest(params)
 //
-//    // Example sending a request using the DeleteApplicationRequest method.
-//    req, resp := client.DeleteApplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/DeleteApplication
 func (c *M2) DeleteApplicationRequest(input *DeleteApplicationInput) (req *request.Request, output *DeleteApplicationOutput) {
@@ -550,20 +549,21 @@ func (c *M2) DeleteApplicationRequest(input *DeleteApplicationInput) (req *reque
 // API operation DeleteApplication for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/DeleteApplication
 func (c *M2) DeleteApplication(input *DeleteApplicationInput) (*DeleteApplicationOutput, error) {
@@ -603,14 +603,13 @@ const opDeleteApplicationFromEnvironment = "DeleteApplicationFromEnvironment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteApplicationFromEnvironmentRequest method.
+//	req, resp := client.DeleteApplicationFromEnvironmentRequest(params)
 //
-//    // Example sending a request using the DeleteApplicationFromEnvironmentRequest method.
-//    req, resp := client.DeleteApplicationFromEnvironmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/DeleteApplicationFromEnvironment
 func (c *M2) DeleteApplicationFromEnvironmentRequest(input *DeleteApplicationFromEnvironmentInput) (req *request.Request, output *DeleteApplicationFromEnvironmentOutput) {
@@ -632,11 +631,11 @@ func (c *M2) DeleteApplicationFromEnvironmentRequest(input *DeleteApplicationFro
 
 // DeleteApplicationFromEnvironment API operation for AWSMainframeModernization.
 //
-// Deletes a specific application from a specified environment where it has
-// been previously deployed. You cannot delete an environment using DeleteEnvironment,
-// if any application has ever been deployed to it. This API removes the association
-// of the application with the environment so you can delete the environment
-// smoothly.
+// Deletes a specific application from the specific runtime environment where
+// it was previously deployed. You cannot delete a runtime environment using
+// DeleteEnvironment if any application has ever been deployed to it. This API
+// removes the association of the application with the runtime environment so
+// you can delete the environment smoothly.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -646,23 +645,24 @@ func (c *M2) DeleteApplicationFromEnvironmentRequest(input *DeleteApplicationFro
 // API operation DeleteApplicationFromEnvironment for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/DeleteApplicationFromEnvironment
 func (c *M2) DeleteApplicationFromEnvironment(input *DeleteApplicationFromEnvironmentInput) (*DeleteApplicationFromEnvironmentOutput, error) {
@@ -702,14 +702,13 @@ const opDeleteEnvironment = "DeleteEnvironment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteEnvironmentRequest method.
+//	req, resp := client.DeleteEnvironmentRequest(params)
 //
-//    // Example sending a request using the DeleteEnvironmentRequest method.
-//    req, resp := client.DeleteEnvironmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/DeleteEnvironment
 func (c *M2) DeleteEnvironmentRequest(input *DeleteEnvironmentInput) (req *request.Request, output *DeleteEnvironmentOutput) {
@@ -731,8 +730,9 @@ func (c *M2) DeleteEnvironmentRequest(input *DeleteEnvironmentInput) (req *reque
 
 // DeleteEnvironment API operation for AWSMainframeModernization.
 //
-// Deletes a specific environment. The environment cannot contain deployed applications.
-// If it does, you must delete those applications before you delete the environment.
+// Deletes a specific runtime environment. The environment cannot contain deployed
+// applications. If it does, you must delete those applications before you delete
+// the environment.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -742,20 +742,21 @@ func (c *M2) DeleteEnvironmentRequest(input *DeleteEnvironmentInput) (req *reque
 // API operation DeleteEnvironment for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/DeleteEnvironment
 func (c *M2) DeleteEnvironment(input *DeleteEnvironmentInput) (*DeleteEnvironmentOutput, error) {
@@ -795,14 +796,13 @@ const opGetApplication = "GetApplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetApplicationRequest method.
+//	req, resp := client.GetApplicationRequest(params)
 //
-//    // Example sending a request using the GetApplicationRequest method.
-//    req, resp := client.GetApplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetApplication
 func (c *M2) GetApplicationRequest(input *GetApplicationInput) (req *request.Request, output *GetApplicationOutput) {
@@ -833,20 +833,21 @@ func (c *M2) GetApplicationRequest(input *GetApplicationInput) (req *request.Req
 // API operation GetApplication for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetApplication
 func (c *M2) GetApplication(input *GetApplicationInput) (*GetApplicationOutput, error) {
@@ -886,14 +887,13 @@ const opGetApplicationVersion = "GetApplicationVersion"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetApplicationVersionRequest method.
+//	req, resp := client.GetApplicationVersionRequest(params)
 //
-//    // Example sending a request using the GetApplicationVersionRequest method.
-//    req, resp := client.GetApplicationVersionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetApplicationVersion
 func (c *M2) GetApplicationVersionRequest(input *GetApplicationVersionInput) (req *request.Request, output *GetApplicationVersionOutput) {
@@ -924,20 +924,21 @@ func (c *M2) GetApplicationVersionRequest(input *GetApplicationVersionInput) (re
 // API operation GetApplicationVersion for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetApplicationVersion
 func (c *M2) GetApplicationVersion(input *GetApplicationVersionInput) (*GetApplicationVersionOutput, error) {
@@ -977,14 +978,13 @@ const opGetBatchJobExecution = "GetBatchJobExecution"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetBatchJobExecutionRequest method.
+//	req, resp := client.GetBatchJobExecutionRequest(params)
 //
-//    // Example sending a request using the GetBatchJobExecutionRequest method.
-//    req, resp := client.GetBatchJobExecutionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetBatchJobExecution
 func (c *M2) GetBatchJobExecutionRequest(input *GetBatchJobExecutionInput) (req *request.Request, output *GetBatchJobExecutionOutput) {
@@ -1015,20 +1015,21 @@ func (c *M2) GetBatchJobExecutionRequest(input *GetBatchJobExecutionInput) (req 
 // API operation GetBatchJobExecution for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetBatchJobExecution
 func (c *M2) GetBatchJobExecution(input *GetBatchJobExecutionInput) (*GetBatchJobExecutionOutput, error) {
@@ -1068,14 +1069,13 @@ const opGetDataSetDetails = "GetDataSetDetails"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetDataSetDetailsRequest method.
+//	req, resp := client.GetDataSetDetailsRequest(params)
 //
-//    // Example sending a request using the GetDataSetDetailsRequest method.
-//    req, resp := client.GetDataSetDetailsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetDataSetDetails
 func (c *M2) GetDataSetDetailsRequest(input *GetDataSetDetailsInput) (req *request.Request, output *GetDataSetDetailsOutput) {
@@ -1106,20 +1106,31 @@ func (c *M2) GetDataSetDetailsRequest(input *GetDataSetDetailsInput) (req *reque
 // API operation GetDataSetDetails for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ExecutionTimeoutException
+//     Failed to connect to server, or didn’t receive response within expected
+//     time period.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ServiceUnavailableException
+//     Server cannot process the request at the moment.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
+//
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
+//
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
+//
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetDataSetDetails
 func (c *M2) GetDataSetDetails(input *GetDataSetDetailsInput) (*GetDataSetDetailsOutput, error) {
@@ -1159,14 +1170,13 @@ const opGetDataSetImportTask = "GetDataSetImportTask"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetDataSetImportTaskRequest method.
+//	req, resp := client.GetDataSetImportTaskRequest(params)
 //
-//    // Example sending a request using the GetDataSetImportTaskRequest method.
-//    req, resp := client.GetDataSetImportTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetDataSetImportTask
 func (c *M2) GetDataSetImportTaskRequest(input *GetDataSetImportTaskInput) (req *request.Request, output *GetDataSetImportTaskOutput) {
@@ -1198,20 +1208,21 @@ func (c *M2) GetDataSetImportTaskRequest(input *GetDataSetImportTaskInput) (req 
 // API operation GetDataSetImportTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetDataSetImportTask
 func (c *M2) GetDataSetImportTask(input *GetDataSetImportTaskInput) (*GetDataSetImportTaskOutput, error) {
@@ -1251,14 +1262,13 @@ const opGetDeployment = "GetDeployment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetDeploymentRequest method.
+//	req, resp := client.GetDeploymentRequest(params)
 //
-//    // Example sending a request using the GetDeploymentRequest method.
-//    req, resp := client.GetDeploymentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetDeployment
 func (c *M2) GetDeploymentRequest(input *GetDeploymentInput) (req *request.Request, output *GetDeploymentOutput) {
@@ -1289,20 +1299,21 @@ func (c *M2) GetDeploymentRequest(input *GetDeploymentInput) (req *request.Reque
 // API operation GetDeployment for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetDeployment
 func (c *M2) GetDeployment(input *GetDeploymentInput) (*GetDeploymentOutput, error) {
@@ -1342,14 +1353,13 @@ const opGetEnvironment = "GetEnvironment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetEnvironmentRequest method.
+//	req, resp := client.GetEnvironmentRequest(params)
 //
-//    // Example sending a request using the GetEnvironmentRequest method.
-//    req, resp := client.GetEnvironmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetEnvironment
 func (c *M2) GetEnvironmentRequest(input *GetEnvironmentInput) (req *request.Request, output *GetEnvironmentOutput) {
@@ -1380,20 +1390,21 @@ func (c *M2) GetEnvironmentRequest(input *GetEnvironmentInput) (req *request.Req
 // API operation GetEnvironment for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetEnvironment
 func (c *M2) GetEnvironment(input *GetEnvironmentInput) (*GetEnvironmentOutput, error) {
@@ -1417,6 +1428,91 @@ func (c *M2) GetEnvironmentWithContext(ctx aws.Context, input *GetEnvironmentInp
 	return out, req.Send()
 }
 
+const opGetSignedBluinsightsUrl = "GetSignedBluinsightsUrl"
+
+// GetSignedBluinsightsUrlRequest generates a "aws/request.Request" representing the
+// client's request for the GetSignedBluinsightsUrl operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetSignedBluinsightsUrl for more information on using the GetSignedBluinsightsUrl
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the GetSignedBluinsightsUrlRequest method.
+//	req, resp := client.GetSignedBluinsightsUrlRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetSignedBluinsightsUrl
+func (c *M2) GetSignedBluinsightsUrlRequest(input *GetSignedBluinsightsUrlInput) (req *request.Request, output *GetSignedBluinsightsUrlOutput) {
+	op := &request.Operation{
+		Name:       opGetSignedBluinsightsUrl,
+		HTTPMethod: "GET",
+		HTTPPath:   "/signed-bi-url",
+	}
+
+	if input == nil {
+		input = &GetSignedBluinsightsUrlInput{}
+	}
+
+	output = &GetSignedBluinsightsUrlOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetSignedBluinsightsUrl API operation for AWSMainframeModernization.
+//
+// Gets a single sign-on URL that can be used to connect to AWS Blu Insights.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWSMainframeModernization's
+// API operation GetSignedBluinsightsUrl for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
+//
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/GetSignedBluinsightsUrl
+func (c *M2) GetSignedBluinsightsUrl(input *GetSignedBluinsightsUrlInput) (*GetSignedBluinsightsUrlOutput, error) {
+	req, out := c.GetSignedBluinsightsUrlRequest(input)
+	return out, req.Send()
+}
+
+// GetSignedBluinsightsUrlWithContext is the same as GetSignedBluinsightsUrl with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetSignedBluinsightsUrl for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *M2) GetSignedBluinsightsUrlWithContext(ctx aws.Context, input *GetSignedBluinsightsUrlInput, opts ...request.Option) (*GetSignedBluinsightsUrlOutput, error) {
+	req, out := c.GetSignedBluinsightsUrlRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opListApplicationVersions = "ListApplicationVersions"
 
 // ListApplicationVersionsRequest generates a "aws/request.Request" representing the
@@ -1433,14 +1529,13 @@ const opListApplicationVersions = "ListApplicationVersions"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListApplicationVersionsRequest method.
+//	req, resp := client.ListApplicationVersionsRequest(params)
 //
-//    // Example sending a request using the ListApplicationVersionsRequest method.
-//    req, resp := client.ListApplicationVersionsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListApplicationVersions
 func (c *M2) ListApplicationVersionsRequest(input *ListApplicationVersionsInput) (req *request.Request, output *ListApplicationVersionsOutput) {
@@ -1477,20 +1572,21 @@ func (c *M2) ListApplicationVersionsRequest(input *ListApplicationVersionsInput)
 // API operation ListApplicationVersions for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListApplicationVersions
 func (c *M2) ListApplicationVersions(input *ListApplicationVersionsInput) (*ListApplicationVersionsOutput, error) {
@@ -1522,15 +1618,14 @@ func (c *M2) ListApplicationVersionsWithContext(ctx aws.Context, input *ListAppl
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListApplicationVersions operation.
-//    pageNum := 0
-//    err := client.ListApplicationVersionsPages(params,
-//        func(page *m2.ListApplicationVersionsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListApplicationVersions operation.
+//	pageNum := 0
+//	err := client.ListApplicationVersionsPages(params,
+//	    func(page *m2.ListApplicationVersionsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *M2) ListApplicationVersionsPages(input *ListApplicationVersionsInput, fn func(*ListApplicationVersionsOutput, bool) bool) error {
 	return c.ListApplicationVersionsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -1582,14 +1677,13 @@ const opListApplications = "ListApplications"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListApplicationsRequest method.
+//	req, resp := client.ListApplicationsRequest(params)
 //
-//    // Example sending a request using the ListApplicationsRequest method.
-//    req, resp := client.ListApplicationsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListApplications
 func (c *M2) ListApplicationsRequest(input *ListApplicationsInput) (req *request.Request, output *ListApplicationsOutput) {
@@ -1617,8 +1711,8 @@ func (c *M2) ListApplicationsRequest(input *ListApplicationsInput) (req *request
 // ListApplications API operation for AWSMainframeModernization.
 //
 // Lists the applications associated with a specific Amazon Web Services account.
-// You can provide the unique identifier of a specific environment in a query
-// parameter to see all applications associated with that environment.
+// You can provide the unique identifier of a specific runtime environment in
+// a query parameter to see all applications associated with that environment.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1628,17 +1722,18 @@ func (c *M2) ListApplicationsRequest(input *ListApplicationsInput) (req *request
 // API operation ListApplications for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListApplications
 func (c *M2) ListApplications(input *ListApplicationsInput) (*ListApplicationsOutput, error) {
@@ -1670,15 +1765,14 @@ func (c *M2) ListApplicationsWithContext(ctx aws.Context, input *ListApplication
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListApplications operation.
-//    pageNum := 0
-//    err := client.ListApplicationsPages(params,
-//        func(page *m2.ListApplicationsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListApplications operation.
+//	pageNum := 0
+//	err := client.ListApplicationsPages(params,
+//	    func(page *m2.ListApplicationsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *M2) ListApplicationsPages(input *ListApplicationsInput, fn func(*ListApplicationsOutput, bool) bool) error {
 	return c.ListApplicationsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -1730,14 +1824,13 @@ const opListBatchJobDefinitions = "ListBatchJobDefinitions"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListBatchJobDefinitionsRequest method.
+//	req, resp := client.ListBatchJobDefinitionsRequest(params)
 //
-//    // Example sending a request using the ListBatchJobDefinitionsRequest method.
-//    req, resp := client.ListBatchJobDefinitionsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListBatchJobDefinitions
 func (c *M2) ListBatchJobDefinitionsRequest(input *ListBatchJobDefinitionsInput) (req *request.Request, output *ListBatchJobDefinitionsOutput) {
@@ -1765,8 +1858,8 @@ func (c *M2) ListBatchJobDefinitionsRequest(input *ListBatchJobDefinitionsInput)
 // ListBatchJobDefinitions API operation for AWSMainframeModernization.
 //
 // Lists all the available batch job definitions based on the batch job resources
-// uploaded during the application creation. The listed batch job definitions
-// can then be used to start a batch job.
+// uploaded during the application creation. You can use the batch job definitions
+// in the list to start a batch job.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1776,20 +1869,21 @@ func (c *M2) ListBatchJobDefinitionsRequest(input *ListBatchJobDefinitionsInput)
 // API operation ListBatchJobDefinitions for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListBatchJobDefinitions
 func (c *M2) ListBatchJobDefinitions(input *ListBatchJobDefinitionsInput) (*ListBatchJobDefinitionsOutput, error) {
@@ -1821,15 +1915,14 @@ func (c *M2) ListBatchJobDefinitionsWithContext(ctx aws.Context, input *ListBatc
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListBatchJobDefinitions operation.
-//    pageNum := 0
-//    err := client.ListBatchJobDefinitionsPages(params,
-//        func(page *m2.ListBatchJobDefinitionsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListBatchJobDefinitions operation.
+//	pageNum := 0
+//	err := client.ListBatchJobDefinitionsPages(params,
+//	    func(page *m2.ListBatchJobDefinitionsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *M2) ListBatchJobDefinitionsPages(input *ListBatchJobDefinitionsInput, fn func(*ListBatchJobDefinitionsOutput, bool) bool) error {
 	return c.ListBatchJobDefinitionsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -1881,14 +1974,13 @@ const opListBatchJobExecutions = "ListBatchJobExecutions"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListBatchJobExecutionsRequest method.
+//	req, resp := client.ListBatchJobExecutionsRequest(params)
 //
-//    // Example sending a request using the ListBatchJobExecutionsRequest method.
-//    req, resp := client.ListBatchJobExecutionsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListBatchJobExecutions
 func (c *M2) ListBatchJobExecutionsRequest(input *ListBatchJobExecutionsInput) (req *request.Request, output *ListBatchJobExecutionsOutput) {
@@ -1926,20 +2018,21 @@ func (c *M2) ListBatchJobExecutionsRequest(input *ListBatchJobExecutionsInput) (
 // API operation ListBatchJobExecutions for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListBatchJobExecutions
 func (c *M2) ListBatchJobExecutions(input *ListBatchJobExecutionsInput) (*ListBatchJobExecutionsOutput, error) {
@@ -1971,15 +2064,14 @@ func (c *M2) ListBatchJobExecutionsWithContext(ctx aws.Context, input *ListBatch
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListBatchJobExecutions operation.
-//    pageNum := 0
-//    err := client.ListBatchJobExecutionsPages(params,
-//        func(page *m2.ListBatchJobExecutionsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListBatchJobExecutions operation.
+//	pageNum := 0
+//	err := client.ListBatchJobExecutionsPages(params,
+//	    func(page *m2.ListBatchJobExecutionsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *M2) ListBatchJobExecutionsPages(input *ListBatchJobExecutionsInput, fn func(*ListBatchJobExecutionsOutput, bool) bool) error {
 	return c.ListBatchJobExecutionsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2015,6 +2107,101 @@ func (c *M2) ListBatchJobExecutionsPagesWithContext(ctx aws.Context, input *List
 	return p.Err()
 }
 
+const opListBatchJobRestartPoints = "ListBatchJobRestartPoints"
+
+// ListBatchJobRestartPointsRequest generates a "aws/request.Request" representing the
+// client's request for the ListBatchJobRestartPoints operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListBatchJobRestartPoints for more information on using the ListBatchJobRestartPoints
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListBatchJobRestartPointsRequest method.
+//	req, resp := client.ListBatchJobRestartPointsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListBatchJobRestartPoints
+func (c *M2) ListBatchJobRestartPointsRequest(input *ListBatchJobRestartPointsInput) (req *request.Request, output *ListBatchJobRestartPointsOutput) {
+	op := &request.Operation{
+		Name:       opListBatchJobRestartPoints,
+		HTTPMethod: "GET",
+		HTTPPath:   "/applications/{applicationId}/batch-job-executions/{executionId}/steps",
+	}
+
+	if input == nil {
+		input = &ListBatchJobRestartPointsInput{}
+	}
+
+	output = &ListBatchJobRestartPointsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListBatchJobRestartPoints API operation for AWSMainframeModernization.
+//
+// Lists all the job steps for JCL files to restart a batch job. This is only
+// applicable for Micro Focus engine with versions 8.0.6 and above.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWSMainframeModernization's
+// API operation ListBatchJobRestartPoints for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The specified resource was not found.
+//
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
+//
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
+//
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
+//
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListBatchJobRestartPoints
+func (c *M2) ListBatchJobRestartPoints(input *ListBatchJobRestartPointsInput) (*ListBatchJobRestartPointsOutput, error) {
+	req, out := c.ListBatchJobRestartPointsRequest(input)
+	return out, req.Send()
+}
+
+// ListBatchJobRestartPointsWithContext is the same as ListBatchJobRestartPoints with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListBatchJobRestartPoints for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *M2) ListBatchJobRestartPointsWithContext(ctx aws.Context, input *ListBatchJobRestartPointsInput, opts ...request.Option) (*ListBatchJobRestartPointsOutput, error) {
+	req, out := c.ListBatchJobRestartPointsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opListDataSetImportHistory = "ListDataSetImportHistory"
 
 // ListDataSetImportHistoryRequest generates a "aws/request.Request" representing the
@@ -2031,14 +2218,13 @@ const opListDataSetImportHistory = "ListDataSetImportHistory"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListDataSetImportHistoryRequest method.
+//	req, resp := client.ListDataSetImportHistoryRequest(params)
 //
-//    // Example sending a request using the ListDataSetImportHistoryRequest method.
-//    req, resp := client.ListDataSetImportHistoryRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListDataSetImportHistory
 func (c *M2) ListDataSetImportHistoryRequest(input *ListDataSetImportHistoryInput) (req *request.Request, output *ListDataSetImportHistoryOutput) {
@@ -2075,20 +2261,21 @@ func (c *M2) ListDataSetImportHistoryRequest(input *ListDataSetImportHistoryInpu
 // API operation ListDataSetImportHistory for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListDataSetImportHistory
 func (c *M2) ListDataSetImportHistory(input *ListDataSetImportHistoryInput) (*ListDataSetImportHistoryOutput, error) {
@@ -2120,15 +2307,14 @@ func (c *M2) ListDataSetImportHistoryWithContext(ctx aws.Context, input *ListDat
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListDataSetImportHistory operation.
-//    pageNum := 0
-//    err := client.ListDataSetImportHistoryPages(params,
-//        func(page *m2.ListDataSetImportHistoryOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListDataSetImportHistory operation.
+//	pageNum := 0
+//	err := client.ListDataSetImportHistoryPages(params,
+//	    func(page *m2.ListDataSetImportHistoryOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *M2) ListDataSetImportHistoryPages(input *ListDataSetImportHistoryInput, fn func(*ListDataSetImportHistoryOutput, bool) bool) error {
 	return c.ListDataSetImportHistoryPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2180,14 +2366,13 @@ const opListDataSets = "ListDataSets"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListDataSetsRequest method.
+//	req, resp := client.ListDataSetsRequest(params)
 //
-//    // Example sending a request using the ListDataSetsRequest method.
-//    req, resp := client.ListDataSetsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListDataSets
 func (c *M2) ListDataSetsRequest(input *ListDataSetsInput) (req *request.Request, output *ListDataSetsOutput) {
@@ -2216,9 +2401,9 @@ func (c *M2) ListDataSetsRequest(input *ListDataSetsInput) (req *request.Request
 //
 // Lists the data sets imported for a specific application. In Amazon Web Services
 // Mainframe Modernization, data sets are associated with applications deployed
-// on environments. This is known as importing data sets. Currently, Amazon
-// Web Services Mainframe Modernization can import data sets into catalogs using
-// CreateDataSetImportTask (https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html).
+// on runtime environments. This is known as importing data sets. Currently,
+// Amazon Web Services Mainframe Modernization can import data sets into catalogs
+// using CreateDataSetImportTask (https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html).
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2228,20 +2413,31 @@ func (c *M2) ListDataSetsRequest(input *ListDataSetsInput) (req *request.Request
 // API operation ListDataSets for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ExecutionTimeoutException
+//     Failed to connect to server, or didn’t receive response within expected
+//     time period.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ServiceUnavailableException
+//     Server cannot process the request at the moment.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
+//
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
+//
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
+//
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListDataSets
 func (c *M2) ListDataSets(input *ListDataSetsInput) (*ListDataSetsOutput, error) {
@@ -2273,15 +2469,14 @@ func (c *M2) ListDataSetsWithContext(ctx aws.Context, input *ListDataSetsInput, 
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListDataSets operation.
-//    pageNum := 0
-//    err := client.ListDataSetsPages(params,
-//        func(page *m2.ListDataSetsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListDataSets operation.
+//	pageNum := 0
+//	err := client.ListDataSetsPages(params,
+//	    func(page *m2.ListDataSetsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *M2) ListDataSetsPages(input *ListDataSetsInput, fn func(*ListDataSetsOutput, bool) bool) error {
 	return c.ListDataSetsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2333,14 +2528,13 @@ const opListDeployments = "ListDeployments"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListDeploymentsRequest method.
+//	req, resp := client.ListDeploymentsRequest(params)
 //
-//    // Example sending a request using the ListDeploymentsRequest method.
-//    req, resp := client.ListDeploymentsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListDeployments
 func (c *M2) ListDeploymentsRequest(input *ListDeploymentsInput) (req *request.Request, output *ListDeploymentsOutput) {
@@ -2379,20 +2573,21 @@ func (c *M2) ListDeploymentsRequest(input *ListDeploymentsInput) (req *request.R
 // API operation ListDeployments for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListDeployments
 func (c *M2) ListDeployments(input *ListDeploymentsInput) (*ListDeploymentsOutput, error) {
@@ -2424,15 +2619,14 @@ func (c *M2) ListDeploymentsWithContext(ctx aws.Context, input *ListDeploymentsI
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListDeployments operation.
-//    pageNum := 0
-//    err := client.ListDeploymentsPages(params,
-//        func(page *m2.ListDeploymentsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListDeployments operation.
+//	pageNum := 0
+//	err := client.ListDeploymentsPages(params,
+//	    func(page *m2.ListDeploymentsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *M2) ListDeploymentsPages(input *ListDeploymentsInput, fn func(*ListDeploymentsOutput, bool) bool) error {
 	return c.ListDeploymentsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2484,14 +2678,13 @@ const opListEngineVersions = "ListEngineVersions"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListEngineVersionsRequest method.
+//	req, resp := client.ListEngineVersionsRequest(params)
 //
-//    // Example sending a request using the ListEngineVersionsRequest method.
-//    req, resp := client.ListEngineVersionsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListEngineVersions
 func (c *M2) ListEngineVersionsRequest(input *ListEngineVersionsInput) (req *request.Request, output *ListEngineVersionsOutput) {
@@ -2528,17 +2721,18 @@ func (c *M2) ListEngineVersionsRequest(input *ListEngineVersionsInput) (req *req
 // API operation ListEngineVersions for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListEngineVersions
 func (c *M2) ListEngineVersions(input *ListEngineVersionsInput) (*ListEngineVersionsOutput, error) {
@@ -2570,15 +2764,14 @@ func (c *M2) ListEngineVersionsWithContext(ctx aws.Context, input *ListEngineVer
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListEngineVersions operation.
-//    pageNum := 0
-//    err := client.ListEngineVersionsPages(params,
-//        func(page *m2.ListEngineVersionsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListEngineVersions operation.
+//	pageNum := 0
+//	err := client.ListEngineVersionsPages(params,
+//	    func(page *m2.ListEngineVersionsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *M2) ListEngineVersionsPages(input *ListEngineVersionsInput, fn func(*ListEngineVersionsOutput, bool) bool) error {
 	return c.ListEngineVersionsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2630,14 +2823,13 @@ const opListEnvironments = "ListEnvironments"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListEnvironmentsRequest method.
+//	req, resp := client.ListEnvironmentsRequest(params)
 //
-//    // Example sending a request using the ListEnvironmentsRequest method.
-//    req, resp := client.ListEnvironmentsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListEnvironments
 func (c *M2) ListEnvironmentsRequest(input *ListEnvironmentsInput) (req *request.Request, output *ListEnvironmentsOutput) {
@@ -2674,17 +2866,18 @@ func (c *M2) ListEnvironmentsRequest(input *ListEnvironmentsInput) (req *request
 // API operation ListEnvironments for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListEnvironments
 func (c *M2) ListEnvironments(input *ListEnvironmentsInput) (*ListEnvironmentsOutput, error) {
@@ -2716,15 +2909,14 @@ func (c *M2) ListEnvironmentsWithContext(ctx aws.Context, input *ListEnvironment
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListEnvironments operation.
-//    pageNum := 0
-//    err := client.ListEnvironmentsPages(params,
-//        func(page *m2.ListEnvironmentsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListEnvironments operation.
+//	pageNum := 0
+//	err := client.ListEnvironmentsPages(params,
+//	    func(page *m2.ListEnvironmentsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *M2) ListEnvironmentsPages(input *ListEnvironmentsInput, fn func(*ListEnvironmentsOutput, bool) bool) error {
 	return c.ListEnvironmentsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2776,14 +2968,13 @@ const opListTagsForResource = "ListTagsForResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListTagsForResourceRequest method.
+//	req, resp := client.ListTagsForResourceRequest(params)
 //
-//    // Example sending a request using the ListTagsForResourceRequest method.
-//    req, resp := client.ListTagsForResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListTagsForResource
 func (c *M2) ListTagsForResourceRequest(input *ListTagsForResourceInput) (req *request.Request, output *ListTagsForResourceOutput) {
@@ -2814,20 +3005,21 @@ func (c *M2) ListTagsForResourceRequest(input *ListTagsForResourceInput) (req *r
 // API operation ListTagsForResource for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/ListTagsForResource
 func (c *M2) ListTagsForResource(input *ListTagsForResourceInput) (*ListTagsForResourceOutput, error) {
@@ -2867,14 +3059,13 @@ const opStartApplication = "StartApplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StartApplicationRequest method.
+//	req, resp := client.StartApplicationRequest(params)
 //
-//    // Example sending a request using the StartApplicationRequest method.
-//    req, resp := client.StartApplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/StartApplication
 func (c *M2) StartApplicationRequest(input *StartApplicationInput) (req *request.Request, output *StartApplicationOutput) {
@@ -2906,23 +3097,24 @@ func (c *M2) StartApplicationRequest(input *StartApplicationInput) (req *request
 // API operation StartApplication for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/StartApplication
 func (c *M2) StartApplication(input *StartApplicationInput) (*StartApplicationOutput, error) {
@@ -2962,14 +3154,13 @@ const opStartBatchJob = "StartBatchJob"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StartBatchJobRequest method.
+//	req, resp := client.StartBatchJobRequest(params)
 //
-//    // Example sending a request using the StartBatchJobRequest method.
-//    req, resp := client.StartBatchJobRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/StartBatchJob
 func (c *M2) StartBatchJobRequest(input *StartBatchJobInput) (req *request.Request, output *StartBatchJobOutput) {
@@ -3002,23 +3193,24 @@ func (c *M2) StartBatchJobRequest(input *StartBatchJobInput) (req *request.Reque
 // API operation StartBatchJob for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/StartBatchJob
 func (c *M2) StartBatchJob(input *StartBatchJobInput) (*StartBatchJobOutput, error) {
@@ -3058,14 +3250,13 @@ const opStopApplication = "StopApplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StopApplicationRequest method.
+//	req, resp := client.StopApplicationRequest(params)
 //
-//    // Example sending a request using the StopApplicationRequest method.
-//    req, resp := client.StopApplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/StopApplication
 func (c *M2) StopApplicationRequest(input *StopApplicationInput) (req *request.Request, output *StopApplicationOutput) {
@@ -3097,23 +3288,24 @@ func (c *M2) StopApplicationRequest(input *StopApplicationInput) (req *request.R
 // API operation StopApplication for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/StopApplication
 func (c *M2) StopApplication(input *StopApplicationInput) (*StopApplicationOutput, error) {
@@ -3153,14 +3345,13 @@ const opTagResource = "TagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the TagResourceRequest method.
+//	req, resp := client.TagResourceRequest(params)
 //
-//    // Example sending a request using the TagResourceRequest method.
-//    req, resp := client.TagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/TagResource
 func (c *M2) TagResourceRequest(input *TagResourceInput) (req *request.Request, output *TagResourceOutput) {
@@ -3192,24 +3383,25 @@ func (c *M2) TagResourceRequest(input *TagResourceInput) (req *request.Request, 
 // API operation TagResource for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ServiceQuotaExceededException
-//   One or more quotas for Amazon Web Services Mainframe Modernization exceeds
-//   the limit.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ServiceQuotaExceededException
+//     One or more quotas for Amazon Web Services Mainframe Modernization exceeds
+//     the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/TagResource
 func (c *M2) TagResource(input *TagResourceInput) (*TagResourceOutput, error) {
@@ -3249,14 +3441,13 @@ const opUntagResource = "UntagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UntagResourceRequest method.
+//	req, resp := client.UntagResourceRequest(params)
 //
-//    // Example sending a request using the UntagResourceRequest method.
-//    req, resp := client.UntagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/UntagResource
 func (c *M2) UntagResourceRequest(input *UntagResourceInput) (req *request.Request, output *UntagResourceOutput) {
@@ -3288,20 +3479,21 @@ func (c *M2) UntagResourceRequest(input *UntagResourceInput) (req *request.Reque
 // API operation UntagResource for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/UntagResource
 func (c *M2) UntagResource(input *UntagResourceInput) (*UntagResourceOutput, error) {
@@ -3341,14 +3533,13 @@ const opUpdateApplication = "UpdateApplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateApplicationRequest method.
+//	req, resp := client.UpdateApplicationRequest(params)
 //
-//    // Example sending a request using the UpdateApplicationRequest method.
-//    req, resp := client.UpdateApplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/UpdateApplication
 func (c *M2) UpdateApplicationRequest(input *UpdateApplicationInput) (req *request.Request, output *UpdateApplicationOutput) {
@@ -3379,23 +3570,24 @@ func (c *M2) UpdateApplicationRequest(input *UpdateApplicationInput) (req *reque
 // API operation UpdateApplication for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/UpdateApplication
 func (c *M2) UpdateApplication(input *UpdateApplicationInput) (*UpdateApplicationOutput, error) {
@@ -3435,14 +3627,13 @@ const opUpdateEnvironment = "UpdateEnvironment"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateEnvironmentRequest method.
+//	req, resp := client.UpdateEnvironmentRequest(params)
 //
-//    // Example sending a request using the UpdateEnvironmentRequest method.
-//    req, resp := client.UpdateEnvironmentRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/UpdateEnvironment
 func (c *M2) UpdateEnvironmentRequest(input *UpdateEnvironmentInput) (req *request.Request, output *UpdateEnvironmentOutput) {
@@ -3463,7 +3654,7 @@ func (c *M2) UpdateEnvironmentRequest(input *UpdateEnvironmentInput) (req *reque
 
 // UpdateEnvironment API operation for AWSMainframeModernization.
 //
-// Updates the configuration details for a specific environment.
+// Updates the configuration details for a specific runtime environment.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3473,27 +3664,28 @@ func (c *M2) UpdateEnvironmentRequest(input *UpdateEnvironmentInput) (req *reque
 // API operation UpdateEnvironment for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   One or more parameters provided in the request is not valid.
 //
-//   * ServiceQuotaExceededException
-//   One or more quotas for Amazon Web Services Mainframe Modernization exceeds
-//   the limit.
+//   - ResourceNotFoundException
+//     The specified resource was not found.
 //
-//   * ConflictException
-//   The parameters provided in the request conflict with existing resources.
+//   - ServiceQuotaExceededException
+//     One or more quotas for Amazon Web Services Mainframe Modernization exceeds
+//     the limit.
 //
-//   * InternalServerException
-//   An unexpected error occurred during the processing of the request.
+//   - ThrottlingException
+//     The number of requests made exceeds the limit.
 //
-//   * AccessDeniedException
-//   The account or role doesn't have the right permissions to make the request.
+//   - AccessDeniedException
+//     The account or role doesn't have the right permissions to make the request.
 //
-//   * ThrottlingException
-//   The number of requests made exceeds the limit.
+//   - ConflictException
+//     The parameters provided in the request conflict with existing resources.
 //
-//   * ResourceNotFoundException
-//   The specified resource was not found.
+//   - ValidationException
+//     One or more parameters provided in the request is not valid.
+//
+//   - InternalServerException
+//     An unexpected error occurred during the processing of the request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/m2-2021-04-28/UpdateEnvironment
 func (c *M2) UpdateEnvironment(input *UpdateEnvironmentInput) (*UpdateEnvironmentOutput, error) {
@@ -3690,8 +3882,8 @@ type ApplicationSummary struct {
 	// CreationTime is a required field
 	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" required:"true"`
 
-	// Indicates whether there is an ongoing deployment or if the application has
-	// ever deployed successfully.
+	// Indicates either an ongoing deployment or if the application has ever deployed
+	// successfully.
 	DeploymentStatus *string `locationName:"deploymentStatus" type:"string" enum:"ApplicationDeploymentLifecycle"`
 
 	// The description of the application.
@@ -3705,14 +3897,17 @@ type ApplicationSummary struct {
 	// The unique identifier of the runtime environment that hosts this application.
 	EnvironmentId *string `locationName:"environmentId" type:"string"`
 
-	// The timestamp when the application was last started. Null until the application
-	// has started running for the first time.
+	// The timestamp when you last started the application. Null until the application
+	// runs for the first time.
 	LastStartTime *time.Time `locationName:"lastStartTime" type:"timestamp"`
 
 	// The name of the application.
 	//
 	// Name is a required field
 	Name *string `locationName:"name" type:"string" required:"true"`
+
+	// The Amazon Resource Name (ARN) of the role associated with the application.
+	RoleArn *string `locationName:"roleArn" type:"string"`
 
 	// The status of the application.
 	//
@@ -3798,6 +3993,12 @@ func (s *ApplicationSummary) SetLastStartTime(v time.Time) *ApplicationSummary {
 // SetName sets the Name field's value.
 func (s *ApplicationSummary) SetName(v string) *ApplicationSummary {
 	s.Name = &v
+	return s
+}
+
+// SetRoleArn sets the RoleArn field's value.
+func (s *ApplicationSummary) SetRoleArn(v string) *ApplicationSummary {
+	s.RoleArn = &v
 	return s
 }
 
@@ -3928,6 +4129,9 @@ type BatchJobExecutionSummary struct {
 	// ApplicationId is a required field
 	ApplicationId *string `locationName:"applicationId" type:"string" required:"true"`
 
+	// The unique identifier of this batch job.
+	BatchJobIdentifier *BatchJobIdentifier `locationName:"batchJobIdentifier" type:"structure"`
+
 	// The timestamp when this batch job execution ended.
 	EndTime *time.Time `locationName:"endTime" type:"timestamp"`
 
@@ -3944,6 +4148,11 @@ type BatchJobExecutionSummary struct {
 
 	// The type of a particular batch job execution.
 	JobType *string `locationName:"jobType" type:"string" enum:"BatchJobType"`
+
+	// The batch job return code from either the Blu Age or Micro Focus runtime
+	// engines. For more information, see Batch return codes (https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes)
+	// in the IBM WebSphere Application Server documentation.
+	ReturnCode *string `locationName:"returnCode" type:"string"`
 
 	// The timestamp when a particular batch job execution started.
 	//
@@ -3980,6 +4189,12 @@ func (s *BatchJobExecutionSummary) SetApplicationId(v string) *BatchJobExecution
 	return s
 }
 
+// SetBatchJobIdentifier sets the BatchJobIdentifier field's value.
+func (s *BatchJobExecutionSummary) SetBatchJobIdentifier(v *BatchJobIdentifier) *BatchJobExecutionSummary {
+	s.BatchJobIdentifier = v
+	return s
+}
+
 // SetEndTime sets the EndTime field's value.
 func (s *BatchJobExecutionSummary) SetEndTime(v time.Time) *BatchJobExecutionSummary {
 	s.EndTime = &v
@@ -4010,6 +4225,12 @@ func (s *BatchJobExecutionSummary) SetJobType(v string) *BatchJobExecutionSummar
 	return s
 }
 
+// SetReturnCode sets the ReturnCode field's value.
+func (s *BatchJobExecutionSummary) SetReturnCode(v string) *BatchJobExecutionSummary {
+	s.ReturnCode = &v
+	return s
+}
+
 // SetStartTime sets the StartTime field's value.
 func (s *BatchJobExecutionSummary) SetStartTime(v time.Time) *BatchJobExecutionSummary {
 	s.StartTime = &v
@@ -4028,6 +4249,14 @@ type BatchJobIdentifier struct {
 
 	// Specifies a file associated with a specific batch job.
 	FileBatchJobIdentifier *FileBatchJobIdentifier `locationName:"fileBatchJobIdentifier" type:"structure"`
+
+	// Specifies the required information for restart, including execution ID and
+	// jobsteprestartmarker.
+	RestartBatchJobIdentifier *RestartBatchJobIdentifier `locationName:"restartBatchJobIdentifier" type:"structure"`
+
+	// Specifies an Amazon S3 location that identifies the batch jobs that you want
+	// to run. Use this identifier to run ad hoc batch jobs.
+	S3BatchJobIdentifier *S3BatchJobIdentifier `locationName:"s3BatchJobIdentifier" type:"structure"`
 
 	// A batch job identifier in which the batch job to run is identified by the
 	// script name.
@@ -4060,6 +4289,16 @@ func (s *BatchJobIdentifier) Validate() error {
 			invalidParams.AddNested("FileBatchJobIdentifier", err.(request.ErrInvalidParams))
 		}
 	}
+	if s.RestartBatchJobIdentifier != nil {
+		if err := s.RestartBatchJobIdentifier.Validate(); err != nil {
+			invalidParams.AddNested("RestartBatchJobIdentifier", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.S3BatchJobIdentifier != nil {
+		if err := s.S3BatchJobIdentifier.Validate(); err != nil {
+			invalidParams.AddNested("S3BatchJobIdentifier", err.(request.ErrInvalidParams))
+		}
+	}
 	if s.ScriptBatchJobIdentifier != nil {
 		if err := s.ScriptBatchJobIdentifier.Validate(); err != nil {
 			invalidParams.AddNested("ScriptBatchJobIdentifier", err.(request.ErrInvalidParams))
@@ -4075,6 +4314,18 @@ func (s *BatchJobIdentifier) Validate() error {
 // SetFileBatchJobIdentifier sets the FileBatchJobIdentifier field's value.
 func (s *BatchJobIdentifier) SetFileBatchJobIdentifier(v *FileBatchJobIdentifier) *BatchJobIdentifier {
 	s.FileBatchJobIdentifier = v
+	return s
+}
+
+// SetRestartBatchJobIdentifier sets the RestartBatchJobIdentifier field's value.
+func (s *BatchJobIdentifier) SetRestartBatchJobIdentifier(v *RestartBatchJobIdentifier) *BatchJobIdentifier {
+	s.RestartBatchJobIdentifier = v
+	return s
+}
+
+// SetS3BatchJobIdentifier sets the S3BatchJobIdentifier field's value.
+func (s *BatchJobIdentifier) SetS3BatchJobIdentifier(v *S3BatchJobIdentifier) *BatchJobIdentifier {
+	s.S3BatchJobIdentifier = v
 	return s
 }
 
@@ -4267,10 +4518,18 @@ type CreateApplicationInput struct {
 	// EngineType is a required field
 	EngineType *string `locationName:"engineType" type:"string" required:"true" enum:"EngineType"`
 
+	// The identifier of a customer managed key.
+	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+
 	// The unique identifier of the application.
 	//
 	// Name is a required field
 	Name *string `locationName:"name" type:"string" required:"true"`
+
+	// The Amazon Resource Name (ARN) that identifies a role that the application
+	// uses to access Amazon Web Services resources that are not part of the application
+	// or are in a different Amazon Web Services account.
+	RoleArn *string `locationName:"roleArn" type:"string"`
 
 	// A list of tags to apply to the application.
 	Tags map[string]*string `locationName:"tags" type:"map"`
@@ -4342,9 +4601,21 @@ func (s *CreateApplicationInput) SetEngineType(v string) *CreateApplicationInput
 	return s
 }
 
+// SetKmsKeyId sets the KmsKeyId field's value.
+func (s *CreateApplicationInput) SetKmsKeyId(v string) *CreateApplicationInput {
+	s.KmsKeyId = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *CreateApplicationInput) SetName(v string) *CreateApplicationInput {
 	s.Name = &v
+	return s
+}
+
+// SetRoleArn sets the RoleArn field's value.
+func (s *CreateApplicationInput) SetRoleArn(v string) *CreateApplicationInput {
+	s.RoleArn = &v
 	return s
 }
 
@@ -4547,7 +4818,7 @@ type CreateDeploymentInput struct {
 	// it expires.
 	ClientToken *string `locationName:"clientToken" type:"string" idempotencyToken:"true"`
 
-	// The identifier of the environment where this application will be deployed.
+	// The identifier of the runtime environment where you want to deploy this application.
 	//
 	// EnvironmentId is a required field
 	EnvironmentId *string `locationName:"environmentId" type:"string" required:"true"`
@@ -4664,47 +4935,54 @@ type CreateEnvironmentInput struct {
 	// it expires.
 	ClientToken *string `locationName:"clientToken" type:"string" idempotencyToken:"true"`
 
-	// The description of the environment.
+	// The description of the runtime environment.
 	Description *string `locationName:"description" type:"string"`
 
-	// The engine type for the environment.
+	// The engine type for the runtime environment.
 	//
 	// EngineType is a required field
 	EngineType *string `locationName:"engineType" type:"string" required:"true" enum:"EngineType"`
 
-	// The version of the engine type for the environment.
+	// The version of the engine type for the runtime environment.
 	EngineVersion *string `locationName:"engineVersion" type:"string"`
 
 	// The details of a high availability configuration for this runtime environment.
 	HighAvailabilityConfig *HighAvailabilityConfig `locationName:"highAvailabilityConfig" type:"structure"`
 
-	// The type of instance for the environment.
+	// The type of instance for the runtime environment.
 	//
 	// InstanceType is a required field
 	InstanceType *string `locationName:"instanceType" type:"string" required:"true"`
 
-	// The unique identifier of the environment.
+	// The identifier of a customer managed key.
+	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+
+	// The name of the runtime environment. Must be unique within the account.
 	//
 	// Name is a required field
 	Name *string `locationName:"name" type:"string" required:"true"`
 
-	// Configures a desired maintenance window for the environment. If you do not
-	// provide a value, a random system-generated value will be assigned.
+	// Configures the maintenance window that you want for the runtime environment.
+	// The maintenance window must have the format ddd:hh24:mi-ddd:hh24:mi and must
+	// be less than 24 hours. The following two examples are valid maintenance windows:
+	// sun:23:45-mon:00:15 or sat:01:00-sat:03:00.
+	//
+	// If you do not provide a value, a random system-generated value will be assigned.
 	PreferredMaintenanceWindow *string `locationName:"preferredMaintenanceWindow" type:"string"`
 
-	// Specifies whether the environment is publicly accessible.
+	// Specifies whether the runtime environment is publicly accessible.
 	PubliclyAccessible *bool `locationName:"publiclyAccessible" type:"boolean"`
 
-	// The list of security groups for the VPC associated with this environment.
+	// The list of security groups for the VPC associated with this runtime environment.
 	SecurityGroupIds []*string `locationName:"securityGroupIds" type:"list"`
 
-	// Optional. The storage configurations for this environment.
+	// Optional. The storage configurations for this runtime environment.
 	StorageConfigurations []*StorageConfiguration `locationName:"storageConfigurations" type:"list"`
 
-	// The list of subnets associated with the VPC for this environment.
+	// The list of subnets associated with the VPC for this runtime environment.
 	SubnetIds []*string `locationName:"subnetIds" type:"list"`
 
-	// The tags for the environment.
+	// The tags for the runtime environment.
 	Tags map[string]*string `locationName:"tags" type:"map"`
 }
 
@@ -4796,6 +5074,12 @@ func (s *CreateEnvironmentInput) SetInstanceType(v string) *CreateEnvironmentInp
 	return s
 }
 
+// SetKmsKeyId sets the KmsKeyId field's value.
+func (s *CreateEnvironmentInput) SetKmsKeyId(v string) *CreateEnvironmentInput {
+	s.KmsKeyId = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *CreateEnvironmentInput) SetName(v string) *CreateEnvironmentInput {
 	s.Name = &v
@@ -4841,7 +5125,7 @@ func (s *CreateEnvironmentInput) SetTags(v map[string]*string) *CreateEnvironmen
 type CreateEnvironmentOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The identifier of this environment.
+	// The unique identifier of the runtime environment.
 	//
 	// EnvironmentId is a required field
 	EnvironmentId *string `locationName:"environmentId" type:"string" required:"true"`
@@ -4880,8 +5164,7 @@ type DataSet struct {
 	// DatasetName is a required field
 	DatasetName *string `locationName:"datasetName" type:"string" required:"true"`
 
-	// The type of dataset. Possible values include VSAM, IS, PS, GDG, PO, PS, UNKNOWN
-	// etc.
+	// The type of dataset. The only supported value is VSAM.
 	//
 	// DatasetOrg is a required field
 	DatasetOrg *DatasetOrgAttributes `locationName:"datasetOrg" type:"structure" required:"true"`
@@ -5196,6 +5479,9 @@ type DataSetImportTask struct {
 	// Status is a required field
 	Status *string `locationName:"status" type:"string" required:"true" enum:"DataSetTaskLifecycle"`
 
+	// If dataset import failed, the failure reason will show here.
+	StatusReason *string `locationName:"statusReason" type:"string"`
+
 	// A summary of the data set import task.
 	//
 	// Summary is a required field
@@ -5231,6 +5517,12 @@ func (s *DataSetImportTask) SetStatus(v string) *DataSetImportTask {
 	return s
 }
 
+// SetStatusReason sets the StatusReason field's value.
+func (s *DataSetImportTask) SetStatusReason(v string) *DataSetImportTask {
+	s.StatusReason = &v
+	return s
+}
+
 // SetSummary sets the Summary field's value.
 func (s *DataSetImportTask) SetSummary(v *DataSetImportSummary) *DataSetImportTask {
 	s.Summary = v
@@ -5255,8 +5547,7 @@ type DataSetSummary struct {
 	// DataSetName is a required field
 	DataSetName *string `locationName:"dataSetName" type:"string" required:"true"`
 
-	// The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
-	// or unknown.
+	// The type of data set. The only supported value is VSAM.
 	DataSetOrg *string `locationName:"dataSetOrg" type:"string"`
 
 	// The format of the data set.
@@ -5332,6 +5623,12 @@ type DatasetDetailOrgAttributes struct {
 	// The generation data group of the data set.
 	Gdg *GdgDetailAttributes `locationName:"gdg" type:"structure"`
 
+	// The details of a PO type data set.
+	Po *PoDetailAttributes `locationName:"po" type:"structure"`
+
+	// The details of a PS type data set.
+	Ps *PsDetailAttributes `locationName:"ps" type:"structure"`
+
 	// The details of a VSAM data set.
 	Vsam *VsamDetailAttributes `locationName:"vsam" type:"structure"`
 }
@@ -5360,6 +5657,18 @@ func (s *DatasetDetailOrgAttributes) SetGdg(v *GdgDetailAttributes) *DatasetDeta
 	return s
 }
 
+// SetPo sets the Po field's value.
+func (s *DatasetDetailOrgAttributes) SetPo(v *PoDetailAttributes) *DatasetDetailOrgAttributes {
+	s.Po = v
+	return s
+}
+
+// SetPs sets the Ps field's value.
+func (s *DatasetDetailOrgAttributes) SetPs(v *PsDetailAttributes) *DatasetDetailOrgAttributes {
+	s.Ps = v
+	return s
+}
+
 // SetVsam sets the Vsam field's value.
 func (s *DatasetDetailOrgAttributes) SetVsam(v *VsamDetailAttributes) *DatasetDetailOrgAttributes {
 	s.Vsam = v
@@ -5374,6 +5683,12 @@ type DatasetOrgAttributes struct {
 
 	// The generation data group of the data set.
 	Gdg *GdgAttributes `locationName:"gdg" type:"structure"`
+
+	// The details of a PO type data set.
+	Po *PoAttributes `locationName:"po" type:"structure"`
+
+	// The details of a PS type data set.
+	Ps *PsAttributes `locationName:"ps" type:"structure"`
 
 	// The details of a VSAM data set.
 	Vsam *VsamAttributes `locationName:"vsam" type:"structure"`
@@ -5400,6 +5715,16 @@ func (s DatasetOrgAttributes) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DatasetOrgAttributes) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DatasetOrgAttributes"}
+	if s.Po != nil {
+		if err := s.Po.Validate(); err != nil {
+			invalidParams.AddNested("Po", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Ps != nil {
+		if err := s.Ps.Validate(); err != nil {
+			invalidParams.AddNested("Ps", err.(request.ErrInvalidParams))
+		}
+	}
 	if s.Vsam != nil {
 		if err := s.Vsam.Validate(); err != nil {
 			invalidParams.AddNested("Vsam", err.(request.ErrInvalidParams))
@@ -5415,6 +5740,18 @@ func (s *DatasetOrgAttributes) Validate() error {
 // SetGdg sets the Gdg field's value.
 func (s *DatasetOrgAttributes) SetGdg(v *GdgAttributes) *DatasetOrgAttributes {
 	s.Gdg = v
+	return s
+}
+
+// SetPo sets the Po field's value.
+func (s *DatasetOrgAttributes) SetPo(v *PoAttributes) *DatasetOrgAttributes {
+	s.Po = v
+	return s
+}
+
+// SetPs sets the Ps field's value.
+func (s *DatasetOrgAttributes) SetPs(v *PsAttributes) *DatasetOrgAttributes {
+	s.Ps = v
 	return s
 }
 
@@ -5788,7 +6125,7 @@ type DeploymentSummary struct {
 	// DeploymentId is a required field
 	DeploymentId *string `locationName:"deploymentId" type:"string" required:"true"`
 
-	// The unique identifier of the environment.
+	// The unique identifier of the runtime environment.
 	//
 	// EnvironmentId is a required field
 	EnvironmentId *string `locationName:"environmentId" type:"string" required:"true"`
@@ -5968,17 +6305,17 @@ func (s *EngineVersionsSummary) SetEngineVersion(v string) *EngineVersionsSummar
 	return s
 }
 
-// Contains a subset of the possible environment attributes. Used in the environment
-// list.
+// Contains a subset of the possible runtime environment attributes. Used in
+// the environment list.
 type EnvironmentSummary struct {
 	_ struct{} `type:"structure"`
 
-	// The timestamp when the environment was created.
+	// The timestamp when the runtime environment was created.
 	//
 	// CreationTime is a required field
 	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" required:"true"`
 
-	// The target platform for the environment.
+	// The target platform for the runtime environment.
 	//
 	// EngineType is a required field
 	EngineType *string `locationName:"engineType" type:"string" required:"true" enum:"EngineType"`
@@ -5998,17 +6335,17 @@ type EnvironmentSummary struct {
 	// EnvironmentId is a required field
 	EnvironmentId *string `locationName:"environmentId" type:"string" required:"true"`
 
-	// The instance type of the environment.
+	// The instance type of the runtime environment.
 	//
 	// InstanceType is a required field
 	InstanceType *string `locationName:"instanceType" type:"string" required:"true"`
 
-	// The name of the environment.
+	// The name of the runtime environment.
 	//
 	// Name is a required field
 	Name *string `locationName:"name" type:"string" required:"true"`
 
-	// The status of the environment
+	// The status of the runtime environment
 	//
 	// Status is a required field
 	Status *string `locationName:"status" type:"string" required:"true" enum:"EnvironmentLifecycle"`
@@ -6078,6 +6415,71 @@ func (s *EnvironmentSummary) SetName(v string) *EnvironmentSummary {
 func (s *EnvironmentSummary) SetStatus(v string) *EnvironmentSummary {
 	s.Status = &v
 	return s
+}
+
+// Failed to connect to server, or didn’t receive response within expected
+// time period.
+type ExecutionTimeoutException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ExecutionTimeoutException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ExecutionTimeoutException) GoString() string {
+	return s.String()
+}
+
+func newErrorExecutionTimeoutException(v protocol.ResponseMetadata) error {
+	return &ExecutionTimeoutException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *ExecutionTimeoutException) Code() string {
+	return "ExecutionTimeoutException"
+}
+
+// Message returns the exception's message.
+func (s *ExecutionTimeoutException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *ExecutionTimeoutException) OrigErr() error {
+	return nil
+}
+
+func (s *ExecutionTimeoutException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *ExecutionTimeoutException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *ExecutionTimeoutException) RequestID() string {
+	return s.RespMetadata.RequestID
 }
 
 // Defines an external storage location.
@@ -6441,11 +6843,14 @@ type GetApplicationOutput struct {
 	// EngineType is a required field
 	EngineType *string `locationName:"engineType" type:"string" required:"true" enum:"EngineType"`
 
-	// The identifier of the environment where the application will be deployed.
+	// The identifier of the runtime environment where you want to deploy the application.
 	EnvironmentId *string `locationName:"environmentId" type:"string"`
 
-	// The timestamp when the application was last started. Null until the application
-	// has started running for the first time.
+	// The identifier of a customer managed key.
+	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+
+	// The timestamp when you last started the application. Null until the application
+	// runs for the first time.
 	LastStartTime *time.Time `locationName:"lastStartTime" type:"timestamp"`
 
 	// The latest version of the application.
@@ -6455,7 +6860,7 @@ type GetApplicationOutput struct {
 
 	// The Amazon Resource Name (ARN) for the network load balancer listener created
 	// in your Amazon Web Services account. Amazon Web Services Mainframe Modernization
-	// creates this listener on your behalf the first time you deploy an application.
+	// creates this listener for you the first time you deploy an application.
 	ListenerArns []*string `locationName:"listenerArns" min:"1" type:"list"`
 
 	// The port associated with the network load balancer listener created in your
@@ -6467,8 +6872,8 @@ type GetApplicationOutput struct {
 	LoadBalancerDnsName *string `locationName:"loadBalancerDnsName" type:"string"`
 
 	// The list of log summaries. Each log summary includes the log type as well
-	// as the log group identifier. These are CloudWatch logs. The Amazon Web Services
-	// Mainframe Modernization application log is pushed to CloudWatch under the
+	// as the log group identifier. These are CloudWatch logs. Amazon Web Services
+	// Mainframe Modernization pushes the application log to CloudWatch under the
 	// customer's account.
 	LogGroups []*LogGroupSummary `locationName:"logGroups" type:"list"`
 
@@ -6476,6 +6881,9 @@ type GetApplicationOutput struct {
 	//
 	// Name is a required field
 	Name *string `locationName:"name" type:"string" required:"true"`
+
+	// The Amazon Resource Name (ARN) of the role associated with the application.
+	RoleArn *string `locationName:"roleArn" type:"string"`
 
 	// The status of the application.
 	//
@@ -6553,6 +6961,12 @@ func (s *GetApplicationOutput) SetEnvironmentId(v string) *GetApplicationOutput 
 	return s
 }
 
+// SetKmsKeyId sets the KmsKeyId field's value.
+func (s *GetApplicationOutput) SetKmsKeyId(v string) *GetApplicationOutput {
+	s.KmsKeyId = &v
+	return s
+}
+
 // SetLastStartTime sets the LastStartTime field's value.
 func (s *GetApplicationOutput) SetLastStartTime(v time.Time) *GetApplicationOutput {
 	s.LastStartTime = &v
@@ -6592,6 +7006,12 @@ func (s *GetApplicationOutput) SetLogGroups(v []*LogGroupSummary) *GetApplicatio
 // SetName sets the Name field's value.
 func (s *GetApplicationOutput) SetName(v string) *GetApplicationOutput {
 	s.Name = &v
+	return s
+}
+
+// SetRoleArn sets the RoleArn field's value.
+func (s *GetApplicationOutput) SetRoleArn(v string) *GetApplicationOutput {
+	s.RoleArn = &v
 	return s
 }
 
@@ -6699,7 +7119,7 @@ type GetApplicationVersionOutput struct {
 	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" required:"true"`
 
 	// The content of the application definition. This is a JSON object that contains
-	// the resource configuration/definitions that identify an application.
+	// the resource configuration and definitions that identify an application.
 	//
 	// DefinitionContent is a required field
 	DefinitionContent *string `locationName:"definitionContent" min:"1" type:"string" required:"true"`
@@ -6855,6 +7275,9 @@ type GetBatchJobExecutionOutput struct {
 	// ApplicationId is a required field
 	ApplicationId *string `locationName:"applicationId" type:"string" required:"true"`
 
+	// The unique identifier of this batch job.
+	BatchJobIdentifier *BatchJobIdentifier `locationName:"batchJobIdentifier" type:"structure"`
+
 	// The timestamp when the batch job execution ended.
 	EndTime *time.Time `locationName:"endTime" type:"timestamp"`
 
@@ -6869,11 +7292,19 @@ type GetBatchJobExecutionOutput struct {
 	// The name of this batch job.
 	JobName *string `locationName:"jobName" type:"string"`
 
+	// The restart steps information for the most recent restart operation.
+	JobStepRestartMarker *JobStepRestartMarker `locationName:"jobStepRestartMarker" type:"structure"`
+
 	// The type of job.
 	JobType *string `locationName:"jobType" type:"string" enum:"BatchJobType"`
 
 	// The user for the job.
 	JobUser *string `locationName:"jobUser" type:"string"`
+
+	// The batch job return code from either the Blu Age or Micro Focus runtime
+	// engines. For more information, see Batch return codes (https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes)
+	// in the IBM WebSphere Application Server documentation.
+	ReturnCode *string `locationName:"returnCode" type:"string"`
 
 	// The timestamp when the batch job execution started.
 	//
@@ -6913,6 +7344,12 @@ func (s *GetBatchJobExecutionOutput) SetApplicationId(v string) *GetBatchJobExec
 	return s
 }
 
+// SetBatchJobIdentifier sets the BatchJobIdentifier field's value.
+func (s *GetBatchJobExecutionOutput) SetBatchJobIdentifier(v *BatchJobIdentifier) *GetBatchJobExecutionOutput {
+	s.BatchJobIdentifier = v
+	return s
+}
+
 // SetEndTime sets the EndTime field's value.
 func (s *GetBatchJobExecutionOutput) SetEndTime(v time.Time) *GetBatchJobExecutionOutput {
 	s.EndTime = &v
@@ -6937,6 +7374,12 @@ func (s *GetBatchJobExecutionOutput) SetJobName(v string) *GetBatchJobExecutionO
 	return s
 }
 
+// SetJobStepRestartMarker sets the JobStepRestartMarker field's value.
+func (s *GetBatchJobExecutionOutput) SetJobStepRestartMarker(v *JobStepRestartMarker) *GetBatchJobExecutionOutput {
+	s.JobStepRestartMarker = v
+	return s
+}
+
 // SetJobType sets the JobType field's value.
 func (s *GetBatchJobExecutionOutput) SetJobType(v string) *GetBatchJobExecutionOutput {
 	s.JobType = &v
@@ -6946,6 +7389,12 @@ func (s *GetBatchJobExecutionOutput) SetJobType(v string) *GetBatchJobExecutionO
 // SetJobUser sets the JobUser field's value.
 func (s *GetBatchJobExecutionOutput) SetJobUser(v string) *GetBatchJobExecutionOutput {
 	s.JobUser = &v
+	return s
+}
+
+// SetReturnCode sets the ReturnCode field's value.
+func (s *GetBatchJobExecutionOutput) SetReturnCode(v string) *GetBatchJobExecutionOutput {
+	s.ReturnCode = &v
 	return s
 }
 
@@ -7048,9 +7497,11 @@ type GetDataSetDetailsOutput struct {
 	// DataSetName is a required field
 	DataSetName *string `locationName:"dataSetName" type:"string" required:"true"`
 
-	// The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
-	// or unknown.
+	// The type of data set. The only supported value is VSAM.
 	DataSetOrg *DatasetDetailOrgAttributes `locationName:"dataSetOrg" type:"structure"`
+
+	// File size of the dataset.
+	FileSize *int64 `locationName:"fileSize" type:"long"`
 
 	// The last time the data set was referenced.
 	LastReferencedTime *time.Time `locationName:"lastReferencedTime" type:"timestamp"`
@@ -7058,7 +7509,7 @@ type GetDataSetDetailsOutput struct {
 	// The last time the data set was updated.
 	LastUpdatedTime *time.Time `locationName:"lastUpdatedTime" type:"timestamp"`
 
-	// The locaion where the data set is stored.
+	// The location where the data set is stored.
 	Location *string `locationName:"location" type:"string"`
 
 	// The length of records in the data set.
@@ -7104,6 +7555,12 @@ func (s *GetDataSetDetailsOutput) SetDataSetName(v string) *GetDataSetDetailsOut
 // SetDataSetOrg sets the DataSetOrg field's value.
 func (s *GetDataSetDetailsOutput) SetDataSetOrg(v *DatasetDetailOrgAttributes) *GetDataSetDetailsOutput {
 	s.DataSetOrg = v
+	return s
+}
+
+// SetFileSize sets the FileSize field's value.
+func (s *GetDataSetDetailsOutput) SetFileSize(v int64) *GetDataSetDetailsOutput {
+	s.FileSize = &v
 	return s
 }
 
@@ -7466,9 +7923,9 @@ type GetEnvironmentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The number of instances included in the runtime environment. A standalone
-	// runtime environment has a maxiumum of one instance. Currently, a high availability
+	// runtime environment has a maximum of one instance. Currently, a high availability
 	// runtime environment has a maximum of two instances.
-	ActualCapacity *int64 `locationName:"actualCapacity" min:"1" type:"integer"`
+	ActualCapacity *int64 `locationName:"actualCapacity" type:"integer"`
 
 	// The timestamp when the runtime environment was created.
 	//
@@ -7507,11 +7964,14 @@ type GetEnvironmentOutput struct {
 	// InstanceType is a required field
 	InstanceType *string `locationName:"instanceType" type:"string" required:"true"`
 
+	// The identifier of a customer managed key.
+	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+
 	// The Amazon Resource Name (ARN) for the load balancer used with the runtime
 	// environment.
 	LoadBalancerArn *string `locationName:"loadBalancerArn" type:"string"`
 
-	// The name of the runtime environment.
+	// The name of the runtime environment. Must be unique within the account.
 	//
 	// Name is a required field
 	Name *string `locationName:"name" type:"string" required:"true"`
@@ -7519,8 +7979,8 @@ type GetEnvironmentOutput struct {
 	// Indicates the pending maintenance scheduled on this environment.
 	PendingMaintenance *PendingMaintenance `locationName:"pendingMaintenance" type:"structure"`
 
-	// Configures a desired maintenance window for the environment. If you do not
-	// provide a value, a random system-generated value will be assigned.
+	// The maintenance window for the runtime environment. If you don't provide
+	// a value for the maintenance window, the service assigns a random value.
 	PreferredMaintenanceWindow *string `locationName:"preferredMaintenanceWindow" type:"string"`
 
 	// Whether applications running in this runtime environment are publicly accessible.
@@ -7628,6 +8088,12 @@ func (s *GetEnvironmentOutput) SetInstanceType(v string) *GetEnvironmentOutput {
 	return s
 }
 
+// SetKmsKeyId sets the KmsKeyId field's value.
+func (s *GetEnvironmentOutput) SetKmsKeyId(v string) *GetEnvironmentOutput {
+	s.KmsKeyId = &v
+	return s
+}
+
 // SetLoadBalancerArn sets the LoadBalancerArn field's value.
 func (s *GetEnvironmentOutput) SetLoadBalancerArn(v string) *GetEnvironmentOutput {
 	s.LoadBalancerArn = &v
@@ -7700,14 +8166,70 @@ func (s *GetEnvironmentOutput) SetVpcId(v string) *GetEnvironmentOutput {
 	return s
 }
 
+type GetSignedBluinsightsUrlInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetSignedBluinsightsUrlInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetSignedBluinsightsUrlInput) GoString() string {
+	return s.String()
+}
+
+type GetSignedBluinsightsUrlOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Single sign-on AWS Blu Insights URL.
+	//
+	// SignedBiUrl is a required field
+	SignedBiUrl *string `locationName:"signedBiUrl" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetSignedBluinsightsUrlOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetSignedBluinsightsUrlOutput) GoString() string {
+	return s.String()
+}
+
+// SetSignedBiUrl sets the SignedBiUrl field's value.
+func (s *GetSignedBluinsightsUrlOutput) SetSignedBiUrl(v string) *GetSignedBluinsightsUrlOutput {
+	s.SignedBiUrl = &v
+	return s
+}
+
 // Defines the details of a high availability configuration.
 type HighAvailabilityConfig struct {
 	_ struct{} `type:"structure"`
 
-	// The number of instances in a high availability configuration.
+	// The number of instances in a high availability configuration. The minimum
+	// possible value is 1 and the maximum is 100.
 	//
 	// DesiredCapacity is a required field
-	DesiredCapacity *int64 `locationName:"desiredCapacity" min:"1" type:"integer" required:"true"`
+	DesiredCapacity *int64 `locationName:"desiredCapacity" type:"integer" required:"true"`
 }
 
 // String returns the string representation.
@@ -7733,9 +8255,6 @@ func (s *HighAvailabilityConfig) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "HighAvailabilityConfig"}
 	if s.DesiredCapacity == nil {
 		invalidParams.Add(request.NewErrParamRequired("DesiredCapacity"))
-	}
-	if s.DesiredCapacity != nil && *s.DesiredCapacity < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("DesiredCapacity", 1))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -7815,6 +8334,198 @@ func (s *InternalServerException) StatusCode() int {
 // RequestID returns the service's response RequestID for request.
 func (s *InternalServerException) RequestID() string {
 	return s.RespMetadata.RequestID
+}
+
+// Identifies a specific batch job.
+type JobIdentifier struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the file that contains the batch job definition.
+	FileName *string `locationName:"fileName" type:"string"`
+
+	// The name of the script that contains the batch job definition.
+	ScriptName *string `locationName:"scriptName" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s JobIdentifier) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s JobIdentifier) GoString() string {
+	return s.String()
+}
+
+// SetFileName sets the FileName field's value.
+func (s *JobIdentifier) SetFileName(v string) *JobIdentifier {
+	s.FileName = &v
+	return s
+}
+
+// SetScriptName sets the ScriptName field's value.
+func (s *JobIdentifier) SetScriptName(v string) *JobIdentifier {
+	s.ScriptName = &v
+	return s
+}
+
+// Provides information related to a job step.
+type JobStep struct {
+	_ struct{} `type:"structure"`
+
+	// The name of a procedure step.
+	ProcStepName *string `locationName:"procStepName" type:"string"`
+
+	// The number of a procedure step.
+	ProcStepNumber *int64 `locationName:"procStepNumber" type:"integer"`
+
+	// The condition code of a step.
+	StepCondCode *string `locationName:"stepCondCode" type:"string"`
+
+	// The name of a step.
+	StepName *string `locationName:"stepName" type:"string"`
+
+	// The number of a step.
+	StepNumber *int64 `locationName:"stepNumber" type:"integer"`
+
+	// Specifies if a step can be restarted or not.
+	StepRestartable *bool `locationName:"stepRestartable" type:"boolean"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s JobStep) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s JobStep) GoString() string {
+	return s.String()
+}
+
+// SetProcStepName sets the ProcStepName field's value.
+func (s *JobStep) SetProcStepName(v string) *JobStep {
+	s.ProcStepName = &v
+	return s
+}
+
+// SetProcStepNumber sets the ProcStepNumber field's value.
+func (s *JobStep) SetProcStepNumber(v int64) *JobStep {
+	s.ProcStepNumber = &v
+	return s
+}
+
+// SetStepCondCode sets the StepCondCode field's value.
+func (s *JobStep) SetStepCondCode(v string) *JobStep {
+	s.StepCondCode = &v
+	return s
+}
+
+// SetStepName sets the StepName field's value.
+func (s *JobStep) SetStepName(v string) *JobStep {
+	s.StepName = &v
+	return s
+}
+
+// SetStepNumber sets the StepNumber field's value.
+func (s *JobStep) SetStepNumber(v int64) *JobStep {
+	s.StepNumber = &v
+	return s
+}
+
+// SetStepRestartable sets the StepRestartable field's value.
+func (s *JobStep) SetStepRestartable(v bool) *JobStep {
+	s.StepRestartable = &v
+	return s
+}
+
+// Provides restart step information for the most recent restart operation.
+type JobStepRestartMarker struct {
+	_ struct{} `type:"structure"`
+
+	// The procedure step name that a job was restarted from.
+	FromProcStep *string `locationName:"fromProcStep" type:"string"`
+
+	// The step name that a batch job restart was from.
+	//
+	// FromStep is a required field
+	FromStep *string `locationName:"fromStep" type:"string" required:"true"`
+
+	// The procedure step name that a batch job was restarted to.
+	ToProcStep *string `locationName:"toProcStep" type:"string"`
+
+	// The step name that a job was restarted to.
+	ToStep *string `locationName:"toStep" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s JobStepRestartMarker) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s JobStepRestartMarker) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *JobStepRestartMarker) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "JobStepRestartMarker"}
+	if s.FromStep == nil {
+		invalidParams.Add(request.NewErrParamRequired("FromStep"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetFromProcStep sets the FromProcStep field's value.
+func (s *JobStepRestartMarker) SetFromProcStep(v string) *JobStepRestartMarker {
+	s.FromProcStep = &v
+	return s
+}
+
+// SetFromStep sets the FromStep field's value.
+func (s *JobStepRestartMarker) SetFromStep(v string) *JobStepRestartMarker {
+	s.FromStep = &v
+	return s
+}
+
+// SetToProcStep sets the ToProcStep field's value.
+func (s *JobStepRestartMarker) SetToProcStep(v string) *JobStepRestartMarker {
+	s.ToProcStep = &v
+	return s
+}
+
+// SetToStep sets the ToStep field's value.
+func (s *JobStepRestartMarker) SetToStep(v string) *JobStepRestartMarker {
+	s.ToStep = &v
+	return s
 }
 
 type ListApplicationVersionsInput struct {
@@ -8011,7 +8722,7 @@ func (s *ListApplicationsInput) SetNextToken(v string) *ListApplicationsInput {
 type ListApplicationsOutput struct {
 	_ struct{} `type:"structure"`
 
-	// Returns a list of summary details for all the applications in an environment.
+	// Returns a list of summary details for all the applications in a runtime environment.
 	//
 	// Applications is a required field
 	Applications []*ApplicationSummary `locationName:"applications" type:"list" required:"true"`
@@ -8338,6 +9049,104 @@ func (s *ListBatchJobExecutionsOutput) SetNextToken(v string) *ListBatchJobExecu
 	return s
 }
 
+type ListBatchJobRestartPointsInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The unique identifier of the application.
+	//
+	// ApplicationId is a required field
+	ApplicationId *string `location:"uri" locationName:"applicationId" type:"string" required:"true"`
+
+	// The unique identifier of each batch job execution.
+	//
+	// ExecutionId is a required field
+	ExecutionId *string `location:"uri" locationName:"executionId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListBatchJobRestartPointsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListBatchJobRestartPointsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListBatchJobRestartPointsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListBatchJobRestartPointsInput"}
+	if s.ApplicationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ApplicationId"))
+	}
+	if s.ApplicationId != nil && len(*s.ApplicationId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ApplicationId", 1))
+	}
+	if s.ExecutionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ExecutionId"))
+	}
+	if s.ExecutionId != nil && len(*s.ExecutionId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ExecutionId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetApplicationId sets the ApplicationId field's value.
+func (s *ListBatchJobRestartPointsInput) SetApplicationId(v string) *ListBatchJobRestartPointsInput {
+	s.ApplicationId = &v
+	return s
+}
+
+// SetExecutionId sets the ExecutionId field's value.
+func (s *ListBatchJobRestartPointsInput) SetExecutionId(v string) *ListBatchJobRestartPointsInput {
+	s.ExecutionId = &v
+	return s
+}
+
+type ListBatchJobRestartPointsOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Returns all the batch job steps and related information for a batch job that
+	// previously ran.
+	BatchJobSteps []*JobStep `locationName:"batchJobSteps" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListBatchJobRestartPointsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListBatchJobRestartPointsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBatchJobSteps sets the BatchJobSteps field's value.
+func (s *ListBatchJobRestartPointsOutput) SetBatchJobSteps(v []*JobStep) *ListBatchJobRestartPointsOutput {
+	s.BatchJobSteps = v
+	return s
+}
+
 type ListDataSetImportHistoryInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
@@ -8465,6 +9274,10 @@ type ListDataSetsInput struct {
 	// The maximum number of objects to return.
 	MaxResults *int64 `location:"querystring" locationName:"maxResults" min:"1" type:"integer"`
 
+	// Filter dataset name matching the specified pattern. Can use * and % as wild
+	// cards.
+	NameFilter *string `location:"querystring" locationName:"nameFilter" type:"string"`
+
 	// A pagination token returned from a previous call to this operation. This
 	// specifies the next item to return. To return to the beginning of the list,
 	// exclude this parameter.
@@ -8524,6 +9337,12 @@ func (s *ListDataSetsInput) SetMaxResults(v int64) *ListDataSetsInput {
 	return s
 }
 
+// SetNameFilter sets the NameFilter field's value.
+func (s *ListDataSetsInput) SetNameFilter(v string) *ListDataSetsInput {
+	s.NameFilter = &v
+	return s
+}
+
 // SetNextToken sets the NextToken field's value.
 func (s *ListDataSetsInput) SetNextToken(v string) *ListDataSetsInput {
 	s.NextToken = &v
@@ -8539,7 +9358,7 @@ func (s *ListDataSetsInput) SetPrefix(v string) *ListDataSetsInput {
 type ListDataSetsOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The list of data sets, containing ionformation including the creating time,
+	// The list of data sets, containing information including the creation time,
 	// the data set name, the data set organization, the data set format, and the
 	// last time the data set was referenced or updated.
 	//
@@ -8806,17 +9625,17 @@ func (s *ListEngineVersionsOutput) SetNextToken(v string) *ListEngineVersionsOut
 type ListEnvironmentsInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
-	// The engine type for the environment.
+	// The engine type for the runtime environment.
 	EngineType *string `location:"querystring" locationName:"engineType" type:"string" enum:"EngineType"`
 
-	// The maximum number of environments to return.
+	// The maximum number of runtime environments to return.
 	MaxResults *int64 `location:"querystring" locationName:"maxResults" min:"1" type:"integer"`
 
-	// The name of the environment.
+	// The names of the runtime environments. Must be unique within the account.
 	Names []*string `location:"querystring" locationName:"names" min:"1" type:"list"`
 
-	// A pagination token to control the number of environments displayed in the
-	// list.
+	// A pagination token to control the number of runtime environments displayed
+	// in the list.
 	NextToken *string `location:"querystring" locationName:"nextToken" type:"string"`
 }
 
@@ -8881,13 +9700,14 @@ func (s *ListEnvironmentsInput) SetNextToken(v string) *ListEnvironmentsInput {
 type ListEnvironmentsOutput struct {
 	_ struct{} `type:"structure"`
 
-	// Returns a list of summary details for all the environments in your account.
+	// Returns a list of summary details for all the runtime environments in your
+	// account.
 	//
 	// Environments is a required field
 	Environments []*EnvironmentSummary `locationName:"environments" type:"list" required:"true"`
 
 	// A pagination token that's returned when the response doesn't contain all
-	// the environments.
+	// the runtime environments.
 	NextToken *string `locationName:"nextToken" type:"string"`
 }
 
@@ -9003,9 +9823,9 @@ func (s *ListTagsForResourceOutput) SetTags(v map[string]*string) *ListTagsForRe
 	return s
 }
 
-// A subset of the attributes about a log group. In CloudWatch a log group is
-// a group of log streams that share the same retention, monitoring, and access
-// control settings.
+// A subset of the attributes that describe a log group. In CloudWatch a log
+// group is a group of log streams that share the same retention, monitoring,
+// and access control settings.
 type LogGroupSummary struct {
 	_ struct{} `type:"structure"`
 
@@ -9098,7 +9918,7 @@ type PendingMaintenance struct {
 	// The specific runtime engine that the maintenance schedule applies to.
 	EngineVersion *string `locationName:"engineVersion" type:"string"`
 
-	// The maintenance schedule for the engine version.
+	// The maintenance schedule for the runtime engine version.
 	Schedule *MaintenanceSchedule `locationName:"schedule" type:"structure"`
 }
 
@@ -9129,6 +9949,125 @@ func (s *PendingMaintenance) SetEngineVersion(v string) *PendingMaintenance {
 // SetSchedule sets the Schedule field's value.
 func (s *PendingMaintenance) SetSchedule(v *MaintenanceSchedule) *PendingMaintenance {
 	s.Schedule = v
+	return s
+}
+
+// The supported properties for a PO type data set.
+type PoAttributes struct {
+	_ struct{} `type:"structure"`
+
+	// The character set encoding of the data set.
+	Encoding *string `locationName:"encoding" type:"string"`
+
+	// The format of the data set records.
+	//
+	// Format is a required field
+	Format *string `locationName:"format" type:"string" required:"true"`
+
+	// An array containing one or more filename extensions, allowing you to specify
+	// which files to be included as PDS member.
+	//
+	// MemberFileExtensions is a required field
+	MemberFileExtensions []*string `locationName:"memberFileExtensions" min:"1" type:"list" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PoAttributes) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PoAttributes) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *PoAttributes) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "PoAttributes"}
+	if s.Format == nil {
+		invalidParams.Add(request.NewErrParamRequired("Format"))
+	}
+	if s.MemberFileExtensions == nil {
+		invalidParams.Add(request.NewErrParamRequired("MemberFileExtensions"))
+	}
+	if s.MemberFileExtensions != nil && len(s.MemberFileExtensions) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("MemberFileExtensions", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEncoding sets the Encoding field's value.
+func (s *PoAttributes) SetEncoding(v string) *PoAttributes {
+	s.Encoding = &v
+	return s
+}
+
+// SetFormat sets the Format field's value.
+func (s *PoAttributes) SetFormat(v string) *PoAttributes {
+	s.Format = &v
+	return s
+}
+
+// SetMemberFileExtensions sets the MemberFileExtensions field's value.
+func (s *PoAttributes) SetMemberFileExtensions(v []*string) *PoAttributes {
+	s.MemberFileExtensions = v
+	return s
+}
+
+// The supported properties for a PO type data set.
+type PoDetailAttributes struct {
+	_ struct{} `type:"structure"`
+
+	// The character set encoding of the data set.
+	//
+	// Encoding is a required field
+	Encoding *string `locationName:"encoding" type:"string" required:"true"`
+
+	// The format of the data set records.
+	//
+	// Format is a required field
+	Format *string `locationName:"format" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PoDetailAttributes) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PoDetailAttributes) GoString() string {
+	return s.String()
+}
+
+// SetEncoding sets the Encoding field's value.
+func (s *PoDetailAttributes) SetEncoding(v string) *PoDetailAttributes {
+	s.Encoding = &v
+	return s
+}
+
+// SetFormat sets the Format field's value.
+func (s *PoDetailAttributes) SetFormat(v string) *PoDetailAttributes {
+	s.Format = &v
 	return s
 }
 
@@ -9201,6 +10140,107 @@ func (s *PrimaryKey) SetName(v string) *PrimaryKey {
 // SetOffset sets the Offset field's value.
 func (s *PrimaryKey) SetOffset(v int64) *PrimaryKey {
 	s.Offset = &v
+	return s
+}
+
+// The supported properties for a PS type data set.
+type PsAttributes struct {
+	_ struct{} `type:"structure"`
+
+	// The character set encoding of the data set.
+	Encoding *string `locationName:"encoding" type:"string"`
+
+	// The format of the data set records.
+	//
+	// Format is a required field
+	Format *string `locationName:"format" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PsAttributes) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PsAttributes) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *PsAttributes) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "PsAttributes"}
+	if s.Format == nil {
+		invalidParams.Add(request.NewErrParamRequired("Format"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEncoding sets the Encoding field's value.
+func (s *PsAttributes) SetEncoding(v string) *PsAttributes {
+	s.Encoding = &v
+	return s
+}
+
+// SetFormat sets the Format field's value.
+func (s *PsAttributes) SetFormat(v string) *PsAttributes {
+	s.Format = &v
+	return s
+}
+
+// The supported properties for a PS type data set.
+type PsDetailAttributes struct {
+	_ struct{} `type:"structure"`
+
+	// The character set encoding of the data set.
+	//
+	// Encoding is a required field
+	Encoding *string `locationName:"encoding" type:"string" required:"true"`
+
+	// The format of the data set records.
+	//
+	// Format is a required field
+	Format *string `locationName:"format" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PsDetailAttributes) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PsDetailAttributes) GoString() string {
+	return s.String()
+}
+
+// SetEncoding sets the Encoding field's value.
+func (s *PsDetailAttributes) SetEncoding(v string) *PsDetailAttributes {
+	s.Encoding = &v
+	return s
+}
+
+// SetFormat sets the Format field's value.
+func (s *PsDetailAttributes) SetFormat(v string) *PsDetailAttributes {
+	s.Format = &v
 	return s
 }
 
@@ -9334,6 +10374,147 @@ func (s *ResourceNotFoundException) StatusCode() int {
 // RequestID returns the service's response RequestID for request.
 func (s *ResourceNotFoundException) RequestID() string {
 	return s.RespMetadata.RequestID
+}
+
+// An identifier for the StartBatchJob API to show that it is a restart operation.
+type RestartBatchJobIdentifier struct {
+	_ struct{} `type:"structure"`
+
+	// The executionId from the StartBatchJob response when the job ran for the
+	// first time.
+	//
+	// ExecutionId is a required field
+	ExecutionId *string `locationName:"executionId" type:"string" required:"true"`
+
+	// The restart step information for the most recent restart operation.
+	//
+	// JobStepRestartMarker is a required field
+	JobStepRestartMarker *JobStepRestartMarker `locationName:"jobStepRestartMarker" type:"structure" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestartBatchJobIdentifier) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RestartBatchJobIdentifier) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RestartBatchJobIdentifier) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RestartBatchJobIdentifier"}
+	if s.ExecutionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ExecutionId"))
+	}
+	if s.JobStepRestartMarker == nil {
+		invalidParams.Add(request.NewErrParamRequired("JobStepRestartMarker"))
+	}
+	if s.JobStepRestartMarker != nil {
+		if err := s.JobStepRestartMarker.Validate(); err != nil {
+			invalidParams.AddNested("JobStepRestartMarker", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetExecutionId sets the ExecutionId field's value.
+func (s *RestartBatchJobIdentifier) SetExecutionId(v string) *RestartBatchJobIdentifier {
+	s.ExecutionId = &v
+	return s
+}
+
+// SetJobStepRestartMarker sets the JobStepRestartMarker field's value.
+func (s *RestartBatchJobIdentifier) SetJobStepRestartMarker(v *JobStepRestartMarker) *RestartBatchJobIdentifier {
+	s.JobStepRestartMarker = v
+	return s
+}
+
+// A batch job identifier in which the batch jobs to run are identified by an
+// Amazon S3 location.
+type S3BatchJobIdentifier struct {
+	_ struct{} `type:"structure"`
+
+	// The Amazon S3 bucket that contains the batch job definitions.
+	//
+	// Bucket is a required field
+	Bucket *string `locationName:"bucket" type:"string" required:"true"`
+
+	// Identifies the batch job definition. This identifier can also point to any
+	// batch job definition that already exists in the application or to one of
+	// the batch job definitions within the directory that is specified in keyPrefix.
+	//
+	// Identifier is a required field
+	Identifier *JobIdentifier `locationName:"identifier" type:"structure" required:"true"`
+
+	// The key prefix that specifies the path to the folder in the S3 bucket that
+	// has the batch job definitions.
+	KeyPrefix *string `locationName:"keyPrefix" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s S3BatchJobIdentifier) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s S3BatchJobIdentifier) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *S3BatchJobIdentifier) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "S3BatchJobIdentifier"}
+	if s.Bucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bucket"))
+	}
+	if s.Identifier == nil {
+		invalidParams.Add(request.NewErrParamRequired("Identifier"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *S3BatchJobIdentifier) SetBucket(v string) *S3BatchJobIdentifier {
+	s.Bucket = &v
+	return s
+}
+
+// SetIdentifier sets the Identifier field's value.
+func (s *S3BatchJobIdentifier) SetIdentifier(v *JobIdentifier) *S3BatchJobIdentifier {
+	s.Identifier = v
+	return s
+}
+
+// SetKeyPrefix sets the KeyPrefix field's value.
+func (s *S3BatchJobIdentifier) SetKeyPrefix(v string) *S3BatchJobIdentifier {
+	s.KeyPrefix = &v
+	return s
 }
 
 // A batch job definition contained in a script.
@@ -9493,6 +10674,70 @@ func (s *ServiceQuotaExceededException) StatusCode() int {
 
 // RequestID returns the service's response RequestID for request.
 func (s *ServiceQuotaExceededException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// Server cannot process the request at the moment.
+type ServiceUnavailableException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ServiceUnavailableException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ServiceUnavailableException) GoString() string {
+	return s.String()
+}
+
+func newErrorServiceUnavailableException(v protocol.ResponseMetadata) error {
+	return &ServiceUnavailableException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *ServiceUnavailableException) Code() string {
+	return "ServiceUnavailableException"
+}
+
+// Message returns the exception's message.
+func (s *ServiceUnavailableException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *ServiceUnavailableException) OrigErr() error {
+	return nil
+}
+
+func (s *ServiceUnavailableException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *ServiceUnavailableException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *ServiceUnavailableException) RequestID() string {
 	return s.RespMetadata.RequestID
 }
 
@@ -9761,7 +11006,7 @@ func (s StopApplicationOutput) GoString() string {
 	return s.String()
 }
 
-// Defines the storage configuration for an environment.
+// Defines the storage configuration for a runtime environment.
 type StorageConfiguration struct {
 	_ struct{} `type:"structure"`
 
@@ -9914,7 +11159,7 @@ type ThrottlingException struct {
 
 	Message_ *string `locationName:"message" type:"string"`
 
-	// The identifier of the throttled reuqest.
+	// The identifier of the throttled request.
 	QuotaCode *string `locationName:"quotaCode" type:"string"`
 
 	// The number of seconds to wait before retrying the request.
@@ -10191,17 +11436,18 @@ func (s *UpdateApplicationOutput) SetApplicationVersion(v int64) *UpdateApplicat
 type UpdateEnvironmentInput struct {
 	_ struct{} `type:"structure"`
 
-	// Indicates whether to update the environment during the maintenance window.
-	// The default is false. Currently, Amazon Web Services Mainframe Modernization
+	// Indicates whether to update the runtime environment during the maintenance
+	// window. The default is false. Currently, Amazon Web Services Mainframe Modernization
 	// accepts the engineVersion parameter only if applyDuringMaintenanceWindow
 	// is true. If any parameter other than engineVersion is provided in UpdateEnvironmentRequest,
 	// it will fail if applyDuringMaintenanceWindow is set to true.
 	ApplyDuringMaintenanceWindow *bool `locationName:"applyDuringMaintenanceWindow" type:"boolean"`
 
-	// The desired capacity for the environment to update.
-	DesiredCapacity *int64 `locationName:"desiredCapacity" min:"1" type:"integer"`
+	// The desired capacity for the runtime environment to update. The minimum possible
+	// value is 0 and the maximum is 100.
+	DesiredCapacity *int64 `locationName:"desiredCapacity" type:"integer"`
 
-	// The version of the runtime engine for the environment.
+	// The version of the runtime engine for the runtime environment.
 	EngineVersion *string `locationName:"engineVersion" type:"string"`
 
 	// The unique identifier of the runtime environment that you want to update.
@@ -10209,11 +11455,26 @@ type UpdateEnvironmentInput struct {
 	// EnvironmentId is a required field
 	EnvironmentId *string `location:"uri" locationName:"environmentId" type:"string" required:"true"`
 
-	// The instance type for the environment to update.
+	// Forces the updates on the environment. This option is needed if the applications
+	// in the environment are not stopped or if there are ongoing application-related
+	// activities in the environment.
+	//
+	// If you use this option, be aware that it could lead to data corruption in
+	// the applications, and that you might need to perform repair and recovery
+	// procedures for the applications.
+	//
+	// This option is not needed if the attribute being updated is preferredMaintenanceWindow.
+	ForceUpdate *bool `locationName:"forceUpdate" type:"boolean"`
+
+	// The instance type for the runtime environment to update.
 	InstanceType *string `locationName:"instanceType" type:"string"`
 
-	// Configures a desired maintenance window for the environment. If you do not
-	// provide a value, a random system-generated value will be assigned.
+	// Configures the maintenance window that you want for the runtime environment.
+	// The maintenance window must have the format ddd:hh24:mi-ddd:hh24:mi and must
+	// be less than 24 hours. The following two examples are valid maintenance windows:
+	// sun:23:45-mon:00:15 or sat:01:00-sat:03:00.
+	//
+	// If you do not provide a value, a random system-generated value will be assigned.
 	PreferredMaintenanceWindow *string `locationName:"preferredMaintenanceWindow" type:"string"`
 }
 
@@ -10238,9 +11499,6 @@ func (s UpdateEnvironmentInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UpdateEnvironmentInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateEnvironmentInput"}
-	if s.DesiredCapacity != nil && *s.DesiredCapacity < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("DesiredCapacity", 1))
-	}
 	if s.EnvironmentId == nil {
 		invalidParams.Add(request.NewErrParamRequired("EnvironmentId"))
 	}
@@ -10275,6 +11533,12 @@ func (s *UpdateEnvironmentInput) SetEngineVersion(v string) *UpdateEnvironmentIn
 // SetEnvironmentId sets the EnvironmentId field's value.
 func (s *UpdateEnvironmentInput) SetEnvironmentId(v string) *UpdateEnvironmentInput {
 	s.EnvironmentId = &v
+	return s
+}
+
+// SetForceUpdate sets the ForceUpdate field's value.
+func (s *UpdateEnvironmentInput) SetForceUpdate(v bool) *UpdateEnvironmentInput {
+	s.ForceUpdate = &v
 	return s
 }
 
@@ -10668,6 +11932,9 @@ const (
 
 	// ApplicationLifecycleDeleting is a ApplicationLifecycle enum value
 	ApplicationLifecycleDeleting = "Deleting"
+
+	// ApplicationLifecycleDeletingFromEnvironment is a ApplicationLifecycle enum value
+	ApplicationLifecycleDeletingFromEnvironment = "Deleting From Environment"
 )
 
 // ApplicationLifecycle_Values returns all elements of the ApplicationLifecycle enum
@@ -10683,6 +11950,7 @@ func ApplicationLifecycle_Values() []string {
 		ApplicationLifecycleStopped,
 		ApplicationLifecycleFailed,
 		ApplicationLifecycleDeleting,
+		ApplicationLifecycleDeletingFromEnvironment,
 	}
 }
 
@@ -10731,6 +11999,9 @@ const (
 	// BatchJobExecutionStatusFailed is a BatchJobExecutionStatus enum value
 	BatchJobExecutionStatusFailed = "Failed"
 
+	// BatchJobExecutionStatusPurged is a BatchJobExecutionStatus enum value
+	BatchJobExecutionStatusPurged = "Purged"
+
 	// BatchJobExecutionStatusSucceededWithWarning is a BatchJobExecutionStatus enum value
 	BatchJobExecutionStatusSucceededWithWarning = "Succeeded With Warning"
 )
@@ -10746,6 +12017,7 @@ func BatchJobExecutionStatus_Values() []string {
 		BatchJobExecutionStatusCancelled,
 		BatchJobExecutionStatusSucceeded,
 		BatchJobExecutionStatusFailed,
+		BatchJobExecutionStatusPurged,
 		BatchJobExecutionStatusSucceededWithWarning,
 	}
 }
@@ -10779,6 +12051,9 @@ const (
 
 	// DataSetTaskLifecycleCompleted is a DataSetTaskLifecycle enum value
 	DataSetTaskLifecycleCompleted = "Completed"
+
+	// DataSetTaskLifecycleFailed is a DataSetTaskLifecycle enum value
+	DataSetTaskLifecycleFailed = "Failed"
 )
 
 // DataSetTaskLifecycle_Values returns all elements of the DataSetTaskLifecycle enum
@@ -10787,6 +12062,7 @@ func DataSetTaskLifecycle_Values() []string {
 		DataSetTaskLifecycleCreating,
 		DataSetTaskLifecycleRunning,
 		DataSetTaskLifecycleCompleted,
+		DataSetTaskLifecycleFailed,
 	}
 }
 
@@ -10799,6 +12075,9 @@ const (
 
 	// DeploymentLifecycleFailed is a DeploymentLifecycle enum value
 	DeploymentLifecycleFailed = "Failed"
+
+	// DeploymentLifecycleUpdatingDeployment is a DeploymentLifecycle enum value
+	DeploymentLifecycleUpdatingDeployment = "Updating Deployment"
 )
 
 // DeploymentLifecycle_Values returns all elements of the DeploymentLifecycle enum
@@ -10807,6 +12086,7 @@ func DeploymentLifecycle_Values() []string {
 		DeploymentLifecycleDeploying,
 		DeploymentLifecycleSucceeded,
 		DeploymentLifecycleFailed,
+		DeploymentLifecycleUpdatingDeployment,
 	}
 }
 
@@ -10833,6 +12113,9 @@ const (
 	// EnvironmentLifecycleAvailable is a EnvironmentLifecycle enum value
 	EnvironmentLifecycleAvailable = "Available"
 
+	// EnvironmentLifecycleUpdating is a EnvironmentLifecycle enum value
+	EnvironmentLifecycleUpdating = "Updating"
+
 	// EnvironmentLifecycleDeleting is a EnvironmentLifecycle enum value
 	EnvironmentLifecycleDeleting = "Deleting"
 
@@ -10845,6 +12128,7 @@ func EnvironmentLifecycle_Values() []string {
 	return []string{
 		EnvironmentLifecycleCreating,
 		EnvironmentLifecycleAvailable,
+		EnvironmentLifecycleUpdating,
 		EnvironmentLifecycleDeleting,
 		EnvironmentLifecycleFailed,
 	}
@@ -10856,6 +12140,12 @@ const (
 
 	// ValidationExceptionReasonCannotParse is a ValidationExceptionReason enum value
 	ValidationExceptionReasonCannotParse = "cannotParse"
+
+	// ValidationExceptionReasonFeatureNotAvailable is a ValidationExceptionReason enum value
+	ValidationExceptionReasonFeatureNotAvailable = "featureNotAvailable"
+
+	// ValidationExceptionReasonUnsupportedEngineVersion is a ValidationExceptionReason enum value
+	ValidationExceptionReasonUnsupportedEngineVersion = "unsupportedEngineVersion"
 
 	// ValidationExceptionReasonFieldValidationFailed is a ValidationExceptionReason enum value
 	ValidationExceptionReasonFieldValidationFailed = "fieldValidationFailed"
@@ -10869,6 +12159,8 @@ func ValidationExceptionReason_Values() []string {
 	return []string{
 		ValidationExceptionReasonUnknownOperation,
 		ValidationExceptionReasonCannotParse,
+		ValidationExceptionReasonFeatureNotAvailable,
+		ValidationExceptionReasonUnsupportedEngineVersion,
 		ValidationExceptionReasonFieldValidationFailed,
 		ValidationExceptionReasonOther,
 	}

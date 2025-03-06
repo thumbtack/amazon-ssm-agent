@@ -23,37 +23,37 @@ import (
 // can be stubbed out for unit testing your code with the SDK without needing
 // to inject custom request handlers into the SDK's request pipeline.
 //
-//    // myFunc uses an SDK service client to make a request to
-//    // Amazon WorkMail.
-//    func myFunc(svc workmailiface.WorkMailAPI) bool {
-//        // Make svc.AssociateDelegateToResource request
-//    }
+//	// myFunc uses an SDK service client to make a request to
+//	// Amazon WorkMail.
+//	func myFunc(svc workmailiface.WorkMailAPI) bool {
+//	    // Make svc.AssociateDelegateToResource request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := workmail.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := workmail.New(sess)
 //
-//        myFunc(svc)
-//    }
+//	    myFunc(svc)
+//	}
 //
 // In your _test.go file:
 //
-//    // Define a mock struct to be used in your unit tests of myFunc.
-//    type mockWorkMailClient struct {
-//        workmailiface.WorkMailAPI
-//    }
-//    func (m *mockWorkMailClient) AssociateDelegateToResource(input *workmail.AssociateDelegateToResourceInput) (*workmail.AssociateDelegateToResourceOutput, error) {
-//        // mock response/functionality
-//    }
+//	// Define a mock struct to be used in your unit tests of myFunc.
+//	type mockWorkMailClient struct {
+//	    workmailiface.WorkMailAPI
+//	}
+//	func (m *mockWorkMailClient) AssociateDelegateToResource(input *workmail.AssociateDelegateToResourceInput) (*workmail.AssociateDelegateToResourceOutput, error) {
+//	    // mock response/functionality
+//	}
 //
-//    func TestMyFunc(t *testing.T) {
-//        // Setup Test
-//        mockSvc := &mockWorkMailClient{}
+//	func TestMyFunc(t *testing.T) {
+//	    // Setup Test
+//	    mockSvc := &mockWorkMailClient{}
 //
-//        myfunc(mockSvc)
+//	    myfunc(mockSvc)
 //
-//        // Verify myFunc's functionality
-//    }
+//	    // Verify myFunc's functionality
+//	}
 //
 // It is important to note that this interface will have breaking changes
 // when the service model is updated and adds new API operations, paginators,
@@ -67,6 +67,10 @@ type WorkMailAPI interface {
 	AssociateMemberToGroup(*workmail.AssociateMemberToGroupInput) (*workmail.AssociateMemberToGroupOutput, error)
 	AssociateMemberToGroupWithContext(aws.Context, *workmail.AssociateMemberToGroupInput, ...request.Option) (*workmail.AssociateMemberToGroupOutput, error)
 	AssociateMemberToGroupRequest(*workmail.AssociateMemberToGroupInput) (*request.Request, *workmail.AssociateMemberToGroupOutput)
+
+	AssumeImpersonationRole(*workmail.AssumeImpersonationRoleInput) (*workmail.AssumeImpersonationRoleOutput, error)
+	AssumeImpersonationRoleWithContext(aws.Context, *workmail.AssumeImpersonationRoleInput, ...request.Option) (*workmail.AssumeImpersonationRoleOutput, error)
+	AssumeImpersonationRoleRequest(*workmail.AssumeImpersonationRoleInput) (*request.Request, *workmail.AssumeImpersonationRoleOutput)
 
 	CancelMailboxExportJob(*workmail.CancelMailboxExportJobInput) (*workmail.CancelMailboxExportJobOutput, error)
 	CancelMailboxExportJobWithContext(aws.Context, *workmail.CancelMailboxExportJobInput, ...request.Option) (*workmail.CancelMailboxExportJobOutput, error)
@@ -83,6 +87,10 @@ type WorkMailAPI interface {
 	CreateGroup(*workmail.CreateGroupInput) (*workmail.CreateGroupOutput, error)
 	CreateGroupWithContext(aws.Context, *workmail.CreateGroupInput, ...request.Option) (*workmail.CreateGroupOutput, error)
 	CreateGroupRequest(*workmail.CreateGroupInput) (*request.Request, *workmail.CreateGroupOutput)
+
+	CreateImpersonationRole(*workmail.CreateImpersonationRoleInput) (*workmail.CreateImpersonationRoleOutput, error)
+	CreateImpersonationRoleWithContext(aws.Context, *workmail.CreateImpersonationRoleInput, ...request.Option) (*workmail.CreateImpersonationRoleOutput, error)
+	CreateImpersonationRoleRequest(*workmail.CreateImpersonationRoleInput) (*request.Request, *workmail.CreateImpersonationRoleOutput)
 
 	CreateMobileDeviceAccessRule(*workmail.CreateMobileDeviceAccessRuleInput) (*workmail.CreateMobileDeviceAccessRuleOutput, error)
 	CreateMobileDeviceAccessRuleWithContext(aws.Context, *workmail.CreateMobileDeviceAccessRuleInput, ...request.Option) (*workmail.CreateMobileDeviceAccessRuleOutput, error)
@@ -119,6 +127,10 @@ type WorkMailAPI interface {
 	DeleteGroup(*workmail.DeleteGroupInput) (*workmail.DeleteGroupOutput, error)
 	DeleteGroupWithContext(aws.Context, *workmail.DeleteGroupInput, ...request.Option) (*workmail.DeleteGroupOutput, error)
 	DeleteGroupRequest(*workmail.DeleteGroupInput) (*request.Request, *workmail.DeleteGroupOutput)
+
+	DeleteImpersonationRole(*workmail.DeleteImpersonationRoleInput) (*workmail.DeleteImpersonationRoleOutput, error)
+	DeleteImpersonationRoleWithContext(aws.Context, *workmail.DeleteImpersonationRoleInput, ...request.Option) (*workmail.DeleteImpersonationRoleOutput, error)
+	DeleteImpersonationRoleRequest(*workmail.DeleteImpersonationRoleInput) (*request.Request, *workmail.DeleteImpersonationRoleOutput)
 
 	DeleteMailboxPermissions(*workmail.DeleteMailboxPermissionsInput) (*workmail.DeleteMailboxPermissionsOutput, error)
 	DeleteMailboxPermissionsWithContext(aws.Context, *workmail.DeleteMailboxPermissionsInput, ...request.Option) (*workmail.DeleteMailboxPermissionsOutput, error)
@@ -160,6 +172,10 @@ type WorkMailAPI interface {
 	DescribeEmailMonitoringConfigurationWithContext(aws.Context, *workmail.DescribeEmailMonitoringConfigurationInput, ...request.Option) (*workmail.DescribeEmailMonitoringConfigurationOutput, error)
 	DescribeEmailMonitoringConfigurationRequest(*workmail.DescribeEmailMonitoringConfigurationInput) (*request.Request, *workmail.DescribeEmailMonitoringConfigurationOutput)
 
+	DescribeEntity(*workmail.DescribeEntityInput) (*workmail.DescribeEntityOutput, error)
+	DescribeEntityWithContext(aws.Context, *workmail.DescribeEntityInput, ...request.Option) (*workmail.DescribeEntityOutput, error)
+	DescribeEntityRequest(*workmail.DescribeEntityInput) (*request.Request, *workmail.DescribeEntityOutput)
+
 	DescribeGroup(*workmail.DescribeGroupInput) (*workmail.DescribeGroupOutput, error)
 	DescribeGroupWithContext(aws.Context, *workmail.DescribeGroupInput, ...request.Option) (*workmail.DescribeGroupOutput, error)
 	DescribeGroupRequest(*workmail.DescribeGroupInput) (*request.Request, *workmail.DescribeGroupOutput)
@@ -199,6 +215,14 @@ type WorkMailAPI interface {
 	GetDefaultRetentionPolicy(*workmail.GetDefaultRetentionPolicyInput) (*workmail.GetDefaultRetentionPolicyOutput, error)
 	GetDefaultRetentionPolicyWithContext(aws.Context, *workmail.GetDefaultRetentionPolicyInput, ...request.Option) (*workmail.GetDefaultRetentionPolicyOutput, error)
 	GetDefaultRetentionPolicyRequest(*workmail.GetDefaultRetentionPolicyInput) (*request.Request, *workmail.GetDefaultRetentionPolicyOutput)
+
+	GetImpersonationRole(*workmail.GetImpersonationRoleInput) (*workmail.GetImpersonationRoleOutput, error)
+	GetImpersonationRoleWithContext(aws.Context, *workmail.GetImpersonationRoleInput, ...request.Option) (*workmail.GetImpersonationRoleOutput, error)
+	GetImpersonationRoleRequest(*workmail.GetImpersonationRoleInput) (*request.Request, *workmail.GetImpersonationRoleOutput)
+
+	GetImpersonationRoleEffect(*workmail.GetImpersonationRoleEffectInput) (*workmail.GetImpersonationRoleEffectOutput, error)
+	GetImpersonationRoleEffectWithContext(aws.Context, *workmail.GetImpersonationRoleEffectInput, ...request.Option) (*workmail.GetImpersonationRoleEffectOutput, error)
+	GetImpersonationRoleEffectRequest(*workmail.GetImpersonationRoleEffectInput) (*request.Request, *workmail.GetImpersonationRoleEffectOutput)
 
 	GetMailDomain(*workmail.GetMailDomainInput) (*workmail.GetMailDomainOutput, error)
 	GetMailDomainWithContext(aws.Context, *workmail.GetMailDomainInput, ...request.Option) (*workmail.GetMailDomainOutput, error)
@@ -247,6 +271,20 @@ type WorkMailAPI interface {
 
 	ListGroupsPages(*workmail.ListGroupsInput, func(*workmail.ListGroupsOutput, bool) bool) error
 	ListGroupsPagesWithContext(aws.Context, *workmail.ListGroupsInput, func(*workmail.ListGroupsOutput, bool) bool, ...request.Option) error
+
+	ListGroupsForEntity(*workmail.ListGroupsForEntityInput) (*workmail.ListGroupsForEntityOutput, error)
+	ListGroupsForEntityWithContext(aws.Context, *workmail.ListGroupsForEntityInput, ...request.Option) (*workmail.ListGroupsForEntityOutput, error)
+	ListGroupsForEntityRequest(*workmail.ListGroupsForEntityInput) (*request.Request, *workmail.ListGroupsForEntityOutput)
+
+	ListGroupsForEntityPages(*workmail.ListGroupsForEntityInput, func(*workmail.ListGroupsForEntityOutput, bool) bool) error
+	ListGroupsForEntityPagesWithContext(aws.Context, *workmail.ListGroupsForEntityInput, func(*workmail.ListGroupsForEntityOutput, bool) bool, ...request.Option) error
+
+	ListImpersonationRoles(*workmail.ListImpersonationRolesInput) (*workmail.ListImpersonationRolesOutput, error)
+	ListImpersonationRolesWithContext(aws.Context, *workmail.ListImpersonationRolesInput, ...request.Option) (*workmail.ListImpersonationRolesOutput, error)
+	ListImpersonationRolesRequest(*workmail.ListImpersonationRolesInput) (*request.Request, *workmail.ListImpersonationRolesOutput)
+
+	ListImpersonationRolesPages(*workmail.ListImpersonationRolesInput, func(*workmail.ListImpersonationRolesOutput, bool) bool) error
+	ListImpersonationRolesPagesWithContext(aws.Context, *workmail.ListImpersonationRolesInput, func(*workmail.ListImpersonationRolesOutput, bool) bool, ...request.Option) error
 
 	ListMailDomains(*workmail.ListMailDomainsInput) (*workmail.ListMailDomainsOutput, error)
 	ListMailDomainsWithContext(aws.Context, *workmail.ListMailDomainsInput, ...request.Option) (*workmail.ListMailDomainsOutput, error)
@@ -372,6 +410,14 @@ type WorkMailAPI interface {
 	UpdateDefaultMailDomainWithContext(aws.Context, *workmail.UpdateDefaultMailDomainInput, ...request.Option) (*workmail.UpdateDefaultMailDomainOutput, error)
 	UpdateDefaultMailDomainRequest(*workmail.UpdateDefaultMailDomainInput) (*request.Request, *workmail.UpdateDefaultMailDomainOutput)
 
+	UpdateGroup(*workmail.UpdateGroupInput) (*workmail.UpdateGroupOutput, error)
+	UpdateGroupWithContext(aws.Context, *workmail.UpdateGroupInput, ...request.Option) (*workmail.UpdateGroupOutput, error)
+	UpdateGroupRequest(*workmail.UpdateGroupInput) (*request.Request, *workmail.UpdateGroupOutput)
+
+	UpdateImpersonationRole(*workmail.UpdateImpersonationRoleInput) (*workmail.UpdateImpersonationRoleOutput, error)
+	UpdateImpersonationRoleWithContext(aws.Context, *workmail.UpdateImpersonationRoleInput, ...request.Option) (*workmail.UpdateImpersonationRoleOutput, error)
+	UpdateImpersonationRoleRequest(*workmail.UpdateImpersonationRoleInput) (*request.Request, *workmail.UpdateImpersonationRoleOutput)
+
 	UpdateMailboxQuota(*workmail.UpdateMailboxQuotaInput) (*workmail.UpdateMailboxQuotaOutput, error)
 	UpdateMailboxQuotaWithContext(aws.Context, *workmail.UpdateMailboxQuotaInput, ...request.Option) (*workmail.UpdateMailboxQuotaOutput, error)
 	UpdateMailboxQuotaRequest(*workmail.UpdateMailboxQuotaInput) (*request.Request, *workmail.UpdateMailboxQuotaOutput)
@@ -387,6 +433,10 @@ type WorkMailAPI interface {
 	UpdateResource(*workmail.UpdateResourceInput) (*workmail.UpdateResourceOutput, error)
 	UpdateResourceWithContext(aws.Context, *workmail.UpdateResourceInput, ...request.Option) (*workmail.UpdateResourceOutput, error)
 	UpdateResourceRequest(*workmail.UpdateResourceInput) (*request.Request, *workmail.UpdateResourceOutput)
+
+	UpdateUser(*workmail.UpdateUserInput) (*workmail.UpdateUserOutput, error)
+	UpdateUserWithContext(aws.Context, *workmail.UpdateUserInput, ...request.Option) (*workmail.UpdateUserOutput, error)
+	UpdateUserRequest(*workmail.UpdateUserInput) (*request.Request, *workmail.UpdateUserOutput)
 }
 
 var _ WorkMailAPI = (*workmail.WorkMail)(nil)

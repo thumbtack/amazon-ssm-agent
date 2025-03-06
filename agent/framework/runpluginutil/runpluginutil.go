@@ -99,6 +99,7 @@ func RunPlugins(
 	context context.T,
 	plugins []contracts.PluginState,
 	ioConfig contracts.IOConfiguration,
+	upstreamServiceName contracts.UpstreamServiceName,
 	registry PluginRegistry,
 	resChan chan contracts.PluginResult,
 	cancelFlag task.CancelFlag,
@@ -156,8 +157,9 @@ func RunPlugins(
 
 		log.Debugf("Executing plugin - %v", pluginName)
 
-		// populate plugin start time and status
+		// populate plugin start time, status, and upstream service name
 		configuration := pluginState.Configuration
+		configuration.UpstreamServiceName = upstreamServiceName
 
 		if ioConfig.OutputS3BucketName != "" {
 			pluginOutputs[pluginID].OutputS3BucketName = ioConfig.OutputS3BucketName
@@ -546,7 +548,7 @@ func evaluatePreconditions(
 				} else if strings.Compare(value[0].InitialArgumentValue, "platformType") == 0 || strings.Compare(value[1].InitialArgumentValue, "platformType") == 0 {
 					// keep original logic for platformType variable
 					// Platform type of OS on the instance
-					instancePlatformType, _ := platform.PlatformType(log)
+					instancePlatformType := platform.PlatformType(log)
 					log.Debugf("OS platform type of this instance = %s", instancePlatformType)
 
 					// Variable and value can be in any order, i.e. both "StringEquals": ["platformType", "Windows"]

@@ -131,13 +131,54 @@ func TestS3Resource_GetS3BucketURLString_bucketNameInS3URL(t *testing.T) {
 	assert.NoError(t, err)
 }
 
+func TestS3Resource_ValidateAndParseSourceInfo_WithAlphabeticExpectedBucketOwner_ThrowsError(t *testing.T) {
+
+	// alphabetic expectedBucketOwner
+	sourceInfo := `{
+		"Path": "newpath",
+		"ExpectedBucketOwner": "invalidBucketOwner"
+	}`
+
+	s3resource, err := NewS3Resource(contextMock, sourceInfo)
+	assert.Error(t, err)
+	assert.Nil(t, s3resource)
+}
+
+func TestS3Resource_ValidateAndParseSourceInfo_WithShortExpectedBucketOwner_ThrowsError(t *testing.T) {
+
+	// short expectedBucketOwner
+	sourceInfo := `{
+		"Path": "newpath",
+		"ExpectedBucketOwner": "1234"
+	}`
+
+	s3resource, err := NewS3Resource(contextMock, sourceInfo)
+
+	assert.Nil(t, s3resource)
+	assert.Error(t, err)
+}
+
+func TestS3Resource_ValidateAndParseSourceInfo_WithLongExpectedBucketOwner_ThrowsError(t *testing.T) {
+
+	// long expectedBucketOwner
+	sourceInfo := `{
+		"Path": "newpath",
+		"ExpectedBucketOwner": "1234567890123456"
+	}`
+
+	s3resource, err := NewS3Resource(contextMock, sourceInfo)
+
+	assert.Nil(t, s3resource)
+	assert.Error(t, err)
+}
+
 func TestS3Resource_Download(t *testing.T) {
 
 	depMock := new(s3resource.S3DepMock)
 	locationInfo := `{
 		"path" : "https://s3.amazonaws.com/ssm-test-agent-bucket/mydummyfolder/file.rb"
 	}`
-	fileMock := filemock.FileSystemMock{}
+	fileMock := &filemock.FileSystemMock{}
 
 	fileMock.On("IsDirectory", "destination").Return(true)
 	fileMock.On("Exists", "destination").Return(true)
@@ -181,7 +222,7 @@ func TestS3Resource_DownloadDirectory(t *testing.T) {
 		"Path" : "https://s3.amazonaws.com/ssm-test-agent-bucket/foldername"
 	}`
 	downloadsDirectory := strings.TrimSuffix(appconfig.DownloadRoot, string(os.PathSeparator))
-	fileMock := filemock.FileSystemMock{}
+	fileMock := &filemock.FileSystemMock{}
 	resource, _ := NewS3Resource(contextMock, locationInfo)
 
 	input1 := artifact.DownloadInput{
@@ -233,7 +274,7 @@ func TestS3Resource_DownloadDirectoryWithSubFolders(t *testing.T) {
 		"Path" : "https://s3.amazonaws.com/ssm-test-agent-bucket/foldername"
 	}`
 	downloadsDirectory := strings.TrimSuffix(appconfig.DownloadRoot, string(os.PathSeparator))
-	fileMock := filemock.FileSystemMock{}
+	fileMock := &filemock.FileSystemMock{}
 	resource, _ := NewS3Resource(contextMock, locationInfo)
 
 	input1 := artifact.DownloadInput{
@@ -296,7 +337,7 @@ func TestS3Resource_DownloadAbsPath(t *testing.T) {
 	locationInfo := `{
 		"path" : "https://s3.amazonaws.com/ssm-test-agent-bucket/mydummyfolder/filename.ps"
 	}`
-	fileMock := filemock.FileSystemMock{}
+	fileMock := &filemock.FileSystemMock{}
 
 	fileMock.On("IsDirectory", "/var/tmp/foldername").Return(true)
 	fileMock.On("Exists", "/var/tmp/foldername").Return(true)
@@ -339,7 +380,7 @@ func TestS3Resource_DownloadRelativePathNameChange(t *testing.T) {
 	locationInfo := `{
 		"path" : "https://s3.amazonaws.com/ssm-test-agent-bucket/mydummyfolder/file.rb"
 	}`
-	fileMock := filemock.FileSystemMock{}
+	fileMock := &filemock.FileSystemMock{}
 
 	fileMock.On("Exists", "destination").Return(false)
 	resource, _ := NewS3Resource(contextMock, locationInfo)

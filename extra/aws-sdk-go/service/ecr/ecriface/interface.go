@@ -23,37 +23,37 @@ import (
 // can be stubbed out for unit testing your code with the SDK without needing
 // to inject custom request handlers into the SDK's request pipeline.
 //
-//    // myFunc uses an SDK service client to make a request to
-//    // Amazon EC2 Container Registry.
-//    func myFunc(svc ecriface.ECRAPI) bool {
-//        // Make svc.BatchCheckLayerAvailability request
-//    }
+//	// myFunc uses an SDK service client to make a request to
+//	// Amazon EC2 Container Registry.
+//	func myFunc(svc ecriface.ECRAPI) bool {
+//	    // Make svc.BatchCheckLayerAvailability request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := ecr.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := ecr.New(sess)
 //
-//        myFunc(svc)
-//    }
+//	    myFunc(svc)
+//	}
 //
 // In your _test.go file:
 //
-//    // Define a mock struct to be used in your unit tests of myFunc.
-//    type mockECRClient struct {
-//        ecriface.ECRAPI
-//    }
-//    func (m *mockECRClient) BatchCheckLayerAvailability(input *ecr.BatchCheckLayerAvailabilityInput) (*ecr.BatchCheckLayerAvailabilityOutput, error) {
-//        // mock response/functionality
-//    }
+//	// Define a mock struct to be used in your unit tests of myFunc.
+//	type mockECRClient struct {
+//	    ecriface.ECRAPI
+//	}
+//	func (m *mockECRClient) BatchCheckLayerAvailability(input *ecr.BatchCheckLayerAvailabilityInput) (*ecr.BatchCheckLayerAvailabilityOutput, error) {
+//	    // mock response/functionality
+//	}
 //
-//    func TestMyFunc(t *testing.T) {
-//        // Setup Test
-//        mockSvc := &mockECRClient{}
+//	func TestMyFunc(t *testing.T) {
+//	    // Setup Test
+//	    mockSvc := &mockECRClient{}
 //
-//        myfunc(mockSvc)
+//	    myfunc(mockSvc)
 //
-//        // Verify myFunc's functionality
-//    }
+//	    // Verify myFunc's functionality
+//	}
 //
 // It is important to note that this interface will have breaking changes
 // when the service model is updated and adds new API operations, paginators,
@@ -88,6 +88,10 @@ type ECRAPI interface {
 	CreateRepositoryWithContext(aws.Context, *ecr.CreateRepositoryInput, ...request.Option) (*ecr.CreateRepositoryOutput, error)
 	CreateRepositoryRequest(*ecr.CreateRepositoryInput) (*request.Request, *ecr.CreateRepositoryOutput)
 
+	CreateRepositoryCreationTemplate(*ecr.CreateRepositoryCreationTemplateInput) (*ecr.CreateRepositoryCreationTemplateOutput, error)
+	CreateRepositoryCreationTemplateWithContext(aws.Context, *ecr.CreateRepositoryCreationTemplateInput, ...request.Option) (*ecr.CreateRepositoryCreationTemplateOutput, error)
+	CreateRepositoryCreationTemplateRequest(*ecr.CreateRepositoryCreationTemplateInput) (*request.Request, *ecr.CreateRepositoryCreationTemplateOutput)
+
 	DeleteLifecyclePolicy(*ecr.DeleteLifecyclePolicyInput) (*ecr.DeleteLifecyclePolicyOutput, error)
 	DeleteLifecyclePolicyWithContext(aws.Context, *ecr.DeleteLifecyclePolicyInput, ...request.Option) (*ecr.DeleteLifecyclePolicyOutput, error)
 	DeleteLifecyclePolicyRequest(*ecr.DeleteLifecyclePolicyInput) (*request.Request, *ecr.DeleteLifecyclePolicyOutput)
@@ -103,6 +107,10 @@ type ECRAPI interface {
 	DeleteRepository(*ecr.DeleteRepositoryInput) (*ecr.DeleteRepositoryOutput, error)
 	DeleteRepositoryWithContext(aws.Context, *ecr.DeleteRepositoryInput, ...request.Option) (*ecr.DeleteRepositoryOutput, error)
 	DeleteRepositoryRequest(*ecr.DeleteRepositoryInput) (*request.Request, *ecr.DeleteRepositoryOutput)
+
+	DeleteRepositoryCreationTemplate(*ecr.DeleteRepositoryCreationTemplateInput) (*ecr.DeleteRepositoryCreationTemplateOutput, error)
+	DeleteRepositoryCreationTemplateWithContext(aws.Context, *ecr.DeleteRepositoryCreationTemplateInput, ...request.Option) (*ecr.DeleteRepositoryCreationTemplateOutput, error)
+	DeleteRepositoryCreationTemplateRequest(*ecr.DeleteRepositoryCreationTemplateInput) (*request.Request, *ecr.DeleteRepositoryCreationTemplateOutput)
 
 	DeleteRepositoryPolicy(*ecr.DeleteRepositoryPolicyInput) (*ecr.DeleteRepositoryPolicyOutput, error)
 	DeleteRepositoryPolicyWithContext(aws.Context, *ecr.DeleteRepositoryPolicyInput, ...request.Option) (*ecr.DeleteRepositoryPolicyOutput, error)
@@ -143,6 +151,13 @@ type ECRAPI interface {
 
 	DescribeRepositoriesPages(*ecr.DescribeRepositoriesInput, func(*ecr.DescribeRepositoriesOutput, bool) bool) error
 	DescribeRepositoriesPagesWithContext(aws.Context, *ecr.DescribeRepositoriesInput, func(*ecr.DescribeRepositoriesOutput, bool) bool, ...request.Option) error
+
+	DescribeRepositoryCreationTemplates(*ecr.DescribeRepositoryCreationTemplatesInput) (*ecr.DescribeRepositoryCreationTemplatesOutput, error)
+	DescribeRepositoryCreationTemplatesWithContext(aws.Context, *ecr.DescribeRepositoryCreationTemplatesInput, ...request.Option) (*ecr.DescribeRepositoryCreationTemplatesOutput, error)
+	DescribeRepositoryCreationTemplatesRequest(*ecr.DescribeRepositoryCreationTemplatesInput) (*request.Request, *ecr.DescribeRepositoryCreationTemplatesOutput)
+
+	DescribeRepositoryCreationTemplatesPages(*ecr.DescribeRepositoryCreationTemplatesInput, func(*ecr.DescribeRepositoryCreationTemplatesOutput, bool) bool) error
+	DescribeRepositoryCreationTemplatesPagesWithContext(aws.Context, *ecr.DescribeRepositoryCreationTemplatesInput, func(*ecr.DescribeRepositoryCreationTemplatesOutput, bool) bool, ...request.Option) error
 
 	GetAuthorizationToken(*ecr.GetAuthorizationTokenInput) (*ecr.GetAuthorizationTokenOutput, error)
 	GetAuthorizationTokenWithContext(aws.Context, *ecr.GetAuthorizationTokenInput, ...request.Option) (*ecr.GetAuthorizationTokenOutput, error)
@@ -238,9 +253,21 @@ type ECRAPI interface {
 	UntagResourceWithContext(aws.Context, *ecr.UntagResourceInput, ...request.Option) (*ecr.UntagResourceOutput, error)
 	UntagResourceRequest(*ecr.UntagResourceInput) (*request.Request, *ecr.UntagResourceOutput)
 
+	UpdatePullThroughCacheRule(*ecr.UpdatePullThroughCacheRuleInput) (*ecr.UpdatePullThroughCacheRuleOutput, error)
+	UpdatePullThroughCacheRuleWithContext(aws.Context, *ecr.UpdatePullThroughCacheRuleInput, ...request.Option) (*ecr.UpdatePullThroughCacheRuleOutput, error)
+	UpdatePullThroughCacheRuleRequest(*ecr.UpdatePullThroughCacheRuleInput) (*request.Request, *ecr.UpdatePullThroughCacheRuleOutput)
+
+	UpdateRepositoryCreationTemplate(*ecr.UpdateRepositoryCreationTemplateInput) (*ecr.UpdateRepositoryCreationTemplateOutput, error)
+	UpdateRepositoryCreationTemplateWithContext(aws.Context, *ecr.UpdateRepositoryCreationTemplateInput, ...request.Option) (*ecr.UpdateRepositoryCreationTemplateOutput, error)
+	UpdateRepositoryCreationTemplateRequest(*ecr.UpdateRepositoryCreationTemplateInput) (*request.Request, *ecr.UpdateRepositoryCreationTemplateOutput)
+
 	UploadLayerPart(*ecr.UploadLayerPartInput) (*ecr.UploadLayerPartOutput, error)
 	UploadLayerPartWithContext(aws.Context, *ecr.UploadLayerPartInput, ...request.Option) (*ecr.UploadLayerPartOutput, error)
 	UploadLayerPartRequest(*ecr.UploadLayerPartInput) (*request.Request, *ecr.UploadLayerPartOutput)
+
+	ValidatePullThroughCacheRule(*ecr.ValidatePullThroughCacheRuleInput) (*ecr.ValidatePullThroughCacheRuleOutput, error)
+	ValidatePullThroughCacheRuleWithContext(aws.Context, *ecr.ValidatePullThroughCacheRuleInput, ...request.Option) (*ecr.ValidatePullThroughCacheRuleOutput, error)
+	ValidatePullThroughCacheRuleRequest(*ecr.ValidatePullThroughCacheRuleInput) (*request.Request, *ecr.ValidatePullThroughCacheRuleOutput)
 
 	WaitUntilImageScanComplete(*ecr.DescribeImageScanFindingsInput) error
 	WaitUntilImageScanCompleteWithContext(aws.Context, *ecr.DescribeImageScanFindingsInput, ...request.WaiterOption) error

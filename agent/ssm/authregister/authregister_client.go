@@ -15,6 +15,7 @@
 package authregister
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/aws/amazon-ssm-agent/agent/appconfig"
@@ -32,15 +33,15 @@ import (
 
 // IClient is an interface to the authenticated registration method of the SSM service.
 type IClient interface {
-	RegisterManagedInstance(publicKey, publicKeyType, fingerprint, iamRole, tagsJson string) (string, error)
+	RegisterManagedInstanceWithContext(ctx context.Context, publicKey, publicKeyType, fingerprint, iamRole, tagsJson string) (string, error)
 }
 
 // ISsmSdk defines the functions needed from the AWS SSM SDK
 type ISsmSdk interface {
-	RegisterManagedInstance(input *ssm.RegisterManagedInstanceInput) (*ssm.RegisterManagedInstanceOutput, error)
+	RegisterManagedInstanceWithContext(ctx context.Context, input *ssm.RegisterManagedInstanceInput, opts ...request.Option) (*ssm.RegisterManagedInstanceOutput, error)
 }
 
-// Client is an service wrapper that delegates to the ssm sdk.
+// Client is a service wrapper that delegates to the ssm sdk.
 type Client struct {
 	sdk ISsmSdk
 }
@@ -48,7 +49,27 @@ type Client struct {
 // RegistrationInfo contains information used to register the instance
 type RegistrationInfo struct {
 	PrivateKey string
+	PublicKey  string
 	KeyType    string
+	InstanceId string
+}
+
+func NewClientWithConfig(log logger.T, appConfig appconfig.SsmagentConfig, imdsClient iirprovider.IEC2MdsSdkClient, awsConfig aws.Config) IClient {
+	if imdsClient != nil {
+		awsConfig.Credentials = credentials.NewCredentials(&iirprovider.IIRRoleProvider{
+			Config:     &appConfig,
+			Log:        log,
+			IMDSClient: imdsClient,
+		})
+	} else {
+		awsConfig.Credentials = credentialproviders.GetRemoteCreds()
+	}
+
+	sess := session.New(&awsConfig)
+	sess.Handlers.Build.PushBack(request.MakeAddToUserAgentHandler(appConfig.Agent.Name, appConfig.Agent.Version))
+	ssmService := ssm.New(sess)
+
+	return &Client{sdk: ssmService}
 }
 
 // NewClient creates a new SSM client instance
@@ -69,26 +90,12 @@ func NewClient(log logger.T, region string, imdsClient iirprovider.IEC2MdsSdkCli
 			awsConfig.Region = &appConfig.Agent.Region
 		}
 	}
-	if imdsClient != nil {
-		awsConfig.Credentials = credentials.NewCredentials(&iirprovider.IIRRoleProvider{
-			ExpiryWindow: iirprovider.EarlyExpiryTimeWindow,
-			Config:       &appConfig,
-			Log:          log,
-			IMDSClient:   imdsClient,
-		})
-	} else {
-		awsConfig.Credentials = credentialproviders.GetRemoteCreds()
-	}
 
-	sess := session.New(awsConfig)
-	sess.Handlers.Build.PushBack(request.MakeAddToUserAgentHandler(appConfig.Agent.Name, appConfig.Agent.Version))
-	ssmService := ssm.New(sess)
-
-	return &Client{sdk: ssmService}
+	return NewClientWithConfig(log, appConfig, imdsClient, *awsConfig)
 }
 
-// RegisterManagedInstance calls the RegisterManagedInstance SSM API
-func (svc *Client) RegisterManagedInstance(publicKey, publicKeyType, fingerprint, iamRole, tagsJson string) (string, error) {
+// RegisterManagedInstanceWithContext calls the RegisterManagedInstance SSM API
+func (svc *Client) RegisterManagedInstanceWithContext(ctx context.Context, publicKey, publicKeyType, fingerprint, iamRole, tagsJson string) (string, error) {
 	params := ssm.RegisterManagedInstanceInput{
 		PublicKey:     aws.String(publicKey),
 		PublicKeyType: aws.String(publicKeyType),
@@ -124,7 +131,7 @@ func (svc *Client) RegisterManagedInstance(publicKey, publicKeyType, fingerprint
 
 	var result *ssm.RegisterManagedInstanceOutput
 	var err error
-	result, err = svc.sdk.RegisterManagedInstance(&params)
+	result, err = svc.sdk.RegisterManagedInstanceWithContext(ctx, &params)
 
 	if err != nil {
 		return "", err

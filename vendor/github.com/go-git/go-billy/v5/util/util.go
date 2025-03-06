@@ -1,6 +1,7 @@
 package util
 
 import (
+	"errors"
 	"io"
 	"os"
 	"path/filepath"
@@ -33,14 +34,14 @@ func removeAll(fs billy.Basic, path string) error {
 
 	// Simple case: if Remove works, we're done.
 	err := fs.Remove(path)
-	if err == nil || os.IsNotExist(err) {
+	if err == nil || errors.Is(err, os.ErrNotExist) {
 		return nil
 	}
 
 	// Otherwise, is this a directory we need to recurse into?
 	dir, serr := fs.Stat(path)
 	if serr != nil {
-		if os.IsNotExist(serr) {
+		if errors.Is(serr, os.ErrNotExist) {
 			return nil
 		}
 
@@ -60,7 +61,7 @@ func removeAll(fs billy.Basic, path string) error {
 	// Directory.
 	fis, err := dirfs.ReadDir(path)
 	if err != nil {
-		if os.IsNotExist(err) {
+		if errors.Is(err, os.ErrNotExist) {
 			// Race. It was deleted between the Lstat and Open.
 			// Return nil per RemoveAll's docs.
 			return nil
@@ -81,7 +82,7 @@ func removeAll(fs billy.Basic, path string) error {
 
 	// Remove directory.
 	err1 := fs.Remove(path)
-	if err1 == nil || os.IsNotExist(err1) {
+	if err1 == nil || errors.Is(err1, os.ErrNotExist) {
 		return nil
 	}
 
@@ -96,22 +97,26 @@ func removeAll(fs billy.Basic, path string) error {
 // WriteFile writes data to a file named by filename in the given filesystem.
 // If the file does not exist, WriteFile creates it with permissions perm;
 // otherwise WriteFile truncates it before writing.
-func WriteFile(fs billy.Basic, filename string, data []byte, perm os.FileMode) error {
+func WriteFile(fs billy.Basic, filename string, data []byte, perm os.FileMode) (err error) {
 	f, err := fs.OpenFile(filename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, perm)
 	if err != nil {
 		return err
 	}
+	defer func() {
+		if f != nil {
+			err1 := f.Close()
+			if err == nil {
+				err = err1
+			}
+		}
+	}()
 
 	n, err := f.Write(data)
 	if err == nil && n < len(data) {
 		err = io.ErrShortWrite
 	}
 
-	if err1 := f.Close(); err == nil {
-		err = err1
-	}
-
-	return err
+	return nil
 }
 
 // Random number state.
@@ -146,16 +151,15 @@ func nextSuffix() string {
 // to remove the file when no longer needed.
 func TempFile(fs billy.Basic, dir, prefix string) (f billy.File, err error) {
 	// This implementation is based on stdlib ioutil.TempFile.
-
 	if dir == "" {
-		dir = os.TempDir()
+		dir = getTempDir(fs)
 	}
 
 	nconflict := 0
 	for i := 0; i < 10000; i++ {
 		name := filepath.Join(dir, prefix+nextSuffix())
 		f, err = fs.OpenFile(name, os.O_RDWR|os.O_CREATE|os.O_EXCL, 0600)
-		if os.IsExist(err) {
+		if errors.Is(err, os.ErrExist) {
 			if nconflict++; nconflict > 10 {
 				randmu.Lock()
 				rand = reseed()
@@ -179,14 +183,14 @@ func TempDir(fs billy.Dir, dir, prefix string) (name string, err error) {
 	// This implementation is based on stdlib ioutil.TempDir
 
 	if dir == "" {
-		dir = os.TempDir()
+		dir = getTempDir(fs.(billy.Basic))
 	}
 
 	nconflict := 0
 	for i := 0; i < 10000; i++ {
 		try := filepath.Join(dir, prefix+nextSuffix())
 		err = fs.MkdirAll(try, 0700)
-		if os.IsExist(err) {
+		if errors.Is(err, os.ErrExist) {
 			if nconflict++; nconflict > 10 {
 				randmu.Lock()
 				rand = reseed()
@@ -194,8 +198,8 @@ func TempDir(fs billy.Dir, dir, prefix string) (name string, err error) {
 			}
 			continue
 		}
-		if os.IsNotExist(err) {
-			if _, err := os.Stat(dir); os.IsNotExist(err) {
+		if errors.Is(err, os.ErrNotExist) {
+			if _, err := os.Stat(dir); errors.Is(err, os.ErrNotExist) {
 				return "", err
 			}
 		}
@@ -205,6 +209,15 @@ func TempDir(fs billy.Dir, dir, prefix string) (name string, err error) {
 		break
 	}
 	return
+}
+
+func getTempDir(fs billy.Basic) string {
+	ch, ok := fs.(billy.Chroot)
+	if !ok || ch.Root() == "" || ch.Root() == "/" || ch.Root() == string(filepath.Separator) {
+		return os.TempDir()
+	}
+
+	return ".tmp"
 }
 
 type underlying interface {
@@ -264,7 +277,7 @@ func ReadFile(fs billy.Basic, name string) ([]byte, error) {
 		data = data[:len(data)+n]
 
 		if err != nil {
-			if err == io.EOF {
+			if errors.Is(err, io.EOF) {
 				err = nil
 			}
 

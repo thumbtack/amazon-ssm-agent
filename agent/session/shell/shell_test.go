@@ -11,10 +11,15 @@
 // either express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 
+//go:build e2e
+// +build e2e
+
 // Package shell implements session shell plugin.
 package shell
 
 import (
+	"bytes"
+	"fmt"
 	"os"
 	"strings"
 	"testing"
@@ -310,6 +315,70 @@ func (suite *ShellTestSuite) TestExecuteForNonInteractiveCommandsWithSeparateOut
 	suite.mockCmd.AssertExpectations(suite.T())
 }
 
+// Testing Execute for NonInteractiveCommand with separate output stream enabled
+func (suite *ShellTestSuite) TestExecuteForNonInteractiveCommandsWithSeparateOutputStreamWhenCmdFailsToStart() {
+	suite.mockCancelFlag.On("Canceled").Return(false)
+	suite.mockCancelFlag.On("ShutDown").Return(false)
+	suite.mockCancelFlag.On("Wait").Return(task.Completed)
+	suite.mockIohandler.On("SetOutput", mock.Anything).Return()
+	suite.mockIohandler.On("MarkAsFailed", mock.Anything).Return()
+	suite.mockDataChannel.On("IsActive").Return(true)
+	suite.mockDataChannel.On("PrepareToCloseChannel", mock.Anything).Return(nil).Times(1)
+	suite.mockDataChannel.On("SendAgentSessionStateMessage", mock.Anything, mgsContracts.Terminating).
+		Return(nil).Times(1)
+	suite.mockDataChannel.On("SendStreamDataMessage", mock.Anything, mock.Anything, mock.Anything).Return(nil)
+	suite.mockCmd.On("Start").Return(fmt.Errorf("some error"))
+
+	stdoutPipe, stdoutPipeinput, _ := os.Pipe()
+	stdoutPipeinput.Write(payload)
+	stderrPipe, stderrPipeinput, _ := os.Pipe()
+	stderrPipeinput.Write(payload)
+
+	shellConfig := mgsContracts.ShellConfig{
+		"ls", false, "true", "STD_OUT:\n", "STD_ERR:\n"}
+	shellProperties := mgsContracts.ShellProperties{shellConfig, shellConfig, shellConfig}
+
+	getCommandExecutor = func(log log.T, shellProps mgsContracts.ShellProperties, isSessionLogger bool, config contracts.Configuration, plugin *ShellPlugin) (err error) {
+		plugin.execCmd = suite.mockCmd
+		plugin.stdoutPipe = stdoutPipe
+		plugin.stderrPipe = stderrPipe
+		return nil
+	}
+
+	plugin := &ShellPlugin{
+		name:        appconfig.PluginNameNonInteractiveCommands,
+		context:     suite.mockContext,
+		dataChannel: suite.mockDataChannel,
+		execCmd:     suite.mockCmd,
+	}
+
+	go func() {
+		time.Sleep(1000 * time.Millisecond)
+		stdoutPipeinput.Close()
+		stderrPipeinput.Close()
+		time.Sleep(500 * time.Millisecond)
+		stdoutPipe.Close()
+		stderrPipe.Close()
+	}()
+
+	plugin.Execute(
+		contracts.Configuration{
+			CloudWatchLogGroup:         testCwLogGroupName,
+			CloudWatchStreamingEnabled: false,
+			SessionId:                  sessionId,
+			SessionOwner:               sessionOwner,
+		},
+		suite.mockCancelFlag,
+		suite.mockIohandler,
+		suite.mockDataChannel,
+		shellProperties)
+
+	suite.mockCancelFlag.AssertExpectations(suite.T())
+	suite.mockIohandler.AssertExpectations(suite.T())
+	suite.mockDataChannel.AssertExpectations(suite.T())
+	suite.mockCmd.AssertExpectations(suite.T())
+}
+
 // Testing SetupRoutineToWriteCmdPipelineOutput
 func (suite *ShellTestSuite) TestSetupRoutineToWriteCmdPipelineOutput() {
 	suite.mockDataChannel.On("IsActive").Return(true)
@@ -525,4 +594,236 @@ func (suite *ShellTestSuite) TestSetupRoutineToWriteCmdPipelineOutputWhenDataCha
 
 	suite.Equal(<-result, 1)
 	suite.mockDataChannel.AssertExpectations(suite.T())
+}
+
+// Testing if ipc file should be written to when destination is none
+func (suite *ShellTestSuite) TestIfShouldWriteToIpcFileWhenDestinationIsNone() {
+	agentConfig := appconfig.SsmagentConfig{
+		Ssm: appconfig.SsmCfg{
+			SessionLogsDestination: "none",
+		},
+	}
+	mockContext := context.NewMockDefaultWithConfig(agentConfig)
+	plugin := &ShellPlugin{
+		context: mockContext,
+		logger: logger{
+			writeToIpcFile: false,
+		},
+	}
+	noLoggingConfig := contracts.Configuration{
+		CloudWatchLogGroup: "",
+		OutputS3BucketName: "",
+	}
+
+	cwConfig := contracts.Configuration{
+		CloudWatchLogGroup: "loggroup",
+		OutputS3BucketName: "",
+	}
+	s3Config := contracts.Configuration{
+		CloudWatchLogGroup: "",
+		OutputS3BucketName: "bucketname",
+	}
+	cws3Config := contracts.Configuration{
+		CloudWatchLogGroup: "loggroup",
+		OutputS3BucketName: "bucketname",
+	}
+
+	// do not write to ipc file when all logging is disabled
+	plugin.initializeLogger(suite.mockLog, noLoggingConfig)
+	suite.False(plugin.logger.writeToIpcFile)
+
+	// write to ipc file when cw or s3 logging enabled
+	plugin.initializeLogger(suite.mockLog, cwConfig)
+	suite.True(plugin.logger.writeToIpcFile)
+
+	plugin.initializeLogger(suite.mockLog, s3Config)
+	suite.True(plugin.logger.writeToIpcFile)
+
+	plugin.initializeLogger(suite.mockLog, cws3Config)
+	suite.True(plugin.logger.writeToIpcFile)
+}
+
+// Testing if ipc file should be written to when destination is not provided
+func (suite *ShellTestSuite) TestWhenWriteToIpcFileWithDefaultConfig() {
+	agentConfig := appconfig.DefaultConfig()
+	mockContext := context.NewMockDefaultWithConfig(agentConfig)
+	plugin := &ShellPlugin{
+		context: mockContext,
+		logger: logger{
+			writeToIpcFile: false,
+		},
+	}
+	noLoggingConfig := contracts.Configuration{
+		CloudWatchLogGroup: "",
+		OutputS3BucketName: "",
+	}
+	cwConfig := contracts.Configuration{
+		CloudWatchLogGroup: "loggroup",
+		OutputS3BucketName: "",
+	}
+	s3Config := contracts.Configuration{
+		CloudWatchLogGroup: "",
+		OutputS3BucketName: "bucketname",
+	}
+	cws3Config := contracts.Configuration{
+		CloudWatchLogGroup: "loggroup",
+		OutputS3BucketName: "bucketname",
+	}
+
+	// by default do not write to ipc file when logging features not enabled
+	plugin.initializeLogger(suite.mockLog, noLoggingConfig)
+	suite.False(plugin.logger.writeToIpcFile)
+
+	// write to ipc file when cw or s3 logging enabled
+	plugin.initializeLogger(suite.mockLog, cwConfig)
+	suite.True(plugin.logger.writeToIpcFile)
+
+	plugin.initializeLogger(suite.mockLog, s3Config)
+	suite.True(plugin.logger.writeToIpcFile)
+
+	plugin.initializeLogger(suite.mockLog, cws3Config)
+	suite.True(plugin.logger.writeToIpcFile)
+}
+
+// Testing if ipc file should be written to when destination is disk
+func (suite *ShellTestSuite) TestWhenWriteToIpcFileWhenDestinationIsDisk() {
+	agentConfig := appconfig.SsmagentConfig{
+		Ssm: appconfig.SsmCfg{
+			SessionLogsDestination: "disk",
+		},
+	}
+	mockContext := context.NewMockDefaultWithConfig(agentConfig)
+	plugin := &ShellPlugin{
+		context: mockContext,
+		logger: logger{
+			writeToIpcFile: false,
+		},
+	}
+	noLoggingConfig := contracts.Configuration{
+		CloudWatchLogGroup: "",
+		OutputS3BucketName: "",
+	}
+	cwConfig := contracts.Configuration{
+		CloudWatchLogGroup: "loggroup",
+		OutputS3BucketName: "",
+	}
+	s3Config := contracts.Configuration{
+		CloudWatchLogGroup: "",
+		OutputS3BucketName: "bucketname",
+	}
+	cws3Config := contracts.Configuration{
+		CloudWatchLogGroup: "loggroup",
+		OutputS3BucketName: "bucketname",
+	}
+
+	// write to ipc file in all cases
+	plugin.initializeLogger(suite.mockLog, noLoggingConfig)
+	suite.True(plugin.logger.writeToIpcFile)
+
+	plugin.initializeLogger(suite.mockLog, cwConfig)
+	suite.True(plugin.logger.writeToIpcFile)
+
+	plugin.initializeLogger(suite.mockLog, s3Config)
+	suite.True(plugin.logger.writeToIpcFile)
+
+	plugin.initializeLogger(suite.mockLog, cws3Config)
+	suite.True(plugin.logger.writeToIpcFile)
+}
+
+// Test ipc file is not created when writeToIpcFile is false
+func (suite *ShellTestSuite) TestIpcFileIsNotCreated() {
+	ipcFileName := "shell_util_test_file"
+	plugin := &ShellPlugin{
+		context:     suite.mockContext,
+		dataChannel: suite.mockDataChannel,
+		logger: logger{
+			writeToIpcFile: false,
+			ipcFilePath:    ipcFileName,
+		},
+	}
+
+	empty, _ := plugin.createIpcFile()
+	suite.True(empty == nil)
+}
+
+// Test ipc file is created when writeToIpcFile is true
+func (suite *ShellTestSuite) TestIpcFileIsCreated() {
+	ipcFileName := "shell_util_test_file"
+	plugin := &ShellPlugin{
+		context:     suite.mockContext,
+		dataChannel: suite.mockDataChannel,
+		logger: logger{
+			writeToIpcFile: true,
+			ipcFilePath:    ipcFileName,
+		},
+	}
+
+	ipcFile, _ := plugin.createIpcFile()
+
+	// Deleting file
+	defer func() {
+		ipcFile.Close()
+		os.Remove(ipcFileName)
+	}()
+
+	_, err := os.Stat(ipcFileName)
+	suite.True(err == nil)
+}
+
+// Test ipc file is not written to
+func (suite *ShellTestSuite) TestIpcFileIsNotWrittenTo() {
+	suite.mockDataChannel.On("SendStreamDataMessage", mock.Anything, mock.Anything, mock.Anything).Return(nil)
+	plugin := &ShellPlugin{
+		context:     suite.mockContext,
+		dataChannel: suite.mockDataChannel,
+		logger: logger{
+			writeToIpcFile: false,
+		},
+	}
+	ipcFileName := "shell_util_test_file"
+	ipcFile, _ := os.Create(ipcFileName)
+
+	// Deleting file
+	defer func() {
+		ipcFile.Close()
+		os.Remove(ipcFileName)
+	}()
+
+	stdoutBytes := make([]byte, 1)
+	stdoutBytesLen := 1
+
+	var unprocessedBuf bytes.Buffer
+
+	plugin.processStdoutData(suite.mockLog, stdoutBytes, stdoutBytesLen, unprocessedBuf, ipcFile, mgsContracts.Output)
+	empty, _ := ipcFile.Stat()
+	suite.True(empty.Size() == 0)
+}
+
+// Test if ipc file is written to
+func (suite *ShellTestSuite) TestIfIpcFileIsWrittenTo() {
+	suite.mockDataChannel.On("SendStreamDataMessage", mock.Anything, mock.Anything, mock.Anything).Return(nil)
+	plugin := &ShellPlugin{
+		context:     suite.mockContext,
+		dataChannel: suite.mockDataChannel,
+		logger: logger{
+			writeToIpcFile: true,
+		},
+	}
+	ipcFileName := "shell_util_test_file"
+	ipcFile, _ := os.Create(ipcFileName)
+
+	// Deleting file
+	defer func() {
+		ipcFile.Close()
+		os.Remove(ipcFileName)
+	}()
+
+	stdoutBytes := make([]byte, 1)
+	stdoutBytesLen := 1
+
+	var unprocessedBuf bytes.Buffer
+
+	plugin.processStdoutData(suite.mockLog, stdoutBytes, stdoutBytesLen, unprocessedBuf, ipcFile, mgsContracts.Output)
+	stat, _ := ipcFile.Stat()
+	suite.True(stat.Size() == 1)
 }

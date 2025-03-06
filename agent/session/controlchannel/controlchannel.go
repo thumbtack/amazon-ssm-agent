@@ -19,6 +19,8 @@ import (
 	"fmt"
 	"math/rand"
 	"net/http"
+	"strings"
+	"sync/atomic"
 	"time"
 
 	"github.com/aws/amazon-ssm-agent/agent/context"
@@ -31,6 +33,7 @@ import (
 	"github.com/aws/amazon-ssm-agent/agent/session/retry"
 	"github.com/aws/amazon-ssm-agent/agent/session/service"
 	"github.com/aws/amazon-ssm-agent/agent/session/telemetry"
+	"github.com/aws/amazon-ssm-agent/agent/ssmconnectionchannel"
 	"github.com/aws/amazon-ssm-agent/agent/version"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/gorilla/websocket"
@@ -39,11 +42,11 @@ import (
 
 type IControlChannel interface {
 	Initialize(context context.T, mgsService service.Service, instanceId string, agentMessageIncomingMessageChan chan mgsContracts.AgentMessage)
-	SetWebSocket(context context.T, mgsService service.Service) error
+	SetWebSocket(context context.T, mgsService service.Service, ableToOpenMGSConnection *uint32) error
 	SendMessage(log log.T, input []byte, inputType int) error
-	Reconnect(log log.T) error
+	Reconnect(context context.T, ableToOpenMGSConnection *uint32) error
 	Close(log log.T) error
-	Open(log log.T) error
+	Open(context context.T, ableToOpenMGSConnection *uint32) error
 }
 
 // ControlChannel used for communication between the message gateway service and the agent.
@@ -76,14 +79,14 @@ func (controlChannel *ControlChannel) Initialize(context context.T,
 
 // SetWebSocket populates webchannel object.
 func (controlChannel *ControlChannel) SetWebSocket(context context.T,
-	mgsService service.Service) error {
+	mgsService service.Service, ableToOpenMGSConnection *uint32) error {
 
 	log := context.Log()
 	uuid.SwitchFormat(uuid.CleanHyphen)
 	uid := uuid.NewV4().String()
 
 	log.Infof("Setting up websocket for controlchannel for instance: %s, requestId: %s", controlChannel.ChannelId, uid)
-	tokenValue, err := getControlChannelToken(log, mgsService, controlChannel.ChannelId, uid)
+	tokenValue, err := getControlChannelToken(context, mgsService, controlChannel.ChannelId, uid, ableToOpenMGSConnection)
 	if err != nil {
 		log.Errorf("Failed to get controlchannel token, error: %s", err)
 		return err
@@ -96,12 +99,12 @@ func (controlChannel *ControlChannel) SetWebSocket(context context.T,
 		callable := func() (channel interface{}, err error) {
 			uuid.SwitchFormat(uuid.CleanHyphen)
 			requestId := uuid.NewV4().String()
-			tokenValue, err := getControlChannelToken(log, mgsService, controlChannel.ChannelId, requestId)
+			tokenValue, err := getControlChannelToken(context, mgsService, controlChannel.ChannelId, requestId, ableToOpenMGSConnection)
 			if err != nil {
 				return controlChannel, err
 			}
 			controlChannel.wsChannel.SetChannelToken(tokenValue)
-			if err := controlChannel.Reconnect(log); err != nil {
+			if err := controlChannel.Reconnect(context, ableToOpenMGSConnection); err != nil {
 				return controlChannel, err
 			}
 			return controlChannel, nil
@@ -122,8 +125,11 @@ func (controlChannel *ControlChannel) SetWebSocket(context context.T,
 
 		retryer.Init()
 		if _, err := retryer.Call(); err != nil {
-			// should never happen
-			log.Errorf("failed to reconnect to the controlchannel with error: %v", err)
+			if ableToOpenMGSConnection != nil {
+				atomic.StoreUint32(ableToOpenMGSConnection, 0)
+			}
+			ssmconnectionchannel.SetConnectionChannel(context, ssmconnectionchannel.MGSFailed)
+			log.Errorf("failed to reconnect to the control channel with error: %v", err)
 		}
 	}
 
@@ -136,6 +142,10 @@ func (controlChannel *ControlChannel) SetWebSocket(context context.T,
 		mgsService.GetV4Signer(),
 		onMessageHandler,
 		onErrorHandler); err != nil {
+		if ableToOpenMGSConnection != nil {
+			atomic.StoreUint32(ableToOpenMGSConnection, 0)
+		}
+		ssmconnectionchannel.SetConnectionChannel(context, ssmconnectionchannel.MGSFailed)
 		log.Errorf("failed to initialize websocket channel for controlchannel, error: %s", err)
 		return err
 	}
@@ -154,17 +164,22 @@ func (controlChannel *ControlChannel) SendMessage(log log.T, input []byte, input
 }
 
 // Reconnect reconnects a controlchannel.
-func (controlChannel *ControlChannel) Reconnect(log log.T) error {
+func (controlChannel *ControlChannel) Reconnect(context context.T, ableToOpenMGSConnection *uint32) error {
+	log := context.Log()
 	log.Debugf("Reconnecting controlchannel %s", controlChannel.ChannelId)
 
 	if err := controlChannel.wsChannel.Close(log); err != nil {
 		log.Warnf("closing controlchannel failed with error: %s", err)
 	}
 
-	if err := controlChannel.Open(log); err != nil {
+	if err := controlChannel.Open(context, ableToOpenMGSConnection); err != nil {
 		return fmt.Errorf("failed to reconnect controlchannel with error: %s", err)
 	}
 
+	if ableToOpenMGSConnection != nil {
+		atomic.StoreUint32(ableToOpenMGSConnection, 1)
+	}
+	ssmconnectionchannel.SetConnectionChannel(context, ssmconnectionchannel.MGSSuccess)
 	log.Debugf("Successfully reconnected with controlchannel with type %s", controlChannel.channelType)
 	return nil
 }
@@ -182,27 +197,30 @@ func (controlChannel *ControlChannel) Close(log log.T) error {
 }
 
 // Open opens a websocket connection and sends the token for service to acknowledge the connection.
-func (controlChannel *ControlChannel) Open(log log.T) error {
+func (controlChannel *ControlChannel) Open(context context.T, ableToOpenMGSConnection *uint32) error {
+	log := context.Log()
 	controlChannelDialerInput := &websocket.Dialer{
 		TLSClientConfig: network.GetDefaultTLSConfig(log, controlChannel.context.AppConfig()),
 		Proxy:           http.ProxyFromEnvironment,
 		WriteBufferSize: mgsConfig.ControlChannelWriteBufferSizeLimit,
 	}
 	if err := controlChannel.wsChannel.Open(log, controlChannelDialerInput); err != nil {
+		if ableToOpenMGSConnection != nil {
+			atomic.StoreUint32(ableToOpenMGSConnection, 0)
+		}
+		ssmconnectionchannel.SetConnectionChannel(context, ssmconnectionchannel.MGSFailed)
 		return fmt.Errorf("failed to connect controlchannel with error: %s", err)
 	}
 
 	uuid.SwitchFormat(uuid.CleanHyphen)
 	uid := uuid.NewV4().String()
 
-	instancePlatformType, _ := platform.PlatformType(log)
-
 	openControlChannelInput := service.OpenControlChannelInput{
 		MessageSchemaVersion: aws.String(mgsConfig.MessageSchemaVersion),
 		RequestId:            aws.String(uid),
 		TokenValue:           aws.String(controlChannel.wsChannel.GetChannelToken()),
 		AgentVersion:         aws.String(version.Version),
-		PlatformType:         aws.String(instancePlatformType),
+		PlatformType:         aws.String(platform.PlatformType(log)),
 	}
 
 	jsonValue, err := json.Marshal(openControlChannelInput)
@@ -232,24 +250,36 @@ func controlChannelIncomingMessageHandler(context context.T,
 		log.Debugf("Invalid AgentMessage: %s, err: %v.", agentMessage.MessageId, err)
 		return err
 	}
-	log.Infof("received message through control channel %v", agentMessage.MessageId)
+	log.Debugf("received message through control channel %v", agentMessage.MessageId)
 	incomingAgentMessageChan <- *agentMessage
 	return nil
 }
 
 // getControlChannelToken calls CreateControlChannel to get the token for this instance
-func getControlChannelToken(log log.T,
+func getControlChannelToken(context context.T,
 	mgsService service.Service,
 	instanceId string,
-	requestId string) (tokenValue string, err error) {
+	requestId string,
+	ableToOpenMGSConnection *uint32) (tokenValue string, err error) {
+
+	const accessDeniedErr string = "<AccessDeniedException>"
 
 	createControlChannelInput := &service.CreateControlChannelInput{
 		MessageSchemaVersion: aws.String(mgsConfig.MessageSchemaVersion),
 		RequestId:            aws.String(requestId),
 	}
-
+	log := context.Log()
 	createControlChannelOutput, err := mgsService.CreateControlChannel(log, createControlChannelInput, instanceId)
 	if err != nil || createControlChannelOutput == nil {
+		if ableToOpenMGSConnection != nil {
+			atomic.StoreUint32(ableToOpenMGSConnection, 0)
+		}
+		// checks whether CreateControlChannel throws AccessDenied
+		if err != nil && strings.Contains(err.Error(), accessDeniedErr) {
+			ssmconnectionchannel.SetConnectionChannel(context, ssmconnectionchannel.MGSFailedDueToAccessDenied)
+		} else {
+			ssmconnectionchannel.SetConnectionChannel(context, ssmconnectionchannel.MGSFailed)
+		}
 		return "", fmt.Errorf("CreateControlChannel failed with error: %s", err)
 	}
 

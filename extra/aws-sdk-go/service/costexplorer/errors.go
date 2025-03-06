@@ -8,6 +8,13 @@ import (
 
 const (
 
+	// ErrCodeBackfillLimitExceededException for service response error code
+	// "BackfillLimitExceededException".
+	//
+	// A request to backfill is already in progress. Once the previous request is
+	// complete, you can create another request.
+	ErrCodeBackfillLimitExceededException = "BackfillLimitExceededException"
+
 	// ErrCodeBillExpirationException for service response error code
 	// "BillExpirationException".
 	//
@@ -19,6 +26,12 @@ const (
 	//
 	// The requested data is unavailable.
 	ErrCodeDataUnavailableException = "DataUnavailableException"
+
+	// ErrCodeGenerationExistsException for service response error code
+	// "GenerationExistsException".
+	//
+	// A request to generate a recommendation is already in progress.
+	ErrCodeGenerationExistsException = "GenerationExistsException"
 
 	// ErrCodeInvalidNextTokenException for service response error code
 	// "InvalidNextTokenException".
@@ -80,8 +93,10 @@ const (
 )
 
 var exceptionFromCode = map[string]func(protocol.ResponseMetadata) error{
+	"BackfillLimitExceededException": newErrorBackfillLimitExceededException,
 	"BillExpirationException":        newErrorBillExpirationException,
 	"DataUnavailableException":       newErrorDataUnavailableException,
+	"GenerationExistsException":      newErrorGenerationExistsException,
 	"InvalidNextTokenException":      newErrorInvalidNextTokenException,
 	"LimitExceededException":         newErrorLimitExceededException,
 	"RequestChangedException":        newErrorRequestChangedException,

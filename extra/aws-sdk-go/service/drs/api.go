@@ -4,6 +4,7 @@ package drs
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
@@ -11,6 +12,107 @@ import (
 	"github.com/aws/aws-sdk-go/private/protocol"
 	"github.com/aws/aws-sdk-go/private/protocol/restjson"
 )
+
+const opAssociateSourceNetworkStack = "AssociateSourceNetworkStack"
+
+// AssociateSourceNetworkStackRequest generates a "aws/request.Request" representing the
+// client's request for the AssociateSourceNetworkStack operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssociateSourceNetworkStack for more information on using the AssociateSourceNetworkStack
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the AssociateSourceNetworkStackRequest method.
+//	req, resp := client.AssociateSourceNetworkStackRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/AssociateSourceNetworkStack
+func (c *Drs) AssociateSourceNetworkStackRequest(input *AssociateSourceNetworkStackInput) (req *request.Request, output *AssociateSourceNetworkStackOutput) {
+	op := &request.Operation{
+		Name:       opAssociateSourceNetworkStack,
+		HTTPMethod: "POST",
+		HTTPPath:   "/AssociateSourceNetworkStack",
+	}
+
+	if input == nil {
+		input = &AssociateSourceNetworkStackInput{}
+	}
+
+	output = &AssociateSourceNetworkStackOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// AssociateSourceNetworkStack API operation for Elastic Disaster Recovery Service.
+//
+// Associate a Source Network to an existing CloudFormation Stack and modify
+// launch templates to use this network. Can be used for reverting to previously
+// deployed CloudFormation stacks.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation AssociateSourceNetworkStack for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
+//
+//   - ServiceQuotaExceededException
+//     The request could not be completed because its exceeded the service quota.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/AssociateSourceNetworkStack
+func (c *Drs) AssociateSourceNetworkStack(input *AssociateSourceNetworkStackInput) (*AssociateSourceNetworkStackOutput, error) {
+	req, out := c.AssociateSourceNetworkStackRequest(input)
+	return out, req.Send()
+}
+
+// AssociateSourceNetworkStackWithContext is the same as AssociateSourceNetworkStack with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateSourceNetworkStack for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) AssociateSourceNetworkStackWithContext(ctx aws.Context, input *AssociateSourceNetworkStackInput, opts ...request.Option) (*AssociateSourceNetworkStackOutput, error) {
+	req, out := c.AssociateSourceNetworkStackRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
 
 const opCreateExtendedSourceServer = "CreateExtendedSourceServer"
 
@@ -28,14 +130,13 @@ const opCreateExtendedSourceServer = "CreateExtendedSourceServer"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateExtendedSourceServerRequest method.
+//	req, resp := client.CreateExtendedSourceServerRequest(params)
 //
-//    // Example sending a request using the CreateExtendedSourceServerRequest method.
-//    req, resp := client.CreateExtendedSourceServerRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateExtendedSourceServer
 func (c *Drs) CreateExtendedSourceServerRequest(input *CreateExtendedSourceServerInput) (req *request.Request, output *CreateExtendedSourceServerOutput) {
@@ -67,27 +168,28 @@ func (c *Drs) CreateExtendedSourceServerRequest(input *CreateExtendedSourceServe
 // API operation CreateExtendedSourceServer for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ServiceQuotaExceededException
-//   The request could not be completed because its exceeded the service quota.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ServiceQuotaExceededException
+//     The request could not be completed because its exceeded the service quota.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateExtendedSourceServer
 func (c *Drs) CreateExtendedSourceServer(input *CreateExtendedSourceServerInput) (*CreateExtendedSourceServerOutput, error) {
@@ -111,6 +213,101 @@ func (c *Drs) CreateExtendedSourceServerWithContext(ctx aws.Context, input *Crea
 	return out, req.Send()
 }
 
+const opCreateLaunchConfigurationTemplate = "CreateLaunchConfigurationTemplate"
+
+// CreateLaunchConfigurationTemplateRequest generates a "aws/request.Request" representing the
+// client's request for the CreateLaunchConfigurationTemplate operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateLaunchConfigurationTemplate for more information on using the CreateLaunchConfigurationTemplate
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateLaunchConfigurationTemplateRequest method.
+//	req, resp := client.CreateLaunchConfigurationTemplateRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateLaunchConfigurationTemplate
+func (c *Drs) CreateLaunchConfigurationTemplateRequest(input *CreateLaunchConfigurationTemplateInput) (req *request.Request, output *CreateLaunchConfigurationTemplateOutput) {
+	op := &request.Operation{
+		Name:       opCreateLaunchConfigurationTemplate,
+		HTTPMethod: "POST",
+		HTTPPath:   "/CreateLaunchConfigurationTemplate",
+	}
+
+	if input == nil {
+		input = &CreateLaunchConfigurationTemplateInput{}
+	}
+
+	output = &CreateLaunchConfigurationTemplateOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateLaunchConfigurationTemplate API operation for Elastic Disaster Recovery Service.
+//
+// Creates a new Launch Configuration Template.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation CreateLaunchConfigurationTemplate for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ServiceQuotaExceededException
+//     The request could not be completed because its exceeded the service quota.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateLaunchConfigurationTemplate
+func (c *Drs) CreateLaunchConfigurationTemplate(input *CreateLaunchConfigurationTemplateInput) (*CreateLaunchConfigurationTemplateOutput, error) {
+	req, out := c.CreateLaunchConfigurationTemplateRequest(input)
+	return out, req.Send()
+}
+
+// CreateLaunchConfigurationTemplateWithContext is the same as CreateLaunchConfigurationTemplate with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateLaunchConfigurationTemplate for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) CreateLaunchConfigurationTemplateWithContext(ctx aws.Context, input *CreateLaunchConfigurationTemplateInput, opts ...request.Option) (*CreateLaunchConfigurationTemplateOutput, error) {
+	req, out := c.CreateLaunchConfigurationTemplateRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCreateReplicationConfigurationTemplate = "CreateReplicationConfigurationTemplate"
 
 // CreateReplicationConfigurationTemplateRequest generates a "aws/request.Request" representing the
@@ -127,14 +324,13 @@ const opCreateReplicationConfigurationTemplate = "CreateReplicationConfiguration
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateReplicationConfigurationTemplateRequest method.
+//	req, resp := client.CreateReplicationConfigurationTemplateRequest(params)
 //
-//    // Example sending a request using the CreateReplicationConfigurationTemplateRequest method.
-//    req, resp := client.CreateReplicationConfigurationTemplateRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateReplicationConfigurationTemplate
 func (c *Drs) CreateReplicationConfigurationTemplateRequest(input *CreateReplicationConfigurationTemplateInput) (req *request.Request, output *CreateReplicationConfigurationTemplateOutput) {
@@ -165,24 +361,25 @@ func (c *Drs) CreateReplicationConfigurationTemplateRequest(input *CreateReplica
 // API operation CreateReplicationConfigurationTemplate for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ServiceQuotaExceededException
-//   The request could not be completed because its exceeded the service quota.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ServiceQuotaExceededException
+//     The request could not be completed because its exceeded the service quota.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateReplicationConfigurationTemplate
 func (c *Drs) CreateReplicationConfigurationTemplate(input *CreateReplicationConfigurationTemplateInput) (*CreateReplicationConfigurationTemplateOutput, error) {
@@ -206,6 +403,105 @@ func (c *Drs) CreateReplicationConfigurationTemplateWithContext(ctx aws.Context,
 	return out, req.Send()
 }
 
+const opCreateSourceNetwork = "CreateSourceNetwork"
+
+// CreateSourceNetworkRequest generates a "aws/request.Request" representing the
+// client's request for the CreateSourceNetwork operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateSourceNetwork for more information on using the CreateSourceNetwork
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the CreateSourceNetworkRequest method.
+//	req, resp := client.CreateSourceNetworkRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateSourceNetwork
+func (c *Drs) CreateSourceNetworkRequest(input *CreateSourceNetworkInput) (req *request.Request, output *CreateSourceNetworkOutput) {
+	op := &request.Operation{
+		Name:       opCreateSourceNetwork,
+		HTTPMethod: "POST",
+		HTTPPath:   "/CreateSourceNetwork",
+	}
+
+	if input == nil {
+		input = &CreateSourceNetworkInput{}
+	}
+
+	output = &CreateSourceNetworkOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateSourceNetwork API operation for Elastic Disaster Recovery Service.
+//
+// Create a new Source Network resource for a provided VPC ID.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation CreateSourceNetwork for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
+//
+//   - ServiceQuotaExceededException
+//     The request could not be completed because its exceeded the service quota.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateSourceNetwork
+func (c *Drs) CreateSourceNetwork(input *CreateSourceNetworkInput) (*CreateSourceNetworkOutput, error) {
+	req, out := c.CreateSourceNetworkRequest(input)
+	return out, req.Send()
+}
+
+// CreateSourceNetworkWithContext is the same as CreateSourceNetwork with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateSourceNetwork for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) CreateSourceNetworkWithContext(ctx aws.Context, input *CreateSourceNetworkInput, opts ...request.Option) (*CreateSourceNetworkOutput, error) {
+	req, out := c.CreateSourceNetworkRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteJob = "DeleteJob"
 
 // DeleteJobRequest generates a "aws/request.Request" representing the
@@ -222,14 +518,13 @@ const opDeleteJob = "DeleteJob"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteJobRequest method.
+//	req, resp := client.DeleteJobRequest(params)
 //
-//    // Example sending a request using the DeleteJobRequest method.
-//    req, resp := client.DeleteJobRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteJob
 func (c *Drs) DeleteJobRequest(input *DeleteJobInput) (req *request.Request, output *DeleteJobOutput) {
@@ -261,22 +556,23 @@ func (c *Drs) DeleteJobRequest(input *DeleteJobInput) (req *request.Request, out
 // API operation DeleteJob for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ConflictException
-//   The request could not be completed due to a conflict with the current state
-//   of the target resource.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteJob
 func (c *Drs) DeleteJob(input *DeleteJobInput) (*DeleteJobOutput, error) {
@@ -300,6 +596,193 @@ func (c *Drs) DeleteJobWithContext(ctx aws.Context, input *DeleteJobInput, opts 
 	return out, req.Send()
 }
 
+const opDeleteLaunchAction = "DeleteLaunchAction"
+
+// DeleteLaunchActionRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteLaunchAction operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteLaunchAction for more information on using the DeleteLaunchAction
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteLaunchActionRequest method.
+//	req, resp := client.DeleteLaunchActionRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteLaunchAction
+func (c *Drs) DeleteLaunchActionRequest(input *DeleteLaunchActionInput) (req *request.Request, output *DeleteLaunchActionOutput) {
+	op := &request.Operation{
+		Name:       opDeleteLaunchAction,
+		HTTPMethod: "POST",
+		HTTPPath:   "/DeleteLaunchAction",
+	}
+
+	if input == nil {
+		input = &DeleteLaunchActionInput{}
+	}
+
+	output = &DeleteLaunchActionOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteLaunchAction API operation for Elastic Disaster Recovery Service.
+//
+// Deletes a resource launch action.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation DeleteLaunchAction for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteLaunchAction
+func (c *Drs) DeleteLaunchAction(input *DeleteLaunchActionInput) (*DeleteLaunchActionOutput, error) {
+	req, out := c.DeleteLaunchActionRequest(input)
+	return out, req.Send()
+}
+
+// DeleteLaunchActionWithContext is the same as DeleteLaunchAction with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteLaunchAction for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) DeleteLaunchActionWithContext(ctx aws.Context, input *DeleteLaunchActionInput, opts ...request.Option) (*DeleteLaunchActionOutput, error) {
+	req, out := c.DeleteLaunchActionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteLaunchConfigurationTemplate = "DeleteLaunchConfigurationTemplate"
+
+// DeleteLaunchConfigurationTemplateRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteLaunchConfigurationTemplate operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteLaunchConfigurationTemplate for more information on using the DeleteLaunchConfigurationTemplate
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteLaunchConfigurationTemplateRequest method.
+//	req, resp := client.DeleteLaunchConfigurationTemplateRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteLaunchConfigurationTemplate
+func (c *Drs) DeleteLaunchConfigurationTemplateRequest(input *DeleteLaunchConfigurationTemplateInput) (req *request.Request, output *DeleteLaunchConfigurationTemplateOutput) {
+	op := &request.Operation{
+		Name:       opDeleteLaunchConfigurationTemplate,
+		HTTPMethod: "POST",
+		HTTPPath:   "/DeleteLaunchConfigurationTemplate",
+	}
+
+	if input == nil {
+		input = &DeleteLaunchConfigurationTemplateInput{}
+	}
+
+	output = &DeleteLaunchConfigurationTemplateOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteLaunchConfigurationTemplate API operation for Elastic Disaster Recovery Service.
+//
+// Deletes a single Launch Configuration Template by ID.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation DeleteLaunchConfigurationTemplate for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteLaunchConfigurationTemplate
+func (c *Drs) DeleteLaunchConfigurationTemplate(input *DeleteLaunchConfigurationTemplateInput) (*DeleteLaunchConfigurationTemplateOutput, error) {
+	req, out := c.DeleteLaunchConfigurationTemplateRequest(input)
+	return out, req.Send()
+}
+
+// DeleteLaunchConfigurationTemplateWithContext is the same as DeleteLaunchConfigurationTemplate with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteLaunchConfigurationTemplate for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) DeleteLaunchConfigurationTemplateWithContext(ctx aws.Context, input *DeleteLaunchConfigurationTemplateInput, opts ...request.Option) (*DeleteLaunchConfigurationTemplateOutput, error) {
+	req, out := c.DeleteLaunchConfigurationTemplateRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteRecoveryInstance = "DeleteRecoveryInstance"
 
 // DeleteRecoveryInstanceRequest generates a "aws/request.Request" representing the
@@ -316,14 +799,13 @@ const opDeleteRecoveryInstance = "DeleteRecoveryInstance"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteRecoveryInstanceRequest method.
+//	req, resp := client.DeleteRecoveryInstanceRequest(params)
 //
-//    // Example sending a request using the DeleteRecoveryInstanceRequest method.
-//    req, resp := client.DeleteRecoveryInstanceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteRecoveryInstance
 func (c *Drs) DeleteRecoveryInstanceRequest(input *DeleteRecoveryInstanceInput) (req *request.Request, output *DeleteRecoveryInstanceOutput) {
@@ -357,22 +839,23 @@ func (c *Drs) DeleteRecoveryInstanceRequest(input *DeleteRecoveryInstanceInput) 
 // API operation DeleteRecoveryInstance for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ConflictException
-//   The request could not be completed due to a conflict with the current state
-//   of the target resource.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteRecoveryInstance
 func (c *Drs) DeleteRecoveryInstance(input *DeleteRecoveryInstanceInput) (*DeleteRecoveryInstanceOutput, error) {
@@ -412,14 +895,13 @@ const opDeleteReplicationConfigurationTemplate = "DeleteReplicationConfiguration
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteReplicationConfigurationTemplateRequest method.
+//	req, resp := client.DeleteReplicationConfigurationTemplateRequest(params)
 //
-//    // Example sending a request using the DeleteReplicationConfigurationTemplateRequest method.
-//    req, resp := client.DeleteReplicationConfigurationTemplateRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteReplicationConfigurationTemplate
 func (c *Drs) DeleteReplicationConfigurationTemplateRequest(input *DeleteReplicationConfigurationTemplateInput) (req *request.Request, output *DeleteReplicationConfigurationTemplateOutput) {
@@ -441,7 +923,7 @@ func (c *Drs) DeleteReplicationConfigurationTemplateRequest(input *DeleteReplica
 
 // DeleteReplicationConfigurationTemplate API operation for Elastic Disaster Recovery Service.
 //
-// Deletes a single Replication Configuration Template by ID
+// # Deletes a single Replication Configuration Template by ID
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -451,22 +933,23 @@ func (c *Drs) DeleteReplicationConfigurationTemplateRequest(input *DeleteReplica
 // API operation DeleteReplicationConfigurationTemplate for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ConflictException
-//   The request could not be completed due to a conflict with the current state
-//   of the target resource.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteReplicationConfigurationTemplate
 func (c *Drs) DeleteReplicationConfigurationTemplate(input *DeleteReplicationConfigurationTemplateInput) (*DeleteReplicationConfigurationTemplateOutput, error) {
@@ -490,6 +973,100 @@ func (c *Drs) DeleteReplicationConfigurationTemplateWithContext(ctx aws.Context,
 	return out, req.Send()
 }
 
+const opDeleteSourceNetwork = "DeleteSourceNetwork"
+
+// DeleteSourceNetworkRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteSourceNetwork operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteSourceNetwork for more information on using the DeleteSourceNetwork
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteSourceNetworkRequest method.
+//	req, resp := client.DeleteSourceNetworkRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteSourceNetwork
+func (c *Drs) DeleteSourceNetworkRequest(input *DeleteSourceNetworkInput) (req *request.Request, output *DeleteSourceNetworkOutput) {
+	op := &request.Operation{
+		Name:       opDeleteSourceNetwork,
+		HTTPMethod: "POST",
+		HTTPPath:   "/DeleteSourceNetwork",
+	}
+
+	if input == nil {
+		input = &DeleteSourceNetworkInput{}
+	}
+
+	output = &DeleteSourceNetworkOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteSourceNetwork API operation for Elastic Disaster Recovery Service.
+//
+// Delete Source Network resource.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation DeleteSourceNetwork for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteSourceNetwork
+func (c *Drs) DeleteSourceNetwork(input *DeleteSourceNetworkInput) (*DeleteSourceNetworkOutput, error) {
+	req, out := c.DeleteSourceNetworkRequest(input)
+	return out, req.Send()
+}
+
+// DeleteSourceNetworkWithContext is the same as DeleteSourceNetwork with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteSourceNetwork for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) DeleteSourceNetworkWithContext(ctx aws.Context, input *DeleteSourceNetworkInput, opts ...request.Option) (*DeleteSourceNetworkOutput, error) {
+	req, out := c.DeleteSourceNetworkRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteSourceServer = "DeleteSourceServer"
 
 // DeleteSourceServerRequest generates a "aws/request.Request" representing the
@@ -506,14 +1083,13 @@ const opDeleteSourceServer = "DeleteSourceServer"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteSourceServerRequest method.
+//	req, resp := client.DeleteSourceServerRequest(params)
 //
-//    // Example sending a request using the DeleteSourceServerRequest method.
-//    req, resp := client.DeleteSourceServerRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteSourceServer
 func (c *Drs) DeleteSourceServerRequest(input *DeleteSourceServerInput) (req *request.Request, output *DeleteSourceServerOutput) {
@@ -546,22 +1122,23 @@ func (c *Drs) DeleteSourceServerRequest(input *DeleteSourceServerInput) (req *re
 // API operation DeleteSourceServer for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ConflictException
-//   The request could not be completed due to a conflict with the current state
-//   of the target resource.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteSourceServer
 func (c *Drs) DeleteSourceServer(input *DeleteSourceServerInput) (*DeleteSourceServerOutput, error) {
@@ -601,14 +1178,13 @@ const opDescribeJobLogItems = "DescribeJobLogItems"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DescribeJobLogItemsRequest method.
+//	req, resp := client.DescribeJobLogItemsRequest(params)
 //
-//    // Example sending a request using the DescribeJobLogItemsRequest method.
-//    req, resp := client.DescribeJobLogItemsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeJobLogItems
 func (c *Drs) DescribeJobLogItemsRequest(input *DescribeJobLogItemsInput) (req *request.Request, output *DescribeJobLogItemsOutput) {
@@ -645,18 +1221,19 @@ func (c *Drs) DescribeJobLogItemsRequest(input *DescribeJobLogItemsInput) (req *
 // API operation DescribeJobLogItems for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeJobLogItems
 func (c *Drs) DescribeJobLogItems(input *DescribeJobLogItemsInput) (*DescribeJobLogItemsOutput, error) {
@@ -688,15 +1265,14 @@ func (c *Drs) DescribeJobLogItemsWithContext(ctx aws.Context, input *DescribeJob
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a DescribeJobLogItems operation.
-//    pageNum := 0
-//    err := client.DescribeJobLogItemsPages(params,
-//        func(page *drs.DescribeJobLogItemsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a DescribeJobLogItems operation.
+//	pageNum := 0
+//	err := client.DescribeJobLogItemsPages(params,
+//	    func(page *drs.DescribeJobLogItemsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *Drs) DescribeJobLogItemsPages(input *DescribeJobLogItemsInput, fn func(*DescribeJobLogItemsOutput, bool) bool) error {
 	return c.DescribeJobLogItemsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -748,14 +1324,13 @@ const opDescribeJobs = "DescribeJobs"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DescribeJobsRequest method.
+//	req, resp := client.DescribeJobsRequest(params)
 //
-//    // Example sending a request using the DescribeJobsRequest method.
-//    req, resp := client.DescribeJobsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeJobs
 func (c *Drs) DescribeJobsRequest(input *DescribeJobsInput) (req *request.Request, output *DescribeJobsOutput) {
@@ -797,18 +1372,19 @@ func (c *Drs) DescribeJobsRequest(input *DescribeJobsInput) (req *request.Reques
 // API operation DescribeJobs for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeJobs
 func (c *Drs) DescribeJobs(input *DescribeJobsInput) (*DescribeJobsOutput, error) {
@@ -840,15 +1416,14 @@ func (c *Drs) DescribeJobsWithContext(ctx aws.Context, input *DescribeJobsInput,
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a DescribeJobs operation.
-//    pageNum := 0
-//    err := client.DescribeJobsPages(params,
-//        func(page *drs.DescribeJobsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a DescribeJobs operation.
+//	pageNum := 0
+//	err := client.DescribeJobsPages(params,
+//	    func(page *drs.DescribeJobsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *Drs) DescribeJobsPages(input *DescribeJobsInput, fn func(*DescribeJobsOutput, bool) bool) error {
 	return c.DescribeJobsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -884,6 +1459,156 @@ func (c *Drs) DescribeJobsPagesWithContext(ctx aws.Context, input *DescribeJobsI
 	return p.Err()
 }
 
+const opDescribeLaunchConfigurationTemplates = "DescribeLaunchConfigurationTemplates"
+
+// DescribeLaunchConfigurationTemplatesRequest generates a "aws/request.Request" representing the
+// client's request for the DescribeLaunchConfigurationTemplates operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeLaunchConfigurationTemplates for more information on using the DescribeLaunchConfigurationTemplates
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DescribeLaunchConfigurationTemplatesRequest method.
+//	req, resp := client.DescribeLaunchConfigurationTemplatesRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeLaunchConfigurationTemplates
+func (c *Drs) DescribeLaunchConfigurationTemplatesRequest(input *DescribeLaunchConfigurationTemplatesInput) (req *request.Request, output *DescribeLaunchConfigurationTemplatesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeLaunchConfigurationTemplates,
+		HTTPMethod: "POST",
+		HTTPPath:   "/DescribeLaunchConfigurationTemplates",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &DescribeLaunchConfigurationTemplatesInput{}
+	}
+
+	output = &DescribeLaunchConfigurationTemplatesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DescribeLaunchConfigurationTemplates API operation for Elastic Disaster Recovery Service.
+//
+// Lists all Launch Configuration Templates, filtered by Launch Configuration
+// Template IDs
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation DescribeLaunchConfigurationTemplates for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeLaunchConfigurationTemplates
+func (c *Drs) DescribeLaunchConfigurationTemplates(input *DescribeLaunchConfigurationTemplatesInput) (*DescribeLaunchConfigurationTemplatesOutput, error) {
+	req, out := c.DescribeLaunchConfigurationTemplatesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeLaunchConfigurationTemplatesWithContext is the same as DescribeLaunchConfigurationTemplates with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeLaunchConfigurationTemplates for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) DescribeLaunchConfigurationTemplatesWithContext(ctx aws.Context, input *DescribeLaunchConfigurationTemplatesInput, opts ...request.Option) (*DescribeLaunchConfigurationTemplatesOutput, error) {
+	req, out := c.DescribeLaunchConfigurationTemplatesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// DescribeLaunchConfigurationTemplatesPages iterates over the pages of a DescribeLaunchConfigurationTemplates operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See DescribeLaunchConfigurationTemplates method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//	// Example iterating over at most 3 pages of a DescribeLaunchConfigurationTemplates operation.
+//	pageNum := 0
+//	err := client.DescribeLaunchConfigurationTemplatesPages(params,
+//	    func(page *drs.DescribeLaunchConfigurationTemplatesOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
+func (c *Drs) DescribeLaunchConfigurationTemplatesPages(input *DescribeLaunchConfigurationTemplatesInput, fn func(*DescribeLaunchConfigurationTemplatesOutput, bool) bool) error {
+	return c.DescribeLaunchConfigurationTemplatesPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// DescribeLaunchConfigurationTemplatesPagesWithContext same as DescribeLaunchConfigurationTemplatesPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) DescribeLaunchConfigurationTemplatesPagesWithContext(ctx aws.Context, input *DescribeLaunchConfigurationTemplatesInput, fn func(*DescribeLaunchConfigurationTemplatesOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *DescribeLaunchConfigurationTemplatesInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.DescribeLaunchConfigurationTemplatesRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*DescribeLaunchConfigurationTemplatesOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
 const opDescribeRecoveryInstances = "DescribeRecoveryInstances"
 
 // DescribeRecoveryInstancesRequest generates a "aws/request.Request" representing the
@@ -900,14 +1625,13 @@ const opDescribeRecoveryInstances = "DescribeRecoveryInstances"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DescribeRecoveryInstancesRequest method.
+//	req, resp := client.DescribeRecoveryInstancesRequest(params)
 //
-//    // Example sending a request using the DescribeRecoveryInstancesRequest method.
-//    req, resp := client.DescribeRecoveryInstancesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeRecoveryInstances
 func (c *Drs) DescribeRecoveryInstancesRequest(input *DescribeRecoveryInstancesInput) (req *request.Request, output *DescribeRecoveryInstancesOutput) {
@@ -944,18 +1668,19 @@ func (c *Drs) DescribeRecoveryInstancesRequest(input *DescribeRecoveryInstancesI
 // API operation DescribeRecoveryInstances for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeRecoveryInstances
 func (c *Drs) DescribeRecoveryInstances(input *DescribeRecoveryInstancesInput) (*DescribeRecoveryInstancesOutput, error) {
@@ -987,15 +1712,14 @@ func (c *Drs) DescribeRecoveryInstancesWithContext(ctx aws.Context, input *Descr
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a DescribeRecoveryInstances operation.
-//    pageNum := 0
-//    err := client.DescribeRecoveryInstancesPages(params,
-//        func(page *drs.DescribeRecoveryInstancesOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a DescribeRecoveryInstances operation.
+//	pageNum := 0
+//	err := client.DescribeRecoveryInstancesPages(params,
+//	    func(page *drs.DescribeRecoveryInstancesOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *Drs) DescribeRecoveryInstancesPages(input *DescribeRecoveryInstancesInput, fn func(*DescribeRecoveryInstancesOutput, bool) bool) error {
 	return c.DescribeRecoveryInstancesPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -1047,14 +1771,13 @@ const opDescribeRecoverySnapshots = "DescribeRecoverySnapshots"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DescribeRecoverySnapshotsRequest method.
+//	req, resp := client.DescribeRecoverySnapshotsRequest(params)
 //
-//    // Example sending a request using the DescribeRecoverySnapshotsRequest method.
-//    req, resp := client.DescribeRecoverySnapshotsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeRecoverySnapshots
 func (c *Drs) DescribeRecoverySnapshotsRequest(input *DescribeRecoverySnapshotsInput) (req *request.Request, output *DescribeRecoverySnapshotsOutput) {
@@ -1091,21 +1814,22 @@ func (c *Drs) DescribeRecoverySnapshotsRequest(input *DescribeRecoverySnapshotsI
 // API operation DescribeRecoverySnapshots for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeRecoverySnapshots
 func (c *Drs) DescribeRecoverySnapshots(input *DescribeRecoverySnapshotsInput) (*DescribeRecoverySnapshotsOutput, error) {
@@ -1137,15 +1861,14 @@ func (c *Drs) DescribeRecoverySnapshotsWithContext(ctx aws.Context, input *Descr
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a DescribeRecoverySnapshots operation.
-//    pageNum := 0
-//    err := client.DescribeRecoverySnapshotsPages(params,
-//        func(page *drs.DescribeRecoverySnapshotsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a DescribeRecoverySnapshots operation.
+//	pageNum := 0
+//	err := client.DescribeRecoverySnapshotsPages(params,
+//	    func(page *drs.DescribeRecoverySnapshotsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *Drs) DescribeRecoverySnapshotsPages(input *DescribeRecoverySnapshotsInput, fn func(*DescribeRecoverySnapshotsOutput, bool) bool) error {
 	return c.DescribeRecoverySnapshotsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -1197,14 +1920,13 @@ const opDescribeReplicationConfigurationTemplates = "DescribeReplicationConfigur
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DescribeReplicationConfigurationTemplatesRequest method.
+//	req, resp := client.DescribeReplicationConfigurationTemplatesRequest(params)
 //
-//    // Example sending a request using the DescribeReplicationConfigurationTemplatesRequest method.
-//    req, resp := client.DescribeReplicationConfigurationTemplatesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeReplicationConfigurationTemplates
 func (c *Drs) DescribeReplicationConfigurationTemplatesRequest(input *DescribeReplicationConfigurationTemplatesInput) (req *request.Request, output *DescribeReplicationConfigurationTemplatesOutput) {
@@ -1241,21 +1963,22 @@ func (c *Drs) DescribeReplicationConfigurationTemplatesRequest(input *DescribeRe
 // API operation DescribeReplicationConfigurationTemplates for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeReplicationConfigurationTemplates
 func (c *Drs) DescribeReplicationConfigurationTemplates(input *DescribeReplicationConfigurationTemplatesInput) (*DescribeReplicationConfigurationTemplatesOutput, error) {
@@ -1287,15 +2010,14 @@ func (c *Drs) DescribeReplicationConfigurationTemplatesWithContext(ctx aws.Conte
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a DescribeReplicationConfigurationTemplates operation.
-//    pageNum := 0
-//    err := client.DescribeReplicationConfigurationTemplatesPages(params,
-//        func(page *drs.DescribeReplicationConfigurationTemplatesOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a DescribeReplicationConfigurationTemplates operation.
+//	pageNum := 0
+//	err := client.DescribeReplicationConfigurationTemplatesPages(params,
+//	    func(page *drs.DescribeReplicationConfigurationTemplatesOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *Drs) DescribeReplicationConfigurationTemplatesPages(input *DescribeReplicationConfigurationTemplatesInput, fn func(*DescribeReplicationConfigurationTemplatesOutput, bool) bool) error {
 	return c.DescribeReplicationConfigurationTemplatesPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -1331,6 +2053,152 @@ func (c *Drs) DescribeReplicationConfigurationTemplatesPagesWithContext(ctx aws.
 	return p.Err()
 }
 
+const opDescribeSourceNetworks = "DescribeSourceNetworks"
+
+// DescribeSourceNetworksRequest generates a "aws/request.Request" representing the
+// client's request for the DescribeSourceNetworks operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeSourceNetworks for more information on using the DescribeSourceNetworks
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DescribeSourceNetworksRequest method.
+//	req, resp := client.DescribeSourceNetworksRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeSourceNetworks
+func (c *Drs) DescribeSourceNetworksRequest(input *DescribeSourceNetworksInput) (req *request.Request, output *DescribeSourceNetworksOutput) {
+	op := &request.Operation{
+		Name:       opDescribeSourceNetworks,
+		HTTPMethod: "POST",
+		HTTPPath:   "/DescribeSourceNetworks",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &DescribeSourceNetworksInput{}
+	}
+
+	output = &DescribeSourceNetworksOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DescribeSourceNetworks API operation for Elastic Disaster Recovery Service.
+//
+// Lists all Source Networks or multiple Source Networks filtered by ID.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation DescribeSourceNetworks for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeSourceNetworks
+func (c *Drs) DescribeSourceNetworks(input *DescribeSourceNetworksInput) (*DescribeSourceNetworksOutput, error) {
+	req, out := c.DescribeSourceNetworksRequest(input)
+	return out, req.Send()
+}
+
+// DescribeSourceNetworksWithContext is the same as DescribeSourceNetworks with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeSourceNetworks for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) DescribeSourceNetworksWithContext(ctx aws.Context, input *DescribeSourceNetworksInput, opts ...request.Option) (*DescribeSourceNetworksOutput, error) {
+	req, out := c.DescribeSourceNetworksRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// DescribeSourceNetworksPages iterates over the pages of a DescribeSourceNetworks operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See DescribeSourceNetworks method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//	// Example iterating over at most 3 pages of a DescribeSourceNetworks operation.
+//	pageNum := 0
+//	err := client.DescribeSourceNetworksPages(params,
+//	    func(page *drs.DescribeSourceNetworksOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
+func (c *Drs) DescribeSourceNetworksPages(input *DescribeSourceNetworksInput, fn func(*DescribeSourceNetworksOutput, bool) bool) error {
+	return c.DescribeSourceNetworksPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// DescribeSourceNetworksPagesWithContext same as DescribeSourceNetworksPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) DescribeSourceNetworksPagesWithContext(ctx aws.Context, input *DescribeSourceNetworksInput, fn func(*DescribeSourceNetworksOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *DescribeSourceNetworksInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.DescribeSourceNetworksRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*DescribeSourceNetworksOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
 const opDescribeSourceServers = "DescribeSourceServers"
 
 // DescribeSourceServersRequest generates a "aws/request.Request" representing the
@@ -1347,14 +2215,13 @@ const opDescribeSourceServers = "DescribeSourceServers"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DescribeSourceServersRequest method.
+//	req, resp := client.DescribeSourceServersRequest(params)
 //
-//    // Example sending a request using the DescribeSourceServersRequest method.
-//    req, resp := client.DescribeSourceServersRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeSourceServers
 func (c *Drs) DescribeSourceServersRequest(input *DescribeSourceServersInput) (req *request.Request, output *DescribeSourceServersOutput) {
@@ -1391,18 +2258,19 @@ func (c *Drs) DescribeSourceServersRequest(input *DescribeSourceServersInput) (r
 // API operation DescribeSourceServers for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeSourceServers
 func (c *Drs) DescribeSourceServers(input *DescribeSourceServersInput) (*DescribeSourceServersOutput, error) {
@@ -1434,15 +2302,14 @@ func (c *Drs) DescribeSourceServersWithContext(ctx aws.Context, input *DescribeS
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a DescribeSourceServers operation.
-//    pageNum := 0
-//    err := client.DescribeSourceServersPages(params,
-//        func(page *drs.DescribeSourceServersOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a DescribeSourceServers operation.
+//	pageNum := 0
+//	err := client.DescribeSourceServersPages(params,
+//	    func(page *drs.DescribeSourceServersOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *Drs) DescribeSourceServersPages(input *DescribeSourceServersInput, fn func(*DescribeSourceServersOutput, bool) bool) error {
 	return c.DescribeSourceServersPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -1494,14 +2361,13 @@ const opDisconnectRecoveryInstance = "DisconnectRecoveryInstance"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DisconnectRecoveryInstanceRequest method.
+//	req, resp := client.DisconnectRecoveryInstanceRequest(params)
 //
-//    // Example sending a request using the DisconnectRecoveryInstanceRequest method.
-//    req, resp := client.DisconnectRecoveryInstanceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DisconnectRecoveryInstance
 func (c *Drs) DisconnectRecoveryInstanceRequest(input *DisconnectRecoveryInstanceInput) (req *request.Request, output *DisconnectRecoveryInstanceOutput) {
@@ -1543,25 +2409,26 @@ func (c *Drs) DisconnectRecoveryInstanceRequest(input *DisconnectRecoveryInstanc
 // API operation DisconnectRecoveryInstance for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ConflictException
-//   The request could not be completed due to a conflict with the current state
-//   of the target resource.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DisconnectRecoveryInstance
 func (c *Drs) DisconnectRecoveryInstance(input *DisconnectRecoveryInstanceInput) (*DisconnectRecoveryInstanceOutput, error) {
@@ -1601,14 +2468,13 @@ const opDisconnectSourceServer = "DisconnectSourceServer"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DisconnectSourceServerRequest method.
+//	req, resp := client.DisconnectSourceServerRequest(params)
 //
-//    // Example sending a request using the DisconnectSourceServerRequest method.
-//    req, resp := client.DisconnectSourceServerRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DisconnectSourceServer
 func (c *Drs) DisconnectSourceServerRequest(input *DisconnectSourceServerInput) (req *request.Request, output *DisconnectSourceServerOutput) {
@@ -1650,22 +2516,23 @@ func (c *Drs) DisconnectSourceServerRequest(input *DisconnectSourceServerInput) 
 // API operation DisconnectSourceServer for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ConflictException
-//   The request could not be completed due to a conflict with the current state
-//   of the target resource.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DisconnectSourceServer
 func (c *Drs) DisconnectSourceServer(input *DisconnectSourceServerInput) (*DisconnectSourceServerOutput, error) {
@@ -1689,6 +2556,102 @@ func (c *Drs) DisconnectSourceServerWithContext(ctx aws.Context, input *Disconne
 	return out, req.Send()
 }
 
+const opExportSourceNetworkCfnTemplate = "ExportSourceNetworkCfnTemplate"
+
+// ExportSourceNetworkCfnTemplateRequest generates a "aws/request.Request" representing the
+// client's request for the ExportSourceNetworkCfnTemplate operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ExportSourceNetworkCfnTemplate for more information on using the ExportSourceNetworkCfnTemplate
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ExportSourceNetworkCfnTemplateRequest method.
+//	req, resp := client.ExportSourceNetworkCfnTemplateRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ExportSourceNetworkCfnTemplate
+func (c *Drs) ExportSourceNetworkCfnTemplateRequest(input *ExportSourceNetworkCfnTemplateInput) (req *request.Request, output *ExportSourceNetworkCfnTemplateOutput) {
+	op := &request.Operation{
+		Name:       opExportSourceNetworkCfnTemplate,
+		HTTPMethod: "POST",
+		HTTPPath:   "/ExportSourceNetworkCfnTemplate",
+	}
+
+	if input == nil {
+		input = &ExportSourceNetworkCfnTemplateInput{}
+	}
+
+	output = &ExportSourceNetworkCfnTemplateOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ExportSourceNetworkCfnTemplate API operation for Elastic Disaster Recovery Service.
+//
+// Export the Source Network CloudFormation template to an S3 bucket.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation ExportSourceNetworkCfnTemplate for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ExportSourceNetworkCfnTemplate
+func (c *Drs) ExportSourceNetworkCfnTemplate(input *ExportSourceNetworkCfnTemplateInput) (*ExportSourceNetworkCfnTemplateOutput, error) {
+	req, out := c.ExportSourceNetworkCfnTemplateRequest(input)
+	return out, req.Send()
+}
+
+// ExportSourceNetworkCfnTemplateWithContext is the same as ExportSourceNetworkCfnTemplate with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ExportSourceNetworkCfnTemplate for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) ExportSourceNetworkCfnTemplateWithContext(ctx aws.Context, input *ExportSourceNetworkCfnTemplateInput, opts ...request.Option) (*ExportSourceNetworkCfnTemplateOutput, error) {
+	req, out := c.ExportSourceNetworkCfnTemplateRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetFailbackReplicationConfiguration = "GetFailbackReplicationConfiguration"
 
 // GetFailbackReplicationConfigurationRequest generates a "aws/request.Request" representing the
@@ -1705,14 +2668,13 @@ const opGetFailbackReplicationConfiguration = "GetFailbackReplicationConfigurati
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetFailbackReplicationConfigurationRequest method.
+//	req, resp := client.GetFailbackReplicationConfigurationRequest(params)
 //
-//    // Example sending a request using the GetFailbackReplicationConfigurationRequest method.
-//    req, resp := client.GetFailbackReplicationConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/GetFailbackReplicationConfiguration
 func (c *Drs) GetFailbackReplicationConfigurationRequest(input *GetFailbackReplicationConfigurationInput) (req *request.Request, output *GetFailbackReplicationConfigurationOutput) {
@@ -1744,18 +2706,19 @@ func (c *Drs) GetFailbackReplicationConfigurationRequest(input *GetFailbackRepli
 // API operation GetFailbackReplicationConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/GetFailbackReplicationConfiguration
 func (c *Drs) GetFailbackReplicationConfiguration(input *GetFailbackReplicationConfigurationInput) (*GetFailbackReplicationConfigurationOutput, error) {
@@ -1795,14 +2758,13 @@ const opGetLaunchConfiguration = "GetLaunchConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetLaunchConfigurationRequest method.
+//	req, resp := client.GetLaunchConfigurationRequest(params)
 //
-//    // Example sending a request using the GetLaunchConfigurationRequest method.
-//    req, resp := client.GetLaunchConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/GetLaunchConfiguration
 func (c *Drs) GetLaunchConfigurationRequest(input *GetLaunchConfigurationInput) (req *request.Request, output *GetLaunchConfigurationOutput) {
@@ -1833,18 +2795,19 @@ func (c *Drs) GetLaunchConfigurationRequest(input *GetLaunchConfigurationInput) 
 // API operation GetLaunchConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/GetLaunchConfiguration
 func (c *Drs) GetLaunchConfiguration(input *GetLaunchConfigurationInput) (*GetLaunchConfigurationOutput, error) {
@@ -1884,14 +2847,13 @@ const opGetReplicationConfiguration = "GetReplicationConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetReplicationConfigurationRequest method.
+//	req, resp := client.GetReplicationConfigurationRequest(params)
 //
-//    // Example sending a request using the GetReplicationConfigurationRequest method.
-//    req, resp := client.GetReplicationConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/GetReplicationConfiguration
 func (c *Drs) GetReplicationConfigurationRequest(input *GetReplicationConfigurationInput) (req *request.Request, output *GetReplicationConfigurationOutput) {
@@ -1922,21 +2884,22 @@ func (c *Drs) GetReplicationConfigurationRequest(input *GetReplicationConfigurat
 // API operation GetReplicationConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/GetReplicationConfiguration
 func (c *Drs) GetReplicationConfiguration(input *GetReplicationConfigurationInput) (*GetReplicationConfigurationOutput, error) {
@@ -1976,14 +2939,13 @@ const opInitializeService = "InitializeService"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the InitializeServiceRequest method.
+//	req, resp := client.InitializeServiceRequest(params)
 //
-//    // Example sending a request using the InitializeServiceRequest method.
-//    req, resp := client.InitializeServiceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/InitializeService
 func (c *Drs) InitializeServiceRequest(input *InitializeServiceInput) (req *request.Request, output *InitializeServiceOutput) {
@@ -2015,18 +2977,19 @@ func (c *Drs) InitializeServiceRequest(input *InitializeServiceInput) (req *requ
 // API operation InitializeService for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/InitializeService
 func (c *Drs) InitializeService(input *InitializeServiceInput) (*InitializeServiceOutput, error) {
@@ -2066,14 +3029,13 @@ const opListExtensibleSourceServers = "ListExtensibleSourceServers"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListExtensibleSourceServersRequest method.
+//	req, resp := client.ListExtensibleSourceServersRequest(params)
 //
-//    // Example sending a request using the ListExtensibleSourceServersRequest method.
-//    req, resp := client.ListExtensibleSourceServersRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ListExtensibleSourceServers
 func (c *Drs) ListExtensibleSourceServersRequest(input *ListExtensibleSourceServersInput) (req *request.Request, output *ListExtensibleSourceServersOutput) {
@@ -2113,21 +3075,22 @@ func (c *Drs) ListExtensibleSourceServersRequest(input *ListExtensibleSourceServ
 // API operation ListExtensibleSourceServers for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ListExtensibleSourceServers
 func (c *Drs) ListExtensibleSourceServers(input *ListExtensibleSourceServersInput) (*ListExtensibleSourceServersOutput, error) {
@@ -2159,15 +3122,14 @@ func (c *Drs) ListExtensibleSourceServersWithContext(ctx aws.Context, input *Lis
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListExtensibleSourceServers operation.
-//    pageNum := 0
-//    err := client.ListExtensibleSourceServersPages(params,
-//        func(page *drs.ListExtensibleSourceServersOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListExtensibleSourceServers operation.
+//	pageNum := 0
+//	err := client.ListExtensibleSourceServersPages(params,
+//	    func(page *drs.ListExtensibleSourceServersOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *Drs) ListExtensibleSourceServersPages(input *ListExtensibleSourceServersInput, fn func(*ListExtensibleSourceServersOutput, bool) bool) error {
 	return c.ListExtensibleSourceServersPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2203,6 +3165,155 @@ func (c *Drs) ListExtensibleSourceServersPagesWithContext(ctx aws.Context, input
 	return p.Err()
 }
 
+const opListLaunchActions = "ListLaunchActions"
+
+// ListLaunchActionsRequest generates a "aws/request.Request" representing the
+// client's request for the ListLaunchActions operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListLaunchActions for more information on using the ListLaunchActions
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListLaunchActionsRequest method.
+//	req, resp := client.ListLaunchActionsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ListLaunchActions
+func (c *Drs) ListLaunchActionsRequest(input *ListLaunchActionsInput) (req *request.Request, output *ListLaunchActionsOutput) {
+	op := &request.Operation{
+		Name:       opListLaunchActions,
+		HTTPMethod: "POST",
+		HTTPPath:   "/ListLaunchActions",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListLaunchActionsInput{}
+	}
+
+	output = &ListLaunchActionsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListLaunchActions API operation for Elastic Disaster Recovery Service.
+//
+// Lists resource launch actions.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation ListLaunchActions for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ServiceQuotaExceededException
+//     The request could not be completed because its exceeded the service quota.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ListLaunchActions
+func (c *Drs) ListLaunchActions(input *ListLaunchActionsInput) (*ListLaunchActionsOutput, error) {
+	req, out := c.ListLaunchActionsRequest(input)
+	return out, req.Send()
+}
+
+// ListLaunchActionsWithContext is the same as ListLaunchActions with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListLaunchActions for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) ListLaunchActionsWithContext(ctx aws.Context, input *ListLaunchActionsInput, opts ...request.Option) (*ListLaunchActionsOutput, error) {
+	req, out := c.ListLaunchActionsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListLaunchActionsPages iterates over the pages of a ListLaunchActions operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListLaunchActions method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//	// Example iterating over at most 3 pages of a ListLaunchActions operation.
+//	pageNum := 0
+//	err := client.ListLaunchActionsPages(params,
+//	    func(page *drs.ListLaunchActionsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
+func (c *Drs) ListLaunchActionsPages(input *ListLaunchActionsInput, fn func(*ListLaunchActionsOutput, bool) bool) error {
+	return c.ListLaunchActionsPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListLaunchActionsPagesWithContext same as ListLaunchActionsPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) ListLaunchActionsPagesWithContext(ctx aws.Context, input *ListLaunchActionsInput, fn func(*ListLaunchActionsOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListLaunchActionsInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListLaunchActionsRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListLaunchActionsOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
 const opListStagingAccounts = "ListStagingAccounts"
 
 // ListStagingAccountsRequest generates a "aws/request.Request" representing the
@@ -2219,14 +3330,13 @@ const opListStagingAccounts = "ListStagingAccounts"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListStagingAccountsRequest method.
+//	req, resp := client.ListStagingAccountsRequest(params)
 //
-//    // Example sending a request using the ListStagingAccountsRequest method.
-//    req, resp := client.ListStagingAccountsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ListStagingAccounts
 func (c *Drs) ListStagingAccountsRequest(input *ListStagingAccountsInput) (req *request.Request, output *ListStagingAccountsOutput) {
@@ -2263,21 +3373,22 @@ func (c *Drs) ListStagingAccountsRequest(input *ListStagingAccountsInput) (req *
 // API operation ListStagingAccounts for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ListStagingAccounts
 func (c *Drs) ListStagingAccounts(input *ListStagingAccountsInput) (*ListStagingAccountsOutput, error) {
@@ -2309,15 +3420,14 @@ func (c *Drs) ListStagingAccountsWithContext(ctx aws.Context, input *ListStaging
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListStagingAccounts operation.
-//    pageNum := 0
-//    err := client.ListStagingAccountsPages(params,
-//        func(page *drs.ListStagingAccountsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListStagingAccounts operation.
+//	pageNum := 0
+//	err := client.ListStagingAccountsPages(params,
+//	    func(page *drs.ListStagingAccountsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *Drs) ListStagingAccountsPages(input *ListStagingAccountsInput, fn func(*ListStagingAccountsOutput, bool) bool) error {
 	return c.ListStagingAccountsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2369,14 +3479,13 @@ const opListTagsForResource = "ListTagsForResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListTagsForResourceRequest method.
+//	req, resp := client.ListTagsForResourceRequest(params)
 //
-//    // Example sending a request using the ListTagsForResourceRequest method.
-//    req, resp := client.ListTagsForResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ListTagsForResource
 func (c *Drs) ListTagsForResourceRequest(input *ListTagsForResourceInput) (req *request.Request, output *ListTagsForResourceOutput) {
@@ -2407,21 +3516,22 @@ func (c *Drs) ListTagsForResourceRequest(input *ListTagsForResourceInput) (req *
 // API operation ListTagsForResource for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ListTagsForResource
 func (c *Drs) ListTagsForResource(input *ListTagsForResourceInput) (*ListTagsForResourceOutput, error) {
@@ -2445,6 +3555,102 @@ func (c *Drs) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsFor
 	return out, req.Send()
 }
 
+const opPutLaunchAction = "PutLaunchAction"
+
+// PutLaunchActionRequest generates a "aws/request.Request" representing the
+// client's request for the PutLaunchAction operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See PutLaunchAction for more information on using the PutLaunchAction
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the PutLaunchActionRequest method.
+//	req, resp := client.PutLaunchActionRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/PutLaunchAction
+func (c *Drs) PutLaunchActionRequest(input *PutLaunchActionInput) (req *request.Request, output *PutLaunchActionOutput) {
+	op := &request.Operation{
+		Name:       opPutLaunchAction,
+		HTTPMethod: "POST",
+		HTTPPath:   "/PutLaunchAction",
+	}
+
+	if input == nil {
+		input = &PutLaunchActionInput{}
+	}
+
+	output = &PutLaunchActionOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// PutLaunchAction API operation for Elastic Disaster Recovery Service.
+//
+// Puts a resource launch action.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation PutLaunchAction for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/PutLaunchAction
+func (c *Drs) PutLaunchAction(input *PutLaunchActionInput) (*PutLaunchActionOutput, error) {
+	req, out := c.PutLaunchActionRequest(input)
+	return out, req.Send()
+}
+
+// PutLaunchActionWithContext is the same as PutLaunchAction with the addition of
+// the ability to pass a context and additional request options.
+//
+// See PutLaunchAction for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) PutLaunchActionWithContext(ctx aws.Context, input *PutLaunchActionInput, opts ...request.Option) (*PutLaunchActionOutput, error) {
+	req, out := c.PutLaunchActionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opRetryDataReplication = "RetryDataReplication"
 
 // RetryDataReplicationRequest generates a "aws/request.Request" representing the
@@ -2461,17 +3667,21 @@ const opRetryDataReplication = "RetryDataReplication"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the RetryDataReplicationRequest method.
+//	req, resp := client.RetryDataReplicationRequest(params)
 //
-//    // Example sending a request using the RetryDataReplicationRequest method.
-//    req, resp := client.RetryDataReplicationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/RetryDataReplication
+//
+// Deprecated: WARNING: RetryDataReplication is deprecated
 func (c *Drs) RetryDataReplicationRequest(input *RetryDataReplicationInput) (req *request.Request, output *RetryDataReplicationOutput) {
+	if c.Client.Config.Logger != nil {
+		c.Client.Config.Logger.Log("This operation, RetryDataReplication, has been deprecated")
+	}
 	op := &request.Operation{
 		Name:       opRetryDataReplication,
 		HTTPMethod: "POST",
@@ -2489,10 +3699,11 @@ func (c *Drs) RetryDataReplicationRequest(input *RetryDataReplicationInput) (req
 
 // RetryDataReplication API operation for Elastic Disaster Recovery Service.
 //
-// Causes the data replication initiation sequence to begin immediately upon
-// next Handshake for the specified Source Server ID, regardless of when the
-// previous initiation started. This command will work only if the Source Server
-// is stalled or is in a DISCONNECTED or STOPPED state.
+// WARNING: RetryDataReplication is deprecated. Causes the data replication
+// initiation sequence to begin immediately upon next Handshake for the specified
+// Source Server ID, regardless of when the previous initiation started. This
+// command will work only if the Source Server is stalled or is in a DISCONNECTED
+// or STOPPED state.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2502,23 +3713,26 @@ func (c *Drs) RetryDataReplicationRequest(input *RetryDataReplicationInput) (req
 // API operation RetryDataReplication for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/RetryDataReplication
+//
+// Deprecated: WARNING: RetryDataReplication is deprecated
 func (c *Drs) RetryDataReplication(input *RetryDataReplicationInput) (*RetryDataReplicationOutput, error) {
 	req, out := c.RetryDataReplicationRequest(input)
 	return out, req.Send()
@@ -2533,8 +3747,112 @@ func (c *Drs) RetryDataReplication(input *RetryDataReplicationInput) (*RetryData
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: WARNING: RetryDataReplication is deprecated
 func (c *Drs) RetryDataReplicationWithContext(ctx aws.Context, input *RetryDataReplicationInput, opts ...request.Option) (*RetryDataReplicationOutput, error) {
 	req, out := c.RetryDataReplicationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opReverseReplication = "ReverseReplication"
+
+// ReverseReplicationRequest generates a "aws/request.Request" representing the
+// client's request for the ReverseReplication operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ReverseReplication for more information on using the ReverseReplication
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ReverseReplicationRequest method.
+//	req, resp := client.ReverseReplicationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ReverseReplication
+func (c *Drs) ReverseReplicationRequest(input *ReverseReplicationInput) (req *request.Request, output *ReverseReplicationOutput) {
+	op := &request.Operation{
+		Name:       opReverseReplication,
+		HTTPMethod: "POST",
+		HTTPPath:   "/ReverseReplication",
+	}
+
+	if input == nil {
+		input = &ReverseReplicationInput{}
+	}
+
+	output = &ReverseReplicationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ReverseReplication API operation for Elastic Disaster Recovery Service.
+//
+// Start replication to origin / target region - applies only to protected instances
+// that originated in EC2. For recovery instances on target region - starts
+// replication back to origin region. For failback instances on origin region
+// - starts replication to target region to re-protect them.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation ReverseReplication for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ReverseReplication
+func (c *Drs) ReverseReplication(input *ReverseReplicationInput) (*ReverseReplicationOutput, error) {
+	req, out := c.ReverseReplicationRequest(input)
+	return out, req.Send()
+}
+
+// ReverseReplicationWithContext is the same as ReverseReplication with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ReverseReplication for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) ReverseReplicationWithContext(ctx aws.Context, input *ReverseReplicationInput, opts ...request.Option) (*ReverseReplicationOutput, error) {
+	req, out := c.ReverseReplicationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -2556,14 +3874,13 @@ const opStartFailbackLaunch = "StartFailbackLaunch"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StartFailbackLaunchRequest method.
+//	req, resp := client.StartFailbackLaunchRequest(params)
 //
-//    // Example sending a request using the StartFailbackLaunchRequest method.
-//    req, resp := client.StartFailbackLaunchRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartFailbackLaunch
 func (c *Drs) StartFailbackLaunchRequest(input *StartFailbackLaunchInput) (req *request.Request, output *StartFailbackLaunchOutput) {
@@ -2596,25 +3913,26 @@ func (c *Drs) StartFailbackLaunchRequest(input *StartFailbackLaunchInput) (req *
 // API operation StartFailbackLaunch for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ConflictException
-//   The request could not be completed due to a conflict with the current state
-//   of the target resource.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ServiceQuotaExceededException
-//   The request could not be completed because its exceeded the service quota.
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ServiceQuotaExceededException
+//     The request could not be completed because its exceeded the service quota.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartFailbackLaunch
 func (c *Drs) StartFailbackLaunch(input *StartFailbackLaunchInput) (*StartFailbackLaunchOutput, error) {
@@ -2654,14 +3972,13 @@ const opStartRecovery = "StartRecovery"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StartRecoveryRequest method.
+//	req, resp := client.StartRecoveryRequest(params)
 //
-//    // Example sending a request using the StartRecoveryRequest method.
-//    req, resp := client.StartRecoveryRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartRecovery
 func (c *Drs) StartRecoveryRequest(input *StartRecoveryInput) (req *request.Request, output *StartRecoveryOutput) {
@@ -2694,22 +4011,23 @@ func (c *Drs) StartRecoveryRequest(input *StartRecoveryInput) (req *request.Requ
 // API operation StartRecovery for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ConflictException
-//   The request could not be completed due to a conflict with the current state
-//   of the target resource.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ServiceQuotaExceededException
-//   The request could not be completed because its exceeded the service quota.
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ServiceQuotaExceededException
+//     The request could not be completed because its exceeded the service quota.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartRecovery
 func (c *Drs) StartRecovery(input *StartRecoveryInput) (*StartRecoveryOutput, error) {
@@ -2733,6 +4051,292 @@ func (c *Drs) StartRecoveryWithContext(ctx aws.Context, input *StartRecoveryInpu
 	return out, req.Send()
 }
 
+const opStartReplication = "StartReplication"
+
+// StartReplicationRequest generates a "aws/request.Request" representing the
+// client's request for the StartReplication operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StartReplication for more information on using the StartReplication
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the StartReplicationRequest method.
+//	req, resp := client.StartReplicationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartReplication
+func (c *Drs) StartReplicationRequest(input *StartReplicationInput) (req *request.Request, output *StartReplicationOutput) {
+	op := &request.Operation{
+		Name:       opStartReplication,
+		HTTPMethod: "POST",
+		HTTPPath:   "/StartReplication",
+	}
+
+	if input == nil {
+		input = &StartReplicationInput{}
+	}
+
+	output = &StartReplicationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StartReplication API operation for Elastic Disaster Recovery Service.
+//
+// Starts replication for a stopped Source Server. This action would make the
+// Source Server protected again and restart billing for it.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation StartReplication for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartReplication
+func (c *Drs) StartReplication(input *StartReplicationInput) (*StartReplicationOutput, error) {
+	req, out := c.StartReplicationRequest(input)
+	return out, req.Send()
+}
+
+// StartReplicationWithContext is the same as StartReplication with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StartReplication for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) StartReplicationWithContext(ctx aws.Context, input *StartReplicationInput, opts ...request.Option) (*StartReplicationOutput, error) {
+	req, out := c.StartReplicationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opStartSourceNetworkRecovery = "StartSourceNetworkRecovery"
+
+// StartSourceNetworkRecoveryRequest generates a "aws/request.Request" representing the
+// client's request for the StartSourceNetworkRecovery operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StartSourceNetworkRecovery for more information on using the StartSourceNetworkRecovery
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the StartSourceNetworkRecoveryRequest method.
+//	req, resp := client.StartSourceNetworkRecoveryRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartSourceNetworkRecovery
+func (c *Drs) StartSourceNetworkRecoveryRequest(input *StartSourceNetworkRecoveryInput) (req *request.Request, output *StartSourceNetworkRecoveryOutput) {
+	op := &request.Operation{
+		Name:       opStartSourceNetworkRecovery,
+		HTTPMethod: "POST",
+		HTTPPath:   "/StartSourceNetworkRecovery",
+	}
+
+	if input == nil {
+		input = &StartSourceNetworkRecoveryInput{}
+	}
+
+	output = &StartSourceNetworkRecoveryOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StartSourceNetworkRecovery API operation for Elastic Disaster Recovery Service.
+//
+// Deploy VPC for the specified Source Network and modify launch templates to
+// use this network. The VPC will be deployed using a dedicated CloudFormation
+// stack.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation StartSourceNetworkRecovery for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
+//
+//   - ServiceQuotaExceededException
+//     The request could not be completed because its exceeded the service quota.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartSourceNetworkRecovery
+func (c *Drs) StartSourceNetworkRecovery(input *StartSourceNetworkRecoveryInput) (*StartSourceNetworkRecoveryOutput, error) {
+	req, out := c.StartSourceNetworkRecoveryRequest(input)
+	return out, req.Send()
+}
+
+// StartSourceNetworkRecoveryWithContext is the same as StartSourceNetworkRecovery with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StartSourceNetworkRecovery for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) StartSourceNetworkRecoveryWithContext(ctx aws.Context, input *StartSourceNetworkRecoveryInput, opts ...request.Option) (*StartSourceNetworkRecoveryOutput, error) {
+	req, out := c.StartSourceNetworkRecoveryRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opStartSourceNetworkReplication = "StartSourceNetworkReplication"
+
+// StartSourceNetworkReplicationRequest generates a "aws/request.Request" representing the
+// client's request for the StartSourceNetworkReplication operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StartSourceNetworkReplication for more information on using the StartSourceNetworkReplication
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the StartSourceNetworkReplicationRequest method.
+//	req, resp := client.StartSourceNetworkReplicationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartSourceNetworkReplication
+func (c *Drs) StartSourceNetworkReplicationRequest(input *StartSourceNetworkReplicationInput) (req *request.Request, output *StartSourceNetworkReplicationOutput) {
+	op := &request.Operation{
+		Name:       opStartSourceNetworkReplication,
+		HTTPMethod: "POST",
+		HTTPPath:   "/StartSourceNetworkReplication",
+	}
+
+	if input == nil {
+		input = &StartSourceNetworkReplicationInput{}
+	}
+
+	output = &StartSourceNetworkReplicationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StartSourceNetworkReplication API operation for Elastic Disaster Recovery Service.
+//
+// Starts replication for a Source Network. This action would make the Source
+// Network protected.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation StartSourceNetworkReplication for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartSourceNetworkReplication
+func (c *Drs) StartSourceNetworkReplication(input *StartSourceNetworkReplicationInput) (*StartSourceNetworkReplicationOutput, error) {
+	req, out := c.StartSourceNetworkReplicationRequest(input)
+	return out, req.Send()
+}
+
+// StartSourceNetworkReplicationWithContext is the same as StartSourceNetworkReplication with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StartSourceNetworkReplication for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) StartSourceNetworkReplicationWithContext(ctx aws.Context, input *StartSourceNetworkReplicationInput, opts ...request.Option) (*StartSourceNetworkReplicationOutput, error) {
+	req, out := c.StartSourceNetworkReplicationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opStopFailback = "StopFailback"
 
 // StopFailbackRequest generates a "aws/request.Request" representing the
@@ -2749,14 +4353,13 @@ const opStopFailback = "StopFailback"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StopFailbackRequest method.
+//	req, resp := client.StopFailbackRequest(params)
 //
-//    // Example sending a request using the StopFailbackRequest method.
-//    req, resp := client.StopFailbackRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StopFailback
 func (c *Drs) StopFailbackRequest(input *StopFailbackInput) (req *request.Request, output *StopFailbackOutput) {
@@ -2789,18 +4392,19 @@ func (c *Drs) StopFailbackRequest(input *StopFailbackInput) (req *request.Reques
 // API operation StopFailback for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StopFailback
 func (c *Drs) StopFailback(input *StopFailbackInput) (*StopFailbackOutput, error) {
@@ -2824,6 +4428,197 @@ func (c *Drs) StopFailbackWithContext(ctx aws.Context, input *StopFailbackInput,
 	return out, req.Send()
 }
 
+const opStopReplication = "StopReplication"
+
+// StopReplicationRequest generates a "aws/request.Request" representing the
+// client's request for the StopReplication operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StopReplication for more information on using the StopReplication
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the StopReplicationRequest method.
+//	req, resp := client.StopReplicationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StopReplication
+func (c *Drs) StopReplicationRequest(input *StopReplicationInput) (req *request.Request, output *StopReplicationOutput) {
+	op := &request.Operation{
+		Name:       opStopReplication,
+		HTTPMethod: "POST",
+		HTTPPath:   "/StopReplication",
+	}
+
+	if input == nil {
+		input = &StopReplicationInput{}
+	}
+
+	output = &StopReplicationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StopReplication API operation for Elastic Disaster Recovery Service.
+//
+// Stops replication for a Source Server. This action would make the Source
+// Server unprotected, delete its existing snapshots and stop billing for it.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation StopReplication for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StopReplication
+func (c *Drs) StopReplication(input *StopReplicationInput) (*StopReplicationOutput, error) {
+	req, out := c.StopReplicationRequest(input)
+	return out, req.Send()
+}
+
+// StopReplicationWithContext is the same as StopReplication with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StopReplication for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) StopReplicationWithContext(ctx aws.Context, input *StopReplicationInput, opts ...request.Option) (*StopReplicationOutput, error) {
+	req, out := c.StopReplicationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opStopSourceNetworkReplication = "StopSourceNetworkReplication"
+
+// StopSourceNetworkReplicationRequest generates a "aws/request.Request" representing the
+// client's request for the StopSourceNetworkReplication operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StopSourceNetworkReplication for more information on using the StopSourceNetworkReplication
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the StopSourceNetworkReplicationRequest method.
+//	req, resp := client.StopSourceNetworkReplicationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StopSourceNetworkReplication
+func (c *Drs) StopSourceNetworkReplicationRequest(input *StopSourceNetworkReplicationInput) (req *request.Request, output *StopSourceNetworkReplicationOutput) {
+	op := &request.Operation{
+		Name:       opStopSourceNetworkReplication,
+		HTTPMethod: "POST",
+		HTTPPath:   "/StopSourceNetworkReplication",
+	}
+
+	if input == nil {
+		input = &StopSourceNetworkReplicationInput{}
+	}
+
+	output = &StopSourceNetworkReplicationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StopSourceNetworkReplication API operation for Elastic Disaster Recovery Service.
+//
+// Stops replication for a Source Network. This action would make the Source
+// Network unprotected.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation StopSourceNetworkReplication for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StopSourceNetworkReplication
+func (c *Drs) StopSourceNetworkReplication(input *StopSourceNetworkReplicationInput) (*StopSourceNetworkReplicationOutput, error) {
+	req, out := c.StopSourceNetworkReplicationRequest(input)
+	return out, req.Send()
+}
+
+// StopSourceNetworkReplicationWithContext is the same as StopSourceNetworkReplication with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StopSourceNetworkReplication for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) StopSourceNetworkReplicationWithContext(ctx aws.Context, input *StopSourceNetworkReplicationInput, opts ...request.Option) (*StopSourceNetworkReplicationOutput, error) {
+	req, out := c.StopSourceNetworkReplicationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opTagResource = "TagResource"
 
 // TagResourceRequest generates a "aws/request.Request" representing the
@@ -2840,14 +4635,13 @@ const opTagResource = "TagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the TagResourceRequest method.
+//	req, resp := client.TagResourceRequest(params)
 //
-//    // Example sending a request using the TagResourceRequest method.
-//    req, resp := client.TagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/TagResource
 func (c *Drs) TagResourceRequest(input *TagResourceInput) (req *request.Request, output *TagResourceOutput) {
@@ -2882,21 +4676,22 @@ func (c *Drs) TagResourceRequest(input *TagResourceInput) (req *request.Request,
 // API operation TagResource for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/TagResource
 func (c *Drs) TagResource(input *TagResourceInput) (*TagResourceOutput, error) {
@@ -2936,14 +4731,13 @@ const opTerminateRecoveryInstances = "TerminateRecoveryInstances"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the TerminateRecoveryInstancesRequest method.
+//	req, resp := client.TerminateRecoveryInstancesRequest(params)
 //
-//    // Example sending a request using the TerminateRecoveryInstancesRequest method.
-//    req, resp := client.TerminateRecoveryInstancesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/TerminateRecoveryInstances
 func (c *Drs) TerminateRecoveryInstancesRequest(input *TerminateRecoveryInstancesInput) (req *request.Request, output *TerminateRecoveryInstancesOutput) {
@@ -2976,22 +4770,23 @@ func (c *Drs) TerminateRecoveryInstancesRequest(input *TerminateRecoveryInstance
 // API operation TerminateRecoveryInstances for usage and error information.
 //
 // Returned Error Types:
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
 //
-//   * ConflictException
-//   The request could not be completed due to a conflict with the current state
-//   of the target resource.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ServiceQuotaExceededException
-//   The request could not be completed because its exceeded the service quota.
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ServiceQuotaExceededException
+//     The request could not be completed because its exceeded the service quota.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/TerminateRecoveryInstances
 func (c *Drs) TerminateRecoveryInstances(input *TerminateRecoveryInstancesInput) (*TerminateRecoveryInstancesOutput, error) {
@@ -3031,14 +4826,13 @@ const opUntagResource = "UntagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UntagResourceRequest method.
+//	req, resp := client.UntagResourceRequest(params)
 //
-//    // Example sending a request using the UntagResourceRequest method.
-//    req, resp := client.UntagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UntagResource
 func (c *Drs) UntagResourceRequest(input *UntagResourceInput) (req *request.Request, output *UntagResourceOutput) {
@@ -3071,21 +4865,22 @@ func (c *Drs) UntagResourceRequest(input *UntagResourceInput) (req *request.Requ
 // API operation UntagResource for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UntagResource
 func (c *Drs) UntagResource(input *UntagResourceInput) (*UntagResourceOutput, error) {
@@ -3125,14 +4920,13 @@ const opUpdateFailbackReplicationConfiguration = "UpdateFailbackReplicationConfi
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateFailbackReplicationConfigurationRequest method.
+//	req, resp := client.UpdateFailbackReplicationConfigurationRequest(params)
 //
-//    // Example sending a request using the UpdateFailbackReplicationConfigurationRequest method.
-//    req, resp := client.UpdateFailbackReplicationConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateFailbackReplicationConfiguration
 func (c *Drs) UpdateFailbackReplicationConfigurationRequest(input *UpdateFailbackReplicationConfigurationInput) (req *request.Request, output *UpdateFailbackReplicationConfigurationOutput) {
@@ -3165,21 +4959,22 @@ func (c *Drs) UpdateFailbackReplicationConfigurationRequest(input *UpdateFailbac
 // API operation UpdateFailbackReplicationConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateFailbackReplicationConfiguration
 func (c *Drs) UpdateFailbackReplicationConfiguration(input *UpdateFailbackReplicationConfigurationInput) (*UpdateFailbackReplicationConfigurationOutput, error) {
@@ -3219,14 +5014,13 @@ const opUpdateLaunchConfiguration = "UpdateLaunchConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateLaunchConfigurationRequest method.
+//	req, resp := client.UpdateLaunchConfigurationRequest(params)
 //
-//    // Example sending a request using the UpdateLaunchConfigurationRequest method.
-//    req, resp := client.UpdateLaunchConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateLaunchConfiguration
 func (c *Drs) UpdateLaunchConfigurationRequest(input *UpdateLaunchConfigurationInput) (req *request.Request, output *UpdateLaunchConfigurationOutput) {
@@ -3257,25 +5051,26 @@ func (c *Drs) UpdateLaunchConfigurationRequest(input *UpdateLaunchConfigurationI
 // API operation UpdateLaunchConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ConflictException
-//   The request could not be completed due to a conflict with the current state
-//   of the target resource.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateLaunchConfiguration
 func (c *Drs) UpdateLaunchConfiguration(input *UpdateLaunchConfigurationInput) (*UpdateLaunchConfigurationOutput, error) {
@@ -3299,6 +5094,101 @@ func (c *Drs) UpdateLaunchConfigurationWithContext(ctx aws.Context, input *Updat
 	return out, req.Send()
 }
 
+const opUpdateLaunchConfigurationTemplate = "UpdateLaunchConfigurationTemplate"
+
+// UpdateLaunchConfigurationTemplateRequest generates a "aws/request.Request" representing the
+// client's request for the UpdateLaunchConfigurationTemplate operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UpdateLaunchConfigurationTemplate for more information on using the UpdateLaunchConfigurationTemplate
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the UpdateLaunchConfigurationTemplateRequest method.
+//	req, resp := client.UpdateLaunchConfigurationTemplateRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateLaunchConfigurationTemplate
+func (c *Drs) UpdateLaunchConfigurationTemplateRequest(input *UpdateLaunchConfigurationTemplateInput) (req *request.Request, output *UpdateLaunchConfigurationTemplateOutput) {
+	op := &request.Operation{
+		Name:       opUpdateLaunchConfigurationTemplate,
+		HTTPMethod: "POST",
+		HTTPPath:   "/UpdateLaunchConfigurationTemplate",
+	}
+
+	if input == nil {
+		input = &UpdateLaunchConfigurationTemplateInput{}
+	}
+
+	output = &UpdateLaunchConfigurationTemplateOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// UpdateLaunchConfigurationTemplate API operation for Elastic Disaster Recovery Service.
+//
+// Updates an existing Launch Configuration Template by ID.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Elastic Disaster Recovery Service's
+// API operation UpdateLaunchConfigurationTemplate for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
+//
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
+//
+//   - ThrottlingException
+//     The request was denied due to request throttling.
+//
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
+//
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateLaunchConfigurationTemplate
+func (c *Drs) UpdateLaunchConfigurationTemplate(input *UpdateLaunchConfigurationTemplateInput) (*UpdateLaunchConfigurationTemplateOutput, error) {
+	req, out := c.UpdateLaunchConfigurationTemplateRequest(input)
+	return out, req.Send()
+}
+
+// UpdateLaunchConfigurationTemplateWithContext is the same as UpdateLaunchConfigurationTemplate with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UpdateLaunchConfigurationTemplate for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Drs) UpdateLaunchConfigurationTemplateWithContext(ctx aws.Context, input *UpdateLaunchConfigurationTemplateInput, opts ...request.Option) (*UpdateLaunchConfigurationTemplateOutput, error) {
+	req, out := c.UpdateLaunchConfigurationTemplateRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opUpdateReplicationConfiguration = "UpdateReplicationConfiguration"
 
 // UpdateReplicationConfigurationRequest generates a "aws/request.Request" representing the
@@ -3315,14 +5205,13 @@ const opUpdateReplicationConfiguration = "UpdateReplicationConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateReplicationConfigurationRequest method.
+//	req, resp := client.UpdateReplicationConfigurationRequest(params)
 //
-//    // Example sending a request using the UpdateReplicationConfigurationRequest method.
-//    req, resp := client.UpdateReplicationConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateReplicationConfiguration
 func (c *Drs) UpdateReplicationConfigurationRequest(input *UpdateReplicationConfigurationInput) (req *request.Request, output *UpdateReplicationConfigurationOutput) {
@@ -3353,28 +5242,29 @@ func (c *Drs) UpdateReplicationConfigurationRequest(input *UpdateReplicationConf
 // API operation UpdateReplicationConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ConflictException
-//   The request could not be completed due to a conflict with the current state
-//   of the target resource.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - ConflictException
+//     The request could not be completed due to a conflict with the current state
+//     of the target resource.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateReplicationConfiguration
 func (c *Drs) UpdateReplicationConfiguration(input *UpdateReplicationConfigurationInput) (*UpdateReplicationConfigurationOutput, error) {
@@ -3414,14 +5304,13 @@ const opUpdateReplicationConfigurationTemplate = "UpdateReplicationConfiguration
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateReplicationConfigurationTemplateRequest method.
+//	req, resp := client.UpdateReplicationConfigurationTemplateRequest(params)
 //
-//    // Example sending a request using the UpdateReplicationConfigurationTemplateRequest method.
-//    req, resp := client.UpdateReplicationConfigurationTemplateRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateReplicationConfigurationTemplate
 func (c *Drs) UpdateReplicationConfigurationTemplateRequest(input *UpdateReplicationConfigurationTemplateInput) (req *request.Request, output *UpdateReplicationConfigurationTemplateOutput) {
@@ -3452,24 +5341,25 @@ func (c *Drs) UpdateReplicationConfigurationTemplateRequest(input *UpdateReplica
 // API operation UpdateReplicationConfigurationTemplate for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource for this operation was not found.
 //
-//   * InternalServerException
-//   The request processing has failed because of an unknown error, exception
-//   or failure.
+//   - ResourceNotFoundException
+//     The resource for this operation was not found.
 //
-//   * ThrottlingException
-//   The request was denied due to request throttling.
+//   - InternalServerException
+//     The request processing has failed because of an unknown error, exception
+//     or failure.
 //
-//   * AccessDeniedException
-//   You do not have sufficient access to perform this action.
+//   - ThrottlingException
+//     The request was denied due to request throttling.
 //
-//   * ValidationException
-//   The input fails to satisfy the constraints specified by the AWS service.
+//   - AccessDeniedException
+//     You do not have sufficient access to perform this action.
 //
-//   * UninitializedAccountException
-//   The account performing the request has not been initialized.
+//   - ValidationException
+//     The input fails to satisfy the constraints specified by the AWS service.
+//
+//   - UninitializedAccountException
+//     The account performing the request has not been initialized.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateReplicationConfigurationTemplate
 func (c *Drs) UpdateReplicationConfigurationTemplate(input *UpdateReplicationConfigurationTemplateInput) (*UpdateReplicationConfigurationTemplateOutput, error) {
@@ -3588,6 +5478,107 @@ func (s Account) GoString() string {
 // SetAccountID sets the AccountID field's value.
 func (s *Account) SetAccountID(v string) *Account {
 	s.AccountID = &v
+	return s
+}
+
+type AssociateSourceNetworkStackInput struct {
+	_ struct{} `type:"structure"`
+
+	// CloudFormation template to associate with a Source Network.
+	//
+	// CfnStackName is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by AssociateSourceNetworkStackInput's
+	// String and GoString methods.
+	//
+	// CfnStackName is a required field
+	CfnStackName *string `locationName:"cfnStackName" min:"1" type:"string" required:"true" sensitive:"true"`
+
+	// The Source Network ID to associate with CloudFormation template.
+	//
+	// SourceNetworkID is a required field
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s AssociateSourceNetworkStackInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s AssociateSourceNetworkStackInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssociateSourceNetworkStackInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssociateSourceNetworkStackInput"}
+	if s.CfnStackName == nil {
+		invalidParams.Add(request.NewErrParamRequired("CfnStackName"))
+	}
+	if s.CfnStackName != nil && len(*s.CfnStackName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CfnStackName", 1))
+	}
+	if s.SourceNetworkID == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceNetworkID"))
+	}
+	if s.SourceNetworkID != nil && len(*s.SourceNetworkID) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("SourceNetworkID", 20))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCfnStackName sets the CfnStackName field's value.
+func (s *AssociateSourceNetworkStackInput) SetCfnStackName(v string) *AssociateSourceNetworkStackInput {
+	s.CfnStackName = &v
+	return s
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *AssociateSourceNetworkStackInput) SetSourceNetworkID(v string) *AssociateSourceNetworkStackInput {
+	s.SourceNetworkID = &v
+	return s
+}
+
+type AssociateSourceNetworkStackOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The Source Network association Job.
+	Job *Job `locationName:"job" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s AssociateSourceNetworkStackOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s AssociateSourceNetworkStackOutput) GoString() string {
+	return s.String()
+}
+
+// SetJob sets the Job field's value.
+func (s *AssociateSourceNetworkStackOutput) SetJob(v *Job) *AssociateSourceNetworkStackOutput {
+	s.Job = v
 	return s
 }
 
@@ -3722,6 +5713,10 @@ type ConversionProperties struct {
 	// ids
 	VolumeToConversionMap map[string]map[string]*string `locationName:"volumeToConversionMap" type:"map"`
 
+	// A mapping between the volumes being converted and the product codes associated
+	// with them
+	VolumeToProductCodes map[string][]*ProductCode `locationName:"volumeToProductCodes" type:"map"`
+
 	// A mapping between the volumes and their sizes
 	VolumeToVolumeSize map[string]*int64 `locationName:"volumeToVolumeSize" type:"map"`
 }
@@ -3765,6 +5760,12 @@ func (s *ConversionProperties) SetRootVolumeName(v string) *ConversionProperties
 // SetVolumeToConversionMap sets the VolumeToConversionMap field's value.
 func (s *ConversionProperties) SetVolumeToConversionMap(v map[string]map[string]*string) *ConversionProperties {
 	s.VolumeToConversionMap = v
+	return s
+}
+
+// SetVolumeToProductCodes sets the VolumeToProductCodes field's value.
+func (s *ConversionProperties) SetVolumeToProductCodes(v map[string][]*ProductCode) *ConversionProperties {
+	s.VolumeToProductCodes = v
 	return s
 }
 
@@ -3868,6 +5869,159 @@ func (s *CreateExtendedSourceServerOutput) SetSourceServer(v *SourceServer) *Cre
 	return s
 }
 
+type CreateLaunchConfigurationTemplateInput struct {
+	_ struct{} `type:"structure"`
+
+	// Copy private IP.
+	CopyPrivateIp *bool `locationName:"copyPrivateIp" type:"boolean"`
+
+	// Copy tags.
+	CopyTags *bool `locationName:"copyTags" type:"boolean"`
+
+	// S3 bucket ARN to export Source Network templates.
+	ExportBucketArn *string `locationName:"exportBucketArn" min:"20" type:"string"`
+
+	// Launch disposition.
+	LaunchDisposition *string `locationName:"launchDisposition" type:"string" enum:"LaunchDisposition"`
+
+	// DRS will set the 'launch into instance ID' of any source server when performing
+	// a drill, recovery or failback to the previous region or availability zone,
+	// using the instance ID of the source instance.
+	LaunchIntoSourceInstance *bool `locationName:"launchIntoSourceInstance" type:"boolean"`
+
+	// Licensing.
+	Licensing *Licensing `locationName:"licensing" type:"structure"`
+
+	// Whether we want to activate post-launch actions.
+	PostLaunchEnabled *bool `locationName:"postLaunchEnabled" type:"boolean"`
+
+	// Request to associate tags during creation of a Launch Configuration Template.
+	//
+	// Tags is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateLaunchConfigurationTemplateInput's
+	// String and GoString methods.
+	Tags map[string]*string `locationName:"tags" type:"map" sensitive:"true"`
+
+	// Target instance type right-sizing method.
+	TargetInstanceTypeRightSizingMethod *string `locationName:"targetInstanceTypeRightSizingMethod" type:"string" enum:"TargetInstanceTypeRightSizingMethod"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateLaunchConfigurationTemplateInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateLaunchConfigurationTemplateInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateLaunchConfigurationTemplateInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateLaunchConfigurationTemplateInput"}
+	if s.ExportBucketArn != nil && len(*s.ExportBucketArn) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("ExportBucketArn", 20))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCopyPrivateIp sets the CopyPrivateIp field's value.
+func (s *CreateLaunchConfigurationTemplateInput) SetCopyPrivateIp(v bool) *CreateLaunchConfigurationTemplateInput {
+	s.CopyPrivateIp = &v
+	return s
+}
+
+// SetCopyTags sets the CopyTags field's value.
+func (s *CreateLaunchConfigurationTemplateInput) SetCopyTags(v bool) *CreateLaunchConfigurationTemplateInput {
+	s.CopyTags = &v
+	return s
+}
+
+// SetExportBucketArn sets the ExportBucketArn field's value.
+func (s *CreateLaunchConfigurationTemplateInput) SetExportBucketArn(v string) *CreateLaunchConfigurationTemplateInput {
+	s.ExportBucketArn = &v
+	return s
+}
+
+// SetLaunchDisposition sets the LaunchDisposition field's value.
+func (s *CreateLaunchConfigurationTemplateInput) SetLaunchDisposition(v string) *CreateLaunchConfigurationTemplateInput {
+	s.LaunchDisposition = &v
+	return s
+}
+
+// SetLaunchIntoSourceInstance sets the LaunchIntoSourceInstance field's value.
+func (s *CreateLaunchConfigurationTemplateInput) SetLaunchIntoSourceInstance(v bool) *CreateLaunchConfigurationTemplateInput {
+	s.LaunchIntoSourceInstance = &v
+	return s
+}
+
+// SetLicensing sets the Licensing field's value.
+func (s *CreateLaunchConfigurationTemplateInput) SetLicensing(v *Licensing) *CreateLaunchConfigurationTemplateInput {
+	s.Licensing = v
+	return s
+}
+
+// SetPostLaunchEnabled sets the PostLaunchEnabled field's value.
+func (s *CreateLaunchConfigurationTemplateInput) SetPostLaunchEnabled(v bool) *CreateLaunchConfigurationTemplateInput {
+	s.PostLaunchEnabled = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateLaunchConfigurationTemplateInput) SetTags(v map[string]*string) *CreateLaunchConfigurationTemplateInput {
+	s.Tags = v
+	return s
+}
+
+// SetTargetInstanceTypeRightSizingMethod sets the TargetInstanceTypeRightSizingMethod field's value.
+func (s *CreateLaunchConfigurationTemplateInput) SetTargetInstanceTypeRightSizingMethod(v string) *CreateLaunchConfigurationTemplateInput {
+	s.TargetInstanceTypeRightSizingMethod = &v
+	return s
+}
+
+type CreateLaunchConfigurationTemplateOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Created Launch Configuration Template.
+	LaunchConfigurationTemplate *LaunchConfigurationTemplate `locationName:"launchConfigurationTemplate" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateLaunchConfigurationTemplateOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateLaunchConfigurationTemplateOutput) GoString() string {
+	return s.String()
+}
+
+// SetLaunchConfigurationTemplate sets the LaunchConfigurationTemplate field's value.
+func (s *CreateLaunchConfigurationTemplateOutput) SetLaunchConfigurationTemplate(v *LaunchConfigurationTemplate) *CreateLaunchConfigurationTemplateOutput {
+	s.LaunchConfigurationTemplate = v
+	return s
+}
+
 type CreateReplicationConfigurationTemplateInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3876,6 +6030,10 @@ type CreateReplicationConfigurationTemplateInput struct {
 	//
 	// AssociateDefaultSecurityGroup is a required field
 	AssociateDefaultSecurityGroup *bool `locationName:"associateDefaultSecurityGroup" type:"boolean" required:"true"`
+
+	// Whether to allow the AWS replication agent to automatically replicate newly
+	// added disks.
+	AutoReplicateNewDisks *bool `locationName:"autoReplicateNewDisks" type:"boolean"`
 
 	// Configure bandwidth throttling for the outbound data transfer rate of the
 	// Source Server in Mbps.
@@ -4037,6 +6195,12 @@ func (s *CreateReplicationConfigurationTemplateInput) SetAssociateDefaultSecurit
 	return s
 }
 
+// SetAutoReplicateNewDisks sets the AutoReplicateNewDisks field's value.
+func (s *CreateReplicationConfigurationTemplateInput) SetAutoReplicateNewDisks(v bool) *CreateReplicationConfigurationTemplateInput {
+	s.AutoReplicateNewDisks = &v
+	return s
+}
+
 // SetBandwidthThrottling sets the BandwidthThrottling field's value.
 func (s *CreateReplicationConfigurationTemplateInput) SetBandwidthThrottling(v int64) *CreateReplicationConfigurationTemplateInput {
 	s.BandwidthThrottling = &v
@@ -4125,6 +6289,10 @@ type CreateReplicationConfigurationTemplateOutput struct {
 	// with the Replication Configuration Template.
 	AssociateDefaultSecurityGroup *bool `locationName:"associateDefaultSecurityGroup" type:"boolean"`
 
+	// Whether to allow the AWS replication agent to automatically replicate newly
+	// added disks.
+	AutoReplicateNewDisks *bool `locationName:"autoReplicateNewDisks" type:"boolean"`
+
 	// Configure bandwidth throttling for the outbound data transfer rate of the
 	// Source Server in Mbps.
 	BandwidthThrottling *int64 `locationName:"bandwidthThrottling" type:"long"`
@@ -4212,6 +6380,12 @@ func (s *CreateReplicationConfigurationTemplateOutput) SetAssociateDefaultSecuri
 	return s
 }
 
+// SetAutoReplicateNewDisks sets the AutoReplicateNewDisks field's value.
+func (s *CreateReplicationConfigurationTemplateOutput) SetAutoReplicateNewDisks(v bool) *CreateReplicationConfigurationTemplateOutput {
+	s.AutoReplicateNewDisks = &v
+	return s
+}
+
 // SetBandwidthThrottling sets the BandwidthThrottling field's value.
 func (s *CreateReplicationConfigurationTemplateOutput) SetBandwidthThrottling(v int64) *CreateReplicationConfigurationTemplateOutput {
 	s.BandwidthThrottling = &v
@@ -4296,6 +6470,130 @@ func (s *CreateReplicationConfigurationTemplateOutput) SetUseDedicatedReplicatio
 	return s
 }
 
+type CreateSourceNetworkInput struct {
+	_ struct{} `type:"structure"`
+
+	// Account containing the VPC to protect.
+	//
+	// OriginAccountID is a required field
+	OriginAccountID *string `locationName:"originAccountID" min:"12" type:"string" required:"true"`
+
+	// Region containing the VPC to protect.
+	//
+	// OriginRegion is a required field
+	OriginRegion *string `locationName:"originRegion" type:"string" required:"true"`
+
+	// A set of tags to be associated with the Source Network resource.
+	//
+	// Tags is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by CreateSourceNetworkInput's
+	// String and GoString methods.
+	Tags map[string]*string `locationName:"tags" type:"map" sensitive:"true"`
+
+	// Which VPC ID to protect.
+	//
+	// VpcID is a required field
+	VpcID *string `locationName:"vpcID" min:"12" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateSourceNetworkInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateSourceNetworkInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateSourceNetworkInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateSourceNetworkInput"}
+	if s.OriginAccountID == nil {
+		invalidParams.Add(request.NewErrParamRequired("OriginAccountID"))
+	}
+	if s.OriginAccountID != nil && len(*s.OriginAccountID) < 12 {
+		invalidParams.Add(request.NewErrParamMinLen("OriginAccountID", 12))
+	}
+	if s.OriginRegion == nil {
+		invalidParams.Add(request.NewErrParamRequired("OriginRegion"))
+	}
+	if s.VpcID == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcID"))
+	}
+	if s.VpcID != nil && len(*s.VpcID) < 12 {
+		invalidParams.Add(request.NewErrParamMinLen("VpcID", 12))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetOriginAccountID sets the OriginAccountID field's value.
+func (s *CreateSourceNetworkInput) SetOriginAccountID(v string) *CreateSourceNetworkInput {
+	s.OriginAccountID = &v
+	return s
+}
+
+// SetOriginRegion sets the OriginRegion field's value.
+func (s *CreateSourceNetworkInput) SetOriginRegion(v string) *CreateSourceNetworkInput {
+	s.OriginRegion = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateSourceNetworkInput) SetTags(v map[string]*string) *CreateSourceNetworkInput {
+	s.Tags = v
+	return s
+}
+
+// SetVpcID sets the VpcID field's value.
+func (s *CreateSourceNetworkInput) SetVpcID(v string) *CreateSourceNetworkInput {
+	s.VpcID = &v
+	return s
+}
+
+type CreateSourceNetworkOutput struct {
+	_ struct{} `type:"structure"`
+
+	// ID of the created Source Network.
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateSourceNetworkOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CreateSourceNetworkOutput) GoString() string {
+	return s.String()
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *CreateSourceNetworkOutput) SetSourceNetworkID(v string) *CreateSourceNetworkOutput {
+	s.SourceNetworkID = &v
+	return s
+}
+
 // Error in data replication.
 type DataReplicationError struct {
 	_ struct{} `type:"structure"`
@@ -4354,10 +6652,16 @@ type DataReplicationInfo struct {
 	EtaDateTime *string `locationName:"etaDateTime" min:"19" type:"string"`
 
 	// Data replication lag duration.
-	LagDuration *string `locationName:"lagDuration" min:"19" type:"string"`
+	LagDuration *string `locationName:"lagDuration" min:"1" type:"string"`
 
 	// The disks that should be replicated.
 	ReplicatedDisks []*DataReplicationInfoReplicatedDisk `locationName:"replicatedDisks" type:"list"`
+
+	// AWS Availability zone into which data is being replicated.
+	StagingAvailabilityZone *string `locationName:"stagingAvailabilityZone" type:"string"`
+
+	// The ARN of the staging Outpost
+	StagingOutpostArn *string `locationName:"stagingOutpostArn" min:"20" type:"string"`
 }
 
 // String returns the string representation.
@@ -4414,6 +6718,18 @@ func (s *DataReplicationInfo) SetReplicatedDisks(v []*DataReplicationInfoReplica
 	return s
 }
 
+// SetStagingAvailabilityZone sets the StagingAvailabilityZone field's value.
+func (s *DataReplicationInfo) SetStagingAvailabilityZone(v string) *DataReplicationInfo {
+	s.StagingAvailabilityZone = &v
+	return s
+}
+
+// SetStagingOutpostArn sets the StagingOutpostArn field's value.
+func (s *DataReplicationInfo) SetStagingOutpostArn(v string) *DataReplicationInfo {
+	s.StagingOutpostArn = &v
+	return s
+}
+
 // A disk that should be replicated.
 type DataReplicationInfoReplicatedDisk struct {
 	_ struct{} `type:"structure"`
@@ -4432,6 +6748,9 @@ type DataReplicationInfoReplicatedDisk struct {
 
 	// The total amount of data to be replicated in bytes.
 	TotalStorageBytes *int64 `locationName:"totalStorageBytes" type:"long"`
+
+	// The status of the volume.
+	VolumeStatus *string `locationName:"volumeStatus" type:"string" enum:"VolumeStatus"`
 }
 
 // String returns the string representation.
@@ -4479,6 +6798,12 @@ func (s *DataReplicationInfoReplicatedDisk) SetRescannedStorageBytes(v int64) *D
 // SetTotalStorageBytes sets the TotalStorageBytes field's value.
 func (s *DataReplicationInfoReplicatedDisk) SetTotalStorageBytes(v int64) *DataReplicationInfoReplicatedDisk {
 	s.TotalStorageBytes = &v
+	return s
+}
+
+// SetVolumeStatus sets the VolumeStatus field's value.
+func (s *DataReplicationInfoReplicatedDisk) SetVolumeStatus(v string) *DataReplicationInfoReplicatedDisk {
+	s.VolumeStatus = &v
 	return s
 }
 
@@ -4644,6 +6969,162 @@ func (s DeleteJobOutput) GoString() string {
 	return s.String()
 }
 
+type DeleteLaunchActionInput struct {
+	_ struct{} `type:"structure"`
+
+	// Launch action Id.
+	//
+	// ActionId is a required field
+	ActionId *string `locationName:"actionId" min:"1" type:"string" required:"true"`
+
+	// Launch configuration template Id or Source Server Id
+	//
+	// ResourceId is a required field
+	ResourceId *string `locationName:"resourceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteLaunchActionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteLaunchActionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteLaunchActionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteLaunchActionInput"}
+	if s.ActionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ActionId"))
+	}
+	if s.ActionId != nil && len(*s.ActionId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ActionId", 1))
+	}
+	if s.ResourceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetActionId sets the ActionId field's value.
+func (s *DeleteLaunchActionInput) SetActionId(v string) *DeleteLaunchActionInput {
+	s.ActionId = &v
+	return s
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *DeleteLaunchActionInput) SetResourceId(v string) *DeleteLaunchActionInput {
+	s.ResourceId = &v
+	return s
+}
+
+type DeleteLaunchActionOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteLaunchActionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteLaunchActionOutput) GoString() string {
+	return s.String()
+}
+
+type DeleteLaunchConfigurationTemplateInput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the Launch Configuration Template to be deleted.
+	//
+	// LaunchConfigurationTemplateID is a required field
+	LaunchConfigurationTemplateID *string `locationName:"launchConfigurationTemplateID" min:"21" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteLaunchConfigurationTemplateInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteLaunchConfigurationTemplateInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteLaunchConfigurationTemplateInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteLaunchConfigurationTemplateInput"}
+	if s.LaunchConfigurationTemplateID == nil {
+		invalidParams.Add(request.NewErrParamRequired("LaunchConfigurationTemplateID"))
+	}
+	if s.LaunchConfigurationTemplateID != nil && len(*s.LaunchConfigurationTemplateID) < 21 {
+		invalidParams.Add(request.NewErrParamMinLen("LaunchConfigurationTemplateID", 21))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLaunchConfigurationTemplateID sets the LaunchConfigurationTemplateID field's value.
+func (s *DeleteLaunchConfigurationTemplateInput) SetLaunchConfigurationTemplateID(v string) *DeleteLaunchConfigurationTemplateInput {
+	s.LaunchConfigurationTemplateID = &v
+	return s
+}
+
+type DeleteLaunchConfigurationTemplateOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteLaunchConfigurationTemplateOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteLaunchConfigurationTemplateOutput) GoString() string {
+	return s.String()
+}
+
 type DeleteRecoveryInstanceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4783,6 +7264,77 @@ func (s DeleteReplicationConfigurationTemplateOutput) String() string {
 // be included in the string output. The member name will be present, but the
 // value will be replaced with "sensitive".
 func (s DeleteReplicationConfigurationTemplateOutput) GoString() string {
+	return s.String()
+}
+
+type DeleteSourceNetworkInput struct {
+	_ struct{} `type:"structure"`
+
+	// ID of the Source Network to delete.
+	//
+	// SourceNetworkID is a required field
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteSourceNetworkInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteSourceNetworkInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteSourceNetworkInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteSourceNetworkInput"}
+	if s.SourceNetworkID == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceNetworkID"))
+	}
+	if s.SourceNetworkID != nil && len(*s.SourceNetworkID) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("SourceNetworkID", 20))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *DeleteSourceNetworkInput) SetSourceNetworkID(v string) *DeleteSourceNetworkInput {
+	s.SourceNetworkID = &v
+	return s
+}
+
+type DeleteSourceNetworkOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteSourceNetworkOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteSourceNetworkOutput) GoString() string {
 	return s.String()
 }
 
@@ -5137,6 +7689,109 @@ func (s *DescribeJobsRequestFilters) SetJobIDs(v []*string) *DescribeJobsRequest
 // SetToDate sets the ToDate field's value.
 func (s *DescribeJobsRequestFilters) SetToDate(v string) *DescribeJobsRequestFilters {
 	s.ToDate = &v
+	return s
+}
+
+type DescribeLaunchConfigurationTemplatesInput struct {
+	_ struct{} `type:"structure"`
+
+	// Request to filter Launch Configuration Templates list by Launch Configuration
+	// Template ID.
+	LaunchConfigurationTemplateIDs []*string `locationName:"launchConfigurationTemplateIDs" type:"list"`
+
+	// Maximum results to be returned in DescribeLaunchConfigurationTemplates.
+	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
+
+	// The token of the next Launch Configuration Template to retrieve.
+	NextToken *string `locationName:"nextToken" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeLaunchConfigurationTemplatesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeLaunchConfigurationTemplatesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeLaunchConfigurationTemplatesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeLaunchConfigurationTemplatesInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLaunchConfigurationTemplateIDs sets the LaunchConfigurationTemplateIDs field's value.
+func (s *DescribeLaunchConfigurationTemplatesInput) SetLaunchConfigurationTemplateIDs(v []*string) *DescribeLaunchConfigurationTemplatesInput {
+	s.LaunchConfigurationTemplateIDs = v
+	return s
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeLaunchConfigurationTemplatesInput) SetMaxResults(v int64) *DescribeLaunchConfigurationTemplatesInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeLaunchConfigurationTemplatesInput) SetNextToken(v string) *DescribeLaunchConfigurationTemplatesInput {
+	s.NextToken = &v
+	return s
+}
+
+type DescribeLaunchConfigurationTemplatesOutput struct {
+	_ struct{} `type:"structure"`
+
+	// List of items returned by DescribeLaunchConfigurationTemplates.
+	Items []*LaunchConfigurationTemplate `locationName:"items" type:"list"`
+
+	// The token of the next Launch Configuration Template to retrieve.
+	NextToken *string `locationName:"nextToken" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeLaunchConfigurationTemplatesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeLaunchConfigurationTemplatesOutput) GoString() string {
+	return s.String()
+}
+
+// SetItems sets the Items field's value.
+func (s *DescribeLaunchConfigurationTemplatesOutput) SetItems(v []*LaunchConfigurationTemplate) *DescribeLaunchConfigurationTemplatesOutput {
+	s.Items = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeLaunchConfigurationTemplatesOutput) SetNextToken(v string) *DescribeLaunchConfigurationTemplatesOutput {
+	s.NextToken = &v
 	return s
 }
 
@@ -5578,6 +8233,177 @@ func (s *DescribeReplicationConfigurationTemplatesOutput) SetNextToken(v string)
 	return s
 }
 
+type DescribeSourceNetworksInput struct {
+	_ struct{} `type:"structure"`
+
+	// A set of filters by which to return Source Networks.
+	Filters *DescribeSourceNetworksRequestFilters `locationName:"filters" type:"structure"`
+
+	// Maximum number of Source Networks to retrieve.
+	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
+
+	// The token of the next Source Networks to retrieve.
+	NextToken *string `locationName:"nextToken" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeSourceNetworksInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeSourceNetworksInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSourceNetworksInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSourceNetworksInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.Filters != nil {
+		if err := s.Filters.Validate(); err != nil {
+			invalidParams.AddNested("Filters", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetFilters sets the Filters field's value.
+func (s *DescribeSourceNetworksInput) SetFilters(v *DescribeSourceNetworksRequestFilters) *DescribeSourceNetworksInput {
+	s.Filters = v
+	return s
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeSourceNetworksInput) SetMaxResults(v int64) *DescribeSourceNetworksInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeSourceNetworksInput) SetNextToken(v string) *DescribeSourceNetworksInput {
+	s.NextToken = &v
+	return s
+}
+
+type DescribeSourceNetworksOutput struct {
+	_ struct{} `type:"structure"`
+
+	// An array of Source Networks.
+	Items []*SourceNetwork `locationName:"items" type:"list"`
+
+	// The token of the next Source Networks to retrieve.
+	NextToken *string `locationName:"nextToken" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeSourceNetworksOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeSourceNetworksOutput) GoString() string {
+	return s.String()
+}
+
+// SetItems sets the Items field's value.
+func (s *DescribeSourceNetworksOutput) SetItems(v []*SourceNetwork) *DescribeSourceNetworksOutput {
+	s.Items = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeSourceNetworksOutput) SetNextToken(v string) *DescribeSourceNetworksOutput {
+	s.NextToken = &v
+	return s
+}
+
+// A set of filters by which to return Source Networks.
+type DescribeSourceNetworksRequestFilters struct {
+	_ struct{} `type:"structure"`
+
+	// Filter Source Networks by account ID containing the protected VPCs.
+	OriginAccountID *string `locationName:"originAccountID" min:"12" type:"string"`
+
+	// Filter Source Networks by the region containing the protected VPCs.
+	OriginRegion *string `locationName:"originRegion" type:"string"`
+
+	// An array of Source Network IDs that should be returned. An empty array means
+	// all Source Networks.
+	SourceNetworkIDs []*string `locationName:"sourceNetworkIDs" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeSourceNetworksRequestFilters) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DescribeSourceNetworksRequestFilters) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSourceNetworksRequestFilters) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSourceNetworksRequestFilters"}
+	if s.OriginAccountID != nil && len(*s.OriginAccountID) < 12 {
+		invalidParams.Add(request.NewErrParamMinLen("OriginAccountID", 12))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetOriginAccountID sets the OriginAccountID field's value.
+func (s *DescribeSourceNetworksRequestFilters) SetOriginAccountID(v string) *DescribeSourceNetworksRequestFilters {
+	s.OriginAccountID = &v
+	return s
+}
+
+// SetOriginRegion sets the OriginRegion field's value.
+func (s *DescribeSourceNetworksRequestFilters) SetOriginRegion(v string) *DescribeSourceNetworksRequestFilters {
+	s.OriginRegion = &v
+	return s
+}
+
+// SetSourceNetworkIDs sets the SourceNetworkIDs field's value.
+func (s *DescribeSourceNetworksRequestFilters) SetSourceNetworkIDs(v []*string) *DescribeSourceNetworksRequestFilters {
+	s.SourceNetworkIDs = v
+	return s
+}
+
 type DescribeSourceServersInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5856,6 +8682,9 @@ func (s *DisconnectSourceServerInput) SetSourceServerID(v string) *DisconnectSou
 type DisconnectSourceServerOutput struct {
 	_ struct{} `type:"structure"`
 
+	// The version of the DRS agent installed on the source server
+	AgentVersion *string `locationName:"agentVersion" type:"string"`
+
 	// The ARN of the Source Server.
 	Arn *string `locationName:"arn" min:"20" type:"string"`
 
@@ -5870,6 +8699,20 @@ type DisconnectSourceServerOutput struct {
 
 	// The ID of the Recovery Instance associated with this Source Server.
 	RecoveryInstanceId *string `locationName:"recoveryInstanceId" min:"10" type:"string"`
+
+	// Replication direction of the Source Server.
+	ReplicationDirection *string `locationName:"replicationDirection" type:"string" enum:"ReplicationDirection"`
+
+	// For EC2-originated Source Servers which have been failed over and then failed
+	// back, this value will mean the ARN of the Source Server on the opposite replication
+	// direction.
+	ReversedDirectionSourceServerArn *string `locationName:"reversedDirectionSourceServerArn" min:"20" type:"string"`
+
+	// Source cloud properties of the Source Server.
+	SourceCloudProperties *SourceCloudProperties `locationName:"sourceCloudProperties" type:"structure"`
+
+	// ID of the Source Network which is protecting this Source Server's network.
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string"`
 
 	// The source properties of the Source Server.
 	SourceProperties *SourceProperties `locationName:"sourceProperties" type:"structure"`
@@ -5906,6 +8749,12 @@ func (s DisconnectSourceServerOutput) GoString() string {
 	return s.String()
 }
 
+// SetAgentVersion sets the AgentVersion field's value.
+func (s *DisconnectSourceServerOutput) SetAgentVersion(v string) *DisconnectSourceServerOutput {
+	s.AgentVersion = &v
+	return s
+}
+
 // SetArn sets the Arn field's value.
 func (s *DisconnectSourceServerOutput) SetArn(v string) *DisconnectSourceServerOutput {
 	s.Arn = &v
@@ -5933,6 +8782,30 @@ func (s *DisconnectSourceServerOutput) SetLifeCycle(v *LifeCycle) *DisconnectSou
 // SetRecoveryInstanceId sets the RecoveryInstanceId field's value.
 func (s *DisconnectSourceServerOutput) SetRecoveryInstanceId(v string) *DisconnectSourceServerOutput {
 	s.RecoveryInstanceId = &v
+	return s
+}
+
+// SetReplicationDirection sets the ReplicationDirection field's value.
+func (s *DisconnectSourceServerOutput) SetReplicationDirection(v string) *DisconnectSourceServerOutput {
+	s.ReplicationDirection = &v
+	return s
+}
+
+// SetReversedDirectionSourceServerArn sets the ReversedDirectionSourceServerArn field's value.
+func (s *DisconnectSourceServerOutput) SetReversedDirectionSourceServerArn(v string) *DisconnectSourceServerOutput {
+	s.ReversedDirectionSourceServerArn = &v
+	return s
+}
+
+// SetSourceCloudProperties sets the SourceCloudProperties field's value.
+func (s *DisconnectSourceServerOutput) SetSourceCloudProperties(v *SourceCloudProperties) *DisconnectSourceServerOutput {
+	s.SourceCloudProperties = v
+	return s
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *DisconnectSourceServerOutput) SetSourceNetworkID(v string) *DisconnectSourceServerOutput {
+	s.SourceNetworkID = &v
 	return s
 }
 
@@ -5998,6 +8871,119 @@ func (s *Disk) SetBytes(v int64) *Disk {
 // SetDeviceName sets the DeviceName field's value.
 func (s *Disk) SetDeviceName(v string) *Disk {
 	s.DeviceName = &v
+	return s
+}
+
+// Properties of resource related to a job event.
+type EventResourceData struct {
+	_ struct{} `type:"structure"`
+
+	// Source Network properties.
+	SourceNetworkData *SourceNetworkData `locationName:"sourceNetworkData" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s EventResourceData) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s EventResourceData) GoString() string {
+	return s.String()
+}
+
+// SetSourceNetworkData sets the SourceNetworkData field's value.
+func (s *EventResourceData) SetSourceNetworkData(v *SourceNetworkData) *EventResourceData {
+	s.SourceNetworkData = v
+	return s
+}
+
+type ExportSourceNetworkCfnTemplateInput struct {
+	_ struct{} `type:"structure"`
+
+	// The Source Network ID to export its CloudFormation template to an S3 bucket.
+	//
+	// SourceNetworkID is a required field
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ExportSourceNetworkCfnTemplateInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ExportSourceNetworkCfnTemplateInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ExportSourceNetworkCfnTemplateInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ExportSourceNetworkCfnTemplateInput"}
+	if s.SourceNetworkID == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceNetworkID"))
+	}
+	if s.SourceNetworkID != nil && len(*s.SourceNetworkID) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("SourceNetworkID", 20))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *ExportSourceNetworkCfnTemplateInput) SetSourceNetworkID(v string) *ExportSourceNetworkCfnTemplateInput {
+	s.SourceNetworkID = &v
+	return s
+}
+
+type ExportSourceNetworkCfnTemplateOutput struct {
+	_ struct{} `type:"structure"`
+
+	// S3 bucket URL where the Source Network CloudFormation template was exported
+	// to.
+	S3DestinationUrl *string `locationName:"s3DestinationUrl" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ExportSourceNetworkCfnTemplateOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ExportSourceNetworkCfnTemplateOutput) GoString() string {
+	return s.String()
+}
+
+// SetS3DestinationUrl sets the S3DestinationUrl field's value.
+func (s *ExportSourceNetworkCfnTemplateOutput) SetS3DestinationUrl(v string) *ExportSourceNetworkCfnTemplateOutput {
+	s.S3DestinationUrl = &v
 	return s
 }
 
@@ -6179,11 +9165,17 @@ type GetLaunchConfigurationOutput struct {
 	// The state of the Recovery Instance in EC2 after the recovery operation.
 	LaunchDisposition *string `locationName:"launchDisposition" type:"string" enum:"LaunchDisposition"`
 
+	// Launch into existing instance properties.
+	LaunchIntoInstanceProperties *LaunchIntoInstanceProperties `locationName:"launchIntoInstanceProperties" type:"structure"`
+
 	// The licensing configuration to be used for this launch configuration.
 	Licensing *Licensing `locationName:"licensing" type:"structure"`
 
 	// The name of the launch configuration.
 	Name *string `locationName:"name" type:"string"`
+
+	// Whether we want to activate post-launch actions for the Source Server.
+	PostLaunchEnabled *bool `locationName:"postLaunchEnabled" type:"boolean"`
 
 	// The ID of the Source Server for this launch configuration.
 	SourceServerID *string `locationName:"sourceServerID" min:"19" type:"string"`
@@ -6235,6 +9227,12 @@ func (s *GetLaunchConfigurationOutput) SetLaunchDisposition(v string) *GetLaunch
 	return s
 }
 
+// SetLaunchIntoInstanceProperties sets the LaunchIntoInstanceProperties field's value.
+func (s *GetLaunchConfigurationOutput) SetLaunchIntoInstanceProperties(v *LaunchIntoInstanceProperties) *GetLaunchConfigurationOutput {
+	s.LaunchIntoInstanceProperties = v
+	return s
+}
+
 // SetLicensing sets the Licensing field's value.
 func (s *GetLaunchConfigurationOutput) SetLicensing(v *Licensing) *GetLaunchConfigurationOutput {
 	s.Licensing = v
@@ -6244,6 +9242,12 @@ func (s *GetLaunchConfigurationOutput) SetLicensing(v *Licensing) *GetLaunchConf
 // SetName sets the Name field's value.
 func (s *GetLaunchConfigurationOutput) SetName(v string) *GetLaunchConfigurationOutput {
 	s.Name = &v
+	return s
+}
+
+// SetPostLaunchEnabled sets the PostLaunchEnabled field's value.
+func (s *GetLaunchConfigurationOutput) SetPostLaunchEnabled(v bool) *GetLaunchConfigurationOutput {
+	s.PostLaunchEnabled = &v
 	return s
 }
 
@@ -6314,6 +9318,10 @@ type GetReplicationConfigurationOutput struct {
 	// Whether to associate the default Elastic Disaster Recovery Security group
 	// with the Replication Configuration.
 	AssociateDefaultSecurityGroup *bool `locationName:"associateDefaultSecurityGroup" type:"boolean"`
+
+	// Whether to allow the AWS replication agent to automatically replicate newly
+	// added disks.
+	AutoReplicateNewDisks *bool `locationName:"autoReplicateNewDisks" type:"boolean"`
 
 	// Configure bandwidth throttling for the outbound data transfer rate of the
 	// Source Server in Mbps.
@@ -6389,6 +9397,12 @@ func (s GetReplicationConfigurationOutput) GoString() string {
 // SetAssociateDefaultSecurityGroup sets the AssociateDefaultSecurityGroup field's value.
 func (s *GetReplicationConfigurationOutput) SetAssociateDefaultSecurityGroup(v bool) *GetReplicationConfigurationOutput {
 	s.AssociateDefaultSecurityGroup = &v
+	return s
+}
+
+// SetAutoReplicateNewDisks sets the AutoReplicateNewDisks field's value.
+func (s *GetReplicationConfigurationOutput) SetAutoReplicateNewDisks(v bool) *GetReplicationConfigurationOutput {
+	s.AutoReplicateNewDisks = &v
 	return s
 }
 
@@ -6674,6 +9688,9 @@ type Job struct {
 	// JobID is a required field
 	JobID *string `locationName:"jobID" min:"24" type:"string" required:"true"`
 
+	// A list of resources that the Job is acting upon.
+	ParticipatingResources []*ParticipatingResource `locationName:"participatingResources" type:"list"`
+
 	// A list of servers that the Job is acting upon.
 	ParticipatingServers []*ParticipatingServer `locationName:"participatingServers" type:"list"`
 
@@ -6736,6 +9753,12 @@ func (s *Job) SetInitiatedBy(v string) *Job {
 // SetJobID sets the JobID field's value.
 func (s *Job) SetJobID(v string) *Job {
 	s.JobID = &v
+	return s
+}
+
+// SetParticipatingResources sets the ParticipatingResources field's value.
+func (s *Job) SetParticipatingResources(v []*ParticipatingResource) *Job {
+	s.ParticipatingResources = v
 	return s
 }
 
@@ -6823,6 +9846,9 @@ type JobLogEventData struct {
 	// The ID of a conversion server.
 	ConversionServerID *string `locationName:"conversionServerID" type:"string"`
 
+	// Properties of resource related to a job event.
+	EventResourceData *EventResourceData `locationName:"eventResourceData" type:"structure"`
+
 	// A string representing a job error.
 	RawError *string `locationName:"rawError" type:"string"`
 
@@ -6863,6 +9889,12 @@ func (s *JobLogEventData) SetConversionServerID(v string) *JobLogEventData {
 	return s
 }
 
+// SetEventResourceData sets the EventResourceData field's value.
+func (s *JobLogEventData) SetEventResourceData(v *EventResourceData) *JobLogEventData {
+	s.EventResourceData = v
+	return s
+}
+
 // SetRawError sets the RawError field's value.
 func (s *JobLogEventData) SetRawError(v string) *JobLogEventData {
 	s.RawError = &v
@@ -6878,6 +9910,476 @@ func (s *JobLogEventData) SetSourceServerID(v string) *JobLogEventData {
 // SetTargetInstanceID sets the TargetInstanceID field's value.
 func (s *JobLogEventData) SetTargetInstanceID(v string) *JobLogEventData {
 	s.TargetInstanceID = &v
+	return s
+}
+
+// Launch action.
+type LaunchAction struct {
+	_ struct{} `type:"structure"`
+
+	// Launch action code.
+	ActionCode *string `locationName:"actionCode" min:"1" type:"string"`
+
+	// Launch action Id.
+	ActionId *string `locationName:"actionId" min:"1" type:"string"`
+
+	// Launch action version.
+	ActionVersion *string `locationName:"actionVersion" min:"1" type:"string"`
+
+	// Whether the launch action is active.
+	Active *bool `locationName:"active" type:"boolean"`
+
+	// Launch action category.
+	Category *string `locationName:"category" type:"string" enum:"LaunchActionCategory"`
+
+	// Launch action description.
+	Description *string `locationName:"description" type:"string"`
+
+	// Launch action name.
+	Name *string `locationName:"name" min:"1" type:"string"`
+
+	// Whether the launch will not be marked as failed if this action fails.
+	Optional *bool `locationName:"optional" type:"boolean"`
+
+	// Launch action order.
+	Order *int64 `locationName:"order" min:"2" type:"integer"`
+
+	// Launch action parameters.
+	Parameters map[string]*LaunchActionParameter `locationName:"parameters" type:"map"`
+
+	// Launch action type.
+	Type *string `locationName:"type" type:"string" enum:"LaunchActionType"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchAction) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchAction) GoString() string {
+	return s.String()
+}
+
+// SetActionCode sets the ActionCode field's value.
+func (s *LaunchAction) SetActionCode(v string) *LaunchAction {
+	s.ActionCode = &v
+	return s
+}
+
+// SetActionId sets the ActionId field's value.
+func (s *LaunchAction) SetActionId(v string) *LaunchAction {
+	s.ActionId = &v
+	return s
+}
+
+// SetActionVersion sets the ActionVersion field's value.
+func (s *LaunchAction) SetActionVersion(v string) *LaunchAction {
+	s.ActionVersion = &v
+	return s
+}
+
+// SetActive sets the Active field's value.
+func (s *LaunchAction) SetActive(v bool) *LaunchAction {
+	s.Active = &v
+	return s
+}
+
+// SetCategory sets the Category field's value.
+func (s *LaunchAction) SetCategory(v string) *LaunchAction {
+	s.Category = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *LaunchAction) SetDescription(v string) *LaunchAction {
+	s.Description = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *LaunchAction) SetName(v string) *LaunchAction {
+	s.Name = &v
+	return s
+}
+
+// SetOptional sets the Optional field's value.
+func (s *LaunchAction) SetOptional(v bool) *LaunchAction {
+	s.Optional = &v
+	return s
+}
+
+// SetOrder sets the Order field's value.
+func (s *LaunchAction) SetOrder(v int64) *LaunchAction {
+	s.Order = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *LaunchAction) SetParameters(v map[string]*LaunchActionParameter) *LaunchAction {
+	s.Parameters = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *LaunchAction) SetType(v string) *LaunchAction {
+	s.Type = &v
+	return s
+}
+
+// Launch action parameter.
+type LaunchActionParameter struct {
+	_ struct{} `type:"structure"`
+
+	// Type.
+	Type *string `locationName:"type" type:"string" enum:"LaunchActionParameterType"`
+
+	// Value.
+	Value *string `locationName:"value" min:"1" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchActionParameter) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchActionParameter) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *LaunchActionParameter) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "LaunchActionParameter"}
+	if s.Value != nil && len(*s.Value) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Value", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetType sets the Type field's value.
+func (s *LaunchActionParameter) SetType(v string) *LaunchActionParameter {
+	s.Type = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *LaunchActionParameter) SetValue(v string) *LaunchActionParameter {
+	s.Value = &v
+	return s
+}
+
+// Launch action run.
+type LaunchActionRun struct {
+	_ struct{} `type:"structure"`
+
+	// Action.
+	Action *LaunchAction `locationName:"action" type:"structure"`
+
+	// Failure reason.
+	FailureReason *string `locationName:"failureReason" type:"string"`
+
+	// Run Id.
+	RunId *string `locationName:"runId" min:"1" type:"string"`
+
+	// Run status.
+	Status *string `locationName:"status" type:"string" enum:"LaunchActionRunStatus"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchActionRun) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchActionRun) GoString() string {
+	return s.String()
+}
+
+// SetAction sets the Action field's value.
+func (s *LaunchActionRun) SetAction(v *LaunchAction) *LaunchActionRun {
+	s.Action = v
+	return s
+}
+
+// SetFailureReason sets the FailureReason field's value.
+func (s *LaunchActionRun) SetFailureReason(v string) *LaunchActionRun {
+	s.FailureReason = &v
+	return s
+}
+
+// SetRunId sets the RunId field's value.
+func (s *LaunchActionRun) SetRunId(v string) *LaunchActionRun {
+	s.RunId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *LaunchActionRun) SetStatus(v string) *LaunchActionRun {
+	s.Status = &v
+	return s
+}
+
+// Resource launch actions filter.
+type LaunchActionsRequestFilters struct {
+	_ struct{} `type:"structure"`
+
+	// Launch actions Ids.
+	ActionIds []*string `locationName:"actionIds" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchActionsRequestFilters) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchActionsRequestFilters) GoString() string {
+	return s.String()
+}
+
+// SetActionIds sets the ActionIds field's value.
+func (s *LaunchActionsRequestFilters) SetActionIds(v []*string) *LaunchActionsRequestFilters {
+	s.ActionIds = v
+	return s
+}
+
+// Launch actions status.
+type LaunchActionsStatus struct {
+	_ struct{} `type:"structure"`
+
+	// List of post launch action status.
+	Runs []*LaunchActionRun `locationName:"runs" type:"list"`
+
+	// Time where the AWS Systems Manager was detected as running on the launched
+	// instance.
+	SsmAgentDiscoveryDatetime *string `locationName:"ssmAgentDiscoveryDatetime" min:"19" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchActionsStatus) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchActionsStatus) GoString() string {
+	return s.String()
+}
+
+// SetRuns sets the Runs field's value.
+func (s *LaunchActionsStatus) SetRuns(v []*LaunchActionRun) *LaunchActionsStatus {
+	s.Runs = v
+	return s
+}
+
+// SetSsmAgentDiscoveryDatetime sets the SsmAgentDiscoveryDatetime field's value.
+func (s *LaunchActionsStatus) SetSsmAgentDiscoveryDatetime(v string) *LaunchActionsStatus {
+	s.SsmAgentDiscoveryDatetime = &v
+	return s
+}
+
+// Account level Launch Configuration Template.
+type LaunchConfigurationTemplate struct {
+	_ struct{} `type:"structure"`
+
+	// ARN of the Launch Configuration Template.
+	Arn *string `locationName:"arn" min:"20" type:"string"`
+
+	// Copy private IP.
+	CopyPrivateIp *bool `locationName:"copyPrivateIp" type:"boolean"`
+
+	// Copy tags.
+	CopyTags *bool `locationName:"copyTags" type:"boolean"`
+
+	// S3 bucket ARN to export Source Network templates.
+	ExportBucketArn *string `locationName:"exportBucketArn" min:"20" type:"string"`
+
+	// ID of the Launch Configuration Template.
+	LaunchConfigurationTemplateID *string `locationName:"launchConfigurationTemplateID" min:"21" type:"string"`
+
+	// Launch disposition.
+	LaunchDisposition *string `locationName:"launchDisposition" type:"string" enum:"LaunchDisposition"`
+
+	// DRS will set the 'launch into instance ID' of any source server when performing
+	// a drill, recovery or failback to the previous region or availability zone,
+	// using the instance ID of the source instance.
+	LaunchIntoSourceInstance *bool `locationName:"launchIntoSourceInstance" type:"boolean"`
+
+	// Licensing.
+	Licensing *Licensing `locationName:"licensing" type:"structure"`
+
+	// Post-launch actions activated.
+	PostLaunchEnabled *bool `locationName:"postLaunchEnabled" type:"boolean"`
+
+	// Tags of the Launch Configuration Template.
+	//
+	// Tags is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by LaunchConfigurationTemplate's
+	// String and GoString methods.
+	Tags map[string]*string `locationName:"tags" type:"map" sensitive:"true"`
+
+	// Target instance type right-sizing method.
+	TargetInstanceTypeRightSizingMethod *string `locationName:"targetInstanceTypeRightSizingMethod" type:"string" enum:"TargetInstanceTypeRightSizingMethod"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchConfigurationTemplate) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchConfigurationTemplate) GoString() string {
+	return s.String()
+}
+
+// SetArn sets the Arn field's value.
+func (s *LaunchConfigurationTemplate) SetArn(v string) *LaunchConfigurationTemplate {
+	s.Arn = &v
+	return s
+}
+
+// SetCopyPrivateIp sets the CopyPrivateIp field's value.
+func (s *LaunchConfigurationTemplate) SetCopyPrivateIp(v bool) *LaunchConfigurationTemplate {
+	s.CopyPrivateIp = &v
+	return s
+}
+
+// SetCopyTags sets the CopyTags field's value.
+func (s *LaunchConfigurationTemplate) SetCopyTags(v bool) *LaunchConfigurationTemplate {
+	s.CopyTags = &v
+	return s
+}
+
+// SetExportBucketArn sets the ExportBucketArn field's value.
+func (s *LaunchConfigurationTemplate) SetExportBucketArn(v string) *LaunchConfigurationTemplate {
+	s.ExportBucketArn = &v
+	return s
+}
+
+// SetLaunchConfigurationTemplateID sets the LaunchConfigurationTemplateID field's value.
+func (s *LaunchConfigurationTemplate) SetLaunchConfigurationTemplateID(v string) *LaunchConfigurationTemplate {
+	s.LaunchConfigurationTemplateID = &v
+	return s
+}
+
+// SetLaunchDisposition sets the LaunchDisposition field's value.
+func (s *LaunchConfigurationTemplate) SetLaunchDisposition(v string) *LaunchConfigurationTemplate {
+	s.LaunchDisposition = &v
+	return s
+}
+
+// SetLaunchIntoSourceInstance sets the LaunchIntoSourceInstance field's value.
+func (s *LaunchConfigurationTemplate) SetLaunchIntoSourceInstance(v bool) *LaunchConfigurationTemplate {
+	s.LaunchIntoSourceInstance = &v
+	return s
+}
+
+// SetLicensing sets the Licensing field's value.
+func (s *LaunchConfigurationTemplate) SetLicensing(v *Licensing) *LaunchConfigurationTemplate {
+	s.Licensing = v
+	return s
+}
+
+// SetPostLaunchEnabled sets the PostLaunchEnabled field's value.
+func (s *LaunchConfigurationTemplate) SetPostLaunchEnabled(v bool) *LaunchConfigurationTemplate {
+	s.PostLaunchEnabled = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *LaunchConfigurationTemplate) SetTags(v map[string]*string) *LaunchConfigurationTemplate {
+	s.Tags = v
+	return s
+}
+
+// SetTargetInstanceTypeRightSizingMethod sets the TargetInstanceTypeRightSizingMethod field's value.
+func (s *LaunchConfigurationTemplate) SetTargetInstanceTypeRightSizingMethod(v string) *LaunchConfigurationTemplate {
+	s.TargetInstanceTypeRightSizingMethod = &v
+	return s
+}
+
+// Launch into existing instance.
+type LaunchIntoInstanceProperties struct {
+	_ struct{} `type:"structure"`
+
+	// Optionally holds EC2 instance ID of an instance to launch into, instead of
+	// launching a new instance during drill, recovery or failback.
+	LaunchIntoEC2InstanceID *string `locationName:"launchIntoEC2InstanceID" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchIntoInstanceProperties) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LaunchIntoInstanceProperties) GoString() string {
+	return s.String()
+}
+
+// SetLaunchIntoEC2InstanceID sets the LaunchIntoEC2InstanceID field's value.
+func (s *LaunchIntoInstanceProperties) SetLaunchIntoEC2InstanceID(v string) *LaunchIntoInstanceProperties {
+	s.LaunchIntoEC2InstanceID = &v
 	return s
 }
 
@@ -6921,7 +10423,7 @@ type LifeCycle struct {
 	AddedToServiceDateTime *string `locationName:"addedToServiceDateTime" min:"19" type:"string"`
 
 	// The amount of time that the Source Server has been replicating for.
-	ElapsedReplicationDuration *string `locationName:"elapsedReplicationDuration" min:"19" type:"string"`
+	ElapsedReplicationDuration *string `locationName:"elapsedReplicationDuration" min:"1" type:"string"`
 
 	// The date and time of the first byte that was replicated from the Source Server.
 	FirstByteDateTime *string `locationName:"firstByteDateTime" min:"19" type:"string"`
@@ -6989,6 +10491,9 @@ type LifeCycleLastLaunch struct {
 	// An object containing information regarding the initiation of the last launch
 	// of a Source Server.
 	Initiated *LifeCycleLastLaunchInitiated `locationName:"initiated" type:"structure"`
+
+	// Status of Source Server's last launch.
+	Status *string `locationName:"status" type:"string" enum:"LaunchStatus"`
 }
 
 // String returns the string representation.
@@ -7012,6 +10517,12 @@ func (s LifeCycleLastLaunch) GoString() string {
 // SetInitiated sets the Initiated field's value.
 func (s *LifeCycleLastLaunch) SetInitiated(v *LifeCycleLastLaunchInitiated) *LifeCycleLastLaunch {
 	s.Initiated = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *LifeCycleLastLaunch) SetStatus(v string) *LifeCycleLastLaunch {
+	s.Status = &v
 	return s
 }
 
@@ -7172,6 +10683,122 @@ func (s *ListExtensibleSourceServersOutput) SetItems(v []*StagingSourceServer) *
 
 // SetNextToken sets the NextToken field's value.
 func (s *ListExtensibleSourceServersOutput) SetNextToken(v string) *ListExtensibleSourceServersOutput {
+	s.NextToken = &v
+	return s
+}
+
+type ListLaunchActionsInput struct {
+	_ struct{} `type:"structure"`
+
+	// Filters to apply when listing resource launch actions.
+	Filters *LaunchActionsRequestFilters `locationName:"filters" type:"structure"`
+
+	// Maximum amount of items to return when listing resource launch actions.
+	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
+
+	// Next token to use when listing resource launch actions.
+	NextToken *string `locationName:"nextToken" type:"string"`
+
+	// Launch configuration template Id or Source Server Id
+	//
+	// ResourceId is a required field
+	ResourceId *string `locationName:"resourceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListLaunchActionsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListLaunchActionsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListLaunchActionsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListLaunchActionsInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.ResourceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetFilters sets the Filters field's value.
+func (s *ListLaunchActionsInput) SetFilters(v *LaunchActionsRequestFilters) *ListLaunchActionsInput {
+	s.Filters = v
+	return s
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListLaunchActionsInput) SetMaxResults(v int64) *ListLaunchActionsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListLaunchActionsInput) SetNextToken(v string) *ListLaunchActionsInput {
+	s.NextToken = &v
+	return s
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *ListLaunchActionsInput) SetResourceId(v string) *ListLaunchActionsInput {
+	s.ResourceId = &v
+	return s
+}
+
+type ListLaunchActionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	// List of resource launch actions.
+	Items []*LaunchAction `locationName:"items" type:"list"`
+
+	// Next token returned when listing resource launch actions.
+	NextToken *string `locationName:"nextToken" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListLaunchActionsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListLaunchActionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetItems sets the Items field's value.
+func (s *ListLaunchActionsOutput) SetItems(v []*LaunchAction) *ListLaunchActionsOutput {
+	s.Items = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListLaunchActionsOutput) SetNextToken(v string) *ListLaunchActionsOutput {
 	s.NextToken = &v
 	return s
 }
@@ -7535,9 +11162,85 @@ func (s *PITPolicyRule) SetUnits(v string) *PITPolicyRule {
 	return s
 }
 
+// Represents a resource participating in an asynchronous Job.
+type ParticipatingResource struct {
+	_ struct{} `type:"structure"`
+
+	// The launch status of a participating resource.
+	LaunchStatus *string `locationName:"launchStatus" type:"string" enum:"LaunchStatus"`
+
+	// The ID of a participating resource.
+	ParticipatingResourceID *ParticipatingResourceID `locationName:"participatingResourceID" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ParticipatingResource) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ParticipatingResource) GoString() string {
+	return s.String()
+}
+
+// SetLaunchStatus sets the LaunchStatus field's value.
+func (s *ParticipatingResource) SetLaunchStatus(v string) *ParticipatingResource {
+	s.LaunchStatus = &v
+	return s
+}
+
+// SetParticipatingResourceID sets the ParticipatingResourceID field's value.
+func (s *ParticipatingResource) SetParticipatingResourceID(v *ParticipatingResourceID) *ParticipatingResource {
+	s.ParticipatingResourceID = v
+	return s
+}
+
+// ID of a resource participating in an asynchronous Job.
+type ParticipatingResourceID struct {
+	_ struct{} `type:"structure"`
+
+	// Source Network ID.
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ParticipatingResourceID) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ParticipatingResourceID) GoString() string {
+	return s.String()
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *ParticipatingResourceID) SetSourceNetworkID(v string) *ParticipatingResourceID {
+	s.SourceNetworkID = &v
+	return s
+}
+
 // Represents a server participating in an asynchronous Job.
 type ParticipatingServer struct {
 	_ struct{} `type:"structure"`
+
+	// The post-launch action runs of a participating server.
+	LaunchActionsStatus *LaunchActionsStatus `locationName:"launchActionsStatus" type:"structure"`
 
 	// The launch status of a participating server.
 	LaunchStatus *string `locationName:"launchStatus" type:"string" enum:"LaunchStatus"`
@@ -7567,6 +11270,12 @@ func (s ParticipatingServer) GoString() string {
 	return s.String()
 }
 
+// SetLaunchActionsStatus sets the LaunchActionsStatus field's value.
+func (s *ParticipatingServer) SetLaunchActionsStatus(v *LaunchActionsStatus) *ParticipatingServer {
+	s.LaunchActionsStatus = v
+	return s
+}
+
 // SetLaunchStatus sets the LaunchStatus field's value.
 func (s *ParticipatingServer) SetLaunchStatus(v string) *ParticipatingServer {
 	s.LaunchStatus = &v
@@ -7585,9 +11294,389 @@ func (s *ParticipatingServer) SetSourceServerID(v string) *ParticipatingServer {
 	return s
 }
 
+// Properties of a product code associated with a volume.
+type ProductCode struct {
+	_ struct{} `type:"structure"`
+
+	// Id of a product code associated with a volume.
+	ProductCodeId *string `locationName:"productCodeId" min:"25" type:"string"`
+
+	// Mode of a product code associated with a volume.
+	ProductCodeMode *string `locationName:"productCodeMode" type:"string" enum:"ProductCodeMode"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ProductCode) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ProductCode) GoString() string {
+	return s.String()
+}
+
+// SetProductCodeId sets the ProductCodeId field's value.
+func (s *ProductCode) SetProductCodeId(v string) *ProductCode {
+	s.ProductCodeId = &v
+	return s
+}
+
+// SetProductCodeMode sets the ProductCodeMode field's value.
+func (s *ProductCode) SetProductCodeMode(v string) *ProductCode {
+	s.ProductCodeMode = &v
+	return s
+}
+
+type PutLaunchActionInput struct {
+	_ struct{} `type:"structure"`
+
+	// Launch action code.
+	//
+	// ActionCode is a required field
+	ActionCode *string `locationName:"actionCode" min:"1" type:"string" required:"true"`
+
+	// Launch action Id.
+	//
+	// ActionId is a required field
+	ActionId *string `locationName:"actionId" min:"1" type:"string" required:"true"`
+
+	// Launch action version.
+	//
+	// ActionVersion is a required field
+	ActionVersion *string `locationName:"actionVersion" min:"1" type:"string" required:"true"`
+
+	// Whether the launch action is active.
+	//
+	// Active is a required field
+	Active *bool `locationName:"active" type:"boolean" required:"true"`
+
+	// Launch action category.
+	//
+	// Category is a required field
+	Category *string `locationName:"category" type:"string" required:"true" enum:"LaunchActionCategory"`
+
+	// Launch action description.
+	//
+	// Description is a required field
+	Description *string `locationName:"description" type:"string" required:"true"`
+
+	// Launch action name.
+	//
+	// Name is a required field
+	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+
+	// Whether the launch will not be marked as failed if this action fails.
+	//
+	// Optional is a required field
+	Optional *bool `locationName:"optional" type:"boolean" required:"true"`
+
+	// Launch action order.
+	//
+	// Order is a required field
+	Order *int64 `locationName:"order" min:"2" type:"integer" required:"true"`
+
+	// Launch action parameters.
+	Parameters map[string]*LaunchActionParameter `locationName:"parameters" type:"map"`
+
+	// Launch configuration template Id or Source Server Id
+	//
+	// ResourceId is a required field
+	ResourceId *string `locationName:"resourceId" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PutLaunchActionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PutLaunchActionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *PutLaunchActionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "PutLaunchActionInput"}
+	if s.ActionCode == nil {
+		invalidParams.Add(request.NewErrParamRequired("ActionCode"))
+	}
+	if s.ActionCode != nil && len(*s.ActionCode) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ActionCode", 1))
+	}
+	if s.ActionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ActionId"))
+	}
+	if s.ActionId != nil && len(*s.ActionId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ActionId", 1))
+	}
+	if s.ActionVersion == nil {
+		invalidParams.Add(request.NewErrParamRequired("ActionVersion"))
+	}
+	if s.ActionVersion != nil && len(*s.ActionVersion) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ActionVersion", 1))
+	}
+	if s.Active == nil {
+		invalidParams.Add(request.NewErrParamRequired("Active"))
+	}
+	if s.Category == nil {
+		invalidParams.Add(request.NewErrParamRequired("Category"))
+	}
+	if s.Description == nil {
+		invalidParams.Add(request.NewErrParamRequired("Description"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Name != nil && len(*s.Name) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
+	}
+	if s.Optional == nil {
+		invalidParams.Add(request.NewErrParamRequired("Optional"))
+	}
+	if s.Order == nil {
+		invalidParams.Add(request.NewErrParamRequired("Order"))
+	}
+	if s.Order != nil && *s.Order < 2 {
+		invalidParams.Add(request.NewErrParamMinValue("Order", 2))
+	}
+	if s.ResourceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceId"))
+	}
+	if s.Parameters != nil {
+		for i, v := range s.Parameters {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Parameters", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetActionCode sets the ActionCode field's value.
+func (s *PutLaunchActionInput) SetActionCode(v string) *PutLaunchActionInput {
+	s.ActionCode = &v
+	return s
+}
+
+// SetActionId sets the ActionId field's value.
+func (s *PutLaunchActionInput) SetActionId(v string) *PutLaunchActionInput {
+	s.ActionId = &v
+	return s
+}
+
+// SetActionVersion sets the ActionVersion field's value.
+func (s *PutLaunchActionInput) SetActionVersion(v string) *PutLaunchActionInput {
+	s.ActionVersion = &v
+	return s
+}
+
+// SetActive sets the Active field's value.
+func (s *PutLaunchActionInput) SetActive(v bool) *PutLaunchActionInput {
+	s.Active = &v
+	return s
+}
+
+// SetCategory sets the Category field's value.
+func (s *PutLaunchActionInput) SetCategory(v string) *PutLaunchActionInput {
+	s.Category = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *PutLaunchActionInput) SetDescription(v string) *PutLaunchActionInput {
+	s.Description = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *PutLaunchActionInput) SetName(v string) *PutLaunchActionInput {
+	s.Name = &v
+	return s
+}
+
+// SetOptional sets the Optional field's value.
+func (s *PutLaunchActionInput) SetOptional(v bool) *PutLaunchActionInput {
+	s.Optional = &v
+	return s
+}
+
+// SetOrder sets the Order field's value.
+func (s *PutLaunchActionInput) SetOrder(v int64) *PutLaunchActionInput {
+	s.Order = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *PutLaunchActionInput) SetParameters(v map[string]*LaunchActionParameter) *PutLaunchActionInput {
+	s.Parameters = v
+	return s
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *PutLaunchActionInput) SetResourceId(v string) *PutLaunchActionInput {
+	s.ResourceId = &v
+	return s
+}
+
+type PutLaunchActionOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Launch action code.
+	ActionCode *string `locationName:"actionCode" min:"1" type:"string"`
+
+	// Launch action Id.
+	ActionId *string `locationName:"actionId" min:"1" type:"string"`
+
+	// Launch action version.
+	ActionVersion *string `locationName:"actionVersion" min:"1" type:"string"`
+
+	// Whether the launch action is active.
+	Active *bool `locationName:"active" type:"boolean"`
+
+	// Launch action category.
+	Category *string `locationName:"category" type:"string" enum:"LaunchActionCategory"`
+
+	// Launch action description.
+	Description *string `locationName:"description" type:"string"`
+
+	// Launch action name.
+	Name *string `locationName:"name" min:"1" type:"string"`
+
+	// Whether the launch will not be marked as failed if this action fails.
+	Optional *bool `locationName:"optional" type:"boolean"`
+
+	// Launch action order.
+	Order *int64 `locationName:"order" min:"2" type:"integer"`
+
+	// Launch action parameters.
+	Parameters map[string]*LaunchActionParameter `locationName:"parameters" type:"map"`
+
+	// Launch configuration template Id or Source Server Id
+	ResourceId *string `locationName:"resourceId" type:"string"`
+
+	// Launch action type.
+	Type *string `locationName:"type" type:"string" enum:"LaunchActionType"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PutLaunchActionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s PutLaunchActionOutput) GoString() string {
+	return s.String()
+}
+
+// SetActionCode sets the ActionCode field's value.
+func (s *PutLaunchActionOutput) SetActionCode(v string) *PutLaunchActionOutput {
+	s.ActionCode = &v
+	return s
+}
+
+// SetActionId sets the ActionId field's value.
+func (s *PutLaunchActionOutput) SetActionId(v string) *PutLaunchActionOutput {
+	s.ActionId = &v
+	return s
+}
+
+// SetActionVersion sets the ActionVersion field's value.
+func (s *PutLaunchActionOutput) SetActionVersion(v string) *PutLaunchActionOutput {
+	s.ActionVersion = &v
+	return s
+}
+
+// SetActive sets the Active field's value.
+func (s *PutLaunchActionOutput) SetActive(v bool) *PutLaunchActionOutput {
+	s.Active = &v
+	return s
+}
+
+// SetCategory sets the Category field's value.
+func (s *PutLaunchActionOutput) SetCategory(v string) *PutLaunchActionOutput {
+	s.Category = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *PutLaunchActionOutput) SetDescription(v string) *PutLaunchActionOutput {
+	s.Description = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *PutLaunchActionOutput) SetName(v string) *PutLaunchActionOutput {
+	s.Name = &v
+	return s
+}
+
+// SetOptional sets the Optional field's value.
+func (s *PutLaunchActionOutput) SetOptional(v bool) *PutLaunchActionOutput {
+	s.Optional = &v
+	return s
+}
+
+// SetOrder sets the Order field's value.
+func (s *PutLaunchActionOutput) SetOrder(v int64) *PutLaunchActionOutput {
+	s.Order = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *PutLaunchActionOutput) SetParameters(v map[string]*LaunchActionParameter) *PutLaunchActionOutput {
+	s.Parameters = v
+	return s
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *PutLaunchActionOutput) SetResourceId(v string) *PutLaunchActionOutput {
+	s.ResourceId = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *PutLaunchActionOutput) SetType(v string) *PutLaunchActionOutput {
+	s.Type = &v
+	return s
+}
+
 // A Recovery Instance is a replica of a Source Server running on EC2.
 type RecoveryInstance struct {
 	_ struct{} `type:"structure"`
+
+	// The version of the DRS agent installed on the recovery instance
+	AgentVersion *string `locationName:"agentVersion" type:"string"`
 
 	// The ARN of the Recovery Instance.
 	Arn *string `locationName:"arn" min:"20" type:"string"`
@@ -7611,6 +11700,13 @@ type RecoveryInstance struct {
 	// The ID of the Job that created the Recovery Instance.
 	JobID *string `locationName:"jobID" min:"24" type:"string"`
 
+	// AWS availability zone associated with the recovery instance.
+	OriginAvailabilityZone *string `locationName:"originAvailabilityZone" type:"string"`
+
+	// Environment (On Premises / AWS) of the instance that the recovery instance
+	// originated from.
+	OriginEnvironment *string `locationName:"originEnvironment" type:"string" enum:"OriginEnvironment"`
+
 	// The date and time of the Point in Time (PIT) snapshot that this Recovery
 	// Instance was launched from.
 	PointInTimeSnapshotDateTime *string `locationName:"pointInTimeSnapshotDateTime" min:"19" type:"string"`
@@ -7620,6 +11716,9 @@ type RecoveryInstance struct {
 
 	// Properties of the Recovery Instance machine.
 	RecoveryInstanceProperties *RecoveryInstanceProperties `locationName:"recoveryInstanceProperties" type:"structure"`
+
+	// The ARN of the source Outpost
+	SourceOutpostArn *string `locationName:"sourceOutpostArn" min:"20" type:"string"`
 
 	// The Source Server ID that this Recovery Instance is associated with.
 	SourceServerID *string `locationName:"sourceServerID" min:"19" type:"string"`
@@ -7648,6 +11747,12 @@ func (s RecoveryInstance) String() string {
 // value will be replaced with "sensitive".
 func (s RecoveryInstance) GoString() string {
 	return s.String()
+}
+
+// SetAgentVersion sets the AgentVersion field's value.
+func (s *RecoveryInstance) SetAgentVersion(v string) *RecoveryInstance {
+	s.AgentVersion = &v
+	return s
 }
 
 // SetArn sets the Arn field's value.
@@ -7692,6 +11797,18 @@ func (s *RecoveryInstance) SetJobID(v string) *RecoveryInstance {
 	return s
 }
 
+// SetOriginAvailabilityZone sets the OriginAvailabilityZone field's value.
+func (s *RecoveryInstance) SetOriginAvailabilityZone(v string) *RecoveryInstance {
+	s.OriginAvailabilityZone = &v
+	return s
+}
+
+// SetOriginEnvironment sets the OriginEnvironment field's value.
+func (s *RecoveryInstance) SetOriginEnvironment(v string) *RecoveryInstance {
+	s.OriginEnvironment = &v
+	return s
+}
+
 // SetPointInTimeSnapshotDateTime sets the PointInTimeSnapshotDateTime field's value.
 func (s *RecoveryInstance) SetPointInTimeSnapshotDateTime(v string) *RecoveryInstance {
 	s.PointInTimeSnapshotDateTime = &v
@@ -7707,6 +11824,12 @@ func (s *RecoveryInstance) SetRecoveryInstanceID(v string) *RecoveryInstance {
 // SetRecoveryInstanceProperties sets the RecoveryInstanceProperties field's value.
 func (s *RecoveryInstance) SetRecoveryInstanceProperties(v *RecoveryInstanceProperties) *RecoveryInstance {
 	s.RecoveryInstanceProperties = v
+	return s
+}
+
+// SetSourceOutpostArn sets the SourceOutpostArn field's value.
+func (s *RecoveryInstance) SetSourceOutpostArn(v string) *RecoveryInstance {
+	s.SourceOutpostArn = &v
 	return s
 }
 
@@ -7784,6 +11907,12 @@ type RecoveryInstanceDataReplicationInfo struct {
 
 	// The disks that should be replicated.
 	ReplicatedDisks []*RecoveryInstanceDataReplicationInfoReplicatedDisk `locationName:"replicatedDisks" type:"list"`
+
+	// AWS Availability zone into which data is being replicated.
+	StagingAvailabilityZone *string `locationName:"stagingAvailabilityZone" type:"string"`
+
+	// The ARN of the staging Outpost
+	StagingOutpostArn *string `locationName:"stagingOutpostArn" min:"20" type:"string"`
 }
 
 // String returns the string representation.
@@ -7837,6 +11966,18 @@ func (s *RecoveryInstanceDataReplicationInfo) SetLagDuration(v string) *Recovery
 // SetReplicatedDisks sets the ReplicatedDisks field's value.
 func (s *RecoveryInstanceDataReplicationInfo) SetReplicatedDisks(v []*RecoveryInstanceDataReplicationInfoReplicatedDisk) *RecoveryInstanceDataReplicationInfo {
 	s.ReplicatedDisks = v
+	return s
+}
+
+// SetStagingAvailabilityZone sets the StagingAvailabilityZone field's value.
+func (s *RecoveryInstanceDataReplicationInfo) SetStagingAvailabilityZone(v string) *RecoveryInstanceDataReplicationInfo {
+	s.StagingAvailabilityZone = &v
+	return s
+}
+
+// SetStagingOutpostArn sets the StagingOutpostArn field's value.
+func (s *RecoveryInstanceDataReplicationInfo) SetStagingOutpostArn(v string) *RecoveryInstanceDataReplicationInfo {
+	s.StagingOutpostArn = &v
 	return s
 }
 
@@ -8064,6 +12205,10 @@ type RecoveryInstanceFailback struct {
 	// The Job ID of the last failback log for this Recovery Instance.
 	FailbackJobID *string `locationName:"failbackJobID" min:"24" type:"string"`
 
+	// The launch type (Recovery / Drill) of the last launch for the failback replication
+	// of this recovery instance.
+	FailbackLaunchType *string `locationName:"failbackLaunchType" type:"string" enum:"FailbackLaunchType"`
+
 	// Whether we are failing back to the original Source Server for this Recovery
 	// Instance.
 	FailbackToOriginalServer *bool `locationName:"failbackToOriginalServer" type:"boolean"`
@@ -8127,6 +12272,12 @@ func (s *RecoveryInstanceFailback) SetFailbackInitiationTime(v string) *Recovery
 // SetFailbackJobID sets the FailbackJobID field's value.
 func (s *RecoveryInstanceFailback) SetFailbackJobID(v string) *RecoveryInstanceFailback {
 	s.FailbackJobID = &v
+	return s
+}
+
+// SetFailbackLaunchType sets the FailbackLaunchType field's value.
+func (s *RecoveryInstanceFailback) SetFailbackLaunchType(v string) *RecoveryInstanceFailback {
+	s.FailbackLaunchType = &v
 	return s
 }
 
@@ -8231,6 +12382,56 @@ func (s *RecoveryInstanceProperties) SetOs(v *OS) *RecoveryInstanceProperties {
 // SetRamBytes sets the RamBytes field's value.
 func (s *RecoveryInstanceProperties) SetRamBytes(v int64) *RecoveryInstanceProperties {
 	s.RamBytes = &v
+	return s
+}
+
+// An object representing the Source Network recovery Lifecycle.
+type RecoveryLifeCycle struct {
+	_ struct{} `type:"structure"`
+
+	// The date and time the last Source Network recovery was initiated.
+	ApiCallDateTime *time.Time `locationName:"apiCallDateTime" type:"timestamp" timestampFormat:"iso8601"`
+
+	// The ID of the Job that was used to last recover the Source Network.
+	JobID *string `locationName:"jobID" min:"24" type:"string"`
+
+	// The status of the last recovery status of this Source Network.
+	LastRecoveryResult *string `locationName:"lastRecoveryResult" type:"string" enum:"RecoveryResult"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RecoveryLifeCycle) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RecoveryLifeCycle) GoString() string {
+	return s.String()
+}
+
+// SetApiCallDateTime sets the ApiCallDateTime field's value.
+func (s *RecoveryLifeCycle) SetApiCallDateTime(v time.Time) *RecoveryLifeCycle {
+	s.ApiCallDateTime = &v
+	return s
+}
+
+// SetJobID sets the JobID field's value.
+func (s *RecoveryLifeCycle) SetJobID(v string) *RecoveryLifeCycle {
+	s.JobID = &v
+	return s
+}
+
+// SetLastRecoveryResult sets the LastRecoveryResult field's value.
+func (s *RecoveryLifeCycle) SetLastRecoveryResult(v string) *RecoveryLifeCycle {
+	s.LastRecoveryResult = &v
 	return s
 }
 
@@ -8397,6 +12598,10 @@ type ReplicationConfigurationTemplate struct {
 	// with the Replication Configuration Template.
 	AssociateDefaultSecurityGroup *bool `locationName:"associateDefaultSecurityGroup" type:"boolean"`
 
+	// Whether to allow the AWS replication agent to automatically replicate newly
+	// added disks.
+	AutoReplicateNewDisks *bool `locationName:"autoReplicateNewDisks" type:"boolean"`
+
 	// Configure bandwidth throttling for the outbound data transfer rate of the
 	// Source Server in Mbps.
 	BandwidthThrottling *int64 `locationName:"bandwidthThrottling" type:"long"`
@@ -8481,6 +12686,12 @@ func (s *ReplicationConfigurationTemplate) SetArn(v string) *ReplicationConfigur
 // SetAssociateDefaultSecurityGroup sets the AssociateDefaultSecurityGroup field's value.
 func (s *ReplicationConfigurationTemplate) SetAssociateDefaultSecurityGroup(v bool) *ReplicationConfigurationTemplate {
 	s.AssociateDefaultSecurityGroup = &v
+	return s
+}
+
+// SetAutoReplicateNewDisks sets the AutoReplicateNewDisks field's value.
+func (s *ReplicationConfigurationTemplate) SetAutoReplicateNewDisks(v bool) *ReplicationConfigurationTemplate {
+	s.AutoReplicateNewDisks = &v
 	return s
 }
 
@@ -8640,8 +12851,9 @@ func (s *ResourceNotFoundException) RequestID() string {
 	return s.RespMetadata.RequestID
 }
 
+// Deprecated: WARNING: RetryDataReplication is deprecated
 type RetryDataReplicationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `deprecated:"true" type:"structure"`
 
 	// The ID of the Source Server whose data replication should be retried.
 	//
@@ -8692,6 +12904,9 @@ func (s *RetryDataReplicationInput) SetSourceServerID(v string) *RetryDataReplic
 type RetryDataReplicationOutput struct {
 	_ struct{} `type:"structure"`
 
+	// The version of the DRS agent installed on the source server
+	AgentVersion *string `locationName:"agentVersion" type:"string"`
+
 	// The ARN of the Source Server.
 	Arn *string `locationName:"arn" min:"20" type:"string"`
 
@@ -8706,6 +12921,20 @@ type RetryDataReplicationOutput struct {
 
 	// The ID of the Recovery Instance associated with this Source Server.
 	RecoveryInstanceId *string `locationName:"recoveryInstanceId" min:"10" type:"string"`
+
+	// Replication direction of the Source Server.
+	ReplicationDirection *string `locationName:"replicationDirection" type:"string" enum:"ReplicationDirection"`
+
+	// For EC2-originated Source Servers which have been failed over and then failed
+	// back, this value will mean the ARN of the Source Server on the opposite replication
+	// direction.
+	ReversedDirectionSourceServerArn *string `locationName:"reversedDirectionSourceServerArn" min:"20" type:"string"`
+
+	// Source cloud properties of the Source Server.
+	SourceCloudProperties *SourceCloudProperties `locationName:"sourceCloudProperties" type:"structure"`
+
+	// ID of the Source Network which is protecting this Source Server's network.
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string"`
 
 	// The source properties of the Source Server.
 	SourceProperties *SourceProperties `locationName:"sourceProperties" type:"structure"`
@@ -8742,6 +12971,12 @@ func (s RetryDataReplicationOutput) GoString() string {
 	return s.String()
 }
 
+// SetAgentVersion sets the AgentVersion field's value.
+func (s *RetryDataReplicationOutput) SetAgentVersion(v string) *RetryDataReplicationOutput {
+	s.AgentVersion = &v
+	return s
+}
+
 // SetArn sets the Arn field's value.
 func (s *RetryDataReplicationOutput) SetArn(v string) *RetryDataReplicationOutput {
 	s.Arn = &v
@@ -8772,6 +13007,30 @@ func (s *RetryDataReplicationOutput) SetRecoveryInstanceId(v string) *RetryDataR
 	return s
 }
 
+// SetReplicationDirection sets the ReplicationDirection field's value.
+func (s *RetryDataReplicationOutput) SetReplicationDirection(v string) *RetryDataReplicationOutput {
+	s.ReplicationDirection = &v
+	return s
+}
+
+// SetReversedDirectionSourceServerArn sets the ReversedDirectionSourceServerArn field's value.
+func (s *RetryDataReplicationOutput) SetReversedDirectionSourceServerArn(v string) *RetryDataReplicationOutput {
+	s.ReversedDirectionSourceServerArn = &v
+	return s
+}
+
+// SetSourceCloudProperties sets the SourceCloudProperties field's value.
+func (s *RetryDataReplicationOutput) SetSourceCloudProperties(v *SourceCloudProperties) *RetryDataReplicationOutput {
+	s.SourceCloudProperties = v
+	return s
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *RetryDataReplicationOutput) SetSourceNetworkID(v string) *RetryDataReplicationOutput {
+	s.SourceNetworkID = &v
+	return s
+}
+
 // SetSourceProperties sets the SourceProperties field's value.
 func (s *RetryDataReplicationOutput) SetSourceProperties(v *SourceProperties) *RetryDataReplicationOutput {
 	s.SourceProperties = v
@@ -8793,6 +13052,86 @@ func (s *RetryDataReplicationOutput) SetStagingArea(v *StagingArea) *RetryDataRe
 // SetTags sets the Tags field's value.
 func (s *RetryDataReplicationOutput) SetTags(v map[string]*string) *RetryDataReplicationOutput {
 	s.Tags = v
+	return s
+}
+
+type ReverseReplicationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the Recovery Instance that we want to reverse the replication for.
+	//
+	// RecoveryInstanceID is a required field
+	RecoveryInstanceID *string `locationName:"recoveryInstanceID" min:"10" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ReverseReplicationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ReverseReplicationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ReverseReplicationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ReverseReplicationInput"}
+	if s.RecoveryInstanceID == nil {
+		invalidParams.Add(request.NewErrParamRequired("RecoveryInstanceID"))
+	}
+	if s.RecoveryInstanceID != nil && len(*s.RecoveryInstanceID) < 10 {
+		invalidParams.Add(request.NewErrParamMinLen("RecoveryInstanceID", 10))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetRecoveryInstanceID sets the RecoveryInstanceID field's value.
+func (s *ReverseReplicationInput) SetRecoveryInstanceID(v string) *ReverseReplicationInput {
+	s.RecoveryInstanceID = &v
+	return s
+}
+
+type ReverseReplicationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// ARN of created SourceServer.
+	ReversedDirectionSourceServerArn *string `locationName:"reversedDirectionSourceServerArn" min:"20" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ReverseReplicationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ReverseReplicationOutput) GoString() string {
+	return s.String()
+}
+
+// SetReversedDirectionSourceServerArn sets the ReversedDirectionSourceServerArn field's value.
+func (s *ReverseReplicationOutput) SetReversedDirectionSourceServerArn(v string) *ReverseReplicationOutput {
+	s.ReversedDirectionSourceServerArn = &v
 	return s
 }
 
@@ -8874,6 +13213,262 @@ func (s *ServiceQuotaExceededException) RequestID() string {
 	return s.RespMetadata.RequestID
 }
 
+// Properties of the cloud environment where this Source Server originated from.
+type SourceCloudProperties struct {
+	_ struct{} `type:"structure"`
+
+	// AWS Account ID for an EC2-originated Source Server.
+	OriginAccountID *string `locationName:"originAccountID" min:"12" type:"string"`
+
+	// AWS Availability Zone for an EC2-originated Source Server.
+	OriginAvailabilityZone *string `locationName:"originAvailabilityZone" type:"string"`
+
+	// AWS Region for an EC2-originated Source Server.
+	OriginRegion *string `locationName:"originRegion" type:"string"`
+
+	// The ARN of the source Outpost
+	SourceOutpostArn *string `locationName:"sourceOutpostArn" min:"20" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SourceCloudProperties) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SourceCloudProperties) GoString() string {
+	return s.String()
+}
+
+// SetOriginAccountID sets the OriginAccountID field's value.
+func (s *SourceCloudProperties) SetOriginAccountID(v string) *SourceCloudProperties {
+	s.OriginAccountID = &v
+	return s
+}
+
+// SetOriginAvailabilityZone sets the OriginAvailabilityZone field's value.
+func (s *SourceCloudProperties) SetOriginAvailabilityZone(v string) *SourceCloudProperties {
+	s.OriginAvailabilityZone = &v
+	return s
+}
+
+// SetOriginRegion sets the OriginRegion field's value.
+func (s *SourceCloudProperties) SetOriginRegion(v string) *SourceCloudProperties {
+	s.OriginRegion = &v
+	return s
+}
+
+// SetSourceOutpostArn sets the SourceOutpostArn field's value.
+func (s *SourceCloudProperties) SetSourceOutpostArn(v string) *SourceCloudProperties {
+	s.SourceOutpostArn = &v
+	return s
+}
+
+// The ARN of the Source Network.
+type SourceNetwork struct {
+	_ struct{} `type:"structure"`
+
+	// The ARN of the Source Network.
+	Arn *string `locationName:"arn" min:"20" type:"string"`
+
+	// CloudFormation stack name that was deployed for recovering the Source Network.
+	//
+	// CfnStackName is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by SourceNetwork's
+	// String and GoString methods.
+	CfnStackName *string `locationName:"cfnStackName" min:"1" type:"string" sensitive:"true"`
+
+	// An object containing information regarding the last recovery of the Source
+	// Network.
+	LastRecovery *RecoveryLifeCycle `locationName:"lastRecovery" type:"structure"`
+
+	// ID of the recovered VPC following Source Network recovery.
+	LaunchedVpcID *string `locationName:"launchedVpcID" min:"12" type:"string"`
+
+	// Status of Source Network Replication. Possible values: (a) STOPPED - Source
+	// Network is not replicating. (b) IN_PROGRESS - Source Network is being replicated.
+	// (c) PROTECTED - Source Network was replicated successfully and is being synchronized
+	// for changes. (d) ERROR - Source Network replication has failed
+	ReplicationStatus *string `locationName:"replicationStatus" type:"string" enum:"ReplicationStatus"`
+
+	// Error details in case Source Network replication status is ERROR.
+	//
+	// ReplicationStatusDetails is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by SourceNetwork's
+	// String and GoString methods.
+	ReplicationStatusDetails *string `locationName:"replicationStatusDetails" type:"string" sensitive:"true"`
+
+	// Account ID containing the VPC protected by the Source Network.
+	SourceAccountID *string `locationName:"sourceAccountID" min:"12" type:"string"`
+
+	// Source Network ID.
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string"`
+
+	// Region containing the VPC protected by the Source Network.
+	SourceRegion *string `locationName:"sourceRegion" type:"string"`
+
+	// VPC ID protected by the Source Network.
+	SourceVpcID *string `locationName:"sourceVpcID" min:"12" type:"string"`
+
+	// A list of tags associated with the Source Network.
+	//
+	// Tags is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by SourceNetwork's
+	// String and GoString methods.
+	Tags map[string]*string `locationName:"tags" type:"map" sensitive:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SourceNetwork) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SourceNetwork) GoString() string {
+	return s.String()
+}
+
+// SetArn sets the Arn field's value.
+func (s *SourceNetwork) SetArn(v string) *SourceNetwork {
+	s.Arn = &v
+	return s
+}
+
+// SetCfnStackName sets the CfnStackName field's value.
+func (s *SourceNetwork) SetCfnStackName(v string) *SourceNetwork {
+	s.CfnStackName = &v
+	return s
+}
+
+// SetLastRecovery sets the LastRecovery field's value.
+func (s *SourceNetwork) SetLastRecovery(v *RecoveryLifeCycle) *SourceNetwork {
+	s.LastRecovery = v
+	return s
+}
+
+// SetLaunchedVpcID sets the LaunchedVpcID field's value.
+func (s *SourceNetwork) SetLaunchedVpcID(v string) *SourceNetwork {
+	s.LaunchedVpcID = &v
+	return s
+}
+
+// SetReplicationStatus sets the ReplicationStatus field's value.
+func (s *SourceNetwork) SetReplicationStatus(v string) *SourceNetwork {
+	s.ReplicationStatus = &v
+	return s
+}
+
+// SetReplicationStatusDetails sets the ReplicationStatusDetails field's value.
+func (s *SourceNetwork) SetReplicationStatusDetails(v string) *SourceNetwork {
+	s.ReplicationStatusDetails = &v
+	return s
+}
+
+// SetSourceAccountID sets the SourceAccountID field's value.
+func (s *SourceNetwork) SetSourceAccountID(v string) *SourceNetwork {
+	s.SourceAccountID = &v
+	return s
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *SourceNetwork) SetSourceNetworkID(v string) *SourceNetwork {
+	s.SourceNetworkID = &v
+	return s
+}
+
+// SetSourceRegion sets the SourceRegion field's value.
+func (s *SourceNetwork) SetSourceRegion(v string) *SourceNetwork {
+	s.SourceRegion = &v
+	return s
+}
+
+// SetSourceVpcID sets the SourceVpcID field's value.
+func (s *SourceNetwork) SetSourceVpcID(v string) *SourceNetwork {
+	s.SourceVpcID = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *SourceNetwork) SetTags(v map[string]*string) *SourceNetwork {
+	s.Tags = v
+	return s
+}
+
+// Properties of Source Network related to a job event.
+type SourceNetworkData struct {
+	_ struct{} `type:"structure"`
+
+	// Source Network ID.
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string"`
+
+	// VPC ID protected by the Source Network.
+	SourceVpc *string `locationName:"sourceVpc" min:"12" type:"string"`
+
+	// CloudFormation stack name that was deployed for recovering the Source Network.
+	StackName *string `locationName:"stackName" type:"string"`
+
+	// ID of the recovered VPC following Source Network recovery.
+	TargetVpc *string `locationName:"targetVpc" min:"12" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SourceNetworkData) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SourceNetworkData) GoString() string {
+	return s.String()
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *SourceNetworkData) SetSourceNetworkID(v string) *SourceNetworkData {
+	s.SourceNetworkID = &v
+	return s
+}
+
+// SetSourceVpc sets the SourceVpc field's value.
+func (s *SourceNetworkData) SetSourceVpc(v string) *SourceNetworkData {
+	s.SourceVpc = &v
+	return s
+}
+
+// SetStackName sets the StackName field's value.
+func (s *SourceNetworkData) SetStackName(v string) *SourceNetworkData {
+	s.StackName = &v
+	return s
+}
+
+// SetTargetVpc sets the TargetVpc field's value.
+func (s *SourceNetworkData) SetTargetVpc(v string) *SourceNetworkData {
+	s.TargetVpc = &v
+	return s
+}
+
 // Properties of the Source Server machine.
 type SourceProperties struct {
 	_ struct{} `type:"structure"`
@@ -8902,6 +13497,9 @@ type SourceProperties struct {
 	// The recommended EC2 instance type that will be used when recovering the Source
 	// Server.
 	RecommendedInstanceType *string `locationName:"recommendedInstanceType" type:"string"`
+
+	// Are EC2 nitro instance types supported when recovering the Source Server.
+	SupportsNitroInstances *bool `locationName:"supportsNitroInstances" type:"boolean"`
 }
 
 // String returns the string representation.
@@ -8970,8 +13568,17 @@ func (s *SourceProperties) SetRecommendedInstanceType(v string) *SourcePropertie
 	return s
 }
 
+// SetSupportsNitroInstances sets the SupportsNitroInstances field's value.
+func (s *SourceProperties) SetSupportsNitroInstances(v bool) *SourceProperties {
+	s.SupportsNitroInstances = &v
+	return s
+}
+
 type SourceServer struct {
 	_ struct{} `type:"structure"`
+
+	// The version of the DRS agent installed on the source server
+	AgentVersion *string `locationName:"agentVersion" type:"string"`
 
 	// The ARN of the Source Server.
 	Arn *string `locationName:"arn" min:"20" type:"string"`
@@ -8987,6 +13594,20 @@ type SourceServer struct {
 
 	// The ID of the Recovery Instance associated with this Source Server.
 	RecoveryInstanceId *string `locationName:"recoveryInstanceId" min:"10" type:"string"`
+
+	// Replication direction of the Source Server.
+	ReplicationDirection *string `locationName:"replicationDirection" type:"string" enum:"ReplicationDirection"`
+
+	// For EC2-originated Source Servers which have been failed over and then failed
+	// back, this value will mean the ARN of the Source Server on the opposite replication
+	// direction.
+	ReversedDirectionSourceServerArn *string `locationName:"reversedDirectionSourceServerArn" min:"20" type:"string"`
+
+	// Source cloud properties of the Source Server.
+	SourceCloudProperties *SourceCloudProperties `locationName:"sourceCloudProperties" type:"structure"`
+
+	// ID of the Source Network which is protecting this Source Server's network.
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string"`
 
 	// The source properties of the Source Server.
 	SourceProperties *SourceProperties `locationName:"sourceProperties" type:"structure"`
@@ -9023,6 +13644,12 @@ func (s SourceServer) GoString() string {
 	return s.String()
 }
 
+// SetAgentVersion sets the AgentVersion field's value.
+func (s *SourceServer) SetAgentVersion(v string) *SourceServer {
+	s.AgentVersion = &v
+	return s
+}
+
 // SetArn sets the Arn field's value.
 func (s *SourceServer) SetArn(v string) *SourceServer {
 	s.Arn = &v
@@ -9050,6 +13677,30 @@ func (s *SourceServer) SetLifeCycle(v *LifeCycle) *SourceServer {
 // SetRecoveryInstanceId sets the RecoveryInstanceId field's value.
 func (s *SourceServer) SetRecoveryInstanceId(v string) *SourceServer {
 	s.RecoveryInstanceId = &v
+	return s
+}
+
+// SetReplicationDirection sets the ReplicationDirection field's value.
+func (s *SourceServer) SetReplicationDirection(v string) *SourceServer {
+	s.ReplicationDirection = &v
+	return s
+}
+
+// SetReversedDirectionSourceServerArn sets the ReversedDirectionSourceServerArn field's value.
+func (s *SourceServer) SetReversedDirectionSourceServerArn(v string) *SourceServer {
+	s.ReversedDirectionSourceServerArn = &v
+	return s
+}
+
+// SetSourceCloudProperties sets the SourceCloudProperties field's value.
+func (s *SourceServer) SetSourceCloudProperties(v *SourceCloudProperties) *SourceServer {
+	s.SourceCloudProperties = v
+	return s
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *SourceServer) SetSourceNetworkID(v string) *SourceServer {
+	s.SourceNetworkID = &v
 	return s
 }
 
@@ -9466,6 +14117,345 @@ func (s *StartRecoveryRequestSourceServer) SetSourceServerID(v string) *StartRec
 	return s
 }
 
+type StartReplicationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the Source Server to start replication for.
+	//
+	// SourceServerID is a required field
+	SourceServerID *string `locationName:"sourceServerID" min:"19" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartReplicationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartReplicationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StartReplicationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StartReplicationInput"}
+	if s.SourceServerID == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceServerID"))
+	}
+	if s.SourceServerID != nil && len(*s.SourceServerID) < 19 {
+		invalidParams.Add(request.NewErrParamMinLen("SourceServerID", 19))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSourceServerID sets the SourceServerID field's value.
+func (s *StartReplicationInput) SetSourceServerID(v string) *StartReplicationInput {
+	s.SourceServerID = &v
+	return s
+}
+
+type StartReplicationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The Source Server that this action was targeted on.
+	SourceServer *SourceServer `locationName:"sourceServer" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartReplicationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartReplicationOutput) GoString() string {
+	return s.String()
+}
+
+// SetSourceServer sets the SourceServer field's value.
+func (s *StartReplicationOutput) SetSourceServer(v *SourceServer) *StartReplicationOutput {
+	s.SourceServer = v
+	return s
+}
+
+type StartSourceNetworkRecoveryInput struct {
+	_ struct{} `type:"structure"`
+
+	// Don't update existing CloudFormation Stack, recover the network using a new
+	// stack.
+	DeployAsNew *bool `locationName:"deployAsNew" type:"boolean"`
+
+	// The Source Networks that we want to start a Recovery Job for.
+	//
+	// SourceNetworks is a required field
+	SourceNetworks []*StartSourceNetworkRecoveryRequestNetworkEntry `locationName:"sourceNetworks" min:"1" type:"list" required:"true"`
+
+	// The tags to be associated with the Source Network recovery Job.
+	//
+	// Tags is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by StartSourceNetworkRecoveryInput's
+	// String and GoString methods.
+	Tags map[string]*string `locationName:"tags" type:"map" sensitive:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSourceNetworkRecoveryInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSourceNetworkRecoveryInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StartSourceNetworkRecoveryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StartSourceNetworkRecoveryInput"}
+	if s.SourceNetworks == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceNetworks"))
+	}
+	if s.SourceNetworks != nil && len(s.SourceNetworks) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SourceNetworks", 1))
+	}
+	if s.SourceNetworks != nil {
+		for i, v := range s.SourceNetworks {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "SourceNetworks", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDeployAsNew sets the DeployAsNew field's value.
+func (s *StartSourceNetworkRecoveryInput) SetDeployAsNew(v bool) *StartSourceNetworkRecoveryInput {
+	s.DeployAsNew = &v
+	return s
+}
+
+// SetSourceNetworks sets the SourceNetworks field's value.
+func (s *StartSourceNetworkRecoveryInput) SetSourceNetworks(v []*StartSourceNetworkRecoveryRequestNetworkEntry) *StartSourceNetworkRecoveryInput {
+	s.SourceNetworks = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *StartSourceNetworkRecoveryInput) SetTags(v map[string]*string) *StartSourceNetworkRecoveryInput {
+	s.Tags = v
+	return s
+}
+
+type StartSourceNetworkRecoveryOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The Source Network recovery Job.
+	Job *Job `locationName:"job" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSourceNetworkRecoveryOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSourceNetworkRecoveryOutput) GoString() string {
+	return s.String()
+}
+
+// SetJob sets the Job field's value.
+func (s *StartSourceNetworkRecoveryOutput) SetJob(v *Job) *StartSourceNetworkRecoveryOutput {
+	s.Job = v
+	return s
+}
+
+// An object representing the Source Network to recover.
+type StartSourceNetworkRecoveryRequestNetworkEntry struct {
+	_ struct{} `type:"structure"`
+
+	// CloudFormation stack name to be used for recovering the network.
+	//
+	// CfnStackName is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by StartSourceNetworkRecoveryRequestNetworkEntry's
+	// String and GoString methods.
+	CfnStackName *string `locationName:"cfnStackName" min:"1" type:"string" sensitive:"true"`
+
+	// The ID of the Source Network you want to recover.
+	//
+	// SourceNetworkID is a required field
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSourceNetworkRecoveryRequestNetworkEntry) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSourceNetworkRecoveryRequestNetworkEntry) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StartSourceNetworkRecoveryRequestNetworkEntry) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StartSourceNetworkRecoveryRequestNetworkEntry"}
+	if s.CfnStackName != nil && len(*s.CfnStackName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CfnStackName", 1))
+	}
+	if s.SourceNetworkID == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceNetworkID"))
+	}
+	if s.SourceNetworkID != nil && len(*s.SourceNetworkID) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("SourceNetworkID", 20))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCfnStackName sets the CfnStackName field's value.
+func (s *StartSourceNetworkRecoveryRequestNetworkEntry) SetCfnStackName(v string) *StartSourceNetworkRecoveryRequestNetworkEntry {
+	s.CfnStackName = &v
+	return s
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *StartSourceNetworkRecoveryRequestNetworkEntry) SetSourceNetworkID(v string) *StartSourceNetworkRecoveryRequestNetworkEntry {
+	s.SourceNetworkID = &v
+	return s
+}
+
+type StartSourceNetworkReplicationInput struct {
+	_ struct{} `type:"structure"`
+
+	// ID of the Source Network to replicate.
+	//
+	// SourceNetworkID is a required field
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSourceNetworkReplicationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSourceNetworkReplicationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StartSourceNetworkReplicationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StartSourceNetworkReplicationInput"}
+	if s.SourceNetworkID == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceNetworkID"))
+	}
+	if s.SourceNetworkID != nil && len(*s.SourceNetworkID) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("SourceNetworkID", 20))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *StartSourceNetworkReplicationInput) SetSourceNetworkID(v string) *StartSourceNetworkReplicationInput {
+	s.SourceNetworkID = &v
+	return s
+}
+
+type StartSourceNetworkReplicationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Source Network which was requested for replication.
+	SourceNetwork *SourceNetwork `locationName:"sourceNetwork" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSourceNetworkReplicationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSourceNetworkReplicationOutput) GoString() string {
+	return s.String()
+}
+
+// SetSourceNetwork sets the SourceNetwork field's value.
+func (s *StartSourceNetworkReplicationOutput) SetSourceNetwork(v *SourceNetwork) *StartSourceNetworkReplicationOutput {
+	s.SourceNetwork = v
+	return s
+}
+
 type StopFailbackInput struct {
 	_ struct{} `type:"structure"`
 
@@ -9535,6 +14525,166 @@ func (s StopFailbackOutput) String() string {
 // value will be replaced with "sensitive".
 func (s StopFailbackOutput) GoString() string {
 	return s.String()
+}
+
+type StopReplicationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the Source Server to stop replication for.
+	//
+	// SourceServerID is a required field
+	SourceServerID *string `locationName:"sourceServerID" min:"19" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StopReplicationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StopReplicationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StopReplicationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StopReplicationInput"}
+	if s.SourceServerID == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceServerID"))
+	}
+	if s.SourceServerID != nil && len(*s.SourceServerID) < 19 {
+		invalidParams.Add(request.NewErrParamMinLen("SourceServerID", 19))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSourceServerID sets the SourceServerID field's value.
+func (s *StopReplicationInput) SetSourceServerID(v string) *StopReplicationInput {
+	s.SourceServerID = &v
+	return s
+}
+
+type StopReplicationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The Source Server that this action was targeted on.
+	SourceServer *SourceServer `locationName:"sourceServer" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StopReplicationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StopReplicationOutput) GoString() string {
+	return s.String()
+}
+
+// SetSourceServer sets the SourceServer field's value.
+func (s *StopReplicationOutput) SetSourceServer(v *SourceServer) *StopReplicationOutput {
+	s.SourceServer = v
+	return s
+}
+
+type StopSourceNetworkReplicationInput struct {
+	_ struct{} `type:"structure"`
+
+	// ID of the Source Network to stop replication.
+	//
+	// SourceNetworkID is a required field
+	SourceNetworkID *string `locationName:"sourceNetworkID" min:"20" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StopSourceNetworkReplicationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StopSourceNetworkReplicationInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StopSourceNetworkReplicationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StopSourceNetworkReplicationInput"}
+	if s.SourceNetworkID == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceNetworkID"))
+	}
+	if s.SourceNetworkID != nil && len(*s.SourceNetworkID) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("SourceNetworkID", 20))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSourceNetworkID sets the SourceNetworkID field's value.
+func (s *StopSourceNetworkReplicationInput) SetSourceNetworkID(v string) *StopSourceNetworkReplicationInput {
+	s.SourceNetworkID = &v
+	return s
+}
+
+type StopSourceNetworkReplicationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Source Network which was requested to stop replication.
+	SourceNetwork *SourceNetwork `locationName:"sourceNetwork" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StopSourceNetworkReplicationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StopSourceNetworkReplicationOutput) GoString() string {
+	return s.String()
+}
+
+// SetSourceNetwork sets the SourceNetwork field's value.
+func (s *StopSourceNetworkReplicationOutput) SetSourceNetwork(v *SourceNetwork) *StopSourceNetworkReplicationOutput {
+	s.SourceNetwork = v
+	return s
 }
 
 type TagResourceInput struct {
@@ -10047,11 +15197,17 @@ type UpdateLaunchConfigurationInput struct {
 	// The state of the Recovery Instance in EC2 after the recovery operation.
 	LaunchDisposition *string `locationName:"launchDisposition" type:"string" enum:"LaunchDisposition"`
 
+	// Launch into existing instance properties.
+	LaunchIntoInstanceProperties *LaunchIntoInstanceProperties `locationName:"launchIntoInstanceProperties" type:"structure"`
+
 	// The licensing configuration to be used for this launch configuration.
 	Licensing *Licensing `locationName:"licensing" type:"structure"`
 
 	// The name of the launch configuration.
 	Name *string `locationName:"name" type:"string"`
+
+	// Whether we want to enable post-launch actions for the Source Server.
+	PostLaunchEnabled *bool `locationName:"postLaunchEnabled" type:"boolean"`
 
 	// The ID of the Source Server that we want to retrieve a Launch Configuration
 	// for.
@@ -10116,6 +15272,12 @@ func (s *UpdateLaunchConfigurationInput) SetLaunchDisposition(v string) *UpdateL
 	return s
 }
 
+// SetLaunchIntoInstanceProperties sets the LaunchIntoInstanceProperties field's value.
+func (s *UpdateLaunchConfigurationInput) SetLaunchIntoInstanceProperties(v *LaunchIntoInstanceProperties) *UpdateLaunchConfigurationInput {
+	s.LaunchIntoInstanceProperties = v
+	return s
+}
+
 // SetLicensing sets the Licensing field's value.
 func (s *UpdateLaunchConfigurationInput) SetLicensing(v *Licensing) *UpdateLaunchConfigurationInput {
 	s.Licensing = v
@@ -10125,6 +15287,12 @@ func (s *UpdateLaunchConfigurationInput) SetLicensing(v *Licensing) *UpdateLaunc
 // SetName sets the Name field's value.
 func (s *UpdateLaunchConfigurationInput) SetName(v string) *UpdateLaunchConfigurationInput {
 	s.Name = &v
+	return s
+}
+
+// SetPostLaunchEnabled sets the PostLaunchEnabled field's value.
+func (s *UpdateLaunchConfigurationInput) SetPostLaunchEnabled(v bool) *UpdateLaunchConfigurationInput {
+	s.PostLaunchEnabled = &v
 	return s
 }
 
@@ -10157,11 +15325,17 @@ type UpdateLaunchConfigurationOutput struct {
 	// The state of the Recovery Instance in EC2 after the recovery operation.
 	LaunchDisposition *string `locationName:"launchDisposition" type:"string" enum:"LaunchDisposition"`
 
+	// Launch into existing instance properties.
+	LaunchIntoInstanceProperties *LaunchIntoInstanceProperties `locationName:"launchIntoInstanceProperties" type:"structure"`
+
 	// The licensing configuration to be used for this launch configuration.
 	Licensing *Licensing `locationName:"licensing" type:"structure"`
 
 	// The name of the launch configuration.
 	Name *string `locationName:"name" type:"string"`
+
+	// Whether we want to activate post-launch actions for the Source Server.
+	PostLaunchEnabled *bool `locationName:"postLaunchEnabled" type:"boolean"`
 
 	// The ID of the Source Server for this launch configuration.
 	SourceServerID *string `locationName:"sourceServerID" min:"19" type:"string"`
@@ -10213,6 +15387,12 @@ func (s *UpdateLaunchConfigurationOutput) SetLaunchDisposition(v string) *Update
 	return s
 }
 
+// SetLaunchIntoInstanceProperties sets the LaunchIntoInstanceProperties field's value.
+func (s *UpdateLaunchConfigurationOutput) SetLaunchIntoInstanceProperties(v *LaunchIntoInstanceProperties) *UpdateLaunchConfigurationOutput {
+	s.LaunchIntoInstanceProperties = v
+	return s
+}
+
 // SetLicensing sets the Licensing field's value.
 func (s *UpdateLaunchConfigurationOutput) SetLicensing(v *Licensing) *UpdateLaunchConfigurationOutput {
 	s.Licensing = v
@@ -10222,6 +15402,12 @@ func (s *UpdateLaunchConfigurationOutput) SetLicensing(v *Licensing) *UpdateLaun
 // SetName sets the Name field's value.
 func (s *UpdateLaunchConfigurationOutput) SetName(v string) *UpdateLaunchConfigurationOutput {
 	s.Name = &v
+	return s
+}
+
+// SetPostLaunchEnabled sets the PostLaunchEnabled field's value.
+func (s *UpdateLaunchConfigurationOutput) SetPostLaunchEnabled(v bool) *UpdateLaunchConfigurationOutput {
+	s.PostLaunchEnabled = &v
 	return s
 }
 
@@ -10237,12 +15423,173 @@ func (s *UpdateLaunchConfigurationOutput) SetTargetInstanceTypeRightSizingMethod
 	return s
 }
 
+type UpdateLaunchConfigurationTemplateInput struct {
+	_ struct{} `type:"structure"`
+
+	// Copy private IP.
+	CopyPrivateIp *bool `locationName:"copyPrivateIp" type:"boolean"`
+
+	// Copy tags.
+	CopyTags *bool `locationName:"copyTags" type:"boolean"`
+
+	// S3 bucket ARN to export Source Network templates.
+	ExportBucketArn *string `locationName:"exportBucketArn" min:"20" type:"string"`
+
+	// Launch Configuration Template ID.
+	//
+	// LaunchConfigurationTemplateID is a required field
+	LaunchConfigurationTemplateID *string `locationName:"launchConfigurationTemplateID" min:"21" type:"string" required:"true"`
+
+	// Launch disposition.
+	LaunchDisposition *string `locationName:"launchDisposition" type:"string" enum:"LaunchDisposition"`
+
+	// DRS will set the 'launch into instance ID' of any source server when performing
+	// a drill, recovery or failback to the previous region or availability zone,
+	// using the instance ID of the source instance.
+	LaunchIntoSourceInstance *bool `locationName:"launchIntoSourceInstance" type:"boolean"`
+
+	// Licensing.
+	Licensing *Licensing `locationName:"licensing" type:"structure"`
+
+	// Whether we want to activate post-launch actions.
+	PostLaunchEnabled *bool `locationName:"postLaunchEnabled" type:"boolean"`
+
+	// Target instance type right-sizing method.
+	TargetInstanceTypeRightSizingMethod *string `locationName:"targetInstanceTypeRightSizingMethod" type:"string" enum:"TargetInstanceTypeRightSizingMethod"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateLaunchConfigurationTemplateInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateLaunchConfigurationTemplateInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateLaunchConfigurationTemplateInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateLaunchConfigurationTemplateInput"}
+	if s.ExportBucketArn != nil && len(*s.ExportBucketArn) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("ExportBucketArn", 20))
+	}
+	if s.LaunchConfigurationTemplateID == nil {
+		invalidParams.Add(request.NewErrParamRequired("LaunchConfigurationTemplateID"))
+	}
+	if s.LaunchConfigurationTemplateID != nil && len(*s.LaunchConfigurationTemplateID) < 21 {
+		invalidParams.Add(request.NewErrParamMinLen("LaunchConfigurationTemplateID", 21))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCopyPrivateIp sets the CopyPrivateIp field's value.
+func (s *UpdateLaunchConfigurationTemplateInput) SetCopyPrivateIp(v bool) *UpdateLaunchConfigurationTemplateInput {
+	s.CopyPrivateIp = &v
+	return s
+}
+
+// SetCopyTags sets the CopyTags field's value.
+func (s *UpdateLaunchConfigurationTemplateInput) SetCopyTags(v bool) *UpdateLaunchConfigurationTemplateInput {
+	s.CopyTags = &v
+	return s
+}
+
+// SetExportBucketArn sets the ExportBucketArn field's value.
+func (s *UpdateLaunchConfigurationTemplateInput) SetExportBucketArn(v string) *UpdateLaunchConfigurationTemplateInput {
+	s.ExportBucketArn = &v
+	return s
+}
+
+// SetLaunchConfigurationTemplateID sets the LaunchConfigurationTemplateID field's value.
+func (s *UpdateLaunchConfigurationTemplateInput) SetLaunchConfigurationTemplateID(v string) *UpdateLaunchConfigurationTemplateInput {
+	s.LaunchConfigurationTemplateID = &v
+	return s
+}
+
+// SetLaunchDisposition sets the LaunchDisposition field's value.
+func (s *UpdateLaunchConfigurationTemplateInput) SetLaunchDisposition(v string) *UpdateLaunchConfigurationTemplateInput {
+	s.LaunchDisposition = &v
+	return s
+}
+
+// SetLaunchIntoSourceInstance sets the LaunchIntoSourceInstance field's value.
+func (s *UpdateLaunchConfigurationTemplateInput) SetLaunchIntoSourceInstance(v bool) *UpdateLaunchConfigurationTemplateInput {
+	s.LaunchIntoSourceInstance = &v
+	return s
+}
+
+// SetLicensing sets the Licensing field's value.
+func (s *UpdateLaunchConfigurationTemplateInput) SetLicensing(v *Licensing) *UpdateLaunchConfigurationTemplateInput {
+	s.Licensing = v
+	return s
+}
+
+// SetPostLaunchEnabled sets the PostLaunchEnabled field's value.
+func (s *UpdateLaunchConfigurationTemplateInput) SetPostLaunchEnabled(v bool) *UpdateLaunchConfigurationTemplateInput {
+	s.PostLaunchEnabled = &v
+	return s
+}
+
+// SetTargetInstanceTypeRightSizingMethod sets the TargetInstanceTypeRightSizingMethod field's value.
+func (s *UpdateLaunchConfigurationTemplateInput) SetTargetInstanceTypeRightSizingMethod(v string) *UpdateLaunchConfigurationTemplateInput {
+	s.TargetInstanceTypeRightSizingMethod = &v
+	return s
+}
+
+type UpdateLaunchConfigurationTemplateOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Updated Launch Configuration Template.
+	LaunchConfigurationTemplate *LaunchConfigurationTemplate `locationName:"launchConfigurationTemplate" type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateLaunchConfigurationTemplateOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateLaunchConfigurationTemplateOutput) GoString() string {
+	return s.String()
+}
+
+// SetLaunchConfigurationTemplate sets the LaunchConfigurationTemplate field's value.
+func (s *UpdateLaunchConfigurationTemplateOutput) SetLaunchConfigurationTemplate(v *LaunchConfigurationTemplate) *UpdateLaunchConfigurationTemplateOutput {
+	s.LaunchConfigurationTemplate = v
+	return s
+}
+
 type UpdateReplicationConfigurationInput struct {
 	_ struct{} `type:"structure"`
 
 	// Whether to associate the default Elastic Disaster Recovery Security group
 	// with the Replication Configuration.
 	AssociateDefaultSecurityGroup *bool `locationName:"associateDefaultSecurityGroup" type:"boolean"`
+
+	// Whether to allow the AWS replication agent to automatically replicate newly
+	// added disks.
+	AutoReplicateNewDisks *bool `locationName:"autoReplicateNewDisks" type:"boolean"`
 
 	// Configure bandwidth throttling for the outbound data transfer rate of the
 	// Source Server in Mbps.
@@ -10355,6 +15702,12 @@ func (s *UpdateReplicationConfigurationInput) SetAssociateDefaultSecurityGroup(v
 	return s
 }
 
+// SetAutoReplicateNewDisks sets the AutoReplicateNewDisks field's value.
+func (s *UpdateReplicationConfigurationInput) SetAutoReplicateNewDisks(v bool) *UpdateReplicationConfigurationInput {
+	s.AutoReplicateNewDisks = &v
+	return s
+}
+
 // SetBandwidthThrottling sets the BandwidthThrottling field's value.
 func (s *UpdateReplicationConfigurationInput) SetBandwidthThrottling(v int64) *UpdateReplicationConfigurationInput {
 	s.BandwidthThrottling = &v
@@ -10452,6 +15805,10 @@ type UpdateReplicationConfigurationOutput struct {
 	// with the Replication Configuration.
 	AssociateDefaultSecurityGroup *bool `locationName:"associateDefaultSecurityGroup" type:"boolean"`
 
+	// Whether to allow the AWS replication agent to automatically replicate newly
+	// added disks.
+	AutoReplicateNewDisks *bool `locationName:"autoReplicateNewDisks" type:"boolean"`
+
 	// Configure bandwidth throttling for the outbound data transfer rate of the
 	// Source Server in Mbps.
 	BandwidthThrottling *int64 `locationName:"bandwidthThrottling" type:"long"`
@@ -10526,6 +15883,12 @@ func (s UpdateReplicationConfigurationOutput) GoString() string {
 // SetAssociateDefaultSecurityGroup sets the AssociateDefaultSecurityGroup field's value.
 func (s *UpdateReplicationConfigurationOutput) SetAssociateDefaultSecurityGroup(v bool) *UpdateReplicationConfigurationOutput {
 	s.AssociateDefaultSecurityGroup = &v
+	return s
+}
+
+// SetAutoReplicateNewDisks sets the AutoReplicateNewDisks field's value.
+func (s *UpdateReplicationConfigurationOutput) SetAutoReplicateNewDisks(v bool) *UpdateReplicationConfigurationOutput {
+	s.AutoReplicateNewDisks = &v
 	return s
 }
 
@@ -10628,6 +15991,10 @@ type UpdateReplicationConfigurationTemplateInput struct {
 	// Whether to associate the default Elastic Disaster Recovery Security group
 	// with the Replication Configuration Template.
 	AssociateDefaultSecurityGroup *bool `locationName:"associateDefaultSecurityGroup" type:"boolean"`
+
+	// Whether to allow the AWS replication agent to automatically replicate newly
+	// added disks.
+	AutoReplicateNewDisks *bool `locationName:"autoReplicateNewDisks" type:"boolean"`
 
 	// Configure bandwidth throttling for the outbound data transfer rate of the
 	// Source Server in Mbps.
@@ -10743,6 +16110,12 @@ func (s *UpdateReplicationConfigurationTemplateInput) SetAssociateDefaultSecurit
 	return s
 }
 
+// SetAutoReplicateNewDisks sets the AutoReplicateNewDisks field's value.
+func (s *UpdateReplicationConfigurationTemplateInput) SetAutoReplicateNewDisks(v bool) *UpdateReplicationConfigurationTemplateInput {
+	s.AutoReplicateNewDisks = &v
+	return s
+}
+
 // SetBandwidthThrottling sets the BandwidthThrottling field's value.
 func (s *UpdateReplicationConfigurationTemplateInput) SetBandwidthThrottling(v int64) *UpdateReplicationConfigurationTemplateInput {
 	s.BandwidthThrottling = &v
@@ -10831,6 +16204,10 @@ type UpdateReplicationConfigurationTemplateOutput struct {
 	// with the Replication Configuration Template.
 	AssociateDefaultSecurityGroup *bool `locationName:"associateDefaultSecurityGroup" type:"boolean"`
 
+	// Whether to allow the AWS replication agent to automatically replicate newly
+	// added disks.
+	AutoReplicateNewDisks *bool `locationName:"autoReplicateNewDisks" type:"boolean"`
+
 	// Configure bandwidth throttling for the outbound data transfer rate of the
 	// Source Server in Mbps.
 	BandwidthThrottling *int64 `locationName:"bandwidthThrottling" type:"long"`
@@ -10915,6 +16292,12 @@ func (s *UpdateReplicationConfigurationTemplateOutput) SetArn(v string) *UpdateR
 // SetAssociateDefaultSecurityGroup sets the AssociateDefaultSecurityGroup field's value.
 func (s *UpdateReplicationConfigurationTemplateOutput) SetAssociateDefaultSecurityGroup(v bool) *UpdateReplicationConfigurationTemplateOutput {
 	s.AssociateDefaultSecurityGroup = &v
+	return s
+}
+
+// SetAutoReplicateNewDisks sets the AutoReplicateNewDisks field's value.
+func (s *UpdateReplicationConfigurationTemplateOutput) SetAutoReplicateNewDisks(v bool) *UpdateReplicationConfigurationTemplateOutput {
+	s.AutoReplicateNewDisks = &v
 	return s
 }
 
@@ -11364,6 +16747,22 @@ func ExtensionStatus_Values() []string {
 }
 
 const (
+	// FailbackLaunchTypeRecovery is a FailbackLaunchType enum value
+	FailbackLaunchTypeRecovery = "RECOVERY"
+
+	// FailbackLaunchTypeDrill is a FailbackLaunchType enum value
+	FailbackLaunchTypeDrill = "DRILL"
+)
+
+// FailbackLaunchType_Values returns all elements of the FailbackLaunchType enum
+func FailbackLaunchType_Values() []string {
+	return []string{
+		FailbackLaunchTypeRecovery,
+		FailbackLaunchTypeDrill,
+	}
+}
+
+const (
 	// FailbackReplicationErrorAgentNotSeen is a FailbackReplicationError enum value
 	FailbackReplicationErrorAgentNotSeen = "AGENT_NOT_SEEN"
 
@@ -11390,6 +16789,42 @@ const (
 
 	// FailbackReplicationErrorFailedToEstablishAgentReplicatorSoftwareCommunication is a FailbackReplicationError enum value
 	FailbackReplicationErrorFailedToEstablishAgentReplicatorSoftwareCommunication = "FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION"
+
+	// FailbackReplicationErrorFailedGettingReplicationState is a FailbackReplicationError enum value
+	FailbackReplicationErrorFailedGettingReplicationState = "FAILED_GETTING_REPLICATION_STATE"
+
+	// FailbackReplicationErrorSnapshotsFailure is a FailbackReplicationError enum value
+	FailbackReplicationErrorSnapshotsFailure = "SNAPSHOTS_FAILURE"
+
+	// FailbackReplicationErrorFailedToCreateSecurityGroup is a FailbackReplicationError enum value
+	FailbackReplicationErrorFailedToCreateSecurityGroup = "FAILED_TO_CREATE_SECURITY_GROUP"
+
+	// FailbackReplicationErrorFailedToLaunchReplicationServer is a FailbackReplicationError enum value
+	FailbackReplicationErrorFailedToLaunchReplicationServer = "FAILED_TO_LAUNCH_REPLICATION_SERVER"
+
+	// FailbackReplicationErrorFailedToBootReplicationServer is a FailbackReplicationError enum value
+	FailbackReplicationErrorFailedToBootReplicationServer = "FAILED_TO_BOOT_REPLICATION_SERVER"
+
+	// FailbackReplicationErrorFailedToAuthenticateWithService is a FailbackReplicationError enum value
+	FailbackReplicationErrorFailedToAuthenticateWithService = "FAILED_TO_AUTHENTICATE_WITH_SERVICE"
+
+	// FailbackReplicationErrorFailedToDownloadReplicationSoftware is a FailbackReplicationError enum value
+	FailbackReplicationErrorFailedToDownloadReplicationSoftware = "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE"
+
+	// FailbackReplicationErrorFailedToCreateStagingDisks is a FailbackReplicationError enum value
+	FailbackReplicationErrorFailedToCreateStagingDisks = "FAILED_TO_CREATE_STAGING_DISKS"
+
+	// FailbackReplicationErrorFailedToAttachStagingDisks is a FailbackReplicationError enum value
+	FailbackReplicationErrorFailedToAttachStagingDisks = "FAILED_TO_ATTACH_STAGING_DISKS"
+
+	// FailbackReplicationErrorFailedToPairReplicationServerWithAgent is a FailbackReplicationError enum value
+	FailbackReplicationErrorFailedToPairReplicationServerWithAgent = "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT"
+
+	// FailbackReplicationErrorFailedToConnectAgentToReplicationServer is a FailbackReplicationError enum value
+	FailbackReplicationErrorFailedToConnectAgentToReplicationServer = "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER"
+
+	// FailbackReplicationErrorFailedToStartDataTransfer is a FailbackReplicationError enum value
+	FailbackReplicationErrorFailedToStartDataTransfer = "FAILED_TO_START_DATA_TRANSFER"
 )
 
 // FailbackReplicationError_Values returns all elements of the FailbackReplicationError enum
@@ -11404,6 +16839,18 @@ func FailbackReplicationError_Values() []string {
 		FailbackReplicationErrorFailedToConfigureReplicationSoftware,
 		FailbackReplicationErrorFailedToPairAgentWithReplicationSoftware,
 		FailbackReplicationErrorFailedToEstablishAgentReplicatorSoftwareCommunication,
+		FailbackReplicationErrorFailedGettingReplicationState,
+		FailbackReplicationErrorSnapshotsFailure,
+		FailbackReplicationErrorFailedToCreateSecurityGroup,
+		FailbackReplicationErrorFailedToLaunchReplicationServer,
+		FailbackReplicationErrorFailedToBootReplicationServer,
+		FailbackReplicationErrorFailedToAuthenticateWithService,
+		FailbackReplicationErrorFailedToDownloadReplicationSoftware,
+		FailbackReplicationErrorFailedToCreateStagingDisks,
+		FailbackReplicationErrorFailedToAttachStagingDisks,
+		FailbackReplicationErrorFailedToPairReplicationServerWithAgent,
+		FailbackReplicationErrorFailedToConnectAgentToReplicationServer,
+		FailbackReplicationErrorFailedToStartDataTransfer,
 	}
 }
 
@@ -11422,6 +16869,12 @@ const (
 
 	// FailbackStateFailbackError is a FailbackState enum value
 	FailbackStateFailbackError = "FAILBACK_ERROR"
+
+	// FailbackStateFailbackNotReadyForLaunch is a FailbackState enum value
+	FailbackStateFailbackNotReadyForLaunch = "FAILBACK_NOT_READY_FOR_LAUNCH"
+
+	// FailbackStateFailbackLaunchStateNotAvailable is a FailbackState enum value
+	FailbackStateFailbackLaunchStateNotAvailable = "FAILBACK_LAUNCH_STATE_NOT_AVAILABLE"
 )
 
 // FailbackState_Values returns all elements of the FailbackState enum
@@ -11432,6 +16885,8 @@ func FailbackState_Values() []string {
 		FailbackStateFailbackReadyForLaunch,
 		FailbackStateFailbackCompleted,
 		FailbackStateFailbackError,
+		FailbackStateFailbackNotReadyForLaunch,
+		FailbackStateFailbackLaunchStateNotAvailable,
 	}
 }
 
@@ -11453,6 +16908,15 @@ const (
 
 	// InitiatedByTargetAccount is a InitiatedBy enum value
 	InitiatedByTargetAccount = "TARGET_ACCOUNT"
+
+	// InitiatedByCreateNetworkRecovery is a InitiatedBy enum value
+	InitiatedByCreateNetworkRecovery = "CREATE_NETWORK_RECOVERY"
+
+	// InitiatedByUpdateNetworkRecovery is a InitiatedBy enum value
+	InitiatedByUpdateNetworkRecovery = "UPDATE_NETWORK_RECOVERY"
+
+	// InitiatedByAssociateNetworkRecovery is a InitiatedBy enum value
+	InitiatedByAssociateNetworkRecovery = "ASSOCIATE_NETWORK_RECOVERY"
 )
 
 // InitiatedBy_Values returns all elements of the InitiatedBy enum
@@ -11464,6 +16928,9 @@ func InitiatedBy_Values() []string {
 		InitiatedByDiagnostic,
 		InitiatedByTerminateRecoveryInstances,
 		InitiatedByTargetAccount,
+		InitiatedByCreateNetworkRecovery,
+		InitiatedByUpdateNetworkRecovery,
+		InitiatedByAssociateNetworkRecovery,
 	}
 }
 
@@ -11518,6 +16985,36 @@ const (
 
 	// JobLogEventJobEnd is a JobLogEvent enum value
 	JobLogEventJobEnd = "JOB_END"
+
+	// JobLogEventDeployNetworkConfigurationStart is a JobLogEvent enum value
+	JobLogEventDeployNetworkConfigurationStart = "DEPLOY_NETWORK_CONFIGURATION_START"
+
+	// JobLogEventDeployNetworkConfigurationEnd is a JobLogEvent enum value
+	JobLogEventDeployNetworkConfigurationEnd = "DEPLOY_NETWORK_CONFIGURATION_END"
+
+	// JobLogEventDeployNetworkConfigurationFailed is a JobLogEvent enum value
+	JobLogEventDeployNetworkConfigurationFailed = "DEPLOY_NETWORK_CONFIGURATION_FAILED"
+
+	// JobLogEventUpdateNetworkConfigurationStart is a JobLogEvent enum value
+	JobLogEventUpdateNetworkConfigurationStart = "UPDATE_NETWORK_CONFIGURATION_START"
+
+	// JobLogEventUpdateNetworkConfigurationEnd is a JobLogEvent enum value
+	JobLogEventUpdateNetworkConfigurationEnd = "UPDATE_NETWORK_CONFIGURATION_END"
+
+	// JobLogEventUpdateNetworkConfigurationFailed is a JobLogEvent enum value
+	JobLogEventUpdateNetworkConfigurationFailed = "UPDATE_NETWORK_CONFIGURATION_FAILED"
+
+	// JobLogEventUpdateLaunchTemplateStart is a JobLogEvent enum value
+	JobLogEventUpdateLaunchTemplateStart = "UPDATE_LAUNCH_TEMPLATE_START"
+
+	// JobLogEventUpdateLaunchTemplateEnd is a JobLogEvent enum value
+	JobLogEventUpdateLaunchTemplateEnd = "UPDATE_LAUNCH_TEMPLATE_END"
+
+	// JobLogEventUpdateLaunchTemplateFailed is a JobLogEvent enum value
+	JobLogEventUpdateLaunchTemplateFailed = "UPDATE_LAUNCH_TEMPLATE_FAILED"
+
+	// JobLogEventNetworkRecoveryFail is a JobLogEvent enum value
+	JobLogEventNetworkRecoveryFail = "NETWORK_RECOVERY_FAIL"
 )
 
 // JobLogEvent_Values returns all elements of the JobLogEvent enum
@@ -11540,6 +17037,16 @@ func JobLogEvent_Values() []string {
 		JobLogEventLaunchFailed,
 		JobLogEventJobCancel,
 		JobLogEventJobEnd,
+		JobLogEventDeployNetworkConfigurationStart,
+		JobLogEventDeployNetworkConfigurationEnd,
+		JobLogEventDeployNetworkConfigurationFailed,
+		JobLogEventUpdateNetworkConfigurationStart,
+		JobLogEventUpdateNetworkConfigurationEnd,
+		JobLogEventUpdateNetworkConfigurationFailed,
+		JobLogEventUpdateLaunchTemplateStart,
+		JobLogEventUpdateLaunchTemplateEnd,
+		JobLogEventUpdateLaunchTemplateFailed,
+		JobLogEventNetworkRecoveryFail,
 	}
 }
 
@@ -11623,6 +17130,87 @@ func LastLaunchType_Values() []string {
 	}
 }
 
+// Launch action category.
+const (
+	// LaunchActionCategoryMonitoring is a LaunchActionCategory enum value
+	LaunchActionCategoryMonitoring = "MONITORING"
+
+	// LaunchActionCategoryValidation is a LaunchActionCategory enum value
+	LaunchActionCategoryValidation = "VALIDATION"
+
+	// LaunchActionCategoryConfiguration is a LaunchActionCategory enum value
+	LaunchActionCategoryConfiguration = "CONFIGURATION"
+
+	// LaunchActionCategorySecurity is a LaunchActionCategory enum value
+	LaunchActionCategorySecurity = "SECURITY"
+
+	// LaunchActionCategoryOther is a LaunchActionCategory enum value
+	LaunchActionCategoryOther = "OTHER"
+)
+
+// LaunchActionCategory_Values returns all elements of the LaunchActionCategory enum
+func LaunchActionCategory_Values() []string {
+	return []string{
+		LaunchActionCategoryMonitoring,
+		LaunchActionCategoryValidation,
+		LaunchActionCategoryConfiguration,
+		LaunchActionCategorySecurity,
+		LaunchActionCategoryOther,
+	}
+}
+
+const (
+	// LaunchActionParameterTypeSsmStore is a LaunchActionParameterType enum value
+	LaunchActionParameterTypeSsmStore = "SSM_STORE"
+
+	// LaunchActionParameterTypeDynamic is a LaunchActionParameterType enum value
+	LaunchActionParameterTypeDynamic = "DYNAMIC"
+)
+
+// LaunchActionParameterType_Values returns all elements of the LaunchActionParameterType enum
+func LaunchActionParameterType_Values() []string {
+	return []string{
+		LaunchActionParameterTypeSsmStore,
+		LaunchActionParameterTypeDynamic,
+	}
+}
+
+const (
+	// LaunchActionRunStatusInProgress is a LaunchActionRunStatus enum value
+	LaunchActionRunStatusInProgress = "IN_PROGRESS"
+
+	// LaunchActionRunStatusSucceeded is a LaunchActionRunStatus enum value
+	LaunchActionRunStatusSucceeded = "SUCCEEDED"
+
+	// LaunchActionRunStatusFailed is a LaunchActionRunStatus enum value
+	LaunchActionRunStatusFailed = "FAILED"
+)
+
+// LaunchActionRunStatus_Values returns all elements of the LaunchActionRunStatus enum
+func LaunchActionRunStatus_Values() []string {
+	return []string{
+		LaunchActionRunStatusInProgress,
+		LaunchActionRunStatusSucceeded,
+		LaunchActionRunStatusFailed,
+	}
+}
+
+const (
+	// LaunchActionTypeSsmAutomation is a LaunchActionType enum value
+	LaunchActionTypeSsmAutomation = "SSM_AUTOMATION"
+
+	// LaunchActionTypeSsmCommand is a LaunchActionType enum value
+	LaunchActionTypeSsmCommand = "SSM_COMMAND"
+)
+
+// LaunchActionType_Values returns all elements of the LaunchActionType enum
+func LaunchActionType_Values() []string {
+	return []string{
+		LaunchActionTypeSsmAutomation,
+		LaunchActionTypeSsmCommand,
+	}
+}
+
 const (
 	// LaunchDispositionStopped is a LaunchDisposition enum value
 	LaunchDispositionStopped = "STOPPED"
@@ -11668,6 +17256,22 @@ func LaunchStatus_Values() []string {
 }
 
 const (
+	// OriginEnvironmentOnPremises is a OriginEnvironment enum value
+	OriginEnvironmentOnPremises = "ON_PREMISES"
+
+	// OriginEnvironmentAws is a OriginEnvironment enum value
+	OriginEnvironmentAws = "AWS"
+)
+
+// OriginEnvironment_Values returns all elements of the OriginEnvironment enum
+func OriginEnvironment_Values() []string {
+	return []string{
+		OriginEnvironmentOnPremises,
+		OriginEnvironmentAws,
+	}
+}
+
+const (
 	// PITPolicyRuleUnitsMinute is a PITPolicyRuleUnits enum value
 	PITPolicyRuleUnitsMinute = "MINUTE"
 
@@ -11684,6 +17288,22 @@ func PITPolicyRuleUnits_Values() []string {
 		PITPolicyRuleUnitsMinute,
 		PITPolicyRuleUnitsHour,
 		PITPolicyRuleUnitsDay,
+	}
+}
+
+const (
+	// ProductCodeModeEnabled is a ProductCodeMode enum value
+	ProductCodeModeEnabled = "ENABLED"
+
+	// ProductCodeModeDisabled is a ProductCodeMode enum value
+	ProductCodeModeDisabled = "DISABLED"
+)
+
+// ProductCodeMode_Values returns all elements of the ProductCodeMode enum
+func ProductCodeMode_Values() []string {
+	return []string{
+		ProductCodeModeEnabled,
+		ProductCodeModeDisabled,
 	}
 }
 
@@ -11708,6 +17328,39 @@ const (
 
 	// RecoveryInstanceDataReplicationInitiationStepNameEstablishAgentReplicatorSoftwareCommunication is a RecoveryInstanceDataReplicationInitiationStepName enum value
 	RecoveryInstanceDataReplicationInitiationStepNameEstablishAgentReplicatorSoftwareCommunication = "ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION"
+
+	// RecoveryInstanceDataReplicationInitiationStepNameWait is a RecoveryInstanceDataReplicationInitiationStepName enum value
+	RecoveryInstanceDataReplicationInitiationStepNameWait = "WAIT"
+
+	// RecoveryInstanceDataReplicationInitiationStepNameCreateSecurityGroup is a RecoveryInstanceDataReplicationInitiationStepName enum value
+	RecoveryInstanceDataReplicationInitiationStepNameCreateSecurityGroup = "CREATE_SECURITY_GROUP"
+
+	// RecoveryInstanceDataReplicationInitiationStepNameLaunchReplicationServer is a RecoveryInstanceDataReplicationInitiationStepName enum value
+	RecoveryInstanceDataReplicationInitiationStepNameLaunchReplicationServer = "LAUNCH_REPLICATION_SERVER"
+
+	// RecoveryInstanceDataReplicationInitiationStepNameBootReplicationServer is a RecoveryInstanceDataReplicationInitiationStepName enum value
+	RecoveryInstanceDataReplicationInitiationStepNameBootReplicationServer = "BOOT_REPLICATION_SERVER"
+
+	// RecoveryInstanceDataReplicationInitiationStepNameAuthenticateWithService is a RecoveryInstanceDataReplicationInitiationStepName enum value
+	RecoveryInstanceDataReplicationInitiationStepNameAuthenticateWithService = "AUTHENTICATE_WITH_SERVICE"
+
+	// RecoveryInstanceDataReplicationInitiationStepNameDownloadReplicationSoftware is a RecoveryInstanceDataReplicationInitiationStepName enum value
+	RecoveryInstanceDataReplicationInitiationStepNameDownloadReplicationSoftware = "DOWNLOAD_REPLICATION_SOFTWARE"
+
+	// RecoveryInstanceDataReplicationInitiationStepNameCreateStagingDisks is a RecoveryInstanceDataReplicationInitiationStepName enum value
+	RecoveryInstanceDataReplicationInitiationStepNameCreateStagingDisks = "CREATE_STAGING_DISKS"
+
+	// RecoveryInstanceDataReplicationInitiationStepNameAttachStagingDisks is a RecoveryInstanceDataReplicationInitiationStepName enum value
+	RecoveryInstanceDataReplicationInitiationStepNameAttachStagingDisks = "ATTACH_STAGING_DISKS"
+
+	// RecoveryInstanceDataReplicationInitiationStepNamePairReplicationServerWithAgent is a RecoveryInstanceDataReplicationInitiationStepName enum value
+	RecoveryInstanceDataReplicationInitiationStepNamePairReplicationServerWithAgent = "PAIR_REPLICATION_SERVER_WITH_AGENT"
+
+	// RecoveryInstanceDataReplicationInitiationStepNameConnectAgentToReplicationServer is a RecoveryInstanceDataReplicationInitiationStepName enum value
+	RecoveryInstanceDataReplicationInitiationStepNameConnectAgentToReplicationServer = "CONNECT_AGENT_TO_REPLICATION_SERVER"
+
+	// RecoveryInstanceDataReplicationInitiationStepNameStartDataTransfer is a RecoveryInstanceDataReplicationInitiationStepName enum value
+	RecoveryInstanceDataReplicationInitiationStepNameStartDataTransfer = "START_DATA_TRANSFER"
 )
 
 // RecoveryInstanceDataReplicationInitiationStepName_Values returns all elements of the RecoveryInstanceDataReplicationInitiationStepName enum
@@ -11720,6 +17373,17 @@ func RecoveryInstanceDataReplicationInitiationStepName_Values() []string {
 		RecoveryInstanceDataReplicationInitiationStepNameConfigureReplicationSoftware,
 		RecoveryInstanceDataReplicationInitiationStepNamePairAgentWithReplicationSoftware,
 		RecoveryInstanceDataReplicationInitiationStepNameEstablishAgentReplicatorSoftwareCommunication,
+		RecoveryInstanceDataReplicationInitiationStepNameWait,
+		RecoveryInstanceDataReplicationInitiationStepNameCreateSecurityGroup,
+		RecoveryInstanceDataReplicationInitiationStepNameLaunchReplicationServer,
+		RecoveryInstanceDataReplicationInitiationStepNameBootReplicationServer,
+		RecoveryInstanceDataReplicationInitiationStepNameAuthenticateWithService,
+		RecoveryInstanceDataReplicationInitiationStepNameDownloadReplicationSoftware,
+		RecoveryInstanceDataReplicationInitiationStepNameCreateStagingDisks,
+		RecoveryInstanceDataReplicationInitiationStepNameAttachStagingDisks,
+		RecoveryInstanceDataReplicationInitiationStepNamePairReplicationServerWithAgent,
+		RecoveryInstanceDataReplicationInitiationStepNameConnectAgentToReplicationServer,
+		RecoveryInstanceDataReplicationInitiationStepNameStartDataTransfer,
 	}
 }
 
@@ -11781,6 +17445,12 @@ const (
 
 	// RecoveryInstanceDataReplicationStateDisconnected is a RecoveryInstanceDataReplicationState enum value
 	RecoveryInstanceDataReplicationStateDisconnected = "DISCONNECTED"
+
+	// RecoveryInstanceDataReplicationStateReplicationStateNotAvailable is a RecoveryInstanceDataReplicationState enum value
+	RecoveryInstanceDataReplicationStateReplicationStateNotAvailable = "REPLICATION_STATE_NOT_AVAILABLE"
+
+	// RecoveryInstanceDataReplicationStateNotStarted is a RecoveryInstanceDataReplicationState enum value
+	RecoveryInstanceDataReplicationStateNotStarted = "NOT_STARTED"
 )
 
 // RecoveryInstanceDataReplicationState_Values returns all elements of the RecoveryInstanceDataReplicationState enum
@@ -11796,6 +17466,44 @@ func RecoveryInstanceDataReplicationState_Values() []string {
 		RecoveryInstanceDataReplicationStateRescan,
 		RecoveryInstanceDataReplicationStateStalled,
 		RecoveryInstanceDataReplicationStateDisconnected,
+		RecoveryInstanceDataReplicationStateReplicationStateNotAvailable,
+		RecoveryInstanceDataReplicationStateNotStarted,
+	}
+}
+
+const (
+	// RecoveryResultNotStarted is a RecoveryResult enum value
+	RecoveryResultNotStarted = "NOT_STARTED"
+
+	// RecoveryResultInProgress is a RecoveryResult enum value
+	RecoveryResultInProgress = "IN_PROGRESS"
+
+	// RecoveryResultSuccess is a RecoveryResult enum value
+	RecoveryResultSuccess = "SUCCESS"
+
+	// RecoveryResultFail is a RecoveryResult enum value
+	RecoveryResultFail = "FAIL"
+
+	// RecoveryResultPartialSuccess is a RecoveryResult enum value
+	RecoveryResultPartialSuccess = "PARTIAL_SUCCESS"
+
+	// RecoveryResultAssociateSuccess is a RecoveryResult enum value
+	RecoveryResultAssociateSuccess = "ASSOCIATE_SUCCESS"
+
+	// RecoveryResultAssociateFail is a RecoveryResult enum value
+	RecoveryResultAssociateFail = "ASSOCIATE_FAIL"
+)
+
+// RecoveryResult_Values returns all elements of the RecoveryResult enum
+func RecoveryResult_Values() []string {
+	return []string{
+		RecoveryResultNotStarted,
+		RecoveryResultInProgress,
+		RecoveryResultSuccess,
+		RecoveryResultFail,
+		RecoveryResultPartialSuccess,
+		RecoveryResultAssociateSuccess,
+		RecoveryResultAssociateFail,
 	}
 }
 
@@ -11861,6 +17569,9 @@ const (
 
 	// ReplicationConfigurationEbsEncryptionCustom is a ReplicationConfigurationEbsEncryption enum value
 	ReplicationConfigurationEbsEncryptionCustom = "CUSTOM"
+
+	// ReplicationConfigurationEbsEncryptionNone is a ReplicationConfigurationEbsEncryption enum value
+	ReplicationConfigurationEbsEncryptionNone = "NONE"
 )
 
 // ReplicationConfigurationEbsEncryption_Values returns all elements of the ReplicationConfigurationEbsEncryption enum
@@ -11868,6 +17579,7 @@ func ReplicationConfigurationEbsEncryption_Values() []string {
 	return []string{
 		ReplicationConfigurationEbsEncryptionDefault,
 		ReplicationConfigurationEbsEncryptionCustom,
+		ReplicationConfigurationEbsEncryptionNone,
 	}
 }
 
@@ -11907,12 +17619,61 @@ func ReplicationConfigurationReplicatedDiskStagingDiskType_Values() []string {
 	}
 }
 
+// Replication direction designates if this is a failover replication, or a
+// failback replication. When a DRS agent is installed on an instance, the replication
+// direction is failover. In cases where a recovery launch was made in the recovery
+// location and a new recovery instance was created, and then a failback replication
+// was initiated from that recovery instance back to the origin location, then
+// the replication direction will be failback.
+const (
+	// ReplicationDirectionFailover is a ReplicationDirection enum value
+	ReplicationDirectionFailover = "FAILOVER"
+
+	// ReplicationDirectionFailback is a ReplicationDirection enum value
+	ReplicationDirectionFailback = "FAILBACK"
+)
+
+// ReplicationDirection_Values returns all elements of the ReplicationDirection enum
+func ReplicationDirection_Values() []string {
+	return []string{
+		ReplicationDirectionFailover,
+		ReplicationDirectionFailback,
+	}
+}
+
+const (
+	// ReplicationStatusStopped is a ReplicationStatus enum value
+	ReplicationStatusStopped = "STOPPED"
+
+	// ReplicationStatusInProgress is a ReplicationStatus enum value
+	ReplicationStatusInProgress = "IN_PROGRESS"
+
+	// ReplicationStatusProtected is a ReplicationStatus enum value
+	ReplicationStatusProtected = "PROTECTED"
+
+	// ReplicationStatusError is a ReplicationStatus enum value
+	ReplicationStatusError = "ERROR"
+)
+
+// ReplicationStatus_Values returns all elements of the ReplicationStatus enum
+func ReplicationStatus_Values() []string {
+	return []string{
+		ReplicationStatusStopped,
+		ReplicationStatusInProgress,
+		ReplicationStatusProtected,
+		ReplicationStatusError,
+	}
+}
+
 const (
 	// TargetInstanceTypeRightSizingMethodNone is a TargetInstanceTypeRightSizingMethod enum value
 	TargetInstanceTypeRightSizingMethodNone = "NONE"
 
 	// TargetInstanceTypeRightSizingMethodBasic is a TargetInstanceTypeRightSizingMethod enum value
 	TargetInstanceTypeRightSizingMethodBasic = "BASIC"
+
+	// TargetInstanceTypeRightSizingMethodInAws is a TargetInstanceTypeRightSizingMethod enum value
+	TargetInstanceTypeRightSizingMethodInAws = "IN_AWS"
 )
 
 // TargetInstanceTypeRightSizingMethod_Values returns all elements of the TargetInstanceTypeRightSizingMethod enum
@@ -11920,6 +17681,7 @@ func TargetInstanceTypeRightSizingMethod_Values() []string {
 	return []string{
 		TargetInstanceTypeRightSizingMethodNone,
 		TargetInstanceTypeRightSizingMethodBasic,
+		TargetInstanceTypeRightSizingMethodInAws,
 	}
 }
 
@@ -11944,5 +17706,33 @@ func ValidationExceptionReason_Values() []string {
 		ValidationExceptionReasonCannotParse,
 		ValidationExceptionReasonFieldValidationFailed,
 		ValidationExceptionReasonOther,
+	}
+}
+
+const (
+	// VolumeStatusRegular is a VolumeStatus enum value
+	VolumeStatusRegular = "REGULAR"
+
+	// VolumeStatusContainsMarketplaceProductCodes is a VolumeStatus enum value
+	VolumeStatusContainsMarketplaceProductCodes = "CONTAINS_MARKETPLACE_PRODUCT_CODES"
+
+	// VolumeStatusMissingVolumeAttributes is a VolumeStatus enum value
+	VolumeStatusMissingVolumeAttributes = "MISSING_VOLUME_ATTRIBUTES"
+
+	// VolumeStatusMissingVolumeAttributesAndPrecheckUnavailable is a VolumeStatus enum value
+	VolumeStatusMissingVolumeAttributesAndPrecheckUnavailable = "MISSING_VOLUME_ATTRIBUTES_AND_PRECHECK_UNAVAILABLE"
+
+	// VolumeStatusPending is a VolumeStatus enum value
+	VolumeStatusPending = "PENDING"
+)
+
+// VolumeStatus_Values returns all elements of the VolumeStatus enum
+func VolumeStatus_Values() []string {
+	return []string{
+		VolumeStatusRegular,
+		VolumeStatusContainsMarketplaceProductCodes,
+		VolumeStatusMissingVolumeAttributes,
+		VolumeStatusMissingVolumeAttributesAndPrecheckUnavailable,
+		VolumeStatusPending,
 	}
 }

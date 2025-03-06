@@ -28,17 +28,16 @@ const opAcknowledgeMessage = "AcknowledgeMessage"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the AcknowledgeMessageRequest method.
+//	req, resp := client.AcknowledgeMessageRequest(params)
 //
-//    // Example sending a request using the AcknowledgeMessageRequest method.
-//    req, resp := client.AcknowledgeMessageRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/mds-2015-06-19/AcknowledgeMessage
-func (c *SSMMDS) AcknowledgeMessageRequest(input *AcknowledgeMessageInput) (req *request.Request, output *AcknowledgeMessageOutput) {
+func (c *Ssmmds) AcknowledgeMessageRequest(input *AcknowledgeMessageInput) (req *request.Request, output *AcknowledgeMessageOutput) {
 	op := &request.Operation{
 		Name:       opAcknowledgeMessage,
 		HTTPMethod: "POST",
@@ -65,16 +64,17 @@ func (c *SSMMDS) AcknowledgeMessageRequest(input *AcknowledgeMessageInput) (req 
 // API operation AcknowledgeMessage for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidMessageIdException
 //
-//   * UnsupportedMessageOperationException
+//   - InvalidMessageIdException
 //
-//   * AuthorizationFailureException
+//   - UnsupportedMessageOperationException
 //
-//   * InternalServerException
+//   - AuthorizationFailureException
+//
+//   - InternalServerException
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/mds-2015-06-19/AcknowledgeMessage
-func (c *SSMMDS) AcknowledgeMessage(input *AcknowledgeMessageInput) (*AcknowledgeMessageOutput, error) {
+func (c *Ssmmds) AcknowledgeMessage(input *AcknowledgeMessageInput) (*AcknowledgeMessageOutput, error) {
 	req, out := c.AcknowledgeMessageRequest(input)
 	return out, req.Send()
 }
@@ -88,7 +88,7 @@ func (c *SSMMDS) AcknowledgeMessage(input *AcknowledgeMessageInput) (*Acknowledg
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *SSMMDS) AcknowledgeMessageWithContext(ctx aws.Context, input *AcknowledgeMessageInput, opts ...request.Option) (*AcknowledgeMessageOutput, error) {
+func (c *Ssmmds) AcknowledgeMessageWithContext(ctx aws.Context, input *AcknowledgeMessageInput, opts ...request.Option) (*AcknowledgeMessageOutput, error) {
 	req, out := c.AcknowledgeMessageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -111,17 +111,16 @@ const opDeleteMessage = "DeleteMessage"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteMessageRequest method.
+//	req, resp := client.DeleteMessageRequest(params)
 //
-//    // Example sending a request using the DeleteMessageRequest method.
-//    req, resp := client.DeleteMessageRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/mds-2015-06-19/DeleteMessage
-func (c *SSMMDS) DeleteMessageRequest(input *DeleteMessageInput) (req *request.Request, output *DeleteMessageOutput) {
+func (c *Ssmmds) DeleteMessageRequest(input *DeleteMessageInput) (req *request.Request, output *DeleteMessageOutput) {
 	op := &request.Operation{
 		Name:       opDeleteMessage,
 		HTTPMethod: "POST",
@@ -148,16 +147,17 @@ func (c *SSMMDS) DeleteMessageRequest(input *DeleteMessageInput) (req *request.R
 // API operation DeleteMessage for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidMessageIdException
 //
-//   * UnsupportedMessageOperationException
+//   - InvalidMessageIdException
 //
-//   * AuthorizationFailureException
+//   - UnsupportedMessageOperationException
 //
-//   * InternalServerException
+//   - AuthorizationFailureException
+//
+//   - InternalServerException
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/mds-2015-06-19/DeleteMessage
-func (c *SSMMDS) DeleteMessage(input *DeleteMessageInput) (*DeleteMessageOutput, error) {
+func (c *Ssmmds) DeleteMessage(input *DeleteMessageInput) (*DeleteMessageOutput, error) {
 	req, out := c.DeleteMessageRequest(input)
 	return out, req.Send()
 }
@@ -171,7 +171,7 @@ func (c *SSMMDS) DeleteMessage(input *DeleteMessageInput) (*DeleteMessageOutput,
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *SSMMDS) DeleteMessageWithContext(ctx aws.Context, input *DeleteMessageInput, opts ...request.Option) (*DeleteMessageOutput, error) {
+func (c *Ssmmds) DeleteMessageWithContext(ctx aws.Context, input *DeleteMessageInput, opts ...request.Option) (*DeleteMessageOutput, error) {
 	req, out := c.DeleteMessageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -194,17 +194,16 @@ const opFailMessage = "FailMessage"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the FailMessageRequest method.
+//	req, resp := client.FailMessageRequest(params)
 //
-//    // Example sending a request using the FailMessageRequest method.
-//    req, resp := client.FailMessageRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/mds-2015-06-19/FailMessage
-func (c *SSMMDS) FailMessageRequest(input *FailMessageInput) (req *request.Request, output *FailMessageOutput) {
+func (c *Ssmmds) FailMessageRequest(input *FailMessageInput) (req *request.Request, output *FailMessageOutput) {
 	op := &request.Operation{
 		Name:       opFailMessage,
 		HTTPMethod: "POST",
@@ -231,16 +230,17 @@ func (c *SSMMDS) FailMessageRequest(input *FailMessageInput) (req *request.Reque
 // API operation FailMessage for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidMessageIdException
 //
-//   * UnsupportedMessageOperationException
+//   - InvalidMessageIdException
 //
-//   * AuthorizationFailureException
+//   - UnsupportedMessageOperationException
 //
-//   * InternalServerException
+//   - AuthorizationFailureException
+//
+//   - InternalServerException
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/mds-2015-06-19/FailMessage
-func (c *SSMMDS) FailMessage(input *FailMessageInput) (*FailMessageOutput, error) {
+func (c *Ssmmds) FailMessage(input *FailMessageInput) (*FailMessageOutput, error) {
 	req, out := c.FailMessageRequest(input)
 	return out, req.Send()
 }
@@ -254,7 +254,7 @@ func (c *SSMMDS) FailMessage(input *FailMessageInput) (*FailMessageOutput, error
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *SSMMDS) FailMessageWithContext(ctx aws.Context, input *FailMessageInput, opts ...request.Option) (*FailMessageOutput, error) {
+func (c *Ssmmds) FailMessageWithContext(ctx aws.Context, input *FailMessageInput, opts ...request.Option) (*FailMessageOutput, error) {
 	req, out := c.FailMessageRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -277,17 +277,16 @@ const opGetEndpoint = "GetEndpoint"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetEndpointRequest method.
+//	req, resp := client.GetEndpointRequest(params)
 //
-//    // Example sending a request using the GetEndpointRequest method.
-//    req, resp := client.GetEndpointRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/mds-2015-06-19/GetEndpoint
-func (c *SSMMDS) GetEndpointRequest(input *GetEndpointInput) (req *request.Request, output *GetEndpointOutput) {
+func (c *Ssmmds) GetEndpointRequest(input *GetEndpointInput) (req *request.Request, output *GetEndpointOutput) {
 	op := &request.Operation{
 		Name:       opGetEndpoint,
 		HTTPMethod: "POST",
@@ -313,14 +312,15 @@ func (c *SSMMDS) GetEndpointRequest(input *GetEndpointInput) (req *request.Reque
 // API operation GetEndpoint for usage and error information.
 //
 // Returned Error Types:
-//   * TooManyRequestsException
 //
-//   * AuthorizationFailureException
+//   - TooManyRequestsException
 //
-//   * InternalServerException
+//   - AuthorizationFailureException
+//
+//   - InternalServerException
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/mds-2015-06-19/GetEndpoint
-func (c *SSMMDS) GetEndpoint(input *GetEndpointInput) (*GetEndpointOutput, error) {
+func (c *Ssmmds) GetEndpoint(input *GetEndpointInput) (*GetEndpointOutput, error) {
 	req, out := c.GetEndpointRequest(input)
 	return out, req.Send()
 }
@@ -334,7 +334,7 @@ func (c *SSMMDS) GetEndpoint(input *GetEndpointInput) (*GetEndpointOutput, error
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *SSMMDS) GetEndpointWithContext(ctx aws.Context, input *GetEndpointInput, opts ...request.Option) (*GetEndpointOutput, error) {
+func (c *Ssmmds) GetEndpointWithContext(ctx aws.Context, input *GetEndpointInput, opts ...request.Option) (*GetEndpointOutput, error) {
 	req, out := c.GetEndpointRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -357,17 +357,16 @@ const opGetMessages = "GetMessages"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetMessagesRequest method.
+//	req, resp := client.GetMessagesRequest(params)
 //
-//    // Example sending a request using the GetMessagesRequest method.
-//    req, resp := client.GetMessagesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/mds-2015-06-19/GetMessages
-func (c *SSMMDS) GetMessagesRequest(input *GetMessagesInput) (req *request.Request, output *GetMessagesOutput) {
+func (c *Ssmmds) GetMessagesRequest(input *GetMessagesInput) (req *request.Request, output *GetMessagesOutput) {
 	op := &request.Operation{
 		Name:       opGetMessages,
 		HTTPMethod: "POST",
@@ -393,18 +392,19 @@ func (c *SSMMDS) GetMessagesRequest(input *GetMessagesInput) (req *request.Reque
 // API operation GetMessages for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidDestinationException
 //
-//   * RequestTimeoutException
+//   - InvalidDestinationException
 //
-//   * InternalServerException
+//   - RequestTimeoutException
 //
-//   * TooManyRequestsException
+//   - InternalServerException
 //
-//   * AuthorizationFailureException
+//   - TooManyRequestsException
+//
+//   - AuthorizationFailureException
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/mds-2015-06-19/GetMessages
-func (c *SSMMDS) GetMessages(input *GetMessagesInput) (*GetMessagesOutput, error) {
+func (c *Ssmmds) GetMessages(input *GetMessagesInput) (*GetMessagesOutput, error) {
 	req, out := c.GetMessagesRequest(input)
 	return out, req.Send()
 }
@@ -418,7 +418,7 @@ func (c *SSMMDS) GetMessages(input *GetMessagesInput) (*GetMessagesOutput, error
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *SSMMDS) GetMessagesWithContext(ctx aws.Context, input *GetMessagesInput, opts ...request.Option) (*GetMessagesOutput, error) {
+func (c *Ssmmds) GetMessagesWithContext(ctx aws.Context, input *GetMessagesInput, opts ...request.Option) (*GetMessagesOutput, error) {
 	req, out := c.GetMessagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -441,17 +441,16 @@ const opSendReply = "SendReply"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the SendReplyRequest method.
+//	req, resp := client.SendReplyRequest(params)
 //
-//    // Example sending a request using the SendReplyRequest method.
-//    req, resp := client.SendReplyRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/mds-2015-06-19/SendReply
-func (c *SSMMDS) SendReplyRequest(input *SendReplyInput) (req *request.Request, output *SendReplyOutput) {
+func (c *Ssmmds) SendReplyRequest(input *SendReplyInput) (req *request.Request, output *SendReplyOutput) {
 	op := &request.Operation{
 		Name:       opSendReply,
 		HTTPMethod: "POST",
@@ -477,18 +476,19 @@ func (c *SSMMDS) SendReplyRequest(input *SendReplyInput) (req *request.Request, 
 // API operation SendReply for usage and error information.
 //
 // Returned Error Types:
-//   * UnsupportedMessageOperationException
 //
-//   * InvalidMessageIdException
+//   - UnsupportedMessageOperationException
 //
-//   * TooManyRequestsException
+//   - InvalidMessageIdException
 //
-//   * AuthorizationFailureException
+//   - TooManyRequestsException
 //
-//   * InternalServerException
+//   - AuthorizationFailureException
+//
+//   - InternalServerException
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/mds-2015-06-19/SendReply
-func (c *SSMMDS) SendReply(input *SendReplyInput) (*SendReplyOutput, error) {
+func (c *Ssmmds) SendReply(input *SendReplyInput) (*SendReplyOutput, error) {
 	req, out := c.SendReplyRequest(input)
 	return out, req.Send()
 }
@@ -502,7 +502,7 @@ func (c *SSMMDS) SendReply(input *SendReplyInput) (*SendReplyOutput, error) {
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *SSMMDS) SendReplyWithContext(ctx aws.Context, input *SendReplyInput, opts ...request.Option) (*SendReplyOutput, error) {
+func (c *Ssmmds) SendReplyWithContext(ctx aws.Context, input *SendReplyInput, opts ...request.Option) (*SendReplyOutput, error) {
 	req, out := c.SendReplyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)

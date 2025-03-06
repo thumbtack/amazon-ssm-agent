@@ -22,6 +22,7 @@ import (
 	"path/filepath"
 	"runtime/debug"
 	"sync"
+	"sync/atomic"
 	"time"
 
 	"github.com/aws/amazon-ssm-agent/agent/appconfig"
@@ -40,6 +41,7 @@ import (
 	"github.com/aws/amazon-ssm-agent/agent/session/controlchannel"
 	"github.com/aws/amazon-ssm-agent/agent/session/retry"
 	"github.com/aws/amazon-ssm-agent/agent/session/service"
+	"github.com/aws/amazon-ssm-agent/agent/ssmconnectionchannel"
 	"github.com/gorilla/websocket"
 	"github.com/twinj/uuid"
 )
@@ -61,9 +63,11 @@ type MGSInteractor struct {
 	messageHandler           messagehandler.IMessageHandler
 	replyChan                chan contracts.DocumentResult
 	channelOpen              bool
-	ackSkipCodes             map[messagehandler.ErrorCode]struct{}
+	ackSkipCodes             map[messagehandler.ErrorCode]string
 	listenReplyThreadEnded   chan struct{}
 	mutex                    sync.Mutex
+	updateWatcherDone        chan bool
+	handledUpdateReplies     sync.Map
 }
 
 // New initiates and returns MGS Interactor when needed
@@ -156,19 +160,25 @@ func (mgs *MGSInteractor) GetSupportedWorkers() []utils.WorkerName {
 }
 
 // Initialize initializes interactor properties and starts failed reply job
-func (mgs *MGSInteractor) Initialize() (err error) {
+func (mgs *MGSInteractor) Initialize(ableToOpenMGSConnection *uint32) (err error) {
 	log := mgs.context.Log()
 	// initialize ack skip codes
-	mgs.ackSkipCodes = map[messagehandler.ErrorCode]struct{}{
-		messagehandler.ClosedProcessor:                     {},
-		messagehandler.ProcessorBufferFull:                 {},
-		messagehandler.UnexpectedDocumentType:              {},
-		messagehandler.ProcessorErrorCodeTranslationFailed: {},
-		messagehandler.DuplicateCommand:                    {},
-		messagehandler.InvalidDocument:                     {},
+	mgs.ackSkipCodes = map[messagehandler.ErrorCode]string{
+		messagehandler.ClosedProcessor:                     "51401",
+		messagehandler.ProcessorBufferFull:                 "51402",
+		messagehandler.UnexpectedDocumentType:              "51403",
+		messagehandler.ProcessorErrorCodeTranslationFailed: "51404",
+		messagehandler.DuplicateCommand:                    "51405",
+		messagehandler.InvalidDocument:                     "51406",
+		messagehandler.ContainerNotSupported:               "51407",
+		messagehandler.AgentJobMessageParseError:           "51408",
+		messagehandler.UnexpectedError:                     "51499",
+		messagehandler.Successful:                          "200",
 	}
 
 	mgs.listenReplyThreadEnded = make(chan struct{}, 1)
+
+	mgs.updateWatcherDone = make(chan bool, 1)
 
 	// listens incoming channel for agent related messages
 	go mgs.listenIncomingAgentMessages()
@@ -184,12 +194,20 @@ func (mgs *MGSInteractor) Initialize() (err error) {
 	go mgs.listenReply()
 
 	log.Info("SSM Agent is trying to setup control channel for MGSInteractor")
-	mgs.controlChannel, err = setupControlChannel(mgs.context, mgs.mgsService, mgs.agentConfig.InstanceID, mgs.incomingAgentMessageChan)
+	mgs.controlChannel, err = setupControlChannel(mgs.context, mgs.mgsService, mgs.agentConfig.InstanceID, mgs.incomingAgentMessageChan, ableToOpenMGSConnection)
 	if err != nil {
+		if ableToOpenMGSConnection != nil {
+			atomic.StoreUint32(ableToOpenMGSConnection, 0)
+		}
+		ssmconnectionchannel.SetConnectionChannel(mgs.context, ssmconnectionchannel.MGSFailed)
 		log.Errorf("Error setting up control channel: %v", err)
 		return err
 	}
 	log.Info("Set up control channel successfully")
+	if ableToOpenMGSConnection != nil {
+		atomic.StoreUint32(ableToOpenMGSConnection, 1)
+	}
+	ssmconnectionchannel.SetConnectionChannel(mgs.context, ssmconnectionchannel.MGSSuccess)
 	return nil
 }
 
@@ -199,6 +217,7 @@ func (mgs *MGSInteractor) PostProcessorInitialization(worker utils.WorkerName) {
 	switch worker {
 	case utils.DocumentWorkerName:
 		mgs.setChannelOpenVal(true)
+		go mgs.startUpdateReplyFileWatcher()
 	default:
 	}
 
@@ -229,6 +248,7 @@ func (mgs *MGSInteractor) PreProcessorClose() {
 	mgs.setChannelOpenVal(false) // close the incoming agent job message
 	mgs.closeSendFailedReplyJob()
 	mgs.context.Log().Info("MGS send failed reply job closed")
+	mgs.stopUpdateReplyFileWatcher()
 }
 
 // Close closes the existing MGS connection
@@ -246,6 +266,9 @@ func (mgs *MGSInteractor) Close() (err error) {
 			return err
 		}
 	}
+	// This function closes golang channel used in MDSInteractor for switching ON/OFF MDS long polling based on MGS status.
+	// CloseMDSSwitchChannel is called at the end of MGS interactor close to make sure that we do not push to a closed channel.
+	ssmconnectionchannel.CloseMDSSwitchChannel()
 	return nil
 }
 
@@ -253,9 +276,9 @@ func (mgs *MGSInteractor) Close() (err error) {
 func (mgs *MGSInteractor) listenReply() {
 	log := mgs.context.Log()
 	mgs.listenReplyThreadEnded = make(chan struct{}, 1)
-	log.Info("listen reply thread in MGS interactor started")
+	log.Debug("listen reply thread in MGS interactor started")
 	defer func() {
-		log.Info("listen reply thread in MGS interactor ended")
+		log.Debug("listen reply thread in MGS interactor ended")
 		if r := recover(); r != nil {
 			log.Errorf("listen reply in mgsinteractor panicked: \n%v", r)
 			log.Errorf("Stacktrace:\n%s", debug.Stack())
@@ -269,7 +292,7 @@ externalLoop:
 		select {
 		case reply, isOpen := <-mgs.replyChan:
 			if !isOpen {
-				log.Info("reply channel closed")
+				log.Debug("reply channel closed")
 				break externalLoop
 			}
 			replyUUID := uuid.NewV4()
@@ -296,9 +319,9 @@ externalLoop:
 // listenIncomingAgentMessages listens to the incoming messages and submits to the message handler
 func (mgs *MGSInteractor) listenIncomingAgentMessages() {
 	log := mgs.context.Log()
-	log.Info("listen incoming messages thread in MGS interactor started")
+	log.Debug("listen incoming messages thread in MGS interactor started")
 	defer func() {
-		log.Info("listen incoming messages thread in MGS interactor ended")
+		log.Debug("listen incoming messages thread in MGS interactor ended")
 		if r := recover(); r != nil {
 			log.Errorf("listen incoming messages panic: \n%v", r)
 			log.Errorf("Stacktrace:\n%s", debug.Stack())
@@ -381,13 +404,10 @@ func (mgs *MGSInteractor) processAgentJobMessage(agentMessage mgsContracts.Agent
 	appConfig := mgs.context.AppConfig()
 	log := mgs.context.Log()
 	if !mgs.isChannelOpenForAgentJobMsgs() {
-		log.Infof("dropping message because the channel is not open: %s", agentMessage.MessageId.String())
+		log.Warnf("dropping message because the channel is not open: %s", agentMessage.MessageId.String())
 		return
 	}
-	if mgs.context.AppConfig().Agent.ContainerMode {
-		log.Errorf("dropping message because job messages are not supported for containers: %s", agentMessage.MessageId.String())
-		return
-	}
+
 	shortInstanceId, _ := mgs.context.Identity().ShortInstanceID()
 	commandOrchestrationRootDir := filepath.Join(appconfig.DefaultDataStorePath, shortInstanceId, appconfig.DefaultDocumentRootDirName, appConfig.Agent.OrchestrationRootDir)
 	docState, err := agentMessage.ParseAgentMessage(mgs.context, commandOrchestrationRootDir, mgs.agentConfig.InstanceID)
@@ -395,23 +415,40 @@ func (mgs *MGSInteractor) processAgentJobMessage(agentMessage mgsContracts.Agent
 	// we should handle few errors differently in future
 	if err != nil {
 		log.Errorf("dropping message because cannot parse AgentJob message %s to Document State, err: %v", agentMessage.MessageId.String(), err)
+		agentJobId, _ := agentMessage.GetAgentJobId(mgs.context)
+		commandId, _ := messageContracts.GetCommandID(agentJobId)
+		mgs.buildAgentJobAckMessageAndSend(agentMessage.MessageId, agentJobId, agentMessage.CreatedDate, messagehandler.AgentJobMessageParseError)
+		docState = &contracts.DocumentState{
+			DocumentInformation: contracts.DocumentInfo{
+				MessageID: agentJobId,
+				CommandID: commandId,
+			},
+			DocumentType: contracts.SendCommand,
+		}
+		payloadDoc := utils.PrepareReplyPayloadToUpdateDocumentStatus(mgs.agentConfig.AgentInfo, contracts.ResultStatusFailed, "", nil)
+		mgs.sendDocResponse(payloadDoc, docState)
 		return
 	} else {
-
+		if mgs.context.AppConfig().Agent.ContainerMode {
+			log.Errorf("dropping message because job messages are not supported for containers: %s", agentMessage.MessageId.String())
+			mgs.buildAgentJobAckMessageAndSend(agentMessage.MessageId, docState.DocumentInformation.MessageID, agentMessage.CreatedDate, messagehandler.ContainerNotSupported)
+			return
+		}
 		log.Debugf("pushing AgentJob message %s to MessageHandler incoming message chan", agentMessage.MessageId.String())
 		errorCode := mgs.messageHandler.Submit(docState)
 		if errorCode != "" {
+			log.Warnf("dropping message %v because of error code %v", docState.DocumentInformation.DocumentID, errorCode)
 			if _, ok := mgs.ackSkipCodes[errorCode]; ok {
-				log.Warnf("dropping message %v because of error code %v", docState.DocumentInformation.DocumentID, errorCode)
+				mgs.buildAgentJobAckMessageAndSend(agentMessage.MessageId, docState.DocumentInformation.MessageID, agentMessage.CreatedDate, errorCode)
 				return
 			}
 		}
-		err = mgs.buildAgentJobAckMessageAndSend(agentMessage.MessageId, docState.DocumentInformation.MessageID, agentMessage.CreatedDate)
+		err = mgs.buildAgentJobAckMessageAndSend(agentMessage.MessageId, docState.DocumentInformation.MessageID, agentMessage.CreatedDate, messagehandler.Successful)
 		if err != nil { // proceed without returning during error as the doc would have been already persisted
 			log.Errorf("could not send ack for message %v because of error: %v", docState.DocumentInformation.DocumentID, err)
 		}
 
-		payloadDoc := utils.PrepareReplyPayloadToUpdateDocumentStatus(mgs.agentConfig.AgentInfo, contracts.ResultStatusInProgress, "")
+		payloadDoc := utils.PrepareReplyPayloadToUpdateDocumentStatus(mgs.agentConfig.AgentInfo, contracts.ResultStatusInProgress, "", nil)
 		// no persisting done for this message as this does not impact the command result
 		mgs.sendDocResponse(payloadDoc, docState)
 		log.Debugf("pushed message %s with document id %s to processor", agentMessage.MessageId.String(), docState.DocumentInformation.DocumentID)
@@ -440,13 +477,22 @@ func (mgs *MGSInteractor) sendDocResponse(payloadDoc messageContracts.SendReplyP
 	}
 }
 
-func (mgs *MGSInteractor) buildAgentJobAckMessageAndSend(ackMessageId uuid.UUID, jobId string, createdDate uint64) error {
+func (mgs *MGSInteractor) buildAgentJobAckMessageAndSend(ackMessageId uuid.UUID, jobId string, createdDate uint64, errorCode messagehandler.ErrorCode) error {
 	log := mgs.context.Log()
 
+	statusCode, ok := mgs.ackSkipCodes[errorCode]
+	if !ok {
+		// Should never happen
+		errorCode = messagehandler.UnexpectedError
+		statusCode = mgs.ackSkipCodes[errorCode]
+	}
+
 	ackMsg := &mgsContracts.AgentJobAck{
-		JobId:       jobId,
-		MessageId:   ackMessageId.String(),
-		CreatedDate: toISO8601(createdDate),
+		JobId:        jobId,
+		MessageId:    ackMessageId.String(),
+		CreatedDate:  toISO8601(createdDate),
+		StatusCode:   statusCode,
+		ErrorMessage: string(errorCode),
 	}
 
 	replyBytes, err := json.Marshal(ackMsg)
@@ -477,7 +523,7 @@ func (mgs *MGSInteractor) buildAgentJobAckMessageAndSend(ackMessageId uuid.UUID,
 		log.Errorf("Error sending agent job ack message, ID [%v], err: %v", ackMessageId.String(), err)
 		return err
 	}
-	log.Infof("Successfully sent ack message id %s back for JobID %s", replyUUID, jobId)
+	log.Debugf("Successfully sent ack message id %s back for JobID %s", replyUUID, jobId)
 	return nil
 }
 
@@ -498,16 +544,16 @@ func (mgs *MGSInteractor) processTaskAcknowledgeMessage(agentMessage mgsContract
 	}
 }
 
-var setupControlChannel = func(context context.T, mgsService service.Service, instanceId string, agentMessageIncomingMessageChan chan mgsContracts.AgentMessage) (controlchannel.IControlChannel, error) {
+var setupControlChannel = func(context context.T, mgsService service.Service, instanceId string, agentMessageIncomingMessageChan chan mgsContracts.AgentMessage, ableToOpenMGSConnection *uint32) (controlchannel.IControlChannel, error) {
 	retryer := retry.ExponentialRetryer{
 		CallableFunc: func() (channel interface{}, err error) {
 			controlChannel := &controlchannel.ControlChannel{}
 			controlChannel.Initialize(context, mgsService, instanceId, agentMessageIncomingMessageChan)
-			if err := controlChannel.SetWebSocket(context, mgsService); err != nil {
+			if err := controlChannel.SetWebSocket(context, mgsService, ableToOpenMGSConnection); err != nil {
 				return nil, err
 			}
 
-			if err := controlChannel.Open(context.Log()); err != nil {
+			if err := controlChannel.Open(context, ableToOpenMGSConnection); err != nil {
 				return nil, err
 			}
 			controlChannel.AuditLogScheduler.ScheduleAuditEvents()

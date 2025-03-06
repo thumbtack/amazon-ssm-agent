@@ -40,6 +40,9 @@ const (
 
 	// defaultWorkingDirectory represents the default working directory
 	defaultWorkingDirectory = ""
+
+	// SourceHashType is set as default sha256.
+	Sha256SourceHashType = "sha256"
 )
 
 // msiExecCommand is the command for installing msi applications
@@ -111,7 +114,7 @@ func (p *Plugin) runCommands(pluginID string, pluginInput ApplicationPluginInput
 	var err error
 
 	// TODO:MF: This subdirectory is only needed because we could be running multiple sets of properties for the same plugin - otherwise the orchestration directory would already be unique
-	orchestrationDir := fileutil.BuildPath(orchestrationDirectory, pluginInput.ID)
+	orchestrationDir := fileutil.BuildSafePath(orchestrationDirectory, pluginInput.ID)
 	log.Debugf("OrchestrationDir %v ", orchestrationDir)
 
 	// create orchestration dir if needed
@@ -128,6 +131,8 @@ func (p *Plugin) runCommands(pluginID string, pluginInput ApplicationPluginInput
 		return
 	}
 	log.Debugf("mode is %v", mode)
+
+	pluginInput.SourceHashType = Sha256SourceHashType
 
 	var localFilePath string
 	// Download file from source if available

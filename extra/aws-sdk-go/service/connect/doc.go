@@ -3,6 +3,10 @@
 // Package connect provides the client and types for making API
 // requests to Amazon Connect Service.
 //
+//   - Amazon Connect actions (https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html)
+//
+//   - Amazon Connect data types (https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html)
+//
 // Amazon Connect is a cloud-based contact center solution that you use to set
 // up and manage a customer contact center and provide reliable customer engagement
 // at any scale.
@@ -20,14 +24,12 @@
 // an endpoint. For a list of Amazon Connect endpoints, see Amazon Connect Endpoints
 // (https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
 //
-// Working with contact flows? Check out the Amazon Connect Flow language (https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html).
-//
 // See https://docs.aws.amazon.com/goto/WebAPI/connect-2017-08-08 for more information on this service.
 //
 // See connect package documentation for more information.
 // https://docs.aws.amazon.com/sdk-for-go/api/service/connect/
 //
-// Using the Client
+// # Using the Client
 //
 // To contact Amazon Connect Service with the SDK use the New function to create
 // a new service client. With that client you can make API requests to the service.

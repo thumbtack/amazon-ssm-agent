@@ -28,14 +28,13 @@ const opCreateAnomalyMonitor = "CreateAnomalyMonitor"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateAnomalyMonitorRequest method.
+//	req, resp := client.CreateAnomalyMonitorRequest(params)
 //
-//    // Example sending a request using the CreateAnomalyMonitorRequest method.
-//    req, resp := client.CreateAnomalyMonitorRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/CreateAnomalyMonitor
 func (c *CostExplorer) CreateAnomalyMonitorRequest(input *CreateAnomalyMonitorInput) (req *request.Request, output *CreateAnomalyMonitorOutput) {
@@ -67,8 +66,8 @@ func (c *CostExplorer) CreateAnomalyMonitorRequest(input *CreateAnomalyMonitorIn
 // API operation CreateAnomalyMonitor for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/CreateAnomalyMonitor
 func (c *CostExplorer) CreateAnomalyMonitor(input *CreateAnomalyMonitorInput) (*CreateAnomalyMonitorOutput, error) {
@@ -108,14 +107,13 @@ const opCreateAnomalySubscription = "CreateAnomalySubscription"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateAnomalySubscriptionRequest method.
+//	req, resp := client.CreateAnomalySubscriptionRequest(params)
 //
-//    // Example sending a request using the CreateAnomalySubscriptionRequest method.
-//    req, resp := client.CreateAnomalySubscriptionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/CreateAnomalySubscription
 func (c *CostExplorer) CreateAnomalySubscriptionRequest(input *CreateAnomalySubscriptionInput) (req *request.Request, output *CreateAnomalySubscriptionOutput) {
@@ -136,10 +134,10 @@ func (c *CostExplorer) CreateAnomalySubscriptionRequest(input *CreateAnomalySubs
 
 // CreateAnomalySubscription API operation for AWS Cost Explorer Service.
 //
-// Adds a subscription to a cost anomaly detection monitor. You can use each
-// subscription to define subscribers with email or SNS notifications. Email
-// subscribers can set a dollar threshold and a time frequency for receiving
-// notifications.
+// Adds an alert subscription to a cost anomaly detection monitor. You can use
+// each subscription to define subscribers with email or SNS notifications.
+// Email subscribers can set an absolute or percentage threshold and a time
+// frequency for receiving notifications.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -149,11 +147,12 @@ func (c *CostExplorer) CreateAnomalySubscriptionRequest(input *CreateAnomalySubs
 // API operation CreateAnomalySubscription for usage and error information.
 //
 // Returned Error Types:
-//   * UnknownMonitorException
-//   The cost anomaly monitor does not exist for the account.
 //
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - UnknownMonitorException
+//     The cost anomaly monitor does not exist for the account.
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/CreateAnomalySubscription
 func (c *CostExplorer) CreateAnomalySubscription(input *CreateAnomalySubscriptionInput) (*CreateAnomalySubscriptionOutput, error) {
@@ -193,14 +192,13 @@ const opCreateCostCategoryDefinition = "CreateCostCategoryDefinition"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateCostCategoryDefinitionRequest method.
+//	req, resp := client.CreateCostCategoryDefinitionRequest(params)
 //
-//    // Example sending a request using the CreateCostCategoryDefinitionRequest method.
-//    req, resp := client.CreateCostCategoryDefinitionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/CreateCostCategoryDefinition
 func (c *CostExplorer) CreateCostCategoryDefinitionRequest(input *CreateCostCategoryDefinitionInput) (req *request.Request, output *CreateCostCategoryDefinitionOutput) {
@@ -231,12 +229,13 @@ func (c *CostExplorer) CreateCostCategoryDefinitionRequest(input *CreateCostCate
 // API operation CreateCostCategoryDefinition for usage and error information.
 //
 // Returned Error Types:
-//   * ServiceQuotaExceededException
-//   You've reached the limit on the number of resources you can create, or exceeded
-//   the size of an individual resource.
 //
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - ServiceQuotaExceededException
+//     You've reached the limit on the number of resources you can create, or exceeded
+//     the size of an individual resource.
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/CreateCostCategoryDefinition
 func (c *CostExplorer) CreateCostCategoryDefinition(input *CreateCostCategoryDefinitionInput) (*CreateCostCategoryDefinitionOutput, error) {
@@ -276,14 +275,13 @@ const opDeleteAnomalyMonitor = "DeleteAnomalyMonitor"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteAnomalyMonitorRequest method.
+//	req, resp := client.DeleteAnomalyMonitorRequest(params)
 //
-//    // Example sending a request using the DeleteAnomalyMonitorRequest method.
-//    req, resp := client.DeleteAnomalyMonitorRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/DeleteAnomalyMonitor
 func (c *CostExplorer) DeleteAnomalyMonitorRequest(input *DeleteAnomalyMonitorInput) (req *request.Request, output *DeleteAnomalyMonitorOutput) {
@@ -315,11 +313,12 @@ func (c *CostExplorer) DeleteAnomalyMonitorRequest(input *DeleteAnomalyMonitorIn
 // API operation DeleteAnomalyMonitor for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * UnknownMonitorException
-//   The cost anomaly monitor does not exist for the account.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - UnknownMonitorException
+//     The cost anomaly monitor does not exist for the account.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/DeleteAnomalyMonitor
 func (c *CostExplorer) DeleteAnomalyMonitor(input *DeleteAnomalyMonitorInput) (*DeleteAnomalyMonitorOutput, error) {
@@ -359,14 +358,13 @@ const opDeleteAnomalySubscription = "DeleteAnomalySubscription"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteAnomalySubscriptionRequest method.
+//	req, resp := client.DeleteAnomalySubscriptionRequest(params)
 //
-//    // Example sending a request using the DeleteAnomalySubscriptionRequest method.
-//    req, resp := client.DeleteAnomalySubscriptionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/DeleteAnomalySubscription
 func (c *CostExplorer) DeleteAnomalySubscriptionRequest(input *DeleteAnomalySubscriptionInput) (req *request.Request, output *DeleteAnomalySubscriptionOutput) {
@@ -398,11 +396,12 @@ func (c *CostExplorer) DeleteAnomalySubscriptionRequest(input *DeleteAnomalySubs
 // API operation DeleteAnomalySubscription for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * UnknownSubscriptionException
-//   The cost anomaly subscription does not exist for the account.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - UnknownSubscriptionException
+//     The cost anomaly subscription does not exist for the account.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/DeleteAnomalySubscription
 func (c *CostExplorer) DeleteAnomalySubscription(input *DeleteAnomalySubscriptionInput) (*DeleteAnomalySubscriptionOutput, error) {
@@ -442,14 +441,13 @@ const opDeleteCostCategoryDefinition = "DeleteCostCategoryDefinition"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteCostCategoryDefinitionRequest method.
+//	req, resp := client.DeleteCostCategoryDefinitionRequest(params)
 //
-//    // Example sending a request using the DeleteCostCategoryDefinitionRequest method.
-//    req, resp := client.DeleteCostCategoryDefinitionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/DeleteCostCategoryDefinition
 func (c *CostExplorer) DeleteCostCategoryDefinitionRequest(input *DeleteCostCategoryDefinitionInput) (req *request.Request, output *DeleteCostCategoryDefinitionOutput) {
@@ -481,11 +479,12 @@ func (c *CostExplorer) DeleteCostCategoryDefinitionRequest(input *DeleteCostCate
 // API operation DeleteCostCategoryDefinition for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The specified ARN in the request doesn't exist.
 //
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - ResourceNotFoundException
+//     The specified ARN in the request doesn't exist.
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/DeleteCostCategoryDefinition
 func (c *CostExplorer) DeleteCostCategoryDefinition(input *DeleteCostCategoryDefinitionInput) (*DeleteCostCategoryDefinitionOutput, error) {
@@ -525,14 +524,13 @@ const opDescribeCostCategoryDefinition = "DescribeCostCategoryDefinition"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DescribeCostCategoryDefinitionRequest method.
+//	req, resp := client.DescribeCostCategoryDefinitionRequest(params)
 //
-//    // Example sending a request using the DescribeCostCategoryDefinitionRequest method.
-//    req, resp := client.DescribeCostCategoryDefinitionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/DescribeCostCategoryDefinition
 func (c *CostExplorer) DescribeCostCategoryDefinitionRequest(input *DescribeCostCategoryDefinitionInput) (req *request.Request, output *DescribeCostCategoryDefinitionOutput) {
@@ -569,11 +567,12 @@ func (c *CostExplorer) DescribeCostCategoryDefinitionRequest(input *DescribeCost
 // API operation DescribeCostCategoryDefinition for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The specified ARN in the request doesn't exist.
 //
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - ResourceNotFoundException
+//     The specified ARN in the request doesn't exist.
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/DescribeCostCategoryDefinition
 func (c *CostExplorer) DescribeCostCategoryDefinition(input *DescribeCostCategoryDefinitionInput) (*DescribeCostCategoryDefinitionOutput, error) {
@@ -613,14 +612,13 @@ const opGetAnomalies = "GetAnomalies"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetAnomaliesRequest method.
+//	req, resp := client.GetAnomaliesRequest(params)
 //
-//    // Example sending a request using the GetAnomaliesRequest method.
-//    req, resp := client.GetAnomaliesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetAnomalies
 func (c *CostExplorer) GetAnomaliesRequest(input *GetAnomaliesInput) (req *request.Request, output *GetAnomaliesOutput) {
@@ -642,7 +640,8 @@ func (c *CostExplorer) GetAnomaliesRequest(input *GetAnomaliesInput) (req *reque
 // GetAnomalies API operation for AWS Cost Explorer Service.
 //
 // Retrieves all of the cost anomalies detected on your account during the time
-// period that's specified by the DateInterval object.
+// period that's specified by the DateInterval object. Anomalies are available
+// for up to 90 days.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -652,11 +651,12 @@ func (c *CostExplorer) GetAnomaliesRequest(input *GetAnomaliesInput) (req *reque
 // API operation GetAnomalies for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetAnomalies
 func (c *CostExplorer) GetAnomalies(input *GetAnomaliesInput) (*GetAnomaliesOutput, error) {
@@ -696,14 +696,13 @@ const opGetAnomalyMonitors = "GetAnomalyMonitors"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetAnomalyMonitorsRequest method.
+//	req, resp := client.GetAnomalyMonitorsRequest(params)
 //
-//    // Example sending a request using the GetAnomalyMonitorsRequest method.
-//    req, resp := client.GetAnomalyMonitorsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetAnomalyMonitors
 func (c *CostExplorer) GetAnomalyMonitorsRequest(input *GetAnomalyMonitorsInput) (req *request.Request, output *GetAnomalyMonitorsOutput) {
@@ -735,14 +734,15 @@ func (c *CostExplorer) GetAnomalyMonitorsRequest(input *GetAnomalyMonitorsInput)
 // API operation GetAnomalyMonitors for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * UnknownMonitorException
-//   The cost anomaly monitor does not exist for the account.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - UnknownMonitorException
+//     The cost anomaly monitor does not exist for the account.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetAnomalyMonitors
 func (c *CostExplorer) GetAnomalyMonitors(input *GetAnomalyMonitorsInput) (*GetAnomalyMonitorsOutput, error) {
@@ -782,14 +782,13 @@ const opGetAnomalySubscriptions = "GetAnomalySubscriptions"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetAnomalySubscriptionsRequest method.
+//	req, resp := client.GetAnomalySubscriptionsRequest(params)
 //
-//    // Example sending a request using the GetAnomalySubscriptionsRequest method.
-//    req, resp := client.GetAnomalySubscriptionsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetAnomalySubscriptions
 func (c *CostExplorer) GetAnomalySubscriptionsRequest(input *GetAnomalySubscriptionsInput) (req *request.Request, output *GetAnomalySubscriptionsOutput) {
@@ -821,14 +820,15 @@ func (c *CostExplorer) GetAnomalySubscriptionsRequest(input *GetAnomalySubscript
 // API operation GetAnomalySubscriptions for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * UnknownSubscriptionException
-//   The cost anomaly subscription does not exist for the account.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - UnknownSubscriptionException
+//     The cost anomaly subscription does not exist for the account.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetAnomalySubscriptions
 func (c *CostExplorer) GetAnomalySubscriptions(input *GetAnomalySubscriptionsInput) (*GetAnomalySubscriptionsOutput, error) {
@@ -852,6 +852,89 @@ func (c *CostExplorer) GetAnomalySubscriptionsWithContext(ctx aws.Context, input
 	return out, req.Send()
 }
 
+const opGetApproximateUsageRecords = "GetApproximateUsageRecords"
+
+// GetApproximateUsageRecordsRequest generates a "aws/request.Request" representing the
+// client's request for the GetApproximateUsageRecords operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetApproximateUsageRecords for more information on using the GetApproximateUsageRecords
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the GetApproximateUsageRecordsRequest method.
+//	req, resp := client.GetApproximateUsageRecordsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetApproximateUsageRecords
+func (c *CostExplorer) GetApproximateUsageRecordsRequest(input *GetApproximateUsageRecordsInput) (req *request.Request, output *GetApproximateUsageRecordsOutput) {
+	op := &request.Operation{
+		Name:       opGetApproximateUsageRecords,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &GetApproximateUsageRecordsInput{}
+	}
+
+	output = &GetApproximateUsageRecordsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetApproximateUsageRecords API operation for AWS Cost Explorer Service.
+//
+// Retrieves estimated usage records for hourly granularity or resource-level
+// data at daily granularity.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Cost Explorer Service's
+// API operation GetApproximateUsageRecords for usage and error information.
+//
+// Returned Error Types:
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - DataUnavailableException
+//     The requested data is unavailable.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetApproximateUsageRecords
+func (c *CostExplorer) GetApproximateUsageRecords(input *GetApproximateUsageRecordsInput) (*GetApproximateUsageRecordsOutput, error) {
+	req, out := c.GetApproximateUsageRecordsRequest(input)
+	return out, req.Send()
+}
+
+// GetApproximateUsageRecordsWithContext is the same as GetApproximateUsageRecords with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetApproximateUsageRecords for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CostExplorer) GetApproximateUsageRecordsWithContext(ctx aws.Context, input *GetApproximateUsageRecordsInput, opts ...request.Option) (*GetApproximateUsageRecordsOutput, error) {
+	req, out := c.GetApproximateUsageRecordsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetCostAndUsage = "GetCostAndUsage"
 
 // GetCostAndUsageRequest generates a "aws/request.Request" representing the
@@ -868,14 +951,13 @@ const opGetCostAndUsage = "GetCostAndUsage"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetCostAndUsageRequest method.
+//	req, resp := client.GetCostAndUsageRequest(params)
 //
-//    // Example sending a request using the GetCostAndUsageRequest method.
-//    req, resp := client.GetCostAndUsageRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetCostAndUsage
 func (c *CostExplorer) GetCostAndUsageRequest(input *GetCostAndUsageInput) (req *request.Request, output *GetCostAndUsageOutput) {
@@ -916,21 +998,22 @@ func (c *CostExplorer) GetCostAndUsageRequest(input *GetCostAndUsageInput) (req 
 // API operation GetCostAndUsage for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * BillExpirationException
-//   The requested report expired. Update the date interval and try again.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * DataUnavailableException
-//   The requested data is unavailable.
+//   - BillExpirationException
+//     The requested report expired. Update the date interval and try again.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - DataUnavailableException
+//     The requested data is unavailable.
 //
-//   * RequestChangedException
-//   Your request parameters changed between pages. Try again with the old parameters
-//   or without a pagination token.
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
+//
+//   - RequestChangedException
+//     Your request parameters changed between pages. Try again with the old parameters
+//     or without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetCostAndUsage
 func (c *CostExplorer) GetCostAndUsage(input *GetCostAndUsageInput) (*GetCostAndUsageOutput, error) {
@@ -970,14 +1053,13 @@ const opGetCostAndUsageWithResources = "GetCostAndUsageWithResources"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetCostAndUsageWithResourcesRequest method.
+//	req, resp := client.GetCostAndUsageWithResourcesRequest(params)
 //
-//    // Example sending a request using the GetCostAndUsageWithResourcesRequest method.
-//    req, resp := client.GetCostAndUsageWithResourcesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetCostAndUsageWithResources
 func (c *CostExplorer) GetCostAndUsageWithResourcesRequest(input *GetCostAndUsageWithResourcesInput) (req *request.Request, output *GetCostAndUsageWithResourcesOutput) {
@@ -1004,8 +1086,11 @@ func (c *CostExplorer) GetCostAndUsageWithResourcesRequest(input *GetCostAndUsag
 // by various dimensions, such as SERVICE or AZ, in a specific time range. For
 // a complete list of valid dimensions, see the GetDimensionValues (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html)
 // operation. Management account in an organization in Organizations have access
-// to all member accounts. This API is currently available for the Amazon Elastic
-// Compute Cloud – Compute service only.
+// to all member accounts.
+//
+// Hourly granularity is only available for EC2-Instances (Elastic Compute Cloud)
+// resource-level data. All other resource-level data is available at daily
+// granularity.
 //
 // This is an opt-in only feature. You can enable this feature from the Cost
 // Explorer Settings page. For information about how to access the Settings
@@ -1020,21 +1105,22 @@ func (c *CostExplorer) GetCostAndUsageWithResourcesRequest(input *GetCostAndUsag
 // API operation GetCostAndUsageWithResources for usage and error information.
 //
 // Returned Error Types:
-//   * DataUnavailableException
-//   The requested data is unavailable.
 //
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - DataUnavailableException
+//     The requested data is unavailable.
 //
-//   * BillExpirationException
-//   The requested report expired. Update the date interval and try again.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - BillExpirationException
+//     The requested report expired. Update the date interval and try again.
 //
-//   * RequestChangedException
-//   Your request parameters changed between pages. Try again with the old parameters
-//   or without a pagination token.
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
+//
+//   - RequestChangedException
+//     Your request parameters changed between pages. Try again with the old parameters
+//     or without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetCostAndUsageWithResources
 func (c *CostExplorer) GetCostAndUsageWithResources(input *GetCostAndUsageWithResourcesInput) (*GetCostAndUsageWithResourcesOutput, error) {
@@ -1074,14 +1160,13 @@ const opGetCostCategories = "GetCostCategories"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetCostCategoriesRequest method.
+//	req, resp := client.GetCostCategoriesRequest(params)
 //
-//    // Example sending a request using the GetCostCategoriesRequest method.
-//    req, resp := client.GetCostCategoriesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetCostCategories
 func (c *CostExplorer) GetCostCategoriesRequest(input *GetCostCategoriesInput) (req *request.Request, output *GetCostCategoriesOutput) {
@@ -1115,21 +1200,22 @@ func (c *CostExplorer) GetCostCategoriesRequest(input *GetCostCategoriesInput) (
 // API operation GetCostCategories for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * BillExpirationException
-//   The requested report expired. Update the date interval and try again.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * DataUnavailableException
-//   The requested data is unavailable.
+//   - BillExpirationException
+//     The requested report expired. Update the date interval and try again.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - DataUnavailableException
+//     The requested data is unavailable.
 //
-//   * RequestChangedException
-//   Your request parameters changed between pages. Try again with the old parameters
-//   or without a pagination token.
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
+//
+//   - RequestChangedException
+//     Your request parameters changed between pages. Try again with the old parameters
+//     or without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetCostCategories
 func (c *CostExplorer) GetCostCategories(input *GetCostCategoriesInput) (*GetCostCategoriesOutput, error) {
@@ -1169,14 +1255,13 @@ const opGetCostForecast = "GetCostForecast"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetCostForecastRequest method.
+//	req, resp := client.GetCostForecastRequest(params)
 //
-//    // Example sending a request using the GetCostForecastRequest method.
-//    req, resp := client.GetCostForecastRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetCostForecast
 func (c *CostExplorer) GetCostForecastRequest(input *GetCostForecastInput) (req *request.Request, output *GetCostForecastOutput) {
@@ -1208,11 +1293,12 @@ func (c *CostExplorer) GetCostForecastRequest(input *GetCostForecastInput) (req 
 // API operation GetCostForecast for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * DataUnavailableException
-//   The requested data is unavailable.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - DataUnavailableException
+//     The requested data is unavailable.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetCostForecast
 func (c *CostExplorer) GetCostForecast(input *GetCostForecastInput) (*GetCostForecastOutput, error) {
@@ -1252,14 +1338,13 @@ const opGetDimensionValues = "GetDimensionValues"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetDimensionValuesRequest method.
+//	req, resp := client.GetDimensionValuesRequest(params)
 //
-//    // Example sending a request using the GetDimensionValuesRequest method.
-//    req, resp := client.GetDimensionValuesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetDimensionValues
 func (c *CostExplorer) GetDimensionValuesRequest(input *GetDimensionValuesInput) (req *request.Request, output *GetDimensionValuesOutput) {
@@ -1291,21 +1376,22 @@ func (c *CostExplorer) GetDimensionValuesRequest(input *GetDimensionValuesInput)
 // API operation GetDimensionValues for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * BillExpirationException
-//   The requested report expired. Update the date interval and try again.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * DataUnavailableException
-//   The requested data is unavailable.
+//   - BillExpirationException
+//     The requested report expired. Update the date interval and try again.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - DataUnavailableException
+//     The requested data is unavailable.
 //
-//   * RequestChangedException
-//   Your request parameters changed between pages. Try again with the old parameters
-//   or without a pagination token.
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
+//
+//   - RequestChangedException
+//     Your request parameters changed between pages. Try again with the old parameters
+//     or without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetDimensionValues
 func (c *CostExplorer) GetDimensionValues(input *GetDimensionValuesInput) (*GetDimensionValuesOutput, error) {
@@ -1345,14 +1431,13 @@ const opGetReservationCoverage = "GetReservationCoverage"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetReservationCoverageRequest method.
+//	req, resp := client.GetReservationCoverageRequest(params)
 //
-//    // Example sending a request using the GetReservationCoverageRequest method.
-//    req, resp := client.GetReservationCoverageRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetReservationCoverage
 func (c *CostExplorer) GetReservationCoverageRequest(input *GetReservationCoverageInput) (req *request.Request, output *GetReservationCoverageOutput) {
@@ -1381,29 +1466,29 @@ func (c *CostExplorer) GetReservationCoverageRequest(input *GetReservationCovera
 // For any time period, you can filter data about reservation usage by the following
 // dimensions:
 //
-//    * AZ
+//   - AZ
 //
-//    * CACHE_ENGINE
+//   - CACHE_ENGINE
 //
-//    * DATABASE_ENGINE
+//   - DATABASE_ENGINE
 //
-//    * DEPLOYMENT_OPTION
+//   - DEPLOYMENT_OPTION
 //
-//    * INSTANCE_TYPE
+//   - INSTANCE_TYPE
 //
-//    * LINKED_ACCOUNT
+//   - LINKED_ACCOUNT
 //
-//    * OPERATING_SYSTEM
+//   - OPERATING_SYSTEM
 //
-//    * PLATFORM
+//   - PLATFORM
 //
-//    * REGION
+//   - REGION
 //
-//    * SERVICE
+//   - SERVICE
 //
-//    * TAG
+//   - TAG
 //
-//    * TENANCY
+//   - TENANCY
 //
 // To determine valid values for a dimension, use the GetDimensionValues operation.
 //
@@ -1415,14 +1500,15 @@ func (c *CostExplorer) GetReservationCoverageRequest(input *GetReservationCovera
 // API operation GetReservationCoverage for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * DataUnavailableException
-//   The requested data is unavailable.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - DataUnavailableException
+//     The requested data is unavailable.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetReservationCoverage
 func (c *CostExplorer) GetReservationCoverage(input *GetReservationCoverageInput) (*GetReservationCoverageOutput, error) {
@@ -1462,14 +1548,13 @@ const opGetReservationPurchaseRecommendation = "GetReservationPurchaseRecommenda
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetReservationPurchaseRecommendationRequest method.
+//	req, resp := client.GetReservationPurchaseRecommendationRequest(params)
 //
-//    // Example sending a request using the GetReservationPurchaseRecommendationRequest method.
-//    req, resp := client.GetReservationPurchaseRecommendationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetReservationPurchaseRecommendation
 func (c *CostExplorer) GetReservationPurchaseRecommendationRequest(input *GetReservationPurchaseRecommendationInput) (req *request.Request, output *GetReservationPurchaseRecommendationOutput) {
@@ -1519,14 +1604,15 @@ func (c *CostExplorer) GetReservationPurchaseRecommendationRequest(input *GetRes
 // API operation GetReservationPurchaseRecommendation for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * DataUnavailableException
-//   The requested data is unavailable.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - DataUnavailableException
+//     The requested data is unavailable.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetReservationPurchaseRecommendation
 func (c *CostExplorer) GetReservationPurchaseRecommendation(input *GetReservationPurchaseRecommendationInput) (*GetReservationPurchaseRecommendationOutput, error) {
@@ -1566,14 +1652,13 @@ const opGetReservationUtilization = "GetReservationUtilization"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetReservationUtilizationRequest method.
+//	req, resp := client.GetReservationUtilizationRequest(params)
 //
-//    // Example sending a request using the GetReservationUtilizationRequest method.
-//    req, resp := client.GetReservationUtilizationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetReservationUtilization
 func (c *CostExplorer) GetReservationUtilizationRequest(input *GetReservationUtilizationInput) (req *request.Request, output *GetReservationUtilizationOutput) {
@@ -1607,14 +1692,15 @@ func (c *CostExplorer) GetReservationUtilizationRequest(input *GetReservationUti
 // API operation GetReservationUtilization for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * DataUnavailableException
-//   The requested data is unavailable.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - DataUnavailableException
+//     The requested data is unavailable.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetReservationUtilization
 func (c *CostExplorer) GetReservationUtilization(input *GetReservationUtilizationInput) (*GetReservationUtilizationOutput, error) {
@@ -1654,14 +1740,13 @@ const opGetRightsizingRecommendation = "GetRightsizingRecommendation"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetRightsizingRecommendationRequest method.
+//	req, resp := client.GetRightsizingRecommendationRequest(params)
 //
-//    // Example sending a request using the GetRightsizingRecommendationRequest method.
-//    req, resp := client.GetRightsizingRecommendationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetRightsizingRecommendation
 func (c *CostExplorer) GetRightsizingRecommendationRequest(input *GetRightsizingRecommendationInput) (req *request.Request, output *GetRightsizingRecommendationOutput) {
@@ -1699,11 +1784,12 @@ func (c *CostExplorer) GetRightsizingRecommendationRequest(input *GetRightsizing
 // API operation GetRightsizingRecommendation for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetRightsizingRecommendation
 func (c *CostExplorer) GetRightsizingRecommendation(input *GetRightsizingRecommendationInput) (*GetRightsizingRecommendationOutput, error) {
@@ -1727,6 +1813,90 @@ func (c *CostExplorer) GetRightsizingRecommendationWithContext(ctx aws.Context, 
 	return out, req.Send()
 }
 
+const opGetSavingsPlanPurchaseRecommendationDetails = "GetSavingsPlanPurchaseRecommendationDetails"
+
+// GetSavingsPlanPurchaseRecommendationDetailsRequest generates a "aws/request.Request" representing the
+// client's request for the GetSavingsPlanPurchaseRecommendationDetails operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetSavingsPlanPurchaseRecommendationDetails for more information on using the GetSavingsPlanPurchaseRecommendationDetails
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the GetSavingsPlanPurchaseRecommendationDetailsRequest method.
+//	req, resp := client.GetSavingsPlanPurchaseRecommendationDetailsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetSavingsPlanPurchaseRecommendationDetails
+func (c *CostExplorer) GetSavingsPlanPurchaseRecommendationDetailsRequest(input *GetSavingsPlanPurchaseRecommendationDetailsInput) (req *request.Request, output *GetSavingsPlanPurchaseRecommendationDetailsOutput) {
+	op := &request.Operation{
+		Name:       opGetSavingsPlanPurchaseRecommendationDetails,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &GetSavingsPlanPurchaseRecommendationDetailsInput{}
+	}
+
+	output = &GetSavingsPlanPurchaseRecommendationDetailsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetSavingsPlanPurchaseRecommendationDetails API operation for AWS Cost Explorer Service.
+//
+// Retrieves the details for a Savings Plan recommendation. These details include
+// the hourly data-points that construct the cost, coverage, and utilization
+// charts.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Cost Explorer Service's
+// API operation GetSavingsPlanPurchaseRecommendationDetails for usage and error information.
+//
+// Returned Error Types:
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - DataUnavailableException
+//     The requested data is unavailable.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetSavingsPlanPurchaseRecommendationDetails
+func (c *CostExplorer) GetSavingsPlanPurchaseRecommendationDetails(input *GetSavingsPlanPurchaseRecommendationDetailsInput) (*GetSavingsPlanPurchaseRecommendationDetailsOutput, error) {
+	req, out := c.GetSavingsPlanPurchaseRecommendationDetailsRequest(input)
+	return out, req.Send()
+}
+
+// GetSavingsPlanPurchaseRecommendationDetailsWithContext is the same as GetSavingsPlanPurchaseRecommendationDetails with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetSavingsPlanPurchaseRecommendationDetails for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CostExplorer) GetSavingsPlanPurchaseRecommendationDetailsWithContext(ctx aws.Context, input *GetSavingsPlanPurchaseRecommendationDetailsInput, opts ...request.Option) (*GetSavingsPlanPurchaseRecommendationDetailsOutput, error) {
+	req, out := c.GetSavingsPlanPurchaseRecommendationDetailsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetSavingsPlansCoverage = "GetSavingsPlansCoverage"
 
 // GetSavingsPlansCoverageRequest generates a "aws/request.Request" representing the
@@ -1743,14 +1913,13 @@ const opGetSavingsPlansCoverage = "GetSavingsPlansCoverage"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetSavingsPlansCoverageRequest method.
+//	req, resp := client.GetSavingsPlansCoverageRequest(params)
 //
-//    // Example sending a request using the GetSavingsPlansCoverageRequest method.
-//    req, resp := client.GetSavingsPlansCoverageRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetSavingsPlansCoverage
 func (c *CostExplorer) GetSavingsPlansCoverageRequest(input *GetSavingsPlansCoverageInput) (req *request.Request, output *GetSavingsPlansCoverageOutput) {
@@ -1784,13 +1953,13 @@ func (c *CostExplorer) GetSavingsPlansCoverageRequest(input *GetSavingsPlansCove
 // time period, you can filter data for Savings Plans usage with the following
 // dimensions:
 //
-//    * LINKED_ACCOUNT
+//   - LINKED_ACCOUNT
 //
-//    * REGION
+//   - REGION
 //
-//    * SERVICE
+//   - SERVICE
 //
-//    * INSTANCE_FAMILY
+//   - INSTANCE_FAMILY
 //
 // To determine valid values for a dimension, use the GetDimensionValues operation.
 //
@@ -1802,14 +1971,15 @@ func (c *CostExplorer) GetSavingsPlansCoverageRequest(input *GetSavingsPlansCove
 // API operation GetSavingsPlansCoverage for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * DataUnavailableException
-//   The requested data is unavailable.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - DataUnavailableException
+//     The requested data is unavailable.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetSavingsPlansCoverage
 func (c *CostExplorer) GetSavingsPlansCoverage(input *GetSavingsPlansCoverageInput) (*GetSavingsPlansCoverageOutput, error) {
@@ -1841,15 +2011,14 @@ func (c *CostExplorer) GetSavingsPlansCoverageWithContext(ctx aws.Context, input
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a GetSavingsPlansCoverage operation.
-//    pageNum := 0
-//    err := client.GetSavingsPlansCoveragePages(params,
-//        func(page *costexplorer.GetSavingsPlansCoverageOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a GetSavingsPlansCoverage operation.
+//	pageNum := 0
+//	err := client.GetSavingsPlansCoveragePages(params,
+//	    func(page *costexplorer.GetSavingsPlansCoverageOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *CostExplorer) GetSavingsPlansCoveragePages(input *GetSavingsPlansCoverageInput, fn func(*GetSavingsPlansCoverageOutput, bool) bool) error {
 	return c.GetSavingsPlansCoveragePagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -1901,14 +2070,13 @@ const opGetSavingsPlansPurchaseRecommendation = "GetSavingsPlansPurchaseRecommen
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetSavingsPlansPurchaseRecommendationRequest method.
+//	req, resp := client.GetSavingsPlansPurchaseRecommendationRequest(params)
 //
-//    // Example sending a request using the GetSavingsPlansPurchaseRecommendationRequest method.
-//    req, resp := client.GetSavingsPlansPurchaseRecommendationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetSavingsPlansPurchaseRecommendation
 func (c *CostExplorer) GetSavingsPlansPurchaseRecommendationRequest(input *GetSavingsPlansPurchaseRecommendationInput) (req *request.Request, output *GetSavingsPlansPurchaseRecommendationOutput) {
@@ -1929,8 +2097,9 @@ func (c *CostExplorer) GetSavingsPlansPurchaseRecommendationRequest(input *GetSa
 
 // GetSavingsPlansPurchaseRecommendation API operation for AWS Cost Explorer Service.
 //
-// Retrieves your request parameters, Savings Plan Recommendations Summary and
-// Details.
+// Retrieves the Savings Plans recommendations for your account. First use StartSavingsPlansPurchaseRecommendationGeneration
+// to generate a new set of recommendations, and then use GetSavingsPlansPurchaseRecommendation
+// to retrieve them.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1940,11 +2109,12 @@ func (c *CostExplorer) GetSavingsPlansPurchaseRecommendationRequest(input *GetSa
 // API operation GetSavingsPlansPurchaseRecommendation for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetSavingsPlansPurchaseRecommendation
 func (c *CostExplorer) GetSavingsPlansPurchaseRecommendation(input *GetSavingsPlansPurchaseRecommendationInput) (*GetSavingsPlansPurchaseRecommendationOutput, error) {
@@ -1984,14 +2154,13 @@ const opGetSavingsPlansUtilization = "GetSavingsPlansUtilization"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetSavingsPlansUtilizationRequest method.
+//	req, resp := client.GetSavingsPlansUtilizationRequest(params)
 //
-//    // Example sending a request using the GetSavingsPlansUtilizationRequest method.
-//    req, resp := client.GetSavingsPlansUtilizationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetSavingsPlansUtilization
 func (c *CostExplorer) GetSavingsPlansUtilizationRequest(input *GetSavingsPlansUtilizationInput) (req *request.Request, output *GetSavingsPlansUtilizationOutput) {
@@ -2027,11 +2196,12 @@ func (c *CostExplorer) GetSavingsPlansUtilizationRequest(input *GetSavingsPlansU
 // API operation GetSavingsPlansUtilization for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * DataUnavailableException
-//   The requested data is unavailable.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - DataUnavailableException
+//     The requested data is unavailable.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetSavingsPlansUtilization
 func (c *CostExplorer) GetSavingsPlansUtilization(input *GetSavingsPlansUtilizationInput) (*GetSavingsPlansUtilizationOutput, error) {
@@ -2071,14 +2241,13 @@ const opGetSavingsPlansUtilizationDetails = "GetSavingsPlansUtilizationDetails"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetSavingsPlansUtilizationDetailsRequest method.
+//	req, resp := client.GetSavingsPlansUtilizationDetailsRequest(params)
 //
-//    // Example sending a request using the GetSavingsPlansUtilizationDetailsRequest method.
-//    req, resp := client.GetSavingsPlansUtilizationDetailsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetSavingsPlansUtilizationDetails
 func (c *CostExplorer) GetSavingsPlansUtilizationDetailsRequest(input *GetSavingsPlansUtilizationDetailsInput) (req *request.Request, output *GetSavingsPlansUtilizationDetailsOutput) {
@@ -2123,14 +2292,15 @@ func (c *CostExplorer) GetSavingsPlansUtilizationDetailsRequest(input *GetSaving
 // API operation GetSavingsPlansUtilizationDetails for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * DataUnavailableException
-//   The requested data is unavailable.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - DataUnavailableException
+//     The requested data is unavailable.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetSavingsPlansUtilizationDetails
 func (c *CostExplorer) GetSavingsPlansUtilizationDetails(input *GetSavingsPlansUtilizationDetailsInput) (*GetSavingsPlansUtilizationDetailsOutput, error) {
@@ -2162,15 +2332,14 @@ func (c *CostExplorer) GetSavingsPlansUtilizationDetailsWithContext(ctx aws.Cont
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a GetSavingsPlansUtilizationDetails operation.
-//    pageNum := 0
-//    err := client.GetSavingsPlansUtilizationDetailsPages(params,
-//        func(page *costexplorer.GetSavingsPlansUtilizationDetailsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a GetSavingsPlansUtilizationDetails operation.
+//	pageNum := 0
+//	err := client.GetSavingsPlansUtilizationDetailsPages(params,
+//	    func(page *costexplorer.GetSavingsPlansUtilizationDetailsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *CostExplorer) GetSavingsPlansUtilizationDetailsPages(input *GetSavingsPlansUtilizationDetailsInput, fn func(*GetSavingsPlansUtilizationDetailsOutput, bool) bool) error {
 	return c.GetSavingsPlansUtilizationDetailsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2222,14 +2391,13 @@ const opGetTags = "GetTags"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetTagsRequest method.
+//	req, resp := client.GetTagsRequest(params)
 //
-//    // Example sending a request using the GetTagsRequest method.
-//    req, resp := client.GetTagsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetTags
 func (c *CostExplorer) GetTagsRequest(input *GetTagsInput) (req *request.Request, output *GetTagsOutput) {
@@ -2261,21 +2429,22 @@ func (c *CostExplorer) GetTagsRequest(input *GetTagsInput) (req *request.Request
 // API operation GetTags for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * BillExpirationException
-//   The requested report expired. Update the date interval and try again.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * DataUnavailableException
-//   The requested data is unavailable.
+//   - BillExpirationException
+//     The requested report expired. Update the date interval and try again.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - DataUnavailableException
+//     The requested data is unavailable.
 //
-//   * RequestChangedException
-//   Your request parameters changed between pages. Try again with the old parameters
-//   or without a pagination token.
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
+//
+//   - RequestChangedException
+//     Your request parameters changed between pages. Try again with the old parameters
+//     or without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetTags
 func (c *CostExplorer) GetTags(input *GetTagsInput) (*GetTagsOutput, error) {
@@ -2315,14 +2484,13 @@ const opGetUsageForecast = "GetUsageForecast"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetUsageForecastRequest method.
+//	req, resp := client.GetUsageForecastRequest(params)
 //
-//    // Example sending a request using the GetUsageForecastRequest method.
-//    req, resp := client.GetUsageForecastRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetUsageForecast
 func (c *CostExplorer) GetUsageForecastRequest(input *GetUsageForecastInput) (req *request.Request, output *GetUsageForecastOutput) {
@@ -2354,15 +2522,16 @@ func (c *CostExplorer) GetUsageForecastRequest(input *GetUsageForecastInput) (re
 // API operation GetUsageForecast for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * DataUnavailableException
-//   The requested data is unavailable.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * UnresolvableUsageUnitException
-//   Cost Explorer was unable to identify the usage unit. Provide UsageType/UsageTypeGroup
-//   filter selections that contain matching units, for example: hours.
+//   - DataUnavailableException
+//     The requested data is unavailable.
+//
+//   - UnresolvableUsageUnitException
+//     Cost Explorer was unable to identify the usage unit. Provide UsageType/UsageTypeGroup
+//     filter selections that contain matching units, for example: hours.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetUsageForecast
 func (c *CostExplorer) GetUsageForecast(input *GetUsageForecastInput) (*GetUsageForecastOutput, error) {
@@ -2386,6 +2555,145 @@ func (c *CostExplorer) GetUsageForecastWithContext(ctx aws.Context, input *GetUs
 	return out, req.Send()
 }
 
+const opListCostAllocationTagBackfillHistory = "ListCostAllocationTagBackfillHistory"
+
+// ListCostAllocationTagBackfillHistoryRequest generates a "aws/request.Request" representing the
+// client's request for the ListCostAllocationTagBackfillHistory operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListCostAllocationTagBackfillHistory for more information on using the ListCostAllocationTagBackfillHistory
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListCostAllocationTagBackfillHistoryRequest method.
+//	req, resp := client.ListCostAllocationTagBackfillHistoryRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListCostAllocationTagBackfillHistory
+func (c *CostExplorer) ListCostAllocationTagBackfillHistoryRequest(input *ListCostAllocationTagBackfillHistoryInput) (req *request.Request, output *ListCostAllocationTagBackfillHistoryOutput) {
+	op := &request.Operation{
+		Name:       opListCostAllocationTagBackfillHistory,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"NextToken"},
+			OutputTokens:    []string{"NextToken"},
+			LimitToken:      "MaxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListCostAllocationTagBackfillHistoryInput{}
+	}
+
+	output = &ListCostAllocationTagBackfillHistoryOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListCostAllocationTagBackfillHistory API operation for AWS Cost Explorer Service.
+//
+// Retrieves a list of your historical cost allocation tag backfill requests.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Cost Explorer Service's
+// API operation ListCostAllocationTagBackfillHistory for usage and error information.
+//
+// Returned Error Types:
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListCostAllocationTagBackfillHistory
+func (c *CostExplorer) ListCostAllocationTagBackfillHistory(input *ListCostAllocationTagBackfillHistoryInput) (*ListCostAllocationTagBackfillHistoryOutput, error) {
+	req, out := c.ListCostAllocationTagBackfillHistoryRequest(input)
+	return out, req.Send()
+}
+
+// ListCostAllocationTagBackfillHistoryWithContext is the same as ListCostAllocationTagBackfillHistory with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListCostAllocationTagBackfillHistory for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CostExplorer) ListCostAllocationTagBackfillHistoryWithContext(ctx aws.Context, input *ListCostAllocationTagBackfillHistoryInput, opts ...request.Option) (*ListCostAllocationTagBackfillHistoryOutput, error) {
+	req, out := c.ListCostAllocationTagBackfillHistoryRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListCostAllocationTagBackfillHistoryPages iterates over the pages of a ListCostAllocationTagBackfillHistory operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListCostAllocationTagBackfillHistory method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//	// Example iterating over at most 3 pages of a ListCostAllocationTagBackfillHistory operation.
+//	pageNum := 0
+//	err := client.ListCostAllocationTagBackfillHistoryPages(params,
+//	    func(page *costexplorer.ListCostAllocationTagBackfillHistoryOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
+func (c *CostExplorer) ListCostAllocationTagBackfillHistoryPages(input *ListCostAllocationTagBackfillHistoryInput, fn func(*ListCostAllocationTagBackfillHistoryOutput, bool) bool) error {
+	return c.ListCostAllocationTagBackfillHistoryPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListCostAllocationTagBackfillHistoryPagesWithContext same as ListCostAllocationTagBackfillHistoryPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CostExplorer) ListCostAllocationTagBackfillHistoryPagesWithContext(ctx aws.Context, input *ListCostAllocationTagBackfillHistoryInput, fn func(*ListCostAllocationTagBackfillHistoryOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListCostAllocationTagBackfillHistoryInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListCostAllocationTagBackfillHistoryRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListCostAllocationTagBackfillHistoryOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
 const opListCostAllocationTags = "ListCostAllocationTags"
 
 // ListCostAllocationTagsRequest generates a "aws/request.Request" representing the
@@ -2402,14 +2710,13 @@ const opListCostAllocationTags = "ListCostAllocationTags"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListCostAllocationTagsRequest method.
+//	req, resp := client.ListCostAllocationTagsRequest(params)
 //
-//    // Example sending a request using the ListCostAllocationTagsRequest method.
-//    req, resp := client.ListCostAllocationTagsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListCostAllocationTags
 func (c *CostExplorer) ListCostAllocationTagsRequest(input *ListCostAllocationTagsInput) (req *request.Request, output *ListCostAllocationTagsOutput) {
@@ -2447,11 +2754,12 @@ func (c *CostExplorer) ListCostAllocationTagsRequest(input *ListCostAllocationTa
 // API operation ListCostAllocationTags for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * InvalidNextTokenException
-//   The pagination token is invalid. Try again without a pagination token.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListCostAllocationTags
 func (c *CostExplorer) ListCostAllocationTags(input *ListCostAllocationTagsInput) (*ListCostAllocationTagsOutput, error) {
@@ -2483,15 +2791,14 @@ func (c *CostExplorer) ListCostAllocationTagsWithContext(ctx aws.Context, input 
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListCostAllocationTags operation.
-//    pageNum := 0
-//    err := client.ListCostAllocationTagsPages(params,
-//        func(page *costexplorer.ListCostAllocationTagsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListCostAllocationTags operation.
+//	pageNum := 0
+//	err := client.ListCostAllocationTagsPages(params,
+//	    func(page *costexplorer.ListCostAllocationTagsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *CostExplorer) ListCostAllocationTagsPages(input *ListCostAllocationTagsInput, fn func(*ListCostAllocationTagsOutput, bool) bool) error {
 	return c.ListCostAllocationTagsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2543,14 +2850,13 @@ const opListCostCategoryDefinitions = "ListCostCategoryDefinitions"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListCostCategoryDefinitionsRequest method.
+//	req, resp := client.ListCostCategoryDefinitionsRequest(params)
 //
-//    // Example sending a request using the ListCostCategoryDefinitionsRequest method.
-//    req, resp := client.ListCostCategoryDefinitionsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListCostCategoryDefinitions
 func (c *CostExplorer) ListCostCategoryDefinitionsRequest(input *ListCostCategoryDefinitionsInput) (req *request.Request, output *ListCostCategoryDefinitionsOutput) {
@@ -2593,8 +2899,8 @@ func (c *CostExplorer) ListCostCategoryDefinitionsRequest(input *ListCostCategor
 // API operation ListCostCategoryDefinitions for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListCostCategoryDefinitions
 func (c *CostExplorer) ListCostCategoryDefinitions(input *ListCostCategoryDefinitionsInput) (*ListCostCategoryDefinitionsOutput, error) {
@@ -2626,15 +2932,14 @@ func (c *CostExplorer) ListCostCategoryDefinitionsWithContext(ctx aws.Context, i
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListCostCategoryDefinitions operation.
-//    pageNum := 0
-//    err := client.ListCostCategoryDefinitionsPages(params,
-//        func(page *costexplorer.ListCostCategoryDefinitionsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListCostCategoryDefinitions operation.
+//	pageNum := 0
+//	err := client.ListCostCategoryDefinitionsPages(params,
+//	    func(page *costexplorer.ListCostCategoryDefinitionsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *CostExplorer) ListCostCategoryDefinitionsPages(input *ListCostCategoryDefinitionsInput, fn func(*ListCostCategoryDefinitionsOutput, bool) bool) error {
 	return c.ListCostCategoryDefinitionsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -2670,6 +2975,92 @@ func (c *CostExplorer) ListCostCategoryDefinitionsPagesWithContext(ctx aws.Conte
 	return p.Err()
 }
 
+const opListSavingsPlansPurchaseRecommendationGeneration = "ListSavingsPlansPurchaseRecommendationGeneration"
+
+// ListSavingsPlansPurchaseRecommendationGenerationRequest generates a "aws/request.Request" representing the
+// client's request for the ListSavingsPlansPurchaseRecommendationGeneration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListSavingsPlansPurchaseRecommendationGeneration for more information on using the ListSavingsPlansPurchaseRecommendationGeneration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListSavingsPlansPurchaseRecommendationGenerationRequest method.
+//	req, resp := client.ListSavingsPlansPurchaseRecommendationGenerationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListSavingsPlansPurchaseRecommendationGeneration
+func (c *CostExplorer) ListSavingsPlansPurchaseRecommendationGenerationRequest(input *ListSavingsPlansPurchaseRecommendationGenerationInput) (req *request.Request, output *ListSavingsPlansPurchaseRecommendationGenerationOutput) {
+	op := &request.Operation{
+		Name:       opListSavingsPlansPurchaseRecommendationGeneration,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ListSavingsPlansPurchaseRecommendationGenerationInput{}
+	}
+
+	output = &ListSavingsPlansPurchaseRecommendationGenerationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListSavingsPlansPurchaseRecommendationGeneration API operation for AWS Cost Explorer Service.
+//
+// Retrieves a list of your historical recommendation generations within the
+// past 30 days.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Cost Explorer Service's
+// API operation ListSavingsPlansPurchaseRecommendationGeneration for usage and error information.
+//
+// Returned Error Types:
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - InvalidNextTokenException
+//     The pagination token is invalid. Try again without a pagination token.
+//
+//   - DataUnavailableException
+//     The requested data is unavailable.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListSavingsPlansPurchaseRecommendationGeneration
+func (c *CostExplorer) ListSavingsPlansPurchaseRecommendationGeneration(input *ListSavingsPlansPurchaseRecommendationGenerationInput) (*ListSavingsPlansPurchaseRecommendationGenerationOutput, error) {
+	req, out := c.ListSavingsPlansPurchaseRecommendationGenerationRequest(input)
+	return out, req.Send()
+}
+
+// ListSavingsPlansPurchaseRecommendationGenerationWithContext is the same as ListSavingsPlansPurchaseRecommendationGeneration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListSavingsPlansPurchaseRecommendationGeneration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CostExplorer) ListSavingsPlansPurchaseRecommendationGenerationWithContext(ctx aws.Context, input *ListSavingsPlansPurchaseRecommendationGenerationInput, opts ...request.Option) (*ListSavingsPlansPurchaseRecommendationGenerationOutput, error) {
+	req, out := c.ListSavingsPlansPurchaseRecommendationGenerationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opListTagsForResource = "ListTagsForResource"
 
 // ListTagsForResourceRequest generates a "aws/request.Request" representing the
@@ -2686,14 +3077,13 @@ const opListTagsForResource = "ListTagsForResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListTagsForResourceRequest method.
+//	req, resp := client.ListTagsForResourceRequest(params)
 //
-//    // Example sending a request using the ListTagsForResourceRequest method.
-//    req, resp := client.ListTagsForResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListTagsForResource
 func (c *CostExplorer) ListTagsForResourceRequest(input *ListTagsForResourceInput) (req *request.Request, output *ListTagsForResourceOutput) {
@@ -2725,11 +3115,12 @@ func (c *CostExplorer) ListTagsForResourceRequest(input *ListTagsForResourceInpu
 // API operation ListTagsForResource for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The specified ARN in the request doesn't exist.
 //
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - ResourceNotFoundException
+//     The specified ARN in the request doesn't exist.
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListTagsForResource
 func (c *CostExplorer) ListTagsForResource(input *ListTagsForResourceInput) (*ListTagsForResourceOutput, error) {
@@ -2769,14 +3160,13 @@ const opProvideAnomalyFeedback = "ProvideAnomalyFeedback"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ProvideAnomalyFeedbackRequest method.
+//	req, resp := client.ProvideAnomalyFeedbackRequest(params)
 //
-//    // Example sending a request using the ProvideAnomalyFeedbackRequest method.
-//    req, resp := client.ProvideAnomalyFeedbackRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ProvideAnomalyFeedback
 func (c *CostExplorer) ProvideAnomalyFeedbackRequest(input *ProvideAnomalyFeedbackInput) (req *request.Request, output *ProvideAnomalyFeedbackOutput) {
@@ -2807,8 +3197,8 @@ func (c *CostExplorer) ProvideAnomalyFeedbackRequest(input *ProvideAnomalyFeedba
 // API operation ProvideAnomalyFeedback for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ProvideAnomalyFeedback
 func (c *CostExplorer) ProvideAnomalyFeedback(input *ProvideAnomalyFeedbackInput) (*ProvideAnomalyFeedbackOutput, error) {
@@ -2832,6 +3222,189 @@ func (c *CostExplorer) ProvideAnomalyFeedbackWithContext(ctx aws.Context, input 
 	return out, req.Send()
 }
 
+const opStartCostAllocationTagBackfill = "StartCostAllocationTagBackfill"
+
+// StartCostAllocationTagBackfillRequest generates a "aws/request.Request" representing the
+// client's request for the StartCostAllocationTagBackfill operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StartCostAllocationTagBackfill for more information on using the StartCostAllocationTagBackfill
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the StartCostAllocationTagBackfillRequest method.
+//	req, resp := client.StartCostAllocationTagBackfillRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/StartCostAllocationTagBackfill
+func (c *CostExplorer) StartCostAllocationTagBackfillRequest(input *StartCostAllocationTagBackfillInput) (req *request.Request, output *StartCostAllocationTagBackfillOutput) {
+	op := &request.Operation{
+		Name:       opStartCostAllocationTagBackfill,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &StartCostAllocationTagBackfillInput{}
+	}
+
+	output = &StartCostAllocationTagBackfillOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StartCostAllocationTagBackfill API operation for AWS Cost Explorer Service.
+//
+// Request a cost allocation tag backfill. This will backfill the activation
+// status (either active or inactive) for all tag keys from para:BackfillFrom
+// up to the when this request is made.
+//
+// You can request a backfill once every 24 hours.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Cost Explorer Service's
+// API operation StartCostAllocationTagBackfill for usage and error information.
+//
+// Returned Error Types:
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - BackfillLimitExceededException
+//     A request to backfill is already in progress. Once the previous request is
+//     complete, you can create another request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/StartCostAllocationTagBackfill
+func (c *CostExplorer) StartCostAllocationTagBackfill(input *StartCostAllocationTagBackfillInput) (*StartCostAllocationTagBackfillOutput, error) {
+	req, out := c.StartCostAllocationTagBackfillRequest(input)
+	return out, req.Send()
+}
+
+// StartCostAllocationTagBackfillWithContext is the same as StartCostAllocationTagBackfill with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StartCostAllocationTagBackfill for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CostExplorer) StartCostAllocationTagBackfillWithContext(ctx aws.Context, input *StartCostAllocationTagBackfillInput, opts ...request.Option) (*StartCostAllocationTagBackfillOutput, error) {
+	req, out := c.StartCostAllocationTagBackfillRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opStartSavingsPlansPurchaseRecommendationGeneration = "StartSavingsPlansPurchaseRecommendationGeneration"
+
+// StartSavingsPlansPurchaseRecommendationGenerationRequest generates a "aws/request.Request" representing the
+// client's request for the StartSavingsPlansPurchaseRecommendationGeneration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StartSavingsPlansPurchaseRecommendationGeneration for more information on using the StartSavingsPlansPurchaseRecommendationGeneration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the StartSavingsPlansPurchaseRecommendationGenerationRequest method.
+//	req, resp := client.StartSavingsPlansPurchaseRecommendationGenerationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/StartSavingsPlansPurchaseRecommendationGeneration
+func (c *CostExplorer) StartSavingsPlansPurchaseRecommendationGenerationRequest(input *StartSavingsPlansPurchaseRecommendationGenerationInput) (req *request.Request, output *StartSavingsPlansPurchaseRecommendationGenerationOutput) {
+	op := &request.Operation{
+		Name:       opStartSavingsPlansPurchaseRecommendationGeneration,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &StartSavingsPlansPurchaseRecommendationGenerationInput{}
+	}
+
+	output = &StartSavingsPlansPurchaseRecommendationGenerationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StartSavingsPlansPurchaseRecommendationGeneration API operation for AWS Cost Explorer Service.
+//
+// Requests a Savings Plans recommendation generation. This enables you to calculate
+// a fresh set of Savings Plans recommendations that takes your latest usage
+// data and current Savings Plans inventory into account. You can refresh Savings
+// Plans recommendations up to three times daily for a consolidated billing
+// family.
+//
+// StartSavingsPlansPurchaseRecommendationGeneration has no request syntax because
+// no input parameters are needed to support this operation.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Cost Explorer Service's
+// API operation StartSavingsPlansPurchaseRecommendationGeneration for usage and error information.
+//
+// Returned Error Types:
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - ServiceQuotaExceededException
+//     You've reached the limit on the number of resources you can create, or exceeded
+//     the size of an individual resource.
+//
+//   - GenerationExistsException
+//     A request to generate a recommendation is already in progress.
+//
+//   - DataUnavailableException
+//     The requested data is unavailable.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/StartSavingsPlansPurchaseRecommendationGeneration
+func (c *CostExplorer) StartSavingsPlansPurchaseRecommendationGeneration(input *StartSavingsPlansPurchaseRecommendationGenerationInput) (*StartSavingsPlansPurchaseRecommendationGenerationOutput, error) {
+	req, out := c.StartSavingsPlansPurchaseRecommendationGenerationRequest(input)
+	return out, req.Send()
+}
+
+// StartSavingsPlansPurchaseRecommendationGenerationWithContext is the same as StartSavingsPlansPurchaseRecommendationGeneration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StartSavingsPlansPurchaseRecommendationGeneration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CostExplorer) StartSavingsPlansPurchaseRecommendationGenerationWithContext(ctx aws.Context, input *StartSavingsPlansPurchaseRecommendationGenerationInput, opts ...request.Option) (*StartSavingsPlansPurchaseRecommendationGenerationOutput, error) {
+	req, out := c.StartSavingsPlansPurchaseRecommendationGenerationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opTagResource = "TagResource"
 
 // TagResourceRequest generates a "aws/request.Request" representing the
@@ -2848,14 +3421,13 @@ const opTagResource = "TagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the TagResourceRequest method.
+//	req, resp := client.TagResourceRequest(params)
 //
-//    // Example sending a request using the TagResourceRequest method.
-//    req, resp := client.TagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/TagResource
 func (c *CostExplorer) TagResourceRequest(input *TagResourceInput) (req *request.Request, output *TagResourceOutput) {
@@ -2896,15 +3468,16 @@ func (c *CostExplorer) TagResourceRequest(input *TagResourceInput) (req *request
 // API operation TagResource for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The specified ARN in the request doesn't exist.
 //
-//   * TooManyTagsException
-//   Can occur if you specify a number of tags for a resource greater than the
-//   maximum 50 user tags per resource.
+//   - ResourceNotFoundException
+//     The specified ARN in the request doesn't exist.
 //
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - TooManyTagsException
+//     Can occur if you specify a number of tags for a resource greater than the
+//     maximum 50 user tags per resource.
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/TagResource
 func (c *CostExplorer) TagResource(input *TagResourceInput) (*TagResourceOutput, error) {
@@ -2944,14 +3517,13 @@ const opUntagResource = "UntagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UntagResourceRequest method.
+//	req, resp := client.UntagResourceRequest(params)
 //
-//    // Example sending a request using the UntagResourceRequest method.
-//    req, resp := client.UntagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/UntagResource
 func (c *CostExplorer) UntagResourceRequest(input *UntagResourceInput) (req *request.Request, output *UntagResourceOutput) {
@@ -2984,11 +3556,12 @@ func (c *CostExplorer) UntagResourceRequest(input *UntagResourceInput) (req *req
 // API operation UntagResource for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The specified ARN in the request doesn't exist.
 //
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - ResourceNotFoundException
+//     The specified ARN in the request doesn't exist.
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/UntagResource
 func (c *CostExplorer) UntagResource(input *UntagResourceInput) (*UntagResourceOutput, error) {
@@ -3028,14 +3601,13 @@ const opUpdateAnomalyMonitor = "UpdateAnomalyMonitor"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateAnomalyMonitorRequest method.
+//	req, resp := client.UpdateAnomalyMonitorRequest(params)
 //
-//    // Example sending a request using the UpdateAnomalyMonitorRequest method.
-//    req, resp := client.UpdateAnomalyMonitorRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/UpdateAnomalyMonitor
 func (c *CostExplorer) UpdateAnomalyMonitorRequest(input *UpdateAnomalyMonitorInput) (req *request.Request, output *UpdateAnomalyMonitorOutput) {
@@ -3067,11 +3639,12 @@ func (c *CostExplorer) UpdateAnomalyMonitorRequest(input *UpdateAnomalyMonitorIn
 // API operation UpdateAnomalyMonitor for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * UnknownMonitorException
-//   The cost anomaly monitor does not exist for the account.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
+//
+//   - UnknownMonitorException
+//     The cost anomaly monitor does not exist for the account.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/UpdateAnomalyMonitor
 func (c *CostExplorer) UpdateAnomalyMonitor(input *UpdateAnomalyMonitorInput) (*UpdateAnomalyMonitorOutput, error) {
@@ -3111,14 +3684,13 @@ const opUpdateAnomalySubscription = "UpdateAnomalySubscription"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateAnomalySubscriptionRequest method.
+//	req, resp := client.UpdateAnomalySubscriptionRequest(params)
 //
-//    // Example sending a request using the UpdateAnomalySubscriptionRequest method.
-//    req, resp := client.UpdateAnomalySubscriptionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/UpdateAnomalySubscription
 func (c *CostExplorer) UpdateAnomalySubscriptionRequest(input *UpdateAnomalySubscriptionInput) (req *request.Request, output *UpdateAnomalySubscriptionOutput) {
@@ -3139,7 +3711,12 @@ func (c *CostExplorer) UpdateAnomalySubscriptionRequest(input *UpdateAnomalySubs
 
 // UpdateAnomalySubscription API operation for AWS Cost Explorer Service.
 //
-// Updates an existing cost anomaly monitor subscription.
+// Updates an existing cost anomaly subscription. Specify the fields that you
+// want to update. Omitted fields are unchanged.
+//
+// The JSON below describes the generic construct for each type. See Request
+// Parameters (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UpdateAnomalySubscription.html#API_UpdateAnomalySubscription_RequestParameters)
+// for possible values as they apply to AnomalySubscription.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3149,14 +3726,15 @@ func (c *CostExplorer) UpdateAnomalySubscriptionRequest(input *UpdateAnomalySubs
 // API operation UpdateAnomalySubscription for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
 //
-//   * UnknownMonitorException
-//   The cost anomaly monitor does not exist for the account.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
-//   * UnknownSubscriptionException
-//   The cost anomaly subscription does not exist for the account.
+//   - UnknownMonitorException
+//     The cost anomaly monitor does not exist for the account.
+//
+//   - UnknownSubscriptionException
+//     The cost anomaly subscription does not exist for the account.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/UpdateAnomalySubscription
 func (c *CostExplorer) UpdateAnomalySubscription(input *UpdateAnomalySubscriptionInput) (*UpdateAnomalySubscriptionOutput, error) {
@@ -3196,14 +3774,13 @@ const opUpdateCostAllocationTagsStatus = "UpdateCostAllocationTagsStatus"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateCostAllocationTagsStatusRequest method.
+//	req, resp := client.UpdateCostAllocationTagsStatusRequest(params)
 //
-//    // Example sending a request using the UpdateCostAllocationTagsStatusRequest method.
-//    req, resp := client.UpdateCostAllocationTagsStatusRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/UpdateCostAllocationTagsStatus
 func (c *CostExplorer) UpdateCostAllocationTagsStatusRequest(input *UpdateCostAllocationTagsStatusInput) (req *request.Request, output *UpdateCostAllocationTagsStatusOutput) {
@@ -3237,8 +3814,8 @@ func (c *CostExplorer) UpdateCostAllocationTagsStatusRequest(input *UpdateCostAl
 // API operation UpdateCostAllocationTagsStatus for usage and error information.
 //
 // Returned Error Types:
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/UpdateCostAllocationTagsStatus
 func (c *CostExplorer) UpdateCostAllocationTagsStatus(input *UpdateCostAllocationTagsStatusInput) (*UpdateCostAllocationTagsStatusOutput, error) {
@@ -3278,14 +3855,13 @@ const opUpdateCostCategoryDefinition = "UpdateCostCategoryDefinition"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateCostCategoryDefinitionRequest method.
+//	req, resp := client.UpdateCostCategoryDefinitionRequest(params)
 //
-//    // Example sending a request using the UpdateCostCategoryDefinitionRequest method.
-//    req, resp := client.UpdateCostCategoryDefinitionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/UpdateCostCategoryDefinition
 func (c *CostExplorer) UpdateCostCategoryDefinitionRequest(input *UpdateCostCategoryDefinitionInput) (req *request.Request, output *UpdateCostCategoryDefinitionOutput) {
@@ -3318,15 +3894,16 @@ func (c *CostExplorer) UpdateCostCategoryDefinitionRequest(input *UpdateCostCate
 // API operation UpdateCostCategoryDefinition for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The specified ARN in the request doesn't exist.
 //
-//   * ServiceQuotaExceededException
-//   You've reached the limit on the number of resources you can create, or exceeded
-//   the size of an individual resource.
+//   - ResourceNotFoundException
+//     The specified ARN in the request doesn't exist.
 //
-//   * LimitExceededException
-//   You made too many calls in a short period of time. Try again later.
+//   - ServiceQuotaExceededException
+//     You've reached the limit on the number of resources you can create, or exceeded
+//     the size of an individual resource.
+//
+//   - LimitExceededException
+//     You made too many calls in a short period of time. Try again later.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/UpdateCostCategoryDefinition
 func (c *CostExplorer) UpdateCostCategoryDefinition(input *UpdateCostCategoryDefinitionInput) (*UpdateCostCategoryDefinitionOutput, error) {
@@ -3549,31 +4126,48 @@ type AnomalyMonitor struct {
 	// MonitorName is a required field
 	MonitorName *string `type:"string" required:"true"`
 
-	// Use Expression to filter by cost or by usage. There are two patterns:
+	// Use Expression to filter in various Cost Explorer APIs.
 	//
-	//    * Simple dimension values - You can set the dimension name and values
-	//    for the filters that you plan to use. For example, you can filter for
-	//    REGION==us-east-1 OR REGION==us-west-1. For GetRightsizingRecommendation,
-	//    the Region is a full name (for example, REGION==US East (N. Virginia).
-	//    The Expression example is as follows: { "Dimensions": { "Key": "REGION",
-	//    "Values": [ "us-east-1", “us-west-1” ] } } The list of dimension values
-	//    are OR'd together to retrieve cost or usage data. You can create Expression
-	//    and DimensionValues objects using either with* methods or set* methods
-	//    in multiple lines.
+	// Not all Expression types are supported in each API. Refer to the documentation
+	// for each specific API to see what is supported.
 	//
-	//    * Compound dimension values with logical operations - You can use multiple
+	// There are two patterns:
+	//
+	//    * Simple dimension values. There are three types of simple dimension values:
+	//    CostCategories, Tags, and Dimensions. Specify the CostCategories field
+	//    to define a filter that acts on Cost Categories. Specify the Tags field
+	//    to define a filter that acts on Cost Allocation Tags. Specify the Dimensions
+	//    field to define a filter that acts on the DimensionValues (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html).
+	//    For each filter type, you can set the dimension name and values for the
+	//    filters that you plan to use. For example, you can filter for REGION==us-east-1
+	//    OR REGION==us-west-1. For GetRightsizingRecommendation, the Region is
+	//    a full name (for example, REGION==US East (N. Virginia). The corresponding
+	//    Expression for this example is as follows: { "Dimensions": { "Key": "REGION",
+	//    "Values": [ "us-east-1", "us-west-1" ] } } As shown in the previous example,
+	//    lists of dimension values are combined with OR when applying the filter.
+	//    You can also set different match options to further control how the filter
+	//    behaves. Not all APIs support match options. Refer to the documentation
+	//    for each specific API to see what is supported. For example, you can filter
+	//    for linked account names that start with "a". The corresponding Expression
+	//    for this example is as follows: { "Dimensions": { "Key": "LINKED_ACCOUNT_NAME",
+	//    "MatchOptions": [ "STARTS_WITH" ], "Values": [ "a" ] } }
+	//
+	//    * Compound Expression types with logical operations. You can use multiple
 	//    Expression types and the logical operators AND/OR/NOT to create a list
-	//    of one or more Expression objects. By doing this, you can filter on more
-	//    advanced options. For example, you can filter on ((REGION == us-east-1
+	//    of one or more Expression objects. By doing this, you can filter by more
+	//    advanced options. For example, you can filter by ((REGION == us-east-1
 	//    OR REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer).
-	//    The Expression for that is as follows: { "And": [ {"Or": [ {"Dimensions":
-	//    { "Key": "REGION", "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags":
-	//    { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions":
-	//    { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] } Because each
-	//    Expression can have only one operator, the service returns an error if
-	//    more than one is specified. The following example shows an Expression
-	//    object that creates an error. { "And": [ ... ], "DimensionValues": { "Dimension":
-	//    "USAGE_TYPE", "Values": [ "DataTransfer" ] } }
+	//    The corresponding Expression for this example is as follows: { "And":
+	//    [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [ "us-east-1",
+	//    "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] }
+	//    } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"]
+	//    }}} ] } Because each Expression can have only one operator, the service
+	//    returns an error if more than one is specified. The following example
+	//    shows an Expression object that creates an error: { "And": [ ... ], "Dimensions":
+	//    { "Key": "USAGE_TYPE", "Values": [ "DataTransfer" ] } } The following
+	//    is an example of the corresponding error message: "Expression has more
+	//    than one roots. Only one root operator is allowed for each expression:
+	//    And, Or, Not, Dimensions, Tags, CostCategories"
 	//
 	// For the GetRightsizingRecommendation action, a combination of OR and NOT
 	// isn't supported. OR isn't supported between different dimensions, or dimensions
@@ -3728,17 +4322,31 @@ func (s *AnomalyScore) SetMaxScore(v float64) *AnomalyScore {
 	return s
 }
 
-// The association between a monitor, threshold, and list of subscribers used
-// to deliver notifications about anomalies detected by a monitor that exceeds
-// a threshold. The content consists of the detailed metadata and the current
-// status of the AnomalySubscription object.
+// An AnomalySubscription resource (also referred to as an alert subscription)
+// sends notifications about specific anomalies that meet an alerting criteria
+// defined by you.
+//
+// You can specify the frequency of the alerts and the subscribers to notify.
+//
+// Anomaly subscriptions can be associated with one or more AnomalyMonitor (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html)
+// resources, and they only send notifications about anomalies detected by those
+// associated monitors. You can also configure a threshold to further control
+// which anomalies are included in the notifications.
+//
+// Anomalies that don’t exceed the chosen threshold and therefore don’t
+// trigger notifications from an anomaly subscription will still be available
+// on the console and from the GetAnomalies (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetAnomalies.html)
+// API.
 type AnomalySubscription struct {
 	_ struct{} `type:"structure"`
 
 	// Your unique account identifier.
 	AccountId *string `type:"string"`
 
-	// The frequency that anomaly reports are sent over email.
+	// The frequency that anomaly notifications are sent. Notifications are sent
+	// either over email (for DAILY and WEEKLY frequencies) or SNS (for IMMEDIATE
+	// frequency). For more information, see Creating an Amazon SNS topic for anomaly
+	// notifications (https://docs.aws.amazon.com/cost-management/latest/userguide/ad-SNS.html).
 	//
 	// Frequency is a required field
 	Frequency *string `type:"string" required:"true" enum:"AnomalySubscriptionFrequency"`
@@ -3761,10 +4369,52 @@ type AnomalySubscription struct {
 	// SubscriptionName is a required field
 	SubscriptionName *string `type:"string" required:"true"`
 
-	// The dollar value that triggers a notification if the threshold is exceeded.
+	// (deprecated)
 	//
-	// Threshold is a required field
-	Threshold *float64 `type:"double" required:"true"`
+	// An absolute dollar value that must be exceeded by the anomaly's total impact
+	// (see Impact (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html)
+	// for more details) for an anomaly notification to be generated.
+	//
+	// This field has been deprecated. To specify a threshold, use ThresholdExpression.
+	// Continued use of Threshold will be treated as shorthand syntax for a ThresholdExpression.
+	//
+	// One of Threshold or ThresholdExpression is required for this resource. You
+	// cannot specify both.
+	//
+	// Deprecated: Threshold has been deprecated in favor of ThresholdExpression
+	Threshold *float64 `deprecated:"true" type:"double"`
+
+	// An Expression (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html)
+	// object used to specify the anomalies that you want to generate alerts for.
+	// This supports dimensions and nested expressions. The supported dimensions
+	// are ANOMALY_TOTAL_IMPACT_ABSOLUTE and ANOMALY_TOTAL_IMPACT_PERCENTAGE, corresponding
+	// to an anomaly’s TotalImpact and TotalImpactPercentage, respectively (see
+	// Impact (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html)
+	// for more details). The supported nested expression types are AND and OR.
+	// The match option GREATER_THAN_OR_EQUAL is required. Values must be numbers
+	// between 0 and 10,000,000,000 in string format.
+	//
+	// One of Threshold or ThresholdExpression is required for this resource. You
+	// cannot specify both.
+	//
+	// The following are examples of valid ThresholdExpressions:
+	//
+	//    * Absolute threshold: { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+	//    "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }
+	//
+	//    * Percentage threshold: { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+	//    "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }
+	//
+	//    * AND two thresholds together: { "And": [ { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+	//    "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } },
+	//    { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions":
+	//    [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } } ] }
+	//
+	//    * OR two thresholds together: { "Or": [ { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+	//    "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } },
+	//    { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions":
+	//    [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } } ] }
+	ThresholdExpression *Expression `type:"structure"`
 }
 
 // String returns the string representation.
@@ -3800,9 +4450,6 @@ func (s *AnomalySubscription) Validate() error {
 	if s.SubscriptionName == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubscriptionName"))
 	}
-	if s.Threshold == nil {
-		invalidParams.Add(request.NewErrParamRequired("Threshold"))
-	}
 	if s.Subscribers != nil {
 		for i, v := range s.Subscribers {
 			if v == nil {
@@ -3811,6 +4458,11 @@ func (s *AnomalySubscription) Validate() error {
 			if err := v.Validate(); err != nil {
 				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Subscribers", i), err.(request.ErrInvalidParams))
 			}
+		}
+	}
+	if s.ThresholdExpression != nil {
+		if err := s.ThresholdExpression.Validate(); err != nil {
+			invalidParams.AddNested("ThresholdExpression", err.(request.ErrInvalidParams))
 		}
 	}
 
@@ -3860,6 +4512,77 @@ func (s *AnomalySubscription) SetSubscriptionName(v string) *AnomalySubscription
 func (s *AnomalySubscription) SetThreshold(v float64) *AnomalySubscription {
 	s.Threshold = &v
 	return s
+}
+
+// SetThresholdExpression sets the ThresholdExpression field's value.
+func (s *AnomalySubscription) SetThresholdExpression(v *Expression) *AnomalySubscription {
+	s.ThresholdExpression = v
+	return s
+}
+
+// A request to backfill is already in progress. Once the previous request is
+// complete, you can create another request.
+type BackfillLimitExceededException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"Message" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s BackfillLimitExceededException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s BackfillLimitExceededException) GoString() string {
+	return s.String()
+}
+
+func newErrorBackfillLimitExceededException(v protocol.ResponseMetadata) error {
+	return &BackfillLimitExceededException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *BackfillLimitExceededException) Code() string {
+	return "BackfillLimitExceededException"
+}
+
+// Message returns the exception's message.
+func (s *BackfillLimitExceededException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *BackfillLimitExceededException) OrigErr() error {
+	return nil
+}
+
+func (s *BackfillLimitExceededException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *BackfillLimitExceededException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *BackfillLimitExceededException) RequestID() string {
+	return s.RespMetadata.RequestID
 }
 
 // The requested report expired. Update the date interval and try again.
@@ -3931,6 +4654,12 @@ func (s *BillExpirationException) RequestID() string {
 type CostAllocationTag struct {
 	_ struct{} `type:"structure"`
 
+	// The last date that the tag was either activated or deactivated.
+	LastUpdatedDate *string `min:"20" type:"string"`
+
+	// The last month that the tag was used on an Amazon Web Services resource.
+	LastUsedDate *string `min:"20" type:"string"`
+
 	// The status of a cost allocation tag.
 	//
 	// Status is a required field
@@ -3969,6 +4698,18 @@ func (s CostAllocationTag) GoString() string {
 	return s.String()
 }
 
+// SetLastUpdatedDate sets the LastUpdatedDate field's value.
+func (s *CostAllocationTag) SetLastUpdatedDate(v string) *CostAllocationTag {
+	s.LastUpdatedDate = &v
+	return s
+}
+
+// SetLastUsedDate sets the LastUsedDate field's value.
+func (s *CostAllocationTag) SetLastUsedDate(v string) *CostAllocationTag {
+	s.LastUsedDate = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *CostAllocationTag) SetStatus(v string) *CostAllocationTag {
 	s.Status = &v
@@ -3984,6 +4725,75 @@ func (s *CostAllocationTag) SetTagKey(v string) *CostAllocationTag {
 // SetType sets the Type field's value.
 func (s *CostAllocationTag) SetType(v string) *CostAllocationTag {
 	s.Type = &v
+	return s
+}
+
+// The cost allocation tag backfill request structure that contains metadata
+// and details of a certain backfill.
+type CostAllocationTagBackfillRequest struct {
+	_ struct{} `type:"structure"`
+
+	// The date the backfill starts from.
+	BackfillFrom *string `min:"20" type:"string"`
+
+	// The status of the cost allocation tag backfill request.
+	BackfillStatus *string `type:"string" enum:"CostAllocationTagBackfillStatus"`
+
+	// The backfill completion time.
+	CompletedAt *string `min:"20" type:"string"`
+
+	// The time when the backfill status was last updated.
+	LastUpdatedAt *string `min:"20" type:"string"`
+
+	// The time when the backfill was requested.
+	RequestedAt *string `min:"20" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CostAllocationTagBackfillRequest) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CostAllocationTagBackfillRequest) GoString() string {
+	return s.String()
+}
+
+// SetBackfillFrom sets the BackfillFrom field's value.
+func (s *CostAllocationTagBackfillRequest) SetBackfillFrom(v string) *CostAllocationTagBackfillRequest {
+	s.BackfillFrom = &v
+	return s
+}
+
+// SetBackfillStatus sets the BackfillStatus field's value.
+func (s *CostAllocationTagBackfillRequest) SetBackfillStatus(v string) *CostAllocationTagBackfillRequest {
+	s.BackfillStatus = &v
+	return s
+}
+
+// SetCompletedAt sets the CompletedAt field's value.
+func (s *CostAllocationTagBackfillRequest) SetCompletedAt(v string) *CostAllocationTagBackfillRequest {
+	s.CompletedAt = &v
+	return s
+}
+
+// SetLastUpdatedAt sets the LastUpdatedAt field's value.
+func (s *CostAllocationTagBackfillRequest) SetLastUpdatedAt(v string) *CostAllocationTagBackfillRequest {
+	s.LastUpdatedAt = &v
+	return s
+}
+
+// SetRequestedAt sets the RequestedAt field's value.
+func (s *CostAllocationTagBackfillRequest) SetRequestedAt(v string) *CostAllocationTagBackfillRequest {
+	s.RequestedAt = &v
 	return s
 }
 
@@ -4062,10 +4872,10 @@ type CostCategory struct {
 	// The default value for the cost category.
 	DefaultValue *string `min:"1" type:"string"`
 
-	// The effective end data of your Cost Category.
+	// The effective end date of your Cost Category.
 	EffectiveEnd *string `min:"20" type:"string"`
 
-	// The effective state data of your Cost Category.
+	// The effective start date of your Cost Category.
 	//
 	// EffectiveStart is a required field
 	EffectiveStart *string `min:"20" type:"string" required:"true"`
@@ -4374,10 +5184,7 @@ type CostCategoryRule struct {
 	// An Expression (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html)
 	// object used to categorize costs. This supports dimensions, tags, and nested
 	// expressions. Currently the only dimensions supported are LINKED_ACCOUNT,
-	// SERVICE_CODE, RECORD_TYPE, and LINKED_ACCOUNT_NAME.
-	//
-	// Root level OR isn't supported. We recommend that you create a separate rule
-	// instead.
+	// SERVICE_CODE, RECORD_TYPE, LINKED_ACCOUNT_NAME, REGION, and USAGE_TYPE.
 	//
 	// RECORD_TYPE is a dimension used for Cost Explorer APIs, and is also supported
 	// for Cost Category expressions. This dimension uses different terms, depending
@@ -5231,6 +6038,12 @@ type CreateCostCategoryDefinitionInput struct {
 	// The default value for the cost category.
 	DefaultValue *string `min:"1" type:"string"`
 
+	// The Cost Category's effective start date. It can only be a billing start
+	// date (first day of the month). If the date isn't provided, it's the first
+	// day of the current month. Dates can't be before the previous twelve months,
+	// or in the future.
+	EffectiveStart *string `min:"20" type:"string"`
+
 	// The unique name of the Cost Category.
 	//
 	// Name is a required field
@@ -5302,6 +6115,9 @@ func (s *CreateCostCategoryDefinitionInput) Validate() error {
 	if s.DefaultValue != nil && len(*s.DefaultValue) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("DefaultValue", 1))
 	}
+	if s.EffectiveStart != nil && len(*s.EffectiveStart) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("EffectiveStart", 20))
+	}
 	if s.Name == nil {
 		invalidParams.Add(request.NewErrParamRequired("Name"))
 	}
@@ -5363,6 +6179,12 @@ func (s *CreateCostCategoryDefinitionInput) SetDefaultValue(v string) *CreateCos
 	return s
 }
 
+// SetEffectiveStart sets the EffectiveStart field's value.
+func (s *CreateCostCategoryDefinitionInput) SetEffectiveStart(v string) *CreateCostCategoryDefinitionInput {
+	s.EffectiveStart = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *CreateCostCategoryDefinitionInput) SetName(v string) *CreateCostCategoryDefinitionInput {
 	s.Name = &v
@@ -5399,7 +6221,8 @@ type CreateCostCategoryDefinitionOutput struct {
 	// The unique identifier for your newly created Cost Category.
 	CostCategoryArn *string `min:"20" type:"string"`
 
-	// The Cost Category's effective start date.
+	// The Cost Category's effective start date. It can only be a billing start
+	// date (first day of the month).
 	EffectiveStart *string `min:"20" type:"string"`
 }
 
@@ -6015,11 +6838,23 @@ type DimensionValues struct {
 
 	// The names of the metadata types that you can use to filter and group your
 	// results. For example, AZ returns a list of Availability Zones.
+	//
+	// Not all dimensions are supported in each API. Refer to the documentation
+	// for each specific API to see what is supported.
+	//
+	// LINK_ACCOUNT_NAME and SERVICE_CODE can only be used in CostCategoryRule (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html).
+	//
+	// ANOMALY_TOTAL_IMPACT_ABSOLUTE and ANOMALY_TOTAL_IMPACT_PERCENTAGE can only
+	// be used in AnomalySubscriptions (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html).
 	Key *string `type:"string" enum:"Dimension"`
 
-	// The match options that you can use to filter your results. MatchOptions is
-	// only applicable for actions related to Cost Category. The default values
-	// for MatchOptions are EQUALS and CASE_SENSITIVE.
+	// The match options that you can use to filter your results.
+	//
+	// MatchOptions is only applicable for actions related to Cost Category and
+	// Anomaly Subscriptions. Refer to the documentation for each specific API to
+	// see what is supported.
+	//
+	// The default values for MatchOptions are EQUALS and CASE_SENSITIVE.
 	MatchOptions []*string `type:"list" enum:"MatchOption"`
 
 	// The metadata values that you can use to filter and group your results. You
@@ -6225,7 +7060,7 @@ func (s *EBSResourceUtilization) SetEbsWriteOpsPerSecond(v string) *EBSResourceU
 	return s
 }
 
-// Details about the Amazon EC2 instances that Amazon Web Services recommends
+// Details about the Amazon EC2 reservations that Amazon Web Services recommends
 // that you purchase.
 type EC2InstanceDetails struct {
 	_ struct{} `type:"structure"`
@@ -6542,8 +7377,8 @@ func (s *EC2Specification) SetOfferingClass(v string) *EC2Specification {
 	return s
 }
 
-// Details about the Amazon OpenSearch Service instances that Amazon Web Services
-// recommends that you purchase.
+// Details about the Amazon OpenSearch Service reservations that Amazon Web
+// Services recommends that you purchase.
 type ESInstanceDetails struct {
 	_ struct{} `type:"structure"`
 
@@ -6611,8 +7446,8 @@ func (s *ESInstanceDetails) SetSizeFlexEligible(v bool) *ESInstanceDetails {
 	return s
 }
 
-// Details about the Amazon ElastiCache instances that Amazon Web Services recommends
-// that you purchase.
+// Details about the Amazon ElastiCache reservations that Amazon Web Services
+// recommends that you purchase.
 type ElastiCacheInstanceDetails struct {
 	_ struct{} `type:"structure"`
 
@@ -6689,31 +7524,48 @@ func (s *ElastiCacheInstanceDetails) SetSizeFlexEligible(v bool) *ElastiCacheIns
 	return s
 }
 
-// Use Expression to filter by cost or by usage. There are two patterns:
+// Use Expression to filter in various Cost Explorer APIs.
 //
-//    * Simple dimension values - You can set the dimension name and values
-//    for the filters that you plan to use. For example, you can filter for
-//    REGION==us-east-1 OR REGION==us-west-1. For GetRightsizingRecommendation,
-//    the Region is a full name (for example, REGION==US East (N. Virginia).
-//    The Expression example is as follows: { "Dimensions": { "Key": "REGION",
-//    "Values": [ "us-east-1", “us-west-1” ] } } The list of dimension values
-//    are OR'd together to retrieve cost or usage data. You can create Expression
-//    and DimensionValues objects using either with* methods or set* methods
-//    in multiple lines.
+// Not all Expression types are supported in each API. Refer to the documentation
+// for each specific API to see what is supported.
 //
-//    * Compound dimension values with logical operations - You can use multiple
-//    Expression types and the logical operators AND/OR/NOT to create a list
-//    of one or more Expression objects. By doing this, you can filter on more
-//    advanced options. For example, you can filter on ((REGION == us-east-1
-//    OR REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer).
-//    The Expression for that is as follows: { "And": [ {"Or": [ {"Dimensions":
-//    { "Key": "REGION", "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags":
-//    { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions":
-//    { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] } Because each
-//    Expression can have only one operator, the service returns an error if
-//    more than one is specified. The following example shows an Expression
-//    object that creates an error. { "And": [ ... ], "DimensionValues": { "Dimension":
-//    "USAGE_TYPE", "Values": [ "DataTransfer" ] } }
+// There are two patterns:
+//
+//   - Simple dimension values. There are three types of simple dimension values:
+//     CostCategories, Tags, and Dimensions. Specify the CostCategories field
+//     to define a filter that acts on Cost Categories. Specify the Tags field
+//     to define a filter that acts on Cost Allocation Tags. Specify the Dimensions
+//     field to define a filter that acts on the DimensionValues (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html).
+//     For each filter type, you can set the dimension name and values for the
+//     filters that you plan to use. For example, you can filter for REGION==us-east-1
+//     OR REGION==us-west-1. For GetRightsizingRecommendation, the Region is
+//     a full name (for example, REGION==US East (N. Virginia). The corresponding
+//     Expression for this example is as follows: { "Dimensions": { "Key": "REGION",
+//     "Values": [ "us-east-1", "us-west-1" ] } } As shown in the previous example,
+//     lists of dimension values are combined with OR when applying the filter.
+//     You can also set different match options to further control how the filter
+//     behaves. Not all APIs support match options. Refer to the documentation
+//     for each specific API to see what is supported. For example, you can filter
+//     for linked account names that start with "a". The corresponding Expression
+//     for this example is as follows: { "Dimensions": { "Key": "LINKED_ACCOUNT_NAME",
+//     "MatchOptions": [ "STARTS_WITH" ], "Values": [ "a" ] } }
+//
+//   - Compound Expression types with logical operations. You can use multiple
+//     Expression types and the logical operators AND/OR/NOT to create a list
+//     of one or more Expression objects. By doing this, you can filter by more
+//     advanced options. For example, you can filter by ((REGION == us-east-1
+//     OR REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer).
+//     The corresponding Expression for this example is as follows: { "And":
+//     [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [ "us-east-1",
+//     "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] }
+//     } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"]
+//     }}} ] } Because each Expression can have only one operator, the service
+//     returns an error if more than one is specified. The following example
+//     shows an Expression object that creates an error: { "And": [ ... ], "Dimensions":
+//     { "Key": "USAGE_TYPE", "Values": [ "DataTransfer" ] } } The following
+//     is an example of the corresponding error message: "Expression has more
+//     than one roots. Only one root operator is allowed for each expression:
+//     And, Or, Not, Dimensions, Tags, CostCategories"
 //
 // For the GetRightsizingRecommendation action, a combination of OR and NOT
 // isn't supported. OR isn't supported between different dimensions, or dimensions
@@ -6884,6 +7736,140 @@ func (s *ForecastResult) SetPredictionIntervalUpperBound(v string) *ForecastResu
 // SetTimePeriod sets the TimePeriod field's value.
 func (s *ForecastResult) SetTimePeriod(v *DateInterval) *ForecastResult {
 	s.TimePeriod = v
+	return s
+}
+
+// A request to generate a recommendation is already in progress.
+type GenerationExistsException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"Message" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GenerationExistsException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GenerationExistsException) GoString() string {
+	return s.String()
+}
+
+func newErrorGenerationExistsException(v protocol.ResponseMetadata) error {
+	return &GenerationExistsException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *GenerationExistsException) Code() string {
+	return "GenerationExistsException"
+}
+
+// Message returns the exception's message.
+func (s *GenerationExistsException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *GenerationExistsException) OrigErr() error {
+	return nil
+}
+
+func (s *GenerationExistsException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *GenerationExistsException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *GenerationExistsException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The summary of the Savings Plans recommendation generation.
+type GenerationSummary struct {
+	_ struct{} `type:"structure"`
+
+	// Indicates the estimated time for when the recommendation generation will
+	// complete.
+	EstimatedCompletionTime *string `min:"20" type:"string"`
+
+	// Indicates the completion time of the recommendation generation.
+	GenerationCompletionTime *string `min:"20" type:"string"`
+
+	// Indicates the start time of the recommendation generation.
+	GenerationStartedTime *string `min:"20" type:"string"`
+
+	// Indicates whether the recommendation generation succeeded, is processing,
+	// or failed.
+	GenerationStatus *string `type:"string" enum:"GenerationStatus"`
+
+	// Indicates the ID for this specific recommendation.
+	RecommendationId *string `min:"36" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GenerationSummary) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GenerationSummary) GoString() string {
+	return s.String()
+}
+
+// SetEstimatedCompletionTime sets the EstimatedCompletionTime field's value.
+func (s *GenerationSummary) SetEstimatedCompletionTime(v string) *GenerationSummary {
+	s.EstimatedCompletionTime = &v
+	return s
+}
+
+// SetGenerationCompletionTime sets the GenerationCompletionTime field's value.
+func (s *GenerationSummary) SetGenerationCompletionTime(v string) *GenerationSummary {
+	s.GenerationCompletionTime = &v
+	return s
+}
+
+// SetGenerationStartedTime sets the GenerationStartedTime field's value.
+func (s *GenerationSummary) SetGenerationStartedTime(v string) *GenerationSummary {
+	s.GenerationStartedTime = &v
+	return s
+}
+
+// SetGenerationStatus sets the GenerationStatus field's value.
+func (s *GenerationSummary) SetGenerationStatus(v string) *GenerationSummary {
+	s.GenerationStatus = &v
+	return s
+}
+
+// SetRecommendationId sets the RecommendationId field's value.
+func (s *GenerationSummary) SetRecommendationId(v string) *GenerationSummary {
+	s.RecommendationId = &v
 	return s
 }
 
@@ -7236,6 +8222,128 @@ func (s *GetAnomalySubscriptionsOutput) SetAnomalySubscriptions(v []*AnomalySubs
 // SetNextPageToken sets the NextPageToken field's value.
 func (s *GetAnomalySubscriptionsOutput) SetNextPageToken(v string) *GetAnomalySubscriptionsOutput {
 	s.NextPageToken = &v
+	return s
+}
+
+type GetApproximateUsageRecordsInput struct {
+	_ struct{} `type:"structure"`
+
+	// The service to evaluate for the usage records. You can choose resource-level
+	// data at daily granularity, or hourly granularity with or without resource-level
+	// data.
+	//
+	// ApproximationDimension is a required field
+	ApproximationDimension *string `type:"string" required:"true" enum:"ApproximationDimension"`
+
+	// How granular you want the data to be. You can enable data at hourly or daily
+	// granularity.
+	//
+	// Granularity is a required field
+	Granularity *string `type:"string" required:"true" enum:"Granularity"`
+
+	// The service metadata for the service or services you want to query. If not
+	// specified, all elements are returned.
+	Services []*string `type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetApproximateUsageRecordsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetApproximateUsageRecordsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetApproximateUsageRecordsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetApproximateUsageRecordsInput"}
+	if s.ApproximationDimension == nil {
+		invalidParams.Add(request.NewErrParamRequired("ApproximationDimension"))
+	}
+	if s.Granularity == nil {
+		invalidParams.Add(request.NewErrParamRequired("Granularity"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetApproximationDimension sets the ApproximationDimension field's value.
+func (s *GetApproximateUsageRecordsInput) SetApproximationDimension(v string) *GetApproximateUsageRecordsInput {
+	s.ApproximationDimension = &v
+	return s
+}
+
+// SetGranularity sets the Granularity field's value.
+func (s *GetApproximateUsageRecordsInput) SetGranularity(v string) *GetApproximateUsageRecordsInput {
+	s.Granularity = &v
+	return s
+}
+
+// SetServices sets the Services field's value.
+func (s *GetApproximateUsageRecordsInput) SetServices(v []*string) *GetApproximateUsageRecordsInput {
+	s.Services = v
+	return s
+}
+
+type GetApproximateUsageRecordsOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The lookback period that's used for the estimation.
+	LookbackPeriod *DateInterval `type:"structure"`
+
+	// The service metadata for the service or services in the response.
+	Services map[string]*int64 `type:"map"`
+
+	// The total number of usage records for all services in the services list.
+	TotalRecords *int64 `type:"long"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetApproximateUsageRecordsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetApproximateUsageRecordsOutput) GoString() string {
+	return s.String()
+}
+
+// SetLookbackPeriod sets the LookbackPeriod field's value.
+func (s *GetApproximateUsageRecordsOutput) SetLookbackPeriod(v *DateInterval) *GetApproximateUsageRecordsOutput {
+	s.LookbackPeriod = v
+	return s
+}
+
+// SetServices sets the Services field's value.
+func (s *GetApproximateUsageRecordsOutput) SetServices(v map[string]*int64) *GetApproximateUsageRecordsOutput {
+	s.Services = v
+	return s
+}
+
+// SetTotalRecords sets the TotalRecords field's value.
+func (s *GetApproximateUsageRecordsOutput) SetTotalRecords(v int64) *GetApproximateUsageRecordsOutput {
+	s.TotalRecords = &v
 	return s
 }
 
@@ -7667,31 +8775,48 @@ type GetCostCategoriesInput struct {
 	// The unique name of the Cost Category.
 	CostCategoryName *string `min:"1" type:"string"`
 
-	// Use Expression to filter by cost or by usage. There are two patterns:
+	// Use Expression to filter in various Cost Explorer APIs.
 	//
-	//    * Simple dimension values - You can set the dimension name and values
-	//    for the filters that you plan to use. For example, you can filter for
-	//    REGION==us-east-1 OR REGION==us-west-1. For GetRightsizingRecommendation,
-	//    the Region is a full name (for example, REGION==US East (N. Virginia).
-	//    The Expression example is as follows: { "Dimensions": { "Key": "REGION",
-	//    "Values": [ "us-east-1", “us-west-1” ] } } The list of dimension values
-	//    are OR'd together to retrieve cost or usage data. You can create Expression
-	//    and DimensionValues objects using either with* methods or set* methods
-	//    in multiple lines.
+	// Not all Expression types are supported in each API. Refer to the documentation
+	// for each specific API to see what is supported.
 	//
-	//    * Compound dimension values with logical operations - You can use multiple
+	// There are two patterns:
+	//
+	//    * Simple dimension values. There are three types of simple dimension values:
+	//    CostCategories, Tags, and Dimensions. Specify the CostCategories field
+	//    to define a filter that acts on Cost Categories. Specify the Tags field
+	//    to define a filter that acts on Cost Allocation Tags. Specify the Dimensions
+	//    field to define a filter that acts on the DimensionValues (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html).
+	//    For each filter type, you can set the dimension name and values for the
+	//    filters that you plan to use. For example, you can filter for REGION==us-east-1
+	//    OR REGION==us-west-1. For GetRightsizingRecommendation, the Region is
+	//    a full name (for example, REGION==US East (N. Virginia). The corresponding
+	//    Expression for this example is as follows: { "Dimensions": { "Key": "REGION",
+	//    "Values": [ "us-east-1", "us-west-1" ] } } As shown in the previous example,
+	//    lists of dimension values are combined with OR when applying the filter.
+	//    You can also set different match options to further control how the filter
+	//    behaves. Not all APIs support match options. Refer to the documentation
+	//    for each specific API to see what is supported. For example, you can filter
+	//    for linked account names that start with "a". The corresponding Expression
+	//    for this example is as follows: { "Dimensions": { "Key": "LINKED_ACCOUNT_NAME",
+	//    "MatchOptions": [ "STARTS_WITH" ], "Values": [ "a" ] } }
+	//
+	//    * Compound Expression types with logical operations. You can use multiple
 	//    Expression types and the logical operators AND/OR/NOT to create a list
-	//    of one or more Expression objects. By doing this, you can filter on more
-	//    advanced options. For example, you can filter on ((REGION == us-east-1
+	//    of one or more Expression objects. By doing this, you can filter by more
+	//    advanced options. For example, you can filter by ((REGION == us-east-1
 	//    OR REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer).
-	//    The Expression for that is as follows: { "And": [ {"Or": [ {"Dimensions":
-	//    { "Key": "REGION", "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags":
-	//    { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions":
-	//    { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] } Because each
-	//    Expression can have only one operator, the service returns an error if
-	//    more than one is specified. The following example shows an Expression
-	//    object that creates an error. { "And": [ ... ], "DimensionValues": { "Dimension":
-	//    "USAGE_TYPE", "Values": [ "DataTransfer" ] } }
+	//    The corresponding Expression for this example is as follows: { "And":
+	//    [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [ "us-east-1",
+	//    "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] }
+	//    } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"]
+	//    }}} ] } Because each Expression can have only one operator, the service
+	//    returns an error if more than one is specified. The following example
+	//    shows an Expression object that creates an error: { "And": [ ... ], "Dimensions":
+	//    { "Key": "USAGE_TYPE", "Values": [ "DataTransfer" ] } } The following
+	//    is an example of the corresponding error message: "Expression has more
+	//    than one roots. Only one root operator is allowed for each expression:
+	//    And, Or, Not, Dimensions, Tags, CostCategories"
 	//
 	// For the GetRightsizingRecommendation action, a combination of OR and NOT
 	// isn't supported. OR isn't supported between different dimensions, or dimensions
@@ -8281,36 +9406,54 @@ type GetDimensionValuesInput struct {
 	Context *string `type:"string" enum:"Context"`
 
 	// The name of the dimension. Each Dimension is available for a different Context.
-	// For more information, see Context.
+	// For more information, see Context. LINK_ACCOUNT_NAME and SERVICE_CODE can
+	// only be used in CostCategoryRule (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html).
 	//
 	// Dimension is a required field
 	Dimension *string `type:"string" required:"true" enum:"Dimension"`
 
-	// Use Expression to filter by cost or by usage. There are two patterns:
+	// Use Expression to filter in various Cost Explorer APIs.
 	//
-	//    * Simple dimension values - You can set the dimension name and values
-	//    for the filters that you plan to use. For example, you can filter for
-	//    REGION==us-east-1 OR REGION==us-west-1. For GetRightsizingRecommendation,
-	//    the Region is a full name (for example, REGION==US East (N. Virginia).
-	//    The Expression example is as follows: { "Dimensions": { "Key": "REGION",
-	//    "Values": [ "us-east-1", “us-west-1” ] } } The list of dimension values
-	//    are OR'd together to retrieve cost or usage data. You can create Expression
-	//    and DimensionValues objects using either with* methods or set* methods
-	//    in multiple lines.
+	// Not all Expression types are supported in each API. Refer to the documentation
+	// for each specific API to see what is supported.
 	//
-	//    * Compound dimension values with logical operations - You can use multiple
+	// There are two patterns:
+	//
+	//    * Simple dimension values. There are three types of simple dimension values:
+	//    CostCategories, Tags, and Dimensions. Specify the CostCategories field
+	//    to define a filter that acts on Cost Categories. Specify the Tags field
+	//    to define a filter that acts on Cost Allocation Tags. Specify the Dimensions
+	//    field to define a filter that acts on the DimensionValues (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html).
+	//    For each filter type, you can set the dimension name and values for the
+	//    filters that you plan to use. For example, you can filter for REGION==us-east-1
+	//    OR REGION==us-west-1. For GetRightsizingRecommendation, the Region is
+	//    a full name (for example, REGION==US East (N. Virginia). The corresponding
+	//    Expression for this example is as follows: { "Dimensions": { "Key": "REGION",
+	//    "Values": [ "us-east-1", "us-west-1" ] } } As shown in the previous example,
+	//    lists of dimension values are combined with OR when applying the filter.
+	//    You can also set different match options to further control how the filter
+	//    behaves. Not all APIs support match options. Refer to the documentation
+	//    for each specific API to see what is supported. For example, you can filter
+	//    for linked account names that start with "a". The corresponding Expression
+	//    for this example is as follows: { "Dimensions": { "Key": "LINKED_ACCOUNT_NAME",
+	//    "MatchOptions": [ "STARTS_WITH" ], "Values": [ "a" ] } }
+	//
+	//    * Compound Expression types with logical operations. You can use multiple
 	//    Expression types and the logical operators AND/OR/NOT to create a list
-	//    of one or more Expression objects. By doing this, you can filter on more
-	//    advanced options. For example, you can filter on ((REGION == us-east-1
+	//    of one or more Expression objects. By doing this, you can filter by more
+	//    advanced options. For example, you can filter by ((REGION == us-east-1
 	//    OR REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer).
-	//    The Expression for that is as follows: { "And": [ {"Or": [ {"Dimensions":
-	//    { "Key": "REGION", "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags":
-	//    { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions":
-	//    { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] } Because each
-	//    Expression can have only one operator, the service returns an error if
-	//    more than one is specified. The following example shows an Expression
-	//    object that creates an error. { "And": [ ... ], "DimensionValues": { "Dimension":
-	//    "USAGE_TYPE", "Values": [ "DataTransfer" ] } }
+	//    The corresponding Expression for this example is as follows: { "And":
+	//    [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [ "us-east-1",
+	//    "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] }
+	//    } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"]
+	//    }}} ] } Because each Expression can have only one operator, the service
+	//    returns an error if more than one is specified. The following example
+	//    shows an Expression object that creates an error: { "And": [ ... ], "Dimensions":
+	//    { "Key": "USAGE_TYPE", "Values": [ "DataTransfer" ] } } The following
+	//    is an example of the corresponding error message: "Expression has more
+	//    than one roots. Only one root operator is allowed for each expression:
+	//    And, Or, Not, Dimensions, Tags, CostCategories"
 	//
 	// For the GetRightsizingRecommendation action, a combination of OR and NOT
 	// isn't supported. OR isn't supported between different dimensions, or dimensions
@@ -8524,6 +9667,8 @@ type GetDimensionValuesOutput struct {
 	//
 	//    * RESOURCE_ID - The unique identifier of the resource. ResourceId is an
 	//    opt-in feature only available for last 14 days for EC2-Compute Service.
+	//    You can opt-in by enabling Hourly and Resource Level Data in Cost Management
+	//    Console preferences.
 	//
 	// If you set the context to RESERVATIONS, you can use the following dimensions
 	// for searching:
@@ -8924,31 +10069,48 @@ type GetReservationPurchaseRecommendationInput struct {
 	// calculated for individual member accounts only.
 	AccountScope *string `type:"string" enum:"AccountScope"`
 
-	// Use Expression to filter by cost or by usage. There are two patterns:
+	// Use Expression to filter in various Cost Explorer APIs.
 	//
-	//    * Simple dimension values - You can set the dimension name and values
-	//    for the filters that you plan to use. For example, you can filter for
-	//    REGION==us-east-1 OR REGION==us-west-1. For GetRightsizingRecommendation,
-	//    the Region is a full name (for example, REGION==US East (N. Virginia).
-	//    The Expression example is as follows: { "Dimensions": { "Key": "REGION",
-	//    "Values": [ "us-east-1", “us-west-1” ] } } The list of dimension values
-	//    are OR'd together to retrieve cost or usage data. You can create Expression
-	//    and DimensionValues objects using either with* methods or set* methods
-	//    in multiple lines.
+	// Not all Expression types are supported in each API. Refer to the documentation
+	// for each specific API to see what is supported.
 	//
-	//    * Compound dimension values with logical operations - You can use multiple
+	// There are two patterns:
+	//
+	//    * Simple dimension values. There are three types of simple dimension values:
+	//    CostCategories, Tags, and Dimensions. Specify the CostCategories field
+	//    to define a filter that acts on Cost Categories. Specify the Tags field
+	//    to define a filter that acts on Cost Allocation Tags. Specify the Dimensions
+	//    field to define a filter that acts on the DimensionValues (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html).
+	//    For each filter type, you can set the dimension name and values for the
+	//    filters that you plan to use. For example, you can filter for REGION==us-east-1
+	//    OR REGION==us-west-1. For GetRightsizingRecommendation, the Region is
+	//    a full name (for example, REGION==US East (N. Virginia). The corresponding
+	//    Expression for this example is as follows: { "Dimensions": { "Key": "REGION",
+	//    "Values": [ "us-east-1", "us-west-1" ] } } As shown in the previous example,
+	//    lists of dimension values are combined with OR when applying the filter.
+	//    You can also set different match options to further control how the filter
+	//    behaves. Not all APIs support match options. Refer to the documentation
+	//    for each specific API to see what is supported. For example, you can filter
+	//    for linked account names that start with "a". The corresponding Expression
+	//    for this example is as follows: { "Dimensions": { "Key": "LINKED_ACCOUNT_NAME",
+	//    "MatchOptions": [ "STARTS_WITH" ], "Values": [ "a" ] } }
+	//
+	//    * Compound Expression types with logical operations. You can use multiple
 	//    Expression types and the logical operators AND/OR/NOT to create a list
-	//    of one or more Expression objects. By doing this, you can filter on more
-	//    advanced options. For example, you can filter on ((REGION == us-east-1
+	//    of one or more Expression objects. By doing this, you can filter by more
+	//    advanced options. For example, you can filter by ((REGION == us-east-1
 	//    OR REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer).
-	//    The Expression for that is as follows: { "And": [ {"Or": [ {"Dimensions":
-	//    { "Key": "REGION", "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags":
-	//    { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions":
-	//    { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] } Because each
-	//    Expression can have only one operator, the service returns an error if
-	//    more than one is specified. The following example shows an Expression
-	//    object that creates an error. { "And": [ ... ], "DimensionValues": { "Dimension":
-	//    "USAGE_TYPE", "Values": [ "DataTransfer" ] } }
+	//    The corresponding Expression for this example is as follows: { "And":
+	//    [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [ "us-east-1",
+	//    "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] }
+	//    } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"]
+	//    }}} ] } Because each Expression can have only one operator, the service
+	//    returns an error if more than one is specified. The following example
+	//    shows an Expression object that creates an error: { "And": [ ... ], "Dimensions":
+	//    { "Key": "USAGE_TYPE", "Values": [ "DataTransfer" ] } } The following
+	//    is an example of the corresponding error message: "Expression has more
+	//    than one roots. Only one root operator is allowed for each expression:
+	//    And, Or, Not, Dimensions, Tags, CostCategories"
 	//
 	// For the GetRightsizingRecommendation action, a combination of OR and NOT
 	// isn't supported. OR isn't supported between different dimensions, or dimensions
@@ -9392,31 +10554,48 @@ type GetRightsizingRecommendationInput struct {
 	// of existing Savings Plans or RI benefits, or neither.
 	Configuration *RightsizingRecommendationConfiguration `type:"structure"`
 
-	// Use Expression to filter by cost or by usage. There are two patterns:
+	// Use Expression to filter in various Cost Explorer APIs.
 	//
-	//    * Simple dimension values - You can set the dimension name and values
-	//    for the filters that you plan to use. For example, you can filter for
-	//    REGION==us-east-1 OR REGION==us-west-1. For GetRightsizingRecommendation,
-	//    the Region is a full name (for example, REGION==US East (N. Virginia).
-	//    The Expression example is as follows: { "Dimensions": { "Key": "REGION",
-	//    "Values": [ "us-east-1", “us-west-1” ] } } The list of dimension values
-	//    are OR'd together to retrieve cost or usage data. You can create Expression
-	//    and DimensionValues objects using either with* methods or set* methods
-	//    in multiple lines.
+	// Not all Expression types are supported in each API. Refer to the documentation
+	// for each specific API to see what is supported.
 	//
-	//    * Compound dimension values with logical operations - You can use multiple
+	// There are two patterns:
+	//
+	//    * Simple dimension values. There are three types of simple dimension values:
+	//    CostCategories, Tags, and Dimensions. Specify the CostCategories field
+	//    to define a filter that acts on Cost Categories. Specify the Tags field
+	//    to define a filter that acts on Cost Allocation Tags. Specify the Dimensions
+	//    field to define a filter that acts on the DimensionValues (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html).
+	//    For each filter type, you can set the dimension name and values for the
+	//    filters that you plan to use. For example, you can filter for REGION==us-east-1
+	//    OR REGION==us-west-1. For GetRightsizingRecommendation, the Region is
+	//    a full name (for example, REGION==US East (N. Virginia). The corresponding
+	//    Expression for this example is as follows: { "Dimensions": { "Key": "REGION",
+	//    "Values": [ "us-east-1", "us-west-1" ] } } As shown in the previous example,
+	//    lists of dimension values are combined with OR when applying the filter.
+	//    You can also set different match options to further control how the filter
+	//    behaves. Not all APIs support match options. Refer to the documentation
+	//    for each specific API to see what is supported. For example, you can filter
+	//    for linked account names that start with "a". The corresponding Expression
+	//    for this example is as follows: { "Dimensions": { "Key": "LINKED_ACCOUNT_NAME",
+	//    "MatchOptions": [ "STARTS_WITH" ], "Values": [ "a" ] } }
+	//
+	//    * Compound Expression types with logical operations. You can use multiple
 	//    Expression types and the logical operators AND/OR/NOT to create a list
-	//    of one or more Expression objects. By doing this, you can filter on more
-	//    advanced options. For example, you can filter on ((REGION == us-east-1
+	//    of one or more Expression objects. By doing this, you can filter by more
+	//    advanced options. For example, you can filter by ((REGION == us-east-1
 	//    OR REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer).
-	//    The Expression for that is as follows: { "And": [ {"Or": [ {"Dimensions":
-	//    { "Key": "REGION", "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags":
-	//    { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions":
-	//    { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] } Because each
-	//    Expression can have only one operator, the service returns an error if
-	//    more than one is specified. The following example shows an Expression
-	//    object that creates an error. { "And": [ ... ], "DimensionValues": { "Dimension":
-	//    "USAGE_TYPE", "Values": [ "DataTransfer" ] } }
+	//    The corresponding Expression for this example is as follows: { "And":
+	//    [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [ "us-east-1",
+	//    "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] }
+	//    } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"]
+	//    }}} ] } Because each Expression can have only one operator, the service
+	//    returns an error if more than one is specified. The following example
+	//    shows an Expression object that creates an error: { "And": [ ... ], "Dimensions":
+	//    { "Key": "USAGE_TYPE", "Values": [ "DataTransfer" ] } } The following
+	//    is an example of the corresponding error message: "Expression has more
+	//    than one roots. Only one root operator is allowed for each expression:
+	//    And, Or, Not, Dimensions, Tags, CostCategories"
 	//
 	// For the GetRightsizingRecommendation action, a combination of OR and NOT
 	// isn't supported. OR isn't supported between different dimensions, or dimensions
@@ -9581,6 +10760,95 @@ func (s *GetRightsizingRecommendationOutput) SetRightsizingRecommendations(v []*
 // SetSummary sets the Summary field's value.
 func (s *GetRightsizingRecommendationOutput) SetSummary(v *RightsizingRecommendationSummary) *GetRightsizingRecommendationOutput {
 	s.Summary = v
+	return s
+}
+
+type GetSavingsPlanPurchaseRecommendationDetailsInput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID that is associated with the Savings Plan recommendation.
+	//
+	// RecommendationDetailId is a required field
+	RecommendationDetailId *string `min:"36" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetSavingsPlanPurchaseRecommendationDetailsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetSavingsPlanPurchaseRecommendationDetailsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetSavingsPlanPurchaseRecommendationDetailsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetSavingsPlanPurchaseRecommendationDetailsInput"}
+	if s.RecommendationDetailId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RecommendationDetailId"))
+	}
+	if s.RecommendationDetailId != nil && len(*s.RecommendationDetailId) < 36 {
+		invalidParams.Add(request.NewErrParamMinLen("RecommendationDetailId", 36))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetRecommendationDetailId sets the RecommendationDetailId field's value.
+func (s *GetSavingsPlanPurchaseRecommendationDetailsInput) SetRecommendationDetailId(v string) *GetSavingsPlanPurchaseRecommendationDetailsInput {
+	s.RecommendationDetailId = &v
+	return s
+}
+
+type GetSavingsPlanPurchaseRecommendationDetailsOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Contains detailed information about a specific Savings Plan recommendation.
+	RecommendationDetailData *RecommendationDetailData `type:"structure"`
+
+	// The ID that is associated with the Savings Plan recommendation.
+	RecommendationDetailId *string `min:"36" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetSavingsPlanPurchaseRecommendationDetailsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetSavingsPlanPurchaseRecommendationDetailsOutput) GoString() string {
+	return s.String()
+}
+
+// SetRecommendationDetailData sets the RecommendationDetailData field's value.
+func (s *GetSavingsPlanPurchaseRecommendationDetailsOutput) SetRecommendationDetailData(v *RecommendationDetailData) *GetSavingsPlanPurchaseRecommendationDetailsOutput {
+	s.RecommendationDetailData = v
+	return s
+}
+
+// SetRecommendationDetailId sets the RecommendationDetailId field's value.
+func (s *GetSavingsPlanPurchaseRecommendationDetailsOutput) SetRecommendationDetailId(v string) *GetSavingsPlanPurchaseRecommendationDetailsOutput {
+	s.RecommendationDetailId = &v
 	return s
 }
 
@@ -10375,31 +11643,48 @@ func (s *GetSavingsPlansUtilizationOutput) SetTotal(v *SavingsPlansUtilizationAg
 type GetTagsInput struct {
 	_ struct{} `type:"structure"`
 
-	// Use Expression to filter by cost or by usage. There are two patterns:
+	// Use Expression to filter in various Cost Explorer APIs.
 	//
-	//    * Simple dimension values - You can set the dimension name and values
-	//    for the filters that you plan to use. For example, you can filter for
-	//    REGION==us-east-1 OR REGION==us-west-1. For GetRightsizingRecommendation,
-	//    the Region is a full name (for example, REGION==US East (N. Virginia).
-	//    The Expression example is as follows: { "Dimensions": { "Key": "REGION",
-	//    "Values": [ "us-east-1", “us-west-1” ] } } The list of dimension values
-	//    are OR'd together to retrieve cost or usage data. You can create Expression
-	//    and DimensionValues objects using either with* methods or set* methods
-	//    in multiple lines.
+	// Not all Expression types are supported in each API. Refer to the documentation
+	// for each specific API to see what is supported.
 	//
-	//    * Compound dimension values with logical operations - You can use multiple
+	// There are two patterns:
+	//
+	//    * Simple dimension values. There are three types of simple dimension values:
+	//    CostCategories, Tags, and Dimensions. Specify the CostCategories field
+	//    to define a filter that acts on Cost Categories. Specify the Tags field
+	//    to define a filter that acts on Cost Allocation Tags. Specify the Dimensions
+	//    field to define a filter that acts on the DimensionValues (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html).
+	//    For each filter type, you can set the dimension name and values for the
+	//    filters that you plan to use. For example, you can filter for REGION==us-east-1
+	//    OR REGION==us-west-1. For GetRightsizingRecommendation, the Region is
+	//    a full name (for example, REGION==US East (N. Virginia). The corresponding
+	//    Expression for this example is as follows: { "Dimensions": { "Key": "REGION",
+	//    "Values": [ "us-east-1", "us-west-1" ] } } As shown in the previous example,
+	//    lists of dimension values are combined with OR when applying the filter.
+	//    You can also set different match options to further control how the filter
+	//    behaves. Not all APIs support match options. Refer to the documentation
+	//    for each specific API to see what is supported. For example, you can filter
+	//    for linked account names that start with "a". The corresponding Expression
+	//    for this example is as follows: { "Dimensions": { "Key": "LINKED_ACCOUNT_NAME",
+	//    "MatchOptions": [ "STARTS_WITH" ], "Values": [ "a" ] } }
+	//
+	//    * Compound Expression types with logical operations. You can use multiple
 	//    Expression types and the logical operators AND/OR/NOT to create a list
-	//    of one or more Expression objects. By doing this, you can filter on more
-	//    advanced options. For example, you can filter on ((REGION == us-east-1
+	//    of one or more Expression objects. By doing this, you can filter by more
+	//    advanced options. For example, you can filter by ((REGION == us-east-1
 	//    OR REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer).
-	//    The Expression for that is as follows: { "And": [ {"Or": [ {"Dimensions":
-	//    { "Key": "REGION", "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags":
-	//    { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions":
-	//    { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] } Because each
-	//    Expression can have only one operator, the service returns an error if
-	//    more than one is specified. The following example shows an Expression
-	//    object that creates an error. { "And": [ ... ], "DimensionValues": { "Dimension":
-	//    "USAGE_TYPE", "Values": [ "DataTransfer" ] } }
+	//    The corresponding Expression for this example is as follows: { "And":
+	//    [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [ "us-east-1",
+	//    "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] }
+	//    } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"]
+	//    }}} ] } Because each Expression can have only one operator, the service
+	//    returns an error if more than one is specified. The following example
+	//    shows an Expression object that creates an error: { "And": [ ... ], "Dimensions":
+	//    { "Key": "USAGE_TYPE", "Values": [ "DataTransfer" ] } } The following
+	//    is an example of the corresponding error message: "Expression has more
+	//    than one roots. Only one root operator is allowed for each expression:
+	//    And, Or, Not, Dimensions, Tags, CostCategories"
 	//
 	// For the GetRightsizingRecommendation action, a combination of OR and NOT
 	// isn't supported. OR isn't supported between different dimensions, or dimensions
@@ -10926,8 +12211,24 @@ type Impact struct {
 	// MaxImpact is a required field
 	MaxImpact *float64 `type:"double" required:"true"`
 
-	// The cumulative dollar value that's observed for an anomaly.
+	// The cumulative dollar amount that was actually spent during the anomaly.
+	TotalActualSpend *float64 `type:"double"`
+
+	// The cumulative dollar amount that was expected to be spent during the anomaly.
+	// It is calculated using advanced machine learning models to determine the
+	// typical spending pattern based on historical data for a customer.
+	TotalExpectedSpend *float64 `type:"double"`
+
+	// The cumulative dollar difference between the total actual spend and total
+	// expected spend. It is calculated as TotalActualSpend - TotalExpectedSpend.
 	TotalImpact *float64 `type:"double"`
+
+	// The cumulative percentage difference between the total actual spend and total
+	// expected spend. It is calculated as (TotalImpact / TotalExpectedSpend) *
+	// 100. When TotalExpectedSpend is zero, this field is omitted. Expected spend
+	// can be zero in situations such as when you start to use a service for the
+	// first time.
+	TotalImpactPercentage *float64 `type:"double"`
 }
 
 // String returns the string representation.
@@ -10954,32 +12255,56 @@ func (s *Impact) SetMaxImpact(v float64) *Impact {
 	return s
 }
 
+// SetTotalActualSpend sets the TotalActualSpend field's value.
+func (s *Impact) SetTotalActualSpend(v float64) *Impact {
+	s.TotalActualSpend = &v
+	return s
+}
+
+// SetTotalExpectedSpend sets the TotalExpectedSpend field's value.
+func (s *Impact) SetTotalExpectedSpend(v float64) *Impact {
+	s.TotalExpectedSpend = &v
+	return s
+}
+
 // SetTotalImpact sets the TotalImpact field's value.
 func (s *Impact) SetTotalImpact(v float64) *Impact {
 	s.TotalImpact = &v
 	return s
 }
 
-// Details about the instances that Amazon Web Services recommends that you
+// SetTotalImpactPercentage sets the TotalImpactPercentage field's value.
+func (s *Impact) SetTotalImpactPercentage(v float64) *Impact {
+	s.TotalImpactPercentage = &v
+	return s
+}
+
+// Details about the reservations that Amazon Web Services recommends that you
 // purchase.
 type InstanceDetails struct {
 	_ struct{} `type:"structure"`
 
-	// The Amazon EC2 instances that Amazon Web Services recommends that you purchase.
+	// The Amazon EC2 reservations that Amazon Web Services recommends that you
+	// purchase.
 	EC2InstanceDetails *EC2InstanceDetails `type:"structure"`
 
-	// The Amazon OpenSearch Service instances that Amazon Web Services recommends
+	// The Amazon OpenSearch Service reservations that Amazon Web Services recommends
 	// that you purchase.
 	ESInstanceDetails *ESInstanceDetails `type:"structure"`
 
-	// The ElastiCache instances that Amazon Web Services recommends that you purchase.
+	// The ElastiCache reservations that Amazon Web Services recommends that you
+	// purchase.
 	ElastiCacheInstanceDetails *ElastiCacheInstanceDetails `type:"structure"`
 
-	// The Amazon RDS instances that Amazon Web Services recommends that you purchase.
+	// The MemoryDB reservations that Amazon Web Services recommends that you purchase.
+	MemoryDBInstanceDetails *MemoryDBInstanceDetails `type:"structure"`
+
+	// The Amazon RDS reservations that Amazon Web Services recommends that you
+	// purchase.
 	RDSInstanceDetails *RDSInstanceDetails `type:"structure"`
 
-	// The Amazon Redshift instances that Amazon Web Services recommends that you
-	// purchase.
+	// The Amazon Redshift reservations that Amazon Web Services recommends that
+	// you purchase.
 	RedshiftInstanceDetails *RedshiftInstanceDetails `type:"structure"`
 }
 
@@ -11016,6 +12341,12 @@ func (s *InstanceDetails) SetESInstanceDetails(v *ESInstanceDetails) *InstanceDe
 // SetElastiCacheInstanceDetails sets the ElastiCacheInstanceDetails field's value.
 func (s *InstanceDetails) SetElastiCacheInstanceDetails(v *ElastiCacheInstanceDetails) *InstanceDetails {
 	s.ElastiCacheInstanceDetails = v
+	return s
+}
+
+// SetMemoryDBInstanceDetails sets the MemoryDBInstanceDetails field's value.
+func (s *InstanceDetails) SetMemoryDBInstanceDetails(v *MemoryDBInstanceDetails) *InstanceDetails {
+	s.MemoryDBInstanceDetails = v
 	return s
 }
 
@@ -11157,6 +12488,103 @@ func (s *LimitExceededException) StatusCode() int {
 // RequestID returns the service's response RequestID for request.
 func (s *LimitExceededException) RequestID() string {
 	return s.RespMetadata.RequestID
+}
+
+type ListCostAllocationTagBackfillHistoryInput struct {
+	_ struct{} `type:"structure"`
+
+	// The maximum number of objects that are returned for this request.
+	MaxResults *int64 `min:"1" type:"integer"`
+
+	// The token to retrieve the next set of results. Amazon Web Services provides
+	// the token when the response from a previous call has more results than the
+	// maximum page size.
+	NextToken *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListCostAllocationTagBackfillHistoryInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListCostAllocationTagBackfillHistoryInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListCostAllocationTagBackfillHistoryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListCostAllocationTagBackfillHistoryInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListCostAllocationTagBackfillHistoryInput) SetMaxResults(v int64) *ListCostAllocationTagBackfillHistoryInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListCostAllocationTagBackfillHistoryInput) SetNextToken(v string) *ListCostAllocationTagBackfillHistoryInput {
+	s.NextToken = &v
+	return s
+}
+
+type ListCostAllocationTagBackfillHistoryOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The list of historical cost allocation tag backfill requests.
+	BackfillRequests []*CostAllocationTagBackfillRequest `type:"list"`
+
+	// The token to retrieve the next set of results. Amazon Web Services provides
+	// the token when the response from a previous call has more results than the
+	// maximum page size.
+	NextToken *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListCostAllocationTagBackfillHistoryOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListCostAllocationTagBackfillHistoryOutput) GoString() string {
+	return s.String()
+}
+
+// SetBackfillRequests sets the BackfillRequests field's value.
+func (s *ListCostAllocationTagBackfillHistoryOutput) SetBackfillRequests(v []*CostAllocationTagBackfillRequest) *ListCostAllocationTagBackfillHistoryOutput {
+	s.BackfillRequests = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListCostAllocationTagBackfillHistoryOutput) SetNextToken(v string) *ListCostAllocationTagBackfillHistoryOutput {
+	s.NextToken = &v
+	return s
 }
 
 type ListCostAllocationTagsInput struct {
@@ -11402,6 +12830,105 @@ func (s *ListCostCategoryDefinitionsOutput) SetNextToken(v string) *ListCostCate
 	return s
 }
 
+type ListSavingsPlansPurchaseRecommendationGenerationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The status of the recommendation generation.
+	GenerationStatus *string `type:"string" enum:"GenerationStatus"`
+
+	// The token to retrieve the next set of results.
+	NextPageToken *string `type:"string"`
+
+	// The number of recommendations that you want returned in a single response
+	// object.
+	PageSize *int64 `type:"integer"`
+
+	// The IDs for each specific recommendation.
+	RecommendationIds []*string `type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListSavingsPlansPurchaseRecommendationGenerationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListSavingsPlansPurchaseRecommendationGenerationInput) GoString() string {
+	return s.String()
+}
+
+// SetGenerationStatus sets the GenerationStatus field's value.
+func (s *ListSavingsPlansPurchaseRecommendationGenerationInput) SetGenerationStatus(v string) *ListSavingsPlansPurchaseRecommendationGenerationInput {
+	s.GenerationStatus = &v
+	return s
+}
+
+// SetNextPageToken sets the NextPageToken field's value.
+func (s *ListSavingsPlansPurchaseRecommendationGenerationInput) SetNextPageToken(v string) *ListSavingsPlansPurchaseRecommendationGenerationInput {
+	s.NextPageToken = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListSavingsPlansPurchaseRecommendationGenerationInput) SetPageSize(v int64) *ListSavingsPlansPurchaseRecommendationGenerationInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRecommendationIds sets the RecommendationIds field's value.
+func (s *ListSavingsPlansPurchaseRecommendationGenerationInput) SetRecommendationIds(v []*string) *ListSavingsPlansPurchaseRecommendationGenerationInput {
+	s.RecommendationIds = v
+	return s
+}
+
+type ListSavingsPlansPurchaseRecommendationGenerationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The list of historical recommendation generations.
+	GenerationSummaryList []*GenerationSummary `type:"list"`
+
+	// The token to retrieve the next set of results.
+	NextPageToken *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListSavingsPlansPurchaseRecommendationGenerationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListSavingsPlansPurchaseRecommendationGenerationOutput) GoString() string {
+	return s.String()
+}
+
+// SetGenerationSummaryList sets the GenerationSummaryList field's value.
+func (s *ListSavingsPlansPurchaseRecommendationGenerationOutput) SetGenerationSummaryList(v []*GenerationSummary) *ListSavingsPlansPurchaseRecommendationGenerationOutput {
+	s.GenerationSummaryList = v
+	return s
+}
+
+// SetNextPageToken sets the NextPageToken field's value.
+func (s *ListSavingsPlansPurchaseRecommendationGenerationOutput) SetNextPageToken(v string) *ListSavingsPlansPurchaseRecommendationGenerationOutput {
+	s.NextPageToken = &v
+	return s
+}
+
 type ListTagsForResourceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -11480,6 +13007,75 @@ func (s ListTagsForResourceOutput) GoString() string {
 // SetResourceTags sets the ResourceTags field's value.
 func (s *ListTagsForResourceOutput) SetResourceTags(v []*ResourceTag) *ListTagsForResourceOutput {
 	s.ResourceTags = v
+	return s
+}
+
+// Details about the MemoryDB reservations that Amazon Web Services recommends
+// that you purchase.
+type MemoryDBInstanceDetails struct {
+	_ struct{} `type:"structure"`
+
+	// Determines whether the recommendation is for a current generation instance.
+	CurrentGeneration *bool `type:"boolean"`
+
+	// The instance family of the recommended reservation.
+	Family *string `type:"string"`
+
+	// The node type of the recommended reservation.
+	NodeType *string `type:"string"`
+
+	// The Amazon Web Services Region of the recommended reservation.
+	Region *string `type:"string"`
+
+	// Determines whether the recommended reservation is size flexible.
+	SizeFlexEligible *bool `type:"boolean"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s MemoryDBInstanceDetails) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s MemoryDBInstanceDetails) GoString() string {
+	return s.String()
+}
+
+// SetCurrentGeneration sets the CurrentGeneration field's value.
+func (s *MemoryDBInstanceDetails) SetCurrentGeneration(v bool) *MemoryDBInstanceDetails {
+	s.CurrentGeneration = &v
+	return s
+}
+
+// SetFamily sets the Family field's value.
+func (s *MemoryDBInstanceDetails) SetFamily(v string) *MemoryDBInstanceDetails {
+	s.Family = &v
+	return s
+}
+
+// SetNodeType sets the NodeType field's value.
+func (s *MemoryDBInstanceDetails) SetNodeType(v string) *MemoryDBInstanceDetails {
+	s.NodeType = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *MemoryDBInstanceDetails) SetRegion(v string) *MemoryDBInstanceDetails {
+	s.Region = &v
+	return s
+}
+
+// SetSizeFlexEligible sets the SizeFlexEligible field's value.
+func (s *MemoryDBInstanceDetails) SetSizeFlexEligible(v bool) *MemoryDBInstanceDetails {
+	s.SizeFlexEligible = &v
 	return s
 }
 
@@ -11712,7 +13308,7 @@ func (s *ProvideAnomalyFeedbackOutput) SetAnomalyId(v string) *ProvideAnomalyFee
 	return s
 }
 
-// Details about the Amazon RDS instances that Amazon Web Services recommends
+// Details about the Amazon RDS reservations that Amazon Web Services recommends
 // that you purchase.
 type RDSInstanceDetails struct {
 	_ struct{} `type:"structure"`
@@ -11818,7 +13414,379 @@ func (s *RDSInstanceDetails) SetSizeFlexEligible(v bool) *RDSInstanceDetails {
 	return s
 }
 
-// Details about the Amazon Redshift instances that Amazon Web Services recommends
+// The details and metrics for the given recommendation.
+type RecommendationDetailData struct {
+	_ struct{} `type:"structure"`
+
+	// The AccountID that the recommendation is generated for.
+	AccountId *string `type:"string"`
+
+	// The account scope that you want your recommendations for. Amazon Web Services
+	// calculates recommendations including the management account and member accounts
+	// if the value is set to PAYER. If the value is LINKED, recommendations are
+	// calculated for individual member accounts only.
+	AccountScope *string `type:"string" enum:"AccountScope"`
+
+	// The currency code that Amazon Web Services used to generate the recommendation
+	// and present potential savings.
+	CurrencyCode *string `type:"string"`
+
+	// The average value of hourly coverage over the lookback period.
+	CurrentAverageCoverage *string `type:"string"`
+
+	// The average value of hourly On-Demand spend over the lookback period of the
+	// applicable usage type.
+	CurrentAverageHourlyOnDemandSpend *string `type:"string"`
+
+	// The highest value of hourly On-Demand spend over the lookback period of the
+	// applicable usage type.
+	CurrentMaximumHourlyOnDemandSpend *string `type:"string"`
+
+	// The lowest value of hourly On-Demand spend over the lookback period of the
+	// applicable usage type.
+	CurrentMinimumHourlyOnDemandSpend *string `type:"string"`
+
+	// The estimated coverage of the recommended Savings Plan.
+	EstimatedAverageCoverage *string `type:"string"`
+
+	// The estimated utilization of the recommended Savings Plan.
+	EstimatedAverageUtilization *string `type:"string"`
+
+	// The estimated monthly savings amount based on the recommended Savings Plan.
+	EstimatedMonthlySavingsAmount *string `type:"string"`
+
+	// The remaining On-Demand cost estimated to not be covered by the recommended
+	// Savings Plan, over the length of the lookback period.
+	EstimatedOnDemandCost *string `type:"string"`
+
+	// The estimated On-Demand costs you expect with no additional commitment, based
+	// on your usage of the selected time period and the Savings Plan you own.
+	EstimatedOnDemandCostWithCurrentCommitment *string `type:"string"`
+
+	// The estimated return on investment that's based on the recommended Savings
+	// Plan that you purchased. This is calculated as estimatedSavingsAmount/estimatedSPCost*100.
+	EstimatedROI *string `type:"string"`
+
+	// The cost of the recommended Savings Plan over the length of the lookback
+	// period.
+	EstimatedSPCost *string `type:"string"`
+
+	// The estimated savings amount that's based on the recommended Savings Plan
+	// over the length of the lookback period.
+	EstimatedSavingsAmount *string `type:"string"`
+
+	// The estimated savings percentage relative to the total cost of applicable
+	// On-Demand usage over the lookback period.
+	EstimatedSavingsPercentage *string `type:"string"`
+
+	// The existing hourly commitment for the Savings Plan type.
+	ExistingHourlyCommitment *string `type:"string"`
+
+	// The period of time that you want the usage and costs for.
+	GenerationTimestamp *string `min:"20" type:"string"`
+
+	// The recommended hourly commitment level for the Savings Plan type and the
+	// configuration that's based on the usage during the lookback period.
+	HourlyCommitmentToPurchase *string `type:"string"`
+
+	// The instance family of the recommended Savings Plan.
+	InstanceFamily *string `type:"string"`
+
+	// The period of time that you want the usage and costs for.
+	LatestUsageTimestamp *string `min:"20" type:"string"`
+
+	// How many days of previous usage that Amazon Web Services considers when making
+	// this recommendation.
+	LookbackPeriodInDays *string `type:"string" enum:"LookbackPeriodInDays"`
+
+	// The related hourly cost, coverage, and utilization metrics over the lookback
+	// period.
+	MetricsOverLookbackPeriod []*RecommendationDetailHourlyMetrics `type:"list"`
+
+	// The unique ID that's used to distinguish Savings Plans from one another.
+	OfferingId *string `type:"string"`
+
+	// The payment option for the commitment (for example, All Upfront or No Upfront).
+	PaymentOption *string `type:"string" enum:"PaymentOption"`
+
+	// The region the recommendation is generated for.
+	Region *string `type:"string"`
+
+	// The requested Savings Plan recommendation type.
+	SavingsPlansType *string `type:"string" enum:"SupportedSavingsPlansType"`
+
+	// The term of the commitment in years.
+	TermInYears *string `type:"string" enum:"TermInYears"`
+
+	// The upfront cost of the recommended Savings Plan, based on the selected payment
+	// option.
+	UpfrontCost *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RecommendationDetailData) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RecommendationDetailData) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *RecommendationDetailData) SetAccountId(v string) *RecommendationDetailData {
+	s.AccountId = &v
+	return s
+}
+
+// SetAccountScope sets the AccountScope field's value.
+func (s *RecommendationDetailData) SetAccountScope(v string) *RecommendationDetailData {
+	s.AccountScope = &v
+	return s
+}
+
+// SetCurrencyCode sets the CurrencyCode field's value.
+func (s *RecommendationDetailData) SetCurrencyCode(v string) *RecommendationDetailData {
+	s.CurrencyCode = &v
+	return s
+}
+
+// SetCurrentAverageCoverage sets the CurrentAverageCoverage field's value.
+func (s *RecommendationDetailData) SetCurrentAverageCoverage(v string) *RecommendationDetailData {
+	s.CurrentAverageCoverage = &v
+	return s
+}
+
+// SetCurrentAverageHourlyOnDemandSpend sets the CurrentAverageHourlyOnDemandSpend field's value.
+func (s *RecommendationDetailData) SetCurrentAverageHourlyOnDemandSpend(v string) *RecommendationDetailData {
+	s.CurrentAverageHourlyOnDemandSpend = &v
+	return s
+}
+
+// SetCurrentMaximumHourlyOnDemandSpend sets the CurrentMaximumHourlyOnDemandSpend field's value.
+func (s *RecommendationDetailData) SetCurrentMaximumHourlyOnDemandSpend(v string) *RecommendationDetailData {
+	s.CurrentMaximumHourlyOnDemandSpend = &v
+	return s
+}
+
+// SetCurrentMinimumHourlyOnDemandSpend sets the CurrentMinimumHourlyOnDemandSpend field's value.
+func (s *RecommendationDetailData) SetCurrentMinimumHourlyOnDemandSpend(v string) *RecommendationDetailData {
+	s.CurrentMinimumHourlyOnDemandSpend = &v
+	return s
+}
+
+// SetEstimatedAverageCoverage sets the EstimatedAverageCoverage field's value.
+func (s *RecommendationDetailData) SetEstimatedAverageCoverage(v string) *RecommendationDetailData {
+	s.EstimatedAverageCoverage = &v
+	return s
+}
+
+// SetEstimatedAverageUtilization sets the EstimatedAverageUtilization field's value.
+func (s *RecommendationDetailData) SetEstimatedAverageUtilization(v string) *RecommendationDetailData {
+	s.EstimatedAverageUtilization = &v
+	return s
+}
+
+// SetEstimatedMonthlySavingsAmount sets the EstimatedMonthlySavingsAmount field's value.
+func (s *RecommendationDetailData) SetEstimatedMonthlySavingsAmount(v string) *RecommendationDetailData {
+	s.EstimatedMonthlySavingsAmount = &v
+	return s
+}
+
+// SetEstimatedOnDemandCost sets the EstimatedOnDemandCost field's value.
+func (s *RecommendationDetailData) SetEstimatedOnDemandCost(v string) *RecommendationDetailData {
+	s.EstimatedOnDemandCost = &v
+	return s
+}
+
+// SetEstimatedOnDemandCostWithCurrentCommitment sets the EstimatedOnDemandCostWithCurrentCommitment field's value.
+func (s *RecommendationDetailData) SetEstimatedOnDemandCostWithCurrentCommitment(v string) *RecommendationDetailData {
+	s.EstimatedOnDemandCostWithCurrentCommitment = &v
+	return s
+}
+
+// SetEstimatedROI sets the EstimatedROI field's value.
+func (s *RecommendationDetailData) SetEstimatedROI(v string) *RecommendationDetailData {
+	s.EstimatedROI = &v
+	return s
+}
+
+// SetEstimatedSPCost sets the EstimatedSPCost field's value.
+func (s *RecommendationDetailData) SetEstimatedSPCost(v string) *RecommendationDetailData {
+	s.EstimatedSPCost = &v
+	return s
+}
+
+// SetEstimatedSavingsAmount sets the EstimatedSavingsAmount field's value.
+func (s *RecommendationDetailData) SetEstimatedSavingsAmount(v string) *RecommendationDetailData {
+	s.EstimatedSavingsAmount = &v
+	return s
+}
+
+// SetEstimatedSavingsPercentage sets the EstimatedSavingsPercentage field's value.
+func (s *RecommendationDetailData) SetEstimatedSavingsPercentage(v string) *RecommendationDetailData {
+	s.EstimatedSavingsPercentage = &v
+	return s
+}
+
+// SetExistingHourlyCommitment sets the ExistingHourlyCommitment field's value.
+func (s *RecommendationDetailData) SetExistingHourlyCommitment(v string) *RecommendationDetailData {
+	s.ExistingHourlyCommitment = &v
+	return s
+}
+
+// SetGenerationTimestamp sets the GenerationTimestamp field's value.
+func (s *RecommendationDetailData) SetGenerationTimestamp(v string) *RecommendationDetailData {
+	s.GenerationTimestamp = &v
+	return s
+}
+
+// SetHourlyCommitmentToPurchase sets the HourlyCommitmentToPurchase field's value.
+func (s *RecommendationDetailData) SetHourlyCommitmentToPurchase(v string) *RecommendationDetailData {
+	s.HourlyCommitmentToPurchase = &v
+	return s
+}
+
+// SetInstanceFamily sets the InstanceFamily field's value.
+func (s *RecommendationDetailData) SetInstanceFamily(v string) *RecommendationDetailData {
+	s.InstanceFamily = &v
+	return s
+}
+
+// SetLatestUsageTimestamp sets the LatestUsageTimestamp field's value.
+func (s *RecommendationDetailData) SetLatestUsageTimestamp(v string) *RecommendationDetailData {
+	s.LatestUsageTimestamp = &v
+	return s
+}
+
+// SetLookbackPeriodInDays sets the LookbackPeriodInDays field's value.
+func (s *RecommendationDetailData) SetLookbackPeriodInDays(v string) *RecommendationDetailData {
+	s.LookbackPeriodInDays = &v
+	return s
+}
+
+// SetMetricsOverLookbackPeriod sets the MetricsOverLookbackPeriod field's value.
+func (s *RecommendationDetailData) SetMetricsOverLookbackPeriod(v []*RecommendationDetailHourlyMetrics) *RecommendationDetailData {
+	s.MetricsOverLookbackPeriod = v
+	return s
+}
+
+// SetOfferingId sets the OfferingId field's value.
+func (s *RecommendationDetailData) SetOfferingId(v string) *RecommendationDetailData {
+	s.OfferingId = &v
+	return s
+}
+
+// SetPaymentOption sets the PaymentOption field's value.
+func (s *RecommendationDetailData) SetPaymentOption(v string) *RecommendationDetailData {
+	s.PaymentOption = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *RecommendationDetailData) SetRegion(v string) *RecommendationDetailData {
+	s.Region = &v
+	return s
+}
+
+// SetSavingsPlansType sets the SavingsPlansType field's value.
+func (s *RecommendationDetailData) SetSavingsPlansType(v string) *RecommendationDetailData {
+	s.SavingsPlansType = &v
+	return s
+}
+
+// SetTermInYears sets the TermInYears field's value.
+func (s *RecommendationDetailData) SetTermInYears(v string) *RecommendationDetailData {
+	s.TermInYears = &v
+	return s
+}
+
+// SetUpfrontCost sets the UpfrontCost field's value.
+func (s *RecommendationDetailData) SetUpfrontCost(v string) *RecommendationDetailData {
+	s.UpfrontCost = &v
+	return s
+}
+
+// Contains the hourly metrics for the given recommendation over the lookback
+// period.
+type RecommendationDetailHourlyMetrics struct {
+	_ struct{} `type:"structure"`
+
+	// The current amount of Savings Plans eligible usage that the Savings Plan
+	// covered.
+	CurrentCoverage *string `type:"string"`
+
+	// The estimated coverage amount based on the recommended Savings Plan.
+	EstimatedCoverage *string `type:"string"`
+
+	// The estimated utilization for the recommended Savings Plan.
+	EstimatedNewCommitmentUtilization *string `type:"string"`
+
+	// The remaining On-Demand cost estimated to not be covered by the recommended
+	// Savings Plan, over the length of the lookback period.
+	EstimatedOnDemandCost *string `type:"string"`
+
+	// The period of time that you want the usage and costs for.
+	StartTime *string `min:"20" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RecommendationDetailHourlyMetrics) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s RecommendationDetailHourlyMetrics) GoString() string {
+	return s.String()
+}
+
+// SetCurrentCoverage sets the CurrentCoverage field's value.
+func (s *RecommendationDetailHourlyMetrics) SetCurrentCoverage(v string) *RecommendationDetailHourlyMetrics {
+	s.CurrentCoverage = &v
+	return s
+}
+
+// SetEstimatedCoverage sets the EstimatedCoverage field's value.
+func (s *RecommendationDetailHourlyMetrics) SetEstimatedCoverage(v string) *RecommendationDetailHourlyMetrics {
+	s.EstimatedCoverage = &v
+	return s
+}
+
+// SetEstimatedNewCommitmentUtilization sets the EstimatedNewCommitmentUtilization field's value.
+func (s *RecommendationDetailHourlyMetrics) SetEstimatedNewCommitmentUtilization(v string) *RecommendationDetailHourlyMetrics {
+	s.EstimatedNewCommitmentUtilization = &v
+	return s
+}
+
+// SetEstimatedOnDemandCost sets the EstimatedOnDemandCost field's value.
+func (s *RecommendationDetailHourlyMetrics) SetEstimatedOnDemandCost(v string) *RecommendationDetailHourlyMetrics {
+	s.EstimatedOnDemandCost = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *RecommendationDetailHourlyMetrics) SetStartTime(v string) *RecommendationDetailHourlyMetrics {
+	s.StartTime = &v
+	return s
+}
+
+// Details about the Amazon Redshift reservations that Amazon Web Services recommends
 // that you purchase.
 type RedshiftInstanceDetails struct {
 	_ struct{} `type:"structure"`
@@ -12314,7 +14282,7 @@ type ReservationPurchaseRecommendationDetail struct {
 	// during the specified historical period if you had a reservation.
 	EstimatedReservationCostForLookbackPeriod *string `type:"string"`
 
-	// Details about the instances that Amazon Web Services recommends that you
+	// Details about the reservations that Amazon Web Services recommends that you
 	// purchase.
 	InstanceDetails *InstanceDetails `type:"structure"`
 
@@ -12484,15 +14452,18 @@ func (s *ReservationPurchaseRecommendationDetail) SetUpfrontCost(v string) *Rese
 	return s
 }
 
-// Information about this specific recommendation, such as the timestamp for
-// when Amazon Web Services made a specific recommendation.
+// Information about a recommendation, such as the timestamp for when Amazon
+// Web Services made a specific recommendation.
 type ReservationPurchaseRecommendationMetadata struct {
 	_ struct{} `type:"structure"`
 
-	// The timestamp for when Amazon Web Services made this recommendation.
+	// Additional metadata that might be applicable to the recommendation.
+	AdditionalMetadata *string `type:"string"`
+
+	// The timestamp for when Amazon Web Services made the recommendation.
 	GenerationTimestamp *string `type:"string"`
 
-	// The ID for this specific recommendation.
+	// The ID for the recommendation.
 	RecommendationId *string `type:"string"`
 }
 
@@ -12512,6 +14483,12 @@ func (s ReservationPurchaseRecommendationMetadata) String() string {
 // value will be replaced with "sensitive".
 func (s ReservationPurchaseRecommendationMetadata) GoString() string {
 	return s.String()
+}
+
+// SetAdditionalMetadata sets the AdditionalMetadata field's value.
+func (s *ReservationPurchaseRecommendationMetadata) SetAdditionalMetadata(v string) *ReservationPurchaseRecommendationMetadata {
+	s.AdditionalMetadata = &v
+	return s
 }
 
 // SetGenerationTimestamp sets the GenerationTimestamp field's value.
@@ -13044,21 +15021,21 @@ func (s *RightsizingRecommendationConfiguration) SetRecommendationTarget(v strin
 	return s
 }
 
-// Metadata for this recommendation set.
+// Metadata for a recommendation set.
 type RightsizingRecommendationMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// Additional metadata that might be applicable to the recommendation.
 	AdditionalMetadata *string `type:"string"`
 
-	// The timestamp for when Amazon Web Services made this recommendation.
+	// The timestamp for when Amazon Web Services made the recommendation.
 	GenerationTimestamp *string `type:"string"`
 
 	// The number of days of previous usage that Amazon Web Services considers when
-	// making this recommendation.
+	// making the recommendation.
 	LookbackPeriodInDays *string `type:"string" enum:"LookbackPeriodInDays"`
 
-	// The ID for this specific recommendation.
+	// The ID for the recommendation.
 	RecommendationId *string `type:"string"`
 }
 
@@ -13164,13 +15141,17 @@ func (s *RightsizingRecommendationSummary) SetTotalRecommendationCount(v string)
 	return s
 }
 
-// The combination of Amazon Web Service, linked account, Region, and usage
-// type where a cost anomaly is observed.
+// The combination of Amazon Web Service, linked account, linked account name,
+// Region, and usage type where a cost anomaly is observed. The linked account
+// name will only be available when the account name can be identified.
 type RootCause struct {
 	_ struct{} `type:"structure"`
 
 	// The member account value that's associated with the cost anomaly.
 	LinkedAccount *string `type:"string"`
+
+	// The member account name value that's associated with the cost anomaly.
+	LinkedAccountName *string `type:"string"`
 
 	// The Amazon Web Services Region that's associated with the cost anomaly.
 	Region *string `type:"string"`
@@ -13203,6 +15184,12 @@ func (s RootCause) GoString() string {
 // SetLinkedAccount sets the LinkedAccount field's value.
 func (s *RootCause) SetLinkedAccount(v string) *RootCause {
 	s.LinkedAccount = &v
+	return s
+}
+
+// SetLinkedAccountName sets the LinkedAccountName field's value.
+func (s *RootCause) SetLinkedAccountName(v string) *RootCause {
+	s.LinkedAccountName = &v
 	return s
 }
 
@@ -13593,6 +15580,9 @@ type SavingsPlansPurchaseRecommendationDetail struct {
 	// configuration that's based on the usage during the lookback period.
 	HourlyCommitmentToPurchase *string `type:"string"`
 
+	// Contains detailed information about a specific Savings Plan recommendation.
+	RecommendationDetailId *string `min:"36" type:"string"`
+
 	// Details for your recommended Savings Plans.
 	SavingsPlansDetails *SavingsPlansDetails `type:"structure"`
 
@@ -13700,6 +15690,12 @@ func (s *SavingsPlansPurchaseRecommendationDetail) SetEstimatedSavingsPercentage
 // SetHourlyCommitmentToPurchase sets the HourlyCommitmentToPurchase field's value.
 func (s *SavingsPlansPurchaseRecommendationDetail) SetHourlyCommitmentToPurchase(v string) *SavingsPlansPurchaseRecommendationDetail {
 	s.HourlyCommitmentToPurchase = &v
+	return s
+}
+
+// SetRecommendationDetailId sets the RecommendationDetailId field's value.
+func (s *SavingsPlansPurchaseRecommendationDetail) SetRecommendationDetailId(v string) *SavingsPlansPurchaseRecommendationDetail {
+	s.RecommendationDetailId = &v
 	return s
 }
 
@@ -14358,6 +16354,159 @@ func (s *SortDefinition) SetSortOrder(v string) *SortDefinition {
 	return s
 }
 
+type StartCostAllocationTagBackfillInput struct {
+	_ struct{} `type:"structure"`
+
+	// The date you want the backfill to start from. The date can only be a first
+	// day of the month (a billing start date). Dates can't precede the previous
+	// twelve months, or in the future.
+	//
+	// BackfillFrom is a required field
+	BackfillFrom *string `min:"20" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartCostAllocationTagBackfillInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartCostAllocationTagBackfillInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StartCostAllocationTagBackfillInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StartCostAllocationTagBackfillInput"}
+	if s.BackfillFrom == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackfillFrom"))
+	}
+	if s.BackfillFrom != nil && len(*s.BackfillFrom) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("BackfillFrom", 20))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBackfillFrom sets the BackfillFrom field's value.
+func (s *StartCostAllocationTagBackfillInput) SetBackfillFrom(v string) *StartCostAllocationTagBackfillInput {
+	s.BackfillFrom = &v
+	return s
+}
+
+type StartCostAllocationTagBackfillOutput struct {
+	_ struct{} `type:"structure"`
+
+	// An object containing detailed metadata of your new backfill request.
+	BackfillRequest *CostAllocationTagBackfillRequest `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartCostAllocationTagBackfillOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartCostAllocationTagBackfillOutput) GoString() string {
+	return s.String()
+}
+
+// SetBackfillRequest sets the BackfillRequest field's value.
+func (s *StartCostAllocationTagBackfillOutput) SetBackfillRequest(v *CostAllocationTagBackfillRequest) *StartCostAllocationTagBackfillOutput {
+	s.BackfillRequest = v
+	return s
+}
+
+type StartSavingsPlansPurchaseRecommendationGenerationInput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSavingsPlansPurchaseRecommendationGenerationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSavingsPlansPurchaseRecommendationGenerationInput) GoString() string {
+	return s.String()
+}
+
+type StartSavingsPlansPurchaseRecommendationGenerationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The estimated time for when the recommendation generation will complete.
+	EstimatedCompletionTime *string `min:"20" type:"string"`
+
+	// The start time of the recommendation generation.
+	GenerationStartedTime *string `min:"20" type:"string"`
+
+	// The ID for this specific recommendation.
+	RecommendationId *string `min:"36" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSavingsPlansPurchaseRecommendationGenerationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSavingsPlansPurchaseRecommendationGenerationOutput) GoString() string {
+	return s.String()
+}
+
+// SetEstimatedCompletionTime sets the EstimatedCompletionTime field's value.
+func (s *StartSavingsPlansPurchaseRecommendationGenerationOutput) SetEstimatedCompletionTime(v string) *StartSavingsPlansPurchaseRecommendationGenerationOutput {
+	s.EstimatedCompletionTime = &v
+	return s
+}
+
+// SetGenerationStartedTime sets the GenerationStartedTime field's value.
+func (s *StartSavingsPlansPurchaseRecommendationGenerationOutput) SetGenerationStartedTime(v string) *StartSavingsPlansPurchaseRecommendationGenerationOutput {
+	s.GenerationStartedTime = &v
+	return s
+}
+
+// SetRecommendationId sets the RecommendationId field's value.
+func (s *StartSavingsPlansPurchaseRecommendationGenerationOutput) SetRecommendationId(v string) *StartSavingsPlansPurchaseRecommendationGenerationOutput {
+	s.RecommendationId = &v
+	return s
+}
+
 // The recipient of AnomalySubscription notifications.
 type Subscriber struct {
 	_ struct{} `type:"structure"`
@@ -14544,7 +16693,7 @@ func (s TagResourceOutput) GoString() string {
 // If Values and Key aren't specified, the ABSENT MatchOption is applied to
 // all tags. That is, it's filtered on resources with no tags.
 //
-// If Values is provided and Key isn't specified, the ABSENT MatchOption is
+// If Key is provided and Values isn't specified, the ABSENT MatchOption is
 // applied to the tag Key only. That is, it's filtered on resources without
 // the given tag key.
 type TagValues struct {
@@ -15257,8 +17406,48 @@ type UpdateAnomalySubscriptionInput struct {
 	// The new name of the subscription.
 	SubscriptionName *string `type:"string"`
 
+	// (deprecated)
+	//
 	// The update to the threshold value for receiving notifications.
-	Threshold *float64 `type:"double"`
+	//
+	// This field has been deprecated. To update a threshold, use ThresholdExpression.
+	// Continued use of Threshold will be treated as shorthand syntax for a ThresholdExpression.
+	//
+	// You can specify either Threshold or ThresholdExpression, but not both.
+	//
+	// Deprecated: Threshold has been deprecated in favor of ThresholdExpression
+	Threshold *float64 `deprecated:"true" type:"double"`
+
+	// The update to the Expression (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html)
+	// object used to specify the anomalies that you want to generate alerts for.
+	// This supports dimensions and nested expressions. The supported dimensions
+	// are ANOMALY_TOTAL_IMPACT_ABSOLUTE and ANOMALY_TOTAL_IMPACT_PERCENTAGE, corresponding
+	// to an anomaly’s TotalImpact and TotalImpactPercentage, respectively (see
+	// Impact (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html)
+	// for more details). The supported nested expression types are AND and OR.
+	// The match option GREATER_THAN_OR_EQUAL is required. Values must be numbers
+	// between 0 and 10,000,000,000 in string format.
+	//
+	// You can specify either Threshold or ThresholdExpression, but not both.
+	//
+	// The following are examples of valid ThresholdExpressions:
+	//
+	//    * Absolute threshold: { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+	//    "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }
+	//
+	//    * Percentage threshold: { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+	//    "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }
+	//
+	//    * AND two thresholds together: { "And": [ { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+	//    "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } },
+	//    { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions":
+	//    [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } } ] }
+	//
+	//    * OR two thresholds together: { "Or": [ { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+	//    "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } },
+	//    { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions":
+	//    [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } } ] }
+	ThresholdExpression *Expression `type:"structure"`
 }
 
 // String returns the string representation.
@@ -15293,6 +17482,11 @@ func (s *UpdateAnomalySubscriptionInput) Validate() error {
 			if err := v.Validate(); err != nil {
 				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Subscribers", i), err.(request.ErrInvalidParams))
 			}
+		}
+	}
+	if s.ThresholdExpression != nil {
+		if err := s.ThresholdExpression.Validate(); err != nil {
+			invalidParams.AddNested("ThresholdExpression", err.(request.ErrInvalidParams))
 		}
 	}
 
@@ -15335,6 +17529,12 @@ func (s *UpdateAnomalySubscriptionInput) SetSubscriptionName(v string) *UpdateAn
 // SetThreshold sets the Threshold field's value.
 func (s *UpdateAnomalySubscriptionInput) SetThreshold(v float64) *UpdateAnomalySubscriptionInput {
 	s.Threshold = &v
+	return s
+}
+
+// SetThresholdExpression sets the ThresholdExpression field's value.
+func (s *UpdateAnomalySubscriptionInput) SetThresholdExpression(v *Expression) *UpdateAnomalySubscriptionInput {
+	s.ThresholdExpression = v
 	return s
 }
 
@@ -15526,6 +17726,12 @@ type UpdateCostCategoryDefinitionInput struct {
 	// The default value for the cost category.
 	DefaultValue *string `min:"1" type:"string"`
 
+	// The Cost Category's effective start date. It can only be a billing start
+	// date (first day of the month). If the date isn't provided, it's the first
+	// day of the current month. Dates can't be before the previous twelve months,
+	// or in the future.
+	EffectiveStart *string `min:"20" type:"string"`
+
 	// The rule schema version in this particular Cost Category.
 	//
 	// RuleVersion is a required field
@@ -15571,6 +17777,9 @@ func (s *UpdateCostCategoryDefinitionInput) Validate() error {
 	}
 	if s.DefaultValue != nil && len(*s.DefaultValue) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("DefaultValue", 1))
+	}
+	if s.EffectiveStart != nil && len(*s.EffectiveStart) < 20 {
+		invalidParams.Add(request.NewErrParamMinLen("EffectiveStart", 20))
 	}
 	if s.RuleVersion == nil {
 		invalidParams.Add(request.NewErrParamRequired("RuleVersion"))
@@ -15623,6 +17832,12 @@ func (s *UpdateCostCategoryDefinitionInput) SetDefaultValue(v string) *UpdateCos
 	return s
 }
 
+// SetEffectiveStart sets the EffectiveStart field's value.
+func (s *UpdateCostCategoryDefinitionInput) SetEffectiveStart(v string) *UpdateCostCategoryDefinitionInput {
+	s.EffectiveStart = &v
+	return s
+}
+
 // SetRuleVersion sets the RuleVersion field's value.
 func (s *UpdateCostCategoryDefinitionInput) SetRuleVersion(v string) *UpdateCostCategoryDefinitionInput {
 	s.RuleVersion = &v
@@ -15647,7 +17862,8 @@ type UpdateCostCategoryDefinitionOutput struct {
 	// The unique identifier for your Cost Category.
 	CostCategoryArn *string `min:"20" type:"string"`
 
-	// The Cost Category's effective start date.
+	// The Cost Category's effective start date. It can only be a billing start
+	// date (first day of the month).
 	EffectiveStart *string `min:"20" type:"string"`
 }
 
@@ -15788,6 +18004,22 @@ func AnomalySubscriptionFrequency_Values() []string {
 }
 
 const (
+	// ApproximationDimensionService is a ApproximationDimension enum value
+	ApproximationDimensionService = "SERVICE"
+
+	// ApproximationDimensionResource is a ApproximationDimension enum value
+	ApproximationDimensionResource = "RESOURCE"
+)
+
+// ApproximationDimension_Values returns all elements of the ApproximationDimension enum
+func ApproximationDimension_Values() []string {
+	return []string{
+		ApproximationDimensionService,
+		ApproximationDimensionResource,
+	}
+}
+
+const (
 	// ContextCostAndUsage is a Context enum value
 	ContextCostAndUsage = "COST_AND_USAGE"
 
@@ -15804,6 +18036,26 @@ func Context_Values() []string {
 		ContextCostAndUsage,
 		ContextReservations,
 		ContextSavingsPlans,
+	}
+}
+
+const (
+	// CostAllocationTagBackfillStatusSucceeded is a CostAllocationTagBackfillStatus enum value
+	CostAllocationTagBackfillStatusSucceeded = "SUCCEEDED"
+
+	// CostAllocationTagBackfillStatusProcessing is a CostAllocationTagBackfillStatus enum value
+	CostAllocationTagBackfillStatusProcessing = "PROCESSING"
+
+	// CostAllocationTagBackfillStatusFailed is a CostAllocationTagBackfillStatus enum value
+	CostAllocationTagBackfillStatusFailed = "FAILED"
+)
+
+// CostAllocationTagBackfillStatus_Values returns all elements of the CostAllocationTagBackfillStatus enum
+func CostAllocationTagBackfillStatus_Values() []string {
+	return []string{
+		CostAllocationTagBackfillStatusSucceeded,
+		CostAllocationTagBackfillStatusProcessing,
+		CostAllocationTagBackfillStatusFailed,
 	}
 }
 
@@ -16040,6 +18292,12 @@ const (
 
 	// DimensionInvoicingEntity is a Dimension enum value
 	DimensionInvoicingEntity = "INVOICING_ENTITY"
+
+	// DimensionAnomalyTotalImpactAbsolute is a Dimension enum value
+	DimensionAnomalyTotalImpactAbsolute = "ANOMALY_TOTAL_IMPACT_ABSOLUTE"
+
+	// DimensionAnomalyTotalImpactPercentage is a Dimension enum value
+	DimensionAnomalyTotalImpactPercentage = "ANOMALY_TOTAL_IMPACT_PERCENTAGE"
 )
 
 // Dimension_Values returns all elements of the Dimension enum
@@ -16077,6 +18335,8 @@ func Dimension_Values() []string {
 		DimensionAgreementEndDateTimeAfter,
 		DimensionAgreementEndDateTimeBefore,
 		DimensionInvoicingEntity,
+		DimensionAnomalyTotalImpactAbsolute,
+		DimensionAnomalyTotalImpactPercentage,
 	}
 }
 
@@ -16149,6 +18409,26 @@ func FindingReasonCode_Values() []string {
 		FindingReasonCodeDiskIopsUnderProvisioned,
 		FindingReasonCodeDiskThroughputOverProvisioned,
 		FindingReasonCodeDiskThroughputUnderProvisioned,
+	}
+}
+
+const (
+	// GenerationStatusSucceeded is a GenerationStatus enum value
+	GenerationStatusSucceeded = "SUCCEEDED"
+
+	// GenerationStatusProcessing is a GenerationStatus enum value
+	GenerationStatusProcessing = "PROCESSING"
+
+	// GenerationStatusFailed is a GenerationStatus enum value
+	GenerationStatusFailed = "FAILED"
+)
+
+// GenerationStatus_Values returns all elements of the GenerationStatus enum
+func GenerationStatus_Values() []string {
+	return []string{
+		GenerationStatusSucceeded,
+		GenerationStatusProcessing,
+		GenerationStatusFailed,
 	}
 }
 
@@ -16233,6 +18513,9 @@ const (
 
 	// MatchOptionCaseInsensitive is a MatchOption enum value
 	MatchOptionCaseInsensitive = "CASE_INSENSITIVE"
+
+	// MatchOptionGreaterThanOrEqual is a MatchOption enum value
+	MatchOptionGreaterThanOrEqual = "GREATER_THAN_OR_EQUAL"
 )
 
 // MatchOption_Values returns all elements of the MatchOption enum
@@ -16245,6 +18528,7 @@ func MatchOption_Values() []string {
 		MatchOptionContains,
 		MatchOptionCaseSensitive,
 		MatchOptionCaseInsensitive,
+		MatchOptionGreaterThanOrEqual,
 	}
 }
 

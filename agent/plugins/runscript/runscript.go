@@ -161,7 +161,7 @@ func (p *Plugin) runCommands(pluginID string, pluginInput RunScriptPluginInput, 
 	}
 
 	// TODO:MF: This subdirectory is only needed because we could be running multiple sets of properties for the same plugin - otherwise the orchestration directory would already be unique
-	orchestrationDir := fileutil.BuildPath(orchestrationDirectory, pluginInput.ID)
+	orchestrationDir := fileutil.BuildSafePath(orchestrationDirectory, pluginInput.ID)
 	log.Debugf("Running commands %v with environment variables %v in workingDirectory %v; orchestrationDir %v ", pluginInput.RunCommand, pluginInput.Environment, workingDir, orchestrationDir)
 
 	// create orchestration dir if needed

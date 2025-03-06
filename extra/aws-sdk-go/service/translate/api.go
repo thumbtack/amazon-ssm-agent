@@ -29,14 +29,13 @@ const opCreateParallelData = "CreateParallelData"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateParallelDataRequest method.
+//	req, resp := client.CreateParallelDataRequest(params)
 //
-//    // Example sending a request using the CreateParallelDataRequest method.
-//    req, resp := client.CreateParallelDataRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/CreateParallelData
 func (c *Translate) CreateParallelDataRequest(input *CreateParallelDataInput) (req *request.Request, output *CreateParallelDataOutput) {
@@ -70,27 +69,35 @@ func (c *Translate) CreateParallelDataRequest(input *CreateParallelDataInput) (r
 // API operation CreateParallelData for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidParameterValueException
-//   The value of the parameter is not valid. Review the value of the parameter
-//   you are using to correct it, and then retry your operation.
 //
-//   * InvalidRequestException
-//   The request that you made is not valid. Check your request to determine why
-//   it's not valid and then retry the request.
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
 //
-//   * LimitExceededException
-//   The specified limit has been exceeded. Review your request and retry it with
-//   a quantity below the stated limit.
+//   - InvalidRequestException
+//     The request that you made is not valid. Check your request to determine why
+//     it's not valid and then retry the request.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - LimitExceededException
+//     The specified limit has been exceeded. Review your request and retry it with
+//     a quantity below the stated limit.
 //
-//   * ConflictException
-//   There was a conflict processing the request. Try your request again.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - TooManyTagsException
+//     You have added too many tags to this resource. The maximum is 50 tags.
+//
+//   - ConflictException
+//     There was a conflict processing the request. Try your request again.
+//
+//   - ConcurrentModificationException
+//     Another modification is being made. That modification must complete before
+//     you can make your change.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/CreateParallelData
 func (c *Translate) CreateParallelData(input *CreateParallelDataInput) (*CreateParallelDataOutput, error) {
@@ -130,14 +137,13 @@ const opDeleteParallelData = "DeleteParallelData"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteParallelDataRequest method.
+//	req, resp := client.DeleteParallelDataRequest(params)
 //
-//    // Example sending a request using the DeleteParallelDataRequest method.
-//    req, resp := client.DeleteParallelDataRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/DeleteParallelData
 func (c *Translate) DeleteParallelDataRequest(input *DeleteParallelDataInput) (req *request.Request, output *DeleteParallelDataOutput) {
@@ -168,21 +174,22 @@ func (c *Translate) DeleteParallelDataRequest(input *DeleteParallelDataInput) (r
 // API operation DeleteParallelData for usage and error information.
 //
 // Returned Error Types:
-//   * ConcurrentModificationException
-//   Another modification is being made. That modification must complete before
-//   you can make your change.
 //
-//   * ResourceNotFoundException
-//   The resource you are looking for has not been found. Review the resource
-//   you're looking for and see if a different resource will accomplish your needs
-//   before retrying the revised request.
+//   - ConcurrentModificationException
+//     Another modification is being made. That modification must complete before
+//     you can make your change.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/DeleteParallelData
 func (c *Translate) DeleteParallelData(input *DeleteParallelDataInput) (*DeleteParallelDataOutput, error) {
@@ -222,14 +229,13 @@ const opDeleteTerminology = "DeleteTerminology"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteTerminologyRequest method.
+//	req, resp := client.DeleteTerminologyRequest(params)
 //
-//    // Example sending a request using the DeleteTerminologyRequest method.
-//    req, resp := client.DeleteTerminologyRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/DeleteTerminology
 func (c *Translate) DeleteTerminologyRequest(input *DeleteTerminologyInput) (req *request.Request, output *DeleteTerminologyOutput) {
@@ -261,21 +267,22 @@ func (c *Translate) DeleteTerminologyRequest(input *DeleteTerminologyInput) (req
 // API operation DeleteTerminology for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource you are looking for has not been found. Review the resource
-//   you're looking for and see if a different resource will accomplish your needs
-//   before retrying the revised request.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
 //
-//   * InvalidParameterValueException
-//   The value of the parameter is not valid. Review the value of the parameter
-//   you are using to correct it, and then retry your operation.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/DeleteTerminology
 func (c *Translate) DeleteTerminology(input *DeleteTerminologyInput) (*DeleteTerminologyOutput, error) {
@@ -315,14 +322,13 @@ const opDescribeTextTranslationJob = "DescribeTextTranslationJob"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DescribeTextTranslationJobRequest method.
+//	req, resp := client.DescribeTextTranslationJobRequest(params)
 //
-//    // Example sending a request using the DescribeTextTranslationJobRequest method.
-//    req, resp := client.DescribeTextTranslationJobRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/DescribeTextTranslationJob
 func (c *Translate) DescribeTextTranslationJobRequest(input *DescribeTextTranslationJobInput) (req *request.Request, output *DescribeTextTranslationJobOutput) {
@@ -355,17 +361,18 @@ func (c *Translate) DescribeTextTranslationJobRequest(input *DescribeTextTransla
 // API operation DescribeTextTranslationJob for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource you are looking for has not been found. Review the resource
-//   you're looking for and see if a different resource will accomplish your needs
-//   before retrying the revised request.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/DescribeTextTranslationJob
 func (c *Translate) DescribeTextTranslationJob(input *DescribeTextTranslationJobInput) (*DescribeTextTranslationJobOutput, error) {
@@ -405,14 +412,13 @@ const opGetParallelData = "GetParallelData"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetParallelDataRequest method.
+//	req, resp := client.GetParallelDataRequest(params)
 //
-//    // Example sending a request using the GetParallelDataRequest method.
-//    req, resp := client.GetParallelDataRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/GetParallelData
 func (c *Translate) GetParallelDataRequest(input *GetParallelDataInput) (req *request.Request, output *GetParallelDataOutput) {
@@ -443,21 +449,22 @@ func (c *Translate) GetParallelDataRequest(input *GetParallelDataInput) (req *re
 // API operation GetParallelData for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource you are looking for has not been found. Review the resource
-//   you're looking for and see if a different resource will accomplish your needs
-//   before retrying the revised request.
 //
-//   * InvalidParameterValueException
-//   The value of the parameter is not valid. Review the value of the parameter
-//   you are using to correct it, and then retry your operation.
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/GetParallelData
 func (c *Translate) GetParallelData(input *GetParallelDataInput) (*GetParallelDataOutput, error) {
@@ -497,14 +504,13 @@ const opGetTerminology = "GetTerminology"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetTerminologyRequest method.
+//	req, resp := client.GetTerminologyRequest(params)
 //
-//    // Example sending a request using the GetTerminologyRequest method.
-//    req, resp := client.GetTerminologyRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/GetTerminology
 func (c *Translate) GetTerminologyRequest(input *GetTerminologyInput) (req *request.Request, output *GetTerminologyOutput) {
@@ -535,21 +541,22 @@ func (c *Translate) GetTerminologyRequest(input *GetTerminologyInput) (req *requ
 // API operation GetTerminology for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource you are looking for has not been found. Review the resource
-//   you're looking for and see if a different resource will accomplish your needs
-//   before retrying the revised request.
 //
-//   * InvalidParameterValueException
-//   The value of the parameter is not valid. Review the value of the parameter
-//   you are using to correct it, and then retry your operation.
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/GetTerminology
 func (c *Translate) GetTerminology(input *GetTerminologyInput) (*GetTerminologyOutput, error) {
@@ -589,14 +596,13 @@ const opImportTerminology = "ImportTerminology"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ImportTerminologyRequest method.
+//	req, resp := client.ImportTerminologyRequest(params)
 //
-//    // Example sending a request using the ImportTerminologyRequest method.
-//    req, resp := client.ImportTerminologyRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ImportTerminology
 func (c *Translate) ImportTerminologyRequest(input *ImportTerminologyInput) (req *request.Request, output *ImportTerminologyOutput) {
@@ -635,20 +641,28 @@ func (c *Translate) ImportTerminologyRequest(input *ImportTerminologyInput) (req
 // API operation ImportTerminology for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidParameterValueException
-//   The value of the parameter is not valid. Review the value of the parameter
-//   you are using to correct it, and then retry your operation.
 //
-//   * LimitExceededException
-//   The specified limit has been exceeded. Review your request and retry it with
-//   a quantity below the stated limit.
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - LimitExceededException
+//     The specified limit has been exceeded. Review your request and retry it with
+//     a quantity below the stated limit.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
+//
+//   - TooManyTagsException
+//     You have added too many tags to this resource. The maximum is 50 tags.
+//
+//   - ConcurrentModificationException
+//     Another modification is being made. That modification must complete before
+//     you can make your change.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ImportTerminology
 func (c *Translate) ImportTerminology(input *ImportTerminologyInput) (*ImportTerminologyOutput, error) {
@@ -688,14 +702,13 @@ const opListLanguages = "ListLanguages"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListLanguagesRequest method.
+//	req, resp := client.ListLanguagesRequest(params)
 //
-//    // Example sending a request using the ListLanguagesRequest method.
-//    req, resp := client.ListLanguagesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListLanguages
 func (c *Translate) ListLanguagesRequest(input *ListLanguagesInput) (req *request.Request, output *ListLanguagesOutput) {
@@ -733,19 +746,20 @@ func (c *Translate) ListLanguagesRequest(input *ListLanguagesInput) (req *reques
 // API operation ListLanguages for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidParameterValueException
-//   The value of the parameter is not valid. Review the value of the parameter
-//   you are using to correct it, and then retry your operation.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
 //
-//   * UnsupportedDisplayLanguageCodeException
-//   Requested display language code is not supported.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - UnsupportedDisplayLanguageCodeException
+//     Requested display language code is not supported.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListLanguages
 func (c *Translate) ListLanguages(input *ListLanguagesInput) (*ListLanguagesOutput, error) {
@@ -777,15 +791,14 @@ func (c *Translate) ListLanguagesWithContext(ctx aws.Context, input *ListLanguag
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListLanguages operation.
-//    pageNum := 0
-//    err := client.ListLanguagesPages(params,
-//        func(page *translate.ListLanguagesOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListLanguages operation.
+//	pageNum := 0
+//	err := client.ListLanguagesPages(params,
+//	    func(page *translate.ListLanguagesOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *Translate) ListLanguagesPages(input *ListLanguagesInput, fn func(*ListLanguagesOutput, bool) bool) error {
 	return c.ListLanguagesPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -837,14 +850,13 @@ const opListParallelData = "ListParallelData"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListParallelDataRequest method.
+//	req, resp := client.ListParallelDataRequest(params)
 //
-//    // Example sending a request using the ListParallelDataRequest method.
-//    req, resp := client.ListParallelDataRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListParallelData
 func (c *Translate) ListParallelDataRequest(input *ListParallelDataInput) (req *request.Request, output *ListParallelDataOutput) {
@@ -881,16 +893,17 @@ func (c *Translate) ListParallelDataRequest(input *ListParallelDataInput) (req *
 // API operation ListParallelData for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidParameterValueException
-//   The value of the parameter is not valid. Review the value of the parameter
-//   you are using to correct it, and then retry your operation.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListParallelData
 func (c *Translate) ListParallelData(input *ListParallelDataInput) (*ListParallelDataOutput, error) {
@@ -922,15 +935,14 @@ func (c *Translate) ListParallelDataWithContext(ctx aws.Context, input *ListPara
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListParallelData operation.
-//    pageNum := 0
-//    err := client.ListParallelDataPages(params,
-//        func(page *translate.ListParallelDataOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListParallelData operation.
+//	pageNum := 0
+//	err := client.ListParallelDataPages(params,
+//	    func(page *translate.ListParallelDataOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *Translate) ListParallelDataPages(input *ListParallelDataInput, fn func(*ListParallelDataOutput, bool) bool) error {
 	return c.ListParallelDataPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -966,6 +978,95 @@ func (c *Translate) ListParallelDataPagesWithContext(ctx aws.Context, input *Lis
 	return p.Err()
 }
 
+const opListTagsForResource = "ListTagsForResource"
+
+// ListTagsForResourceRequest generates a "aws/request.Request" representing the
+// client's request for the ListTagsForResource operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListTagsForResource for more information on using the ListTagsForResource
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListTagsForResourceRequest method.
+//	req, resp := client.ListTagsForResourceRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListTagsForResource
+func (c *Translate) ListTagsForResourceRequest(input *ListTagsForResourceInput) (req *request.Request, output *ListTagsForResourceOutput) {
+	op := &request.Operation{
+		Name:       opListTagsForResource,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ListTagsForResourceInput{}
+	}
+
+	output = &ListTagsForResourceOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListTagsForResource API operation for Amazon Translate.
+//
+// Lists all tags associated with a given Amazon Translate resource. For more
+// information, see Tagging your resources (https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Translate's
+// API operation ListTagsForResource for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
+//
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListTagsForResource
+func (c *Translate) ListTagsForResource(input *ListTagsForResourceInput) (*ListTagsForResourceOutput, error) {
+	req, out := c.ListTagsForResourceRequest(input)
+	return out, req.Send()
+}
+
+// ListTagsForResourceWithContext is the same as ListTagsForResource with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListTagsForResource for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Translate) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	req, out := c.ListTagsForResourceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opListTerminologies = "ListTerminologies"
 
 // ListTerminologiesRequest generates a "aws/request.Request" representing the
@@ -982,14 +1083,13 @@ const opListTerminologies = "ListTerminologies"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListTerminologiesRequest method.
+//	req, resp := client.ListTerminologiesRequest(params)
 //
-//    // Example sending a request using the ListTerminologiesRequest method.
-//    req, resp := client.ListTerminologiesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListTerminologies
 func (c *Translate) ListTerminologiesRequest(input *ListTerminologiesInput) (req *request.Request, output *ListTerminologiesOutput) {
@@ -1026,16 +1126,17 @@ func (c *Translate) ListTerminologiesRequest(input *ListTerminologiesInput) (req
 // API operation ListTerminologies for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidParameterValueException
-//   The value of the parameter is not valid. Review the value of the parameter
-//   you are using to correct it, and then retry your operation.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListTerminologies
 func (c *Translate) ListTerminologies(input *ListTerminologiesInput) (*ListTerminologiesOutput, error) {
@@ -1067,15 +1168,14 @@ func (c *Translate) ListTerminologiesWithContext(ctx aws.Context, input *ListTer
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListTerminologies operation.
-//    pageNum := 0
-//    err := client.ListTerminologiesPages(params,
-//        func(page *translate.ListTerminologiesOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListTerminologies operation.
+//	pageNum := 0
+//	err := client.ListTerminologiesPages(params,
+//	    func(page *translate.ListTerminologiesOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *Translate) ListTerminologiesPages(input *ListTerminologiesInput, fn func(*ListTerminologiesOutput, bool) bool) error {
 	return c.ListTerminologiesPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -1127,14 +1227,13 @@ const opListTextTranslationJobs = "ListTextTranslationJobs"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListTextTranslationJobsRequest method.
+//	req, resp := client.ListTextTranslationJobsRequest(params)
 //
-//    // Example sending a request using the ListTextTranslationJobsRequest method.
-//    req, resp := client.ListTextTranslationJobsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListTextTranslationJobs
 func (c *Translate) ListTextTranslationJobsRequest(input *ListTextTranslationJobsInput) (req *request.Request, output *ListTextTranslationJobsOutput) {
@@ -1171,20 +1270,21 @@ func (c *Translate) ListTextTranslationJobsRequest(input *ListTextTranslationJob
 // API operation ListTextTranslationJobs for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidRequestException
-//   The request that you made is not valid. Check your request to determine why
-//   it's not valid and then retry the request.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - InvalidRequestException
+//     The request that you made is not valid. Check your request to determine why
+//     it's not valid and then retry the request.
 //
-//   * InvalidFilterException
-//   The filter specified for the operation is not valid. Specify a different
-//   filter.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - InvalidFilterException
+//     The filter specified for the operation is not valid. Specify a different
+//     filter.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListTextTranslationJobs
 func (c *Translate) ListTextTranslationJobs(input *ListTextTranslationJobsInput) (*ListTextTranslationJobsOutput, error) {
@@ -1216,15 +1316,14 @@ func (c *Translate) ListTextTranslationJobsWithContext(ctx aws.Context, input *L
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListTextTranslationJobs operation.
-//    pageNum := 0
-//    err := client.ListTextTranslationJobsPages(params,
-//        func(page *translate.ListTextTranslationJobsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListTextTranslationJobs operation.
+//	pageNum := 0
+//	err := client.ListTextTranslationJobsPages(params,
+//	    func(page *translate.ListTextTranslationJobsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *Translate) ListTextTranslationJobsPages(input *ListTextTranslationJobsInput, fn func(*ListTextTranslationJobsOutput, bool) bool) error {
 	return c.ListTextTranslationJobsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -1276,14 +1375,13 @@ const opStartTextTranslationJob = "StartTextTranslationJob"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StartTextTranslationJobRequest method.
+//	req, resp := client.StartTextTranslationJobRequest(params)
 //
-//    // Example sending a request using the StartTextTranslationJobRequest method.
-//    req, resp := client.StartTextTranslationJobRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/StartTextTranslationJob
 func (c *Translate) StartTextTranslationJobRequest(input *StartTextTranslationJobInput) (req *request.Request, output *StartTextTranslationJobOutput) {
@@ -1304,16 +1402,17 @@ func (c *Translate) StartTextTranslationJobRequest(input *StartTextTranslationJo
 
 // StartTextTranslationJob API operation for Amazon Translate.
 //
-// Starts an asynchronous batch translation job. Batch translation jobs can
-// be used to translate large volumes of text across multiple documents at once.
-// For more information, see async.
+// Starts an asynchronous batch translation job. Use batch translation jobs
+// to translate large volumes of text across multiple documents at once. For
+// batch translation, you can input documents with different source languages
+// (specify auto as the source language). You can specify one or more target
+// languages. Batch translation translates each input document into each of
+// the target languages. For more information, see Asynchronous batch processing
+// (https://docs.aws.amazon.com/translate/latest/dg/async.html).
 //
 // Batch translation jobs can be described with the DescribeTextTranslationJob
 // operation, listed with the ListTextTranslationJobs operation, and stopped
 // with the StopTextTranslationJob operation.
-//
-// Amazon Translate does not support batch translation of multiple source languages
-// at once.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1323,29 +1422,31 @@ func (c *Translate) StartTextTranslationJobRequest(input *StartTextTranslationJo
 // API operation StartTextTranslationJob for usage and error information.
 //
 // Returned Error Types:
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
 //
-//   * UnsupportedLanguagePairException
-//   Amazon Translate does not support translation from the language of the source
-//   text into the requested target language. For more information, see how-to-error-msg.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
 //
-//   * InvalidRequestException
-//   The request that you made is not valid. Check your request to determine why
-//   it's not valid and then retry the request.
+//   - UnsupportedLanguagePairException
+//     Amazon Translate does not support translation from the language of the source
+//     text into the requested target language. For more information, see Supported
+//     languages (https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
 //
-//   * ResourceNotFoundException
-//   The resource you are looking for has not been found. Review the resource
-//   you're looking for and see if a different resource will accomplish your needs
-//   before retrying the revised request.
+//   - InvalidRequestException
+//     The request that you made is not valid. Check your request to determine why
+//     it's not valid and then retry the request.
 //
-//   * InvalidParameterValueException
-//   The value of the parameter is not valid. Review the value of the parameter
-//   you are using to correct it, and then retry your operation.
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/StartTextTranslationJob
 func (c *Translate) StartTextTranslationJob(input *StartTextTranslationJobInput) (*StartTextTranslationJobOutput, error) {
@@ -1385,14 +1486,13 @@ const opStopTextTranslationJob = "StopTextTranslationJob"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StopTextTranslationJobRequest method.
+//	req, resp := client.StopTextTranslationJobRequest(params)
 //
-//    // Example sending a request using the StopTextTranslationJobRequest method.
-//    req, resp := client.StopTextTranslationJobRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/StopTextTranslationJob
 func (c *Translate) StopTextTranslationJobRequest(input *StopTextTranslationJobInput) (req *request.Request, output *StopTextTranslationJobOutput) {
@@ -1432,17 +1532,18 @@ func (c *Translate) StopTextTranslationJobRequest(input *StopTextTranslationJobI
 // API operation StopTextTranslationJob for usage and error information.
 //
 // Returned Error Types:
-//   * ResourceNotFoundException
-//   The resource you are looking for has not been found. Review the resource
-//   you're looking for and see if a different resource will accomplish your needs
-//   before retrying the revised request.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/StopTextTranslationJob
 func (c *Translate) StopTextTranslationJob(input *StopTextTranslationJobInput) (*StopTextTranslationJobOutput, error) {
@@ -1466,6 +1567,104 @@ func (c *Translate) StopTextTranslationJobWithContext(ctx aws.Context, input *St
 	return out, req.Send()
 }
 
+const opTagResource = "TagResource"
+
+// TagResourceRequest generates a "aws/request.Request" representing the
+// client's request for the TagResource operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See TagResource for more information on using the TagResource
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the TagResourceRequest method.
+//	req, resp := client.TagResourceRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/TagResource
+func (c *Translate) TagResourceRequest(input *TagResourceInput) (req *request.Request, output *TagResourceOutput) {
+	op := &request.Operation{
+		Name:       opTagResource,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &TagResourceInput{}
+	}
+
+	output = &TagResourceOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// TagResource API operation for Amazon Translate.
+//
+// Associates a specific tag with a resource. A tag is a key-value pair that
+// adds as a metadata to a resource. For more information, see Tagging your
+// resources (https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Translate's
+// API operation TagResource for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
+//
+//   - ConcurrentModificationException
+//     Another modification is being made. That modification must complete before
+//     you can make your change.
+//
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
+//
+//   - TooManyTagsException
+//     You have added too many tags to this resource. The maximum is 50 tags.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/TagResource
+func (c *Translate) TagResource(input *TagResourceInput) (*TagResourceOutput, error) {
+	req, out := c.TagResourceRequest(input)
+	return out, req.Send()
+}
+
+// TagResourceWithContext is the same as TagResource with the addition of
+// the ability to pass a context and additional request options.
+//
+// See TagResource for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Translate) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	req, out := c.TagResourceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opText = "TranslateText"
 
 // TextRequest generates a "aws/request.Request" representing the
@@ -1482,14 +1681,13 @@ const opText = "TranslateText"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the TextRequest method.
+//	req, resp := client.TextRequest(params)
 //
-//    // Example sending a request using the TextRequest method.
-//    req, resp := client.TextRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/Text
 func (c *Translate) TextRequest(input *TextInput) (req *request.Request, output *TextOutput) {
@@ -1511,7 +1709,8 @@ func (c *Translate) TextRequest(input *TextInput) (req *request.Request, output 
 // Text API operation for Amazon Translate.
 //
 // Translates input text from the source language to the target language. For
-// a list of available languages and language codes, see what-is-languages.
+// a list of available languages and language codes, see Supported languages
+// (https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1521,40 +1720,42 @@ func (c *Translate) TextRequest(input *TextInput) (req *request.Request, output 
 // API operation Text for usage and error information.
 //
 // Returned Error Types:
-//   * InvalidRequestException
-//   The request that you made is not valid. Check your request to determine why
-//   it's not valid and then retry the request.
 //
-//   * TextSizeLimitExceededException
-//   The size of the text you submitted exceeds the size limit. Reduce the size
-//   of the text or use a smaller document and then retry your request.
+//   - InvalidRequestException
+//     The request that you made is not valid. Check your request to determine why
+//     it's not valid and then retry the request.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - TextSizeLimitExceededException
+//     The size of the text you submitted exceeds the size limit. Reduce the size
+//     of the text or use a smaller document and then retry your request.
 //
-//   * UnsupportedLanguagePairException
-//   Amazon Translate does not support translation from the language of the source
-//   text into the requested target language. For more information, see how-to-error-msg.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
 //
-//   * DetectedLanguageLowConfidenceException
-//   The confidence that Amazon Comprehend accurately detected the source language
-//   is low. If a low confidence level is acceptable for your application, you
-//   can use the language in the exception to call Amazon Translate again. For
-//   more information, see the DetectDominantLanguage (https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html)
-//   operation in the Amazon Comprehend Developer Guide.
+//   - UnsupportedLanguagePairException
+//     Amazon Translate does not support translation from the language of the source
+//     text into the requested target language. For more information, see Supported
+//     languages (https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
 //
-//   * ResourceNotFoundException
-//   The resource you are looking for has not been found. Review the resource
-//   you're looking for and see if a different resource will accomplish your needs
-//   before retrying the revised request.
+//   - DetectedLanguageLowConfidenceException
+//     The confidence that Amazon Comprehend accurately detected the source language
+//     is low. If a low confidence level is acceptable for your application, you
+//     can use the language in the exception to call Amazon Translate again. For
+//     more information, see the DetectDominantLanguage (https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html)
+//     operation in the Amazon Comprehend Developer Guide.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
 //
-//   * ServiceUnavailableException
-//   The Amazon Translate service is temporarily unavailable. Wait a bit and then
-//   retry your request.
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
+//
+//   - ServiceUnavailableException
+//     The Amazon Translate service is temporarily unavailable. Wait a bit and then
+//     retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/Text
 func (c *Translate) Text(input *TextInput) (*TextOutput, error) {
@@ -1578,6 +1779,214 @@ func (c *Translate) TextWithContext(ctx aws.Context, input *TextInput, opts ...r
 	return out, req.Send()
 }
 
+const opTranslateDocument = "TranslateDocument"
+
+// TranslateDocumentRequest generates a "aws/request.Request" representing the
+// client's request for the TranslateDocument operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See TranslateDocument for more information on using the TranslateDocument
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the TranslateDocumentRequest method.
+//	req, resp := client.TranslateDocumentRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/TranslateDocument
+func (c *Translate) TranslateDocumentRequest(input *TranslateDocumentInput) (req *request.Request, output *TranslateDocumentOutput) {
+	op := &request.Operation{
+		Name:       opTranslateDocument,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &TranslateDocumentInput{}
+	}
+
+	output = &TranslateDocumentOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// TranslateDocument API operation for Amazon Translate.
+//
+// Translates the input document from the source language to the target language.
+// This synchronous operation supports text, HTML, or Word documents as the
+// input document. TranslateDocument supports translations from English to any
+// supported language, and from any supported language to English. Therefore,
+// specify either the source language code or the target language code as “en”
+// (English).
+//
+// If you set the Formality parameter, the request will fail if the target language
+// does not support formality. For a list of target languages that support formality,
+// see Setting formality (https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html).
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Translate's
+// API operation TranslateDocument for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InvalidRequestException
+//     The request that you made is not valid. Check your request to determine why
+//     it's not valid and then retry the request.
+//
+//   - LimitExceededException
+//     The specified limit has been exceeded. Review your request and retry it with
+//     a quantity below the stated limit.
+//
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
+//
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
+//
+//   - UnsupportedLanguagePairException
+//     Amazon Translate does not support translation from the language of the source
+//     text into the requested target language. For more information, see Supported
+//     languages (https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
+//
+//   - ServiceUnavailableException
+//     The Amazon Translate service is temporarily unavailable. Wait a bit and then
+//     retry your request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/TranslateDocument
+func (c *Translate) TranslateDocument(input *TranslateDocumentInput) (*TranslateDocumentOutput, error) {
+	req, out := c.TranslateDocumentRequest(input)
+	return out, req.Send()
+}
+
+// TranslateDocumentWithContext is the same as TranslateDocument with the addition of
+// the ability to pass a context and additional request options.
+//
+// See TranslateDocument for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Translate) TranslateDocumentWithContext(ctx aws.Context, input *TranslateDocumentInput, opts ...request.Option) (*TranslateDocumentOutput, error) {
+	req, out := c.TranslateDocumentRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUntagResource = "UntagResource"
+
+// UntagResourceRequest generates a "aws/request.Request" representing the
+// client's request for the UntagResource operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UntagResource for more information on using the UntagResource
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the UntagResourceRequest method.
+//	req, resp := client.UntagResourceRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/UntagResource
+func (c *Translate) UntagResourceRequest(input *UntagResourceInput) (req *request.Request, output *UntagResourceOutput) {
+	op := &request.Operation{
+		Name:       opUntagResource,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UntagResourceInput{}
+	}
+
+	output = &UntagResourceOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// UntagResource API operation for Amazon Translate.
+//
+// Removes a specific tag associated with an Amazon Translate resource. For
+// more information, see Tagging your resources (https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Translate's
+// API operation UntagResource for usage and error information.
+//
+// Returned Error Types:
+//
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
+//
+//   - ConcurrentModificationException
+//     Another modification is being made. That modification must complete before
+//     you can make your change.
+//
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/UntagResource
+func (c *Translate) UntagResource(input *UntagResourceInput) (*UntagResourceOutput, error) {
+	req, out := c.UntagResourceRequest(input)
+	return out, req.Send()
+}
+
+// UntagResourceWithContext is the same as UntagResource with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UntagResource for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Translate) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	req, out := c.UntagResourceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opUpdateParallelData = "UpdateParallelData"
 
 // UpdateParallelDataRequest generates a "aws/request.Request" representing the
@@ -1594,14 +2003,13 @@ const opUpdateParallelData = "UpdateParallelData"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateParallelDataRequest method.
+//	req, resp := client.UpdateParallelDataRequest(params)
 //
-//    // Example sending a request using the UpdateParallelDataRequest method.
-//    req, resp := client.UpdateParallelDataRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/UpdateParallelData
 func (c *Translate) UpdateParallelDataRequest(input *UpdateParallelDataInput) (req *request.Request, output *UpdateParallelDataOutput) {
@@ -1633,36 +2041,37 @@ func (c *Translate) UpdateParallelDataRequest(input *UpdateParallelDataInput) (r
 // API operation UpdateParallelData for usage and error information.
 //
 // Returned Error Types:
-//   * ConcurrentModificationException
-//   Another modification is being made. That modification must complete before
-//   you can make your change.
 //
-//   * InvalidParameterValueException
-//   The value of the parameter is not valid. Review the value of the parameter
-//   you are using to correct it, and then retry your operation.
+//   - ConcurrentModificationException
+//     Another modification is being made. That modification must complete before
+//     you can make your change.
 //
-//   * InvalidRequestException
-//   The request that you made is not valid. Check your request to determine why
-//   it's not valid and then retry the request.
+//   - InvalidParameterValueException
+//     The value of the parameter is not valid. Review the value of the parameter
+//     you are using to correct it, and then retry your operation.
 //
-//   * LimitExceededException
-//   The specified limit has been exceeded. Review your request and retry it with
-//   a quantity below the stated limit.
+//   - InvalidRequestException
+//     The request that you made is not valid. Check your request to determine why
+//     it's not valid and then retry the request.
 //
-//   * TooManyRequestsException
-//   You have made too many requests within a short period of time. Wait for a
-//   short time and then try your request again.
+//   - LimitExceededException
+//     The specified limit has been exceeded. Review your request and retry it with
+//     a quantity below the stated limit.
 //
-//   * ConflictException
-//   There was a conflict processing the request. Try your request again.
+//   - TooManyRequestsException
+//     You have made too many requests within a short period of time. Wait for a
+//     short time and then try your request again.
 //
-//   * ResourceNotFoundException
-//   The resource you are looking for has not been found. Review the resource
-//   you're looking for and see if a different resource will accomplish your needs
-//   before retrying the revised request.
+//   - ConflictException
+//     There was a conflict processing the request. Try your request again.
 //
-//   * InternalServerException
-//   An internal server error occurred. Retry your request.
+//   - ResourceNotFoundException
+//     The resource you are looking for has not been found. Review the resource
+//     you're looking for and see if a different resource will accomplish your needs
+//     before retrying the revised request.
+//
+//   - InternalServerException
+//     An internal server error occurred. Retry your request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/UpdateParallelData
 func (c *Translate) UpdateParallelData(input *UpdateParallelDataInput) (*UpdateParallelDataOutput, error) {
@@ -1886,6 +2295,11 @@ type CreateParallelDataInput struct {
 	//
 	// ParallelDataConfig is a required field
 	ParallelDataConfig *ParallelDataConfig `type:"structure" required:"true"`
+
+	// Tags to be associated with this resource. A tag is a key-value pair that
+	// adds metadata to a resource. Each tag key for the resource must be unique.
+	// For more information, see Tagging your resources (https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
+	Tags []*Tag `type:"list"`
 }
 
 // String returns the string representation.
@@ -1926,9 +2340,14 @@ func (s *CreateParallelDataInput) Validate() error {
 			invalidParams.AddNested("EncryptionKey", err.(request.ErrInvalidParams))
 		}
 	}
-	if s.ParallelDataConfig != nil {
-		if err := s.ParallelDataConfig.Validate(); err != nil {
-			invalidParams.AddNested("ParallelDataConfig", err.(request.ErrInvalidParams))
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
 		}
 	}
 
@@ -1965,6 +2384,12 @@ func (s *CreateParallelDataInput) SetName(v string) *CreateParallelDataInput {
 // SetParallelDataConfig sets the ParallelDataConfig field's value.
 func (s *CreateParallelDataInput) SetParallelDataConfig(v *ParallelDataConfig) *CreateParallelDataInput {
 	s.ParallelDataConfig = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateParallelDataInput) SetTags(v []*Tag) *CreateParallelDataInput {
+	s.Tags = v
 	return s
 }
 
@@ -2322,6 +2747,85 @@ func (s *DetectedLanguageLowConfidenceException) RequestID() string {
 	return s.RespMetadata.RequestID
 }
 
+// The content and content type of a document.
+type Document struct {
+	_ struct{} `type:"structure"`
+
+	// The Contentfield type is Binary large object (blob). This object contains
+	// the document content converted into base64-encoded binary data. If you use
+	// one of the AWS SDKs, the SDK performs the Base64-encoding on this field before
+	// sending the request.
+	//
+	// Content is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by Document's
+	// String and GoString methods.
+	//
+	// Content is automatically base64 encoded/decoded by the SDK.
+	//
+	// Content is a required field
+	Content []byte `type:"blob" required:"true" sensitive:"true"`
+
+	// Describes the format of the document. You can specify one of the following:
+	//
+	//    * text/html - The input data consists of HTML content. Amazon Translate
+	//    translates only the text in the HTML element.
+	//
+	//    * text/plain - The input data consists of unformatted text. Amazon Translate
+	//    translates every character in the content.
+	//
+	//    * application/vnd.openxmlformats-officedocument.wordprocessingml.document
+	//    - The input data consists of a Word document (.docx).
+	//
+	// ContentType is a required field
+	ContentType *string `type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Document) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Document) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *Document) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "Document"}
+	if s.Content == nil {
+		invalidParams.Add(request.NewErrParamRequired("Content"))
+	}
+	if s.ContentType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ContentType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetContent sets the Content field's value.
+func (s *Document) SetContent(v []byte) *Document {
+	s.Content = v
+	return s
+}
+
+// SetContentType sets the ContentType field's value.
+func (s *Document) SetContentType(v string) *Document {
+	s.ContentType = &v
+	return s
+}
+
 // The encryption key used to encrypt this object.
 type EncryptionKey struct {
 	_ struct{} `type:"structure"`
@@ -2664,6 +3168,11 @@ type ImportTerminologyInput struct {
 	// Name is a required field
 	Name *string `min:"1" type:"string" required:"true"`
 
+	// Tags to be associated with this resource. A tag is a key-value pair that
+	// adds metadata to a resource. Each tag key for the resource must be unique.
+	// For more information, see Tagging your resources (https://docs.aws.amazon.com/translate/latest/dg/tagging.html).
+	Tags []*Tag `type:"list"`
+
 	// The terminology data for the custom terminology being imported.
 	//
 	// TerminologyData is a required field
@@ -2708,6 +3217,16 @@ func (s *ImportTerminologyInput) Validate() error {
 			invalidParams.AddNested("EncryptionKey", err.(request.ErrInvalidParams))
 		}
 	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 	if s.TerminologyData != nil {
 		if err := s.TerminologyData.Validate(); err != nil {
 			invalidParams.AddNested("TerminologyData", err.(request.ErrInvalidParams))
@@ -2741,6 +3260,12 @@ func (s *ImportTerminologyInput) SetMergeStrategy(v string) *ImportTerminologyIn
 // SetName sets the Name field's value.
 func (s *ImportTerminologyInput) SetName(v string) *ImportTerminologyInput {
 	s.Name = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ImportTerminologyInput) SetTags(v []*Tag) *ImportTerminologyInput {
+	s.Tags = v
 	return s
 }
 
@@ -2830,14 +3355,8 @@ type InputDataConfig struct {
 	ContentType *string `type:"string" required:"true"`
 
 	// The URI of the AWS S3 folder that contains the input files. Amazon Translate
-	// translates all the files in the folder. The folder must be in the same Region
-	// as the API endpoint you are calling.
-	//
-	// The URI can also point to a single input document, or it can provide the
-	// prefix for a collection of input documents. For example. if you use the URI
-	// S3://bucketName/prefix and the prefix is a single file, Amazon Translate
-	// uses that files as input. If more than one file begins with the prefix, Amazon
-	// Translate uses all of them as input.
+	// translates all the files in the folder and all its sub-folders. The folder
+	// must be in the same Region as the API endpoint you are calling.
 	//
 	// S3Uri is a required field
 	S3Uri *string `type:"string" required:"true"`
@@ -3518,6 +4037,90 @@ func (s *ListParallelDataOutput) SetParallelDataPropertiesList(v []*ParallelData
 	return s
 }
 
+type ListTagsForResourceInput struct {
+	_ struct{} `type:"structure"`
+
+	// The Amazon Resource Name (ARN) of the given Amazon Translate resource you
+	// are querying.
+	//
+	// ResourceArn is a required field
+	ResourceArn *string `min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListTagsForResourceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListTagsForResourceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListTagsForResourceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListTagsForResourceInput"}
+	if s.ResourceArn == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceArn"))
+	}
+	if s.ResourceArn != nil && len(*s.ResourceArn) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ResourceArn", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetResourceArn sets the ResourceArn field's value.
+func (s *ListTagsForResourceInput) SetResourceArn(v string) *ListTagsForResourceInput {
+	s.ResourceArn = &v
+	return s
+}
+
+type ListTagsForResourceOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Tags associated with the Amazon Translate resource being queried. A tag is
+	// a key-value pair that adds as a metadata to a resource used by Amazon Translate.
+	// For example, a tag with "Sales" as the key might be added to a resource to
+	// indicate its use by the sales department.
+	Tags []*Tag `type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListTagsForResourceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListTagsForResourceOutput) GoString() string {
+	return s.String()
+}
+
+// SetTags sets the Tags field's value.
+func (s *ListTagsForResourceOutput) SetTags(v []*Tag) *ListTagsForResourceOutput {
+	s.Tags = v
+	return s
+}
+
 type ListTerminologiesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3791,15 +4394,11 @@ type ParallelDataConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The format of the parallel data input file.
-	//
-	// Format is a required field
-	Format *string `type:"string" required:"true" enum:"ParallelDataFormat"`
+	Format *string `type:"string" enum:"ParallelDataFormat"`
 
 	// The URI of the Amazon S3 folder that contains the parallel data input file.
 	// The folder must be in the same Region as the API endpoint you are calling.
-	//
-	// S3Uri is a required field
-	S3Uri *string `type:"string" required:"true"`
+	S3Uri *string `type:"string"`
 }
 
 // String returns the string representation.
@@ -3818,22 +4417,6 @@ func (s ParallelDataConfig) String() string {
 // value will be replaced with "sensitive".
 func (s ParallelDataConfig) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ParallelDataConfig) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ParallelDataConfig"}
-	if s.Format == nil {
-		invalidParams.Add(request.NewErrParamRequired("Format"))
-	}
-	if s.S3Uri == nil {
-		invalidParams.Add(request.NewErrParamRequired("S3Uri"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetFormat sets the Format field's value.
@@ -4232,7 +4815,7 @@ type StartTextTranslationJobInput struct {
 
 	// The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM)
 	// role that grants Amazon Translate read access to your input data. For more
-	// information, see identity-and-access-management.
+	// information, see Identity and access management (https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html).
 	//
 	// DataAccessRoleArn is a required field
 	DataAccessRoleArn *string `min:"20" type:"string" required:"true"`
@@ -4253,8 +4836,11 @@ type StartTextTranslationJobInput struct {
 
 	// The name of a parallel data resource to add to the translation job. This
 	// resource consists of examples that show how you want segments of text to
-	// be translated. When you add parallel data to a translation job, you create
-	// an Active Custom Translation job.
+	// be translated. If you specify multiple target languages for the job, the
+	// parallel data file must include translations for all the target languages.
+	//
+	// When you add parallel data to a translation job, you create an Active Custom
+	// Translation job.
 	//
 	// This parameter accepts only one parallel data resource.
 	//
@@ -4265,24 +4851,35 @@ type StartTextTranslationJobInput struct {
 	// For a list of available parallel data resources, use the ListParallelData
 	// operation.
 	//
-	// For more information, see customizing-translations-parallel-data.
+	// For more information, see Customizing your translations with parallel data
+	// (https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-parallel-data.html).
 	ParallelDataNames []*string `type:"list"`
 
-	// Settings to configure your translation output, including the option to mask
-	// profane words and phrases. StartTextTranslationJob does not support the formality
-	// setting.
+	// Settings to configure your translation output. You can configure the following
+	// options:
+	//
+	//    * Brevity: not supported.
+	//
+	//    * Formality: sets the formality level of the output text.
+	//
+	//    * Profanity: masks profane words and phrases in your translation output.
 	Settings *TranslationSettings `type:"structure"`
 
-	// The language code of the input language. For a list of language codes, see
-	// what-is-languages.
-	//
-	// Amazon Translate does not automatically detect a source language during batch
-	// translation jobs.
+	// The language code of the input language. Specify the language if all input
+	// documents share the same language. If you don't know the language of the
+	// source files, or your input documents contains different source languages,
+	// select auto. Amazon Translate auto detects the source language for each input
+	// document. For a list of supported language codes, see Supported languages
+	// (https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
 	//
 	// SourceLanguageCode is a required field
 	SourceLanguageCode *string `min:"2" type:"string" required:"true"`
 
-	// The language code of the output language.
+	// The target languages of the translation job. Enter up to 10 language codes.
+	// Each input file is translated into each target language.
+	//
+	// Each language code is 2 or 5 characters long. For a list of language codes,
+	// see Supported languages (https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
 	//
 	// TargetLanguageCodes is a required field
 	TargetLanguageCodes []*string `min:"1" type:"list" required:"true"`
@@ -4293,10 +4890,14 @@ type StartTextTranslationJobInput struct {
 	//
 	// This parameter accepts only one custom terminology resource.
 	//
+	// If you specify multiple target languages for the job, translate uses the
+	// designated terminology for each requested target language that has an entry
+	// for the source term in the terminology file.
+	//
 	// For a list of available custom terminology resources, use the ListTerminologies
 	// operation.
 	//
-	// For more information, see how-custom-terminology.
+	// For more information, see Custom terminology (https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html).
 	TerminologyNames []*string `type:"list"`
 }
 
@@ -4574,6 +5175,170 @@ func (s *StopTextTranslationJobOutput) SetJobId(v string) *StopTextTranslationJo
 func (s *StopTextTranslationJobOutput) SetJobStatus(v string) *StopTextTranslationJobOutput {
 	s.JobStatus = &v
 	return s
+}
+
+// A key-value pair that adds as a metadata to a resource used by Amazon Translate.
+type Tag struct {
+	_ struct{} `type:"structure"`
+
+	// The initial part of a key-value pair that forms a tag associated with a given
+	// resource.
+	//
+	// Key is a required field
+	Key *string `min:"1" type:"string" required:"true"`
+
+	// The second part of a key-value pair that forms a tag associated with a given
+	// resource.
+	//
+	// Value is a required field
+	Value *string `type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Tag) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Tag) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *Tag) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "Tag"}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+	if s.Value == nil {
+		invalidParams.Add(request.NewErrParamRequired("Value"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetKey sets the Key field's value.
+func (s *Tag) SetKey(v string) *Tag {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *Tag) SetValue(v string) *Tag {
+	s.Value = &v
+	return s
+}
+
+type TagResourceInput struct {
+	_ struct{} `type:"structure"`
+
+	// The Amazon Resource Name (ARN) of the given Amazon Translate resource to
+	// which you want to associate the tags.
+	//
+	// ResourceArn is a required field
+	ResourceArn *string `min:"1" type:"string" required:"true"`
+
+	// Tags being associated with a specific Amazon Translate resource. There can
+	// be a maximum of 50 tags (both existing and pending) associated with a specific
+	// resource.
+	//
+	// Tags is a required field
+	Tags []*Tag `type:"list" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TagResourceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TagResourceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TagResourceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TagResourceInput"}
+	if s.ResourceArn == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceArn"))
+	}
+	if s.ResourceArn != nil && len(*s.ResourceArn) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ResourceArn", 1))
+	}
+	if s.Tags == nil {
+		invalidParams.Add(request.NewErrParamRequired("Tags"))
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetResourceArn sets the ResourceArn field's value.
+func (s *TagResourceInput) SetResourceArn(v string) *TagResourceInput {
+	s.ResourceArn = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *TagResourceInput) SetTags(v []*Tag) *TagResourceInput {
+	s.Tags = v
+	return s
+}
+
+type TagResourceOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TagResourceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TagResourceOutput) GoString() string {
+	return s.String()
 }
 
 // The term being translated by the custom terminology.
@@ -4937,14 +5702,18 @@ func (s *TerminologyProperties) SetTermCount(v int64) *TerminologyProperties {
 type TextInput struct {
 	_ struct{} `type:"structure"`
 
-	// Settings to configure your translation output, including the option to set
-	// the formality level of the output text and the option to mask profane words
-	// and phrases.
+	// Settings to configure your translation output. You can configure the following
+	// options:
+	//
+	//    * Brevity: reduces the length of the translated output for most translations.
+	//
+	//    * Formality: sets the formality level of the output text.
+	//
+	//    * Profanity: masks profane words and phrases in your translation output.
 	Settings *TranslationSettings `type:"structure"`
 
-	// The language code for the language of the source text. The language must
-	// be a language supported by Amazon Translate. For a list of language codes,
-	// see what-is-languages.
+	// The language code for the language of the source text. For a list of language
+	// codes, see Supported languages (https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
 	//
 	// To have Amazon Translate determine the source language of your text, you
 	// can specify auto in the SourceLanguageCode field. If you specify auto, Amazon
@@ -4958,19 +5727,25 @@ type TextInput struct {
 	// SourceLanguageCode is a required field
 	SourceLanguageCode *string `min:"2" type:"string" required:"true"`
 
-	// The language code requested for the language of the target text. The language
-	// must be a language supported by Amazon Translate.
+	// The language code requested for the language of the target text. For a list
+	// of language codes, see Supported languages (https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
 	//
 	// TargetLanguageCode is a required field
 	TargetLanguageCode *string `min:"2" type:"string" required:"true"`
 
-	// The name of the terminology list file to be used in the TranslateText request.
-	// You can use 1 terminology list at most in a TranslateText request. Terminology
-	// lists can contain a maximum of 256 terms.
+	// The name of a terminology list file to add to the translation job. This file
+	// provides source terms and the desired translation for each term. A terminology
+	// list can contain a maximum of 256 terms. You can use one custom terminology
+	// resource in your translation request.
+	//
+	// Use the ListTerminologies operation to get the available terminology lists.
+	//
+	// For more information about custom terminology lists, see Custom terminology
+	// (https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html).
 	TerminologyNames []*string `type:"list"`
 
-	// The text to translate. The text string can be a maximum of 5,000 bytes long.
-	// Depending on your character set, this may be fewer than 5,000 characters.
+	// The text to translate. The text string can be a maximum of 10,000 bytes long.
+	// Depending on your character set, this may be fewer than 10,000 characters.
 	//
 	// Text is a required field
 	Text *string `min:"1" type:"string" required:"true"`
@@ -5055,7 +5830,7 @@ func (s *TextInput) SetText(v string) *TextInput {
 type TextOutput struct {
 	_ struct{} `type:"structure"`
 
-	// Settings that configure the translation output.
+	// Optional settings that modify the translation output.
 	AppliedSettings *TranslationSettings `type:"structure"`
 
 	// The names of the custom terminologies applied to the input text by Amazon
@@ -5307,7 +6082,7 @@ type TextTranslationJobProperties struct {
 	// translation job.
 	ParallelDataNames []*string `type:"list"`
 
-	// Settings that configure the translation output.
+	// Settings that modify the translation output.
 	Settings *TranslationSettings `type:"structure"`
 
 	// The language code of the language of the source text. The language must be
@@ -5500,35 +6275,379 @@ func (s *TooManyRequestsException) RequestID() string {
 	return s.RespMetadata.RequestID
 }
 
-// Settings that configure the translation output.
+// You have added too many tags to this resource. The maximum is 50 tags.
+type TooManyTagsException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+
+	ResourceArn *string `min:"1" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TooManyTagsException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TooManyTagsException) GoString() string {
+	return s.String()
+}
+
+func newErrorTooManyTagsException(v protocol.ResponseMetadata) error {
+	return &TooManyTagsException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *TooManyTagsException) Code() string {
+	return "TooManyTagsException"
+}
+
+// Message returns the exception's message.
+func (s *TooManyTagsException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *TooManyTagsException) OrigErr() error {
+	return nil
+}
+
+func (s *TooManyTagsException) Error() string {
+	return fmt.Sprintf("%s: %s\n%s", s.Code(), s.Message(), s.String())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *TooManyTagsException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *TooManyTagsException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+type TranslateDocumentInput struct {
+	_ struct{} `type:"structure"`
+
+	// The content and content type for the document to be translated. The document
+	// size must not exceed 100 KB.
+	//
+	// Document is a required field
+	Document *Document `type:"structure" required:"true"`
+
+	// Settings to configure your translation output. You can configure the following
+	// options:
+	//
+	//    * Brevity: not supported.
+	//
+	//    * Formality: sets the formality level of the output text.
+	//
+	//    * Profanity: masks profane words and phrases in your translation output.
+	Settings *TranslationSettings `type:"structure"`
+
+	// The language code for the language of the source text. For a list of supported
+	// language codes, see Supported languages (https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
+	//
+	// To have Amazon Translate determine the source language of your text, you
+	// can specify auto in the SourceLanguageCode field. If you specify auto, Amazon
+	// Translate will call Amazon Comprehend (https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html)
+	// to determine the source language.
+	//
+	// If you specify auto, you must send the TranslateDocument request in a region
+	// that supports Amazon Comprehend. Otherwise, the request returns an error
+	// indicating that autodetect is not supported.
+	//
+	// SourceLanguageCode is a required field
+	SourceLanguageCode *string `min:"2" type:"string" required:"true"`
+
+	// The language code requested for the translated document. For a list of supported
+	// language codes, see Supported languages (https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
+	//
+	// TargetLanguageCode is a required field
+	TargetLanguageCode *string `min:"2" type:"string" required:"true"`
+
+	// The name of a terminology list file to add to the translation job. This file
+	// provides source terms and the desired translation for each term. A terminology
+	// list can contain a maximum of 256 terms. You can use one custom terminology
+	// resource in your translation request.
+	//
+	// Use the ListTerminologies operation to get the available terminology lists.
+	//
+	// For more information about custom terminology lists, see Custom terminology
+	// (https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html).
+	TerminologyNames []*string `type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TranslateDocumentInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TranslateDocumentInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TranslateDocumentInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TranslateDocumentInput"}
+	if s.Document == nil {
+		invalidParams.Add(request.NewErrParamRequired("Document"))
+	}
+	if s.SourceLanguageCode == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceLanguageCode"))
+	}
+	if s.SourceLanguageCode != nil && len(*s.SourceLanguageCode) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("SourceLanguageCode", 2))
+	}
+	if s.TargetLanguageCode == nil {
+		invalidParams.Add(request.NewErrParamRequired("TargetLanguageCode"))
+	}
+	if s.TargetLanguageCode != nil && len(*s.TargetLanguageCode) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("TargetLanguageCode", 2))
+	}
+	if s.Document != nil {
+		if err := s.Document.Validate(); err != nil {
+			invalidParams.AddNested("Document", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDocument sets the Document field's value.
+func (s *TranslateDocumentInput) SetDocument(v *Document) *TranslateDocumentInput {
+	s.Document = v
+	return s
+}
+
+// SetSettings sets the Settings field's value.
+func (s *TranslateDocumentInput) SetSettings(v *TranslationSettings) *TranslateDocumentInput {
+	s.Settings = v
+	return s
+}
+
+// SetSourceLanguageCode sets the SourceLanguageCode field's value.
+func (s *TranslateDocumentInput) SetSourceLanguageCode(v string) *TranslateDocumentInput {
+	s.SourceLanguageCode = &v
+	return s
+}
+
+// SetTargetLanguageCode sets the TargetLanguageCode field's value.
+func (s *TranslateDocumentInput) SetTargetLanguageCode(v string) *TranslateDocumentInput {
+	s.TargetLanguageCode = &v
+	return s
+}
+
+// SetTerminologyNames sets the TerminologyNames field's value.
+func (s *TranslateDocumentInput) SetTerminologyNames(v []*string) *TranslateDocumentInput {
+	s.TerminologyNames = v
+	return s
+}
+
+type TranslateDocumentOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Settings to configure your translation output. You can configure the following
+	// options:
+	//
+	//    * Brevity: reduces the length of the translation output for most translations.
+	//    Available for TranslateText only.
+	//
+	//    * Formality: sets the formality level of the translation output.
+	//
+	//    * Profanity: masks profane words and phrases in the translation output.
+	AppliedSettings *TranslationSettings `type:"structure"`
+
+	// The names of the custom terminologies applied to the input text by Amazon
+	// Translate to produce the translated text document.
+	AppliedTerminologies []*AppliedTerminology `type:"list"`
+
+	// The language code of the source document.
+	//
+	// SourceLanguageCode is a required field
+	SourceLanguageCode *string `min:"2" type:"string" required:"true"`
+
+	// The language code of the translated document.
+	//
+	// TargetLanguageCode is a required field
+	TargetLanguageCode *string `min:"2" type:"string" required:"true"`
+
+	// The document containing the translated content. The document format matches
+	// the source document format.
+	//
+	// TranslatedDocument is a required field
+	TranslatedDocument *TranslatedDocument `type:"structure" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TranslateDocumentOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TranslateDocumentOutput) GoString() string {
+	return s.String()
+}
+
+// SetAppliedSettings sets the AppliedSettings field's value.
+func (s *TranslateDocumentOutput) SetAppliedSettings(v *TranslationSettings) *TranslateDocumentOutput {
+	s.AppliedSettings = v
+	return s
+}
+
+// SetAppliedTerminologies sets the AppliedTerminologies field's value.
+func (s *TranslateDocumentOutput) SetAppliedTerminologies(v []*AppliedTerminology) *TranslateDocumentOutput {
+	s.AppliedTerminologies = v
+	return s
+}
+
+// SetSourceLanguageCode sets the SourceLanguageCode field's value.
+func (s *TranslateDocumentOutput) SetSourceLanguageCode(v string) *TranslateDocumentOutput {
+	s.SourceLanguageCode = &v
+	return s
+}
+
+// SetTargetLanguageCode sets the TargetLanguageCode field's value.
+func (s *TranslateDocumentOutput) SetTargetLanguageCode(v string) *TranslateDocumentOutput {
+	s.TargetLanguageCode = &v
+	return s
+}
+
+// SetTranslatedDocument sets the TranslatedDocument field's value.
+func (s *TranslateDocumentOutput) SetTranslatedDocument(v *TranslatedDocument) *TranslateDocumentOutput {
+	s.TranslatedDocument = v
+	return s
+}
+
+// The translated content.
+type TranslatedDocument struct {
+	_ struct{} `type:"structure"`
+
+	// The document containing the translated content.
+	//
+	// Content is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by TranslatedDocument's
+	// String and GoString methods.
+	//
+	// Content is automatically base64 encoded/decoded by the SDK.
+	//
+	// Content is a required field
+	Content []byte `type:"blob" required:"true" sensitive:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TranslatedDocument) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TranslatedDocument) GoString() string {
+	return s.String()
+}
+
+// SetContent sets the Content field's value.
+func (s *TranslatedDocument) SetContent(v []byte) *TranslatedDocument {
+	s.Content = v
+	return s
+}
+
+// Settings to configure your translation output. You can configure the following
+// options:
+//
+//   - Brevity: reduces the length of the translation output for most translations.
+//     Available for TranslateText only.
+//
+//   - Formality: sets the formality level of the translation output.
+//
+//   - Profanity: masks profane words and phrases in the translation output.
 type TranslationSettings struct {
 	_ struct{} `type:"structure"`
 
-	// You can optionally specify the desired level of formality for real-time translations
-	// to supported target languages. The formality setting controls the level of
-	// formal language usage (also known as register (https://en.wikipedia.org/wiki/Register_(sociolinguistics)))
+	// When you turn on brevity, Amazon Translate reduces the length of the translation
+	// output for most translations (when compared with the same translation with
+	// brevity turned off). By default, brevity is turned off.
+	//
+	// If you turn on brevity for a translation request with an unsupported language
+	// pair, the translation proceeds with the brevity setting turned off.
+	//
+	// For the language pairs that brevity supports, see Using brevity (https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-brevity)
+	// in the Amazon Translate Developer Guide.
+	Brevity *string `type:"string" enum:"Brevity"`
+
+	// You can specify the desired level of formality for translations to supported
+	// target languages. The formality setting controls the level of formal language
+	// usage (also known as register (https://en.wikipedia.org/wiki/Register_(sociolinguistics)))
 	// in the translation output. You can set the value to informal or formal. If
 	// you don't specify a value for formality, or if the target language doesn't
 	// support formality, the translation will ignore the formality setting.
 	//
-	// Note that asynchronous translation jobs don't support formality. If you provide
-	// a value for formality, the StartTextTranslationJob API throws an exception
-	// (InvalidRequestException).
+	// If you specify multiple target languages for the job, translate ignores the
+	// formality setting for any unsupported target language.
 	//
-	// For target languages that support formality, see Supported Languages and
-	// Language Codes in the Amazon Translate Developer Guide (https://docs.aws.amazon.com/translate/latest/dg/what-is.html).
+	// For a list of target languages that support formality, see Supported languages
+	// (https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages)
+	// in the Amazon Translate Developer Guide.
 	Formality *string `type:"string" enum:"Formality"`
 
-	// Enable the profanity setting if you want Amazon Translate to mask profane
-	// words and phrases in your translation output.
+	// You can enable the profanity setting if you want to mask profane words and
+	// phrases in your translation output.
 	//
 	// To mask profane words and phrases, Amazon Translate replaces them with the
 	// grawlix string “?$#@$“. This 5-character sequence is used for each profane
 	// word or phrase, regardless of the length or number of words.
 	//
 	// Amazon Translate doesn't detect profanity in all of its supported languages.
-	// For languages that support profanity detection, see Supported Languages and
-	// Language Codes in the Amazon Translate Developer Guide (https://docs.aws.amazon.com/translate/latest/dg/what-is.html).
+	// For languages that don't support profanity detection, see Unsupported languages
+	// (https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages)
+	// in the Amazon Translate Developer Guide.
+	//
+	// If you specify multiple target languages for the job, all the target languages
+	// must support profanity masking. If any of the target languages don't support
+	// profanity masking, the translation job won't mask profanity for any target
+	// language.
 	Profanity *string `type:"string" enum:"Profanity"`
 }
 
@@ -5548,6 +6667,12 @@ func (s TranslationSettings) String() string {
 // value will be replaced with "sensitive".
 func (s TranslationSettings) GoString() string {
 	return s.String()
+}
+
+// SetBrevity sets the Brevity field's value.
+func (s *TranslationSettings) SetBrevity(v string) *TranslationSettings {
+	s.Brevity = &v
+	return s
 }
 
 // SetFormality sets the Formality field's value.
@@ -5630,7 +6755,8 @@ func (s *UnsupportedDisplayLanguageCodeException) RequestID() string {
 }
 
 // Amazon Translate does not support translation from the language of the source
-// text into the requested target language. For more information, see how-to-error-msg.
+// text into the requested target language. For more information, see Supported
+// languages (https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
 type UnsupportedLanguagePairException struct {
 	_            struct{}                  `type:"structure"`
 	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
@@ -5700,6 +6826,94 @@ func (s *UnsupportedLanguagePairException) RequestID() string {
 	return s.RespMetadata.RequestID
 }
 
+type UntagResourceInput struct {
+	_ struct{} `type:"structure"`
+
+	// The Amazon Resource Name (ARN) of the given Amazon Translate resource from
+	// which you want to remove the tags.
+	//
+	// ResourceArn is a required field
+	ResourceArn *string `min:"1" type:"string" required:"true"`
+
+	// The initial part of a key-value pair that forms a tag being removed from
+	// a given resource. Keys must be unique and cannot be duplicated for a particular
+	// resource.
+	//
+	// TagKeys is a required field
+	TagKeys []*string `type:"list" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UntagResourceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UntagResourceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UntagResourceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UntagResourceInput"}
+	if s.ResourceArn == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceArn"))
+	}
+	if s.ResourceArn != nil && len(*s.ResourceArn) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ResourceArn", 1))
+	}
+	if s.TagKeys == nil {
+		invalidParams.Add(request.NewErrParamRequired("TagKeys"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetResourceArn sets the ResourceArn field's value.
+func (s *UntagResourceInput) SetResourceArn(v string) *UntagResourceInput {
+	s.ResourceArn = &v
+	return s
+}
+
+// SetTagKeys sets the TagKeys field's value.
+func (s *UntagResourceInput) SetTagKeys(v []*string) *UntagResourceInput {
+	s.TagKeys = v
+	return s
+}
+
+type UntagResourceOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UntagResourceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UntagResourceOutput) GoString() string {
+	return s.String()
+}
+
 type UpdateParallelDataInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5753,11 +6967,6 @@ func (s *UpdateParallelDataInput) Validate() error {
 	}
 	if s.ParallelDataConfig == nil {
 		invalidParams.Add(request.NewErrParamRequired("ParallelDataConfig"))
-	}
-	if s.ParallelDataConfig != nil {
-		if err := s.ParallelDataConfig.Validate(); err != nil {
-			invalidParams.AddNested("ParallelDataConfig", err.(request.ErrInvalidParams))
-		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -5848,6 +7057,18 @@ func (s *UpdateParallelDataOutput) SetName(v string) *UpdateParallelDataOutput {
 func (s *UpdateParallelDataOutput) SetStatus(v string) *UpdateParallelDataOutput {
 	s.Status = &v
 	return s
+}
+
+const (
+	// BrevityOn is a Brevity enum value
+	BrevityOn = "ON"
+)
+
+// Brevity_Values returns all elements of the Brevity enum
+func Brevity_Values() []string {
+	return []string{
+		BrevityOn,
+	}
 }
 
 const (

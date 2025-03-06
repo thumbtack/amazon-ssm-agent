@@ -44,6 +44,8 @@ type SsmCfg struct {
 	RunCommandLogsRetentionDurationHours int
 	// Hours to retain session logs in the orchestration folder
 	SessionLogsRetentionDurationHours int
+	// Configure where you want Session Manager to write session data
+	SessionLogsDestination string
 	// Configure when after execution it is safe to delete local plugin output files in orchestration folder
 	PluginLocalOutputCleanup string
 	// Configure only when it is safe to delete orchestration folder after document execution. This config overrides PluginLocalOutputCleanup when set.
@@ -65,8 +67,10 @@ type AgentInfo struct {
 	TelemetryMetricsToSSM                   bool
 	TelemetryMetricsNamespace               string
 	LongRunningWorkerMonitorIntervalSeconds int
-	AuditExpirationDay                      int
-	ForceFileIPC                            bool
+	// Temp config to purge cached EC2 credentials on disk if using instance profile role
+	ShouldPurgeInstanceProfileRoleCreds bool
+	AuditExpirationDay                  int
+	ForceFileIPC                        bool
 	// denotes GOMAXPROCS value for legacy agent worker
 	GoMaxProcForAgentWorker int
 }
@@ -83,7 +87,8 @@ type MgsConfig struct {
 
 // KmsConfig represents configuration for Key Management Service
 type KmsConfig struct {
-	Endpoint string
+	Endpoint                    string
+	RequireKMSChallengeResponse bool
 }
 
 // OsInfo represents os related information

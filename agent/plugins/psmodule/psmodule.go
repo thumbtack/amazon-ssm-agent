@@ -99,6 +99,9 @@ func (p *Plugin) runCommandsRawInput(pluginID string, rawPluginInput interface{}
 		return
 	}
 
+	// Make sure parsed commands list is empty before appending commands
+	pluginInput.ParsedCommands = nil
+
 	pluginInput.ParsedCommands = pluginutil.ParseRunCommand(pluginInput.RunCommand, pluginInput.ParsedCommands)
 	p.runCommands(pluginID, pluginInput, orchestrationDirectory, cancelFlag, output)
 }
@@ -109,7 +112,7 @@ func (p *Plugin) runCommands(pluginID string, pluginInput PSModulePluginInput, o
 	log := p.context.Log()
 
 	// TODO:MF: This subdirectory is only needed because we could be running multiple sets of properties for the same plugin - otherwise the orchestration directory would already be unique
-	orchestrationDir := fileutil.BuildPath(orchestrationDirectory, pluginInput.ID)
+	orchestrationDir := fileutil.BuildSafePath(orchestrationDirectory, pluginInput.ID)
 	log.Debugf("Running commands %v in workingDirectory %v; orchestrationDir %v ", pluginInput.ParsedCommands, pluginInput.WorkingDirectory, orchestrationDir)
 
 	// create orchestration dir if needed

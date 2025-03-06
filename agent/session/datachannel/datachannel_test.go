@@ -130,6 +130,34 @@ func TestSetWebSocket(t *testing.T) {
 	mockService.AssertExpectations(t)
 }
 
+func TestCancelTaskOnSessionTermination(t *testing.T) {
+	dataChannel := getDataChannel()
+
+	// Using dedicated testMockService as strechr does not have reset mock: https://github.com/stretchr/testify/issues/944
+	testMockService := &serviceMock.Service{}
+	dataChannel.Service = testMockService
+	testMockService.On("CreateDataChannel", mock.Anything, mock.Anything, mock.Anything).Return(nil, errors.New(mgsConfig.SessionAlreadyTerminatedError))
+	mockCancelFlag.On("Set", task.Canceled).Return()
+
+	onErrorHandler := dataChannel.getWsChannelOnErrorHandler(testMockService, sessionId, clientId, mockLog)
+	onErrorHandler(errors.New("Unexpected EOF"))
+
+	testMockService.AssertExpectations(t)
+	mockCancelFlag.AssertExpectations(t)
+}
+
+func TestNotCancelTaskOnOtherErrors(t *testing.T) {
+	dataChannel := getDataChannel()
+	testMockService := &serviceMock.Service{}
+	dataChannel.Service = testMockService
+	testMockService.On("CreateDataChannel", mock.Anything, mock.Anything, mock.Anything).Return(nil, errors.New("Random Error From Session"))
+	// By not having a mockCancelFlag defined, if it is invoked, this test will panic and fail.
+
+	onErrorHandler := dataChannel.getWsChannelOnErrorHandler(testMockService, sessionId, clientId, mockLog)
+	onErrorHandler(errors.New("Unexpected EOF"))
+	testMockService.AssertExpectations(t)
+}
+
 func TestOpen(t *testing.T) {
 	dataChannel := getDataChannel()
 
@@ -244,12 +272,20 @@ func TestSendStreamDataMessageWithStreamDataSequenceNumberMutexLocked(t *testing
 
 	mockWsChannel.On("SendMessage", mock.Anything, mock.Anything, mock.Anything).Return(nil)
 	mockCipher.On("EncryptWithAESGCM", payload).Return([]byte("testPayload"), nil)
-
+	isLockedChan := make(chan struct{})
 	go func() {
 		dataChannel.StreamDataSequenceNumberMutex.Lock()
+		isLockedChan <- struct{}{}
 		time.Sleep(1000 * time.Millisecond)
 		dataChannel.StreamDataSequenceNumberMutex.Unlock()
 	}()
+
+	select {
+	case <-isLockedChan:
+	case <-time.After(1000 * time.Millisecond):
+		assert.Fail(t, "test setup timed out")
+	}
+
 	go func() {
 		dataChannel.SendStreamDataMessage(mockLog, mgsContracts.Output, payload)
 	}()
@@ -471,6 +507,30 @@ func TestDataChannelIncomingMessageHandlerForUnexpectedInputStreamDataMessage(t 
 	assert.Nil(t, bufferedStreamMessage.Content)
 }
 
+func TestDataChannelIncomingMessageHandlerForAlreadyProcessedInputStreamDataMessage(t *testing.T) {
+	dataChannel := getDataChannel()
+	dataChannel.Pause = true
+	mockChannel := &communicatorMocks.IWebSocketChannel{}
+	dataChannel.wsChannel = mockChannel
+
+	mockChannel.On("SendMessage", mock.Anything, mock.Anything, mock.Anything).Return(nil)
+
+	// First scenario is to test when incoming message sequence number matches with expected sequence number
+	// and no message found in IncomingMessageBuffer
+	err := dataChannel.dataChannelIncomingMessageHandler(mockLog, serializedAgentMessages[0])
+	assert.Nil(t, err)
+	assert.Equal(t, int64(1), dataChannel.ExpectedSequenceNumber)
+	assert.Equal(t, 0, len(dataChannel.IncomingMessageBuffer.Messages))
+	mockChannel.AssertNumberOfCalls(t, "SendMessage", 1)
+	assert.Equal(t, false, dataChannel.Pause)
+
+	// Second scenario is to test when incoming message sequence number is less with expected sequence number
+	err = dataChannel.dataChannelIncomingMessageHandler(mockLog, serializedAgentMessages[0])
+	assert.Nil(t, err)
+	// verify it should resend the ack message
+	mockChannel.AssertNumberOfCalls(t, "SendMessage", 2)
+}
+
 func TestDataChannelIncomingMessageHandlerForExpectedInputStreamDataMessageWhenHandlerNotReady(t *testing.T) {
 	dataChannel := getDataChannel()
 	dataChannel.inputStreamMessageHandler = inputStreamMessageHandlerNotReady
@@ -602,7 +662,7 @@ func TestDataChannelHandshakeResponse(t *testing.T) {
 		uint32(mgsContracts.HandshakeResponse), handshakeResponsePayload).Serialize(mockLog)
 
 	mockChannel.On("SendMessage", mock.Anything, mock.Anything, mock.Anything).Return(nil)
-	mockCipher.On("UpdateEncryptionKey", mockLog, datakey, sessionId, instanceId).Return(nil)
+	mockCipher.On("UpdateEncryptionKey", mockLog, datakey, sessionId, instanceId, mock.Anything).Return(nil)
 
 	err := dataChannel.dataChannelIncomingMessageHandler(mockLog, agentMessageBytes)
 	assert.Nil(t, err)
@@ -661,7 +721,7 @@ func TestDataChannelHandshakeResponseEncryptionAgentFailure(t *testing.T) {
 	mockChannel.On("SendMessage", mock.Anything, mock.Anything, mock.Anything).Return(nil)
 	// Throw error when processing handshake response
 	errorString := "Failed to update encryption key. Something bad happened."
-	mockCipher.On("UpdateEncryptionKey", mockLog, datakey, sessionId, instanceId).Return(errors.New(errorString))
+	mockCipher.On("UpdateEncryptionKey", mockLog, datakey, sessionId, instanceId, mock.Anything).Return(errors.New(errorString))
 
 	mockCancelFlag.On("Set", task.Canceled).Return()
 
@@ -682,6 +742,7 @@ func TestDataChannelHandshakeInitiate(t *testing.T) {
 
 	// Set up block cipher
 	mockCipher.On("GetKMSKeyId").Return(kmskey)
+	mockCipher.On("GetRandomChallenge").Return("aaaabbbbccccdddd")
 	dataChannel.blockCipher = mockCipher
 	dataChannel.encryptionEnabled = true
 

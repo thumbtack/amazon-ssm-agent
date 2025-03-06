@@ -119,6 +119,8 @@ The following targets are available. Each may be run with `make <target>`.
 | `package`                | `package` packages build result into a RPM, DEB and ZIP package |
 | `pre-build`              | `pre-build` goes through Tools/src folder to make sure all the script files are executable |
 | `checkstyle`             | `checkstyle` runs the checkstyle script |
+| `analyze-install`        | `analyze-install` install static analysis dependencies for local use |
+| `analyze`                | `analyze` runs static analysis script to find possible vulnerabilities |
 | `quick-integtest`        | `quick-integtest` runs all tests tagged with integration using `go test` |
 | `quick-test`             | `quick-test` runs all the tests including integration and unit tests using `go test` |
 | `coverage`               | `coverage` runs all tests and calculate code coverage |
@@ -187,6 +189,9 @@ To set up your own custom configuration for the agent:
         * Default: 336
     * SessionLogsRetentionDurationHours (int)
         * Default: 336
+    * SessionLogsDestination (string) - Configure where you want Session Manager to write session data.
+        * Default: "none" - Don't write session data anywhere when CloudWatch and S3 logging are disabled.
+        * OptionalValue: "disk" - Write session data to disk.
     * PluginLocalOutputCleanup (string) - Configure when after execution it is safe to delete local plugin output logs in orchestration folder
         * Default: "" - Don't delete logs immediately after execution. Fall back to AssociationLogsRetentionDurationHours, RunCommandLogsRetentionDurationHours, and SessionLogsRetentionDurationHours 
         * OptionalValue: "after-execution" - Delete plugin output file locally after plugin execution
@@ -203,7 +208,7 @@ To set up your own custom configuration for the agent:
     * SessionWorkersLimit (int)
         * Default: 1000
     * DeniedPortForwardingRemoteIPs ([]string)
-        * Default: ["169.254.169.254", "fd00:ec2::254", "169.254.169.253", "fd00:ec2::253"]
+        * Default: [ "169.254.169.254", "fd00:ec2::254", "169.254.169.253", "fd00:ec2::253", "169.254.169.123", "fd00:ec2::123", "169.254.169.250", "169.254.169.251", "fd00:ec2::240"]
 * Agent - represents metadata for amazon-ssm-agent
     * Region (string)
     * OrchestrationRootDir (string)
@@ -234,6 +239,8 @@ To set up your own custom configuration for the agent:
     * LogKey (string) - Ignored
 * Kms - represents configuration for Key Management Service if encryption is enabled for this session (i.e. kmsKeyId is set or using "Port" plugin) 
     * Endpoint (string)
+    * RequireKMSChallengeResponse (boolean) - if true, enforces that Session Manager clients support enhanced challenge-response authentication
+        * Default: false
 
 ## Release
 

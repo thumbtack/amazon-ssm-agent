@@ -29,9 +29,11 @@ import (
 	"github.com/aws/amazon-ssm-agent/agent/context"
 	"github.com/aws/amazon-ssm-agent/agent/log"
 	"github.com/aws/amazon-ssm-agent/agent/network"
+	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/endpoints"
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/s3"
 )
 
 const (
@@ -115,9 +117,57 @@ func GetS3CrossRegionCapableSession(context context.T, bucketName string) (*sess
 // this header in the response, so this method works well for those regions.
 // S3 endpoints in the "aws-cn" partition may return a 401 or 403 response without
 // the header.
+
+func getBucketRegionFromSignedHeadBucketRequest(context context.T, instanceRegion, regionalEndpoint, bucketName string) (region string) {
+	var bucketRegion = ""
+	log := context.Log()
+
+	credentials := context.Identity().Credentials()
+	ctx := aws.BackgroundContext()
+
+	config := &aws.Config{
+		Credentials: credentials,
+		Endpoint:    aws.String(regionalEndpoint),
+		Region:      aws.String(instanceRegion),
+	}
+
+	sess, _ := session.NewSession(config)
+	svc := s3.New(sess)
+
+	req, _ := svc.HeadBucketRequest(&s3.HeadBucketInput{
+		Bucket: aws.String(bucketName),
+	})
+
+	req.Config.Credentials = credentials
+	req.SetContext(ctx)
+	req.DisableFollowRedirects = true
+
+	req.Handlers.Send.PushBack(func(r *request.Request) {
+		bucketRegion = r.HTTPResponse.Header.Get(bucketRegionHeader)
+		if len(bucketRegion) == 0 {
+			return
+		}
+		r.HTTPResponse.StatusCode = 200
+		r.HTTPResponse.Status = "OK"
+		r.Error = nil
+	})
+
+	if err := req.Send(); err != nil {
+		log.Warnf("Signed HeadBucket request failed, continuing to fallback logic")
+	}
+
+	return bucketRegion
+}
+
 func getBucketRegion(context context.T, instanceRegion, bucketName string, httpProvider HttpProvider) (region string) {
 	log := context.Log()
-	regionalEndpoint := getS3Endpoint(context, instanceRegion)
+	regionalEndpoint, _ := getS3Endpoint(context, instanceRegion)
+
+	// if we can get the region from a Signed HeadBucket request, then we will return that region
+	region = getBucketRegionFromSignedHeadBucketRequestFunc(context, instanceRegion, regionalEndpoint, bucketName)
+	if region != "" {
+		return region
+	}
 
 	// When using virtual hosted–style buckets with SSL, the SSL wild-card certificate
 	// only matches buckets that do not contain dots (".").  To work around this, try
@@ -130,9 +180,12 @@ func getBucketRegion(context context.T, instanceRegion, bucketName string, httpP
 	// always try both the regional endpoint for the instance region as well as one other
 	// endpoint.  This should enable the HEAD request to successfully discover the bucket
 	// region in CN regions, and may be helpful in other partitions as well.
-	endpoints := []string{regionalEndpoint}
+	endpoints := []string{}
+	if regionalEndpoint != "" {
+		endpoints = append(endpoints, regionalEndpoint)
+	}
 	fallbackEndpoint := getFallbackS3EndpointFunc(context, instanceRegion)
-	if fallbackEndpoint != regionalEndpoint {
+	if fallbackEndpoint != regionalEndpoint && fallbackEndpoint != "" {
 		endpoints = append(endpoints, fallbackEndpoint)
 	}
 
@@ -149,7 +202,6 @@ func getBucketRegion(context context.T, instanceRegion, bucketName string, httpP
 						return region
 					}
 				}
-
 				// Got a response, no need to try other protocols for this endpoint
 				break
 			}

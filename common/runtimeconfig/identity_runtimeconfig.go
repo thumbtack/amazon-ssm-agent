@@ -19,19 +19,26 @@ import (
 	"time"
 
 	rch "github.com/aws/amazon-ssm-agent/common/runtimeconfig/runtimeconfighandler"
+	"github.com/cenkalti/backoff/v4"
 )
 
 const (
 	identityConfig = "identity_config.json"
 )
 
+const (
+	runtimeConfigSchemaVersion = "1.1"
+)
+
 type IdentityRuntimeConfig struct {
+	SchemaVersion          string
 	InstanceId             string
 	IdentityType           string
 	ShareFile              string
 	ShareProfile           string
 	CredentialsExpiresAt   time.Time
 	CredentialsRetrievedAt time.Time
+	CredentialSource       string
 }
 
 func (i IdentityRuntimeConfig) Equal(config IdentityRuntimeConfig) bool {
@@ -52,6 +59,7 @@ func NewIdentityRuntimeConfigClient() IIdentityRuntimeConfigClient {
 type IIdentityRuntimeConfigClient interface {
 	ConfigExists() (bool, error)
 	GetConfig() (IdentityRuntimeConfig, error)
+	GetConfigWithRetry() (IdentityRuntimeConfig, error)
 	SaveConfig(IdentityRuntimeConfig) error
 }
 
@@ -79,14 +87,34 @@ func (i *identityRuntimeConfigClient) GetConfig() (IdentityRuntimeConfig, error)
 	return config, nil
 }
 
+func (i *identityRuntimeConfigClient) GetConfigWithRetry() (out IdentityRuntimeConfig, err error) {
+	backoffConfig := backoff.NewExponentialBackOff()
+	// Attempts GetConfig up to 6 times with exponential backoff
+	backoffConfig.MaxElapsedTime = time.Second * 4
+	err = backoff.Retry(func() error {
+		if configExists, existsError := i.ConfigExists(); err != nil {
+			return fmt.Errorf("failed to check whether config extists. Err: %w", existsError)
+		} else if !configExists {
+			return nil
+		}
+
+		out, err = i.GetConfig()
+		return err
+	}, backoffConfig)
+
+	return
+}
+
 func (i *identityRuntimeConfigClient) SaveConfig(config IdentityRuntimeConfig) error {
+
+	// update runtime config version
+	config.SchemaVersion = runtimeConfigSchemaVersion
+
 	bytesContent, err := json.Marshal(config)
 	if err != nil {
 		return fmt.Errorf("error encoding identity runtime config: %v", err)
 	}
-
 	err = i.configHandler.SaveConfig(bytesContent)
-
 	if err != nil {
 		return err
 	}

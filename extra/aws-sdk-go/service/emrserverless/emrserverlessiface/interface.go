@@ -23,37 +23,37 @@ import (
 // can be stubbed out for unit testing your code with the SDK without needing
 // to inject custom request handlers into the SDK's request pipeline.
 //
-//    // myFunc uses an SDK service client to make a request to
-//    // EMR Serverless.
-//    func myFunc(svc emrserverlessiface.EMRServerlessAPI) bool {
-//        // Make svc.CancelJobRun request
-//    }
+//	// myFunc uses an SDK service client to make a request to
+//	// EMR Serverless.
+//	func myFunc(svc emrserverlessiface.EMRServerlessAPI) bool {
+//	    // Make svc.CancelJobRun request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := emrserverless.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := emrserverless.New(sess)
 //
-//        myFunc(svc)
-//    }
+//	    myFunc(svc)
+//	}
 //
 // In your _test.go file:
 //
-//    // Define a mock struct to be used in your unit tests of myFunc.
-//    type mockEMRServerlessClient struct {
-//        emrserverlessiface.EMRServerlessAPI
-//    }
-//    func (m *mockEMRServerlessClient) CancelJobRun(input *emrserverless.CancelJobRunInput) (*emrserverless.CancelJobRunOutput, error) {
-//        // mock response/functionality
-//    }
+//	// Define a mock struct to be used in your unit tests of myFunc.
+//	type mockEMRServerlessClient struct {
+//	    emrserverlessiface.EMRServerlessAPI
+//	}
+//	func (m *mockEMRServerlessClient) CancelJobRun(input *emrserverless.CancelJobRunInput) (*emrserverless.CancelJobRunOutput, error) {
+//	    // mock response/functionality
+//	}
 //
-//    func TestMyFunc(t *testing.T) {
-//        // Setup Test
-//        mockSvc := &mockEMRServerlessClient{}
+//	func TestMyFunc(t *testing.T) {
+//	    // Setup Test
+//	    mockSvc := &mockEMRServerlessClient{}
 //
-//        myfunc(mockSvc)
+//	    myfunc(mockSvc)
 //
-//        // Verify myFunc's functionality
-//    }
+//	    // Verify myFunc's functionality
+//	}
 //
 // It is important to note that this interface will have breaking changes
 // when the service model is updated and adds new API operations, paginators,
@@ -76,6 +76,10 @@ type EMRServerlessAPI interface {
 	GetApplicationWithContext(aws.Context, *emrserverless.GetApplicationInput, ...request.Option) (*emrserverless.GetApplicationOutput, error)
 	GetApplicationRequest(*emrserverless.GetApplicationInput) (*request.Request, *emrserverless.GetApplicationOutput)
 
+	GetDashboardForJobRun(*emrserverless.GetDashboardForJobRunInput) (*emrserverless.GetDashboardForJobRunOutput, error)
+	GetDashboardForJobRunWithContext(aws.Context, *emrserverless.GetDashboardForJobRunInput, ...request.Option) (*emrserverless.GetDashboardForJobRunOutput, error)
+	GetDashboardForJobRunRequest(*emrserverless.GetDashboardForJobRunInput) (*request.Request, *emrserverless.GetDashboardForJobRunOutput)
+
 	GetJobRun(*emrserverless.GetJobRunInput) (*emrserverless.GetJobRunOutput, error)
 	GetJobRunWithContext(aws.Context, *emrserverless.GetJobRunInput, ...request.Option) (*emrserverless.GetJobRunOutput, error)
 	GetJobRunRequest(*emrserverless.GetJobRunInput) (*request.Request, *emrserverless.GetJobRunOutput)
@@ -86,6 +90,13 @@ type EMRServerlessAPI interface {
 
 	ListApplicationsPages(*emrserverless.ListApplicationsInput, func(*emrserverless.ListApplicationsOutput, bool) bool) error
 	ListApplicationsPagesWithContext(aws.Context, *emrserverless.ListApplicationsInput, func(*emrserverless.ListApplicationsOutput, bool) bool, ...request.Option) error
+
+	ListJobRunAttempts(*emrserverless.ListJobRunAttemptsInput) (*emrserverless.ListJobRunAttemptsOutput, error)
+	ListJobRunAttemptsWithContext(aws.Context, *emrserverless.ListJobRunAttemptsInput, ...request.Option) (*emrserverless.ListJobRunAttemptsOutput, error)
+	ListJobRunAttemptsRequest(*emrserverless.ListJobRunAttemptsInput) (*request.Request, *emrserverless.ListJobRunAttemptsOutput)
+
+	ListJobRunAttemptsPages(*emrserverless.ListJobRunAttemptsInput, func(*emrserverless.ListJobRunAttemptsOutput, bool) bool) error
+	ListJobRunAttemptsPagesWithContext(aws.Context, *emrserverless.ListJobRunAttemptsInput, func(*emrserverless.ListJobRunAttemptsOutput, bool) bool, ...request.Option) error
 
 	ListJobRuns(*emrserverless.ListJobRunsInput) (*emrserverless.ListJobRunsOutput, error)
 	ListJobRunsWithContext(aws.Context, *emrserverless.ListJobRunsInput, ...request.Option) (*emrserverless.ListJobRunsOutput, error)

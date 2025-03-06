@@ -1,15 +1,11 @@
 package stubs
 
 import (
+	"context"
 	"time"
 
 	"github.com/aws/amazon-ssm-agent/common/identity/credentialproviders/ec2roleprovider"
 	"github.com/aws/aws-sdk-go/aws/credentials"
-)
-
-const (
-	SharedProviderName    = "SharedProvider"
-	NonSharedProviderName = "NonSharedProvider"
 )
 
 type ProviderStub struct {
@@ -21,7 +17,21 @@ type ProviderStub struct {
 	Expiry        time.Time
 }
 
+func (p *ProviderStub) SetExpiration(expiration time.Time, window time.Duration) {
+	return
+}
+
+func (p *ProviderStub) RetrieveWithContext(ctx context.Context) (credentials.Value, error) {
+	return credentials.Value{
+		ProviderName: p.ProviderName,
+	}, nil
+}
+
 func (p *ProviderStub) Retrieve() (credentials.Value, error) {
+	return p.RetrieveWithContext(context.Background())
+}
+
+func (p *ProviderStub) RemoteRetrieve(ctx context.Context) (credentials.Value, error) {
 	return credentials.Value{
 		ProviderName: p.ProviderName,
 	}, nil

@@ -24,7 +24,7 @@ import (
 	"github.com/aws/amazon-ssm-agent/agent/log"
 	contextmocks "github.com/aws/amazon-ssm-agent/agent/mocks/context"
 	logmocks "github.com/aws/amazon-ssm-agent/agent/mocks/log"
-	channel "github.com/aws/amazon-ssm-agent/common/channel"
+	"github.com/aws/amazon-ssm-agent/common/channel"
 	channelmocks "github.com/aws/amazon-ssm-agent/common/channel/mocks"
 	"github.com/aws/amazon-ssm-agent/common/message"
 	"github.com/stretchr/testify/mock"
@@ -66,13 +66,117 @@ func (suite *MessageBusTestSuite) SetupTest() {
 	}
 }
 
+func (suite *MessageBusTestSuite) TestProcessHealthRequest_Successful() {
+	// Arrange
+	suite.mockHealthChannel.On("IsChannelInitialized").Return(true).Once()
+	suite.mockHealthChannel.On("IsDialSuccessful").Return(true).Once()
+	suite.mockHealthChannel.On("Close").Return(nil).Once()
+	request := message.CreateHealthRequest()
+	requestString, _ := jsonutil.Marshal(request)
+	suite.mockHealthChannel.On("Recv").Return([]byte(requestString), nil).Once()
+	suite.mockHealthChannel.On("Send", mock.Anything).Return(nil)
+	// Kills the infinite loop
+	suite.mockHealthChannel.On("Recv").Return(nil, fmt.Errorf("failed to receive message on channel")).Times(maxRecvErrCount)
+
+	// Act
+	suite.messageBus.ProcessHealthRequest()
+
+	// Assert
+	suite.mockHealthChannel.AssertExpectations(suite.T())
+}
+
+func (suite *MessageBusTestSuite) TestProcessHealthRequest_RecvError() {
+	// Arrange
+	suite.mockHealthChannel.On("IsChannelInitialized").Return(true).Once()
+	suite.mockHealthChannel.On("IsDialSuccessful").Return(true).Once()
+	suite.mockHealthChannel.On("Close").Return(nil).Once()
+	suite.mockHealthChannel.On("Recv").Return(nil, fmt.Errorf("failed to receive message on channel")).Times(maxRecvErrCount)
+
+	// Act
+	suite.messageBus.ProcessHealthRequest()
+
+	// Assert
+	suite.mockHealthChannel.AssertExpectations(suite.T())
+}
+
+func (suite *MessageBusTestSuite) TestProcessHealthRequest_RecvErrorCount_Resets() {
+	// Arrange
+	suite.mockHealthChannel.On("IsChannelInitialized").Return(true).Once()
+	suite.mockHealthChannel.On("IsDialSuccessful").Return(true).Once()
+	suite.mockHealthChannel.On("Close").Return(nil).Once()
+	suite.mockHealthChannel.On("Recv").Return(nil, fmt.Errorf("failed to receive message on channel")).Times(maxRecvErrCount - 1)
+	request := message.CreateHealthRequest()
+	requestString, _ := jsonutil.Marshal(request)
+	suite.mockHealthChannel.On("Recv").Return([]byte(requestString), nil).Once()
+	suite.mockHealthChannel.On("Send", mock.Anything).Return(nil)
+	// Kills the infinite loop
+	suite.mockHealthChannel.On("Recv").Return(nil, fmt.Errorf("failed to receive message on channel")).Times(maxRecvErrCount)
+
+	// Act
+	suite.messageBus.ProcessHealthRequest()
+
+	// Assert
+	suite.mockHealthChannel.AssertExpectations(suite.T())
+}
+
+func (suite *MessageBusTestSuite) TestProcessTerminationRequest_Error() {
+	suite.mockTerminateChannel.On("IsDialSuccessful").Return(true).Once()
+	suite.mockTerminateChannel.On("IsChannelInitialized").Return(true).Once()
+	suite.mockTerminateChannel.On("Close").Return(nil).Once()
+	suite.mockTerminateChannel.On("Recv").Return(nil, fmt.Errorf("failed to receive message on channel")).Times(maxRecvErrCount)
+
+	suite.messageBus.ProcessTerminationRequest()
+
+	suite.mockTerminateChannel.AssertExpectations(suite.T())
+
+	// Assert termination channel connected and that a termination message is sent
+	suite.Assertions.Equal(true, <-suite.messageBus.GetTerminationChannelConnectedChan())
+	suite.Assertions.Equal(true, <-suite.messageBus.GetTerminationRequestChan())
+}
+
+func (suite *MessageBusTestSuite) TestProcessTerminationRequest_RecvRetried() {
+	suite.mockTerminateChannel.On("IsDialSuccessful").Return(true).Once()
+	suite.mockTerminateChannel.On("IsChannelInitialized").Return(true).Once()
+	suite.mockTerminateChannel.On("Close").Return(nil).Once()
+	suite.mockTerminateChannel.On("Recv").Return(nil, fmt.Errorf("failed to receive message on channel")).Times(maxRecvErrCount - 1)
+	request := message.CreateTerminateWorkerRequest()
+	requestString, _ := jsonutil.Marshal(request)
+	suite.mockTerminateChannel.On("Recv").Return([]byte(requestString), nil)
+	suite.mockTerminateChannel.On("Send", mock.Anything).Return(nil)
+	suite.messageBus.ProcessTerminationRequest()
+	suite.mockTerminateChannel.AssertExpectations(suite.T())
+
+	// Assert termination channel connected and that a termination message is sent
+	suite.Assertions.Equal(true, <-suite.messageBus.GetTerminationChannelConnectedChan())
+	suite.Assertions.Equal(true, <-suite.messageBus.GetTerminationRequestChan())
+}
+
+func (suite *MessageBusTestSuite) TestProcessTerminationRequest_RecvRetriesReset() {
+	suite.mockTerminateChannel.On("IsDialSuccessful").Return(true).Once()
+	suite.mockTerminateChannel.On("IsChannelInitialized").Return(true).Once()
+	suite.mockTerminateChannel.On("Close").Return(nil).Once()
+	suite.mockTerminateChannel.On("Recv").Return(nil, fmt.Errorf("failed to receive message on channel")).Times(maxRecvErrCount - 1)
+	suite.mockTerminateChannel.On("Recv").Return([]byte("not valid json message"), nil).Once()
+	request := message.CreateTerminateWorkerRequest()
+	requestString, _ := jsonutil.Marshal(request)
+	suite.mockTerminateChannel.On("Recv").Return([]byte(requestString), nil).Once()
+	suite.mockTerminateChannel.On("Send", mock.Anything).Return(nil)
+	suite.messageBus.ProcessTerminationRequest()
+	suite.mockTerminateChannel.AssertExpectations(suite.T())
+
+	// Assert termination channel connected and that a termination message is sent
+	suite.Assertions.Equal(true, <-suite.messageBus.GetTerminationChannelConnectedChan())
+	suite.Assertions.Equal(true, <-suite.messageBus.GetTerminationRequestChan())
+}
+
 // Execute the test suite
 func TestMessageBusTestSuite(t *testing.T) {
 	suite.Run(t, new(MessageBusTestSuite))
 }
 
 func (suite *MessageBusTestSuite) TestProcessTerminationRequest_Successful() {
-	suite.mockTerminateChannel.On("IsConnect").Return(true).Twice()
+	suite.mockTerminateChannel.On("IsChannelInitialized").Return(true).Once()
+	suite.mockTerminateChannel.On("IsDialSuccessful").Return(true).Once()
 	suite.mockTerminateChannel.On("Close").Return(nil).Once()
 
 	request := message.CreateTerminateWorkerRequest()
@@ -91,35 +195,36 @@ func (suite *MessageBusTestSuite) TestProcessTerminationRequest_Successful() {
 
 func (suite *MessageBusTestSuite) TestProcessTerminationRequest_SuccessfulConnectionRetry() {
 	// First try channel not connected but fails initialize
-	suite.mockTerminateChannel.On("IsConnect").Return(false).Once()
+	suite.mockTerminateChannel.On("IsDialSuccessful").Return(false).Once()
 	suite.mockTerminateChannel.On("Initialize", mock.Anything).Return(fmt.Errorf("SomeErr")).Once()
 	suite.mockTerminateChannel.On("Close").Return(nil).Once()
 
 	// Second try channel not connected but fails dial
-	suite.mockTerminateChannel.On("IsConnect").Return(false).Once()
-	suite.mockTerminateChannel.On("Initialize", mock.Anything).Return(nil).Once()
+	suite.mockTerminateChannel.On("IsDialSuccessful").Return(false).Once()
+	suite.mockTerminateChannel.On("Initialize", mock.Anything).Return(nil)
 	suite.mockTerminateChannel.On("Dial", mock.Anything).Return(fmt.Errorf("SomeDialError")).Once()
 	suite.mockTerminateChannel.On("Close").Return(nil).Once()
 
 	// Third try channel not connected but finally succeeds
-	suite.mockTerminateChannel.On("IsConnect").Return(false).Once()
-	suite.mockTerminateChannel.On("Initialize", mock.Anything).Return(nil).Once()
+	suite.mockTerminateChannel.On("IsDialSuccessful").Return(false).Once()
+	suite.mockTerminateChannel.On("Initialize", mock.Anything).Return(nil)
 	suite.mockTerminateChannel.On("Dial", mock.Anything).Return(nil).Once()
-
-	// Fourth call to isConnect succeeds, fourth call is for defer where it will call close
-	suite.mockTerminateChannel.On("IsConnect").Return(true).Twice()
-	suite.mockTerminateChannel.On("Close").Return(nil).Once()
+	suite.mockTerminateChannel.On("IsDialSuccessful").Return(true).Once()
 
 	request := message.CreateTerminateWorkerRequest()
 	requestString, _ := jsonutil.Marshal(request)
 	suite.mockTerminateChannel.On("Recv").Return([]byte(requestString), nil)
 	suite.mockTerminateChannel.On("Send", mock.Anything).Return(nil)
 
-	suite.messageBus.ProcessTerminationRequest()
+	// Fourth call to IsChannelInitialized succeeds, fourth call is for defer where it will call close
+	suite.mockTerminateChannel.On("IsChannelInitialized").Return(true).Once()
+	suite.mockTerminateChannel.On("Close").Return(nil).Once()
 
-	suite.mockTerminateChannel.AssertExpectations(suite.T())
+	suite.messageBus.ProcessTerminationRequest()
 
 	// Assert termination channel connected and that a termination message is sent
 	suite.Assertions.Equal(true, <-suite.messageBus.GetTerminationChannelConnectedChan())
 	suite.Assertions.Equal(true, <-suite.messageBus.GetTerminationRequestChan())
+
+	suite.mockTerminateChannel.AssertExpectations(suite.T())
 }

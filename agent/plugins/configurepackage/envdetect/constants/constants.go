@@ -58,6 +58,9 @@ const PlatformFedora = "fedora"
 // PlatformAmazon uses Ohai identifier for amazon platform
 const PlatformAmazon = "amazon"
 
+// PlatformAlmaLinux uses Ohai identifier for alma linux platform
+const PlatformAlmaLinux = "almalinux"
+
 // PlatformBottlerocket uses Ohai identifier for bottlerocket platform
 const PlatformBottlerocket = "bottlerocket"
 
@@ -76,6 +79,9 @@ const PlatformOpensuseLeap = "opensuseleap"
 // PlatformGentoo uses Ohai identifier for gentoo platform
 const PlatformGentoo = "gentoo"
 
+// PlatformFlatcar uses Ohai identifier for flatcar platform
+const PlatformFlatcar = "flatcar"
+
 // PlatformArch uses Ohai identifier for arch platform
 const PlatformArch = "arch"
 
@@ -84,10 +90,6 @@ const PlatformWindows = "windows"
 
 // PlatformDarwin uses Ohai identifier for darwin platform
 const PlatformDarwin = "mac_os_x"
-
-// OperatingSystemSKUs to denote Windows Nano installations
-const SKUProductDatacenterNanoServer = "143"
-const SKUProductStandardNanoServer = "144"
 
 // Init marks a init system used by the Operating Sysstem
 

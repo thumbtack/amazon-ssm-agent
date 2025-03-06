@@ -76,6 +76,7 @@ type logger struct {
 	ptyTerminated               chan bool
 	cloudWatchStreamingFinished chan bool
 	streamLogsToCloudWatch      bool
+	writeToIpcFile              bool
 	s3Util                      s3util.IAmazonS3Util
 	cwl                         cloudwatchlogsinterface.ICloudWatchLogsService
 }
@@ -264,12 +265,16 @@ func (p *ShellPlugin) execute(config agentContracts.Configuration,
 		errorString := fmt.Errorf("Unable to start command: %s\n", err)
 		log.Error(errorString)
 		time.Sleep(2 * time.Second)
+		if appconfig.PluginNameNonInteractiveCommands == p.name {
+			// Error started before exec.cmd starts needs to be explicitly propagated to data channel.
+			p.sendErrorToDataChannel(log, errorString.Error())
+		}
 		output.MarkAsFailed(errorString)
 		return
 	}
 
 	// Create ipcFile used for logging session data temporarily on disk
-	ipcFile, err := os.Create(p.logger.ipcFilePath)
+	ipcFile, err := p.createIpcFile()
 	if err != nil {
 		errorString := fmt.Errorf("encountered an error while creating file %s: %s", p.logger.ipcFilePath, err)
 		log.Error(errorString)
@@ -301,6 +306,15 @@ func (p *ShellPlugin) execute(config agentContracts.Configuration,
 	p.finishLogging(config, output, sessionPluginResultOutput, ipcFile)
 
 	log.Debug("Shell session execution complete")
+}
+
+// Creates ipc temp file
+func (p *ShellPlugin) createIpcFile() (*os.File, error) {
+	if !p.logger.writeToIpcFile {
+		return nil, nil
+	}
+	ipcFile, err := os.Create(p.logger.ipcFilePath)
+	return ipcFile, err
 }
 
 // Executes command in pseudo terminal with pty
@@ -401,9 +415,25 @@ func (p *ShellPlugin) executeCommandsWithExec(config agentContracts.Configuratio
 	p.startStreamingLogs(ipcFile, config)
 
 	if p.separateOutput {
-		p.processCommandsWithOutputStreamSeparate(cancelled, cancelFlag, output, ipcFile)
+		if err := p.processCommandsWithOutputStreamSeparate(cancelled, cancelFlag, output, ipcFile); err != nil {
+			p.sendErrorToDataChannel(log, err.Error())
+			// Call datachannel PrepareToCloseChannel so all messages in the buffer are sent
+			p.dataChannel.PrepareToCloseChannel(log)
+			// Send session status as Terminating to service on completing command execution
+			if err := p.dataChannel.SendAgentSessionStateMessage(log, mgsContracts.Terminating); err != nil {
+				log.Errorf("Unable to send AgentSessionState message with session status %s. %v", mgsContracts.Terminating, err)
+			}
+		}
 	} else {
-		p.processCommandsWithExec(cancelled, cancelFlag, output, ipcFile)
+		if err := p.processCommandsWithExec(cancelled, cancelFlag, output, ipcFile); err != nil {
+			p.sendErrorToDataChannel(log, err.Error())
+			// Call datachannel PrepareToCloseChannel so all messages in the buffer are sent
+			p.dataChannel.PrepareToCloseChannel(log)
+			// Send session status as Terminating to service on completing command execution
+			if err := p.dataChannel.SendAgentSessionStateMessage(log, mgsContracts.Terminating); err != nil {
+				log.Errorf("Unable to send AgentSessionState message with session status %s. %v", mgsContracts.Terminating, err)
+			}
+		}
 		p.cleanupOutputFile(log, config)
 	}
 }
@@ -412,7 +442,7 @@ func (p *ShellPlugin) executeCommandsWithExec(config agentContracts.Configuratio
 func (p *ShellPlugin) processCommandsWithOutputStreamSeparate(cancelled chan bool,
 	cancelFlag task.CancelFlag,
 	output iohandler.IOHandler,
-	ipcFile *os.File) {
+	ipcFile *os.File) (err error) {
 
 	log := p.context.Log()
 
@@ -422,8 +452,10 @@ func (p *ShellPlugin) processCommandsWithOutputStreamSeparate(cancelled chan boo
 	if err := p.execCmd.Start(); err != nil {
 		errorString := fmt.Errorf("Error occurred starting the command: %s\n", err)
 		log.Error(errorString)
+		commandExitCode := appconfig.ErrorExitCode
+		p.sendExitCode(log, ipcFile, commandExitCode)
 		output.MarkAsFailed(errorString)
-		return
+		return err
 	}
 
 	// Wait for session to be completed/cancelled/interrupted
@@ -501,13 +533,15 @@ func (p *ShellPlugin) processCommandsWithOutputStreamSeparate(cancelled chan boo
 	if err := p.dataChannel.SendAgentSessionStateMessage(log, mgsContracts.Terminating); err != nil {
 		log.Errorf("Unable to send AgentSessionState message with session status %s. %v", mgsContracts.Terminating, err)
 	}
+
+	return nil
 }
 
 // Handle go routines between session termination and command execution with exec.Cmd
 func (p *ShellPlugin) processCommandsWithExec(cancelled chan bool,
 	cancelFlag task.CancelFlag,
 	output iohandler.IOHandler,
-	ipcFile *os.File) {
+	ipcFile *os.File) (err error) {
 
 	log := p.context.Log()
 
@@ -515,7 +549,7 @@ func (p *ShellPlugin) processCommandsWithExec(cancelled chan bool,
 		errorString := fmt.Errorf("Error occurred starting the command: %s\n", err)
 		log.Error(errorString)
 		output.MarkAsFailed(errorString)
-		return
+		return err
 	}
 
 	// Wait for session to be completed/cancelled/interrupted
@@ -583,10 +617,17 @@ func (p *ShellPlugin) processCommandsWithExec(cancelled chan bool,
 			log.Errorf("Unable to send AgentSessionState message with session status %s. %v", mgsContracts.Terminating, err)
 		}
 	}
+
+	return nil
 }
 
 // initializeLogger initializes plugin logger to be used for s3/cw logging
 func (p *ShellPlugin) initializeLogger(log log.T, config agentContracts.Configuration) {
+	p.logger.writeToIpcFile = !(config.OutputS3BucketName == "" && config.CloudWatchLogGroup == "" && p.context.AppConfig().Ssm.SessionLogsDestination == appconfig.SessionLogsDestinationNone)
+	if p.logger.writeToIpcFile && p.context.AppConfig().Ssm.SessionLogsDestination == appconfig.SessionLogsDestinationNone {
+		log.Warn("Overriding SessionLogsDestination: \"none\" since logging session data to CloudWatch or S3 is enabled.")
+	}
+
 	if config.OutputS3BucketName != "" {
 		var err error
 		p.logger.s3Util, err = s3util.NewAmazonS3Util(p.context, config.OutputS3BucketName)
@@ -607,7 +648,7 @@ func (p *ShellPlugin) initializeLogger(log log.T, config agentContracts.Configur
 	p.logger.ipcFilePath = filepath.Join(config.OrchestrationDirectory, mgsConfig.IpcFileName+mgsConfig.LogFileExtension)
 
 	// Generate final log file path
-	p.logger.logFileName = config.SessionId + mgsConfig.LogFileExtension
+	p.logger.logFileName = mgsConfig.LogFileName + mgsConfig.LogFileExtension
 	p.logger.logFilePath = filepath.Join(config.OrchestrationDirectory, p.logger.logFileName)
 }
 
@@ -823,8 +864,10 @@ func (p *ShellPlugin) processStdoutData(
 		return processedBuf, fmt.Errorf("unable to send stream data message: %s", err)
 	}
 
-	if _, err := file.Write(processedBuf.Bytes()); err != nil {
-		return processedBuf, fmt.Errorf("encountered an error while writing to file: %s", err)
+	if p.logger.writeToIpcFile {
+		if _, err := file.Write(processedBuf.Bytes()); err != nil {
+			return processedBuf, fmt.Errorf("encountered an error while writing to file: %s", err)
+		}
 	}
 
 	// return incomplete utf8 encoded unicode bytes to be processed with next batch of stdoutBytes
@@ -907,7 +950,7 @@ func (p *ShellPlugin) finishLogging(
 
 		if config.OutputS3BucketName != "" {
 			log.Debug("Starting S3 logging")
-			s3KeyPrefix := fileutil.BuildS3Path(config.OutputS3KeyPrefix, p.logger.logFileName)
+			s3KeyPrefix := fileutil.BuildS3Path(config.OutputS3KeyPrefix, config.SessionId+mgsConfig.LogFileExtension)
 			p.uploadShellSessionLogsToS3(log, p.logger.s3Util, config, s3KeyPrefix)
 			sessionPluginResultOutput.S3Bucket = config.OutputS3BucketName
 			sessionPluginResultOutput.S3UrlSuffix = s3KeyPrefix
@@ -949,5 +992,12 @@ func (p *ShellPlugin) finishLogging(
 func (p *ShellPlugin) cleanupOutputFile(log log.T, config agentContracts.Configuration) {
 	if err := os.Remove(filepath.Join(config.OrchestrationDirectory, mgsConfig.ExecOutputFileName)); err != nil {
 		log.Debugf("Unable to clean up output file, %v", err)
+	}
+}
+
+func (p *ShellPlugin) sendErrorToDataChannel(log log.T, errorString string) {
+	time.Sleep(1 * time.Second)
+	if dataChannelError := p.dataChannel.SendStreamDataMessage(log, mgsContracts.StdErr, []byte(errorString)); dataChannelError != nil {
+		log.Errorf("Unable to send error message to data channel: %v", dataChannelError)
 	}
 }

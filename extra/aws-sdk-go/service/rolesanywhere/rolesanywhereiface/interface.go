@@ -23,37 +23,37 @@ import (
 // can be stubbed out for unit testing your code with the SDK without needing
 // to inject custom request handlers into the SDK's request pipeline.
 //
-//    // myFunc uses an SDK service client to make a request to
-//    // IAM Roles Anywhere.
-//    func myFunc(svc rolesanywhereiface.RolesAnywhereAPI) bool {
-//        // Make svc.CreateProfile request
-//    }
+//	// myFunc uses an SDK service client to make a request to
+//	// IAM Roles Anywhere.
+//	func myFunc(svc rolesanywhereiface.RolesAnywhereAPI) bool {
+//	    // Make svc.CreateProfile request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := rolesanywhere.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := rolesanywhere.New(sess)
 //
-//        myFunc(svc)
-//    }
+//	    myFunc(svc)
+//	}
 //
 // In your _test.go file:
 //
-//    // Define a mock struct to be used in your unit tests of myFunc.
-//    type mockRolesAnywhereClient struct {
-//        rolesanywhereiface.RolesAnywhereAPI
-//    }
-//    func (m *mockRolesAnywhereClient) CreateProfile(input *rolesanywhere.CreateProfileInput) (*rolesanywhere.CreateProfileOutput, error) {
-//        // mock response/functionality
-//    }
+//	// Define a mock struct to be used in your unit tests of myFunc.
+//	type mockRolesAnywhereClient struct {
+//	    rolesanywhereiface.RolesAnywhereAPI
+//	}
+//	func (m *mockRolesAnywhereClient) CreateProfile(input *rolesanywhere.CreateProfileInput) (*rolesanywhere.CreateProfileOutput, error) {
+//	    // mock response/functionality
+//	}
 //
-//    func TestMyFunc(t *testing.T) {
-//        // Setup Test
-//        mockSvc := &mockRolesAnywhereClient{}
+//	func TestMyFunc(t *testing.T) {
+//	    // Setup Test
+//	    mockSvc := &mockRolesAnywhereClient{}
 //
-//        myfunc(mockSvc)
+//	    myfunc(mockSvc)
 //
-//        // Verify myFunc's functionality
-//    }
+//	    // Verify myFunc's functionality
+//	}
 //
 // It is important to note that this interface will have breaking changes
 // when the service model is updated and adds new API operations, paginators,
@@ -67,6 +67,10 @@ type RolesAnywhereAPI interface {
 	CreateTrustAnchor(*rolesanywhere.CreateTrustAnchorInput) (*rolesanywhere.CreateTrustAnchorOutput, error)
 	CreateTrustAnchorWithContext(aws.Context, *rolesanywhere.CreateTrustAnchorInput, ...request.Option) (*rolesanywhere.CreateTrustAnchorOutput, error)
 	CreateTrustAnchorRequest(*rolesanywhere.CreateTrustAnchorInput) (*request.Request, *rolesanywhere.CreateTrustAnchorOutput)
+
+	DeleteAttributeMapping(*rolesanywhere.DeleteAttributeMappingInput) (*rolesanywhere.DeleteAttributeMappingOutput, error)
+	DeleteAttributeMappingWithContext(aws.Context, *rolesanywhere.DeleteAttributeMappingInput, ...request.Option) (*rolesanywhere.DeleteAttributeMappingOutput, error)
+	DeleteAttributeMappingRequest(*rolesanywhere.DeleteAttributeMappingInput) (*request.Request, *rolesanywhere.DeleteAttributeMappingOutput)
 
 	DeleteCrl(*rolesanywhere.DeleteCrlInput) (*rolesanywhere.DeleteCrlOutput, error)
 	DeleteCrlWithContext(aws.Context, *rolesanywhere.DeleteCrlInput, ...request.Option) (*rolesanywhere.DeleteCrlOutput, error)
@@ -155,6 +159,18 @@ type RolesAnywhereAPI interface {
 
 	ListTrustAnchorsPages(*rolesanywhere.ListTrustAnchorsInput, func(*rolesanywhere.ListTrustAnchorsOutput, bool) bool) error
 	ListTrustAnchorsPagesWithContext(aws.Context, *rolesanywhere.ListTrustAnchorsInput, func(*rolesanywhere.ListTrustAnchorsOutput, bool) bool, ...request.Option) error
+
+	PutAttributeMapping(*rolesanywhere.PutAttributeMappingInput) (*rolesanywhere.PutAttributeMappingOutput, error)
+	PutAttributeMappingWithContext(aws.Context, *rolesanywhere.PutAttributeMappingInput, ...request.Option) (*rolesanywhere.PutAttributeMappingOutput, error)
+	PutAttributeMappingRequest(*rolesanywhere.PutAttributeMappingInput) (*request.Request, *rolesanywhere.PutAttributeMappingOutput)
+
+	PutNotificationSettings(*rolesanywhere.PutNotificationSettingsInput) (*rolesanywhere.PutNotificationSettingsOutput, error)
+	PutNotificationSettingsWithContext(aws.Context, *rolesanywhere.PutNotificationSettingsInput, ...request.Option) (*rolesanywhere.PutNotificationSettingsOutput, error)
+	PutNotificationSettingsRequest(*rolesanywhere.PutNotificationSettingsInput) (*request.Request, *rolesanywhere.PutNotificationSettingsOutput)
+
+	ResetNotificationSettings(*rolesanywhere.ResetNotificationSettingsInput) (*rolesanywhere.ResetNotificationSettingsOutput, error)
+	ResetNotificationSettingsWithContext(aws.Context, *rolesanywhere.ResetNotificationSettingsInput, ...request.Option) (*rolesanywhere.ResetNotificationSettingsOutput, error)
+	ResetNotificationSettingsRequest(*rolesanywhere.ResetNotificationSettingsInput) (*request.Request, *rolesanywhere.ResetNotificationSettingsOutput)
 
 	TagResource(*rolesanywhere.TagResourceInput) (*rolesanywhere.TagResourceOutput, error)
 	TagResourceWithContext(aws.Context, *rolesanywhere.TagResourceInput, ...request.Option) (*rolesanywhere.TagResourceOutput, error)

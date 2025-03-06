@@ -11,8 +11,9 @@
 // either express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 
-//go:build darwin || freebsd || linux || netbsd || openbsd
+//go:build (darwin || freebsd || linux || netbsd || openbsd) && e2e
 // +build darwin freebsd linux netbsd openbsd
+// +build e2e
 
 // Package shell implements session shell plugin.
 package shell
@@ -184,7 +185,7 @@ func (suite *ShellTestSuite) TestExecuteWithCWLoggingEnabled() {
 	// When CW logging is enabled with streaming disabled then IsFileComplete is expected to be true since log to CW is uploaded once at the end of the session
 	expectedIsFileComplete := true
 	suite.mockCWL.On("IsLogGroupPresent", testCwLogGroupName).Return(true, &testCwlLogGroup)
-	suite.mockCWL.On("StreamData", testCwLogGroupName, sessionId, sessionId+mgsConfig.LogFileExtension, expectedIsFileComplete, false, mock.Anything, false, false).Return(true)
+	suite.mockCWL.On("StreamData", testCwLogGroupName, sessionId, mgsConfig.LogFileName+mgsConfig.LogFileExtension, expectedIsFileComplete, false, mock.Anything, false, false).Return(true)
 
 	suite.plugin.Execute(
 		contracts.Configuration{
@@ -738,6 +739,11 @@ func (suite *ShellTestSuite) TestExecuteWithExecAndCommandFailedToStart() {
 	suite.mockIohandler.On("MarkAsFailed", mock.Anything)
 	suite.mockCmd.On("Start").Return(errors.New("failed to start command"))
 
+	suite.mockDataChannel.On("PrepareToCloseChannel", mock.Anything).Return(nil).Times(1)
+	suite.mockDataChannel.On("SendAgentSessionStateMessage", mock.Anything, mgsContracts.Terminating).
+		Return(nil).Times(1)
+	suite.mockDataChannel.On("SendStreamDataMessage", mock.Anything, mock.Anything, mock.Anything).Return(nil)
+
 	getCommandExecutor = func(log log.T, shellProps mgsContracts.ShellProperties, isSessionLogger bool, config contracts.Configuration, plugin *ShellPlugin) (err error) {
 		plugin.execCmd = suite.mockCmd
 		return nil
@@ -811,6 +817,47 @@ func (suite *ShellTestSuite) TestExecuteWithExecFailedToWait() {
 	suite.mockCancelFlag.AssertExpectations(suite.T())
 	suite.mockIohandler.AssertExpectations(suite.T())
 	suite.mockDataChannel.AssertExpectations(suite.T())
+	suite.mockCmd.AssertExpectations(suite.T())
+}
+
+// Testing Execute with exec.Cmd and the command execution failed to complete but writePump succeeds
+func (suite *ShellTestSuite) TestExecuteWithFailureToGetExec() {
+	suite.mockIohandler.On("MarkAsFailed", mock.Anything)
+	suite.mockCmd.On("Start").Return(errors.New("failed to start command"))
+
+	suite.mockDataChannel.On("PrepareToCloseChannel", mock.Anything).Return(nil).Times(1)
+	suite.mockDataChannel.On("SendAgentSessionStateMessage", mock.Anything, mgsContracts.Terminating).
+		Return(nil).Times(1)
+	suite.mockDataChannel.On("SendStreamDataMessage", mock.Anything, mock.Anything, mock.Anything).Return(nil)
+
+	getCommandExecutor = func(log log.T, shellProps mgsContracts.ShellProperties, isSessionLogger bool, config contracts.Configuration, plugin *ShellPlugin) (err error) {
+		plugin.execCmd = suite.mockCmd
+		return errors.New("some error")
+	}
+
+	plugin := &ShellPlugin{
+		context:     suite.mockContext,
+		name:        appconfig.PluginNameNonInteractiveCommands,
+		dataChannel: suite.mockDataChannel,
+		execCmd:     suite.mockCmd,
+	}
+
+	// Create ipc file
+	ipcFile, _ := os.Create(suite.plugin.logger.ipcFilePath)
+	defer ipcFile.Close()
+
+	cancelled := make(chan bool)
+
+	plugin.executeCommandsWithExec(
+		contracts.Configuration{},
+		cancelled,
+		suite.mockCancelFlag,
+		suite.mockIohandler,
+		ipcFile,
+	)
+
+	suite.mockCancelFlag.AssertExpectations(suite.T())
+	suite.mockIohandler.AssertExpectations(suite.T())
 	suite.mockCmd.AssertExpectations(suite.T())
 }
 

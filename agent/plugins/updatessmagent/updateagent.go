@@ -103,6 +103,18 @@ func runUpdateAgent(
 		pluginInput.TargetVersion = "None"
 	}
 
+	// If disk space is not sufficient, fail the update to prevent installation and notify user in output
+	// If loading disk space fails, continue to update (agent update is backed by rollback handler)
+	log.Infof("Checking available disk space ...")
+	if isDiskSpaceSufficient, err := util.IsDiskSpaceSufficientForUpdate(log); !isDiskSpaceSufficient || err != nil {
+		if err != nil {
+			output.MarkAsFailed(err)
+			return
+		}
+		output.MarkAsFailed(errors.New("Insufficient available disk space"))
+		return
+	}
+
 	//Download manifest file and populate manifest object
 	if downloadErr := s3util.DownloadManifest(manifest, pluginInput.Source); downloadErr != nil && downloadErr.Error != nil {
 		output.MarkAsFailed(downloadErr.Error)
@@ -119,15 +131,17 @@ func runUpdateAgent(
 	output.AppendInfof("Successfully downloaded updater version %s\n", updaterVersion)
 
 	//Generate update command base on the update detail
-	cmd := ""
-	if cmd, err = generateUpdateCmd(
+	cmd, err := generateUpdateCmd(
 		&pluginInput,
 		updaterVersion,
 		config.MessageId,
+		config.UpstreamServiceName,
 		pluginConfig.StdoutFileName,
 		pluginConfig.StderrFileName,
 		fileutil.BuildS3Path(output.GetIOConfig().OutputS3KeyPrefix, config.PluginID),
-		output.GetIOConfig().OutputS3BucketName); err != nil {
+		output.GetIOConfig().OutputS3BucketName)
+
+	if err != nil {
 		output.MarkAsFailed(err)
 		return
 	}
@@ -143,33 +157,22 @@ func runUpdateAgent(
 		return
 	}
 
-	// If disk space is not sufficient, fail the update to prevent installation and notify user in output
-	// If loading disk space fails, continue to update (agent update is backed by rollback handler)
-	log.Infof("Checking available disk space ...")
-	if isDiskSpaceSufficient, err := util.IsDiskSpaceSufficientForUpdate(log); !isDiskSpaceSufficient || err != nil {
-		if err != nil {
-			output.MarkAsFailed(err)
-			return
-		}
-		output.MarkAsFailed(errors.New("Insufficient available disk space"))
-		return
-	}
-
 	log.Infof("Start Installation")
 	log.Infof("Hand over update process to %v", pluginInput.UpdaterName)
 	//Execute updater, hand over the update process
 	workDir := updateutil.UpdateArtifactFolder(
 		appconfig.UpdaterArtifactsRoot, pluginInput.UpdaterName, updaterVersion)
-
+	commandInput := &updateutil.CommandExecutionSettings{
+		Log:         log,
+		Cmd:         cmd,
+		WorkingDir:  workDir,
+		UpdaterRoot: appconfig.UpdaterArtifactsRoot,
+		StdOut:      pluginConfig.StdoutFileName,
+		StdErr:      pluginConfig.StderrFileName,
+		IsAsync:     true,
+	}
 	for retryCounter := 1; retryCounter <= noOfRetries; retryCounter++ {
-		pid, _, err = util.ExeCommand(
-			log,
-			cmd,
-			workDir,
-			appconfig.UpdaterArtifactsRoot,
-			pluginConfig.StdoutFileName,
-			pluginConfig.StderrFileName,
-			true)
+		pid, _, err = util.ExeCommandWithSlice(commandInput)
 		if err == nil {
 			break
 		}
@@ -223,7 +226,7 @@ func (p *Plugin) Execute(config contracts.Configuration, cancelFlag task.CancelF
 		return
 	}
 
-	manifest := updatemanifest.New(p.Context, updateInfo)
+	manifest := updatemanifest.New(p.Context, updateInfo, "")
 	updateS3Util := updates3util.New(p.Context)
 
 	if cancelFlag.ShutDown() {
@@ -305,36 +308,42 @@ func generateUpdateCmd(
 	pluginInput *UpdatePluginInput,
 	updaterVersion string,
 	messageID string,
+	upstreamServiceName contracts.UpstreamServiceName,
 	stdout string,
 	stderr string,
 	keyPrefix string,
-	bucketName string) (cmd string, err error) {
-	updaterPath := updateutil.UpdaterFilePath(appconfig.UpdaterArtifactsRoot, pluginInput.UpdaterName, updaterVersion)
-	cmd = updaterPath + " -update"
+	bucketName string) (cmd []string, err error) {
 
-	cmd = updateutil.BuildUpdateCommand(cmd, updateconstants.SourceVersionCmd, currentAgentVersion)
-	cmd = updateutil.BuildUpdateCommand(cmd, updateconstants.TargetVersionCmd, pluginInput.TargetVersion)
-
-	cmd = updateutil.BuildUpdateCommand(cmd, updateconstants.PackageNameCmd, pluginInput.AgentName)
-	cmd = updateutil.BuildUpdateCommand(cmd, updateconstants.MessageIDCmd, messageID)
-
-	cmd = updateutil.BuildUpdateCommand(cmd, updateconstants.StdoutFileName, stdout)
-	cmd = updateutil.BuildUpdateCommand(cmd, updateconstants.StderrFileName, stderr)
-
-	cmd = updateutil.BuildUpdateCommand(cmd, updateconstants.OutputKeyPrefixCmd, keyPrefix)
-	cmd = updateutil.BuildUpdateCommand(cmd, updateconstants.OutputBucketNameCmd, bucketName)
-
-	cmd = updateutil.BuildUpdateCommand(cmd, updateconstants.ManifestFileUrlCmd, pluginInput.Source)
-
+	// quick return
 	allowDowngrade, err := strconv.ParseBool(pluginInput.AllowDowngrade)
 	if err != nil {
-		return "", err
+		return cmd, err
 	}
+
+	updaterPath := updateutil.UpdaterFilePath(appconfig.UpdaterArtifactsRoot, pluginInput.UpdaterName, updaterVersion)
+	cmd = append(cmd, updaterPath)
+	cmd = append(cmd, "-update")
 
 	// Tell the updater if downgrade is not allowed
 	if !allowDowngrade {
-		cmd += " -" + updateconstants.DisableDowngradeCmd
+		cmd = append(cmd, "-"+updateconstants.DisableDowngradeCmd)
 	}
+
+	cmd = append(cmd, "-"+updateconstants.SourceVersionCmd, currentAgentVersion)
+	cmd = append(cmd, "-"+updateconstants.TargetVersionCmd, pluginInput.TargetVersion)
+
+	cmd = append(cmd, "-"+updateconstants.PackageNameCmd, pluginInput.AgentName)
+	cmd = append(cmd, "-"+updateconstants.MessageIDCmd, messageID)
+
+	cmd = append(cmd, "-"+updateconstants.StdoutFileName, stdout)
+	cmd = append(cmd, "-"+updateconstants.StderrFileName, stderr)
+
+	cmd = append(cmd, "-"+updateconstants.OutputKeyPrefixCmd, keyPrefix)
+	cmd = append(cmd, "-"+updateconstants.OutputBucketNameCmd, bucketName)
+
+	cmd = append(cmd, "-"+updateconstants.ManifestFileUrlCmd, pluginInput.Source)
+
+	cmd = append(cmd, "-"+updateconstants.UpstreamServiceName, string(upstreamServiceName))
 
 	return
 }

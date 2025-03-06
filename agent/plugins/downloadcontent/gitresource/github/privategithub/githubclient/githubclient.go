@@ -22,7 +22,7 @@ import (
 
 	"github.com/aws/amazon-ssm-agent/agent/log"
 	"github.com/aws/amazon-ssm-agent/agent/plugins/downloadcontent/gitresource"
-	"github.com/google/go-github/github"
+	"github.com/google/go-github/v61/github"
 	gitcontext "golang.org/x/net/context"
 )
 
@@ -58,14 +58,17 @@ func (gitClient *GitClient) GetRepositoryContents(
 	opt *github.RepositoryContentGetOptions,
 ) (fileContent *github.RepositoryContent, directoryContent []*github.RepositoryContent, err error) {
 	var resp *github.Response
-
 	fileContent, directoryContent, resp, err = gitClient.Repositories.GetContents(gitcontext.Background(), owner, repo, path, opt)
-
+	if resp == nil {
+		return nil, nil, fmt.Errorf("no response received when calling git API. Error: %v", err)
+	}
+	if resp != nil && resp.Body != nil {
+		defer resp.Body.Close()
+	}
 	if fileContent != nil {
 		log.Info("URL downloaded from - ", fileContent.GetURL())
 	}
 
-	defer resp.Body.Close()
 	log.Info("Status code - ", resp.StatusCode)
 	if err != nil {
 		if resp.StatusCode == http.StatusUnauthorized {

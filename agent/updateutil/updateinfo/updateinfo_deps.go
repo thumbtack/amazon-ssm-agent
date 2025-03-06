@@ -21,9 +21,11 @@ type T interface {
 	IsPlatformUsingSystemD() (bool, error)
 	IsPlatformDarwin() bool
 	GenerateCompressedFileName(string) string
+	GeneratePlatformBasedFolderName() string
 	GetInstallScriptName() string
 	GetUninstallScriptName() string
 	GetPlatform() string
+	GetPlatformVersion() string
 }
 
 // updateInfoImpl holds information for the instance

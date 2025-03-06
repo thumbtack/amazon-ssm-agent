@@ -7,7 +7,7 @@
 // EC2 instances based on user-defined scaling policies, scheduled actions,
 // and health checks.
 //
-// For more information, see the Amazon EC2 Auto Scaling User Guide (https://docs.aws.amazon.com/autoscaling/ec2/userguide/)
+// For more information, see the Amazon EC2 Auto Scaling User Guide (https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
 // and the Amazon EC2 Auto Scaling API Reference (https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html).
 //
 // See https://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01 for more information on this service.
@@ -15,7 +15,7 @@
 // See autoscaling package documentation for more information.
 // https://docs.aws.amazon.com/sdk-for-go/api/service/autoscaling/
 //
-// Using the Client
+// # Using the Client
 //
 // To contact Auto Scaling with the SDK use the New function to create
 // a new service client. With that client you can make API requests to the service.

@@ -111,10 +111,11 @@ func (msgSvc *MessageService) ModuleName() string {
 // ModuleExecute starts the MessageService module
 func (msgSvc *MessageService) ModuleExecute() (err error) {
 	log := msgSvc.context.Log()
-	log.Info("starting MessageService")
+	log.Debug("starting MessageService")
 	// initialize message handler
 	msgSvc.messageHandler.Initialize()
 
+	var ableToOpenMGSConnection uint32
 	var wg sync.WaitGroup
 	errArr := make([]error, 0)
 	for _, interactRef := range msgSvc.interactors {
@@ -126,10 +127,10 @@ func (msgSvc *MessageService) ModuleExecute() (err error) {
 		wg.Add(1)
 		go func(interactor interactor.IInteractor) {
 			interactorName := interactor.GetName()
-			log.Infof("%v initialization started", interactorName)
+			log.Debugf("%v initialization started", interactorName)
 			defer func() {
 				wg.Done()
-				log.Infof("%v initialization completed", interactorName)
+				log.Debugf("%v initialization completed", interactorName)
 				if msg := recover(); msg != nil {
 					log.Errorf("%v initialization panicked: %v", interactorName, msg)
 					log.Errorf("stacktrace:\n%s", debug.Stack())
@@ -137,7 +138,7 @@ func (msgSvc *MessageService) ModuleExecute() (err error) {
 			}()
 			// In MGS Interactor, control channel connection may retry indefinitely
 			// This will be blocked during that case
-			if err = interactor.Initialize(); err != nil {
+			if err = interactor.Initialize(&ableToOpenMGSConnection); err != nil {
 				errorMsg := fmt.Errorf("error occurred while initializing Interactor %v: %v", interactorName, err)
 				log.Error(errorMsg)
 				errArr = append(errArr, errorMsg)
@@ -171,11 +172,11 @@ func (msgSvc *MessageService) initializeProcessor(interactorRef interactor.IInte
 	var wg sync.WaitGroup
 	for _, workerName := range supportedWorkers {
 		wg.Add(1)
-		log.Infof("processor initialization started for worker %v belonging to %v", workerName, interactorRef.GetName())
+		log.Debugf("processor initialization started for worker %v belonging to %v", workerName, interactorRef.GetName())
 		go func(worker utils.WorkerName) {
 			defer func() {
 				wg.Done()
-				log.Infof("processor initialization completed for worker %v belonging to %v", worker, interactorRef.GetName())
+				log.Debugf("processor initialization completed for worker %v belonging to %v", worker, interactorRef.GetName())
 				if msg := recover(); msg != nil {
 					log.Errorf("%v processor initialization panicked: %v", worker, msg)
 					log.Errorf("stacktrace:\n%s", debug.Stack())
@@ -191,7 +192,7 @@ func (msgSvc *MessageService) initializeProcessor(interactorRef interactor.IInte
 			}
 			procWrapper := processorWrapperDelegateMap[worker](msgSvc.context, processorWorkerConfigs[worker])
 			procWrapperName := procWrapper.GetName()
-			log.Infof("registering processor %v for the interactor: %v", procWrapperName, interactorRef.GetName())
+			log.Debugf("registering processor %v for the interactor: %v", procWrapperName, interactorRef.GetName())
 			// When we try to re-register processor wrapper with same name, InitializeAndRegisterProcessor blocks until the first registered processor initialization is done.
 			// This is done intentionally to make sure that we do not open connections to receive commands when in-progress and pending commands are not yet loaded
 			err := msgSvc.messageHandler.InitializeAndRegisterProcessor(procWrapper)
@@ -237,6 +238,7 @@ func (msgSvc *MessageService) ModuleStop() error {
 		}(interactRef)
 	}
 	wg.Wait()
+
 	log.Infof("Stopped %v", msgSvc.name)
 	return nil
 }

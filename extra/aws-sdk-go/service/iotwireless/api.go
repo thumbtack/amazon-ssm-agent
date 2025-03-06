@@ -29,14 +29,13 @@ const opAssociateAwsAccountWithPartnerAccount = "AssociateAwsAccountWithPartnerA
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the AssociateAwsAccountWithPartnerAccountRequest method.
+//	req, resp := client.AssociateAwsAccountWithPartnerAccountRequest(params)
 //
-//    // Example sending a request using the AssociateAwsAccountWithPartnerAccountRequest method.
-//    req, resp := client.AssociateAwsAccountWithPartnerAccountRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateAwsAccountWithPartnerAccount
 func (c *IoTWireless) AssociateAwsAccountWithPartnerAccountRequest(input *AssociateAwsAccountWithPartnerAccountInput) (req *request.Request, output *AssociateAwsAccountWithPartnerAccountOutput) {
@@ -67,23 +66,24 @@ func (c *IoTWireless) AssociateAwsAccountWithPartnerAccountRequest(input *Associ
 // API operation AssociateAwsAccountWithPartnerAccount for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateAwsAccountWithPartnerAccount
 func (c *IoTWireless) AssociateAwsAccountWithPartnerAccount(input *AssociateAwsAccountWithPartnerAccountInput) (*AssociateAwsAccountWithPartnerAccountOutput, error) {
@@ -123,14 +123,13 @@ const opAssociateMulticastGroupWithFuotaTask = "AssociateMulticastGroupWithFuota
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the AssociateMulticastGroupWithFuotaTaskRequest method.
+//	req, resp := client.AssociateMulticastGroupWithFuotaTaskRequest(params)
 //
-//    // Example sending a request using the AssociateMulticastGroupWithFuotaTaskRequest method.
-//    req, resp := client.AssociateMulticastGroupWithFuotaTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateMulticastGroupWithFuotaTask
 func (c *IoTWireless) AssociateMulticastGroupWithFuotaTaskRequest(input *AssociateMulticastGroupWithFuotaTaskInput) (req *request.Request, output *AssociateMulticastGroupWithFuotaTaskOutput) {
@@ -162,23 +161,24 @@ func (c *IoTWireless) AssociateMulticastGroupWithFuotaTaskRequest(input *Associa
 // API operation AssociateMulticastGroupWithFuotaTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateMulticastGroupWithFuotaTask
 func (c *IoTWireless) AssociateMulticastGroupWithFuotaTask(input *AssociateMulticastGroupWithFuotaTaskInput) (*AssociateMulticastGroupWithFuotaTaskOutput, error) {
@@ -218,14 +218,13 @@ const opAssociateWirelessDeviceWithFuotaTask = "AssociateWirelessDeviceWithFuota
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the AssociateWirelessDeviceWithFuotaTaskRequest method.
+//	req, resp := client.AssociateWirelessDeviceWithFuotaTaskRequest(params)
 //
-//    // Example sending a request using the AssociateWirelessDeviceWithFuotaTaskRequest method.
-//    req, resp := client.AssociateWirelessDeviceWithFuotaTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateWirelessDeviceWithFuotaTask
 func (c *IoTWireless) AssociateWirelessDeviceWithFuotaTaskRequest(input *AssociateWirelessDeviceWithFuotaTaskInput) (req *request.Request, output *AssociateWirelessDeviceWithFuotaTaskOutput) {
@@ -257,23 +256,24 @@ func (c *IoTWireless) AssociateWirelessDeviceWithFuotaTaskRequest(input *Associa
 // API operation AssociateWirelessDeviceWithFuotaTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateWirelessDeviceWithFuotaTask
 func (c *IoTWireless) AssociateWirelessDeviceWithFuotaTask(input *AssociateWirelessDeviceWithFuotaTaskInput) (*AssociateWirelessDeviceWithFuotaTaskOutput, error) {
@@ -313,14 +313,13 @@ const opAssociateWirelessDeviceWithMulticastGroup = "AssociateWirelessDeviceWith
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the AssociateWirelessDeviceWithMulticastGroupRequest method.
+//	req, resp := client.AssociateWirelessDeviceWithMulticastGroupRequest(params)
 //
-//    // Example sending a request using the AssociateWirelessDeviceWithMulticastGroupRequest method.
-//    req, resp := client.AssociateWirelessDeviceWithMulticastGroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateWirelessDeviceWithMulticastGroup
 func (c *IoTWireless) AssociateWirelessDeviceWithMulticastGroupRequest(input *AssociateWirelessDeviceWithMulticastGroupInput) (req *request.Request, output *AssociateWirelessDeviceWithMulticastGroupOutput) {
@@ -352,23 +351,24 @@ func (c *IoTWireless) AssociateWirelessDeviceWithMulticastGroupRequest(input *As
 // API operation AssociateWirelessDeviceWithMulticastGroup for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateWirelessDeviceWithMulticastGroup
 func (c *IoTWireless) AssociateWirelessDeviceWithMulticastGroup(input *AssociateWirelessDeviceWithMulticastGroupInput) (*AssociateWirelessDeviceWithMulticastGroupOutput, error) {
@@ -408,14 +408,13 @@ const opAssociateWirelessDeviceWithThing = "AssociateWirelessDeviceWithThing"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the AssociateWirelessDeviceWithThingRequest method.
+//	req, resp := client.AssociateWirelessDeviceWithThingRequest(params)
 //
-//    // Example sending a request using the AssociateWirelessDeviceWithThingRequest method.
-//    req, resp := client.AssociateWirelessDeviceWithThingRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateWirelessDeviceWithThing
 func (c *IoTWireless) AssociateWirelessDeviceWithThingRequest(input *AssociateWirelessDeviceWithThingInput) (req *request.Request, output *AssociateWirelessDeviceWithThingOutput) {
@@ -447,23 +446,24 @@ func (c *IoTWireless) AssociateWirelessDeviceWithThingRequest(input *AssociateWi
 // API operation AssociateWirelessDeviceWithThing for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateWirelessDeviceWithThing
 func (c *IoTWireless) AssociateWirelessDeviceWithThing(input *AssociateWirelessDeviceWithThingInput) (*AssociateWirelessDeviceWithThingOutput, error) {
@@ -503,14 +503,13 @@ const opAssociateWirelessGatewayWithCertificate = "AssociateWirelessGatewayWithC
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the AssociateWirelessGatewayWithCertificateRequest method.
+//	req, resp := client.AssociateWirelessGatewayWithCertificateRequest(params)
 //
-//    // Example sending a request using the AssociateWirelessGatewayWithCertificateRequest method.
-//    req, resp := client.AssociateWirelessGatewayWithCertificateRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateWirelessGatewayWithCertificate
 func (c *IoTWireless) AssociateWirelessGatewayWithCertificateRequest(input *AssociateWirelessGatewayWithCertificateInput) (req *request.Request, output *AssociateWirelessGatewayWithCertificateOutput) {
@@ -541,23 +540,24 @@ func (c *IoTWireless) AssociateWirelessGatewayWithCertificateRequest(input *Asso
 // API operation AssociateWirelessGatewayWithCertificate for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateWirelessGatewayWithCertificate
 func (c *IoTWireless) AssociateWirelessGatewayWithCertificate(input *AssociateWirelessGatewayWithCertificateInput) (*AssociateWirelessGatewayWithCertificateOutput, error) {
@@ -597,14 +597,13 @@ const opAssociateWirelessGatewayWithThing = "AssociateWirelessGatewayWithThing"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the AssociateWirelessGatewayWithThingRequest method.
+//	req, resp := client.AssociateWirelessGatewayWithThingRequest(params)
 //
-//    // Example sending a request using the AssociateWirelessGatewayWithThingRequest method.
-//    req, resp := client.AssociateWirelessGatewayWithThingRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateWirelessGatewayWithThing
 func (c *IoTWireless) AssociateWirelessGatewayWithThingRequest(input *AssociateWirelessGatewayWithThingInput) (req *request.Request, output *AssociateWirelessGatewayWithThingOutput) {
@@ -636,23 +635,24 @@ func (c *IoTWireless) AssociateWirelessGatewayWithThingRequest(input *AssociateW
 // API operation AssociateWirelessGatewayWithThing for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/AssociateWirelessGatewayWithThing
 func (c *IoTWireless) AssociateWirelessGatewayWithThing(input *AssociateWirelessGatewayWithThingInput) (*AssociateWirelessGatewayWithThingOutput, error) {
@@ -692,14 +692,13 @@ const opCancelMulticastGroupSession = "CancelMulticastGroupSession"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CancelMulticastGroupSessionRequest method.
+//	req, resp := client.CancelMulticastGroupSessionRequest(params)
 //
-//    // Example sending a request using the CancelMulticastGroupSessionRequest method.
-//    req, resp := client.CancelMulticastGroupSessionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CancelMulticastGroupSession
 func (c *IoTWireless) CancelMulticastGroupSessionRequest(input *CancelMulticastGroupSessionInput) (req *request.Request, output *CancelMulticastGroupSessionOutput) {
@@ -731,23 +730,24 @@ func (c *IoTWireless) CancelMulticastGroupSessionRequest(input *CancelMulticastG
 // API operation CancelMulticastGroupSession for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CancelMulticastGroupSession
 func (c *IoTWireless) CancelMulticastGroupSession(input *CancelMulticastGroupSessionInput) (*CancelMulticastGroupSessionOutput, error) {
@@ -787,14 +787,13 @@ const opCreateDestination = "CreateDestination"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateDestinationRequest method.
+//	req, resp := client.CreateDestinationRequest(params)
 //
-//    // Example sending a request using the CreateDestinationRequest method.
-//    req, resp := client.CreateDestinationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateDestination
 func (c *IoTWireless) CreateDestinationRequest(input *CreateDestinationInput) (req *request.Request, output *CreateDestinationOutput) {
@@ -825,23 +824,24 @@ func (c *IoTWireless) CreateDestinationRequest(input *CreateDestinationInput) (r
 // API operation CreateDestination for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateDestination
 func (c *IoTWireless) CreateDestination(input *CreateDestinationInput) (*CreateDestinationOutput, error) {
@@ -881,14 +881,13 @@ const opCreateDeviceProfile = "CreateDeviceProfile"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateDeviceProfileRequest method.
+//	req, resp := client.CreateDeviceProfileRequest(params)
 //
-//    // Example sending a request using the CreateDeviceProfileRequest method.
-//    req, resp := client.CreateDeviceProfileRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateDeviceProfile
 func (c *IoTWireless) CreateDeviceProfileRequest(input *CreateDeviceProfileInput) (req *request.Request, output *CreateDeviceProfileOutput) {
@@ -919,20 +918,21 @@ func (c *IoTWireless) CreateDeviceProfileRequest(input *CreateDeviceProfileInput
 // API operation CreateDeviceProfile for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateDeviceProfile
 func (c *IoTWireless) CreateDeviceProfile(input *CreateDeviceProfileInput) (*CreateDeviceProfileOutput, error) {
@@ -972,14 +972,13 @@ const opCreateFuotaTask = "CreateFuotaTask"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateFuotaTaskRequest method.
+//	req, resp := client.CreateFuotaTaskRequest(params)
 //
-//    // Example sending a request using the CreateFuotaTaskRequest method.
-//    req, resp := client.CreateFuotaTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateFuotaTask
 func (c *IoTWireless) CreateFuotaTaskRequest(input *CreateFuotaTaskInput) (req *request.Request, output *CreateFuotaTaskOutput) {
@@ -1010,23 +1009,24 @@ func (c *IoTWireless) CreateFuotaTaskRequest(input *CreateFuotaTaskInput) (req *
 // API operation CreateFuotaTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateFuotaTask
 func (c *IoTWireless) CreateFuotaTask(input *CreateFuotaTaskInput) (*CreateFuotaTaskOutput, error) {
@@ -1066,14 +1066,13 @@ const opCreateMulticastGroup = "CreateMulticastGroup"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateMulticastGroupRequest method.
+//	req, resp := client.CreateMulticastGroupRequest(params)
 //
-//    // Example sending a request using the CreateMulticastGroupRequest method.
-//    req, resp := client.CreateMulticastGroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateMulticastGroup
 func (c *IoTWireless) CreateMulticastGroupRequest(input *CreateMulticastGroupInput) (req *request.Request, output *CreateMulticastGroupOutput) {
@@ -1104,23 +1103,24 @@ func (c *IoTWireless) CreateMulticastGroupRequest(input *CreateMulticastGroupInp
 // API operation CreateMulticastGroup for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateMulticastGroup
 func (c *IoTWireless) CreateMulticastGroup(input *CreateMulticastGroupInput) (*CreateMulticastGroupOutput, error) {
@@ -1160,14 +1160,13 @@ const opCreateNetworkAnalyzerConfiguration = "CreateNetworkAnalyzerConfiguration
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateNetworkAnalyzerConfigurationRequest method.
+//	req, resp := client.CreateNetworkAnalyzerConfigurationRequest(params)
 //
-//    // Example sending a request using the CreateNetworkAnalyzerConfigurationRequest method.
-//    req, resp := client.CreateNetworkAnalyzerConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateNetworkAnalyzerConfiguration
 func (c *IoTWireless) CreateNetworkAnalyzerConfigurationRequest(input *CreateNetworkAnalyzerConfigurationInput) (req *request.Request, output *CreateNetworkAnalyzerConfigurationOutput) {
@@ -1198,23 +1197,24 @@ func (c *IoTWireless) CreateNetworkAnalyzerConfigurationRequest(input *CreateNet
 // API operation CreateNetworkAnalyzerConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateNetworkAnalyzerConfiguration
 func (c *IoTWireless) CreateNetworkAnalyzerConfiguration(input *CreateNetworkAnalyzerConfigurationInput) (*CreateNetworkAnalyzerConfigurationOutput, error) {
@@ -1254,14 +1254,13 @@ const opCreateServiceProfile = "CreateServiceProfile"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateServiceProfileRequest method.
+//	req, resp := client.CreateServiceProfileRequest(params)
 //
-//    // Example sending a request using the CreateServiceProfileRequest method.
-//    req, resp := client.CreateServiceProfileRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateServiceProfile
 func (c *IoTWireless) CreateServiceProfileRequest(input *CreateServiceProfileInput) (req *request.Request, output *CreateServiceProfileOutput) {
@@ -1292,20 +1291,21 @@ func (c *IoTWireless) CreateServiceProfileRequest(input *CreateServiceProfileInp
 // API operation CreateServiceProfile for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateServiceProfile
 func (c *IoTWireless) CreateServiceProfile(input *CreateServiceProfileInput) (*CreateServiceProfileOutput, error) {
@@ -1345,14 +1345,13 @@ const opCreateWirelessDevice = "CreateWirelessDevice"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateWirelessDeviceRequest method.
+//	req, resp := client.CreateWirelessDeviceRequest(params)
 //
-//    // Example sending a request using the CreateWirelessDeviceRequest method.
-//    req, resp := client.CreateWirelessDeviceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateWirelessDevice
 func (c *IoTWireless) CreateWirelessDeviceRequest(input *CreateWirelessDeviceInput) (req *request.Request, output *CreateWirelessDeviceOutput) {
@@ -1383,23 +1382,24 @@ func (c *IoTWireless) CreateWirelessDeviceRequest(input *CreateWirelessDeviceInp
 // API operation CreateWirelessDevice for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateWirelessDevice
 func (c *IoTWireless) CreateWirelessDevice(input *CreateWirelessDeviceInput) (*CreateWirelessDeviceOutput, error) {
@@ -1439,14 +1439,13 @@ const opCreateWirelessGateway = "CreateWirelessGateway"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateWirelessGatewayRequest method.
+//	req, resp := client.CreateWirelessGatewayRequest(params)
 //
-//    // Example sending a request using the CreateWirelessGatewayRequest method.
-//    req, resp := client.CreateWirelessGatewayRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateWirelessGateway
 func (c *IoTWireless) CreateWirelessGatewayRequest(input *CreateWirelessGatewayInput) (req *request.Request, output *CreateWirelessGatewayOutput) {
@@ -1469,6 +1468,17 @@ func (c *IoTWireless) CreateWirelessGatewayRequest(input *CreateWirelessGatewayI
 //
 // Provisions a wireless gateway.
 //
+// When provisioning a wireless gateway, you might run into duplication errors
+// for the following reasons.
+//
+//   - If you specify a GatewayEui value that already exists.
+//
+//   - If you used a ClientRequestToken with the same parameters within the
+//     last 10 minutes.
+//
+// To avoid this error, make sure that you use unique identifiers and parameters
+// for each request within the specified time period.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -1477,20 +1487,21 @@ func (c *IoTWireless) CreateWirelessGatewayRequest(input *CreateWirelessGatewayI
 // API operation CreateWirelessGateway for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateWirelessGateway
 func (c *IoTWireless) CreateWirelessGateway(input *CreateWirelessGatewayInput) (*CreateWirelessGatewayOutput, error) {
@@ -1530,14 +1541,13 @@ const opCreateWirelessGatewayTask = "CreateWirelessGatewayTask"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateWirelessGatewayTaskRequest method.
+//	req, resp := client.CreateWirelessGatewayTaskRequest(params)
 //
-//    // Example sending a request using the CreateWirelessGatewayTaskRequest method.
-//    req, resp := client.CreateWirelessGatewayTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateWirelessGatewayTask
 func (c *IoTWireless) CreateWirelessGatewayTaskRequest(input *CreateWirelessGatewayTaskInput) (req *request.Request, output *CreateWirelessGatewayTaskOutput) {
@@ -1568,23 +1578,24 @@ func (c *IoTWireless) CreateWirelessGatewayTaskRequest(input *CreateWirelessGate
 // API operation CreateWirelessGatewayTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateWirelessGatewayTask
 func (c *IoTWireless) CreateWirelessGatewayTask(input *CreateWirelessGatewayTaskInput) (*CreateWirelessGatewayTaskOutput, error) {
@@ -1624,14 +1635,13 @@ const opCreateWirelessGatewayTaskDefinition = "CreateWirelessGatewayTaskDefiniti
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the CreateWirelessGatewayTaskDefinitionRequest method.
+//	req, resp := client.CreateWirelessGatewayTaskDefinitionRequest(params)
 //
-//    // Example sending a request using the CreateWirelessGatewayTaskDefinitionRequest method.
-//    req, resp := client.CreateWirelessGatewayTaskDefinitionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateWirelessGatewayTaskDefinition
 func (c *IoTWireless) CreateWirelessGatewayTaskDefinitionRequest(input *CreateWirelessGatewayTaskDefinitionInput) (req *request.Request, output *CreateWirelessGatewayTaskDefinitionOutput) {
@@ -1662,23 +1672,24 @@ func (c *IoTWireless) CreateWirelessGatewayTaskDefinitionRequest(input *CreateWi
 // API operation CreateWirelessGatewayTaskDefinition for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/CreateWirelessGatewayTaskDefinition
 func (c *IoTWireless) CreateWirelessGatewayTaskDefinition(input *CreateWirelessGatewayTaskDefinitionInput) (*CreateWirelessGatewayTaskDefinitionOutput, error) {
@@ -1718,14 +1729,13 @@ const opDeleteDestination = "DeleteDestination"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteDestinationRequest method.
+//	req, resp := client.DeleteDestinationRequest(params)
 //
-//    // Example sending a request using the DeleteDestinationRequest method.
-//    req, resp := client.DeleteDestinationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteDestination
 func (c *IoTWireless) DeleteDestinationRequest(input *DeleteDestinationInput) (req *request.Request, output *DeleteDestinationOutput) {
@@ -1757,23 +1767,24 @@ func (c *IoTWireless) DeleteDestinationRequest(input *DeleteDestinationInput) (r
 // API operation DeleteDestination for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteDestination
 func (c *IoTWireless) DeleteDestination(input *DeleteDestinationInput) (*DeleteDestinationOutput, error) {
@@ -1813,14 +1824,13 @@ const opDeleteDeviceProfile = "DeleteDeviceProfile"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteDeviceProfileRequest method.
+//	req, resp := client.DeleteDeviceProfileRequest(params)
 //
-//    // Example sending a request using the DeleteDeviceProfileRequest method.
-//    req, resp := client.DeleteDeviceProfileRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteDeviceProfile
 func (c *IoTWireless) DeleteDeviceProfileRequest(input *DeleteDeviceProfileInput) (req *request.Request, output *DeleteDeviceProfileOutput) {
@@ -1852,23 +1862,24 @@ func (c *IoTWireless) DeleteDeviceProfileRequest(input *DeleteDeviceProfileInput
 // API operation DeleteDeviceProfile for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteDeviceProfile
 func (c *IoTWireless) DeleteDeviceProfile(input *DeleteDeviceProfileInput) (*DeleteDeviceProfileOutput, error) {
@@ -1908,14 +1919,13 @@ const opDeleteFuotaTask = "DeleteFuotaTask"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteFuotaTaskRequest method.
+//	req, resp := client.DeleteFuotaTaskRequest(params)
 //
-//    // Example sending a request using the DeleteFuotaTaskRequest method.
-//    req, resp := client.DeleteFuotaTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteFuotaTask
 func (c *IoTWireless) DeleteFuotaTaskRequest(input *DeleteFuotaTaskInput) (req *request.Request, output *DeleteFuotaTaskOutput) {
@@ -1947,20 +1957,21 @@ func (c *IoTWireless) DeleteFuotaTaskRequest(input *DeleteFuotaTaskInput) (req *
 // API operation DeleteFuotaTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteFuotaTask
 func (c *IoTWireless) DeleteFuotaTask(input *DeleteFuotaTaskInput) (*DeleteFuotaTaskOutput, error) {
@@ -2000,14 +2011,13 @@ const opDeleteMulticastGroup = "DeleteMulticastGroup"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteMulticastGroupRequest method.
+//	req, resp := client.DeleteMulticastGroupRequest(params)
 //
-//    // Example sending a request using the DeleteMulticastGroupRequest method.
-//    req, resp := client.DeleteMulticastGroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteMulticastGroup
 func (c *IoTWireless) DeleteMulticastGroupRequest(input *DeleteMulticastGroupInput) (req *request.Request, output *DeleteMulticastGroupOutput) {
@@ -2039,23 +2049,24 @@ func (c *IoTWireless) DeleteMulticastGroupRequest(input *DeleteMulticastGroupInp
 // API operation DeleteMulticastGroup for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteMulticastGroup
 func (c *IoTWireless) DeleteMulticastGroup(input *DeleteMulticastGroupInput) (*DeleteMulticastGroupOutput, error) {
@@ -2095,14 +2106,13 @@ const opDeleteNetworkAnalyzerConfiguration = "DeleteNetworkAnalyzerConfiguration
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteNetworkAnalyzerConfigurationRequest method.
+//	req, resp := client.DeleteNetworkAnalyzerConfigurationRequest(params)
 //
-//    // Example sending a request using the DeleteNetworkAnalyzerConfigurationRequest method.
-//    req, resp := client.DeleteNetworkAnalyzerConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteNetworkAnalyzerConfiguration
 func (c *IoTWireless) DeleteNetworkAnalyzerConfigurationRequest(input *DeleteNetworkAnalyzerConfigurationInput) (req *request.Request, output *DeleteNetworkAnalyzerConfigurationOutput) {
@@ -2134,23 +2144,24 @@ func (c *IoTWireless) DeleteNetworkAnalyzerConfigurationRequest(input *DeleteNet
 // API operation DeleteNetworkAnalyzerConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteNetworkAnalyzerConfiguration
 func (c *IoTWireless) DeleteNetworkAnalyzerConfiguration(input *DeleteNetworkAnalyzerConfigurationInput) (*DeleteNetworkAnalyzerConfigurationOutput, error) {
@@ -2190,14 +2201,13 @@ const opDeleteQueuedMessages = "DeleteQueuedMessages"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteQueuedMessagesRequest method.
+//	req, resp := client.DeleteQueuedMessagesRequest(params)
 //
-//    // Example sending a request using the DeleteQueuedMessagesRequest method.
-//    req, resp := client.DeleteQueuedMessagesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteQueuedMessages
 func (c *IoTWireless) DeleteQueuedMessagesRequest(input *DeleteQueuedMessagesInput) (req *request.Request, output *DeleteQueuedMessagesOutput) {
@@ -2229,20 +2239,21 @@ func (c *IoTWireless) DeleteQueuedMessagesRequest(input *DeleteQueuedMessagesInp
 // API operation DeleteQueuedMessages for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteQueuedMessages
 func (c *IoTWireless) DeleteQueuedMessages(input *DeleteQueuedMessagesInput) (*DeleteQueuedMessagesOutput, error) {
@@ -2282,14 +2293,13 @@ const opDeleteServiceProfile = "DeleteServiceProfile"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteServiceProfileRequest method.
+//	req, resp := client.DeleteServiceProfileRequest(params)
 //
-//    // Example sending a request using the DeleteServiceProfileRequest method.
-//    req, resp := client.DeleteServiceProfileRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteServiceProfile
 func (c *IoTWireless) DeleteServiceProfileRequest(input *DeleteServiceProfileInput) (req *request.Request, output *DeleteServiceProfileOutput) {
@@ -2321,23 +2331,24 @@ func (c *IoTWireless) DeleteServiceProfileRequest(input *DeleteServiceProfileInp
 // API operation DeleteServiceProfile for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteServiceProfile
 func (c *IoTWireless) DeleteServiceProfile(input *DeleteServiceProfileInput) (*DeleteServiceProfileOutput, error) {
@@ -2377,14 +2388,13 @@ const opDeleteWirelessDevice = "DeleteWirelessDevice"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteWirelessDeviceRequest method.
+//	req, resp := client.DeleteWirelessDeviceRequest(params)
 //
-//    // Example sending a request using the DeleteWirelessDeviceRequest method.
-//    req, resp := client.DeleteWirelessDeviceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteWirelessDevice
 func (c *IoTWireless) DeleteWirelessDeviceRequest(input *DeleteWirelessDeviceInput) (req *request.Request, output *DeleteWirelessDeviceOutput) {
@@ -2416,20 +2426,21 @@ func (c *IoTWireless) DeleteWirelessDeviceRequest(input *DeleteWirelessDeviceInp
 // API operation DeleteWirelessDevice for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteWirelessDevice
 func (c *IoTWireless) DeleteWirelessDevice(input *DeleteWirelessDeviceInput) (*DeleteWirelessDeviceOutput, error) {
@@ -2453,6 +2464,101 @@ func (c *IoTWireless) DeleteWirelessDeviceWithContext(ctx aws.Context, input *De
 	return out, req.Send()
 }
 
+const opDeleteWirelessDeviceImportTask = "DeleteWirelessDeviceImportTask"
+
+// DeleteWirelessDeviceImportTaskRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteWirelessDeviceImportTask operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteWirelessDeviceImportTask for more information on using the DeleteWirelessDeviceImportTask
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeleteWirelessDeviceImportTaskRequest method.
+//	req, resp := client.DeleteWirelessDeviceImportTaskRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteWirelessDeviceImportTask
+func (c *IoTWireless) DeleteWirelessDeviceImportTaskRequest(input *DeleteWirelessDeviceImportTaskInput) (req *request.Request, output *DeleteWirelessDeviceImportTaskOutput) {
+	op := &request.Operation{
+		Name:       opDeleteWirelessDeviceImportTask,
+		HTTPMethod: "DELETE",
+		HTTPPath:   "/wireless_device_import_task/{Id}",
+	}
+
+	if input == nil {
+		input = &DeleteWirelessDeviceImportTaskInput{}
+	}
+
+	output = &DeleteWirelessDeviceImportTaskOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteWirelessDeviceImportTask API operation for AWS IoT Wireless.
+//
+// Delete an import task.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation DeleteWirelessDeviceImportTask for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteWirelessDeviceImportTask
+func (c *IoTWireless) DeleteWirelessDeviceImportTask(input *DeleteWirelessDeviceImportTaskInput) (*DeleteWirelessDeviceImportTaskOutput, error) {
+	req, out := c.DeleteWirelessDeviceImportTaskRequest(input)
+	return out, req.Send()
+}
+
+// DeleteWirelessDeviceImportTaskWithContext is the same as DeleteWirelessDeviceImportTask with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteWirelessDeviceImportTask for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) DeleteWirelessDeviceImportTaskWithContext(ctx aws.Context, input *DeleteWirelessDeviceImportTaskInput, opts ...request.Option) (*DeleteWirelessDeviceImportTaskOutput, error) {
+	req, out := c.DeleteWirelessDeviceImportTaskRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteWirelessGateway = "DeleteWirelessGateway"
 
 // DeleteWirelessGatewayRequest generates a "aws/request.Request" representing the
@@ -2469,14 +2575,13 @@ const opDeleteWirelessGateway = "DeleteWirelessGateway"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteWirelessGatewayRequest method.
+//	req, resp := client.DeleteWirelessGatewayRequest(params)
 //
-//    // Example sending a request using the DeleteWirelessGatewayRequest method.
-//    req, resp := client.DeleteWirelessGatewayRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteWirelessGateway
 func (c *IoTWireless) DeleteWirelessGatewayRequest(input *DeleteWirelessGatewayInput) (req *request.Request, output *DeleteWirelessGatewayOutput) {
@@ -2500,6 +2605,17 @@ func (c *IoTWireless) DeleteWirelessGatewayRequest(input *DeleteWirelessGatewayI
 //
 // Deletes a wireless gateway.
 //
+// When deleting a wireless gateway, you might run into duplication errors for
+// the following reasons.
+//
+//   - If you specify a GatewayEui value that already exists.
+//
+//   - If you used a ClientRequestToken with the same parameters within the
+//     last 10 minutes.
+//
+// To avoid this error, make sure that you use unique identifiers and parameters
+// for each request within the specified time period.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -2508,20 +2624,21 @@ func (c *IoTWireless) DeleteWirelessGatewayRequest(input *DeleteWirelessGatewayI
 // API operation DeleteWirelessGateway for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteWirelessGateway
 func (c *IoTWireless) DeleteWirelessGateway(input *DeleteWirelessGatewayInput) (*DeleteWirelessGatewayOutput, error) {
@@ -2561,14 +2678,13 @@ const opDeleteWirelessGatewayTask = "DeleteWirelessGatewayTask"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteWirelessGatewayTaskRequest method.
+//	req, resp := client.DeleteWirelessGatewayTaskRequest(params)
 //
-//    // Example sending a request using the DeleteWirelessGatewayTaskRequest method.
-//    req, resp := client.DeleteWirelessGatewayTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteWirelessGatewayTask
 func (c *IoTWireless) DeleteWirelessGatewayTaskRequest(input *DeleteWirelessGatewayTaskInput) (req *request.Request, output *DeleteWirelessGatewayTaskOutput) {
@@ -2600,20 +2716,21 @@ func (c *IoTWireless) DeleteWirelessGatewayTaskRequest(input *DeleteWirelessGate
 // API operation DeleteWirelessGatewayTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteWirelessGatewayTask
 func (c *IoTWireless) DeleteWirelessGatewayTask(input *DeleteWirelessGatewayTaskInput) (*DeleteWirelessGatewayTaskOutput, error) {
@@ -2653,14 +2770,13 @@ const opDeleteWirelessGatewayTaskDefinition = "DeleteWirelessGatewayTaskDefiniti
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DeleteWirelessGatewayTaskDefinitionRequest method.
+//	req, resp := client.DeleteWirelessGatewayTaskDefinitionRequest(params)
 //
-//    // Example sending a request using the DeleteWirelessGatewayTaskDefinitionRequest method.
-//    req, resp := client.DeleteWirelessGatewayTaskDefinitionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteWirelessGatewayTaskDefinition
 func (c *IoTWireless) DeleteWirelessGatewayTaskDefinitionRequest(input *DeleteWirelessGatewayTaskDefinitionInput) (req *request.Request, output *DeleteWirelessGatewayTaskDefinitionOutput) {
@@ -2693,20 +2809,21 @@ func (c *IoTWireless) DeleteWirelessGatewayTaskDefinitionRequest(input *DeleteWi
 // API operation DeleteWirelessGatewayTaskDefinition for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteWirelessGatewayTaskDefinition
 func (c *IoTWireless) DeleteWirelessGatewayTaskDefinition(input *DeleteWirelessGatewayTaskDefinitionInput) (*DeleteWirelessGatewayTaskDefinitionOutput, error) {
@@ -2730,6 +2847,95 @@ func (c *IoTWireless) DeleteWirelessGatewayTaskDefinitionWithContext(ctx aws.Con
 	return out, req.Send()
 }
 
+const opDeregisterWirelessDevice = "DeregisterWirelessDevice"
+
+// DeregisterWirelessDeviceRequest generates a "aws/request.Request" representing the
+// client's request for the DeregisterWirelessDevice operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeregisterWirelessDevice for more information on using the DeregisterWirelessDevice
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the DeregisterWirelessDeviceRequest method.
+//	req, resp := client.DeregisterWirelessDeviceRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeregisterWirelessDevice
+func (c *IoTWireless) DeregisterWirelessDeviceRequest(input *DeregisterWirelessDeviceInput) (req *request.Request, output *DeregisterWirelessDeviceOutput) {
+	op := &request.Operation{
+		Name:       opDeregisterWirelessDevice,
+		HTTPMethod: "PATCH",
+		HTTPPath:   "/wireless-devices/{Identifier}/deregister",
+	}
+
+	if input == nil {
+		input = &DeregisterWirelessDeviceInput{}
+	}
+
+	output = &DeregisterWirelessDeviceOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeregisterWirelessDevice API operation for AWS IoT Wireless.
+//
+// Deregister a wireless device from AWS IoT Wireless.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation DeregisterWirelessDevice for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeregisterWirelessDevice
+func (c *IoTWireless) DeregisterWirelessDevice(input *DeregisterWirelessDeviceInput) (*DeregisterWirelessDeviceOutput, error) {
+	req, out := c.DeregisterWirelessDeviceRequest(input)
+	return out, req.Send()
+}
+
+// DeregisterWirelessDeviceWithContext is the same as DeregisterWirelessDevice with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeregisterWirelessDevice for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) DeregisterWirelessDeviceWithContext(ctx aws.Context, input *DeregisterWirelessDeviceInput, opts ...request.Option) (*DeregisterWirelessDeviceOutput, error) {
+	req, out := c.DeregisterWirelessDeviceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDisassociateAwsAccountFromPartnerAccount = "DisassociateAwsAccountFromPartnerAccount"
 
 // DisassociateAwsAccountFromPartnerAccountRequest generates a "aws/request.Request" representing the
@@ -2746,14 +2952,13 @@ const opDisassociateAwsAccountFromPartnerAccount = "DisassociateAwsAccountFromPa
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DisassociateAwsAccountFromPartnerAccountRequest method.
+//	req, resp := client.DisassociateAwsAccountFromPartnerAccountRequest(params)
 //
-//    // Example sending a request using the DisassociateAwsAccountFromPartnerAccountRequest method.
-//    req, resp := client.DisassociateAwsAccountFromPartnerAccountRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateAwsAccountFromPartnerAccount
 func (c *IoTWireless) DisassociateAwsAccountFromPartnerAccountRequest(input *DisassociateAwsAccountFromPartnerAccountInput) (req *request.Request, output *DisassociateAwsAccountFromPartnerAccountOutput) {
@@ -2787,17 +2992,18 @@ func (c *IoTWireless) DisassociateAwsAccountFromPartnerAccountRequest(input *Dis
 // API operation DisassociateAwsAccountFromPartnerAccount for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateAwsAccountFromPartnerAccount
 func (c *IoTWireless) DisassociateAwsAccountFromPartnerAccount(input *DisassociateAwsAccountFromPartnerAccountInput) (*DisassociateAwsAccountFromPartnerAccountOutput, error) {
@@ -2837,14 +3043,13 @@ const opDisassociateMulticastGroupFromFuotaTask = "DisassociateMulticastGroupFro
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DisassociateMulticastGroupFromFuotaTaskRequest method.
+//	req, resp := client.DisassociateMulticastGroupFromFuotaTaskRequest(params)
 //
-//    // Example sending a request using the DisassociateMulticastGroupFromFuotaTaskRequest method.
-//    req, resp := client.DisassociateMulticastGroupFromFuotaTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateMulticastGroupFromFuotaTask
 func (c *IoTWireless) DisassociateMulticastGroupFromFuotaTaskRequest(input *DisassociateMulticastGroupFromFuotaTaskInput) (req *request.Request, output *DisassociateMulticastGroupFromFuotaTaskOutput) {
@@ -2876,20 +3081,21 @@ func (c *IoTWireless) DisassociateMulticastGroupFromFuotaTaskRequest(input *Disa
 // API operation DisassociateMulticastGroupFromFuotaTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateMulticastGroupFromFuotaTask
 func (c *IoTWireless) DisassociateMulticastGroupFromFuotaTask(input *DisassociateMulticastGroupFromFuotaTaskInput) (*DisassociateMulticastGroupFromFuotaTaskOutput, error) {
@@ -2929,14 +3135,13 @@ const opDisassociateWirelessDeviceFromFuotaTask = "DisassociateWirelessDeviceFro
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DisassociateWirelessDeviceFromFuotaTaskRequest method.
+//	req, resp := client.DisassociateWirelessDeviceFromFuotaTaskRequest(params)
 //
-//    // Example sending a request using the DisassociateWirelessDeviceFromFuotaTaskRequest method.
-//    req, resp := client.DisassociateWirelessDeviceFromFuotaTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateWirelessDeviceFromFuotaTask
 func (c *IoTWireless) DisassociateWirelessDeviceFromFuotaTaskRequest(input *DisassociateWirelessDeviceFromFuotaTaskInput) (req *request.Request, output *DisassociateWirelessDeviceFromFuotaTaskOutput) {
@@ -2968,23 +3173,24 @@ func (c *IoTWireless) DisassociateWirelessDeviceFromFuotaTaskRequest(input *Disa
 // API operation DisassociateWirelessDeviceFromFuotaTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateWirelessDeviceFromFuotaTask
 func (c *IoTWireless) DisassociateWirelessDeviceFromFuotaTask(input *DisassociateWirelessDeviceFromFuotaTaskInput) (*DisassociateWirelessDeviceFromFuotaTaskOutput, error) {
@@ -3024,14 +3230,13 @@ const opDisassociateWirelessDeviceFromMulticastGroup = "DisassociateWirelessDevi
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DisassociateWirelessDeviceFromMulticastGroupRequest method.
+//	req, resp := client.DisassociateWirelessDeviceFromMulticastGroupRequest(params)
 //
-//    // Example sending a request using the DisassociateWirelessDeviceFromMulticastGroupRequest method.
-//    req, resp := client.DisassociateWirelessDeviceFromMulticastGroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateWirelessDeviceFromMulticastGroup
 func (c *IoTWireless) DisassociateWirelessDeviceFromMulticastGroupRequest(input *DisassociateWirelessDeviceFromMulticastGroupInput) (req *request.Request, output *DisassociateWirelessDeviceFromMulticastGroupOutput) {
@@ -3063,20 +3268,21 @@ func (c *IoTWireless) DisassociateWirelessDeviceFromMulticastGroupRequest(input 
 // API operation DisassociateWirelessDeviceFromMulticastGroup for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateWirelessDeviceFromMulticastGroup
 func (c *IoTWireless) DisassociateWirelessDeviceFromMulticastGroup(input *DisassociateWirelessDeviceFromMulticastGroupInput) (*DisassociateWirelessDeviceFromMulticastGroupOutput, error) {
@@ -3116,14 +3322,13 @@ const opDisassociateWirelessDeviceFromThing = "DisassociateWirelessDeviceFromThi
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DisassociateWirelessDeviceFromThingRequest method.
+//	req, resp := client.DisassociateWirelessDeviceFromThingRequest(params)
 //
-//    // Example sending a request using the DisassociateWirelessDeviceFromThingRequest method.
-//    req, resp := client.DisassociateWirelessDeviceFromThingRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateWirelessDeviceFromThing
 func (c *IoTWireless) DisassociateWirelessDeviceFromThingRequest(input *DisassociateWirelessDeviceFromThingInput) (req *request.Request, output *DisassociateWirelessDeviceFromThingOutput) {
@@ -3155,23 +3360,24 @@ func (c *IoTWireless) DisassociateWirelessDeviceFromThingRequest(input *Disassoc
 // API operation DisassociateWirelessDeviceFromThing for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateWirelessDeviceFromThing
 func (c *IoTWireless) DisassociateWirelessDeviceFromThing(input *DisassociateWirelessDeviceFromThingInput) (*DisassociateWirelessDeviceFromThingOutput, error) {
@@ -3211,14 +3417,13 @@ const opDisassociateWirelessGatewayFromCertificate = "DisassociateWirelessGatewa
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DisassociateWirelessGatewayFromCertificateRequest method.
+//	req, resp := client.DisassociateWirelessGatewayFromCertificateRequest(params)
 //
-//    // Example sending a request using the DisassociateWirelessGatewayFromCertificateRequest method.
-//    req, resp := client.DisassociateWirelessGatewayFromCertificateRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateWirelessGatewayFromCertificate
 func (c *IoTWireless) DisassociateWirelessGatewayFromCertificateRequest(input *DisassociateWirelessGatewayFromCertificateInput) (req *request.Request, output *DisassociateWirelessGatewayFromCertificateOutput) {
@@ -3250,20 +3455,21 @@ func (c *IoTWireless) DisassociateWirelessGatewayFromCertificateRequest(input *D
 // API operation DisassociateWirelessGatewayFromCertificate for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateWirelessGatewayFromCertificate
 func (c *IoTWireless) DisassociateWirelessGatewayFromCertificate(input *DisassociateWirelessGatewayFromCertificateInput) (*DisassociateWirelessGatewayFromCertificateOutput, error) {
@@ -3303,14 +3509,13 @@ const opDisassociateWirelessGatewayFromThing = "DisassociateWirelessGatewayFromT
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the DisassociateWirelessGatewayFromThingRequest method.
+//	req, resp := client.DisassociateWirelessGatewayFromThingRequest(params)
 //
-//    // Example sending a request using the DisassociateWirelessGatewayFromThingRequest method.
-//    req, resp := client.DisassociateWirelessGatewayFromThingRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateWirelessGatewayFromThing
 func (c *IoTWireless) DisassociateWirelessGatewayFromThingRequest(input *DisassociateWirelessGatewayFromThingInput) (req *request.Request, output *DisassociateWirelessGatewayFromThingOutput) {
@@ -3342,23 +3547,24 @@ func (c *IoTWireless) DisassociateWirelessGatewayFromThingRequest(input *Disasso
 // API operation DisassociateWirelessGatewayFromThing for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DisassociateWirelessGatewayFromThing
 func (c *IoTWireless) DisassociateWirelessGatewayFromThing(input *DisassociateWirelessGatewayFromThingInput) (*DisassociateWirelessGatewayFromThingOutput, error) {
@@ -3398,14 +3604,13 @@ const opGetDestination = "GetDestination"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetDestinationRequest method.
+//	req, resp := client.GetDestinationRequest(params)
 //
-//    // Example sending a request using the GetDestinationRequest method.
-//    req, resp := client.GetDestinationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetDestination
 func (c *IoTWireless) GetDestinationRequest(input *GetDestinationInput) (req *request.Request, output *GetDestinationOutput) {
@@ -3436,20 +3641,21 @@ func (c *IoTWireless) GetDestinationRequest(input *GetDestinationInput) (req *re
 // API operation GetDestination for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetDestination
 func (c *IoTWireless) GetDestination(input *GetDestinationInput) (*GetDestinationOutput, error) {
@@ -3489,14 +3695,13 @@ const opGetDeviceProfile = "GetDeviceProfile"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetDeviceProfileRequest method.
+//	req, resp := client.GetDeviceProfileRequest(params)
 //
-//    // Example sending a request using the GetDeviceProfileRequest method.
-//    req, resp := client.GetDeviceProfileRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetDeviceProfile
 func (c *IoTWireless) GetDeviceProfileRequest(input *GetDeviceProfileInput) (req *request.Request, output *GetDeviceProfileOutput) {
@@ -3527,20 +3732,21 @@ func (c *IoTWireless) GetDeviceProfileRequest(input *GetDeviceProfileInput) (req
 // API operation GetDeviceProfile for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetDeviceProfile
 func (c *IoTWireless) GetDeviceProfile(input *GetDeviceProfileInput) (*GetDeviceProfileOutput, error) {
@@ -3580,14 +3786,13 @@ const opGetEventConfigurationByResourceTypes = "GetEventConfigurationByResourceT
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetEventConfigurationByResourceTypesRequest method.
+//	req, resp := client.GetEventConfigurationByResourceTypesRequest(params)
 //
-//    // Example sending a request using the GetEventConfigurationByResourceTypesRequest method.
-//    req, resp := client.GetEventConfigurationByResourceTypesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetEventConfigurationByResourceTypes
 func (c *IoTWireless) GetEventConfigurationByResourceTypesRequest(input *GetEventConfigurationByResourceTypesInput) (req *request.Request, output *GetEventConfigurationByResourceTypesOutput) {
@@ -3618,14 +3823,15 @@ func (c *IoTWireless) GetEventConfigurationByResourceTypesRequest(input *GetEven
 // API operation GetEventConfigurationByResourceTypes for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetEventConfigurationByResourceTypes
 func (c *IoTWireless) GetEventConfigurationByResourceTypes(input *GetEventConfigurationByResourceTypesInput) (*GetEventConfigurationByResourceTypesOutput, error) {
@@ -3665,14 +3871,13 @@ const opGetFuotaTask = "GetFuotaTask"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetFuotaTaskRequest method.
+//	req, resp := client.GetFuotaTaskRequest(params)
 //
-//    // Example sending a request using the GetFuotaTaskRequest method.
-//    req, resp := client.GetFuotaTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetFuotaTask
 func (c *IoTWireless) GetFuotaTaskRequest(input *GetFuotaTaskInput) (req *request.Request, output *GetFuotaTaskOutput) {
@@ -3703,20 +3908,21 @@ func (c *IoTWireless) GetFuotaTaskRequest(input *GetFuotaTaskInput) (req *reques
 // API operation GetFuotaTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetFuotaTask
 func (c *IoTWireless) GetFuotaTask(input *GetFuotaTaskInput) (*GetFuotaTaskOutput, error) {
@@ -3756,14 +3962,13 @@ const opGetLogLevelsByResourceTypes = "GetLogLevelsByResourceTypes"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetLogLevelsByResourceTypesRequest method.
+//	req, resp := client.GetLogLevelsByResourceTypesRequest(params)
 //
-//    // Example sending a request using the GetLogLevelsByResourceTypesRequest method.
-//    req, resp := client.GetLogLevelsByResourceTypesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetLogLevelsByResourceTypes
 func (c *IoTWireless) GetLogLevelsByResourceTypesRequest(input *GetLogLevelsByResourceTypesInput) (req *request.Request, output *GetLogLevelsByResourceTypesOutput) {
@@ -3796,20 +4001,21 @@ func (c *IoTWireless) GetLogLevelsByResourceTypesRequest(input *GetLogLevelsByRe
 // API operation GetLogLevelsByResourceTypes for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ValidationException
-//   The input did not meet the specified constraints.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetLogLevelsByResourceTypes
 func (c *IoTWireless) GetLogLevelsByResourceTypes(input *GetLogLevelsByResourceTypesInput) (*GetLogLevelsByResourceTypesOutput, error) {
@@ -3833,6 +4039,194 @@ func (c *IoTWireless) GetLogLevelsByResourceTypesWithContext(ctx aws.Context, in
 	return out, req.Send()
 }
 
+const opGetMetricConfiguration = "GetMetricConfiguration"
+
+// GetMetricConfigurationRequest generates a "aws/request.Request" representing the
+// client's request for the GetMetricConfiguration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetMetricConfiguration for more information on using the GetMetricConfiguration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the GetMetricConfigurationRequest method.
+//	req, resp := client.GetMetricConfigurationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetMetricConfiguration
+func (c *IoTWireless) GetMetricConfigurationRequest(input *GetMetricConfigurationInput) (req *request.Request, output *GetMetricConfigurationOutput) {
+	op := &request.Operation{
+		Name:       opGetMetricConfiguration,
+		HTTPMethod: "GET",
+		HTTPPath:   "/metric-configuration",
+	}
+
+	if input == nil {
+		input = &GetMetricConfigurationInput{}
+	}
+
+	output = &GetMetricConfigurationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetMetricConfiguration API operation for AWS IoT Wireless.
+//
+// Get the metric configuration status for this AWS account.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation GetMetricConfiguration for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetMetricConfiguration
+func (c *IoTWireless) GetMetricConfiguration(input *GetMetricConfigurationInput) (*GetMetricConfigurationOutput, error) {
+	req, out := c.GetMetricConfigurationRequest(input)
+	return out, req.Send()
+}
+
+// GetMetricConfigurationWithContext is the same as GetMetricConfiguration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetMetricConfiguration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) GetMetricConfigurationWithContext(ctx aws.Context, input *GetMetricConfigurationInput, opts ...request.Option) (*GetMetricConfigurationOutput, error) {
+	req, out := c.GetMetricConfigurationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opGetMetrics = "GetMetrics"
+
+// GetMetricsRequest generates a "aws/request.Request" representing the
+// client's request for the GetMetrics operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetMetrics for more information on using the GetMetrics
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the GetMetricsRequest method.
+//	req, resp := client.GetMetricsRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetMetrics
+func (c *IoTWireless) GetMetricsRequest(input *GetMetricsInput) (req *request.Request, output *GetMetricsOutput) {
+	op := &request.Operation{
+		Name:       opGetMetrics,
+		HTTPMethod: "POST",
+		HTTPPath:   "/metrics",
+	}
+
+	if input == nil {
+		input = &GetMetricsInput{}
+	}
+
+	output = &GetMetricsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetMetrics API operation for AWS IoT Wireless.
+//
+// Get the summary metrics for this AWS account.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation GetMetrics for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetMetrics
+func (c *IoTWireless) GetMetrics(input *GetMetricsInput) (*GetMetricsOutput, error) {
+	req, out := c.GetMetricsRequest(input)
+	return out, req.Send()
+}
+
+// GetMetricsWithContext is the same as GetMetrics with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetMetrics for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) GetMetricsWithContext(ctx aws.Context, input *GetMetricsInput, opts ...request.Option) (*GetMetricsOutput, error) {
+	req, out := c.GetMetricsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetMulticastGroup = "GetMulticastGroup"
 
 // GetMulticastGroupRequest generates a "aws/request.Request" representing the
@@ -3849,14 +4243,13 @@ const opGetMulticastGroup = "GetMulticastGroup"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetMulticastGroupRequest method.
+//	req, resp := client.GetMulticastGroupRequest(params)
 //
-//    // Example sending a request using the GetMulticastGroupRequest method.
-//    req, resp := client.GetMulticastGroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetMulticastGroup
 func (c *IoTWireless) GetMulticastGroupRequest(input *GetMulticastGroupInput) (req *request.Request, output *GetMulticastGroupOutput) {
@@ -3887,20 +4280,21 @@ func (c *IoTWireless) GetMulticastGroupRequest(input *GetMulticastGroupInput) (r
 // API operation GetMulticastGroup for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetMulticastGroup
 func (c *IoTWireless) GetMulticastGroup(input *GetMulticastGroupInput) (*GetMulticastGroupOutput, error) {
@@ -3940,14 +4334,13 @@ const opGetMulticastGroupSession = "GetMulticastGroupSession"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetMulticastGroupSessionRequest method.
+//	req, resp := client.GetMulticastGroupSessionRequest(params)
 //
-//    // Example sending a request using the GetMulticastGroupSessionRequest method.
-//    req, resp := client.GetMulticastGroupSessionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetMulticastGroupSession
 func (c *IoTWireless) GetMulticastGroupSessionRequest(input *GetMulticastGroupSessionInput) (req *request.Request, output *GetMulticastGroupSessionOutput) {
@@ -3978,20 +4371,21 @@ func (c *IoTWireless) GetMulticastGroupSessionRequest(input *GetMulticastGroupSe
 // API operation GetMulticastGroupSession for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetMulticastGroupSession
 func (c *IoTWireless) GetMulticastGroupSession(input *GetMulticastGroupSessionInput) (*GetMulticastGroupSessionOutput, error) {
@@ -4031,14 +4425,13 @@ const opGetNetworkAnalyzerConfiguration = "GetNetworkAnalyzerConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetNetworkAnalyzerConfigurationRequest method.
+//	req, resp := client.GetNetworkAnalyzerConfigurationRequest(params)
 //
-//    // Example sending a request using the GetNetworkAnalyzerConfigurationRequest method.
-//    req, resp := client.GetNetworkAnalyzerConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetNetworkAnalyzerConfiguration
 func (c *IoTWireless) GetNetworkAnalyzerConfigurationRequest(input *GetNetworkAnalyzerConfigurationInput) (req *request.Request, output *GetNetworkAnalyzerConfigurationOutput) {
@@ -4069,20 +4462,21 @@ func (c *IoTWireless) GetNetworkAnalyzerConfigurationRequest(input *GetNetworkAn
 // API operation GetNetworkAnalyzerConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetNetworkAnalyzerConfiguration
 func (c *IoTWireless) GetNetworkAnalyzerConfiguration(input *GetNetworkAnalyzerConfigurationInput) (*GetNetworkAnalyzerConfigurationOutput, error) {
@@ -4122,14 +4516,13 @@ const opGetPartnerAccount = "GetPartnerAccount"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetPartnerAccountRequest method.
+//	req, resp := client.GetPartnerAccountRequest(params)
 //
-//    // Example sending a request using the GetPartnerAccountRequest method.
-//    req, resp := client.GetPartnerAccountRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetPartnerAccount
 func (c *IoTWireless) GetPartnerAccountRequest(input *GetPartnerAccountInput) (req *request.Request, output *GetPartnerAccountOutput) {
@@ -4161,17 +4554,18 @@ func (c *IoTWireless) GetPartnerAccountRequest(input *GetPartnerAccountInput) (r
 // API operation GetPartnerAccount for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetPartnerAccount
 func (c *IoTWireless) GetPartnerAccount(input *GetPartnerAccountInput) (*GetPartnerAccountOutput, error) {
@@ -4211,17 +4605,21 @@ const opGetPosition = "GetPosition"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetPositionRequest method.
+//	req, resp := client.GetPositionRequest(params)
 //
-//    // Example sending a request using the GetPositionRequest method.
-//    req, resp := client.GetPositionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetPosition
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) GetPositionRequest(input *GetPositionInput) (req *request.Request, output *GetPositionOutput) {
+	if c.Client.Config.Logger != nil {
+		c.Client.Config.Logger.Log("This operation, GetPosition, has been deprecated")
+	}
 	op := &request.Operation{
 		Name:       opGetPosition,
 		HTTPMethod: "GET",
@@ -4241,6 +4639,10 @@ func (c *IoTWireless) GetPositionRequest(input *GetPositionInput) (req *request.
 //
 // Get the position information for a given resource.
 //
+// This action is no longer supported. Calls to retrieve the position information
+// should use the GetResourcePosition (https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
+// API operation instead.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -4249,22 +4651,25 @@ func (c *IoTWireless) GetPositionRequest(input *GetPositionInput) (req *request.
 // API operation GetPosition for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetPosition
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) GetPosition(input *GetPositionInput) (*GetPositionOutput, error) {
 	req, out := c.GetPositionRequest(input)
 	return out, req.Send()
@@ -4279,6 +4684,8 @@ func (c *IoTWireless) GetPosition(input *GetPositionInput) (*GetPositionOutput, 
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) GetPositionWithContext(ctx aws.Context, input *GetPositionInput, opts ...request.Option) (*GetPositionOutput, error) {
 	req, out := c.GetPositionRequest(input)
 	req.SetContext(ctx)
@@ -4302,17 +4709,21 @@ const opGetPositionConfiguration = "GetPositionConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetPositionConfigurationRequest method.
+//	req, resp := client.GetPositionConfigurationRequest(params)
 //
-//    // Example sending a request using the GetPositionConfigurationRequest method.
-//    req, resp := client.GetPositionConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetPositionConfiguration
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) GetPositionConfigurationRequest(input *GetPositionConfigurationInput) (req *request.Request, output *GetPositionConfigurationOutput) {
+	if c.Client.Config.Logger != nil {
+		c.Client.Config.Logger.Log("This operation, GetPositionConfiguration, has been deprecated")
+	}
 	op := &request.Operation{
 		Name:       opGetPositionConfiguration,
 		HTTPMethod: "GET",
@@ -4332,6 +4743,10 @@ func (c *IoTWireless) GetPositionConfigurationRequest(input *GetPositionConfigur
 //
 // Get position configuration for a given resource.
 //
+// This action is no longer supported. Calls to retrieve the position configuration
+// should use the GetResourcePosition (https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
+// API operation instead.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -4340,22 +4755,25 @@ func (c *IoTWireless) GetPositionConfigurationRequest(input *GetPositionConfigur
 // API operation GetPositionConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetPositionConfiguration
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) GetPositionConfiguration(input *GetPositionConfigurationInput) (*GetPositionConfigurationOutput, error) {
 	req, out := c.GetPositionConfigurationRequest(input)
 	return out, req.Send()
@@ -4370,8 +4788,103 @@ func (c *IoTWireless) GetPositionConfiguration(input *GetPositionConfigurationIn
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) GetPositionConfigurationWithContext(ctx aws.Context, input *GetPositionConfigurationInput, opts ...request.Option) (*GetPositionConfigurationOutput, error) {
 	req, out := c.GetPositionConfigurationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opGetPositionEstimate = "GetPositionEstimate"
+
+// GetPositionEstimateRequest generates a "aws/request.Request" representing the
+// client's request for the GetPositionEstimate operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetPositionEstimate for more information on using the GetPositionEstimate
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the GetPositionEstimateRequest method.
+//	req, resp := client.GetPositionEstimateRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetPositionEstimate
+func (c *IoTWireless) GetPositionEstimateRequest(input *GetPositionEstimateInput) (req *request.Request, output *GetPositionEstimateOutput) {
+	op := &request.Operation{
+		Name:       opGetPositionEstimate,
+		HTTPMethod: "POST",
+		HTTPPath:   "/position-estimate",
+	}
+
+	if input == nil {
+		input = &GetPositionEstimateInput{}
+	}
+
+	output = &GetPositionEstimateOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetPositionEstimate API operation for AWS IoT Wireless.
+//
+// Get estimated position information as a payload in GeoJSON format. The payload
+// measurement data is resolved using solvers that are provided by third-party
+// vendors.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation GetPositionEstimate for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetPositionEstimate
+func (c *IoTWireless) GetPositionEstimate(input *GetPositionEstimateInput) (*GetPositionEstimateOutput, error) {
+	req, out := c.GetPositionEstimateRequest(input)
+	return out, req.Send()
+}
+
+// GetPositionEstimateWithContext is the same as GetPositionEstimate with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetPositionEstimate for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) GetPositionEstimateWithContext(ctx aws.Context, input *GetPositionEstimateInput, opts ...request.Option) (*GetPositionEstimateOutput, error) {
+	req, out := c.GetPositionEstimateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -4393,14 +4906,13 @@ const opGetResourceEventConfiguration = "GetResourceEventConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetResourceEventConfigurationRequest method.
+//	req, resp := client.GetResourceEventConfigurationRequest(params)
 //
-//    // Example sending a request using the GetResourceEventConfigurationRequest method.
-//    req, resp := client.GetResourceEventConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetResourceEventConfiguration
 func (c *IoTWireless) GetResourceEventConfigurationRequest(input *GetResourceEventConfigurationInput) (req *request.Request, output *GetResourceEventConfigurationOutput) {
@@ -4431,20 +4943,21 @@ func (c *IoTWireless) GetResourceEventConfigurationRequest(input *GetResourceEve
 // API operation GetResourceEventConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetResourceEventConfiguration
 func (c *IoTWireless) GetResourceEventConfiguration(input *GetResourceEventConfigurationInput) (*GetResourceEventConfigurationOutput, error) {
@@ -4484,14 +4997,13 @@ const opGetResourceLogLevel = "GetResourceLogLevel"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetResourceLogLevelRequest method.
+//	req, resp := client.GetResourceLogLevelRequest(params)
 //
-//    // Example sending a request using the GetResourceLogLevelRequest method.
-//    req, resp := client.GetResourceLogLevelRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetResourceLogLevel
 func (c *IoTWireless) GetResourceLogLevelRequest(input *GetResourceLogLevelInput) (req *request.Request, output *GetResourceLogLevelOutput) {
@@ -4523,20 +5035,21 @@ func (c *IoTWireless) GetResourceLogLevelRequest(input *GetResourceLogLevelInput
 // API operation GetResourceLogLevel for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ValidationException
-//   The input did not meet the specified constraints.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetResourceLogLevel
 func (c *IoTWireless) GetResourceLogLevel(input *GetResourceLogLevelInput) (*GetResourceLogLevelOutput, error) {
@@ -4560,6 +5073,99 @@ func (c *IoTWireless) GetResourceLogLevelWithContext(ctx aws.Context, input *Get
 	return out, req.Send()
 }
 
+const opGetResourcePosition = "GetResourcePosition"
+
+// GetResourcePositionRequest generates a "aws/request.Request" representing the
+// client's request for the GetResourcePosition operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetResourcePosition for more information on using the GetResourcePosition
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the GetResourcePositionRequest method.
+//	req, resp := client.GetResourcePositionRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetResourcePosition
+func (c *IoTWireless) GetResourcePositionRequest(input *GetResourcePositionInput) (req *request.Request, output *GetResourcePositionOutput) {
+	op := &request.Operation{
+		Name:       opGetResourcePosition,
+		HTTPMethod: "GET",
+		HTTPPath:   "/resource-positions/{ResourceIdentifier}",
+	}
+
+	if input == nil {
+		input = &GetResourcePositionInput{}
+	}
+
+	output = &GetResourcePositionOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetResourcePosition API operation for AWS IoT Wireless.
+//
+// Get the position information for a given wireless device or a wireless gateway
+// resource. The position information uses the World Geodetic System (WGS84)
+// (https://gisgeography.com/wgs84-world-geodetic-system/).
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation GetResourcePosition for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetResourcePosition
+func (c *IoTWireless) GetResourcePosition(input *GetResourcePositionInput) (*GetResourcePositionOutput, error) {
+	req, out := c.GetResourcePositionRequest(input)
+	return out, req.Send()
+}
+
+// GetResourcePositionWithContext is the same as GetResourcePosition with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetResourcePosition for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) GetResourcePositionWithContext(ctx aws.Context, input *GetResourcePositionInput, opts ...request.Option) (*GetResourcePositionOutput, error) {
+	req, out := c.GetResourcePositionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetServiceEndpoint = "GetServiceEndpoint"
 
 // GetServiceEndpointRequest generates a "aws/request.Request" representing the
@@ -4576,14 +5182,13 @@ const opGetServiceEndpoint = "GetServiceEndpoint"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetServiceEndpointRequest method.
+//	req, resp := client.GetServiceEndpointRequest(params)
 //
-//    // Example sending a request using the GetServiceEndpointRequest method.
-//    req, resp := client.GetServiceEndpointRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetServiceEndpoint
 func (c *IoTWireless) GetServiceEndpointRequest(input *GetServiceEndpointInput) (req *request.Request, output *GetServiceEndpointOutput) {
@@ -4615,17 +5220,18 @@ func (c *IoTWireless) GetServiceEndpointRequest(input *GetServiceEndpointInput) 
 // API operation GetServiceEndpoint for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetServiceEndpoint
 func (c *IoTWireless) GetServiceEndpoint(input *GetServiceEndpointInput) (*GetServiceEndpointOutput, error) {
@@ -4665,14 +5271,13 @@ const opGetServiceProfile = "GetServiceProfile"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetServiceProfileRequest method.
+//	req, resp := client.GetServiceProfileRequest(params)
 //
-//    // Example sending a request using the GetServiceProfileRequest method.
-//    req, resp := client.GetServiceProfileRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetServiceProfile
 func (c *IoTWireless) GetServiceProfileRequest(input *GetServiceProfileInput) (req *request.Request, output *GetServiceProfileOutput) {
@@ -4703,20 +5308,21 @@ func (c *IoTWireless) GetServiceProfileRequest(input *GetServiceProfileInput) (r
 // API operation GetServiceProfile for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetServiceProfile
 func (c *IoTWireless) GetServiceProfile(input *GetServiceProfileInput) (*GetServiceProfileOutput, error) {
@@ -4756,14 +5362,13 @@ const opGetWirelessDevice = "GetWirelessDevice"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetWirelessDeviceRequest method.
+//	req, resp := client.GetWirelessDeviceRequest(params)
 //
-//    // Example sending a request using the GetWirelessDeviceRequest method.
-//    req, resp := client.GetWirelessDeviceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessDevice
 func (c *IoTWireless) GetWirelessDeviceRequest(input *GetWirelessDeviceInput) (req *request.Request, output *GetWirelessDeviceOutput) {
@@ -4794,20 +5399,21 @@ func (c *IoTWireless) GetWirelessDeviceRequest(input *GetWirelessDeviceInput) (r
 // API operation GetWirelessDevice for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessDevice
 func (c *IoTWireless) GetWirelessDevice(input *GetWirelessDeviceInput) (*GetWirelessDeviceOutput, error) {
@@ -4831,6 +5437,101 @@ func (c *IoTWireless) GetWirelessDeviceWithContext(ctx aws.Context, input *GetWi
 	return out, req.Send()
 }
 
+const opGetWirelessDeviceImportTask = "GetWirelessDeviceImportTask"
+
+// GetWirelessDeviceImportTaskRequest generates a "aws/request.Request" representing the
+// client's request for the GetWirelessDeviceImportTask operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetWirelessDeviceImportTask for more information on using the GetWirelessDeviceImportTask
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the GetWirelessDeviceImportTaskRequest method.
+//	req, resp := client.GetWirelessDeviceImportTaskRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessDeviceImportTask
+func (c *IoTWireless) GetWirelessDeviceImportTaskRequest(input *GetWirelessDeviceImportTaskInput) (req *request.Request, output *GetWirelessDeviceImportTaskOutput) {
+	op := &request.Operation{
+		Name:       opGetWirelessDeviceImportTask,
+		HTTPMethod: "GET",
+		HTTPPath:   "/wireless_device_import_task/{Id}",
+	}
+
+	if input == nil {
+		input = &GetWirelessDeviceImportTaskInput{}
+	}
+
+	output = &GetWirelessDeviceImportTaskOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetWirelessDeviceImportTask API operation for AWS IoT Wireless.
+//
+// Get information about an import task and count of device onboarding summary
+// information for the import task.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation GetWirelessDeviceImportTask for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessDeviceImportTask
+func (c *IoTWireless) GetWirelessDeviceImportTask(input *GetWirelessDeviceImportTaskInput) (*GetWirelessDeviceImportTaskOutput, error) {
+	req, out := c.GetWirelessDeviceImportTaskRequest(input)
+	return out, req.Send()
+}
+
+// GetWirelessDeviceImportTaskWithContext is the same as GetWirelessDeviceImportTask with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetWirelessDeviceImportTask for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) GetWirelessDeviceImportTaskWithContext(ctx aws.Context, input *GetWirelessDeviceImportTaskInput, opts ...request.Option) (*GetWirelessDeviceImportTaskOutput, error) {
+	req, out := c.GetWirelessDeviceImportTaskRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetWirelessDeviceStatistics = "GetWirelessDeviceStatistics"
 
 // GetWirelessDeviceStatisticsRequest generates a "aws/request.Request" representing the
@@ -4847,14 +5548,13 @@ const opGetWirelessDeviceStatistics = "GetWirelessDeviceStatistics"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetWirelessDeviceStatisticsRequest method.
+//	req, resp := client.GetWirelessDeviceStatisticsRequest(params)
 //
-//    // Example sending a request using the GetWirelessDeviceStatisticsRequest method.
-//    req, resp := client.GetWirelessDeviceStatisticsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessDeviceStatistics
 func (c *IoTWireless) GetWirelessDeviceStatisticsRequest(input *GetWirelessDeviceStatisticsInput) (req *request.Request, output *GetWirelessDeviceStatisticsOutput) {
@@ -4885,20 +5585,21 @@ func (c *IoTWireless) GetWirelessDeviceStatisticsRequest(input *GetWirelessDevic
 // API operation GetWirelessDeviceStatistics for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessDeviceStatistics
 func (c *IoTWireless) GetWirelessDeviceStatistics(input *GetWirelessDeviceStatisticsInput) (*GetWirelessDeviceStatisticsOutput, error) {
@@ -4938,14 +5639,13 @@ const opGetWirelessGateway = "GetWirelessGateway"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetWirelessGatewayRequest method.
+//	req, resp := client.GetWirelessGatewayRequest(params)
 //
-//    // Example sending a request using the GetWirelessGatewayRequest method.
-//    req, resp := client.GetWirelessGatewayRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessGateway
 func (c *IoTWireless) GetWirelessGatewayRequest(input *GetWirelessGatewayInput) (req *request.Request, output *GetWirelessGatewayOutput) {
@@ -4976,20 +5676,21 @@ func (c *IoTWireless) GetWirelessGatewayRequest(input *GetWirelessGatewayInput) 
 // API operation GetWirelessGateway for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessGateway
 func (c *IoTWireless) GetWirelessGateway(input *GetWirelessGatewayInput) (*GetWirelessGatewayOutput, error) {
@@ -5029,14 +5730,13 @@ const opGetWirelessGatewayCertificate = "GetWirelessGatewayCertificate"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetWirelessGatewayCertificateRequest method.
+//	req, resp := client.GetWirelessGatewayCertificateRequest(params)
 //
-//    // Example sending a request using the GetWirelessGatewayCertificateRequest method.
-//    req, resp := client.GetWirelessGatewayCertificateRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessGatewayCertificate
 func (c *IoTWireless) GetWirelessGatewayCertificateRequest(input *GetWirelessGatewayCertificateInput) (req *request.Request, output *GetWirelessGatewayCertificateOutput) {
@@ -5068,20 +5768,21 @@ func (c *IoTWireless) GetWirelessGatewayCertificateRequest(input *GetWirelessGat
 // API operation GetWirelessGatewayCertificate for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessGatewayCertificate
 func (c *IoTWireless) GetWirelessGatewayCertificate(input *GetWirelessGatewayCertificateInput) (*GetWirelessGatewayCertificateOutput, error) {
@@ -5121,14 +5822,13 @@ const opGetWirelessGatewayFirmwareInformation = "GetWirelessGatewayFirmwareInfor
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetWirelessGatewayFirmwareInformationRequest method.
+//	req, resp := client.GetWirelessGatewayFirmwareInformationRequest(params)
 //
-//    // Example sending a request using the GetWirelessGatewayFirmwareInformationRequest method.
-//    req, resp := client.GetWirelessGatewayFirmwareInformationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessGatewayFirmwareInformation
 func (c *IoTWireless) GetWirelessGatewayFirmwareInformationRequest(input *GetWirelessGatewayFirmwareInformationInput) (req *request.Request, output *GetWirelessGatewayFirmwareInformationOutput) {
@@ -5159,20 +5859,21 @@ func (c *IoTWireless) GetWirelessGatewayFirmwareInformationRequest(input *GetWir
 // API operation GetWirelessGatewayFirmwareInformation for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessGatewayFirmwareInformation
 func (c *IoTWireless) GetWirelessGatewayFirmwareInformation(input *GetWirelessGatewayFirmwareInformationInput) (*GetWirelessGatewayFirmwareInformationOutput, error) {
@@ -5212,14 +5913,13 @@ const opGetWirelessGatewayStatistics = "GetWirelessGatewayStatistics"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetWirelessGatewayStatisticsRequest method.
+//	req, resp := client.GetWirelessGatewayStatisticsRequest(params)
 //
-//    // Example sending a request using the GetWirelessGatewayStatisticsRequest method.
-//    req, resp := client.GetWirelessGatewayStatisticsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessGatewayStatistics
 func (c *IoTWireless) GetWirelessGatewayStatisticsRequest(input *GetWirelessGatewayStatisticsInput) (req *request.Request, output *GetWirelessGatewayStatisticsOutput) {
@@ -5250,20 +5950,21 @@ func (c *IoTWireless) GetWirelessGatewayStatisticsRequest(input *GetWirelessGate
 // API operation GetWirelessGatewayStatistics for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessGatewayStatistics
 func (c *IoTWireless) GetWirelessGatewayStatistics(input *GetWirelessGatewayStatisticsInput) (*GetWirelessGatewayStatisticsOutput, error) {
@@ -5303,14 +6004,13 @@ const opGetWirelessGatewayTask = "GetWirelessGatewayTask"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetWirelessGatewayTaskRequest method.
+//	req, resp := client.GetWirelessGatewayTaskRequest(params)
 //
-//    // Example sending a request using the GetWirelessGatewayTaskRequest method.
-//    req, resp := client.GetWirelessGatewayTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessGatewayTask
 func (c *IoTWireless) GetWirelessGatewayTaskRequest(input *GetWirelessGatewayTaskInput) (req *request.Request, output *GetWirelessGatewayTaskOutput) {
@@ -5341,20 +6041,21 @@ func (c *IoTWireless) GetWirelessGatewayTaskRequest(input *GetWirelessGatewayTas
 // API operation GetWirelessGatewayTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessGatewayTask
 func (c *IoTWireless) GetWirelessGatewayTask(input *GetWirelessGatewayTaskInput) (*GetWirelessGatewayTaskOutput, error) {
@@ -5394,14 +6095,13 @@ const opGetWirelessGatewayTaskDefinition = "GetWirelessGatewayTaskDefinition"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the GetWirelessGatewayTaskDefinitionRequest method.
+//	req, resp := client.GetWirelessGatewayTaskDefinitionRequest(params)
 //
-//    // Example sending a request using the GetWirelessGatewayTaskDefinitionRequest method.
-//    req, resp := client.GetWirelessGatewayTaskDefinitionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessGatewayTaskDefinition
 func (c *IoTWireless) GetWirelessGatewayTaskDefinitionRequest(input *GetWirelessGatewayTaskDefinitionInput) (req *request.Request, output *GetWirelessGatewayTaskDefinitionOutput) {
@@ -5432,20 +6132,21 @@ func (c *IoTWireless) GetWirelessGatewayTaskDefinitionRequest(input *GetWireless
 // API operation GetWirelessGatewayTaskDefinition for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetWirelessGatewayTaskDefinition
 func (c *IoTWireless) GetWirelessGatewayTaskDefinition(input *GetWirelessGatewayTaskDefinitionInput) (*GetWirelessGatewayTaskDefinitionOutput, error) {
@@ -5485,14 +6186,13 @@ const opListDestinations = "ListDestinations"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListDestinationsRequest method.
+//	req, resp := client.ListDestinationsRequest(params)
 //
-//    // Example sending a request using the ListDestinationsRequest method.
-//    req, resp := client.ListDestinationsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListDestinations
 func (c *IoTWireless) ListDestinationsRequest(input *ListDestinationsInput) (req *request.Request, output *ListDestinationsOutput) {
@@ -5529,17 +6229,18 @@ func (c *IoTWireless) ListDestinationsRequest(input *ListDestinationsInput) (req
 // API operation ListDestinations for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListDestinations
 func (c *IoTWireless) ListDestinations(input *ListDestinationsInput) (*ListDestinationsOutput, error) {
@@ -5571,15 +6272,14 @@ func (c *IoTWireless) ListDestinationsWithContext(ctx aws.Context, input *ListDe
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListDestinations operation.
-//    pageNum := 0
-//    err := client.ListDestinationsPages(params,
-//        func(page *iotwireless.ListDestinationsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListDestinations operation.
+//	pageNum := 0
+//	err := client.ListDestinationsPages(params,
+//	    func(page *iotwireless.ListDestinationsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *IoTWireless) ListDestinationsPages(input *ListDestinationsInput, fn func(*ListDestinationsOutput, bool) bool) error {
 	return c.ListDestinationsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -5631,14 +6331,13 @@ const opListDeviceProfiles = "ListDeviceProfiles"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListDeviceProfilesRequest method.
+//	req, resp := client.ListDeviceProfilesRequest(params)
 //
-//    // Example sending a request using the ListDeviceProfilesRequest method.
-//    req, resp := client.ListDeviceProfilesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListDeviceProfiles
 func (c *IoTWireless) ListDeviceProfilesRequest(input *ListDeviceProfilesInput) (req *request.Request, output *ListDeviceProfilesOutput) {
@@ -5675,17 +6374,18 @@ func (c *IoTWireless) ListDeviceProfilesRequest(input *ListDeviceProfilesInput) 
 // API operation ListDeviceProfiles for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListDeviceProfiles
 func (c *IoTWireless) ListDeviceProfiles(input *ListDeviceProfilesInput) (*ListDeviceProfilesOutput, error) {
@@ -5717,15 +6417,14 @@ func (c *IoTWireless) ListDeviceProfilesWithContext(ctx aws.Context, input *List
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListDeviceProfiles operation.
-//    pageNum := 0
-//    err := client.ListDeviceProfilesPages(params,
-//        func(page *iotwireless.ListDeviceProfilesOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListDeviceProfiles operation.
+//	pageNum := 0
+//	err := client.ListDeviceProfilesPages(params,
+//	    func(page *iotwireless.ListDeviceProfilesOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *IoTWireless) ListDeviceProfilesPages(input *ListDeviceProfilesInput, fn func(*ListDeviceProfilesOutput, bool) bool) error {
 	return c.ListDeviceProfilesPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -5761,6 +6460,100 @@ func (c *IoTWireless) ListDeviceProfilesPagesWithContext(ctx aws.Context, input 
 	return p.Err()
 }
 
+const opListDevicesForWirelessDeviceImportTask = "ListDevicesForWirelessDeviceImportTask"
+
+// ListDevicesForWirelessDeviceImportTaskRequest generates a "aws/request.Request" representing the
+// client's request for the ListDevicesForWirelessDeviceImportTask operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListDevicesForWirelessDeviceImportTask for more information on using the ListDevicesForWirelessDeviceImportTask
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListDevicesForWirelessDeviceImportTaskRequest method.
+//	req, resp := client.ListDevicesForWirelessDeviceImportTaskRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListDevicesForWirelessDeviceImportTask
+func (c *IoTWireless) ListDevicesForWirelessDeviceImportTaskRequest(input *ListDevicesForWirelessDeviceImportTaskInput) (req *request.Request, output *ListDevicesForWirelessDeviceImportTaskOutput) {
+	op := &request.Operation{
+		Name:       opListDevicesForWirelessDeviceImportTask,
+		HTTPMethod: "GET",
+		HTTPPath:   "/wireless_device_import_task",
+	}
+
+	if input == nil {
+		input = &ListDevicesForWirelessDeviceImportTaskInput{}
+	}
+
+	output = &ListDevicesForWirelessDeviceImportTaskOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListDevicesForWirelessDeviceImportTask API operation for AWS IoT Wireless.
+//
+// List the Sidewalk devices in an import task and their onboarding status.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation ListDevicesForWirelessDeviceImportTask for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListDevicesForWirelessDeviceImportTask
+func (c *IoTWireless) ListDevicesForWirelessDeviceImportTask(input *ListDevicesForWirelessDeviceImportTaskInput) (*ListDevicesForWirelessDeviceImportTaskOutput, error) {
+	req, out := c.ListDevicesForWirelessDeviceImportTaskRequest(input)
+	return out, req.Send()
+}
+
+// ListDevicesForWirelessDeviceImportTaskWithContext is the same as ListDevicesForWirelessDeviceImportTask with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListDevicesForWirelessDeviceImportTask for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) ListDevicesForWirelessDeviceImportTaskWithContext(ctx aws.Context, input *ListDevicesForWirelessDeviceImportTaskInput, opts ...request.Option) (*ListDevicesForWirelessDeviceImportTaskOutput, error) {
+	req, out := c.ListDevicesForWirelessDeviceImportTaskRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opListEventConfigurations = "ListEventConfigurations"
 
 // ListEventConfigurationsRequest generates a "aws/request.Request" representing the
@@ -5777,14 +6570,13 @@ const opListEventConfigurations = "ListEventConfigurations"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListEventConfigurationsRequest method.
+//	req, resp := client.ListEventConfigurationsRequest(params)
 //
-//    // Example sending a request using the ListEventConfigurationsRequest method.
-//    req, resp := client.ListEventConfigurationsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListEventConfigurations
 func (c *IoTWireless) ListEventConfigurationsRequest(input *ListEventConfigurationsInput) (req *request.Request, output *ListEventConfigurationsOutput) {
@@ -5815,17 +6607,18 @@ func (c *IoTWireless) ListEventConfigurationsRequest(input *ListEventConfigurati
 // API operation ListEventConfigurations for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListEventConfigurations
 func (c *IoTWireless) ListEventConfigurations(input *ListEventConfigurationsInput) (*ListEventConfigurationsOutput, error) {
@@ -5865,14 +6658,13 @@ const opListFuotaTasks = "ListFuotaTasks"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListFuotaTasksRequest method.
+//	req, resp := client.ListFuotaTasksRequest(params)
 //
-//    // Example sending a request using the ListFuotaTasksRequest method.
-//    req, resp := client.ListFuotaTasksRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListFuotaTasks
 func (c *IoTWireless) ListFuotaTasksRequest(input *ListFuotaTasksInput) (req *request.Request, output *ListFuotaTasksOutput) {
@@ -5909,17 +6701,18 @@ func (c *IoTWireless) ListFuotaTasksRequest(input *ListFuotaTasksInput) (req *re
 // API operation ListFuotaTasks for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListFuotaTasks
 func (c *IoTWireless) ListFuotaTasks(input *ListFuotaTasksInput) (*ListFuotaTasksOutput, error) {
@@ -5951,15 +6744,14 @@ func (c *IoTWireless) ListFuotaTasksWithContext(ctx aws.Context, input *ListFuot
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListFuotaTasks operation.
-//    pageNum := 0
-//    err := client.ListFuotaTasksPages(params,
-//        func(page *iotwireless.ListFuotaTasksOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListFuotaTasks operation.
+//	pageNum := 0
+//	err := client.ListFuotaTasksPages(params,
+//	    func(page *iotwireless.ListFuotaTasksOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *IoTWireless) ListFuotaTasksPages(input *ListFuotaTasksInput, fn func(*ListFuotaTasksOutput, bool) bool) error {
 	return c.ListFuotaTasksPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -6011,14 +6803,13 @@ const opListMulticastGroups = "ListMulticastGroups"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListMulticastGroupsRequest method.
+//	req, resp := client.ListMulticastGroupsRequest(params)
 //
-//    // Example sending a request using the ListMulticastGroupsRequest method.
-//    req, resp := client.ListMulticastGroupsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListMulticastGroups
 func (c *IoTWireless) ListMulticastGroupsRequest(input *ListMulticastGroupsInput) (req *request.Request, output *ListMulticastGroupsOutput) {
@@ -6055,17 +6846,18 @@ func (c *IoTWireless) ListMulticastGroupsRequest(input *ListMulticastGroupsInput
 // API operation ListMulticastGroups for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListMulticastGroups
 func (c *IoTWireless) ListMulticastGroups(input *ListMulticastGroupsInput) (*ListMulticastGroupsOutput, error) {
@@ -6097,15 +6889,14 @@ func (c *IoTWireless) ListMulticastGroupsWithContext(ctx aws.Context, input *Lis
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListMulticastGroups operation.
-//    pageNum := 0
-//    err := client.ListMulticastGroupsPages(params,
-//        func(page *iotwireless.ListMulticastGroupsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListMulticastGroups operation.
+//	pageNum := 0
+//	err := client.ListMulticastGroupsPages(params,
+//	    func(page *iotwireless.ListMulticastGroupsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *IoTWireless) ListMulticastGroupsPages(input *ListMulticastGroupsInput, fn func(*ListMulticastGroupsOutput, bool) bool) error {
 	return c.ListMulticastGroupsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -6157,14 +6948,13 @@ const opListMulticastGroupsByFuotaTask = "ListMulticastGroupsByFuotaTask"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListMulticastGroupsByFuotaTaskRequest method.
+//	req, resp := client.ListMulticastGroupsByFuotaTaskRequest(params)
 //
-//    // Example sending a request using the ListMulticastGroupsByFuotaTaskRequest method.
-//    req, resp := client.ListMulticastGroupsByFuotaTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListMulticastGroupsByFuotaTask
 func (c *IoTWireless) ListMulticastGroupsByFuotaTaskRequest(input *ListMulticastGroupsByFuotaTaskInput) (req *request.Request, output *ListMulticastGroupsByFuotaTaskOutput) {
@@ -6201,20 +6991,21 @@ func (c *IoTWireless) ListMulticastGroupsByFuotaTaskRequest(input *ListMulticast
 // API operation ListMulticastGroupsByFuotaTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListMulticastGroupsByFuotaTask
 func (c *IoTWireless) ListMulticastGroupsByFuotaTask(input *ListMulticastGroupsByFuotaTaskInput) (*ListMulticastGroupsByFuotaTaskOutput, error) {
@@ -6246,15 +7037,14 @@ func (c *IoTWireless) ListMulticastGroupsByFuotaTaskWithContext(ctx aws.Context,
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListMulticastGroupsByFuotaTask operation.
-//    pageNum := 0
-//    err := client.ListMulticastGroupsByFuotaTaskPages(params,
-//        func(page *iotwireless.ListMulticastGroupsByFuotaTaskOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListMulticastGroupsByFuotaTask operation.
+//	pageNum := 0
+//	err := client.ListMulticastGroupsByFuotaTaskPages(params,
+//	    func(page *iotwireless.ListMulticastGroupsByFuotaTaskOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *IoTWireless) ListMulticastGroupsByFuotaTaskPages(input *ListMulticastGroupsByFuotaTaskInput, fn func(*ListMulticastGroupsByFuotaTaskOutput, bool) bool) error {
 	return c.ListMulticastGroupsByFuotaTaskPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -6306,14 +7096,13 @@ const opListNetworkAnalyzerConfigurations = "ListNetworkAnalyzerConfigurations"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListNetworkAnalyzerConfigurationsRequest method.
+//	req, resp := client.ListNetworkAnalyzerConfigurationsRequest(params)
 //
-//    // Example sending a request using the ListNetworkAnalyzerConfigurationsRequest method.
-//    req, resp := client.ListNetworkAnalyzerConfigurationsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListNetworkAnalyzerConfigurations
 func (c *IoTWireless) ListNetworkAnalyzerConfigurationsRequest(input *ListNetworkAnalyzerConfigurationsInput) (req *request.Request, output *ListNetworkAnalyzerConfigurationsOutput) {
@@ -6350,17 +7139,18 @@ func (c *IoTWireless) ListNetworkAnalyzerConfigurationsRequest(input *ListNetwor
 // API operation ListNetworkAnalyzerConfigurations for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListNetworkAnalyzerConfigurations
 func (c *IoTWireless) ListNetworkAnalyzerConfigurations(input *ListNetworkAnalyzerConfigurationsInput) (*ListNetworkAnalyzerConfigurationsOutput, error) {
@@ -6392,15 +7182,14 @@ func (c *IoTWireless) ListNetworkAnalyzerConfigurationsWithContext(ctx aws.Conte
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListNetworkAnalyzerConfigurations operation.
-//    pageNum := 0
-//    err := client.ListNetworkAnalyzerConfigurationsPages(params,
-//        func(page *iotwireless.ListNetworkAnalyzerConfigurationsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListNetworkAnalyzerConfigurations operation.
+//	pageNum := 0
+//	err := client.ListNetworkAnalyzerConfigurationsPages(params,
+//	    func(page *iotwireless.ListNetworkAnalyzerConfigurationsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *IoTWireless) ListNetworkAnalyzerConfigurationsPages(input *ListNetworkAnalyzerConfigurationsInput, fn func(*ListNetworkAnalyzerConfigurationsOutput, bool) bool) error {
 	return c.ListNetworkAnalyzerConfigurationsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -6452,14 +7241,13 @@ const opListPartnerAccounts = "ListPartnerAccounts"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListPartnerAccountsRequest method.
+//	req, resp := client.ListPartnerAccountsRequest(params)
 //
-//    // Example sending a request using the ListPartnerAccountsRequest method.
-//    req, resp := client.ListPartnerAccountsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListPartnerAccounts
 func (c *IoTWireless) ListPartnerAccountsRequest(input *ListPartnerAccountsInput) (req *request.Request, output *ListPartnerAccountsOutput) {
@@ -6490,17 +7278,18 @@ func (c *IoTWireless) ListPartnerAccountsRequest(input *ListPartnerAccountsInput
 // API operation ListPartnerAccounts for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListPartnerAccounts
 func (c *IoTWireless) ListPartnerAccounts(input *ListPartnerAccountsInput) (*ListPartnerAccountsOutput, error) {
@@ -6540,17 +7329,21 @@ const opListPositionConfigurations = "ListPositionConfigurations"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListPositionConfigurationsRequest method.
+//	req, resp := client.ListPositionConfigurationsRequest(params)
 //
-//    // Example sending a request using the ListPositionConfigurationsRequest method.
-//    req, resp := client.ListPositionConfigurationsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListPositionConfigurations
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) ListPositionConfigurationsRequest(input *ListPositionConfigurationsInput) (req *request.Request, output *ListPositionConfigurationsOutput) {
+	if c.Client.Config.Logger != nil {
+		c.Client.Config.Logger.Log("This operation, ListPositionConfigurations, has been deprecated")
+	}
 	op := &request.Operation{
 		Name:       opListPositionConfigurations,
 		HTTPMethod: "GET",
@@ -6576,6 +7369,10 @@ func (c *IoTWireless) ListPositionConfigurationsRequest(input *ListPositionConfi
 //
 // List position configurations for a given resource, such as positioning solvers.
 //
+// This action is no longer supported. Calls to retrieve position information
+// should use the GetResourcePosition (https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html)
+// API operation instead.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -6584,19 +7381,22 @@ func (c *IoTWireless) ListPositionConfigurationsRequest(input *ListPositionConfi
 // API operation ListPositionConfigurations for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListPositionConfigurations
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) ListPositionConfigurations(input *ListPositionConfigurationsInput) (*ListPositionConfigurationsOutput, error) {
 	req, out := c.ListPositionConfigurationsRequest(input)
 	return out, req.Send()
@@ -6611,6 +7411,8 @@ func (c *IoTWireless) ListPositionConfigurations(input *ListPositionConfiguratio
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) ListPositionConfigurationsWithContext(ctx aws.Context, input *ListPositionConfigurationsInput, opts ...request.Option) (*ListPositionConfigurationsOutput, error) {
 	req, out := c.ListPositionConfigurationsRequest(input)
 	req.SetContext(ctx)
@@ -6626,15 +7428,16 @@ func (c *IoTWireless) ListPositionConfigurationsWithContext(ctx aws.Context, inp
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListPositionConfigurations operation.
-//    pageNum := 0
-//    err := client.ListPositionConfigurationsPages(params,
-//        func(page *iotwireless.ListPositionConfigurationsOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
+//	// Example iterating over at most 3 pages of a ListPositionConfigurations operation.
+//	pageNum := 0
+//	err := client.ListPositionConfigurationsPages(params,
+//	    func(page *iotwireless.ListPositionConfigurationsOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 //
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) ListPositionConfigurationsPages(input *ListPositionConfigurationsInput, fn func(*ListPositionConfigurationsOutput, bool) bool) error {
 	return c.ListPositionConfigurationsPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -6646,6 +7449,8 @@ func (c *IoTWireless) ListPositionConfigurationsPages(input *ListPositionConfigu
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) ListPositionConfigurationsPagesWithContext(ctx aws.Context, input *ListPositionConfigurationsInput, fn func(*ListPositionConfigurationsOutput, bool) bool, opts ...request.Option) error {
 	p := request.Pagination{
 		NewRequest: func() (*request.Request, error) {
@@ -6686,14 +7491,13 @@ const opListQueuedMessages = "ListQueuedMessages"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListQueuedMessagesRequest method.
+//	req, resp := client.ListQueuedMessagesRequest(params)
 //
-//    // Example sending a request using the ListQueuedMessagesRequest method.
-//    req, resp := client.ListQueuedMessagesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListQueuedMessages
 func (c *IoTWireless) ListQueuedMessagesRequest(input *ListQueuedMessagesInput) (req *request.Request, output *ListQueuedMessagesOutput) {
@@ -6730,20 +7534,21 @@ func (c *IoTWireless) ListQueuedMessagesRequest(input *ListQueuedMessagesInput) 
 // API operation ListQueuedMessages for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListQueuedMessages
 func (c *IoTWireless) ListQueuedMessages(input *ListQueuedMessagesInput) (*ListQueuedMessagesOutput, error) {
@@ -6775,15 +7580,14 @@ func (c *IoTWireless) ListQueuedMessagesWithContext(ctx aws.Context, input *List
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListQueuedMessages operation.
-//    pageNum := 0
-//    err := client.ListQueuedMessagesPages(params,
-//        func(page *iotwireless.ListQueuedMessagesOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListQueuedMessages operation.
+//	pageNum := 0
+//	err := client.ListQueuedMessagesPages(params,
+//	    func(page *iotwireless.ListQueuedMessagesOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *IoTWireless) ListQueuedMessagesPages(input *ListQueuedMessagesInput, fn func(*ListQueuedMessagesOutput, bool) bool) error {
 	return c.ListQueuedMessagesPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -6835,14 +7639,13 @@ const opListServiceProfiles = "ListServiceProfiles"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListServiceProfilesRequest method.
+//	req, resp := client.ListServiceProfilesRequest(params)
 //
-//    // Example sending a request using the ListServiceProfilesRequest method.
-//    req, resp := client.ListServiceProfilesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListServiceProfiles
 func (c *IoTWireless) ListServiceProfilesRequest(input *ListServiceProfilesInput) (req *request.Request, output *ListServiceProfilesOutput) {
@@ -6879,17 +7682,18 @@ func (c *IoTWireless) ListServiceProfilesRequest(input *ListServiceProfilesInput
 // API operation ListServiceProfiles for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListServiceProfiles
 func (c *IoTWireless) ListServiceProfiles(input *ListServiceProfilesInput) (*ListServiceProfilesOutput, error) {
@@ -6921,15 +7725,14 @@ func (c *IoTWireless) ListServiceProfilesWithContext(ctx aws.Context, input *Lis
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListServiceProfiles operation.
-//    pageNum := 0
-//    err := client.ListServiceProfilesPages(params,
-//        func(page *iotwireless.ListServiceProfilesOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListServiceProfiles operation.
+//	pageNum := 0
+//	err := client.ListServiceProfilesPages(params,
+//	    func(page *iotwireless.ListServiceProfilesOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *IoTWireless) ListServiceProfilesPages(input *ListServiceProfilesInput, fn func(*ListServiceProfilesOutput, bool) bool) error {
 	return c.ListServiceProfilesPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -6981,14 +7784,13 @@ const opListTagsForResource = "ListTagsForResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListTagsForResourceRequest method.
+//	req, resp := client.ListTagsForResourceRequest(params)
 //
-//    // Example sending a request using the ListTagsForResourceRequest method.
-//    req, resp := client.ListTagsForResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListTagsForResource
 func (c *IoTWireless) ListTagsForResourceRequest(input *ListTagsForResourceInput) (req *request.Request, output *ListTagsForResourceOutput) {
@@ -7019,20 +7821,21 @@ func (c *IoTWireless) ListTagsForResourceRequest(input *ListTagsForResourceInput
 // API operation ListTagsForResource for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListTagsForResource
 func (c *IoTWireless) ListTagsForResource(input *ListTagsForResourceInput) (*ListTagsForResourceOutput, error) {
@@ -7056,6 +7859,100 @@ func (c *IoTWireless) ListTagsForResourceWithContext(ctx aws.Context, input *Lis
 	return out, req.Send()
 }
 
+const opListWirelessDeviceImportTasks = "ListWirelessDeviceImportTasks"
+
+// ListWirelessDeviceImportTasksRequest generates a "aws/request.Request" representing the
+// client's request for the ListWirelessDeviceImportTasks operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListWirelessDeviceImportTasks for more information on using the ListWirelessDeviceImportTasks
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the ListWirelessDeviceImportTasksRequest method.
+//	req, resp := client.ListWirelessDeviceImportTasksRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListWirelessDeviceImportTasks
+func (c *IoTWireless) ListWirelessDeviceImportTasksRequest(input *ListWirelessDeviceImportTasksInput) (req *request.Request, output *ListWirelessDeviceImportTasksOutput) {
+	op := &request.Operation{
+		Name:       opListWirelessDeviceImportTasks,
+		HTTPMethod: "GET",
+		HTTPPath:   "/wireless_device_import_tasks",
+	}
+
+	if input == nil {
+		input = &ListWirelessDeviceImportTasksInput{}
+	}
+
+	output = &ListWirelessDeviceImportTasksOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListWirelessDeviceImportTasks API operation for AWS IoT Wireless.
+//
+// List wireless devices that have been added to an import task.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation ListWirelessDeviceImportTasks for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListWirelessDeviceImportTasks
+func (c *IoTWireless) ListWirelessDeviceImportTasks(input *ListWirelessDeviceImportTasksInput) (*ListWirelessDeviceImportTasksOutput, error) {
+	req, out := c.ListWirelessDeviceImportTasksRequest(input)
+	return out, req.Send()
+}
+
+// ListWirelessDeviceImportTasksWithContext is the same as ListWirelessDeviceImportTasks with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListWirelessDeviceImportTasks for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) ListWirelessDeviceImportTasksWithContext(ctx aws.Context, input *ListWirelessDeviceImportTasksInput, opts ...request.Option) (*ListWirelessDeviceImportTasksOutput, error) {
+	req, out := c.ListWirelessDeviceImportTasksRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opListWirelessDevices = "ListWirelessDevices"
 
 // ListWirelessDevicesRequest generates a "aws/request.Request" representing the
@@ -7072,14 +7969,13 @@ const opListWirelessDevices = "ListWirelessDevices"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListWirelessDevicesRequest method.
+//	req, resp := client.ListWirelessDevicesRequest(params)
 //
-//    // Example sending a request using the ListWirelessDevicesRequest method.
-//    req, resp := client.ListWirelessDevicesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListWirelessDevices
 func (c *IoTWireless) ListWirelessDevicesRequest(input *ListWirelessDevicesInput) (req *request.Request, output *ListWirelessDevicesOutput) {
@@ -7116,17 +8012,18 @@ func (c *IoTWireless) ListWirelessDevicesRequest(input *ListWirelessDevicesInput
 // API operation ListWirelessDevices for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListWirelessDevices
 func (c *IoTWireless) ListWirelessDevices(input *ListWirelessDevicesInput) (*ListWirelessDevicesOutput, error) {
@@ -7158,15 +8055,14 @@ func (c *IoTWireless) ListWirelessDevicesWithContext(ctx aws.Context, input *Lis
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListWirelessDevices operation.
-//    pageNum := 0
-//    err := client.ListWirelessDevicesPages(params,
-//        func(page *iotwireless.ListWirelessDevicesOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListWirelessDevices operation.
+//	pageNum := 0
+//	err := client.ListWirelessDevicesPages(params,
+//	    func(page *iotwireless.ListWirelessDevicesOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *IoTWireless) ListWirelessDevicesPages(input *ListWirelessDevicesInput, fn func(*ListWirelessDevicesOutput, bool) bool) error {
 	return c.ListWirelessDevicesPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -7218,14 +8114,13 @@ const opListWirelessGatewayTaskDefinitions = "ListWirelessGatewayTaskDefinitions
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListWirelessGatewayTaskDefinitionsRequest method.
+//	req, resp := client.ListWirelessGatewayTaskDefinitionsRequest(params)
 //
-//    // Example sending a request using the ListWirelessGatewayTaskDefinitionsRequest method.
-//    req, resp := client.ListWirelessGatewayTaskDefinitionsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListWirelessGatewayTaskDefinitions
 func (c *IoTWireless) ListWirelessGatewayTaskDefinitionsRequest(input *ListWirelessGatewayTaskDefinitionsInput) (req *request.Request, output *ListWirelessGatewayTaskDefinitionsOutput) {
@@ -7256,17 +8151,18 @@ func (c *IoTWireless) ListWirelessGatewayTaskDefinitionsRequest(input *ListWirel
 // API operation ListWirelessGatewayTaskDefinitions for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListWirelessGatewayTaskDefinitions
 func (c *IoTWireless) ListWirelessGatewayTaskDefinitions(input *ListWirelessGatewayTaskDefinitionsInput) (*ListWirelessGatewayTaskDefinitionsOutput, error) {
@@ -7306,14 +8202,13 @@ const opListWirelessGateways = "ListWirelessGateways"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ListWirelessGatewaysRequest method.
+//	req, resp := client.ListWirelessGatewaysRequest(params)
 //
-//    // Example sending a request using the ListWirelessGatewaysRequest method.
-//    req, resp := client.ListWirelessGatewaysRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListWirelessGateways
 func (c *IoTWireless) ListWirelessGatewaysRequest(input *ListWirelessGatewaysInput) (req *request.Request, output *ListWirelessGatewaysOutput) {
@@ -7350,17 +8245,18 @@ func (c *IoTWireless) ListWirelessGatewaysRequest(input *ListWirelessGatewaysInp
 // API operation ListWirelessGateways for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListWirelessGateways
 func (c *IoTWireless) ListWirelessGateways(input *ListWirelessGatewaysInput) (*ListWirelessGatewaysOutput, error) {
@@ -7392,15 +8288,14 @@ func (c *IoTWireless) ListWirelessGatewaysWithContext(ctx aws.Context, input *Li
 //
 // Note: This operation can generate multiple requests to a service.
 //
-//    // Example iterating over at most 3 pages of a ListWirelessGateways operation.
-//    pageNum := 0
-//    err := client.ListWirelessGatewaysPages(params,
-//        func(page *iotwireless.ListWirelessGatewaysOutput, lastPage bool) bool {
-//            pageNum++
-//            fmt.Println(page)
-//            return pageNum <= 3
-//        })
-//
+//	// Example iterating over at most 3 pages of a ListWirelessGateways operation.
+//	pageNum := 0
+//	err := client.ListWirelessGatewaysPages(params,
+//	    func(page *iotwireless.ListWirelessGatewaysOutput, lastPage bool) bool {
+//	        pageNum++
+//	        fmt.Println(page)
+//	        return pageNum <= 3
+//	    })
 func (c *IoTWireless) ListWirelessGatewaysPages(input *ListWirelessGatewaysInput, fn func(*ListWirelessGatewaysOutput, bool) bool) error {
 	return c.ListWirelessGatewaysPagesWithContext(aws.BackgroundContext(), input, fn)
 }
@@ -7452,17 +8347,21 @@ const opPutPositionConfiguration = "PutPositionConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutPositionConfigurationRequest method.
+//	req, resp := client.PutPositionConfigurationRequest(params)
 //
-//    // Example sending a request using the PutPositionConfigurationRequest method.
-//    req, resp := client.PutPositionConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/PutPositionConfiguration
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) PutPositionConfigurationRequest(input *PutPositionConfigurationInput) (req *request.Request, output *PutPositionConfigurationOutput) {
+	if c.Client.Config.Logger != nil {
+		c.Client.Config.Logger.Log("This operation, PutPositionConfiguration, has been deprecated")
+	}
 	op := &request.Operation{
 		Name:       opPutPositionConfiguration,
 		HTTPMethod: "PUT",
@@ -7483,6 +8382,10 @@ func (c *IoTWireless) PutPositionConfigurationRequest(input *PutPositionConfigur
 //
 // Put position configuration for a given resource.
 //
+// This action is no longer supported. Calls to update the position configuration
+// should use the UpdateResourcePosition (https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html)
+// API operation instead.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -7491,22 +8394,25 @@ func (c *IoTWireless) PutPositionConfigurationRequest(input *PutPositionConfigur
 // API operation PutPositionConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/PutPositionConfiguration
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) PutPositionConfiguration(input *PutPositionConfigurationInput) (*PutPositionConfigurationOutput, error) {
 	req, out := c.PutPositionConfigurationRequest(input)
 	return out, req.Send()
@@ -7521,6 +8427,8 @@ func (c *IoTWireless) PutPositionConfiguration(input *PutPositionConfigurationIn
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) PutPositionConfigurationWithContext(ctx aws.Context, input *PutPositionConfigurationInput, opts ...request.Option) (*PutPositionConfigurationOutput, error) {
 	req, out := c.PutPositionConfigurationRequest(input)
 	req.SetContext(ctx)
@@ -7544,14 +8452,13 @@ const opPutResourceLogLevel = "PutResourceLogLevel"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the PutResourceLogLevelRequest method.
+//	req, resp := client.PutResourceLogLevelRequest(params)
 //
-//    // Example sending a request using the PutResourceLogLevelRequest method.
-//    req, resp := client.PutResourceLogLevelRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/PutResourceLogLevel
 func (c *IoTWireless) PutResourceLogLevelRequest(input *PutResourceLogLevelInput) (req *request.Request, output *PutResourceLogLevelOutput) {
@@ -7585,20 +8492,21 @@ func (c *IoTWireless) PutResourceLogLevelRequest(input *PutResourceLogLevelInput
 // API operation PutResourceLogLevel for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ValidationException
-//   The input did not meet the specified constraints.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/PutResourceLogLevel
 func (c *IoTWireless) PutResourceLogLevel(input *PutResourceLogLevelInput) (*PutResourceLogLevelOutput, error) {
@@ -7638,14 +8546,13 @@ const opResetAllResourceLogLevels = "ResetAllResourceLogLevels"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ResetAllResourceLogLevelsRequest method.
+//	req, resp := client.ResetAllResourceLogLevelsRequest(params)
 //
-//    // Example sending a request using the ResetAllResourceLogLevelsRequest method.
-//    req, resp := client.ResetAllResourceLogLevelsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ResetAllResourceLogLevels
 func (c *IoTWireless) ResetAllResourceLogLevelsRequest(input *ResetAllResourceLogLevelsInput) (req *request.Request, output *ResetAllResourceLogLevelsOutput) {
@@ -7678,20 +8585,21 @@ func (c *IoTWireless) ResetAllResourceLogLevelsRequest(input *ResetAllResourceLo
 // API operation ResetAllResourceLogLevels for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ValidationException
-//   The input did not meet the specified constraints.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ResetAllResourceLogLevels
 func (c *IoTWireless) ResetAllResourceLogLevels(input *ResetAllResourceLogLevelsInput) (*ResetAllResourceLogLevelsOutput, error) {
@@ -7731,14 +8639,13 @@ const opResetResourceLogLevel = "ResetResourceLogLevel"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the ResetResourceLogLevelRequest method.
+//	req, resp := client.ResetResourceLogLevelRequest(params)
 //
-//    // Example sending a request using the ResetResourceLogLevelRequest method.
-//    req, resp := client.ResetResourceLogLevelRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ResetResourceLogLevel
 func (c *IoTWireless) ResetResourceLogLevelRequest(input *ResetResourceLogLevelInput) (req *request.Request, output *ResetResourceLogLevelOutput) {
@@ -7771,20 +8678,21 @@ func (c *IoTWireless) ResetResourceLogLevelRequest(input *ResetResourceLogLevelI
 // API operation ResetResourceLogLevel for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ValidationException
-//   The input did not meet the specified constraints.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ResetResourceLogLevel
 func (c *IoTWireless) ResetResourceLogLevel(input *ResetResourceLogLevelInput) (*ResetResourceLogLevelOutput, error) {
@@ -7824,14 +8732,13 @@ const opSendDataToMulticastGroup = "SendDataToMulticastGroup"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the SendDataToMulticastGroupRequest method.
+//	req, resp := client.SendDataToMulticastGroupRequest(params)
 //
-//    // Example sending a request using the SendDataToMulticastGroupRequest method.
-//    req, resp := client.SendDataToMulticastGroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/SendDataToMulticastGroup
 func (c *IoTWireless) SendDataToMulticastGroupRequest(input *SendDataToMulticastGroupInput) (req *request.Request, output *SendDataToMulticastGroupOutput) {
@@ -7862,23 +8769,24 @@ func (c *IoTWireless) SendDataToMulticastGroupRequest(input *SendDataToMulticast
 // API operation SendDataToMulticastGroup for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/SendDataToMulticastGroup
 func (c *IoTWireless) SendDataToMulticastGroup(input *SendDataToMulticastGroupInput) (*SendDataToMulticastGroupOutput, error) {
@@ -7918,14 +8826,13 @@ const opSendDataToWirelessDevice = "SendDataToWirelessDevice"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the SendDataToWirelessDeviceRequest method.
+//	req, resp := client.SendDataToWirelessDeviceRequest(params)
 //
-//    // Example sending a request using the SendDataToWirelessDeviceRequest method.
-//    req, resp := client.SendDataToWirelessDeviceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/SendDataToWirelessDevice
 func (c *IoTWireless) SendDataToWirelessDeviceRequest(input *SendDataToWirelessDeviceInput) (req *request.Request, output *SendDataToWirelessDeviceOutput) {
@@ -7956,17 +8863,18 @@ func (c *IoTWireless) SendDataToWirelessDeviceRequest(input *SendDataToWirelessD
 // API operation SendDataToWirelessDevice for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/SendDataToWirelessDevice
 func (c *IoTWireless) SendDataToWirelessDevice(input *SendDataToWirelessDeviceInput) (*SendDataToWirelessDeviceOutput, error) {
@@ -8006,14 +8914,13 @@ const opStartBulkAssociateWirelessDeviceWithMulticastGroup = "StartBulkAssociate
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StartBulkAssociateWirelessDeviceWithMulticastGroupRequest method.
+//	req, resp := client.StartBulkAssociateWirelessDeviceWithMulticastGroupRequest(params)
 //
-//    // Example sending a request using the StartBulkAssociateWirelessDeviceWithMulticastGroupRequest method.
-//    req, resp := client.StartBulkAssociateWirelessDeviceWithMulticastGroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/StartBulkAssociateWirelessDeviceWithMulticastGroup
 func (c *IoTWireless) StartBulkAssociateWirelessDeviceWithMulticastGroupRequest(input *StartBulkAssociateWirelessDeviceWithMulticastGroupInput) (req *request.Request, output *StartBulkAssociateWirelessDeviceWithMulticastGroupOutput) {
@@ -8046,20 +8953,21 @@ func (c *IoTWireless) StartBulkAssociateWirelessDeviceWithMulticastGroupRequest(
 // API operation StartBulkAssociateWirelessDeviceWithMulticastGroup for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/StartBulkAssociateWirelessDeviceWithMulticastGroup
 func (c *IoTWireless) StartBulkAssociateWirelessDeviceWithMulticastGroup(input *StartBulkAssociateWirelessDeviceWithMulticastGroupInput) (*StartBulkAssociateWirelessDeviceWithMulticastGroupOutput, error) {
@@ -8099,14 +9007,13 @@ const opStartBulkDisassociateWirelessDeviceFromMulticastGroup = "StartBulkDisass
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest method.
+//	req, resp := client.StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest(params)
 //
-//    // Example sending a request using the StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest method.
-//    req, resp := client.StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/StartBulkDisassociateWirelessDeviceFromMulticastGroup
 func (c *IoTWireless) StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest(input *StartBulkDisassociateWirelessDeviceFromMulticastGroupInput) (req *request.Request, output *StartBulkDisassociateWirelessDeviceFromMulticastGroupOutput) {
@@ -8139,20 +9046,21 @@ func (c *IoTWireless) StartBulkDisassociateWirelessDeviceFromMulticastGroupReque
 // API operation StartBulkDisassociateWirelessDeviceFromMulticastGroup for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/StartBulkDisassociateWirelessDeviceFromMulticastGroup
 func (c *IoTWireless) StartBulkDisassociateWirelessDeviceFromMulticastGroup(input *StartBulkDisassociateWirelessDeviceFromMulticastGroupInput) (*StartBulkDisassociateWirelessDeviceFromMulticastGroupOutput, error) {
@@ -8192,14 +9100,13 @@ const opStartFuotaTask = "StartFuotaTask"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StartFuotaTaskRequest method.
+//	req, resp := client.StartFuotaTaskRequest(params)
 //
-//    // Example sending a request using the StartFuotaTaskRequest method.
-//    req, resp := client.StartFuotaTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/StartFuotaTask
 func (c *IoTWireless) StartFuotaTaskRequest(input *StartFuotaTaskInput) (req *request.Request, output *StartFuotaTaskOutput) {
@@ -8231,23 +9138,24 @@ func (c *IoTWireless) StartFuotaTaskRequest(input *StartFuotaTaskInput) (req *re
 // API operation StartFuotaTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/StartFuotaTask
 func (c *IoTWireless) StartFuotaTask(input *StartFuotaTaskInput) (*StartFuotaTaskOutput, error) {
@@ -8287,14 +9195,13 @@ const opStartMulticastGroupSession = "StartMulticastGroupSession"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the StartMulticastGroupSessionRequest method.
+//	req, resp := client.StartMulticastGroupSessionRequest(params)
 //
-//    // Example sending a request using the StartMulticastGroupSessionRequest method.
-//    req, resp := client.StartMulticastGroupSessionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/StartMulticastGroupSession
 func (c *IoTWireless) StartMulticastGroupSessionRequest(input *StartMulticastGroupSessionInput) (req *request.Request, output *StartMulticastGroupSessionOutput) {
@@ -8326,23 +9233,24 @@ func (c *IoTWireless) StartMulticastGroupSessionRequest(input *StartMulticastGro
 // API operation StartMulticastGroupSession for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/StartMulticastGroupSession
 func (c *IoTWireless) StartMulticastGroupSession(input *StartMulticastGroupSessionInput) (*StartMulticastGroupSessionOutput, error) {
@@ -8366,6 +9274,195 @@ func (c *IoTWireless) StartMulticastGroupSessionWithContext(ctx aws.Context, inp
 	return out, req.Send()
 }
 
+const opStartSingleWirelessDeviceImportTask = "StartSingleWirelessDeviceImportTask"
+
+// StartSingleWirelessDeviceImportTaskRequest generates a "aws/request.Request" representing the
+// client's request for the StartSingleWirelessDeviceImportTask operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StartSingleWirelessDeviceImportTask for more information on using the StartSingleWirelessDeviceImportTask
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the StartSingleWirelessDeviceImportTaskRequest method.
+//	req, resp := client.StartSingleWirelessDeviceImportTaskRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/StartSingleWirelessDeviceImportTask
+func (c *IoTWireless) StartSingleWirelessDeviceImportTaskRequest(input *StartSingleWirelessDeviceImportTaskInput) (req *request.Request, output *StartSingleWirelessDeviceImportTaskOutput) {
+	op := &request.Operation{
+		Name:       opStartSingleWirelessDeviceImportTask,
+		HTTPMethod: "POST",
+		HTTPPath:   "/wireless_single_device_import_task",
+	}
+
+	if input == nil {
+		input = &StartSingleWirelessDeviceImportTaskInput{}
+	}
+
+	output = &StartSingleWirelessDeviceImportTaskOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StartSingleWirelessDeviceImportTask API operation for AWS IoT Wireless.
+//
+// Start import task for a single wireless device.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation StartSingleWirelessDeviceImportTask for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/StartSingleWirelessDeviceImportTask
+func (c *IoTWireless) StartSingleWirelessDeviceImportTask(input *StartSingleWirelessDeviceImportTaskInput) (*StartSingleWirelessDeviceImportTaskOutput, error) {
+	req, out := c.StartSingleWirelessDeviceImportTaskRequest(input)
+	return out, req.Send()
+}
+
+// StartSingleWirelessDeviceImportTaskWithContext is the same as StartSingleWirelessDeviceImportTask with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StartSingleWirelessDeviceImportTask for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) StartSingleWirelessDeviceImportTaskWithContext(ctx aws.Context, input *StartSingleWirelessDeviceImportTaskInput, opts ...request.Option) (*StartSingleWirelessDeviceImportTaskOutput, error) {
+	req, out := c.StartSingleWirelessDeviceImportTaskRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opStartWirelessDeviceImportTask = "StartWirelessDeviceImportTask"
+
+// StartWirelessDeviceImportTaskRequest generates a "aws/request.Request" representing the
+// client's request for the StartWirelessDeviceImportTask operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StartWirelessDeviceImportTask for more information on using the StartWirelessDeviceImportTask
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the StartWirelessDeviceImportTaskRequest method.
+//	req, resp := client.StartWirelessDeviceImportTaskRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/StartWirelessDeviceImportTask
+func (c *IoTWireless) StartWirelessDeviceImportTaskRequest(input *StartWirelessDeviceImportTaskInput) (req *request.Request, output *StartWirelessDeviceImportTaskOutput) {
+	op := &request.Operation{
+		Name:       opStartWirelessDeviceImportTask,
+		HTTPMethod: "POST",
+		HTTPPath:   "/wireless_device_import_task",
+	}
+
+	if input == nil {
+		input = &StartWirelessDeviceImportTaskInput{}
+	}
+
+	output = &StartWirelessDeviceImportTaskOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StartWirelessDeviceImportTask API operation for AWS IoT Wireless.
+//
+// Start import task for provisioning Sidewalk devices in bulk using an S3 CSV
+// file.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation StartWirelessDeviceImportTask for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/StartWirelessDeviceImportTask
+func (c *IoTWireless) StartWirelessDeviceImportTask(input *StartWirelessDeviceImportTaskInput) (*StartWirelessDeviceImportTaskOutput, error) {
+	req, out := c.StartWirelessDeviceImportTaskRequest(input)
+	return out, req.Send()
+}
+
+// StartWirelessDeviceImportTaskWithContext is the same as StartWirelessDeviceImportTask with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StartWirelessDeviceImportTask for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) StartWirelessDeviceImportTaskWithContext(ctx aws.Context, input *StartWirelessDeviceImportTaskInput, opts ...request.Option) (*StartWirelessDeviceImportTaskOutput, error) {
+	req, out := c.StartWirelessDeviceImportTaskRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opTagResource = "TagResource"
 
 // TagResourceRequest generates a "aws/request.Request" representing the
@@ -8382,14 +9479,13 @@ const opTagResource = "TagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the TagResourceRequest method.
+//	req, resp := client.TagResourceRequest(params)
 //
-//    // Example sending a request using the TagResourceRequest method.
-//    req, resp := client.TagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/TagResource
 func (c *IoTWireless) TagResourceRequest(input *TagResourceInput) (req *request.Request, output *TagResourceOutput) {
@@ -8421,23 +9517,24 @@ func (c *IoTWireless) TagResourceRequest(input *TagResourceInput) (req *request.
 // API operation TagResource for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * TooManyTagsException
-//   The request was denied because the resource can't have any more tags.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - TooManyTagsException
+//     The request was denied because the resource can't have any more tags.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/TagResource
 func (c *IoTWireless) TagResource(input *TagResourceInput) (*TagResourceOutput, error) {
@@ -8477,14 +9574,13 @@ const opTestWirelessDevice = "TestWirelessDevice"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the TestWirelessDeviceRequest method.
+//	req, resp := client.TestWirelessDeviceRequest(params)
 //
-//    // Example sending a request using the TestWirelessDeviceRequest method.
-//    req, resp := client.TestWirelessDeviceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/TestWirelessDevice
 func (c *IoTWireless) TestWirelessDeviceRequest(input *TestWirelessDeviceInput) (req *request.Request, output *TestWirelessDeviceOutput) {
@@ -8515,17 +9611,18 @@ func (c *IoTWireless) TestWirelessDeviceRequest(input *TestWirelessDeviceInput) 
 // API operation TestWirelessDevice for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/TestWirelessDevice
 func (c *IoTWireless) TestWirelessDevice(input *TestWirelessDeviceInput) (*TestWirelessDeviceOutput, error) {
@@ -8565,14 +9662,13 @@ const opUntagResource = "UntagResource"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UntagResourceRequest method.
+//	req, resp := client.UntagResourceRequest(params)
 //
-//    // Example sending a request using the UntagResourceRequest method.
-//    req, resp := client.UntagResourceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UntagResource
 func (c *IoTWireless) UntagResourceRequest(input *UntagResourceInput) (req *request.Request, output *UntagResourceOutput) {
@@ -8604,20 +9700,21 @@ func (c *IoTWireless) UntagResourceRequest(input *UntagResourceInput) (req *requ
 // API operation UntagResource for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UntagResource
 func (c *IoTWireless) UntagResource(input *UntagResourceInput) (*UntagResourceOutput, error) {
@@ -8657,14 +9754,13 @@ const opUpdateDestination = "UpdateDestination"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateDestinationRequest method.
+//	req, resp := client.UpdateDestinationRequest(params)
 //
-//    // Example sending a request using the UpdateDestinationRequest method.
-//    req, resp := client.UpdateDestinationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateDestination
 func (c *IoTWireless) UpdateDestinationRequest(input *UpdateDestinationInput) (req *request.Request, output *UpdateDestinationOutput) {
@@ -8696,20 +9792,21 @@ func (c *IoTWireless) UpdateDestinationRequest(input *UpdateDestinationInput) (r
 // API operation UpdateDestination for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateDestination
 func (c *IoTWireless) UpdateDestination(input *UpdateDestinationInput) (*UpdateDestinationOutput, error) {
@@ -8749,14 +9846,13 @@ const opUpdateEventConfigurationByResourceTypes = "UpdateEventConfigurationByRes
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateEventConfigurationByResourceTypesRequest method.
+//	req, resp := client.UpdateEventConfigurationByResourceTypesRequest(params)
 //
-//    // Example sending a request using the UpdateEventConfigurationByResourceTypesRequest method.
-//    req, resp := client.UpdateEventConfigurationByResourceTypesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateEventConfigurationByResourceTypes
 func (c *IoTWireless) UpdateEventConfigurationByResourceTypesRequest(input *UpdateEventConfigurationByResourceTypesInput) (req *request.Request, output *UpdateEventConfigurationByResourceTypesOutput) {
@@ -8788,17 +9884,18 @@ func (c *IoTWireless) UpdateEventConfigurationByResourceTypesRequest(input *Upda
 // API operation UpdateEventConfigurationByResourceTypes for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateEventConfigurationByResourceTypes
 func (c *IoTWireless) UpdateEventConfigurationByResourceTypes(input *UpdateEventConfigurationByResourceTypesInput) (*UpdateEventConfigurationByResourceTypesOutput, error) {
@@ -8838,14 +9935,13 @@ const opUpdateFuotaTask = "UpdateFuotaTask"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateFuotaTaskRequest method.
+//	req, resp := client.UpdateFuotaTaskRequest(params)
 //
-//    // Example sending a request using the UpdateFuotaTaskRequest method.
-//    req, resp := client.UpdateFuotaTaskRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateFuotaTask
 func (c *IoTWireless) UpdateFuotaTaskRequest(input *UpdateFuotaTaskInput) (req *request.Request, output *UpdateFuotaTaskOutput) {
@@ -8877,23 +9973,24 @@ func (c *IoTWireless) UpdateFuotaTaskRequest(input *UpdateFuotaTaskInput) (req *
 // API operation UpdateFuotaTask for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateFuotaTask
 func (c *IoTWireless) UpdateFuotaTask(input *UpdateFuotaTaskInput) (*UpdateFuotaTaskOutput, error) {
@@ -8933,14 +10030,13 @@ const opUpdateLogLevelsByResourceTypes = "UpdateLogLevelsByResourceTypes"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateLogLevelsByResourceTypesRequest method.
+//	req, resp := client.UpdateLogLevelsByResourceTypesRequest(params)
 //
-//    // Example sending a request using the UpdateLogLevelsByResourceTypesRequest method.
-//    req, resp := client.UpdateLogLevelsByResourceTypesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateLogLevelsByResourceTypes
 func (c *IoTWireless) UpdateLogLevelsByResourceTypesRequest(input *UpdateLogLevelsByResourceTypesInput) (req *request.Request, output *UpdateLogLevelsByResourceTypesOutput) {
@@ -8974,23 +10070,24 @@ func (c *IoTWireless) UpdateLogLevelsByResourceTypesRequest(input *UpdateLogLeve
 // API operation UpdateLogLevelsByResourceTypes for usage and error information.
 //
 // Returned Error Types:
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ValidationException
-//   The input did not meet the specified constraints.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateLogLevelsByResourceTypes
 func (c *IoTWireless) UpdateLogLevelsByResourceTypes(input *UpdateLogLevelsByResourceTypesInput) (*UpdateLogLevelsByResourceTypesOutput, error) {
@@ -9014,6 +10111,101 @@ func (c *IoTWireless) UpdateLogLevelsByResourceTypesWithContext(ctx aws.Context,
 	return out, req.Send()
 }
 
+const opUpdateMetricConfiguration = "UpdateMetricConfiguration"
+
+// UpdateMetricConfigurationRequest generates a "aws/request.Request" representing the
+// client's request for the UpdateMetricConfiguration operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UpdateMetricConfiguration for more information on using the UpdateMetricConfiguration
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the UpdateMetricConfigurationRequest method.
+//	req, resp := client.UpdateMetricConfigurationRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateMetricConfiguration
+func (c *IoTWireless) UpdateMetricConfigurationRequest(input *UpdateMetricConfigurationInput) (req *request.Request, output *UpdateMetricConfigurationOutput) {
+	op := &request.Operation{
+		Name:       opUpdateMetricConfiguration,
+		HTTPMethod: "PUT",
+		HTTPPath:   "/metric-configuration",
+	}
+
+	if input == nil {
+		input = &UpdateMetricConfigurationInput{}
+	}
+
+	output = &UpdateMetricConfigurationOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// UpdateMetricConfiguration API operation for AWS IoT Wireless.
+//
+// Update the summary metric configuration.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation UpdateMetricConfiguration for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateMetricConfiguration
+func (c *IoTWireless) UpdateMetricConfiguration(input *UpdateMetricConfigurationInput) (*UpdateMetricConfigurationOutput, error) {
+	req, out := c.UpdateMetricConfigurationRequest(input)
+	return out, req.Send()
+}
+
+// UpdateMetricConfigurationWithContext is the same as UpdateMetricConfiguration with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UpdateMetricConfiguration for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) UpdateMetricConfigurationWithContext(ctx aws.Context, input *UpdateMetricConfigurationInput, opts ...request.Option) (*UpdateMetricConfigurationOutput, error) {
+	req, out := c.UpdateMetricConfigurationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opUpdateMulticastGroup = "UpdateMulticastGroup"
 
 // UpdateMulticastGroupRequest generates a "aws/request.Request" representing the
@@ -9030,14 +10222,13 @@ const opUpdateMulticastGroup = "UpdateMulticastGroup"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateMulticastGroupRequest method.
+//	req, resp := client.UpdateMulticastGroupRequest(params)
 //
-//    // Example sending a request using the UpdateMulticastGroupRequest method.
-//    req, resp := client.UpdateMulticastGroupRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateMulticastGroup
 func (c *IoTWireless) UpdateMulticastGroupRequest(input *UpdateMulticastGroupInput) (req *request.Request, output *UpdateMulticastGroupOutput) {
@@ -9069,23 +10260,24 @@ func (c *IoTWireless) UpdateMulticastGroupRequest(input *UpdateMulticastGroupInp
 // API operation UpdateMulticastGroup for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateMulticastGroup
 func (c *IoTWireless) UpdateMulticastGroup(input *UpdateMulticastGroupInput) (*UpdateMulticastGroupOutput, error) {
@@ -9125,14 +10317,13 @@ const opUpdateNetworkAnalyzerConfiguration = "UpdateNetworkAnalyzerConfiguration
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateNetworkAnalyzerConfigurationRequest method.
+//	req, resp := client.UpdateNetworkAnalyzerConfigurationRequest(params)
 //
-//    // Example sending a request using the UpdateNetworkAnalyzerConfigurationRequest method.
-//    req, resp := client.UpdateNetworkAnalyzerConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateNetworkAnalyzerConfiguration
 func (c *IoTWireless) UpdateNetworkAnalyzerConfigurationRequest(input *UpdateNetworkAnalyzerConfigurationInput) (req *request.Request, output *UpdateNetworkAnalyzerConfigurationOutput) {
@@ -9164,20 +10355,21 @@ func (c *IoTWireless) UpdateNetworkAnalyzerConfigurationRequest(input *UpdateNet
 // API operation UpdateNetworkAnalyzerConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateNetworkAnalyzerConfiguration
 func (c *IoTWireless) UpdateNetworkAnalyzerConfiguration(input *UpdateNetworkAnalyzerConfigurationInput) (*UpdateNetworkAnalyzerConfigurationOutput, error) {
@@ -9217,14 +10409,13 @@ const opUpdatePartnerAccount = "UpdatePartnerAccount"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdatePartnerAccountRequest method.
+//	req, resp := client.UpdatePartnerAccountRequest(params)
 //
-//    // Example sending a request using the UpdatePartnerAccountRequest method.
-//    req, resp := client.UpdatePartnerAccountRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdatePartnerAccount
 func (c *IoTWireless) UpdatePartnerAccountRequest(input *UpdatePartnerAccountInput) (req *request.Request, output *UpdatePartnerAccountOutput) {
@@ -9256,17 +10447,18 @@ func (c *IoTWireless) UpdatePartnerAccountRequest(input *UpdatePartnerAccountInp
 // API operation UpdatePartnerAccount for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdatePartnerAccount
 func (c *IoTWireless) UpdatePartnerAccount(input *UpdatePartnerAccountInput) (*UpdatePartnerAccountOutput, error) {
@@ -9306,17 +10498,21 @@ const opUpdatePosition = "UpdatePosition"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdatePositionRequest method.
+//	req, resp := client.UpdatePositionRequest(params)
 //
-//    // Example sending a request using the UpdatePositionRequest method.
-//    req, resp := client.UpdatePositionRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdatePosition
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) UpdatePositionRequest(input *UpdatePositionInput) (req *request.Request, output *UpdatePositionOutput) {
+	if c.Client.Config.Logger != nil {
+		c.Client.Config.Logger.Log("This operation, UpdatePosition, has been deprecated")
+	}
 	op := &request.Operation{
 		Name:       opUpdatePosition,
 		HTTPMethod: "PATCH",
@@ -9337,6 +10533,10 @@ func (c *IoTWireless) UpdatePositionRequest(input *UpdatePositionInput) (req *re
 //
 // Update the position information of a resource.
 //
+// This action is no longer supported. Calls to update the position information
+// should use the UpdateResourcePosition (https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html)
+// API operation instead.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -9345,22 +10545,25 @@ func (c *IoTWireless) UpdatePositionRequest(input *UpdatePositionInput) (req *re
 // API operation UpdatePosition for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdatePosition
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) UpdatePosition(input *UpdatePositionInput) (*UpdatePositionOutput, error) {
 	req, out := c.UpdatePositionRequest(input)
 	return out, req.Send()
@@ -9375,6 +10578,8 @@ func (c *IoTWireless) UpdatePosition(input *UpdatePositionInput) (*UpdatePositio
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
+//
+// Deprecated: This operation is no longer supported.
 func (c *IoTWireless) UpdatePositionWithContext(ctx aws.Context, input *UpdatePositionInput, opts ...request.Option) (*UpdatePositionOutput, error) {
 	req, out := c.UpdatePositionRequest(input)
 	req.SetContext(ctx)
@@ -9398,14 +10603,13 @@ const opUpdateResourceEventConfiguration = "UpdateResourceEventConfiguration"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateResourceEventConfigurationRequest method.
+//	req, resp := client.UpdateResourceEventConfigurationRequest(params)
 //
-//    // Example sending a request using the UpdateResourceEventConfigurationRequest method.
-//    req, resp := client.UpdateResourceEventConfigurationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateResourceEventConfiguration
 func (c *IoTWireless) UpdateResourceEventConfigurationRequest(input *UpdateResourceEventConfigurationInput) (req *request.Request, output *UpdateResourceEventConfigurationOutput) {
@@ -9437,23 +10641,24 @@ func (c *IoTWireless) UpdateResourceEventConfigurationRequest(input *UpdateResou
 // API operation UpdateResourceEventConfiguration for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * ConflictException
-//   Adding, updating, or deleting the resource can cause an inconsistent state.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateResourceEventConfiguration
 func (c *IoTWireless) UpdateResourceEventConfiguration(input *UpdateResourceEventConfigurationInput) (*UpdateResourceEventConfigurationOutput, error) {
@@ -9477,6 +10682,100 @@ func (c *IoTWireless) UpdateResourceEventConfigurationWithContext(ctx aws.Contex
 	return out, req.Send()
 }
 
+const opUpdateResourcePosition = "UpdateResourcePosition"
+
+// UpdateResourcePositionRequest generates a "aws/request.Request" representing the
+// client's request for the UpdateResourcePosition operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UpdateResourcePosition for more information on using the UpdateResourcePosition
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the UpdateResourcePositionRequest method.
+//	req, resp := client.UpdateResourcePositionRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateResourcePosition
+func (c *IoTWireless) UpdateResourcePositionRequest(input *UpdateResourcePositionInput) (req *request.Request, output *UpdateResourcePositionOutput) {
+	op := &request.Operation{
+		Name:       opUpdateResourcePosition,
+		HTTPMethod: "PATCH",
+		HTTPPath:   "/resource-positions/{ResourceIdentifier}",
+	}
+
+	if input == nil {
+		input = &UpdateResourcePositionInput{}
+	}
+
+	output = &UpdateResourcePositionOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// UpdateResourcePosition API operation for AWS IoT Wireless.
+//
+// Update the position information of a given wireless device or a wireless
+// gateway resource. The position coordinates are based on the World Geodetic
+// System (WGS84) (https://gisgeography.com/wgs84-world-geodetic-system/).
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation UpdateResourcePosition for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateResourcePosition
+func (c *IoTWireless) UpdateResourcePosition(input *UpdateResourcePositionInput) (*UpdateResourcePositionOutput, error) {
+	req, out := c.UpdateResourcePositionRequest(input)
+	return out, req.Send()
+}
+
+// UpdateResourcePositionWithContext is the same as UpdateResourcePosition with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UpdateResourcePosition for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) UpdateResourcePositionWithContext(ctx aws.Context, input *UpdateResourcePositionInput, opts ...request.Option) (*UpdateResourcePositionOutput, error) {
+	req, out := c.UpdateResourcePositionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opUpdateWirelessDevice = "UpdateWirelessDevice"
 
 // UpdateWirelessDeviceRequest generates a "aws/request.Request" representing the
@@ -9493,14 +10792,13 @@ const opUpdateWirelessDevice = "UpdateWirelessDevice"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateWirelessDeviceRequest method.
+//	req, resp := client.UpdateWirelessDeviceRequest(params)
 //
-//    // Example sending a request using the UpdateWirelessDeviceRequest method.
-//    req, resp := client.UpdateWirelessDeviceRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateWirelessDevice
 func (c *IoTWireless) UpdateWirelessDeviceRequest(input *UpdateWirelessDeviceInput) (req *request.Request, output *UpdateWirelessDeviceOutput) {
@@ -9532,20 +10830,21 @@ func (c *IoTWireless) UpdateWirelessDeviceRequest(input *UpdateWirelessDeviceInp
 // API operation UpdateWirelessDevice for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateWirelessDevice
 func (c *IoTWireless) UpdateWirelessDevice(input *UpdateWirelessDeviceInput) (*UpdateWirelessDeviceOutput, error) {
@@ -9569,6 +10868,101 @@ func (c *IoTWireless) UpdateWirelessDeviceWithContext(ctx aws.Context, input *Up
 	return out, req.Send()
 }
 
+const opUpdateWirelessDeviceImportTask = "UpdateWirelessDeviceImportTask"
+
+// UpdateWirelessDeviceImportTaskRequest generates a "aws/request.Request" representing the
+// client's request for the UpdateWirelessDeviceImportTask operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UpdateWirelessDeviceImportTask for more information on using the UpdateWirelessDeviceImportTask
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//	// Example sending a request using the UpdateWirelessDeviceImportTaskRequest method.
+//	req, resp := client.UpdateWirelessDeviceImportTaskRequest(params)
+//
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateWirelessDeviceImportTask
+func (c *IoTWireless) UpdateWirelessDeviceImportTaskRequest(input *UpdateWirelessDeviceImportTaskInput) (req *request.Request, output *UpdateWirelessDeviceImportTaskOutput) {
+	op := &request.Operation{
+		Name:       opUpdateWirelessDeviceImportTask,
+		HTTPMethod: "PATCH",
+		HTTPPath:   "/wireless_device_import_task/{Id}",
+	}
+
+	if input == nil {
+		input = &UpdateWirelessDeviceImportTaskInput{}
+	}
+
+	output = &UpdateWirelessDeviceImportTaskOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(restjson.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// UpdateWirelessDeviceImportTask API operation for AWS IoT Wireless.
+//
+// Update an import task to add more devices to the task.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS IoT Wireless's
+// API operation UpdateWirelessDeviceImportTask for usage and error information.
+//
+// Returned Error Types:
+//
+//   - ValidationException
+//     The input did not meet the specified constraints.
+//
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
+//
+//   - ResourceNotFoundException
+//     Resource does not exist.
+//
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ConflictException
+//     Adding, updating, or deleting the resource can cause an inconsistent state.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateWirelessDeviceImportTask
+func (c *IoTWireless) UpdateWirelessDeviceImportTask(input *UpdateWirelessDeviceImportTaskInput) (*UpdateWirelessDeviceImportTaskOutput, error) {
+	req, out := c.UpdateWirelessDeviceImportTaskRequest(input)
+	return out, req.Send()
+}
+
+// UpdateWirelessDeviceImportTaskWithContext is the same as UpdateWirelessDeviceImportTask with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UpdateWirelessDeviceImportTask for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *IoTWireless) UpdateWirelessDeviceImportTaskWithContext(ctx aws.Context, input *UpdateWirelessDeviceImportTaskInput, opts ...request.Option) (*UpdateWirelessDeviceImportTaskOutput, error) {
+	req, out := c.UpdateWirelessDeviceImportTaskRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opUpdateWirelessGateway = "UpdateWirelessGateway"
 
 // UpdateWirelessGatewayRequest generates a "aws/request.Request" representing the
@@ -9585,14 +10979,13 @@ const opUpdateWirelessGateway = "UpdateWirelessGateway"
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
+//	// Example sending a request using the UpdateWirelessGatewayRequest method.
+//	req, resp := client.UpdateWirelessGatewayRequest(params)
 //
-//    // Example sending a request using the UpdateWirelessGatewayRequest method.
-//    req, resp := client.UpdateWirelessGatewayRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateWirelessGateway
 func (c *IoTWireless) UpdateWirelessGatewayRequest(input *UpdateWirelessGatewayInput) (req *request.Request, output *UpdateWirelessGatewayOutput) {
@@ -9624,20 +11017,21 @@ func (c *IoTWireless) UpdateWirelessGatewayRequest(input *UpdateWirelessGatewayI
 // API operation UpdateWirelessGateway for usage and error information.
 //
 // Returned Error Types:
-//   * ValidationException
-//   The input did not meet the specified constraints.
 //
-//   * ResourceNotFoundException
-//   Resource does not exist.
+//   - ValidationException
+//     The input did not meet the specified constraints.
 //
-//   * AccessDeniedException
-//   User does not have permission to perform this action.
+//   - ResourceNotFoundException
+//     Resource does not exist.
 //
-//   * InternalServerException
-//   An unexpected error occurred while processing a request.
+//   - AccessDeniedException
+//     User does not have permission to perform this action.
 //
-//   * ThrottlingException
-//   The request was denied because it exceeded the allowed API request rate.
+//   - InternalServerException
+//     An unexpected error occurred while processing a request.
+//
+//   - ThrottlingException
+//     The request was denied because it exceeded the allowed API request rate.
 //
 // See also, https://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateWirelessGateway
 func (c *IoTWireless) UpdateWirelessGateway(input *UpdateWirelessGatewayInput) (*UpdateWirelessGatewayOutput, error) {
@@ -9832,10 +11226,12 @@ func (s *AccessDeniedException) RequestID() string {
 type Accuracy struct {
 	_ struct{} `type:"structure"`
 
-	// The horizontal accuracy of the estimated position in meters.
+	// The horizontal accuracy of the estimated position, which is the difference
+	// between the estimated location and the actual device location.
 	HorizontalAccuracy *float64 `type:"float"`
 
-	// The vertical accuracy of the estimated position in meters.
+	// The vertical accuracy of the estimated position, which is the difference
+	// between the estimated altitude and actual device latitude in meters.
 	VerticalAccuracy *float64 `type:"float"`
 }
 
@@ -9869,13 +11265,82 @@ func (s *Accuracy) SetVerticalAccuracy(v float64) *Accuracy {
 	return s
 }
 
+// LoRaWAN application configuration, which can be used to perform geolocation.
+type ApplicationConfig struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the position data destination that describes the AWS IoT rule
+	// that processes the device's position data for use by AWS IoT Core for LoRaWAN.
+	DestinationName *string `type:"string"`
+
+	// The Fport value.
+	FPort *int64 `min:"1" type:"integer"`
+
+	// Application type, which can be specified to obtain real-time position information
+	// of your LoRaWAN device.
+	Type *string `type:"string" enum:"ApplicationConfigType"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ApplicationConfig) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ApplicationConfig) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ApplicationConfig) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ApplicationConfig"}
+	if s.FPort != nil && *s.FPort < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("FPort", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDestinationName sets the DestinationName field's value.
+func (s *ApplicationConfig) SetDestinationName(v string) *ApplicationConfig {
+	s.DestinationName = &v
+	return s
+}
+
+// SetFPort sets the FPort field's value.
+func (s *ApplicationConfig) SetFPort(v int64) *ApplicationConfig {
+	s.FPort = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ApplicationConfig) SetType(v string) *ApplicationConfig {
+	s.Type = &v
+	return s
+}
+
 type AssociateAwsAccountWithPartnerAccountInput struct {
 	_ struct{} `type:"structure"`
 
-	// Each resource must have a unique client request token. If you try to create
-	// a new resource with the same token as a resource that already exists, an
-	// exception occurs. If you omit this value, AWS SDKs will automatically generate
-	// a unique client request.
+	// Each resource must have a unique client request token. The client token is
+	// used to implement idempotency. It ensures that the request completes no more
+	// than one time. If you retry a request with the same token and the same parameters,
+	// the request will complete successfully. However, if you try to create a new
+	// resource using the same token but different parameters, an HTTP 409 conflict
+	// occurs. If you omit this value, AWS SDKs will automatically generate a unique
+	// client request. For more information about idempotency, see Ensuring idempotency
+	// in Amazon EC2 API requests (https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
 	ClientRequestToken *string `min:"1" type:"string" idempotencyToken:"true"`
 
 	// The Sidewalk account credentials.
@@ -10517,6 +11982,47 @@ func (s AssociateWirelessGatewayWithThingOutput) GoString() string {
 	return s.String()
 }
 
+// Beaconing parameters for configuring the wireless gateways.
+type Beaconing struct {
+	_ struct{} `type:"structure"`
+
+	// The data rate for gateways that are sending the beacons.
+	DataRate *int64 `type:"integer"`
+
+	// The frequency list for the gateways to send the beacons.
+	Frequencies []*int64 `type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Beaconing) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Beaconing) GoString() string {
+	return s.String()
+}
+
+// SetDataRate sets the DataRate field's value.
+func (s *Beaconing) SetDataRate(v int64) *Beaconing {
+	s.DataRate = &v
+	return s
+}
+
+// SetFrequencies sets the Frequencies field's value.
+func (s *Beaconing) SetFrequencies(v []*int64) *Beaconing {
+	s.Frequencies = v
+	return s
+}
+
 type CancelMulticastGroupSessionInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
@@ -10586,6 +12092,454 @@ func (s CancelMulticastGroupSessionOutput) String() string {
 // value will be replaced with "sensitive".
 func (s CancelMulticastGroupSessionOutput) GoString() string {
 	return s.String()
+}
+
+// CDMA local ID information, which corresponds to the local identification
+// parameters of a CDMA cell.
+type CdmaLocalId struct {
+	_ struct{} `type:"structure"`
+
+	// CDMA channel information.
+	//
+	// CdmaChannel is a required field
+	CdmaChannel *int64 `type:"integer" required:"true"`
+
+	// Pseudo-noise offset, which is a characteristic of the signal from a cell
+	// on a radio tower.
+	//
+	// PnOffset is a required field
+	PnOffset *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CdmaLocalId) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CdmaLocalId) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CdmaLocalId) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CdmaLocalId"}
+	if s.CdmaChannel == nil {
+		invalidParams.Add(request.NewErrParamRequired("CdmaChannel"))
+	}
+	if s.PnOffset == nil {
+		invalidParams.Add(request.NewErrParamRequired("PnOffset"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCdmaChannel sets the CdmaChannel field's value.
+func (s *CdmaLocalId) SetCdmaChannel(v int64) *CdmaLocalId {
+	s.CdmaChannel = &v
+	return s
+}
+
+// SetPnOffset sets the PnOffset field's value.
+func (s *CdmaLocalId) SetPnOffset(v int64) *CdmaLocalId {
+	s.PnOffset = &v
+	return s
+}
+
+// CDMA object for network measurement reports.
+type CdmaNmrObj struct {
+	_ struct{} `type:"structure"`
+
+	// CDMA base station ID (BSID).
+	BaseStationId *int64 `type:"integer"`
+
+	// CDMA channel information.
+	//
+	// CdmaChannel is a required field
+	CdmaChannel *int64 `type:"integer" required:"true"`
+
+	// Transmit power level of the pilot signal, measured in dBm (decibel-milliwatts).
+	PilotPower *int64 `type:"integer"`
+
+	// Pseudo-noise offset, which is a characteristic of the signal from a cell
+	// on a radio tower.
+	//
+	// PnOffset is a required field
+	PnOffset *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CdmaNmrObj) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CdmaNmrObj) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CdmaNmrObj) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CdmaNmrObj"}
+	if s.CdmaChannel == nil {
+		invalidParams.Add(request.NewErrParamRequired("CdmaChannel"))
+	}
+	if s.PilotPower != nil && *s.PilotPower < -142 {
+		invalidParams.Add(request.NewErrParamMinValue("PilotPower", -142))
+	}
+	if s.PnOffset == nil {
+		invalidParams.Add(request.NewErrParamRequired("PnOffset"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBaseStationId sets the BaseStationId field's value.
+func (s *CdmaNmrObj) SetBaseStationId(v int64) *CdmaNmrObj {
+	s.BaseStationId = &v
+	return s
+}
+
+// SetCdmaChannel sets the CdmaChannel field's value.
+func (s *CdmaNmrObj) SetCdmaChannel(v int64) *CdmaNmrObj {
+	s.CdmaChannel = &v
+	return s
+}
+
+// SetPilotPower sets the PilotPower field's value.
+func (s *CdmaNmrObj) SetPilotPower(v int64) *CdmaNmrObj {
+	s.PilotPower = &v
+	return s
+}
+
+// SetPnOffset sets the PnOffset field's value.
+func (s *CdmaNmrObj) SetPnOffset(v int64) *CdmaNmrObj {
+	s.PnOffset = &v
+	return s
+}
+
+// CDMA (Code-division multiple access) object.
+type CdmaObj struct {
+	_ struct{} `type:"structure"`
+
+	// CDMA base station latitude in degrees.
+	BaseLat *float64 `type:"float"`
+
+	// CDMA base station longitude in degrees.
+	BaseLng *float64 `type:"float"`
+
+	// CDMA base station ID (BSID).
+	//
+	// BaseStationId is a required field
+	BaseStationId *int64 `type:"integer" required:"true"`
+
+	// CDMA local identification (local ID) parameters.
+	CdmaLocalId *CdmaLocalId `type:"structure"`
+
+	// CDMA network measurement reports.
+	CdmaNmr []*CdmaNmrObj `min:"1" type:"list"`
+
+	// CDMA network ID (NID).
+	//
+	// NetworkId is a required field
+	NetworkId *int64 `type:"integer" required:"true"`
+
+	// Transmit power level of the pilot signal, measured in dBm (decibel-milliwatts).
+	PilotPower *int64 `type:"integer"`
+
+	// CDMA registration zone (RZ).
+	RegistrationZone *int64 `type:"integer"`
+
+	// CDMA system ID (SID).
+	//
+	// SystemId is a required field
+	SystemId *int64 `min:"1" type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CdmaObj) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CdmaObj) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CdmaObj) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CdmaObj"}
+	if s.BaseLat != nil && *s.BaseLat < -90 {
+		invalidParams.Add(request.NewErrParamMinValue("BaseLat", -90))
+	}
+	if s.BaseLng != nil && *s.BaseLng < -180 {
+		invalidParams.Add(request.NewErrParamMinValue("BaseLng", -180))
+	}
+	if s.BaseStationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("BaseStationId"))
+	}
+	if s.CdmaNmr != nil && len(s.CdmaNmr) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CdmaNmr", 1))
+	}
+	if s.NetworkId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkId"))
+	}
+	if s.PilotPower != nil && *s.PilotPower < -142 {
+		invalidParams.Add(request.NewErrParamMinValue("PilotPower", -142))
+	}
+	if s.SystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SystemId"))
+	}
+	if s.SystemId != nil && *s.SystemId < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("SystemId", 1))
+	}
+	if s.CdmaLocalId != nil {
+		if err := s.CdmaLocalId.Validate(); err != nil {
+			invalidParams.AddNested("CdmaLocalId", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.CdmaNmr != nil {
+		for i, v := range s.CdmaNmr {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "CdmaNmr", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBaseLat sets the BaseLat field's value.
+func (s *CdmaObj) SetBaseLat(v float64) *CdmaObj {
+	s.BaseLat = &v
+	return s
+}
+
+// SetBaseLng sets the BaseLng field's value.
+func (s *CdmaObj) SetBaseLng(v float64) *CdmaObj {
+	s.BaseLng = &v
+	return s
+}
+
+// SetBaseStationId sets the BaseStationId field's value.
+func (s *CdmaObj) SetBaseStationId(v int64) *CdmaObj {
+	s.BaseStationId = &v
+	return s
+}
+
+// SetCdmaLocalId sets the CdmaLocalId field's value.
+func (s *CdmaObj) SetCdmaLocalId(v *CdmaLocalId) *CdmaObj {
+	s.CdmaLocalId = v
+	return s
+}
+
+// SetCdmaNmr sets the CdmaNmr field's value.
+func (s *CdmaObj) SetCdmaNmr(v []*CdmaNmrObj) *CdmaObj {
+	s.CdmaNmr = v
+	return s
+}
+
+// SetNetworkId sets the NetworkId field's value.
+func (s *CdmaObj) SetNetworkId(v int64) *CdmaObj {
+	s.NetworkId = &v
+	return s
+}
+
+// SetPilotPower sets the PilotPower field's value.
+func (s *CdmaObj) SetPilotPower(v int64) *CdmaObj {
+	s.PilotPower = &v
+	return s
+}
+
+// SetRegistrationZone sets the RegistrationZone field's value.
+func (s *CdmaObj) SetRegistrationZone(v int64) *CdmaObj {
+	s.RegistrationZone = &v
+	return s
+}
+
+// SetSystemId sets the SystemId field's value.
+func (s *CdmaObj) SetSystemId(v int64) *CdmaObj {
+	s.SystemId = &v
+	return s
+}
+
+// The cell towers that were used to perform the measurements.
+type CellTowers struct {
+	_ struct{} `type:"structure"`
+
+	// CDMA object information.
+	Cdma []*CdmaObj `min:"1" type:"list"`
+
+	// GSM object information.
+	Gsm []*GsmObj `min:"1" type:"list"`
+
+	// LTE object information.
+	Lte []*LteObj `min:"1" type:"list"`
+
+	// TD-SCDMA object information.
+	Tdscdma []*TdscdmaObj `min:"1" type:"list"`
+
+	// WCDMA object information.
+	Wcdma []*WcdmaObj `min:"1" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CellTowers) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s CellTowers) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CellTowers) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CellTowers"}
+	if s.Cdma != nil && len(s.Cdma) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Cdma", 1))
+	}
+	if s.Gsm != nil && len(s.Gsm) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Gsm", 1))
+	}
+	if s.Lte != nil && len(s.Lte) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Lte", 1))
+	}
+	if s.Tdscdma != nil && len(s.Tdscdma) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Tdscdma", 1))
+	}
+	if s.Wcdma != nil && len(s.Wcdma) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Wcdma", 1))
+	}
+	if s.Cdma != nil {
+		for i, v := range s.Cdma {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Cdma", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.Gsm != nil {
+		for i, v := range s.Gsm {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Gsm", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.Lte != nil {
+		for i, v := range s.Lte {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Lte", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.Tdscdma != nil {
+		for i, v := range s.Tdscdma {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tdscdma", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.Wcdma != nil {
+		for i, v := range s.Wcdma {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Wcdma", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCdma sets the Cdma field's value.
+func (s *CellTowers) SetCdma(v []*CdmaObj) *CellTowers {
+	s.Cdma = v
+	return s
+}
+
+// SetGsm sets the Gsm field's value.
+func (s *CellTowers) SetGsm(v []*GsmObj) *CellTowers {
+	s.Gsm = v
+	return s
+}
+
+// SetLte sets the Lte field's value.
+func (s *CellTowers) SetLte(v []*LteObj) *CellTowers {
+	s.Lte = v
+	return s
+}
+
+// SetTdscdma sets the Tdscdma field's value.
+func (s *CellTowers) SetTdscdma(v []*TdscdmaObj) *CellTowers {
+	s.Tdscdma = v
+	return s
+}
+
+// SetWcdma sets the Wcdma field's value.
+func (s *CellTowers) SetWcdma(v []*WcdmaObj) *CellTowers {
+	s.Wcdma = v
+	return s
 }
 
 // List of sidewalk certificates.
@@ -10711,8 +12665,8 @@ type ConnectionStatusEventConfiguration struct {
 	// related event topics.
 	LoRaWAN *LoRaWANConnectionStatusEventNotificationConfigurations `type:"structure"`
 
-	// Enum to denote whether the wireless gateway ID connection status event topic
-	// is enabled or disabled.
+	// Denotes whether the wireless gateway ID connection status event topic is
+	// enabled or disabled.
 	WirelessGatewayIdEventTopic *string `type:"string" enum:"EventNotificationTopicStatus"`
 }
 
@@ -10783,10 +12737,14 @@ func (s *ConnectionStatusResourceTypeEventConfiguration) SetLoRaWAN(v *LoRaWANCo
 type CreateDestinationInput struct {
 	_ struct{} `type:"structure"`
 
-	// Each resource must have a unique client request token. If you try to create
-	// a new resource with the same token as a resource that already exists, an
-	// exception occurs. If you omit this value, AWS SDKs will automatically generate
-	// a unique client request.
+	// Each resource must have a unique client request token. The client token is
+	// used to implement idempotency. It ensures that the request completes no more
+	// than one time. If you retry a request with the same token and the same parameters,
+	// the request will complete successfully. However, if you try to create a new
+	// resource using the same token but different parameters, an HTTP 409 conflict
+	// occurs. If you omit this value, AWS SDKs will automatically generate a unique
+	// client request. For more information about idempotency, see Ensuring idempotency
+	// in Amazon EC2 API requests (https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
 	ClientRequestToken *string `min:"1" type:"string" idempotencyToken:"true"`
 
 	// The description of the new resource.
@@ -10958,10 +12916,14 @@ func (s *CreateDestinationOutput) SetName(v string) *CreateDestinationOutput {
 type CreateDeviceProfileInput struct {
 	_ struct{} `type:"structure"`
 
-	// Each resource must have a unique client request token. If you try to create
-	// a new resource with the same token as a resource that already exists, an
-	// exception occurs. If you omit this value, AWS SDKs will automatically generate
-	// a unique client request.
+	// Each resource must have a unique client request token. The client token is
+	// used to implement idempotency. It ensures that the request completes no more
+	// than one time. If you retry a request with the same token and the same parameters,
+	// the request will complete successfully. However, if you try to create a new
+	// resource using the same token but different parameters, an HTTP 409 conflict
+	// occurs. If you omit this value, AWS SDKs will automatically generate a unique
+	// client request. For more information about idempotency, see Ensuring idempotency
+	// in Amazon EC2 API requests (https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
 	ClientRequestToken *string `min:"1" type:"string" idempotencyToken:"true"`
 
 	// The device profile information to use to create the device profile.
@@ -10969,6 +12931,9 @@ type CreateDeviceProfileInput struct {
 
 	// The name of the new resource.
 	Name *string `type:"string"`
+
+	// The Sidewalk-related information for creating the Sidewalk device profile.
+	Sidewalk *SidewalkCreateDeviceProfile `type:"structure"`
 
 	// The tags to attach to the new device profile. Tags are metadata that you
 	// can use to manage a resource.
@@ -11039,6 +13004,12 @@ func (s *CreateDeviceProfileInput) SetName(v string) *CreateDeviceProfileInput {
 	return s
 }
 
+// SetSidewalk sets the Sidewalk field's value.
+func (s *CreateDeviceProfileInput) SetSidewalk(v *SidewalkCreateDeviceProfile) *CreateDeviceProfileInput {
+	s.Sidewalk = v
+	return s
+}
+
 // SetTags sets the Tags field's value.
 func (s *CreateDeviceProfileInput) SetTags(v []*Tag) *CreateDeviceProfileInput {
 	s.Tags = v
@@ -11088,10 +13059,14 @@ func (s *CreateDeviceProfileOutput) SetId(v string) *CreateDeviceProfileOutput {
 type CreateFuotaTaskInput struct {
 	_ struct{} `type:"structure"`
 
-	// Each resource must have a unique client request token. If you try to create
-	// a new resource with the same token as a resource that already exists, an
-	// exception occurs. If you omit this value, AWS SDKs will automatically generate
-	// a unique client request.
+	// Each resource must have a unique client request token. The client token is
+	// used to implement idempotency. It ensures that the request completes no more
+	// than one time. If you retry a request with the same token and the same parameters,
+	// the request will complete successfully. However, if you try to create a new
+	// resource using the same token but different parameters, an HTTP 409 conflict
+	// occurs. If you omit this value, AWS SDKs will automatically generate a unique
+	// client request. For more information about idempotency, see Ensuring idempotency
+	// in Amazon EC2 API requests (https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
 	ClientRequestToken *string `min:"1" type:"string" idempotencyToken:"true"`
 
 	// The description of the new resource.
@@ -11108,11 +13083,30 @@ type CreateFuotaTaskInput struct {
 	// FirmwareUpdateRole is a required field
 	FirmwareUpdateRole *string `min:"1" type:"string" required:"true"`
 
+	// The interval for sending fragments in milliseconds, rounded to the nearest
+	// second.
+	//
+	// This interval only determines the timing for when the Cloud sends down the
+	// fragments to yor device. There can be a delay for when your device will receive
+	// these fragments. This delay depends on the device's class and the communication
+	// delay with the cloud.
+	FragmentIntervalMS *int64 `min:"1" type:"integer"`
+
+	// The size of each fragment in bytes. This parameter is supported only for
+	// FUOTA tasks with multicast groups.
+	FragmentSizeBytes *int64 `min:"1" type:"integer"`
+
 	// The LoRaWAN information used with a FUOTA task.
 	LoRaWAN *LoRaWANFuotaTask `type:"structure"`
 
 	// The name of a FUOTA task.
 	Name *string `type:"string"`
+
+	// The percentage of the added fragments that are redundant. For example, if
+	// the size of the firmware image file is 100 bytes and the fragment size is
+	// 10 bytes, with RedundancyPercent set to 50(%), the final number of encoded
+	// fragments is (100 / 10) + (100 / 10 * 50%) = 15.
+	RedundancyPercent *int64 `type:"integer"`
 
 	// The tag to attach to the specified resource. Tags are metadata that you can
 	// use to manage a resource.
@@ -11155,6 +13149,12 @@ func (s *CreateFuotaTaskInput) Validate() error {
 	if s.FirmwareUpdateRole != nil && len(*s.FirmwareUpdateRole) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("FirmwareUpdateRole", 1))
 	}
+	if s.FragmentIntervalMS != nil && *s.FragmentIntervalMS < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("FragmentIntervalMS", 1))
+	}
+	if s.FragmentSizeBytes != nil && *s.FragmentSizeBytes < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("FragmentSizeBytes", 1))
+	}
 	if s.Tags != nil {
 		for i, v := range s.Tags {
 			if v == nil {
@@ -11196,6 +13196,18 @@ func (s *CreateFuotaTaskInput) SetFirmwareUpdateRole(v string) *CreateFuotaTaskI
 	return s
 }
 
+// SetFragmentIntervalMS sets the FragmentIntervalMS field's value.
+func (s *CreateFuotaTaskInput) SetFragmentIntervalMS(v int64) *CreateFuotaTaskInput {
+	s.FragmentIntervalMS = &v
+	return s
+}
+
+// SetFragmentSizeBytes sets the FragmentSizeBytes field's value.
+func (s *CreateFuotaTaskInput) SetFragmentSizeBytes(v int64) *CreateFuotaTaskInput {
+	s.FragmentSizeBytes = &v
+	return s
+}
+
 // SetLoRaWAN sets the LoRaWAN field's value.
 func (s *CreateFuotaTaskInput) SetLoRaWAN(v *LoRaWANFuotaTask) *CreateFuotaTaskInput {
 	s.LoRaWAN = v
@@ -11205,6 +13217,12 @@ func (s *CreateFuotaTaskInput) SetLoRaWAN(v *LoRaWANFuotaTask) *CreateFuotaTaskI
 // SetName sets the Name field's value.
 func (s *CreateFuotaTaskInput) SetName(v string) *CreateFuotaTaskInput {
 	s.Name = &v
+	return s
+}
+
+// SetRedundancyPercent sets the RedundancyPercent field's value.
+func (s *CreateFuotaTaskInput) SetRedundancyPercent(v int64) *CreateFuotaTaskInput {
+	s.RedundancyPercent = &v
 	return s
 }
 
@@ -11257,10 +13275,14 @@ func (s *CreateFuotaTaskOutput) SetId(v string) *CreateFuotaTaskOutput {
 type CreateMulticastGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	// Each resource must have a unique client request token. If you try to create
-	// a new resource with the same token as a resource that already exists, an
-	// exception occurs. If you omit this value, AWS SDKs will automatically generate
-	// a unique client request.
+	// Each resource must have a unique client request token. The client token is
+	// used to implement idempotency. It ensures that the request completes no more
+	// than one time. If you retry a request with the same token and the same parameters,
+	// the request will complete successfully. However, if you try to create a new
+	// resource using the same token but different parameters, an HTTP 409 conflict
+	// occurs. If you omit this value, AWS SDKs will automatically generate a unique
+	// client request. For more information about idempotency, see Ensuring idempotency
+	// in Amazon EC2 API requests (https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
 	ClientRequestToken *string `min:"1" type:"string" idempotencyToken:"true"`
 
 	// The description of the multicast group.
@@ -11396,14 +13418,22 @@ func (s *CreateMulticastGroupOutput) SetId(v string) *CreateMulticastGroupOutput
 type CreateNetworkAnalyzerConfigurationInput struct {
 	_ struct{} `type:"structure"`
 
-	// Each resource must have a unique client request token. If you try to create
-	// a new resource with the same token as a resource that already exists, an
-	// exception occurs. If you omit this value, AWS SDKs will automatically generate
-	// a unique client request.
+	// Each resource must have a unique client request token. The client token is
+	// used to implement idempotency. It ensures that the request completes no more
+	// than one time. If you retry a request with the same token and the same parameters,
+	// the request will complete successfully. However, if you try to create a new
+	// resource using the same token but different parameters, an HTTP 409 conflict
+	// occurs. If you omit this value, AWS SDKs will automatically generate a unique
+	// client request. For more information about idempotency, see Ensuring idempotency
+	// in Amazon EC2 API requests (https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
 	ClientRequestToken *string `min:"1" type:"string" idempotencyToken:"true"`
 
 	// The description of the new resource.
 	Description *string `type:"string"`
+
+	// Multicast Group resources to add to the network analyzer configruation. Provide
+	// the MulticastGroupId of the resource to add in the input array.
+	MulticastGroups []*string `type:"list"`
 
 	// Name of the network analyzer configuration.
 	//
@@ -11414,7 +13444,7 @@ type CreateNetworkAnalyzerConfigurationInput struct {
 	// use to manage a resource.
 	Tags []*Tag `type:"list"`
 
-	// Trace content for your wireless gateway and wireless device resources.
+	// Trace content for your wireless devices, gateways, and multicast groups.
 	TraceContent *TraceContent `type:"structure"`
 
 	// Wireless device resources to add to the network analyzer configuration. Provide
@@ -11482,6 +13512,12 @@ func (s *CreateNetworkAnalyzerConfigurationInput) SetClientRequestToken(v string
 // SetDescription sets the Description field's value.
 func (s *CreateNetworkAnalyzerConfigurationInput) SetDescription(v string) *CreateNetworkAnalyzerConfigurationInput {
 	s.Description = &v
+	return s
+}
+
+// SetMulticastGroups sets the MulticastGroups field's value.
+func (s *CreateNetworkAnalyzerConfigurationInput) SetMulticastGroups(v []*string) *CreateNetworkAnalyzerConfigurationInput {
+	s.MulticastGroups = v
 	return s
 }
 
@@ -11558,10 +13594,14 @@ func (s *CreateNetworkAnalyzerConfigurationOutput) SetName(v string) *CreateNetw
 type CreateServiceProfileInput struct {
 	_ struct{} `type:"structure"`
 
-	// Each resource must have a unique client request token. If you try to create
-	// a new resource with the same token as a resource that already exists, an
-	// exception occurs. If you omit this value, AWS SDKs will automatically generate
-	// a unique client request.
+	// Each resource must have a unique client request token. The client token is
+	// used to implement idempotency. It ensures that the request completes no more
+	// than one time. If you retry a request with the same token and the same parameters,
+	// the request will complete successfully. However, if you try to create a new
+	// resource using the same token but different parameters, an HTTP 409 conflict
+	// occurs. If you omit this value, AWS SDKs will automatically generate a unique
+	// client request. For more information about idempotency, see Ensuring idempotency
+	// in Amazon EC2 API requests (https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
 	ClientRequestToken *string `min:"1" type:"string" idempotencyToken:"true"`
 
 	// The service profile information to use to create the service profile.
@@ -11683,10 +13723,14 @@ func (s *CreateServiceProfileOutput) SetId(v string) *CreateServiceProfileOutput
 type CreateWirelessDeviceInput struct {
 	_ struct{} `type:"structure"`
 
-	// Each resource must have a unique client request token. If you try to create
-	// a new resource with the same token as a resource that already exists, an
-	// exception occurs. If you omit this value, AWS SDKs will automatically generate
-	// a unique client request.
+	// Each resource must have a unique client request token. The client token is
+	// used to implement idempotency. It ensures that the request completes no more
+	// than one time. If you retry a request with the same token and the same parameters,
+	// the request will complete successfully. However, if you try to create a new
+	// resource using the same token but different parameters, an HTTP 409 conflict
+	// occurs. If you omit this value, AWS SDKs will automatically generate a unique
+	// client request. For more information about idempotency, see Ensuring idempotency
+	// in Amazon EC2 API requests (https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
 	ClientRequestToken *string `min:"1" type:"string" idempotencyToken:"true"`
 
 	// The description of the new resource.
@@ -11702,6 +13746,13 @@ type CreateWirelessDeviceInput struct {
 
 	// The name of the new resource.
 	Name *string `type:"string"`
+
+	// FPort values for the GNSS, stream, and ClockSync functions of the positioning
+	// information.
+	Positioning *string `type:"string" enum:"PositioningConfigStatus"`
+
+	// The device configuration information to use to create the Sidewalk device.
+	Sidewalk *SidewalkCreateWirelessDevice `type:"structure"`
 
 	// The tags to attach to the new wireless device. Tags are metadata that you
 	// can use to manage a resource.
@@ -11795,6 +13846,18 @@ func (s *CreateWirelessDeviceInput) SetName(v string) *CreateWirelessDeviceInput
 	return s
 }
 
+// SetPositioning sets the Positioning field's value.
+func (s *CreateWirelessDeviceInput) SetPositioning(v string) *CreateWirelessDeviceInput {
+	s.Positioning = &v
+	return s
+}
+
+// SetSidewalk sets the Sidewalk field's value.
+func (s *CreateWirelessDeviceInput) SetSidewalk(v *SidewalkCreateWirelessDevice) *CreateWirelessDeviceInput {
+	s.Sidewalk = v
+	return s
+}
+
 // SetTags sets the Tags field's value.
 func (s *CreateWirelessDeviceInput) SetTags(v []*Tag) *CreateWirelessDeviceInput {
 	s.Tags = v
@@ -11850,10 +13913,14 @@ func (s *CreateWirelessDeviceOutput) SetId(v string) *CreateWirelessDeviceOutput
 type CreateWirelessGatewayInput struct {
 	_ struct{} `type:"structure"`
 
-	// Each resource must have a unique client request token. If you try to create
-	// a new resource with the same token as a resource that already exists, an
-	// exception occurs. If you omit this value, AWS SDKs will automatically generate
-	// a unique client request.
+	// Each resource must have a unique client request token. The client token is
+	// used to implement idempotency. It ensures that the request completes no more
+	// than one time. If you retry a request with the same token and the same parameters,
+	// the request will complete successfully. However, if you try to create a new
+	// resource using the same token but different parameters, an HTTP 409 conflict
+	// occurs. If you omit this value, AWS SDKs will automatically generate a unique
+	// client request. For more information about idempotency, see Ensuring idempotency
+	// in Amazon EC2 API requests (https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
 	ClientRequestToken *string `min:"1" type:"string" idempotencyToken:"true"`
 
 	// The description of the new resource.
@@ -11996,10 +14063,14 @@ type CreateWirelessGatewayTaskDefinitionInput struct {
 	// AutoCreateTasks is a required field
 	AutoCreateTasks *bool `type:"boolean" required:"true"`
 
-	// Each resource must have a unique client request token. If you try to create
-	// a new resource with the same token as a resource that already exists, an
-	// exception occurs. If you omit this value, AWS SDKs will automatically generate
-	// a unique client request.
+	// Each resource must have a unique client request token. The client token is
+	// used to implement idempotency. It ensures that the request completes no more
+	// than one time. If you retry a request with the same token and the same parameters,
+	// the request will complete successfully. However, if you try to create a new
+	// resource using the same token but different parameters, an HTTP 409 conflict
+	// occurs. If you omit this value, AWS SDKs will automatically generate a unique
+	// client request. For more information about idempotency, see Ensuring idempotency
+	// in Amazon EC2 API requests (https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
 	ClientRequestToken *string `min:"1" type:"string" idempotencyToken:"true"`
 
 	// The name of the new resource.
@@ -12235,6 +14306,78 @@ func (s *CreateWirelessGatewayTaskOutput) SetStatus(v string) *CreateWirelessGat
 // SetWirelessGatewayTaskDefinitionId sets the WirelessGatewayTaskDefinitionId field's value.
 func (s *CreateWirelessGatewayTaskOutput) SetWirelessGatewayTaskDefinitionId(v string) *CreateWirelessGatewayTaskOutput {
 	s.WirelessGatewayTaskDefinitionId = &v
+	return s
+}
+
+// The device attestation key (DAK) information.
+type DakCertificateMetadata struct {
+	_ struct{} `type:"structure"`
+
+	// The advertised product ID (APID) that's used for pre-production and production
+	// applications.
+	ApId *string `type:"string"`
+
+	// The certificate ID for the DAK.
+	//
+	// CertificateId is a required field
+	CertificateId *string `type:"string" required:"true"`
+
+	// The device type ID that's used for prototyping applications.
+	DeviceTypeId *string `type:"string"`
+
+	// Whether factory support has been enabled.
+	FactorySupport *bool `type:"boolean"`
+
+	// The maximum number of signatures that the DAK can sign. A value of -1 indicates
+	// that there's no device limit.
+	MaxAllowedSignature *int64 `type:"integer"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DakCertificateMetadata) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DakCertificateMetadata) GoString() string {
+	return s.String()
+}
+
+// SetApId sets the ApId field's value.
+func (s *DakCertificateMetadata) SetApId(v string) *DakCertificateMetadata {
+	s.ApId = &v
+	return s
+}
+
+// SetCertificateId sets the CertificateId field's value.
+func (s *DakCertificateMetadata) SetCertificateId(v string) *DakCertificateMetadata {
+	s.CertificateId = &v
+	return s
+}
+
+// SetDeviceTypeId sets the DeviceTypeId field's value.
+func (s *DakCertificateMetadata) SetDeviceTypeId(v string) *DakCertificateMetadata {
+	s.DeviceTypeId = &v
+	return s
+}
+
+// SetFactorySupport sets the FactorySupport field's value.
+func (s *DakCertificateMetadata) SetFactorySupport(v bool) *DakCertificateMetadata {
+	s.FactorySupport = &v
+	return s
+}
+
+// SetMaxAllowedSignature sets the MaxAllowedSignature field's value.
+func (s *DakCertificateMetadata) SetMaxAllowedSignature(v int64) *DakCertificateMetadata {
+	s.MaxAllowedSignature = &v
 	return s
 }
 
@@ -12760,6 +14903,77 @@ func (s DeleteServiceProfileOutput) GoString() string {
 	return s.String()
 }
 
+type DeleteWirelessDeviceImportTaskInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The unique identifier of the import task to be deleted.
+	//
+	// Id is a required field
+	Id *string `location:"uri" locationName:"Id" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteWirelessDeviceImportTaskInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteWirelessDeviceImportTaskInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteWirelessDeviceImportTaskInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteWirelessDeviceImportTaskInput"}
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
+	}
+	if s.Id != nil && len(*s.Id) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Id", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetId sets the Id field's value.
+func (s *DeleteWirelessDeviceImportTaskInput) SetId(v string) *DeleteWirelessDeviceImportTaskInput {
+	s.Id = &v
+	return s
+}
+
+type DeleteWirelessDeviceImportTaskOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteWirelessDeviceImportTaskOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeleteWirelessDeviceImportTaskOutput) GoString() string {
+	return s.String()
+}
+
 type DeleteWirelessDeviceInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
@@ -13044,6 +15258,87 @@ func (s DeleteWirelessGatewayTaskOutput) GoString() string {
 	return s.String()
 }
 
+type DeregisterWirelessDeviceInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The identifier of the wireless device to deregister from AWS IoT Wireless.
+	//
+	// Identifier is a required field
+	Identifier *string `location:"uri" locationName:"Identifier" type:"string" required:"true"`
+
+	// The type of wireless device to deregister from AWS IoT Wireless, which can
+	// be LoRaWAN or Sidewalk.
+	WirelessDeviceType *string `location:"querystring" locationName:"WirelessDeviceType" type:"string" enum:"WirelessDeviceType"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeregisterWirelessDeviceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeregisterWirelessDeviceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeregisterWirelessDeviceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeregisterWirelessDeviceInput"}
+	if s.Identifier == nil {
+		invalidParams.Add(request.NewErrParamRequired("Identifier"))
+	}
+	if s.Identifier != nil && len(*s.Identifier) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Identifier", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetIdentifier sets the Identifier field's value.
+func (s *DeregisterWirelessDeviceInput) SetIdentifier(v string) *DeregisterWirelessDeviceInput {
+	s.Identifier = &v
+	return s
+}
+
+// SetWirelessDeviceType sets the WirelessDeviceType field's value.
+func (s *DeregisterWirelessDeviceInput) SetWirelessDeviceType(v string) *DeregisterWirelessDeviceInput {
+	s.WirelessDeviceType = &v
+	return s
+}
+
+type DeregisterWirelessDeviceOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeregisterWirelessDeviceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s DeregisterWirelessDeviceOutput) GoString() string {
+	return s.String()
+}
+
 // Describes a destination.
 type Destinations struct {
 	_ struct{} `type:"structure"`
@@ -13180,8 +15475,8 @@ type DeviceRegistrationStateEventConfiguration struct {
 	// Sidewalk related event topics.
 	Sidewalk *SidewalkEventNotificationConfigurations `type:"structure"`
 
-	// Enum to denote whether the wireless device id device registration state event
-	// topic is enabled or disabled.
+	// Denotes whether the wireless device ID device registration state event topic
+	// is enabled or disabled.
 	WirelessDeviceIdEventTopic *string `type:"string" enum:"EventNotificationTopicStatus"`
 }
 
@@ -13246,6 +15541,47 @@ func (s DeviceRegistrationStateResourceTypeEventConfiguration) GoString() string
 // SetSidewalk sets the Sidewalk field's value.
 func (s *DeviceRegistrationStateResourceTypeEventConfiguration) SetSidewalk(v *SidewalkResourceTypeEventConfiguration) *DeviceRegistrationStateResourceTypeEventConfiguration {
 	s.Sidewalk = v
+	return s
+}
+
+// The required list of dimensions for the metric.
+type Dimension struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the dimension.
+	Name *string `locationName:"name" type:"string" enum:"DimensionName"`
+
+	// The dimension's value.
+	Value *string `locationName:"value" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Dimension) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Dimension) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *Dimension) SetName(v string) *Dimension {
+	s.Name = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *Dimension) SetValue(v string) *Dimension {
+	s.Value = &v
 	return s
 }
 
@@ -14004,6 +16340,9 @@ func (s *EventNotificationItemConfigurations) SetProximity(v *ProximityEventConf
 type FPorts struct {
 	_ struct{} `type:"structure"`
 
+	// Optional LoRaWAN application information, which can be used for geolocation.
+	Applications []*ApplicationConfig `type:"list"`
+
 	// The Fport value.
 	ClockSync *int64 `min:"1" type:"integer"`
 
@@ -14048,6 +16387,16 @@ func (s *FPorts) Validate() error {
 	if s.Multicast != nil && *s.Multicast < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("Multicast", 1))
 	}
+	if s.Applications != nil {
+		for i, v := range s.Applications {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Applications", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 	if s.Positioning != nil {
 		if err := s.Positioning.Validate(); err != nil {
 			invalidParams.AddNested("Positioning", err.(request.ErrInvalidParams))
@@ -14058,6 +16407,12 @@ func (s *FPorts) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetApplications sets the Applications field's value.
+func (s *FPorts) SetApplications(v []*ApplicationConfig) *FPorts {
+	s.Applications = v
+	return s
 }
 
 // SetClockSync sets the ClockSync field's value.
@@ -14131,6 +16486,73 @@ func (s *FuotaTask) SetId(v string) *FuotaTask {
 // SetName sets the Name field's value.
 func (s *FuotaTask) SetName(v string) *FuotaTask {
 	s.Name = &v
+	return s
+}
+
+// Gateway list item object that specifies the frequency and list of gateways
+// for which the downlink message should be sent.
+type GatewayListItem struct {
+	_ struct{} `type:"structure"`
+
+	// The frequency to use for the gateways when sending a downlink message to
+	// the wireless device.
+	//
+	// DownlinkFrequency is a required field
+	DownlinkFrequency *int64 `min:"1e+08" type:"integer" required:"true"`
+
+	// The ID of the wireless gateways that you want to add to the list of gateways
+	// when sending downlink messages.
+	//
+	// GatewayId is a required field
+	GatewayId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GatewayListItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GatewayListItem) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GatewayListItem) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GatewayListItem"}
+	if s.DownlinkFrequency == nil {
+		invalidParams.Add(request.NewErrParamRequired("DownlinkFrequency"))
+	}
+	if s.DownlinkFrequency != nil && *s.DownlinkFrequency < 1e+08 {
+		invalidParams.Add(request.NewErrParamMinValue("DownlinkFrequency", 1e+08))
+	}
+	if s.GatewayId == nil {
+		invalidParams.Add(request.NewErrParamRequired("GatewayId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDownlinkFrequency sets the DownlinkFrequency field's value.
+func (s *GatewayListItem) SetDownlinkFrequency(v int64) *GatewayListItem {
+	s.DownlinkFrequency = &v
+	return s
+}
+
+// SetGatewayId sets the GatewayId field's value.
+func (s *GatewayListItem) SetGatewayId(v string) *GatewayListItem {
+	s.GatewayId = &v
 	return s
 }
 
@@ -14322,6 +16744,9 @@ type GetDeviceProfileOutput struct {
 
 	// The name of the resource.
 	Name *string `type:"string"`
+
+	// Information about the Sidewalk parameters in the device profile.
+	Sidewalk *SidewalkGetDeviceProfile `type:"structure"`
 }
 
 // String returns the string representation.
@@ -14363,6 +16788,12 @@ func (s *GetDeviceProfileOutput) SetLoRaWAN(v *LoRaWANDeviceProfile) *GetDeviceP
 // SetName sets the Name field's value.
 func (s *GetDeviceProfileOutput) SetName(v string) *GetDeviceProfileOutput {
 	s.Name = &v
+	return s
+}
+
+// SetSidewalk sets the Sidewalk field's value.
+func (s *GetDeviceProfileOutput) SetSidewalk(v *SidewalkGetDeviceProfile) *GetDeviceProfileOutput {
+	s.Sidewalk = v
 	return s
 }
 
@@ -14524,6 +16955,19 @@ type GetFuotaTaskOutput struct {
 	// The firmware update role that is to be used with a FUOTA task.
 	FirmwareUpdateRole *string `min:"1" type:"string"`
 
+	// The interval for sending fragments in milliseconds, rounded to the nearest
+	// second.
+	//
+	// This interval only determines the timing for when the Cloud sends down the
+	// fragments to yor device. There can be a delay for when your device will receive
+	// these fragments. This delay depends on the device's class and the communication
+	// delay with the cloud.
+	FragmentIntervalMS *int64 `min:"1" type:"integer"`
+
+	// The size of each fragment in bytes. This parameter is supported only for
+	// FUOTA tasks with multicast groups.
+	FragmentSizeBytes *int64 `min:"1" type:"integer"`
+
 	// The ID of a FUOTA task.
 	Id *string `type:"string"`
 
@@ -14532,6 +16976,12 @@ type GetFuotaTaskOutput struct {
 
 	// The name of a FUOTA task.
 	Name *string `type:"string"`
+
+	// The percentage of the added fragments that are redundant. For example, if
+	// the size of the firmware image file is 100 bytes and the fragment size is
+	// 10 bytes, with RedundancyPercent set to 50(%), the final number of encoded
+	// fragments is (100 / 10) + (100 / 10 * 50%) = 15.
+	RedundancyPercent *int64 `type:"integer"`
 
 	// The status of a FUOTA task.
 	Status *string `type:"string" enum:"FuotaTaskStatus"`
@@ -14585,6 +17035,18 @@ func (s *GetFuotaTaskOutput) SetFirmwareUpdateRole(v string) *GetFuotaTaskOutput
 	return s
 }
 
+// SetFragmentIntervalMS sets the FragmentIntervalMS field's value.
+func (s *GetFuotaTaskOutput) SetFragmentIntervalMS(v int64) *GetFuotaTaskOutput {
+	s.FragmentIntervalMS = &v
+	return s
+}
+
+// SetFragmentSizeBytes sets the FragmentSizeBytes field's value.
+func (s *GetFuotaTaskOutput) SetFragmentSizeBytes(v int64) *GetFuotaTaskOutput {
+	s.FragmentSizeBytes = &v
+	return s
+}
+
 // SetId sets the Id field's value.
 func (s *GetFuotaTaskOutput) SetId(v string) *GetFuotaTaskOutput {
 	s.Id = &v
@@ -14600,6 +17062,12 @@ func (s *GetFuotaTaskOutput) SetLoRaWAN(v *LoRaWANFuotaTaskGetInfo) *GetFuotaTas
 // SetName sets the Name field's value.
 func (s *GetFuotaTaskOutput) SetName(v string) *GetFuotaTaskOutput {
 	s.Name = &v
+	return s
+}
+
+// SetRedundancyPercent sets the RedundancyPercent field's value.
+func (s *GetFuotaTaskOutput) SetRedundancyPercent(v int64) *GetFuotaTaskOutput {
+	s.RedundancyPercent = &v
 	return s
 }
 
@@ -14679,6 +17147,121 @@ func (s *GetLogLevelsByResourceTypesOutput) SetWirelessDeviceLogOptions(v []*Wir
 // SetWirelessGatewayLogOptions sets the WirelessGatewayLogOptions field's value.
 func (s *GetLogLevelsByResourceTypesOutput) SetWirelessGatewayLogOptions(v []*WirelessGatewayLogOption) *GetLogLevelsByResourceTypesOutput {
 	s.WirelessGatewayLogOptions = v
+	return s
+}
+
+type GetMetricConfigurationInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetMetricConfigurationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetMetricConfigurationInput) GoString() string {
+	return s.String()
+}
+
+type GetMetricConfigurationOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The configuration status of the AWS account for summary metric aggregation.
+	SummaryMetric *SummaryMetricConfiguration `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetMetricConfigurationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetMetricConfigurationOutput) GoString() string {
+	return s.String()
+}
+
+// SetSummaryMetric sets the SummaryMetric field's value.
+func (s *GetMetricConfigurationOutput) SetSummaryMetric(v *SummaryMetricConfiguration) *GetMetricConfigurationOutput {
+	s.SummaryMetric = v
+	return s
+}
+
+type GetMetricsInput struct {
+	_ struct{} `type:"structure"`
+
+	// The list of queries to retrieve the summary metrics.
+	SummaryMetricQueries []*SummaryMetricQuery `type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetMetricsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetMetricsInput) GoString() string {
+	return s.String()
+}
+
+// SetSummaryMetricQueries sets the SummaryMetricQueries field's value.
+func (s *GetMetricsInput) SetSummaryMetricQueries(v []*SummaryMetricQuery) *GetMetricsInput {
+	s.SummaryMetricQueries = v
+	return s
+}
+
+type GetMetricsOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The list of summary metrics that were retrieved.
+	SummaryMetricQueryResults []*SummaryMetricQueryResult `type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetMetricsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetMetricsOutput) GoString() string {
+	return s.String()
+}
+
+// SetSummaryMetricQueryResults sets the SummaryMetricQueryResults field's value.
+func (s *GetMetricsOutput) SetSummaryMetricQueryResults(v []*SummaryMetricQueryResult) *GetMetricsOutput {
+	s.SummaryMetricQueryResults = v
 	return s
 }
 
@@ -14955,13 +17538,17 @@ type GetNetworkAnalyzerConfigurationOutput struct {
 	// The description of the new resource.
 	Description *string `type:"string"`
 
+	// List of multicast group resources that have been added to the network analyzer
+	// configuration.
+	MulticastGroups []*string `type:"list"`
+
 	// Name of the network analyzer configuration.
 	Name *string `min:"1" type:"string"`
 
-	// Trace content for your wireless gateway and wireless device resources.
+	// Trace content for your wireless devices, gateways, and multicast groups.
 	TraceContent *TraceContent `type:"structure"`
 
-	// List of wireless gateway resources that have been added to the network analyzer
+	// List of wireless device resources that have been added to the network analyzer
 	// configuration.
 	WirelessDevices []*string `type:"list"`
 
@@ -14997,6 +17584,12 @@ func (s *GetNetworkAnalyzerConfigurationOutput) SetArn(v string) *GetNetworkAnal
 // SetDescription sets the Description field's value.
 func (s *GetNetworkAnalyzerConfigurationOutput) SetDescription(v string) *GetNetworkAnalyzerConfigurationOutput {
 	s.Description = &v
+	return s
+}
+
+// SetMulticastGroups sets the MulticastGroups field's value.
+func (s *GetNetworkAnalyzerConfigurationOutput) SetMulticastGroups(v []*string) *GetNetworkAnalyzerConfigurationOutput {
+	s.MulticastGroups = v
 	return s
 }
 
@@ -15127,8 +17720,9 @@ func (s *GetPartnerAccountOutput) SetSidewalk(v *SidewalkAccountInfoWithFingerpr
 	return s
 }
 
+// Deprecated: This operation is no longer supported.
 type GetPositionConfigurationInput struct {
-	_ struct{} `type:"structure" nopayload:"true"`
+	_ struct{} `deprecated:"true" type:"structure" nopayload:"true"`
 
 	// Resource identifier used in a position configuration.
 	//
@@ -15190,8 +17784,9 @@ func (s *GetPositionConfigurationInput) SetResourceType(v string) *GetPositionCo
 	return s
 }
 
+// Deprecated: This operation is no longer supported.
 type GetPositionConfigurationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `deprecated:"true" type:"structure"`
 
 	// The position data destination that describes the AWS IoT rule that processes
 	// the device's position data for use by AWS IoT Core for LoRaWAN.
@@ -15231,8 +17826,155 @@ func (s *GetPositionConfigurationOutput) SetSolvers(v *PositionSolverDetails) *G
 	return s
 }
 
+type GetPositionEstimateInput struct {
+	_ struct{} `type:"structure"`
+
+	// Retrieves an estimated device position by resolving measurement data from
+	// cellular radio towers. The position is resolved using HERE's cellular-based
+	// solver.
+	CellTowers *CellTowers `type:"structure"`
+
+	// Retrieves an estimated device position by resolving the global navigation
+	// satellite system (GNSS) scan data. The position is resolved using the GNSS
+	// solver powered by LoRa Cloud.
+	Gnss *Gnss `type:"structure"`
+
+	// Retrieves an estimated device position by resolving the IP address information
+	// from the device. The position is resolved using MaxMind's IP-based solver.
+	Ip *Ip `type:"structure"`
+
+	// Optional information that specifies the time when the position information
+	// will be resolved. It uses the Unix timestamp format. If not specified, the
+	// time at which the request was received will be used.
+	Timestamp *time.Time `type:"timestamp"`
+
+	// Retrieves an estimated device position by resolving WLAN measurement data.
+	// The position is resolved using HERE's Wi-Fi based solver.
+	WiFiAccessPoints []*WiFiAccessPoint `type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetPositionEstimateInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetPositionEstimateInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetPositionEstimateInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetPositionEstimateInput"}
+	if s.CellTowers != nil {
+		if err := s.CellTowers.Validate(); err != nil {
+			invalidParams.AddNested("CellTowers", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Gnss != nil {
+		if err := s.Gnss.Validate(); err != nil {
+			invalidParams.AddNested("Gnss", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Ip != nil {
+		if err := s.Ip.Validate(); err != nil {
+			invalidParams.AddNested("Ip", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.WiFiAccessPoints != nil {
+		for i, v := range s.WiFiAccessPoints {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "WiFiAccessPoints", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCellTowers sets the CellTowers field's value.
+func (s *GetPositionEstimateInput) SetCellTowers(v *CellTowers) *GetPositionEstimateInput {
+	s.CellTowers = v
+	return s
+}
+
+// SetGnss sets the Gnss field's value.
+func (s *GetPositionEstimateInput) SetGnss(v *Gnss) *GetPositionEstimateInput {
+	s.Gnss = v
+	return s
+}
+
+// SetIp sets the Ip field's value.
+func (s *GetPositionEstimateInput) SetIp(v *Ip) *GetPositionEstimateInput {
+	s.Ip = v
+	return s
+}
+
+// SetTimestamp sets the Timestamp field's value.
+func (s *GetPositionEstimateInput) SetTimestamp(v time.Time) *GetPositionEstimateInput {
+	s.Timestamp = &v
+	return s
+}
+
+// SetWiFiAccessPoints sets the WiFiAccessPoints field's value.
+func (s *GetPositionEstimateInput) SetWiFiAccessPoints(v []*WiFiAccessPoint) *GetPositionEstimateInput {
+	s.WiFiAccessPoints = v
+	return s
+}
+
+type GetPositionEstimateOutput struct {
+	_ struct{} `type:"structure" payload:"GeoJsonPayload"`
+
+	// The position information of the resource, displayed as a JSON payload. The
+	// payload is of type blob and uses the GeoJSON (https://geojson.org/) format,
+	// which a format that's used to encode geographic data structures. A sample
+	// payload contains the timestamp information, the WGS84 coordinates of the
+	// location, and the accuracy and confidence level. For more information and
+	// examples, see Resolve device location (console) (https://docs.aws.amazon.com/iot/latest/developerguide/location-resolve-console.html).
+	GeoJsonPayload []byte `type:"blob"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetPositionEstimateOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetPositionEstimateOutput) GoString() string {
+	return s.String()
+}
+
+// SetGeoJsonPayload sets the GeoJsonPayload field's value.
+func (s *GetPositionEstimateOutput) SetGeoJsonPayload(v []byte) *GetPositionEstimateOutput {
+	s.GeoJsonPayload = v
+	return s
+}
+
+// Deprecated: This operation is no longer supported.
 type GetPositionInput struct {
-	_ struct{} `type:"structure" nopayload:"true"`
+	_ struct{} `deprecated:"true" type:"structure" nopayload:"true"`
 
 	// Resource identifier used to retrieve the position information.
 	//
@@ -15294,8 +18036,9 @@ func (s *GetPositionInput) SetResourceType(v string) *GetPositionInput {
 	return s
 }
 
+// Deprecated: This operation is no longer supported.
 type GetPositionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `deprecated:"true" type:"structure"`
 
 	// The accuracy of the estimated position in meters. An empty value indicates
 	// that no position data is available. A value of ‘0.0’ value indicates
@@ -15609,6 +18352,105 @@ func (s *GetResourceLogLevelOutput) SetLogLevel(v string) *GetResourceLogLevelOu
 	return s
 }
 
+type GetResourcePositionInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The identifier of the resource for which position information is retrieved.
+	// It can be the wireless device ID or the wireless gateway ID, depending on
+	// the resource type.
+	//
+	// ResourceIdentifier is a required field
+	ResourceIdentifier *string `location:"uri" locationName:"ResourceIdentifier" type:"string" required:"true"`
+
+	// The type of resource for which position information is retrieved, which can
+	// be a wireless device or a wireless gateway.
+	//
+	// ResourceType is a required field
+	ResourceType *string `location:"querystring" locationName:"resourceType" type:"string" required:"true" enum:"PositionResourceType"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetResourcePositionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetResourcePositionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetResourcePositionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetResourcePositionInput"}
+	if s.ResourceIdentifier == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceIdentifier"))
+	}
+	if s.ResourceIdentifier != nil && len(*s.ResourceIdentifier) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ResourceIdentifier", 1))
+	}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetResourceIdentifier sets the ResourceIdentifier field's value.
+func (s *GetResourcePositionInput) SetResourceIdentifier(v string) *GetResourcePositionInput {
+	s.ResourceIdentifier = &v
+	return s
+}
+
+// SetResourceType sets the ResourceType field's value.
+func (s *GetResourcePositionInput) SetResourceType(v string) *GetResourcePositionInput {
+	s.ResourceType = &v
+	return s
+}
+
+type GetResourcePositionOutput struct {
+	_ struct{} `type:"structure" payload:"GeoJsonPayload"`
+
+	// The position information of the resource, displayed as a JSON payload. The
+	// payload uses the GeoJSON format, which a format that's used to encode geographic
+	// data structures. For more information, see GeoJSON (https://geojson.org/).
+	GeoJsonPayload []byte `type:"blob"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetResourcePositionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetResourcePositionOutput) GoString() string {
+	return s.String()
+}
+
+// SetGeoJsonPayload sets the GeoJsonPayload field's value.
+func (s *GetResourcePositionOutput) SetGeoJsonPayload(v []byte) *GetResourcePositionOutput {
+	s.GeoJsonPayload = v
+	return s
+}
+
 type GetServiceEndpointInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
@@ -15798,6 +18640,182 @@ func (s *GetServiceProfileOutput) SetName(v string) *GetServiceProfileOutput {
 	return s
 }
 
+type GetWirelessDeviceImportTaskInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The identifier of the import task for which information is requested.
+	//
+	// Id is a required field
+	Id *string `location:"uri" locationName:"Id" type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetWirelessDeviceImportTaskInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetWirelessDeviceImportTaskInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetWirelessDeviceImportTaskInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetWirelessDeviceImportTaskInput"}
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
+	}
+	if s.Id != nil && len(*s.Id) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Id", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetId sets the Id field's value.
+func (s *GetWirelessDeviceImportTaskInput) SetId(v string) *GetWirelessDeviceImportTaskInput {
+	s.Id = &v
+	return s
+}
+
+type GetWirelessDeviceImportTaskOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The ARN (Amazon Resource Name) of the import task.
+	Arn *string `type:"string"`
+
+	// The time at which the import task was created.
+	CreationTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+
+	// The name of the destination that's assigned to the wireless devices in the
+	// import task.
+	DestinationName *string `type:"string"`
+
+	// The number of devices in the import task that failed to onboard to the import
+	// task.
+	FailedImportedDeviceCount *int64 `type:"long"`
+
+	// The identifier of the import task for which information is retrieved.
+	Id *string `type:"string"`
+
+	// The number of devices in the import task that are waiting for the control
+	// log to start processing.
+	InitializedImportedDeviceCount *int64 `type:"long"`
+
+	// The number of devices in the import task that have been onboarded to the
+	// import task.
+	OnboardedImportedDeviceCount *int64 `type:"long"`
+
+	// The number of devices in the import task that are waiting in the import task
+	// queue to be onboarded.
+	PendingImportedDeviceCount *int64 `type:"long"`
+
+	// The Sidewalk-related information about an import task.
+	Sidewalk *SidewalkGetStartImportInfo `type:"structure"`
+
+	// The import task status.
+	Status *string `type:"string" enum:"ImportTaskStatus"`
+
+	// The reason for the provided status information, such as a validation error
+	// that causes the import task to fail.
+	StatusReason *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetWirelessDeviceImportTaskOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GetWirelessDeviceImportTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetArn sets the Arn field's value.
+func (s *GetWirelessDeviceImportTaskOutput) SetArn(v string) *GetWirelessDeviceImportTaskOutput {
+	s.Arn = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *GetWirelessDeviceImportTaskOutput) SetCreationTime(v time.Time) *GetWirelessDeviceImportTaskOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDestinationName sets the DestinationName field's value.
+func (s *GetWirelessDeviceImportTaskOutput) SetDestinationName(v string) *GetWirelessDeviceImportTaskOutput {
+	s.DestinationName = &v
+	return s
+}
+
+// SetFailedImportedDeviceCount sets the FailedImportedDeviceCount field's value.
+func (s *GetWirelessDeviceImportTaskOutput) SetFailedImportedDeviceCount(v int64) *GetWirelessDeviceImportTaskOutput {
+	s.FailedImportedDeviceCount = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *GetWirelessDeviceImportTaskOutput) SetId(v string) *GetWirelessDeviceImportTaskOutput {
+	s.Id = &v
+	return s
+}
+
+// SetInitializedImportedDeviceCount sets the InitializedImportedDeviceCount field's value.
+func (s *GetWirelessDeviceImportTaskOutput) SetInitializedImportedDeviceCount(v int64) *GetWirelessDeviceImportTaskOutput {
+	s.InitializedImportedDeviceCount = &v
+	return s
+}
+
+// SetOnboardedImportedDeviceCount sets the OnboardedImportedDeviceCount field's value.
+func (s *GetWirelessDeviceImportTaskOutput) SetOnboardedImportedDeviceCount(v int64) *GetWirelessDeviceImportTaskOutput {
+	s.OnboardedImportedDeviceCount = &v
+	return s
+}
+
+// SetPendingImportedDeviceCount sets the PendingImportedDeviceCount field's value.
+func (s *GetWirelessDeviceImportTaskOutput) SetPendingImportedDeviceCount(v int64) *GetWirelessDeviceImportTaskOutput {
+	s.PendingImportedDeviceCount = &v
+	return s
+}
+
+// SetSidewalk sets the Sidewalk field's value.
+func (s *GetWirelessDeviceImportTaskOutput) SetSidewalk(v *SidewalkGetStartImportInfo) *GetWirelessDeviceImportTaskOutput {
+	s.Sidewalk = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *GetWirelessDeviceImportTaskOutput) SetStatus(v string) *GetWirelessDeviceImportTaskOutput {
+	s.Status = &v
+	return s
+}
+
+// SetStatusReason sets the StatusReason field's value.
+func (s *GetWirelessDeviceImportTaskOutput) SetStatusReason(v string) *GetWirelessDeviceImportTaskOutput {
+	s.StatusReason = &v
+	return s
+}
+
 type GetWirelessDeviceInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
@@ -15882,6 +18900,10 @@ type GetWirelessDeviceOutput struct {
 	// The name of the resource.
 	Name *string `type:"string"`
 
+	// FPort values for the GNSS, stream, and ClockSync functions of the positioning
+	// information.
+	Positioning *string `type:"string" enum:"PositioningConfigStatus"`
+
 	// Sidewalk device object.
 	Sidewalk *SidewalkDevice `type:"structure"`
 
@@ -15947,6 +18969,12 @@ func (s *GetWirelessDeviceOutput) SetLoRaWAN(v *LoRaWANDevice) *GetWirelessDevic
 // SetName sets the Name field's value.
 func (s *GetWirelessDeviceOutput) SetName(v string) *GetWirelessDeviceOutput {
 	s.Name = &v
+	return s
+}
+
+// SetPositioning sets the Positioning field's value.
+func (s *GetWirelessDeviceOutput) SetPositioning(v string) *GetWirelessDeviceOutput {
+	s.Positioning = &v
 	return s
 }
 
@@ -16027,6 +19055,8 @@ type GetWirelessDeviceStatisticsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the most recent uplink was received.
+	//
+	// This value is only valid for 3 months.
 	LastUplinkReceivedAt *string `type:"string"`
 
 	// Information about the wireless device's operations.
@@ -16456,6 +19486,8 @@ type GetWirelessGatewayStatisticsOutput struct {
 	ConnectionStatus *string `type:"string" enum:"ConnectionStatus"`
 
 	// The date and time when the most recent uplink was received.
+	//
+	// This value is only valid for 3 months.
 	LastUplinkReceivedAt *string `type:"string"`
 
 	// The ID of the wireless gateway.
@@ -16660,6 +19692,8 @@ type GetWirelessGatewayTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the most recent uplink was received.
+	//
+	// This value is only valid for 3 months.
 	LastUplinkReceivedAt *string `type:"string"`
 
 	// The status of the request.
@@ -16720,6 +19754,567 @@ func (s *GetWirelessGatewayTaskOutput) SetWirelessGatewayId(v string) *GetWirele
 // SetWirelessGatewayTaskDefinitionId sets the WirelessGatewayTaskDefinitionId field's value.
 func (s *GetWirelessGatewayTaskOutput) SetWirelessGatewayTaskDefinitionId(v string) *GetWirelessGatewayTaskOutput {
 	s.WirelessGatewayTaskDefinitionId = &v
+	return s
+}
+
+// Global identity information.
+type GlobalIdentity struct {
+	_ struct{} `type:"structure"`
+
+	// GERAN (GSM EDGE Radio Access Network) cell global identifier.
+	//
+	// GeranCid is a required field
+	GeranCid *int64 `type:"integer" required:"true"`
+
+	// Location area code of the global identity.
+	//
+	// Lac is a required field
+	Lac *int64 `min:"1" type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GlobalIdentity) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GlobalIdentity) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GlobalIdentity) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GlobalIdentity"}
+	if s.GeranCid == nil {
+		invalidParams.Add(request.NewErrParamRequired("GeranCid"))
+	}
+	if s.Lac == nil {
+		invalidParams.Add(request.NewErrParamRequired("Lac"))
+	}
+	if s.Lac != nil && *s.Lac < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Lac", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetGeranCid sets the GeranCid field's value.
+func (s *GlobalIdentity) SetGeranCid(v int64) *GlobalIdentity {
+	s.GeranCid = &v
+	return s
+}
+
+// SetLac sets the Lac field's value.
+func (s *GlobalIdentity) SetLac(v int64) *GlobalIdentity {
+	s.Lac = &v
+	return s
+}
+
+// Global navigation satellite system (GNSS) object used for positioning.
+type Gnss struct {
+	_ struct{} `type:"structure"`
+
+	// Optional assistance altitude, which is the altitude of the device at capture
+	// time, specified in meters above the WGS84 reference ellipsoid.
+	AssistAltitude *float64 `type:"float"`
+
+	// Optional assistance position information, specified using latitude and longitude
+	// values in degrees. The coordinates are inside the WGS84 reference frame.
+	AssistPosition []*float64 `min:"2" type:"list"`
+
+	// Optional parameter that gives an estimate of the time when the GNSS scan
+	// information is taken, in seconds GPS time (GPST). If capture time is not
+	// specified, the local server time is used.
+	CaptureTime *float64 `type:"float"`
+
+	// Optional value that gives the capture time estimate accuracy, in seconds.
+	// If capture time accuracy is not specified, default value of 300 is used.
+	CaptureTimeAccuracy *float64 `type:"float"`
+
+	// Payload that contains the GNSS scan result, or NAV message, in hexadecimal
+	// notation.
+	//
+	// Payload is a required field
+	Payload *string `type:"string" required:"true"`
+
+	// Optional parameter that forces 2D solve, which modifies the positioning algorithm
+	// to a 2D solution problem. When this parameter is specified, the assistance
+	// altitude should have an accuracy of at least 10 meters.
+	Use2DSolver *bool `type:"boolean"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Gnss) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Gnss) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *Gnss) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "Gnss"}
+	if s.AssistPosition != nil && len(s.AssistPosition) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("AssistPosition", 2))
+	}
+	if s.Payload == nil {
+		invalidParams.Add(request.NewErrParamRequired("Payload"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAssistAltitude sets the AssistAltitude field's value.
+func (s *Gnss) SetAssistAltitude(v float64) *Gnss {
+	s.AssistAltitude = &v
+	return s
+}
+
+// SetAssistPosition sets the AssistPosition field's value.
+func (s *Gnss) SetAssistPosition(v []*float64) *Gnss {
+	s.AssistPosition = v
+	return s
+}
+
+// SetCaptureTime sets the CaptureTime field's value.
+func (s *Gnss) SetCaptureTime(v float64) *Gnss {
+	s.CaptureTime = &v
+	return s
+}
+
+// SetCaptureTimeAccuracy sets the CaptureTimeAccuracy field's value.
+func (s *Gnss) SetCaptureTimeAccuracy(v float64) *Gnss {
+	s.CaptureTimeAccuracy = &v
+	return s
+}
+
+// SetPayload sets the Payload field's value.
+func (s *Gnss) SetPayload(v string) *Gnss {
+	s.Payload = &v
+	return s
+}
+
+// SetUse2DSolver sets the Use2DSolver field's value.
+func (s *Gnss) SetUse2DSolver(v bool) *Gnss {
+	s.Use2DSolver = &v
+	return s
+}
+
+// GSM local ID information, which corresponds to the local identification parameters
+// of a GSM cell.
+type GsmLocalId struct {
+	_ struct{} `type:"structure"`
+
+	// GSM broadcast control channel.
+	//
+	// Bcch is a required field
+	Bcch *int64 `type:"integer" required:"true"`
+
+	// GSM base station identity code (BSIC).
+	//
+	// Bsic is a required field
+	Bsic *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GsmLocalId) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GsmLocalId) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GsmLocalId) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GsmLocalId"}
+	if s.Bcch == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bcch"))
+	}
+	if s.Bsic == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bsic"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBcch sets the Bcch field's value.
+func (s *GsmLocalId) SetBcch(v int64) *GsmLocalId {
+	s.Bcch = &v
+	return s
+}
+
+// SetBsic sets the Bsic field's value.
+func (s *GsmLocalId) SetBsic(v int64) *GsmLocalId {
+	s.Bsic = &v
+	return s
+}
+
+// GSM object for network measurement reports.
+type GsmNmrObj struct {
+	_ struct{} `type:"structure"`
+
+	// GSM broadcast control channel.
+	//
+	// Bcch is a required field
+	Bcch *int64 `type:"integer" required:"true"`
+
+	// GSM base station identity code (BSIC).
+	//
+	// Bsic is a required field
+	Bsic *int64 `type:"integer" required:"true"`
+
+	// Global identity information of the GSM object.
+	GlobalIdentity *GlobalIdentity `type:"structure"`
+
+	// Rx level, which is the received signal power, measured in dBm (decibel-milliwatts).
+	RxLevel *int64 `type:"integer"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GsmNmrObj) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GsmNmrObj) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GsmNmrObj) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GsmNmrObj"}
+	if s.Bcch == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bcch"))
+	}
+	if s.Bsic == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bsic"))
+	}
+	if s.RxLevel != nil && *s.RxLevel < -110 {
+		invalidParams.Add(request.NewErrParamMinValue("RxLevel", -110))
+	}
+	if s.GlobalIdentity != nil {
+		if err := s.GlobalIdentity.Validate(); err != nil {
+			invalidParams.AddNested("GlobalIdentity", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBcch sets the Bcch field's value.
+func (s *GsmNmrObj) SetBcch(v int64) *GsmNmrObj {
+	s.Bcch = &v
+	return s
+}
+
+// SetBsic sets the Bsic field's value.
+func (s *GsmNmrObj) SetBsic(v int64) *GsmNmrObj {
+	s.Bsic = &v
+	return s
+}
+
+// SetGlobalIdentity sets the GlobalIdentity field's value.
+func (s *GsmNmrObj) SetGlobalIdentity(v *GlobalIdentity) *GsmNmrObj {
+	s.GlobalIdentity = v
+	return s
+}
+
+// SetRxLevel sets the RxLevel field's value.
+func (s *GsmNmrObj) SetRxLevel(v int64) *GsmNmrObj {
+	s.RxLevel = &v
+	return s
+}
+
+// GSM object.
+type GsmObj struct {
+	_ struct{} `type:"structure"`
+
+	// GERAN (GSM EDGE Radio Access Network) Cell Global Identifier.
+	//
+	// GeranCid is a required field
+	GeranCid *int64 `type:"integer" required:"true"`
+
+	// GSM local identification (local ID) information.
+	GsmLocalId *GsmLocalId `type:"structure"`
+
+	// GSM object for network measurement reports.
+	GsmNmr []*GsmNmrObj `min:"1" type:"list"`
+
+	// Timing advance value, which corresponds to the length of time a signal takes
+	// to reach the base station from a mobile phone.
+	GsmTimingAdvance *int64 `type:"integer"`
+
+	// Location area code.
+	//
+	// Lac is a required field
+	Lac *int64 `min:"1" type:"integer" required:"true"`
+
+	// Mobile Country Code.
+	//
+	// Mcc is a required field
+	Mcc *int64 `min:"200" type:"integer" required:"true"`
+
+	// Mobile Network Code.
+	//
+	// Mnc is a required field
+	Mnc *int64 `type:"integer" required:"true"`
+
+	// Rx level, which is the received signal power, measured in dBm (decibel-milliwatts).
+	RxLevel *int64 `type:"integer"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GsmObj) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s GsmObj) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GsmObj) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GsmObj"}
+	if s.GeranCid == nil {
+		invalidParams.Add(request.NewErrParamRequired("GeranCid"))
+	}
+	if s.GsmNmr != nil && len(s.GsmNmr) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("GsmNmr", 1))
+	}
+	if s.Lac == nil {
+		invalidParams.Add(request.NewErrParamRequired("Lac"))
+	}
+	if s.Lac != nil && *s.Lac < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Lac", 1))
+	}
+	if s.Mcc == nil {
+		invalidParams.Add(request.NewErrParamRequired("Mcc"))
+	}
+	if s.Mcc != nil && *s.Mcc < 200 {
+		invalidParams.Add(request.NewErrParamMinValue("Mcc", 200))
+	}
+	if s.Mnc == nil {
+		invalidParams.Add(request.NewErrParamRequired("Mnc"))
+	}
+	if s.RxLevel != nil && *s.RxLevel < -110 {
+		invalidParams.Add(request.NewErrParamMinValue("RxLevel", -110))
+	}
+	if s.GsmLocalId != nil {
+		if err := s.GsmLocalId.Validate(); err != nil {
+			invalidParams.AddNested("GsmLocalId", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.GsmNmr != nil {
+		for i, v := range s.GsmNmr {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "GsmNmr", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetGeranCid sets the GeranCid field's value.
+func (s *GsmObj) SetGeranCid(v int64) *GsmObj {
+	s.GeranCid = &v
+	return s
+}
+
+// SetGsmLocalId sets the GsmLocalId field's value.
+func (s *GsmObj) SetGsmLocalId(v *GsmLocalId) *GsmObj {
+	s.GsmLocalId = v
+	return s
+}
+
+// SetGsmNmr sets the GsmNmr field's value.
+func (s *GsmObj) SetGsmNmr(v []*GsmNmrObj) *GsmObj {
+	s.GsmNmr = v
+	return s
+}
+
+// SetGsmTimingAdvance sets the GsmTimingAdvance field's value.
+func (s *GsmObj) SetGsmTimingAdvance(v int64) *GsmObj {
+	s.GsmTimingAdvance = &v
+	return s
+}
+
+// SetLac sets the Lac field's value.
+func (s *GsmObj) SetLac(v int64) *GsmObj {
+	s.Lac = &v
+	return s
+}
+
+// SetMcc sets the Mcc field's value.
+func (s *GsmObj) SetMcc(v int64) *GsmObj {
+	s.Mcc = &v
+	return s
+}
+
+// SetMnc sets the Mnc field's value.
+func (s *GsmObj) SetMnc(v int64) *GsmObj {
+	s.Mnc = &v
+	return s
+}
+
+// SetRxLevel sets the RxLevel field's value.
+func (s *GsmObj) SetRxLevel(v int64) *GsmObj {
+	s.RxLevel = &v
+	return s
+}
+
+// Information about a Sidewalk device that has been added to an import task.
+type ImportedSidewalkDevice struct {
+	_ struct{} `type:"structure"`
+
+	// The time at which the status information was last updated.
+	LastUpdateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+
+	// The onboarding status of the Sidewalk device in the import task.
+	OnboardingStatus *string `type:"string" enum:"OnboardStatus"`
+
+	// The reason for the onboarding status information for the Sidewalk device.
+	OnboardingStatusReason *string `type:"string"`
+
+	// The Sidewalk manufacturing serial number (SMSN) of the Sidewalk device.
+	SidewalkManufacturingSn *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ImportedSidewalkDevice) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ImportedSidewalkDevice) GoString() string {
+	return s.String()
+}
+
+// SetLastUpdateTime sets the LastUpdateTime field's value.
+func (s *ImportedSidewalkDevice) SetLastUpdateTime(v time.Time) *ImportedSidewalkDevice {
+	s.LastUpdateTime = &v
+	return s
+}
+
+// SetOnboardingStatus sets the OnboardingStatus field's value.
+func (s *ImportedSidewalkDevice) SetOnboardingStatus(v string) *ImportedSidewalkDevice {
+	s.OnboardingStatus = &v
+	return s
+}
+
+// SetOnboardingStatusReason sets the OnboardingStatusReason field's value.
+func (s *ImportedSidewalkDevice) SetOnboardingStatusReason(v string) *ImportedSidewalkDevice {
+	s.OnboardingStatusReason = &v
+	return s
+}
+
+// SetSidewalkManufacturingSn sets the SidewalkManufacturingSn field's value.
+func (s *ImportedSidewalkDevice) SetSidewalkManufacturingSn(v string) *ImportedSidewalkDevice {
+	s.SidewalkManufacturingSn = &v
+	return s
+}
+
+// Information about a wireless device that has been added to an import task.
+type ImportedWirelessDevice struct {
+	_ struct{} `type:"structure"`
+
+	// The Sidewalk-related information about a device that has been added to an
+	// import task.
+	Sidewalk *ImportedSidewalkDevice `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ImportedWirelessDevice) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ImportedWirelessDevice) GoString() string {
+	return s.String()
+}
+
+// SetSidewalk sets the Sidewalk field's value.
+func (s *ImportedWirelessDevice) SetSidewalk(v *ImportedSidewalkDevice) *ImportedWirelessDevice {
+	s.Sidewalk = v
 	return s
 }
 
@@ -16787,6 +20382,53 @@ func (s *InternalServerException) RequestID() string {
 	return s.RespMetadata.RequestID
 }
 
+// IP address used for resolving device location.
+type Ip struct {
+	_ struct{} `type:"structure"`
+
+	// IP address information.
+	//
+	// IpAddress is a required field
+	IpAddress *string `type:"string" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Ip) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s Ip) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *Ip) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "Ip"}
+	if s.IpAddress == nil {
+		invalidParams.Add(request.NewErrParamRequired("IpAddress"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *Ip) SetIpAddress(v string) *Ip {
+	s.IpAddress = &v
+	return s
+}
+
 // Join event configuration object for enabling or disabling topic.
 type JoinEventConfiguration struct {
 	_ struct{} `type:"structure"`
@@ -16795,8 +20437,7 @@ type JoinEventConfiguration struct {
 	// event topics.
 	LoRaWAN *LoRaWANJoinEventNotificationConfigurations `type:"structure"`
 
-	// Enum to denote whether the wireless device id join event topic is enabled
-	// or disabled.
+	// Denotes whether the wireless device ID join event topic is enabled or disabled.
 	WirelessDeviceIdEventTopic *string `type:"string" enum:"EventNotificationTopicStatus"`
 }
 
@@ -16948,6 +20589,10 @@ func (s *ListDestinationsOutput) SetNextToken(v string) *ListDestinationsOutput 
 type ListDeviceProfilesInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
+	// A filter to list only device profiles that use this type, which can be LoRaWAN
+	// or Sidewalk.
+	DeviceProfileType *string `location:"querystring" locationName:"deviceProfileType" type:"string" enum:"DeviceProfileType"`
+
 	// The maximum number of results to return in this operation.
 	MaxResults *int64 `location:"querystring" locationName:"maxResults" type:"integer"`
 
@@ -16972,6 +20617,12 @@ func (s ListDeviceProfilesInput) String() string {
 // value will be replaced with "sensitive".
 func (s ListDeviceProfilesInput) GoString() string {
 	return s.String()
+}
+
+// SetDeviceProfileType sets the DeviceProfileType field's value.
+func (s *ListDeviceProfilesInput) SetDeviceProfileType(v string) *ListDeviceProfilesInput {
+	s.DeviceProfileType = &v
+	return s
 }
 
 // SetMaxResults sets the MaxResults field's value.
@@ -17023,6 +20674,132 @@ func (s *ListDeviceProfilesOutput) SetDeviceProfileList(v []*DeviceProfile) *Lis
 
 // SetNextToken sets the NextToken field's value.
 func (s *ListDeviceProfilesOutput) SetNextToken(v string) *ListDeviceProfilesOutput {
+	s.NextToken = &v
+	return s
+}
+
+type ListDevicesForWirelessDeviceImportTaskInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The identifier of the import task for which wireless devices are listed.
+	//
+	// Id is a required field
+	Id *string `location:"querystring" locationName:"id" type:"string" required:"true"`
+
+	// The maximum number of results to return in this operation.
+	MaxResults *int64 `location:"querystring" locationName:"maxResults" type:"integer"`
+
+	// To retrieve the next set of results, the nextToken value from a previous
+	// response; otherwise null to receive the first set of results.
+	NextToken *string `location:"querystring" locationName:"nextToken" type:"string"`
+
+	// The status of the devices in the import task.
+	Status *string `location:"querystring" locationName:"status" type:"string" enum:"OnboardStatus"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListDevicesForWirelessDeviceImportTaskInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListDevicesForWirelessDeviceImportTaskInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListDevicesForWirelessDeviceImportTaskInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListDevicesForWirelessDeviceImportTaskInput"}
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetId sets the Id field's value.
+func (s *ListDevicesForWirelessDeviceImportTaskInput) SetId(v string) *ListDevicesForWirelessDeviceImportTaskInput {
+	s.Id = &v
+	return s
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListDevicesForWirelessDeviceImportTaskInput) SetMaxResults(v int64) *ListDevicesForWirelessDeviceImportTaskInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListDevicesForWirelessDeviceImportTaskInput) SetNextToken(v string) *ListDevicesForWirelessDeviceImportTaskInput {
+	s.NextToken = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *ListDevicesForWirelessDeviceImportTaskInput) SetStatus(v string) *ListDevicesForWirelessDeviceImportTaskInput {
+	s.Status = &v
+	return s
+}
+
+type ListDevicesForWirelessDeviceImportTaskOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the Sidewalk destination that describes the IoT rule to route
+	// messages received from devices in an import task that are onboarded to AWS
+	// IoT Wireless.
+	DestinationName *string `type:"string"`
+
+	// List of wireless devices in an import task and their onboarding status.
+	ImportedWirelessDeviceList []*ImportedWirelessDevice `type:"list"`
+
+	// The token to use to get the next set of results, or null if there are no
+	// additional results.
+	NextToken *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListDevicesForWirelessDeviceImportTaskOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListDevicesForWirelessDeviceImportTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetDestinationName sets the DestinationName field's value.
+func (s *ListDevicesForWirelessDeviceImportTaskOutput) SetDestinationName(v string) *ListDevicesForWirelessDeviceImportTaskOutput {
+	s.DestinationName = &v
+	return s
+}
+
+// SetImportedWirelessDeviceList sets the ImportedWirelessDeviceList field's value.
+func (s *ListDevicesForWirelessDeviceImportTaskOutput) SetImportedWirelessDeviceList(v []*ImportedWirelessDevice) *ListDevicesForWirelessDeviceImportTaskOutput {
+	s.ImportedWirelessDeviceList = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListDevicesForWirelessDeviceImportTaskOutput) SetNextToken(v string) *ListDevicesForWirelessDeviceImportTaskOutput {
 	s.NextToken = &v
 	return s
 }
@@ -17570,8 +21347,9 @@ func (s *ListPartnerAccountsOutput) SetSidewalk(v []*SidewalkAccountInfoWithFing
 	return s
 }
 
+// Deprecated: This operation is no longer supported.
 type ListPositionConfigurationsInput struct {
-	_ struct{} `type:"structure" nopayload:"true"`
+	_ struct{} `deprecated:"true" type:"structure" nopayload:"true"`
 
 	// The maximum number of results to return in this operation.
 	MaxResults *int64 `location:"querystring" locationName:"maxResults" type:"integer"`
@@ -17620,8 +21398,9 @@ func (s *ListPositionConfigurationsInput) SetResourceType(v string) *ListPositio
 	return s
 }
 
+// Deprecated: This operation is no longer supported.
 type ListPositionConfigurationsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `deprecated:"true" type:"structure"`
 
 	// The token to use to get the next set of results, or null if there are no
 	// additional results.
@@ -17943,6 +21722,89 @@ func (s *ListTagsForResourceOutput) SetTags(v []*Tag) *ListTagsForResourceOutput
 	return s
 }
 
+type ListWirelessDeviceImportTasksInput struct {
+	_ struct{} `type:"structure" nopayload:"true"`
+
+	// The maximum number of results to return in this operation.
+	MaxResults *int64 `location:"querystring" locationName:"maxResults" type:"integer"`
+
+	// To retrieve the next set of results, the nextToken value from a previous
+	// response; otherwise null to receive the first set of results.
+	NextToken *string `location:"querystring" locationName:"nextToken" type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListWirelessDeviceImportTasksInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListWirelessDeviceImportTasksInput) GoString() string {
+	return s.String()
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListWirelessDeviceImportTasksInput) SetMaxResults(v int64) *ListWirelessDeviceImportTasksInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListWirelessDeviceImportTasksInput) SetNextToken(v string) *ListWirelessDeviceImportTasksInput {
+	s.NextToken = &v
+	return s
+}
+
+type ListWirelessDeviceImportTasksOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The token to use to get the next set of results, or null if there are no
+	// additional results.
+	NextToken *string `type:"string"`
+
+	// List of import tasks and summary information of onboarding status of devices
+	// in each import task.
+	WirelessDeviceImportTaskList []*WirelessDeviceImportTask `type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListWirelessDeviceImportTasksOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ListWirelessDeviceImportTasksOutput) GoString() string {
+	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListWirelessDeviceImportTasksOutput) SetNextToken(v string) *ListWirelessDeviceImportTasksOutput {
+	s.NextToken = &v
+	return s
+}
+
+// SetWirelessDeviceImportTaskList sets the WirelessDeviceImportTaskList field's value.
+func (s *ListWirelessDeviceImportTasksOutput) SetWirelessDeviceImportTaskList(v []*WirelessDeviceImportTask) *ListWirelessDeviceImportTasksOutput {
+	s.WirelessDeviceImportTaskList = v
+	return s
+}
+
 type ListWirelessDevicesInput struct {
 	_ struct{} `type:"structure" nopayload:"true"`
 
@@ -18258,7 +22120,7 @@ func (s *ListWirelessGatewaysOutput) SetWirelessGatewayList(v []*WirelessGateway
 type LoRaWANConnectionStatusEventNotificationConfigurations struct {
 	_ struct{} `type:"structure"`
 
-	// Enum to denote whether the gateway EUI connection status event topic is enabled
+	// Denotes whether the gateway EUI connection status event topic is enabled
 	// or disabled.
 	GatewayEuiEventTopic *string `type:"string" enum:"EventNotificationTopicStatus"`
 }
@@ -18291,8 +22153,8 @@ func (s *LoRaWANConnectionStatusEventNotificationConfigurations) SetGatewayEuiEv
 type LoRaWANConnectionStatusResourceTypeEventConfiguration struct {
 	_ struct{} `type:"structure"`
 
-	// Enum to denote whether the wireless gateway connection status event topic
-	// is enabled or disabled.
+	// Denotes whether the wireless gateway connection status event topic is enabled
+	// or disabled.
 	WirelessGatewayEventTopic *string `type:"string" enum:"EventNotificationTopicStatus"`
 }
 
@@ -18449,6 +22311,9 @@ type LoRaWANDeviceMetadata struct {
 	// Information about the gateways accessed by the device.
 	Gateways []*LoRaWANGatewayMetadata `type:"list"`
 
+	// Information about the LoRaWAN public network accessed by the device.
+	PublicGateways []*LoRaWANPublicGatewayMetadata `type:"list"`
+
 	// The date and time of the metadata.
 	Timestamp *string `type:"string"`
 }
@@ -18501,6 +22366,12 @@ func (s *LoRaWANDeviceMetadata) SetGateways(v []*LoRaWANGatewayMetadata) *LoRaWA
 	return s
 }
 
+// SetPublicGateways sets the PublicGateways field's value.
+func (s *LoRaWANDeviceMetadata) SetPublicGateways(v []*LoRaWANPublicGatewayMetadata) *LoRaWANDeviceMetadata {
+	s.PublicGateways = v
+	return s
+}
+
 // SetTimestamp sets the Timestamp field's value.
 func (s *LoRaWANDeviceMetadata) SetTimestamp(v string) *LoRaWANDeviceMetadata {
 	s.Timestamp = &v
@@ -18524,7 +22395,7 @@ type LoRaWANDeviceProfile struct {
 	// profile.
 	MacVersion *string `type:"string"`
 
-	// The MaxDutyCycle value.
+	// The MaxDutyCycle value. It ranges from 0 to 15.
 	MaxDutyCycle *int64 `type:"integer"`
 
 	// The MaxEIRP value.
@@ -18537,7 +22408,7 @@ type LoRaWANDeviceProfile struct {
 	PingSlotFreq *int64 `min:"1e+06" type:"integer"`
 
 	// The PingSlotPeriod value.
-	PingSlotPeriod *int64 `min:"128" type:"integer"`
+	PingSlotPeriod *int64 `min:"32" type:"integer"`
 
 	// The version of regional parameters.
 	RegParamsRevision *string `type:"string"`
@@ -18594,8 +22465,8 @@ func (s *LoRaWANDeviceProfile) Validate() error {
 	if s.PingSlotFreq != nil && *s.PingSlotFreq < 1e+06 {
 		invalidParams.Add(request.NewErrParamMinValue("PingSlotFreq", 1e+06))
 	}
-	if s.PingSlotPeriod != nil && *s.PingSlotPeriod < 128 {
-		invalidParams.Add(request.NewErrParamMinValue("PingSlotPeriod", 128))
+	if s.PingSlotPeriod != nil && *s.PingSlotPeriod < 32 {
+		invalidParams.Add(request.NewErrParamMinValue("PingSlotPeriod", 32))
 	}
 	if s.RxFreq2 != nil && *s.RxFreq2 < 1e+06 {
 		invalidParams.Add(request.NewErrParamMinValue("RxFreq2", 1e+06))
@@ -18798,11 +22669,18 @@ func (s *LoRaWANFuotaTaskGetInfo) SetStartTime(v time.Time) *LoRaWANFuotaTaskGet
 type LoRaWANGateway struct {
 	_ struct{} `type:"structure"`
 
+	// Beaconing object information, which consists of the data rate and frequency
+	// parameters.
+	Beaconing *Beaconing `type:"structure"`
+
 	// The gateway's EUI value.
 	GatewayEui *string `type:"string"`
 
 	// A list of JoinEuiRange used by LoRa gateways to filter LoRa frames.
 	JoinEuiFilters [][]*string `type:"list"`
+
+	// The MaxEIRP value.
+	MaxEirp *float64 `type:"float"`
 
 	// A list of NetId values that are used by LoRa gateways to filter the uplink
 	// frames.
@@ -18833,6 +22711,12 @@ func (s LoRaWANGateway) GoString() string {
 	return s.String()
 }
 
+// SetBeaconing sets the Beaconing field's value.
+func (s *LoRaWANGateway) SetBeaconing(v *Beaconing) *LoRaWANGateway {
+	s.Beaconing = v
+	return s
+}
+
 // SetGatewayEui sets the GatewayEui field's value.
 func (s *LoRaWANGateway) SetGatewayEui(v string) *LoRaWANGateway {
 	s.GatewayEui = &v
@@ -18842,6 +22726,12 @@ func (s *LoRaWANGateway) SetGatewayEui(v string) *LoRaWANGateway {
 // SetJoinEuiFilters sets the JoinEuiFilters field's value.
 func (s *LoRaWANGateway) SetJoinEuiFilters(v [][]*string) *LoRaWANGateway {
 	s.JoinEuiFilters = v
+	return s
+}
+
+// SetMaxEirp sets the MaxEirp field's value.
+func (s *LoRaWANGateway) SetMaxEirp(v float64) *LoRaWANGateway {
+	s.MaxEirp = &v
 	return s
 }
 
@@ -19212,7 +23102,7 @@ func (s *LoRaWANGetServiceProfileInfo) SetUlRatePolicy(v string) *LoRaWANGetServ
 type LoRaWANJoinEventNotificationConfigurations struct {
 	_ struct{} `type:"structure"`
 
-	// Enum to denote whether the Dev EUI join event topic is enabled or disabled.
+	// Denotes whether the Dev EUI join event topic is enabled or disabled.
 	DevEuiEventTopic *string `type:"string" enum:"EventNotificationTopicStatus"`
 }
 
@@ -19244,8 +23134,7 @@ func (s *LoRaWANJoinEventNotificationConfigurations) SetDevEuiEventTopic(v strin
 type LoRaWANJoinResourceTypeEventConfiguration struct {
 	_ struct{} `type:"structure"`
 
-	// Enum to denote whether the wireless device join event topic is enabled or
-	// disabled.
+	// Denotes whether the wireless device join event topic is enabled or disabled.
 	WirelessDeviceEventTopic *string `type:"string" enum:"EventNotificationTopicStatus"`
 }
 
@@ -19462,6 +23351,9 @@ type LoRaWANMulticastSession struct {
 	// Downlink frequency.
 	DlFreq *int64 `min:"1e+08" type:"integer"`
 
+	// The PingSlotPeriod value.
+	PingSlotPeriod *int64 `min:"32" type:"integer"`
+
 	// Timestamp of when the multicast group session is to start.
 	SessionStartTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
 
@@ -19493,6 +23385,9 @@ func (s *LoRaWANMulticastSession) Validate() error {
 	if s.DlFreq != nil && *s.DlFreq < 1e+08 {
 		invalidParams.Add(request.NewErrParamMinValue("DlFreq", 1e+08))
 	}
+	if s.PingSlotPeriod != nil && *s.PingSlotPeriod < 32 {
+		invalidParams.Add(request.NewErrParamMinValue("PingSlotPeriod", 32))
+	}
 	if s.SessionTimeout != nil && *s.SessionTimeout < 60 {
 		invalidParams.Add(request.NewErrParamMinValue("SessionTimeout", 60))
 	}
@@ -19515,6 +23410,12 @@ func (s *LoRaWANMulticastSession) SetDlFreq(v int64) *LoRaWANMulticastSession {
 	return s
 }
 
+// SetPingSlotPeriod sets the PingSlotPeriod field's value.
+func (s *LoRaWANMulticastSession) SetPingSlotPeriod(v int64) *LoRaWANMulticastSession {
+	s.PingSlotPeriod = &v
+	return s
+}
+
 // SetSessionStartTime sets the SessionStartTime field's value.
 func (s *LoRaWANMulticastSession) SetSessionStartTime(v time.Time) *LoRaWANMulticastSession {
 	s.SessionStartTime = &v
@@ -19527,12 +23428,93 @@ func (s *LoRaWANMulticastSession) SetSessionTimeout(v int64) *LoRaWANMulticastSe
 	return s
 }
 
+// LoRaWAN public gateway metadata.
+type LoRaWANPublicGatewayMetadata struct {
+	_ struct{} `type:"structure"`
+
+	// Boolean that indicates whether downlink is allowed using the network.
+	DlAllowed *bool `type:"boolean"`
+
+	// The ID of the gateways that are operated by the network provider.
+	Id *string `type:"string"`
+
+	// The ID of the LoRaWAN public network provider.
+	ProviderNetId *string `type:"string"`
+
+	// The frequency band (RFRegion) value.
+	RfRegion *string `type:"string"`
+
+	// The RSSI (received signal strength indicator) value.
+	Rssi *float64 `type:"double"`
+
+	// The SNR (signal to noise ratio) value.
+	Snr *float64 `type:"double"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LoRaWANPublicGatewayMetadata) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LoRaWANPublicGatewayMetadata) GoString() string {
+	return s.String()
+}
+
+// SetDlAllowed sets the DlAllowed field's value.
+func (s *LoRaWANPublicGatewayMetadata) SetDlAllowed(v bool) *LoRaWANPublicGatewayMetadata {
+	s.DlAllowed = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *LoRaWANPublicGatewayMetadata) SetId(v string) *LoRaWANPublicGatewayMetadata {
+	s.Id = &v
+	return s
+}
+
+// SetProviderNetId sets the ProviderNetId field's value.
+func (s *LoRaWANPublicGatewayMetadata) SetProviderNetId(v string) *LoRaWANPublicGatewayMetadata {
+	s.ProviderNetId = &v
+	return s
+}
+
+// SetRfRegion sets the RfRegion field's value.
+func (s *LoRaWANPublicGatewayMetadata) SetRfRegion(v string) *LoRaWANPublicGatewayMetadata {
+	s.RfRegion = &v
+	return s
+}
+
+// SetRssi sets the Rssi field's value.
+func (s *LoRaWANPublicGatewayMetadata) SetRssi(v float64) *LoRaWANPublicGatewayMetadata {
+	s.Rssi = &v
+	return s
+}
+
+// SetSnr sets the Snr field's value.
+func (s *LoRaWANPublicGatewayMetadata) SetSnr(v float64) *LoRaWANPublicGatewayMetadata {
+	s.Snr = &v
+	return s
+}
+
 // LoRaWAN router info.
 type LoRaWANSendDataToDevice struct {
 	_ struct{} `type:"structure"`
 
 	// The Fport value.
 	FPort *int64 `min:"1" type:"integer"`
+
+	// Choose the gateways that you want to use for the downlink data traffic when
+	// the wireless device is running in class B or class C mode.
+	ParticipatingGateways *ParticipatingGateways `type:"structure"`
 }
 
 // String returns the string representation.
@@ -19559,6 +23541,11 @@ func (s *LoRaWANSendDataToDevice) Validate() error {
 	if s.FPort != nil && *s.FPort < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("FPort", 1))
 	}
+	if s.ParticipatingGateways != nil {
+		if err := s.ParticipatingGateways.Validate(); err != nil {
+			invalidParams.AddNested("ParticipatingGateways", err.(request.ErrInvalidParams))
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -19569,6 +23556,12 @@ func (s *LoRaWANSendDataToDevice) Validate() error {
 // SetFPort sets the FPort field's value.
 func (s *LoRaWANSendDataToDevice) SetFPort(v int64) *LoRaWANSendDataToDevice {
 	s.FPort = &v
+	return s
+}
+
+// SetParticipatingGateways sets the ParticipatingGateways field's value.
+func (s *LoRaWANSendDataToDevice) SetParticipatingGateways(v *ParticipatingGateways) *LoRaWANSendDataToDevice {
+	s.ParticipatingGateways = v
 	return s
 }
 
@@ -19584,6 +23577,12 @@ type LoRaWANServiceProfile struct {
 
 	// The DrMin value.
 	DrMin *int64 `type:"integer"`
+
+	// The PRAllowed value that describes whether passive roaming is allowed.
+	PrAllowed *bool `type:"boolean"`
+
+	// The RAAllowed value that describes whether roaming activation is allowed.
+	RaAllowed *bool `type:"boolean"`
 }
 
 // String returns the string representation.
@@ -19619,6 +23618,18 @@ func (s *LoRaWANServiceProfile) SetDrMax(v int64) *LoRaWANServiceProfile {
 // SetDrMin sets the DrMin field's value.
 func (s *LoRaWANServiceProfile) SetDrMin(v int64) *LoRaWANServiceProfile {
 	s.DrMin = &v
+	return s
+}
+
+// SetPrAllowed sets the PrAllowed field's value.
+func (s *LoRaWANServiceProfile) SetPrAllowed(v bool) *LoRaWANServiceProfile {
+	s.PrAllowed = &v
+	return s
+}
+
+// SetRaAllowed sets the RaAllowed field's value.
+func (s *LoRaWANServiceProfile) SetRaAllowed(v bool) *LoRaWANServiceProfile {
+	s.RaAllowed = &v
 	return s
 }
 
@@ -19863,6 +23874,336 @@ func (s *LoRaWANUpdateGatewayTaskEntry) SetUpdateVersion(v *LoRaWANGatewayVersio
 	return s
 }
 
+// LTE local identification (local ID) information.
+type LteLocalId struct {
+	_ struct{} `type:"structure"`
+
+	// Evolved universal terrestrial radio access (E-UTRA) absolute radio frequency
+	// channel number (FCN).
+	//
+	// Earfcn is a required field
+	Earfcn *int64 `type:"integer" required:"true"`
+
+	// Physical cell ID.
+	//
+	// Pci is a required field
+	Pci *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LteLocalId) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LteLocalId) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *LteLocalId) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "LteLocalId"}
+	if s.Earfcn == nil {
+		invalidParams.Add(request.NewErrParamRequired("Earfcn"))
+	}
+	if s.Pci == nil {
+		invalidParams.Add(request.NewErrParamRequired("Pci"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEarfcn sets the Earfcn field's value.
+func (s *LteLocalId) SetEarfcn(v int64) *LteLocalId {
+	s.Earfcn = &v
+	return s
+}
+
+// SetPci sets the Pci field's value.
+func (s *LteLocalId) SetPci(v int64) *LteLocalId {
+	s.Pci = &v
+	return s
+}
+
+// LTE object for network measurement reports.
+type LteNmrObj struct {
+	_ struct{} `type:"structure"`
+
+	// E-UTRA (Evolved universal terrestrial Radio Access) absolute radio frequency
+	// channel Number (EARFCN).
+	//
+	// Earfcn is a required field
+	Earfcn *int64 `type:"integer" required:"true"`
+
+	// E-UTRAN (Evolved Universal Terrestrial Radio Access Network) cell global
+	// identifier (EUTRANCID).
+	//
+	// EutranCid is a required field
+	EutranCid *int64 `type:"integer" required:"true"`
+
+	// Physical cell ID.
+	//
+	// Pci is a required field
+	Pci *int64 `type:"integer" required:"true"`
+
+	// Signal power of the reference signal received, measured in dBm (decibel-milliwatts).
+	Rsrp *int64 `type:"integer"`
+
+	// Signal quality of the reference Signal received, measured in decibels (dB).
+	Rsrq *float64 `type:"float"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LteNmrObj) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LteNmrObj) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *LteNmrObj) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "LteNmrObj"}
+	if s.Earfcn == nil {
+		invalidParams.Add(request.NewErrParamRequired("Earfcn"))
+	}
+	if s.EutranCid == nil {
+		invalidParams.Add(request.NewErrParamRequired("EutranCid"))
+	}
+	if s.Pci == nil {
+		invalidParams.Add(request.NewErrParamRequired("Pci"))
+	}
+	if s.Rsrp != nil && *s.Rsrp < -140 {
+		invalidParams.Add(request.NewErrParamMinValue("Rsrp", -140))
+	}
+	if s.Rsrq != nil && *s.Rsrq < -19.5 {
+		invalidParams.Add(request.NewErrParamMinValue("Rsrq", -19.5))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEarfcn sets the Earfcn field's value.
+func (s *LteNmrObj) SetEarfcn(v int64) *LteNmrObj {
+	s.Earfcn = &v
+	return s
+}
+
+// SetEutranCid sets the EutranCid field's value.
+func (s *LteNmrObj) SetEutranCid(v int64) *LteNmrObj {
+	s.EutranCid = &v
+	return s
+}
+
+// SetPci sets the Pci field's value.
+func (s *LteNmrObj) SetPci(v int64) *LteNmrObj {
+	s.Pci = &v
+	return s
+}
+
+// SetRsrp sets the Rsrp field's value.
+func (s *LteNmrObj) SetRsrp(v int64) *LteNmrObj {
+	s.Rsrp = &v
+	return s
+}
+
+// SetRsrq sets the Rsrq field's value.
+func (s *LteNmrObj) SetRsrq(v float64) *LteNmrObj {
+	s.Rsrq = &v
+	return s
+}
+
+// LTE object.
+type LteObj struct {
+	_ struct{} `type:"structure"`
+
+	// E-UTRAN (Evolved Universal Terrestrial Radio Access Network) Cell Global
+	// Identifier.
+	//
+	// EutranCid is a required field
+	EutranCid *int64 `type:"integer" required:"true"`
+
+	// LTE local identification (local ID) information.
+	LteLocalId *LteLocalId `type:"structure"`
+
+	// LTE object for network measurement reports.
+	LteNmr []*LteNmrObj `min:"1" type:"list"`
+
+	// LTE timing advance.
+	LteTimingAdvance *int64 `type:"integer"`
+
+	// Mobile Country Code.
+	//
+	// Mcc is a required field
+	Mcc *int64 `min:"200" type:"integer" required:"true"`
+
+	// Mobile Network Code.
+	//
+	// Mnc is a required field
+	Mnc *int64 `type:"integer" required:"true"`
+
+	// Parameter that determines whether the LTE object is capable of supporting
+	// NR (new radio).
+	NrCapable *bool `type:"boolean"`
+
+	// Signal power of the reference signal received, measured in dBm (decibel-milliwatts).
+	Rsrp *int64 `type:"integer"`
+
+	// Signal quality of the reference Signal received, measured in decibels (dB).
+	Rsrq *float64 `type:"float"`
+
+	// LTE tracking area code.
+	Tac *int64 `type:"integer"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LteObj) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s LteObj) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *LteObj) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "LteObj"}
+	if s.EutranCid == nil {
+		invalidParams.Add(request.NewErrParamRequired("EutranCid"))
+	}
+	if s.LteNmr != nil && len(s.LteNmr) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("LteNmr", 1))
+	}
+	if s.Mcc == nil {
+		invalidParams.Add(request.NewErrParamRequired("Mcc"))
+	}
+	if s.Mcc != nil && *s.Mcc < 200 {
+		invalidParams.Add(request.NewErrParamMinValue("Mcc", 200))
+	}
+	if s.Mnc == nil {
+		invalidParams.Add(request.NewErrParamRequired("Mnc"))
+	}
+	if s.Rsrp != nil && *s.Rsrp < -140 {
+		invalidParams.Add(request.NewErrParamMinValue("Rsrp", -140))
+	}
+	if s.Rsrq != nil && *s.Rsrq < -19.5 {
+		invalidParams.Add(request.NewErrParamMinValue("Rsrq", -19.5))
+	}
+	if s.LteLocalId != nil {
+		if err := s.LteLocalId.Validate(); err != nil {
+			invalidParams.AddNested("LteLocalId", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.LteNmr != nil {
+		for i, v := range s.LteNmr {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "LteNmr", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEutranCid sets the EutranCid field's value.
+func (s *LteObj) SetEutranCid(v int64) *LteObj {
+	s.EutranCid = &v
+	return s
+}
+
+// SetLteLocalId sets the LteLocalId field's value.
+func (s *LteObj) SetLteLocalId(v *LteLocalId) *LteObj {
+	s.LteLocalId = v
+	return s
+}
+
+// SetLteNmr sets the LteNmr field's value.
+func (s *LteObj) SetLteNmr(v []*LteNmrObj) *LteObj {
+	s.LteNmr = v
+	return s
+}
+
+// SetLteTimingAdvance sets the LteTimingAdvance field's value.
+func (s *LteObj) SetLteTimingAdvance(v int64) *LteObj {
+	s.LteTimingAdvance = &v
+	return s
+}
+
+// SetMcc sets the Mcc field's value.
+func (s *LteObj) SetMcc(v int64) *LteObj {
+	s.Mcc = &v
+	return s
+}
+
+// SetMnc sets the Mnc field's value.
+func (s *LteObj) SetMnc(v int64) *LteObj {
+	s.Mnc = &v
+	return s
+}
+
+// SetNrCapable sets the NrCapable field's value.
+func (s *LteObj) SetNrCapable(v bool) *LteObj {
+	s.NrCapable = &v
+	return s
+}
+
+// SetRsrp sets the Rsrp field's value.
+func (s *LteObj) SetRsrp(v int64) *LteObj {
+	s.Rsrp = &v
+	return s
+}
+
+// SetRsrq sets the Rsrq field's value.
+func (s *LteObj) SetRsrq(v float64) *LteObj {
+	s.Rsrq = &v
+	return s
+}
+
+// SetTac sets the Tac field's value.
+func (s *LteObj) SetTac(v int64) *LteObj {
+	s.Tac = &v
+	return s
+}
+
 // Message delivery status event configuration object for enabling and disabling
 // relevant topics.
 type MessageDeliveryStatusEventConfiguration struct {
@@ -19872,8 +24213,8 @@ type MessageDeliveryStatusEventConfiguration struct {
 	// object for Sidewalk-related event topics.
 	Sidewalk *SidewalkEventNotificationConfigurations `type:"structure"`
 
-	// Enum to denote whether the wireless device id device registration state event
-	// topic is enabled or disabled.
+	// Denotes whether the wireless device ID message delivery status event topic
+	// is enabled or disabled.
 	WirelessDeviceIdEventTopic *string `type:"string" enum:"EventNotificationTopicStatus"`
 }
 
@@ -19938,6 +24279,89 @@ func (s MessageDeliveryStatusResourceTypeEventConfiguration) GoString() string {
 // SetSidewalk sets the Sidewalk field's value.
 func (s *MessageDeliveryStatusResourceTypeEventConfiguration) SetSidewalk(v *SidewalkResourceTypeEventConfiguration) *MessageDeliveryStatusResourceTypeEventConfiguration {
 	s.Sidewalk = v
+	return s
+}
+
+// The aggregated values of the metric.
+type MetricQueryValue struct {
+	_ struct{} `type:"structure"`
+
+	// The average of the values of all data points collected during the aggregation
+	// period.
+	Avg *float64 `type:"double"`
+
+	// The maximum of the values of all the data points collected during the aggregation
+	// period.
+	Max *float64 `type:"double"`
+
+	// The minimum of the values of all data points collected during the aggregation
+	// period.
+	Min *float64 `type:"double"`
+
+	// The 90th percentile of the values of all data points collected during the
+	// aggregation period.
+	P90 *float64 `type:"double"`
+
+	// The standard deviation of the values of all data points collected during
+	// the aggregation period.
+	Std *float64 `type:"double"`
+
+	// The sum of the values of all data points collected during the aggregation
+	// period.
+	Sum *float64 `type:"double"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s MetricQueryValue) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s MetricQueryValue) GoString() string {
+	return s.String()
+}
+
+// SetAvg sets the Avg field's value.
+func (s *MetricQueryValue) SetAvg(v float64) *MetricQueryValue {
+	s.Avg = &v
+	return s
+}
+
+// SetMax sets the Max field's value.
+func (s *MetricQueryValue) SetMax(v float64) *MetricQueryValue {
+	s.Max = &v
+	return s
+}
+
+// SetMin sets the Min field's value.
+func (s *MetricQueryValue) SetMin(v float64) *MetricQueryValue {
+	s.Min = &v
+	return s
+}
+
+// SetP90 sets the P90 field's value.
+func (s *MetricQueryValue) SetP90(v float64) *MetricQueryValue {
+	s.P90 = &v
+	return s
+}
+
+// SetStd sets the Std field's value.
+func (s *MetricQueryValue) SetStd(v float64) *MetricQueryValue {
+	s.Std = &v
+	return s
+}
+
+// SetSum sets the Sum field's value.
+func (s *MetricQueryValue) SetSum(v float64) *MetricQueryValue {
+	s.Sum = &v
 	return s
 }
 
@@ -20115,7 +24539,8 @@ func (s *NetworkAnalyzerConfigurations) SetName(v string) *NetworkAnalyzerConfig
 type OtaaV10X struct {
 	_ struct{} `type:"structure"`
 
-	// The AppEUI value.
+	// The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2
+	// or v1.0.3.
 	AppEui *string `type:"string"`
 
 	// The AppKey value.
@@ -20123,6 +24548,10 @@ type OtaaV10X struct {
 
 	// The GenAppKey value.
 	GenAppKey *string `type:"string"`
+
+	// The JoinEUI value. You specify this value instead of the AppEUI when using
+	// LoRaWAN version v1.0.4.
+	JoinEui *string `type:"string"`
 }
 
 // String returns the string representation.
@@ -20158,6 +24587,12 @@ func (s *OtaaV10X) SetAppKey(v string) *OtaaV10X {
 // SetGenAppKey sets the GenAppKey field's value.
 func (s *OtaaV10X) SetGenAppKey(v string) *OtaaV10X {
 	s.GenAppKey = &v
+	return s
+}
+
+// SetJoinEui sets the JoinEui field's value.
+func (s *OtaaV10X) SetJoinEui(v string) *OtaaV10X {
+	s.JoinEui = &v
 	return s
 }
 
@@ -20208,6 +24643,98 @@ func (s *OtaaV11) SetJoinEui(v string) *OtaaV11 {
 // SetNwkKey sets the NwkKey field's value.
 func (s *OtaaV11) SetNwkKey(v string) *OtaaV11 {
 	s.NwkKey = &v
+	return s
+}
+
+// Specify the list of gateways to which you want to send downlink data traffic
+// when the wireless device is running in class B or class C mode.
+type ParticipatingGateways struct {
+	_ struct{} `type:"structure"`
+
+	// Indicates whether to send the downlink message in sequential mode or concurrent
+	// mode, or to use only the chosen gateways from the previous uplink message
+	// transmission.
+	//
+	// DownlinkMode is a required field
+	DownlinkMode *string `type:"string" required:"true" enum:"DownlinkMode"`
+
+	// The list of gateways that you want to use for sending the downlink data traffic.
+	//
+	// GatewayList is a required field
+	GatewayList []*GatewayListItem `type:"list" required:"true"`
+
+	// The duration of time for which AWS IoT Core for LoRaWAN will wait before
+	// transmitting the payload to the next gateway.
+	//
+	// TransmissionInterval is a required field
+	TransmissionInterval *int64 `min:"1" type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ParticipatingGateways) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s ParticipatingGateways) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ParticipatingGateways) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ParticipatingGateways"}
+	if s.DownlinkMode == nil {
+		invalidParams.Add(request.NewErrParamRequired("DownlinkMode"))
+	}
+	if s.GatewayList == nil {
+		invalidParams.Add(request.NewErrParamRequired("GatewayList"))
+	}
+	if s.TransmissionInterval == nil {
+		invalidParams.Add(request.NewErrParamRequired("TransmissionInterval"))
+	}
+	if s.TransmissionInterval != nil && *s.TransmissionInterval < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("TransmissionInterval", 1))
+	}
+	if s.GatewayList != nil {
+		for i, v := range s.GatewayList {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "GatewayList", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDownlinkMode sets the DownlinkMode field's value.
+func (s *ParticipatingGateways) SetDownlinkMode(v string) *ParticipatingGateways {
+	s.DownlinkMode = &v
+	return s
+}
+
+// SetGatewayList sets the GatewayList field's value.
+func (s *ParticipatingGateways) SetGatewayList(v []*GatewayListItem) *ParticipatingGateways {
+	s.GatewayList = v
+	return s
+}
+
+// SetTransmissionInterval sets the TransmissionInterval field's value.
+func (s *ParticipatingGateways) SetTransmissionInterval(v int64) *ParticipatingGateways {
+	s.TransmissionInterval = &v
 	return s
 }
 
@@ -20428,8 +24955,8 @@ type ProximityEventConfiguration struct {
 	// event topics.
 	Sidewalk *SidewalkEventNotificationConfigurations `type:"structure"`
 
-	// Enum to denote whether the wireless device id proximity event topic is enabled
-	// or disabled.
+	// Denotes whether the wireless device ID proximity event topic is enabled or
+	// disabled.
 	WirelessDeviceIdEventTopic *string `type:"string" enum:"EventNotificationTopicStatus"`
 }
 
@@ -20497,8 +25024,9 @@ func (s *ProximityResourceTypeEventConfiguration) SetSidewalk(v *SidewalkResourc
 	return s
 }
 
+// Deprecated: This operation is no longer supported.
 type PutPositionConfigurationInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `deprecated:"true" type:"structure"`
 
 	// The position data destination that describes the AWS IoT rule that processes
 	// the device's position data for use by AWS IoT Core for LoRaWAN.
@@ -20585,8 +25113,9 @@ func (s *PutPositionConfigurationInput) SetSolvers(v *PositionSolverConfiguratio
 	return s
 }
 
+// Deprecated: This operation is no longer supported.
 type PutPositionConfigurationOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `deprecated:"true" type:"structure"`
 }
 
 // String returns the string representation.
@@ -21527,6 +26056,61 @@ func (s *SidewalkAccountInfoWithFingerprint) SetFingerprint(v string) *SidewalkA
 	return s
 }
 
+// Sidewalk object for creating a device profile.
+type SidewalkCreateDeviceProfile struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkCreateDeviceProfile) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkCreateDeviceProfile) GoString() string {
+	return s.String()
+}
+
+// Sidewalk object for creating a wireless device.
+type SidewalkCreateWirelessDevice struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the Sidewalk device profile.
+	DeviceProfileId *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkCreateWirelessDevice) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkCreateWirelessDevice) GoString() string {
+	return s.String()
+}
+
+// SetDeviceProfileId sets the DeviceProfileId field's value.
+func (s *SidewalkCreateWirelessDevice) SetDeviceProfileId(v string) *SidewalkCreateWirelessDevice {
+	s.DeviceProfileId = &v
+	return s
+}
+
 // Sidewalk device object.
 type SidewalkDevice struct {
 	_ struct{} `type:"structure"`
@@ -21534,14 +26118,26 @@ type SidewalkDevice struct {
 	// The Sidewalk Amazon ID.
 	AmazonId *string `type:"string"`
 
+	// The ID of the Sidewalk device profile.
+	CertificateId *string `type:"string"`
+
 	// The sidewalk device certificates for Ed25519 and P256r1.
 	DeviceCertificates []*CertificateList `type:"list"`
+
+	// The ID of the Sidewalk device profile.
+	DeviceProfileId *string `type:"string"`
+
+	// The Sidewalk device private keys that will be used for onboarding the device.
+	PrivateKeys []*CertificateList `type:"list"`
 
 	// The sidewalk device identification.
 	SidewalkId *string `type:"string"`
 
 	// The Sidewalk manufacturing series number.
 	SidewalkManufacturingSn *string `type:"string"`
+
+	// The Sidewalk device status, such as provisioned or registered.
+	Status *string `type:"string" enum:"WirelessDeviceSidewalkStatus"`
 }
 
 // String returns the string representation.
@@ -21568,9 +26164,27 @@ func (s *SidewalkDevice) SetAmazonId(v string) *SidewalkDevice {
 	return s
 }
 
+// SetCertificateId sets the CertificateId field's value.
+func (s *SidewalkDevice) SetCertificateId(v string) *SidewalkDevice {
+	s.CertificateId = &v
+	return s
+}
+
 // SetDeviceCertificates sets the DeviceCertificates field's value.
 func (s *SidewalkDevice) SetDeviceCertificates(v []*CertificateList) *SidewalkDevice {
 	s.DeviceCertificates = v
+	return s
+}
+
+// SetDeviceProfileId sets the DeviceProfileId field's value.
+func (s *SidewalkDevice) SetDeviceProfileId(v string) *SidewalkDevice {
+	s.DeviceProfileId = &v
+	return s
+}
+
+// SetPrivateKeys sets the PrivateKeys field's value.
+func (s *SidewalkDevice) SetPrivateKeys(v []*CertificateList) *SidewalkDevice {
+	s.PrivateKeys = v
 	return s
 }
 
@@ -21583,6 +26197,12 @@ func (s *SidewalkDevice) SetSidewalkId(v string) *SidewalkDevice {
 // SetSidewalkManufacturingSn sets the SidewalkManufacturingSn field's value.
 func (s *SidewalkDevice) SetSidewalkManufacturingSn(v string) *SidewalkDevice {
 	s.SidewalkManufacturingSn = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *SidewalkDevice) SetStatus(v string) *SidewalkDevice {
+	s.Status = &v
 	return s
 }
 
@@ -21650,7 +26270,7 @@ func (s *SidewalkDeviceMetadata) SetRssi(v int64) *SidewalkDeviceMetadata {
 type SidewalkEventNotificationConfigurations struct {
 	_ struct{} `type:"structure"`
 
-	// Enum to denote whether amazon id event topic is enabled or disabled.
+	// Denotes whether the Amazon ID event topic is enabled or disabled.
 	AmazonIdEventTopic *string `type:"string" enum:"EventNotificationTopicStatus"`
 }
 
@@ -21678,6 +26298,103 @@ func (s *SidewalkEventNotificationConfigurations) SetAmazonIdEventTopic(v string
 	return s
 }
 
+// Gets information about a Sidewalk device profile.
+type SidewalkGetDeviceProfile struct {
+	_ struct{} `type:"structure"`
+
+	// The Sidewalk application server public key.
+	//
+	// ApplicationServerPublicKey is a sensitive parameter and its value will be
+	// replaced with "sensitive" in string returned by SidewalkGetDeviceProfile's
+	// String and GoString methods.
+	ApplicationServerPublicKey *string `min:"1" type:"string" sensitive:"true"`
+
+	// The DAK certificate information of the Sidewalk device profile.
+	DakCertificateMetadata []*DakCertificateMetadata `type:"list"`
+
+	// Gets information about the certification status of a Sidewalk device profile.
+	QualificationStatus *bool `type:"boolean"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkGetDeviceProfile) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkGetDeviceProfile) GoString() string {
+	return s.String()
+}
+
+// SetApplicationServerPublicKey sets the ApplicationServerPublicKey field's value.
+func (s *SidewalkGetDeviceProfile) SetApplicationServerPublicKey(v string) *SidewalkGetDeviceProfile {
+	s.ApplicationServerPublicKey = &v
+	return s
+}
+
+// SetDakCertificateMetadata sets the DakCertificateMetadata field's value.
+func (s *SidewalkGetDeviceProfile) SetDakCertificateMetadata(v []*DakCertificateMetadata) *SidewalkGetDeviceProfile {
+	s.DakCertificateMetadata = v
+	return s
+}
+
+// SetQualificationStatus sets the QualificationStatus field's value.
+func (s *SidewalkGetDeviceProfile) SetQualificationStatus(v bool) *SidewalkGetDeviceProfile {
+	s.QualificationStatus = &v
+	return s
+}
+
+// Sidewalk-related information for devices in an import task that are being
+// onboarded.
+type SidewalkGetStartImportInfo struct {
+	_ struct{} `type:"structure"`
+
+	// List of Sidewalk devices that are added to the import task.
+	DeviceCreationFileList []*string `type:"list"`
+
+	// The IAM role that allows AWS IoT Wireless to access the CSV file in the S3
+	// bucket.
+	Role *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkGetStartImportInfo) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkGetStartImportInfo) GoString() string {
+	return s.String()
+}
+
+// SetDeviceCreationFileList sets the DeviceCreationFileList field's value.
+func (s *SidewalkGetStartImportInfo) SetDeviceCreationFileList(v []*string) *SidewalkGetStartImportInfo {
+	s.DeviceCreationFileList = v
+	return s
+}
+
+// SetRole sets the Role field's value.
+func (s *SidewalkGetStartImportInfo) SetRole(v string) *SidewalkGetStartImportInfo {
+	s.Role = &v
+	return s
+}
+
 // Sidewalk object used by list functions.
 type SidewalkListDevice struct {
 	_ struct{} `type:"structure"`
@@ -21688,11 +26405,17 @@ type SidewalkListDevice struct {
 	// The sidewalk device certificates for Ed25519 and P256r1.
 	DeviceCertificates []*CertificateList `type:"list"`
 
+	// Sidewalk object used by list functions.
+	DeviceProfileId *string `type:"string"`
+
 	// The sidewalk device identification.
 	SidewalkId *string `type:"string"`
 
 	// The Sidewalk manufacturing series number.
 	SidewalkManufacturingSn *string `type:"string"`
+
+	// The status of the Sidewalk devices, such as provisioned or registered.
+	Status *string `type:"string" enum:"WirelessDeviceSidewalkStatus"`
 }
 
 // String returns the string representation.
@@ -21725,6 +26448,12 @@ func (s *SidewalkListDevice) SetDeviceCertificates(v []*CertificateList) *Sidewa
 	return s
 }
 
+// SetDeviceProfileId sets the DeviceProfileId field's value.
+func (s *SidewalkListDevice) SetDeviceProfileId(v string) *SidewalkListDevice {
+	s.DeviceProfileId = &v
+	return s
+}
+
 // SetSidewalkId sets the SidewalkId field's value.
 func (s *SidewalkListDevice) SetSidewalkId(v string) *SidewalkListDevice {
 	s.SidewalkId = &v
@@ -21737,13 +26466,18 @@ func (s *SidewalkListDevice) SetSidewalkManufacturingSn(v string) *SidewalkListD
 	return s
 }
 
+// SetStatus sets the Status field's value.
+func (s *SidewalkListDevice) SetStatus(v string) *SidewalkListDevice {
+	s.Status = &v
+	return s
+}
+
 // Sidewalk resource type event configuration object for enabling or disabling
 // topic.
 type SidewalkResourceTypeEventConfiguration struct {
 	_ struct{} `type:"structure"`
 
-	// Enum to denote whether the wireless device join event topic is enabled or
-	// disabled.
+	// Denotes whether the wireless device join event topic is enabled or disabled.
 	WirelessDeviceEventTopic *string `type:"string" enum:"EventNotificationTopicStatus"`
 }
 
@@ -21775,7 +26509,7 @@ func (s *SidewalkResourceTypeEventConfiguration) SetWirelessDeviceEventTopic(v s
 type SidewalkSendDataToDevice struct {
 	_ struct{} `type:"structure"`
 
-	// The duration of time in seconds for which you want to retry sending the ACK.
+	// The duration of time in seconds to retry sending the ACK.
 	AckModeRetryDurationSecs *int64 `type:"integer"`
 
 	// Sidewalk device message type. Default value is CUSTOM_COMMAND_ID_NOTIFY.
@@ -21818,6 +26552,82 @@ func (s *SidewalkSendDataToDevice) SetMessageType(v string) *SidewalkSendDataToD
 // SetSeq sets the Seq field's value.
 func (s *SidewalkSendDataToDevice) SetSeq(v int64) *SidewalkSendDataToDevice {
 	s.Seq = &v
+	return s
+}
+
+// Information about an import task created for an individual Sidewalk device.
+type SidewalkSingleStartImportInfo struct {
+	_ struct{} `type:"structure"`
+
+	// The Sidewalk manufacturing serial number (SMSN) of the device added to the
+	// import task.
+	SidewalkManufacturingSn *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkSingleStartImportInfo) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkSingleStartImportInfo) GoString() string {
+	return s.String()
+}
+
+// SetSidewalkManufacturingSn sets the SidewalkManufacturingSn field's value.
+func (s *SidewalkSingleStartImportInfo) SetSidewalkManufacturingSn(v string) *SidewalkSingleStartImportInfo {
+	s.SidewalkManufacturingSn = &v
+	return s
+}
+
+// Information about an import task created for bulk provisioning.
+type SidewalkStartImportInfo struct {
+	_ struct{} `type:"structure"`
+
+	// The CSV file contained in an S3 bucket that's used for adding devices to
+	// an import task.
+	DeviceCreationFile *string `type:"string"`
+
+	// The IAM role that allows AWS IoT Wireless to access the CSV file in the S3
+	// bucket.
+	Role *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkStartImportInfo) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkStartImportInfo) GoString() string {
+	return s.String()
+}
+
+// SetDeviceCreationFile sets the DeviceCreationFile field's value.
+func (s *SidewalkStartImportInfo) SetDeviceCreationFile(v string) *SidewalkStartImportInfo {
+	s.DeviceCreationFile = &v
+	return s
+}
+
+// SetRole sets the Role field's value.
+func (s *SidewalkStartImportInfo) SetRole(v string) *SidewalkStartImportInfo {
+	s.Role = &v
 	return s
 }
 
@@ -21867,6 +26677,39 @@ func (s *SidewalkUpdateAccount) Validate() error {
 // SetAppServerPrivateKey sets the AppServerPrivateKey field's value.
 func (s *SidewalkUpdateAccount) SetAppServerPrivateKey(v string) *SidewalkUpdateAccount {
 	s.AppServerPrivateKey = &v
+	return s
+}
+
+// Sidewalk object information for updating an import task.
+type SidewalkUpdateImportInfo struct {
+	_ struct{} `type:"structure"`
+
+	// The CSV file contained in an S3 bucket that's used for appending devices
+	// to an existing import task.
+	DeviceCreationFile *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkUpdateImportInfo) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SidewalkUpdateImportInfo) GoString() string {
+	return s.String()
+}
+
+// SetDeviceCreationFile sets the DeviceCreationFile field's value.
+func (s *SidewalkUpdateImportInfo) SetDeviceCreationFile(v string) *SidewalkUpdateImportInfo {
+	s.DeviceCreationFile = &v
 	return s
 }
 
@@ -22242,6 +27085,529 @@ func (s StartMulticastGroupSessionOutput) GoString() string {
 	return s.String()
 }
 
+type StartSingleWirelessDeviceImportTaskInput struct {
+	_ struct{} `type:"structure"`
+
+	// Each resource must have a unique client request token. The client token is
+	// used to implement idempotency. It ensures that the request completes no more
+	// than one time. If you retry a request with the same token and the same parameters,
+	// the request will complete successfully. However, if you try to create a new
+	// resource using the same token but different parameters, an HTTP 409 conflict
+	// occurs. If you omit this value, AWS SDKs will automatically generate a unique
+	// client request. For more information about idempotency, see Ensuring idempotency
+	// in Amazon EC2 API requests (https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
+	ClientRequestToken *string `min:"1" type:"string" idempotencyToken:"true"`
+
+	// The name of the Sidewalk destination that describes the IoT rule to route
+	// messages from the device in the import task that will be onboarded to AWS
+	// IoT Wireless.
+	//
+	// DestinationName is a required field
+	DestinationName *string `type:"string" required:"true"`
+
+	// The name of the wireless device for which an import task is being started.
+	DeviceName *string `type:"string"`
+
+	// The Sidewalk-related parameters for importing a single wireless device.
+	//
+	// Sidewalk is a required field
+	Sidewalk *SidewalkSingleStartImportInfo `type:"structure" required:"true"`
+
+	// The tag to attach to the specified resource. Tags are metadata that you can
+	// use to manage a resource.
+	Tags []*Tag `type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSingleWirelessDeviceImportTaskInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSingleWirelessDeviceImportTaskInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StartSingleWirelessDeviceImportTaskInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StartSingleWirelessDeviceImportTaskInput"}
+	if s.ClientRequestToken != nil && len(*s.ClientRequestToken) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ClientRequestToken", 1))
+	}
+	if s.DestinationName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DestinationName"))
+	}
+	if s.Sidewalk == nil {
+		invalidParams.Add(request.NewErrParamRequired("Sidewalk"))
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetClientRequestToken sets the ClientRequestToken field's value.
+func (s *StartSingleWirelessDeviceImportTaskInput) SetClientRequestToken(v string) *StartSingleWirelessDeviceImportTaskInput {
+	s.ClientRequestToken = &v
+	return s
+}
+
+// SetDestinationName sets the DestinationName field's value.
+func (s *StartSingleWirelessDeviceImportTaskInput) SetDestinationName(v string) *StartSingleWirelessDeviceImportTaskInput {
+	s.DestinationName = &v
+	return s
+}
+
+// SetDeviceName sets the DeviceName field's value.
+func (s *StartSingleWirelessDeviceImportTaskInput) SetDeviceName(v string) *StartSingleWirelessDeviceImportTaskInput {
+	s.DeviceName = &v
+	return s
+}
+
+// SetSidewalk sets the Sidewalk field's value.
+func (s *StartSingleWirelessDeviceImportTaskInput) SetSidewalk(v *SidewalkSingleStartImportInfo) *StartSingleWirelessDeviceImportTaskInput {
+	s.Sidewalk = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *StartSingleWirelessDeviceImportTaskInput) SetTags(v []*Tag) *StartSingleWirelessDeviceImportTaskInput {
+	s.Tags = v
+	return s
+}
+
+type StartSingleWirelessDeviceImportTaskOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The ARN (Amazon Resource Name) of the import task.
+	Arn *string `type:"string"`
+
+	// The import task ID.
+	Id *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSingleWirelessDeviceImportTaskOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartSingleWirelessDeviceImportTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetArn sets the Arn field's value.
+func (s *StartSingleWirelessDeviceImportTaskOutput) SetArn(v string) *StartSingleWirelessDeviceImportTaskOutput {
+	s.Arn = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *StartSingleWirelessDeviceImportTaskOutput) SetId(v string) *StartSingleWirelessDeviceImportTaskOutput {
+	s.Id = &v
+	return s
+}
+
+type StartWirelessDeviceImportTaskInput struct {
+	_ struct{} `type:"structure"`
+
+	// Each resource must have a unique client request token. The client token is
+	// used to implement idempotency. It ensures that the request completes no more
+	// than one time. If you retry a request with the same token and the same parameters,
+	// the request will complete successfully. However, if you try to create a new
+	// resource using the same token but different parameters, an HTTP 409 conflict
+	// occurs. If you omit this value, AWS SDKs will automatically generate a unique
+	// client request. For more information about idempotency, see Ensuring idempotency
+	// in Amazon EC2 API requests (https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
+	ClientRequestToken *string `min:"1" type:"string" idempotencyToken:"true"`
+
+	// The name of the Sidewalk destination that describes the IoT rule to route
+	// messages from the devices in the import task that are onboarded to AWS IoT
+	// Wireless.
+	//
+	// DestinationName is a required field
+	DestinationName *string `type:"string" required:"true"`
+
+	// The Sidewalk-related parameters for importing wireless devices that need
+	// to be provisioned in bulk.
+	//
+	// Sidewalk is a required field
+	Sidewalk *SidewalkStartImportInfo `type:"structure" required:"true"`
+
+	// The tag to attach to the specified resource. Tags are metadata that you can
+	// use to manage a resource.
+	Tags []*Tag `type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartWirelessDeviceImportTaskInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartWirelessDeviceImportTaskInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StartWirelessDeviceImportTaskInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StartWirelessDeviceImportTaskInput"}
+	if s.ClientRequestToken != nil && len(*s.ClientRequestToken) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ClientRequestToken", 1))
+	}
+	if s.DestinationName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DestinationName"))
+	}
+	if s.Sidewalk == nil {
+		invalidParams.Add(request.NewErrParamRequired("Sidewalk"))
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetClientRequestToken sets the ClientRequestToken field's value.
+func (s *StartWirelessDeviceImportTaskInput) SetClientRequestToken(v string) *StartWirelessDeviceImportTaskInput {
+	s.ClientRequestToken = &v
+	return s
+}
+
+// SetDestinationName sets the DestinationName field's value.
+func (s *StartWirelessDeviceImportTaskInput) SetDestinationName(v string) *StartWirelessDeviceImportTaskInput {
+	s.DestinationName = &v
+	return s
+}
+
+// SetSidewalk sets the Sidewalk field's value.
+func (s *StartWirelessDeviceImportTaskInput) SetSidewalk(v *SidewalkStartImportInfo) *StartWirelessDeviceImportTaskInput {
+	s.Sidewalk = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *StartWirelessDeviceImportTaskInput) SetTags(v []*Tag) *StartWirelessDeviceImportTaskInput {
+	s.Tags = v
+	return s
+}
+
+type StartWirelessDeviceImportTaskOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The ARN (Amazon Resource Name) of the import task.
+	Arn *string `type:"string"`
+
+	// The import task ID.
+	Id *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartWirelessDeviceImportTaskOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s StartWirelessDeviceImportTaskOutput) GoString() string {
+	return s.String()
+}
+
+// SetArn sets the Arn field's value.
+func (s *StartWirelessDeviceImportTaskOutput) SetArn(v string) *StartWirelessDeviceImportTaskOutput {
+	s.Arn = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *StartWirelessDeviceImportTaskOutput) SetId(v string) *StartWirelessDeviceImportTaskOutput {
+	s.Id = &v
+	return s
+}
+
+// The configuration of summary metrics.
+type SummaryMetricConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// The status of the configuration of summary metrics.
+	Status *string `type:"string" enum:"SummaryMetricConfigurationStatus"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SummaryMetricConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SummaryMetricConfiguration) GoString() string {
+	return s.String()
+}
+
+// SetStatus sets the Status field's value.
+func (s *SummaryMetricConfiguration) SetStatus(v string) *SummaryMetricConfiguration {
+	s.Status = &v
+	return s
+}
+
+// The summary metric query object.
+type SummaryMetricQuery struct {
+	_ struct{} `type:"structure"`
+
+	// The aggregation period of the summary metric.
+	AggregationPeriod *string `type:"string" enum:"AggregationPeriod"`
+
+	// The dimensions of the summary metric.
+	Dimensions []*Dimension `type:"list"`
+
+	// The end timestamp for the summary metric query.
+	EndTimestamp *time.Time `type:"timestamp"`
+
+	// The name of the metric.
+	MetricName *string `type:"string" enum:"MetricName"`
+
+	// The id of the summary metric query.
+	QueryId *string `type:"string"`
+
+	// The start timestamp for the summary metric query.
+	StartTimestamp *time.Time `type:"timestamp"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SummaryMetricQuery) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SummaryMetricQuery) GoString() string {
+	return s.String()
+}
+
+// SetAggregationPeriod sets the AggregationPeriod field's value.
+func (s *SummaryMetricQuery) SetAggregationPeriod(v string) *SummaryMetricQuery {
+	s.AggregationPeriod = &v
+	return s
+}
+
+// SetDimensions sets the Dimensions field's value.
+func (s *SummaryMetricQuery) SetDimensions(v []*Dimension) *SummaryMetricQuery {
+	s.Dimensions = v
+	return s
+}
+
+// SetEndTimestamp sets the EndTimestamp field's value.
+func (s *SummaryMetricQuery) SetEndTimestamp(v time.Time) *SummaryMetricQuery {
+	s.EndTimestamp = &v
+	return s
+}
+
+// SetMetricName sets the MetricName field's value.
+func (s *SummaryMetricQuery) SetMetricName(v string) *SummaryMetricQuery {
+	s.MetricName = &v
+	return s
+}
+
+// SetQueryId sets the QueryId field's value.
+func (s *SummaryMetricQuery) SetQueryId(v string) *SummaryMetricQuery {
+	s.QueryId = &v
+	return s
+}
+
+// SetStartTimestamp sets the StartTimestamp field's value.
+func (s *SummaryMetricQuery) SetStartTimestamp(v time.Time) *SummaryMetricQuery {
+	s.StartTimestamp = &v
+	return s
+}
+
+// The result of the summary metrics aggregation operation.
+type SummaryMetricQueryResult struct {
+	_ struct{} `type:"structure"`
+
+	// The aggregation period of the metric.
+	AggregationPeriod *string `type:"string" enum:"AggregationPeriod"`
+
+	// The dimensions of the metric.
+	Dimensions []*Dimension `type:"list"`
+
+	// The end timestamp for the summary metric query.
+	EndTimestamp *time.Time `type:"timestamp"`
+
+	// The error message for the summary metric query result.
+	Error *string `type:"string"`
+
+	// The name of the summary metric query result.
+	MetricName *string `type:"string" enum:"MetricName"`
+
+	// The ID of the summary metric results query operation.
+	QueryId *string `type:"string"`
+
+	// The status of the summary metric query result.
+	QueryStatus *string `type:"string" enum:"MetricQueryStatus"`
+
+	// The start timestamp for the summary metric query.
+	StartTimestamp *time.Time `type:"timestamp"`
+
+	// The timestamp of each aggregation result.
+	Timestamps []*time.Time `type:"list"`
+
+	// The units of measurement to be used for interpreting the aggregation result.
+	Unit *string `type:"string"`
+
+	// The list of aggregated summary metric query results.
+	Values []*MetricQueryValue `type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SummaryMetricQueryResult) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s SummaryMetricQueryResult) GoString() string {
+	return s.String()
+}
+
+// SetAggregationPeriod sets the AggregationPeriod field's value.
+func (s *SummaryMetricQueryResult) SetAggregationPeriod(v string) *SummaryMetricQueryResult {
+	s.AggregationPeriod = &v
+	return s
+}
+
+// SetDimensions sets the Dimensions field's value.
+func (s *SummaryMetricQueryResult) SetDimensions(v []*Dimension) *SummaryMetricQueryResult {
+	s.Dimensions = v
+	return s
+}
+
+// SetEndTimestamp sets the EndTimestamp field's value.
+func (s *SummaryMetricQueryResult) SetEndTimestamp(v time.Time) *SummaryMetricQueryResult {
+	s.EndTimestamp = &v
+	return s
+}
+
+// SetError sets the Error field's value.
+func (s *SummaryMetricQueryResult) SetError(v string) *SummaryMetricQueryResult {
+	s.Error = &v
+	return s
+}
+
+// SetMetricName sets the MetricName field's value.
+func (s *SummaryMetricQueryResult) SetMetricName(v string) *SummaryMetricQueryResult {
+	s.MetricName = &v
+	return s
+}
+
+// SetQueryId sets the QueryId field's value.
+func (s *SummaryMetricQueryResult) SetQueryId(v string) *SummaryMetricQueryResult {
+	s.QueryId = &v
+	return s
+}
+
+// SetQueryStatus sets the QueryStatus field's value.
+func (s *SummaryMetricQueryResult) SetQueryStatus(v string) *SummaryMetricQueryResult {
+	s.QueryStatus = &v
+	return s
+}
+
+// SetStartTimestamp sets the StartTimestamp field's value.
+func (s *SummaryMetricQueryResult) SetStartTimestamp(v time.Time) *SummaryMetricQueryResult {
+	s.StartTimestamp = &v
+	return s
+}
+
+// SetTimestamps sets the Timestamps field's value.
+func (s *SummaryMetricQueryResult) SetTimestamps(v []*time.Time) *SummaryMetricQueryResult {
+	s.Timestamps = v
+	return s
+}
+
+// SetUnit sets the Unit field's value.
+func (s *SummaryMetricQueryResult) SetUnit(v string) *SummaryMetricQueryResult {
+	s.Unit = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *SummaryMetricQueryResult) SetValues(v []*MetricQueryValue) *SummaryMetricQueryResult {
+	s.Values = v
+	return s
+}
+
 // A simple label consisting of a customer-defined key-value pair
 type Tag struct {
 	_ struct{} `type:"structure"`
@@ -22400,6 +27766,325 @@ func (s TagResourceOutput) String() string {
 // value will be replaced with "sensitive".
 func (s TagResourceOutput) GoString() string {
 	return s.String()
+}
+
+// TD-SCDMA local identification (local Id) information.
+type TdscdmaLocalId struct {
+	_ struct{} `type:"structure"`
+
+	// Cell parameters for TD-SCDMA.
+	//
+	// CellParams is a required field
+	CellParams *int64 `type:"integer" required:"true"`
+
+	// TD-SCDMA UTRA (Universal Terrestrial Radio Access Network) absolute RF channel
+	// number (UARFCN).
+	//
+	// Uarfcn is a required field
+	Uarfcn *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TdscdmaLocalId) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TdscdmaLocalId) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TdscdmaLocalId) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TdscdmaLocalId"}
+	if s.CellParams == nil {
+		invalidParams.Add(request.NewErrParamRequired("CellParams"))
+	}
+	if s.Uarfcn == nil {
+		invalidParams.Add(request.NewErrParamRequired("Uarfcn"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCellParams sets the CellParams field's value.
+func (s *TdscdmaLocalId) SetCellParams(v int64) *TdscdmaLocalId {
+	s.CellParams = &v
+	return s
+}
+
+// SetUarfcn sets the Uarfcn field's value.
+func (s *TdscdmaLocalId) SetUarfcn(v int64) *TdscdmaLocalId {
+	s.Uarfcn = &v
+	return s
+}
+
+// TD-SCDMA object for network measurement reports.
+type TdscdmaNmrObj struct {
+	_ struct{} `type:"structure"`
+
+	// Cell parameters for TD-SCDMA network measurement reports object.
+	//
+	// CellParams is a required field
+	CellParams *int64 `type:"integer" required:"true"`
+
+	// Path loss, or path attenuation, is the reduction in power density of an electromagnetic
+	// wave as it propagates through space.
+	PathLoss *int64 `min:"46" type:"integer"`
+
+	// Code power of the received signal, measured in decibel-milliwatts (dBm).
+	Rscp *int64 `type:"integer"`
+
+	// TD-SCDMA UTRA (Universal Terrestrial Radio Access Network) absolute RF channel
+	// number.
+	//
+	// Uarfcn is a required field
+	Uarfcn *int64 `type:"integer" required:"true"`
+
+	// UTRAN (UMTS Terrestrial Radio Access Network) cell global identifier.
+	UtranCid *int64 `type:"integer"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TdscdmaNmrObj) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TdscdmaNmrObj) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TdscdmaNmrObj) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TdscdmaNmrObj"}
+	if s.CellParams == nil {
+		invalidParams.Add(request.NewErrParamRequired("CellParams"))
+	}
+	if s.PathLoss != nil && *s.PathLoss < 46 {
+		invalidParams.Add(request.NewErrParamMinValue("PathLoss", 46))
+	}
+	if s.Rscp != nil && *s.Rscp < -120 {
+		invalidParams.Add(request.NewErrParamMinValue("Rscp", -120))
+	}
+	if s.Uarfcn == nil {
+		invalidParams.Add(request.NewErrParamRequired("Uarfcn"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCellParams sets the CellParams field's value.
+func (s *TdscdmaNmrObj) SetCellParams(v int64) *TdscdmaNmrObj {
+	s.CellParams = &v
+	return s
+}
+
+// SetPathLoss sets the PathLoss field's value.
+func (s *TdscdmaNmrObj) SetPathLoss(v int64) *TdscdmaNmrObj {
+	s.PathLoss = &v
+	return s
+}
+
+// SetRscp sets the Rscp field's value.
+func (s *TdscdmaNmrObj) SetRscp(v int64) *TdscdmaNmrObj {
+	s.Rscp = &v
+	return s
+}
+
+// SetUarfcn sets the Uarfcn field's value.
+func (s *TdscdmaNmrObj) SetUarfcn(v int64) *TdscdmaNmrObj {
+	s.Uarfcn = &v
+	return s
+}
+
+// SetUtranCid sets the UtranCid field's value.
+func (s *TdscdmaNmrObj) SetUtranCid(v int64) *TdscdmaNmrObj {
+	s.UtranCid = &v
+	return s
+}
+
+// TD-SCDMA object.
+type TdscdmaObj struct {
+	_ struct{} `type:"structure"`
+
+	// Location Area Code.
+	Lac *int64 `min:"1" type:"integer"`
+
+	// Mobile Country Code.
+	//
+	// Mcc is a required field
+	Mcc *int64 `min:"200" type:"integer" required:"true"`
+
+	// Mobile Network Code.
+	//
+	// Mnc is a required field
+	Mnc *int64 `type:"integer" required:"true"`
+
+	// Path loss, or path attenuation, is the reduction in power density of an electromagnetic
+	// wave as it propagates through space.
+	PathLoss *int64 `min:"46" type:"integer"`
+
+	// Signal power of the received signal (Received Signal Code Power), measured
+	// in decibel-milliwatts (dBm).
+	Rscp *int64 `type:"integer"`
+
+	// TD-SCDMA local identification (local ID) information.
+	TdscdmaLocalId *TdscdmaLocalId `type:"structure"`
+
+	// TD-SCDMA object for network measurement reports.
+	TdscdmaNmr []*TdscdmaNmrObj `min:"1" type:"list"`
+
+	// TD-SCDMA Timing advance.
+	TdscdmaTimingAdvance *int64 `type:"integer"`
+
+	// UTRAN (UMTS Terrestrial Radio Access Network) Cell Global Identifier.
+	//
+	// UtranCid is a required field
+	UtranCid *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TdscdmaObj) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s TdscdmaObj) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TdscdmaObj) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TdscdmaObj"}
+	if s.Lac != nil && *s.Lac < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Lac", 1))
+	}
+	if s.Mcc == nil {
+		invalidParams.Add(request.NewErrParamRequired("Mcc"))
+	}
+	if s.Mcc != nil && *s.Mcc < 200 {
+		invalidParams.Add(request.NewErrParamMinValue("Mcc", 200))
+	}
+	if s.Mnc == nil {
+		invalidParams.Add(request.NewErrParamRequired("Mnc"))
+	}
+	if s.PathLoss != nil && *s.PathLoss < 46 {
+		invalidParams.Add(request.NewErrParamMinValue("PathLoss", 46))
+	}
+	if s.Rscp != nil && *s.Rscp < -120 {
+		invalidParams.Add(request.NewErrParamMinValue("Rscp", -120))
+	}
+	if s.TdscdmaNmr != nil && len(s.TdscdmaNmr) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("TdscdmaNmr", 1))
+	}
+	if s.UtranCid == nil {
+		invalidParams.Add(request.NewErrParamRequired("UtranCid"))
+	}
+	if s.TdscdmaLocalId != nil {
+		if err := s.TdscdmaLocalId.Validate(); err != nil {
+			invalidParams.AddNested("TdscdmaLocalId", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.TdscdmaNmr != nil {
+		for i, v := range s.TdscdmaNmr {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "TdscdmaNmr", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLac sets the Lac field's value.
+func (s *TdscdmaObj) SetLac(v int64) *TdscdmaObj {
+	s.Lac = &v
+	return s
+}
+
+// SetMcc sets the Mcc field's value.
+func (s *TdscdmaObj) SetMcc(v int64) *TdscdmaObj {
+	s.Mcc = &v
+	return s
+}
+
+// SetMnc sets the Mnc field's value.
+func (s *TdscdmaObj) SetMnc(v int64) *TdscdmaObj {
+	s.Mnc = &v
+	return s
+}
+
+// SetPathLoss sets the PathLoss field's value.
+func (s *TdscdmaObj) SetPathLoss(v int64) *TdscdmaObj {
+	s.PathLoss = &v
+	return s
+}
+
+// SetRscp sets the Rscp field's value.
+func (s *TdscdmaObj) SetRscp(v int64) *TdscdmaObj {
+	s.Rscp = &v
+	return s
+}
+
+// SetTdscdmaLocalId sets the TdscdmaLocalId field's value.
+func (s *TdscdmaObj) SetTdscdmaLocalId(v *TdscdmaLocalId) *TdscdmaObj {
+	s.TdscdmaLocalId = v
+	return s
+}
+
+// SetTdscdmaNmr sets the TdscdmaNmr field's value.
+func (s *TdscdmaObj) SetTdscdmaNmr(v []*TdscdmaNmrObj) *TdscdmaObj {
+	s.TdscdmaNmr = v
+	return s
+}
+
+// SetTdscdmaTimingAdvance sets the TdscdmaTimingAdvance field's value.
+func (s *TdscdmaObj) SetTdscdmaTimingAdvance(v int64) *TdscdmaObj {
+	s.TdscdmaTimingAdvance = &v
+	return s
+}
+
+// SetUtranCid sets the UtranCid field's value.
+func (s *TdscdmaObj) SetUtranCid(v int64) *TdscdmaObj {
+	s.UtranCid = &v
+	return s
 }
 
 type TestWirelessDeviceInput struct {
@@ -22613,7 +28298,7 @@ func (s *TooManyTagsException) RequestID() string {
 	return s.RespMetadata.RequestID
 }
 
-// Trace content for your wireless gateway and wireless device resources.
+// Trace content for your wireless devices, gateways, and multicast groups.
 type TraceContent struct {
 	_ struct{} `type:"structure"`
 
@@ -22621,6 +28306,11 @@ type TraceContent struct {
 	// ERROR to display less verbose logs containing only error information, or
 	// to INFO for more detailed logs.
 	LogLevel *string `type:"string" enum:"LogLevel"`
+
+	// FrameInfo of your multicast group resources for the trace content. Use FrameInfo
+	// to debug the multicast communication between your multicast groups and the
+	// network server.
+	MulticastFrameInfo *string `type:"string" enum:"MulticastFrameInfo"`
 
 	// FrameInfo of your wireless device resources for the trace content. Use FrameInfo
 	// to debug the communication between your LoRaWAN end devices and the network
@@ -22649,6 +28339,12 @@ func (s TraceContent) GoString() string {
 // SetLogLevel sets the LogLevel field's value.
 func (s *TraceContent) SetLogLevel(v string) *TraceContent {
 	s.LogLevel = &v
+	return s
+}
+
+// SetMulticastFrameInfo sets the MulticastFrameInfo field's value.
+func (s *TraceContent) SetMulticastFrameInfo(v string) *TraceContent {
+	s.MulticastFrameInfo = &v
 	return s
 }
 
@@ -23015,6 +28711,9 @@ func (s UpdateEventConfigurationByResourceTypesOutput) GoString() string {
 type UpdateFPorts struct {
 	_ struct{} `type:"structure"`
 
+	// LoRaWAN application, which can be used for geolocation by activating positioning.
+	Applications []*ApplicationConfig `type:"list"`
+
 	// Positioning FPorts for the ClockSync, Stream, and GNSS functions.
 	Positioning *Positioning `type:"structure"`
 }
@@ -23040,6 +28739,16 @@ func (s UpdateFPorts) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UpdateFPorts) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateFPorts"}
+	if s.Applications != nil {
+		for i, v := range s.Applications {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Applications", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 	if s.Positioning != nil {
 		if err := s.Positioning.Validate(); err != nil {
 			invalidParams.AddNested("Positioning", err.(request.ErrInvalidParams))
@@ -23050,6 +28759,12 @@ func (s *UpdateFPorts) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetApplications sets the Applications field's value.
+func (s *UpdateFPorts) SetApplications(v []*ApplicationConfig) *UpdateFPorts {
+	s.Applications = v
+	return s
 }
 
 // SetPositioning sets the Positioning field's value.
@@ -23071,6 +28786,19 @@ type UpdateFuotaTaskInput struct {
 	// The firmware update role that is to be used with a FUOTA task.
 	FirmwareUpdateRole *string `min:"1" type:"string"`
 
+	// The interval for sending fragments in milliseconds, rounded to the nearest
+	// second.
+	//
+	// This interval only determines the timing for when the Cloud sends down the
+	// fragments to yor device. There can be a delay for when your device will receive
+	// these fragments. This delay depends on the device's class and the communication
+	// delay with the cloud.
+	FragmentIntervalMS *int64 `min:"1" type:"integer"`
+
+	// The size of each fragment in bytes. This parameter is supported only for
+	// FUOTA tasks with multicast groups.
+	FragmentSizeBytes *int64 `min:"1" type:"integer"`
+
 	// The ID of a FUOTA task.
 	//
 	// Id is a required field
@@ -23081,6 +28809,12 @@ type UpdateFuotaTaskInput struct {
 
 	// The name of a FUOTA task.
 	Name *string `type:"string"`
+
+	// The percentage of the added fragments that are redundant. For example, if
+	// the size of the firmware image file is 100 bytes and the fragment size is
+	// 10 bytes, with RedundancyPercent set to 50(%), the final number of encoded
+	// fragments is (100 / 10) + (100 / 10 * 50%) = 15.
+	RedundancyPercent *int64 `type:"integer"`
 }
 
 // String returns the string representation.
@@ -23109,6 +28843,12 @@ func (s *UpdateFuotaTaskInput) Validate() error {
 	}
 	if s.FirmwareUpdateRole != nil && len(*s.FirmwareUpdateRole) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("FirmwareUpdateRole", 1))
+	}
+	if s.FragmentIntervalMS != nil && *s.FragmentIntervalMS < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("FragmentIntervalMS", 1))
+	}
+	if s.FragmentSizeBytes != nil && *s.FragmentSizeBytes < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("FragmentSizeBytes", 1))
 	}
 	if s.Id == nil {
 		invalidParams.Add(request.NewErrParamRequired("Id"))
@@ -23141,6 +28881,18 @@ func (s *UpdateFuotaTaskInput) SetFirmwareUpdateRole(v string) *UpdateFuotaTaskI
 	return s
 }
 
+// SetFragmentIntervalMS sets the FragmentIntervalMS field's value.
+func (s *UpdateFuotaTaskInput) SetFragmentIntervalMS(v int64) *UpdateFuotaTaskInput {
+	s.FragmentIntervalMS = &v
+	return s
+}
+
+// SetFragmentSizeBytes sets the FragmentSizeBytes field's value.
+func (s *UpdateFuotaTaskInput) SetFragmentSizeBytes(v int64) *UpdateFuotaTaskInput {
+	s.FragmentSizeBytes = &v
+	return s
+}
+
 // SetId sets the Id field's value.
 func (s *UpdateFuotaTaskInput) SetId(v string) *UpdateFuotaTaskInput {
 	s.Id = &v
@@ -23156,6 +28908,12 @@ func (s *UpdateFuotaTaskInput) SetLoRaWAN(v *LoRaWANFuotaTask) *UpdateFuotaTaskI
 // SetName sets the Name field's value.
 func (s *UpdateFuotaTaskInput) SetName(v string) *UpdateFuotaTaskInput {
 	s.Name = &v
+	return s
+}
+
+// SetRedundancyPercent sets the RedundancyPercent field's value.
+func (s *UpdateFuotaTaskInput) SetRedundancyPercent(v int64) *UpdateFuotaTaskInput {
+	s.RedundancyPercent = &v
 	return s
 }
 
@@ -23284,6 +29042,59 @@ func (s UpdateLogLevelsByResourceTypesOutput) GoString() string {
 	return s.String()
 }
 
+type UpdateMetricConfigurationInput struct {
+	_ struct{} `type:"structure"`
+
+	// The value to be used to set summary metric configuration.
+	SummaryMetric *SummaryMetricConfiguration `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateMetricConfigurationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateMetricConfigurationInput) GoString() string {
+	return s.String()
+}
+
+// SetSummaryMetric sets the SummaryMetric field's value.
+func (s *UpdateMetricConfigurationInput) SetSummaryMetric(v *SummaryMetricConfiguration) *UpdateMetricConfigurationInput {
+	s.SummaryMetric = v
+	return s
+}
+
+type UpdateMetricConfigurationOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateMetricConfigurationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateMetricConfigurationOutput) GoString() string {
+	return s.String()
+}
+
 type UpdateMulticastGroupInput struct {
 	_ struct{} `type:"structure"`
 
@@ -23393,7 +29204,15 @@ type UpdateNetworkAnalyzerConfigurationInput struct {
 	// The description of the new resource.
 	Description *string `type:"string"`
 
-	// Trace content for your wireless gateway and wireless device resources.
+	// Multicast group resources to add to the network analyzer configuration. Provide
+	// the MulticastGroupId of the resource to add in the input array.
+	MulticastGroupsToAdd []*string `type:"list"`
+
+	// Multicast group resources to remove from the network analyzer configuration.
+	// Provide the MulticastGroupId of the resources to remove in the input array.
+	MulticastGroupsToRemove []*string `type:"list"`
+
+	// Trace content for your wireless devices, gateways, and multicast groups.
 	TraceContent *TraceContent `type:"structure"`
 
 	// Wireless device resources to add to the network analyzer configuration. Provide
@@ -23456,6 +29275,18 @@ func (s *UpdateNetworkAnalyzerConfigurationInput) SetConfigurationName(v string)
 // SetDescription sets the Description field's value.
 func (s *UpdateNetworkAnalyzerConfigurationInput) SetDescription(v string) *UpdateNetworkAnalyzerConfigurationInput {
 	s.Description = &v
+	return s
+}
+
+// SetMulticastGroupsToAdd sets the MulticastGroupsToAdd field's value.
+func (s *UpdateNetworkAnalyzerConfigurationInput) SetMulticastGroupsToAdd(v []*string) *UpdateNetworkAnalyzerConfigurationInput {
+	s.MulticastGroupsToAdd = v
+	return s
+}
+
+// SetMulticastGroupsToRemove sets the MulticastGroupsToRemove field's value.
+func (s *UpdateNetworkAnalyzerConfigurationInput) SetMulticastGroupsToRemove(v []*string) *UpdateNetworkAnalyzerConfigurationInput {
+	s.MulticastGroupsToRemove = v
 	return s
 }
 
@@ -23615,8 +29446,9 @@ func (s UpdatePartnerAccountOutput) GoString() string {
 	return s.String()
 }
 
+// Deprecated: This operation is no longer supported.
 type UpdatePositionInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `deprecated:"true" type:"structure"`
 
 	// The position information of the resource.
 	//
@@ -23692,8 +29524,9 @@ func (s *UpdatePositionInput) SetResourceType(v string) *UpdatePositionInput {
 	return s
 }
 
+// Deprecated: This operation is no longer supported.
 type UpdatePositionOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `deprecated:"true" type:"structure"`
 }
 
 // String returns the string representation.
@@ -23853,6 +29686,190 @@ func (s UpdateResourceEventConfigurationOutput) GoString() string {
 	return s.String()
 }
 
+type UpdateResourcePositionInput struct {
+	_ struct{} `type:"structure" payload:"GeoJsonPayload"`
+
+	// The position information of the resource, displayed as a JSON payload. The
+	// payload uses the GeoJSON format, which a format that's used to encode geographic
+	// data structures. For more information, see GeoJSON (https://geojson.org/).
+	GeoJsonPayload []byte `type:"blob"`
+
+	// The identifier of the resource for which position information is updated.
+	// It can be the wireless device ID or the wireless gateway ID, depending on
+	// the resource type.
+	//
+	// ResourceIdentifier is a required field
+	ResourceIdentifier *string `location:"uri" locationName:"ResourceIdentifier" type:"string" required:"true"`
+
+	// The type of resource for which position information is updated, which can
+	// be a wireless device or a wireless gateway.
+	//
+	// ResourceType is a required field
+	ResourceType *string `location:"querystring" locationName:"resourceType" type:"string" required:"true" enum:"PositionResourceType"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateResourcePositionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateResourcePositionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateResourcePositionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateResourcePositionInput"}
+	if s.ResourceIdentifier == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceIdentifier"))
+	}
+	if s.ResourceIdentifier != nil && len(*s.ResourceIdentifier) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ResourceIdentifier", 1))
+	}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetGeoJsonPayload sets the GeoJsonPayload field's value.
+func (s *UpdateResourcePositionInput) SetGeoJsonPayload(v []byte) *UpdateResourcePositionInput {
+	s.GeoJsonPayload = v
+	return s
+}
+
+// SetResourceIdentifier sets the ResourceIdentifier field's value.
+func (s *UpdateResourcePositionInput) SetResourceIdentifier(v string) *UpdateResourcePositionInput {
+	s.ResourceIdentifier = &v
+	return s
+}
+
+// SetResourceType sets the ResourceType field's value.
+func (s *UpdateResourcePositionInput) SetResourceType(v string) *UpdateResourcePositionInput {
+	s.ResourceType = &v
+	return s
+}
+
+type UpdateResourcePositionOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateResourcePositionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateResourcePositionOutput) GoString() string {
+	return s.String()
+}
+
+type UpdateWirelessDeviceImportTaskInput struct {
+	_ struct{} `type:"structure"`
+
+	// The identifier of the import task to be updated.
+	//
+	// Id is a required field
+	Id *string `location:"uri" locationName:"Id" type:"string" required:"true"`
+
+	// The Sidewalk-related parameters of the import task to be updated.
+	//
+	// Sidewalk is a required field
+	Sidewalk *SidewalkUpdateImportInfo `type:"structure" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateWirelessDeviceImportTaskInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateWirelessDeviceImportTaskInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateWirelessDeviceImportTaskInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateWirelessDeviceImportTaskInput"}
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
+	}
+	if s.Id != nil && len(*s.Id) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Id", 1))
+	}
+	if s.Sidewalk == nil {
+		invalidParams.Add(request.NewErrParamRequired("Sidewalk"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetId sets the Id field's value.
+func (s *UpdateWirelessDeviceImportTaskInput) SetId(v string) *UpdateWirelessDeviceImportTaskInput {
+	s.Id = &v
+	return s
+}
+
+// SetSidewalk sets the Sidewalk field's value.
+func (s *UpdateWirelessDeviceImportTaskInput) SetSidewalk(v *SidewalkUpdateImportInfo) *UpdateWirelessDeviceImportTaskInput {
+	s.Sidewalk = v
+	return s
+}
+
+type UpdateWirelessDeviceImportTaskOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateWirelessDeviceImportTaskOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s UpdateWirelessDeviceImportTaskOutput) GoString() string {
+	return s.String()
+}
+
 type UpdateWirelessDeviceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -23872,6 +29889,10 @@ type UpdateWirelessDeviceInput struct {
 
 	// The new name of the resource.
 	Name *string `type:"string"`
+
+	// FPort values for the GNSS, stream, and ClockSync functions of the positioning
+	// information.
+	Positioning *string `type:"string" enum:"PositioningConfigStatus"`
 }
 
 // String returns the string representation.
@@ -23943,6 +29964,12 @@ func (s *UpdateWirelessDeviceInput) SetName(v string) *UpdateWirelessDeviceInput
 	return s
 }
 
+// SetPositioning sets the Positioning field's value.
+func (s *UpdateWirelessDeviceInput) SetPositioning(v string) *UpdateWirelessDeviceInput {
+	s.Positioning = &v
+	return s
+}
+
 type UpdateWirelessDeviceOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -23978,6 +30005,9 @@ type UpdateWirelessGatewayInput struct {
 
 	// A list of JoinEuiRange used by LoRa gateways to filter LoRa frames.
 	JoinEuiFilters [][]*string `type:"list"`
+
+	// The MaxEIRP value.
+	MaxEirp *float64 `type:"float"`
 
 	// The new name of the resource.
 	Name *string `type:"string"`
@@ -24036,6 +30066,12 @@ func (s *UpdateWirelessGatewayInput) SetId(v string) *UpdateWirelessGatewayInput
 // SetJoinEuiFilters sets the JoinEuiFilters field's value.
 func (s *UpdateWirelessGatewayInput) SetJoinEuiFilters(v [][]*string) *UpdateWirelessGatewayInput {
 	s.JoinEuiFilters = v
+	return s
+}
+
+// SetMaxEirp sets the MaxEirp field's value.
+func (s *UpdateWirelessGatewayInput) SetMaxEirp(v float64) *UpdateWirelessGatewayInput {
+	s.MaxEirp = &v
 	return s
 }
 
@@ -24258,6 +30294,385 @@ func (s *ValidationException) RequestID() string {
 	return s.RespMetadata.RequestID
 }
 
+// WCDMA local identification (local ID) information.
+type WcdmaLocalId struct {
+	_ struct{} `type:"structure"`
+
+	// Primary Scrambling Code.
+	//
+	// Psc is a required field
+	Psc *int64 `type:"integer" required:"true"`
+
+	// WCDMA UTRA Absolute RF Channel Number downlink.
+	//
+	// Uarfcndl is a required field
+	Uarfcndl *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s WcdmaLocalId) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s WcdmaLocalId) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *WcdmaLocalId) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "WcdmaLocalId"}
+	if s.Psc == nil {
+		invalidParams.Add(request.NewErrParamRequired("Psc"))
+	}
+	if s.Uarfcndl == nil {
+		invalidParams.Add(request.NewErrParamRequired("Uarfcndl"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetPsc sets the Psc field's value.
+func (s *WcdmaLocalId) SetPsc(v int64) *WcdmaLocalId {
+	s.Psc = &v
+	return s
+}
+
+// SetUarfcndl sets the Uarfcndl field's value.
+func (s *WcdmaLocalId) SetUarfcndl(v int64) *WcdmaLocalId {
+	s.Uarfcndl = &v
+	return s
+}
+
+// Network Measurement Reports.
+type WcdmaNmrObj struct {
+	_ struct{} `type:"structure"`
+
+	// Path loss, or path attenuation, is the reduction in power density of an electromagnetic
+	// wave as it propagates through space.
+	PathLoss *int64 `min:"46" type:"integer"`
+
+	// Primary Scrambling Code.
+	//
+	// Psc is a required field
+	Psc *int64 `type:"integer" required:"true"`
+
+	// Received Signal Code Power (signal power) (dBm)
+	Rscp *int64 `type:"integer"`
+
+	// WCDMA UTRA Absolute RF Channel Number downlink.
+	//
+	// Uarfcndl is a required field
+	Uarfcndl *int64 `type:"integer" required:"true"`
+
+	// UTRAN (UMTS Terrestrial Radio Access Network) Cell Global Identifier.
+	//
+	// UtranCid is a required field
+	UtranCid *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s WcdmaNmrObj) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s WcdmaNmrObj) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *WcdmaNmrObj) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "WcdmaNmrObj"}
+	if s.PathLoss != nil && *s.PathLoss < 46 {
+		invalidParams.Add(request.NewErrParamMinValue("PathLoss", 46))
+	}
+	if s.Psc == nil {
+		invalidParams.Add(request.NewErrParamRequired("Psc"))
+	}
+	if s.Rscp != nil && *s.Rscp < -120 {
+		invalidParams.Add(request.NewErrParamMinValue("Rscp", -120))
+	}
+	if s.Uarfcndl == nil {
+		invalidParams.Add(request.NewErrParamRequired("Uarfcndl"))
+	}
+	if s.UtranCid == nil {
+		invalidParams.Add(request.NewErrParamRequired("UtranCid"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetPathLoss sets the PathLoss field's value.
+func (s *WcdmaNmrObj) SetPathLoss(v int64) *WcdmaNmrObj {
+	s.PathLoss = &v
+	return s
+}
+
+// SetPsc sets the Psc field's value.
+func (s *WcdmaNmrObj) SetPsc(v int64) *WcdmaNmrObj {
+	s.Psc = &v
+	return s
+}
+
+// SetRscp sets the Rscp field's value.
+func (s *WcdmaNmrObj) SetRscp(v int64) *WcdmaNmrObj {
+	s.Rscp = &v
+	return s
+}
+
+// SetUarfcndl sets the Uarfcndl field's value.
+func (s *WcdmaNmrObj) SetUarfcndl(v int64) *WcdmaNmrObj {
+	s.Uarfcndl = &v
+	return s
+}
+
+// SetUtranCid sets the UtranCid field's value.
+func (s *WcdmaNmrObj) SetUtranCid(v int64) *WcdmaNmrObj {
+	s.UtranCid = &v
+	return s
+}
+
+// WCDMA.
+type WcdmaObj struct {
+	_ struct{} `type:"structure"`
+
+	// Location Area Code.
+	Lac *int64 `min:"1" type:"integer"`
+
+	// Mobile Country Code.
+	//
+	// Mcc is a required field
+	Mcc *int64 `min:"200" type:"integer" required:"true"`
+
+	// Mobile Network Code.
+	//
+	// Mnc is a required field
+	Mnc *int64 `type:"integer" required:"true"`
+
+	// Path loss, or path attenuation, is the reduction in power density of an electromagnetic
+	// wave as it propagates through space.
+	PathLoss *int64 `min:"46" type:"integer"`
+
+	// Received Signal Code Power (signal power) (dBm).
+	Rscp *int64 `type:"integer"`
+
+	// UTRAN (UMTS Terrestrial Radio Access Network) Cell Global Identifier.
+	//
+	// UtranCid is a required field
+	UtranCid *int64 `type:"integer" required:"true"`
+
+	// WCDMA local ID information.
+	WcdmaLocalId *WcdmaLocalId `type:"structure"`
+
+	// WCDMA object for network measurement reports.
+	WcdmaNmr []*WcdmaNmrObj `min:"1" type:"list"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s WcdmaObj) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s WcdmaObj) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *WcdmaObj) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "WcdmaObj"}
+	if s.Lac != nil && *s.Lac < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Lac", 1))
+	}
+	if s.Mcc == nil {
+		invalidParams.Add(request.NewErrParamRequired("Mcc"))
+	}
+	if s.Mcc != nil && *s.Mcc < 200 {
+		invalidParams.Add(request.NewErrParamMinValue("Mcc", 200))
+	}
+	if s.Mnc == nil {
+		invalidParams.Add(request.NewErrParamRequired("Mnc"))
+	}
+	if s.PathLoss != nil && *s.PathLoss < 46 {
+		invalidParams.Add(request.NewErrParamMinValue("PathLoss", 46))
+	}
+	if s.Rscp != nil && *s.Rscp < -120 {
+		invalidParams.Add(request.NewErrParamMinValue("Rscp", -120))
+	}
+	if s.UtranCid == nil {
+		invalidParams.Add(request.NewErrParamRequired("UtranCid"))
+	}
+	if s.WcdmaNmr != nil && len(s.WcdmaNmr) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("WcdmaNmr", 1))
+	}
+	if s.WcdmaLocalId != nil {
+		if err := s.WcdmaLocalId.Validate(); err != nil {
+			invalidParams.AddNested("WcdmaLocalId", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.WcdmaNmr != nil {
+		for i, v := range s.WcdmaNmr {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "WcdmaNmr", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLac sets the Lac field's value.
+func (s *WcdmaObj) SetLac(v int64) *WcdmaObj {
+	s.Lac = &v
+	return s
+}
+
+// SetMcc sets the Mcc field's value.
+func (s *WcdmaObj) SetMcc(v int64) *WcdmaObj {
+	s.Mcc = &v
+	return s
+}
+
+// SetMnc sets the Mnc field's value.
+func (s *WcdmaObj) SetMnc(v int64) *WcdmaObj {
+	s.Mnc = &v
+	return s
+}
+
+// SetPathLoss sets the PathLoss field's value.
+func (s *WcdmaObj) SetPathLoss(v int64) *WcdmaObj {
+	s.PathLoss = &v
+	return s
+}
+
+// SetRscp sets the Rscp field's value.
+func (s *WcdmaObj) SetRscp(v int64) *WcdmaObj {
+	s.Rscp = &v
+	return s
+}
+
+// SetUtranCid sets the UtranCid field's value.
+func (s *WcdmaObj) SetUtranCid(v int64) *WcdmaObj {
+	s.UtranCid = &v
+	return s
+}
+
+// SetWcdmaLocalId sets the WcdmaLocalId field's value.
+func (s *WcdmaObj) SetWcdmaLocalId(v *WcdmaLocalId) *WcdmaObj {
+	s.WcdmaLocalId = v
+	return s
+}
+
+// SetWcdmaNmr sets the WcdmaNmr field's value.
+func (s *WcdmaObj) SetWcdmaNmr(v []*WcdmaNmrObj) *WcdmaObj {
+	s.WcdmaNmr = v
+	return s
+}
+
+// Wi-Fi access point.
+type WiFiAccessPoint struct {
+	_ struct{} `type:"structure"`
+
+	// Wi-Fi MAC Address.
+	//
+	// MacAddress is a required field
+	MacAddress *string `min:"12" type:"string" required:"true"`
+
+	// Received signal strength (dBm) of the WLAN measurement data.
+	//
+	// Rss is a required field
+	Rss *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s WiFiAccessPoint) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s WiFiAccessPoint) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *WiFiAccessPoint) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "WiFiAccessPoint"}
+	if s.MacAddress == nil {
+		invalidParams.Add(request.NewErrParamRequired("MacAddress"))
+	}
+	if s.MacAddress != nil && len(*s.MacAddress) < 12 {
+		invalidParams.Add(request.NewErrParamMinLen("MacAddress", 12))
+	}
+	if s.Rss == nil {
+		invalidParams.Add(request.NewErrParamRequired("Rss"))
+	}
+	if s.Rss != nil && *s.Rss < -128 {
+		invalidParams.Add(request.NewErrParamMinValue("Rss", -128))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMacAddress sets the MacAddress field's value.
+func (s *WiFiAccessPoint) SetMacAddress(v string) *WiFiAccessPoint {
+	s.MacAddress = &v
+	return s
+}
+
+// SetRss sets the Rss field's value.
+func (s *WiFiAccessPoint) SetRss(v int64) *WiFiAccessPoint {
+	s.Rss = &v
+	return s
+}
+
 // The log options for a wireless device event and can be used to set log levels
 // for a specific wireless device event.
 //
@@ -24323,6 +30738,134 @@ func (s *WirelessDeviceEventLogOption) SetEvent(v string) *WirelessDeviceEventLo
 // SetLogLevel sets the LogLevel field's value.
 func (s *WirelessDeviceEventLogOption) SetLogLevel(v string) *WirelessDeviceEventLogOption {
 	s.LogLevel = &v
+	return s
+}
+
+// Information about an import task for wireless devices.
+type WirelessDeviceImportTask struct {
+	_ struct{} `type:"structure"`
+
+	// The ARN (Amazon Resource Name) of the wireless device import task.
+	Arn *string `type:"string"`
+
+	// The time at which the import task was created.
+	CreationTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+
+	// The name of the Sidewalk destination that that describes the IoT rule to
+	// route messages from the device in the import task that will be onboarded
+	// to AWS IoT Wireless
+	DestinationName *string `type:"string"`
+
+	// The summary information of count of wireless devices in an import task that
+	// failed to onboarded to the import task.
+	FailedImportedDeviceCount *int64 `type:"long"`
+
+	// The ID of the wireless device import task.
+	Id *string `type:"string"`
+
+	// The summary information of count of wireless devices that are waiting for
+	// the control log to be added to an import task.
+	InitializedImportedDeviceCount *int64 `type:"long"`
+
+	// The summary information of count of wireless devices in an import task that
+	// have been onboarded to the import task.
+	OnboardedImportedDeviceCount *int64 `type:"long"`
+
+	// The summary information of count of wireless devices in an import task that
+	// are waiting in the queue to be onboarded.
+	PendingImportedDeviceCount *int64 `type:"long"`
+
+	// The Sidewalk-related information of the wireless device import task.
+	Sidewalk *SidewalkGetStartImportInfo `type:"structure"`
+
+	// The status information of the wireless device import task.
+	Status *string `type:"string" enum:"ImportTaskStatus"`
+
+	// The reason that provides additional information about the import task status.
+	StatusReason *string `type:"string"`
+}
+
+// String returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s WirelessDeviceImportTask) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation.
+//
+// API parameter values that are decorated as "sensitive" in the API will not
+// be included in the string output. The member name will be present, but the
+// value will be replaced with "sensitive".
+func (s WirelessDeviceImportTask) GoString() string {
+	return s.String()
+}
+
+// SetArn sets the Arn field's value.
+func (s *WirelessDeviceImportTask) SetArn(v string) *WirelessDeviceImportTask {
+	s.Arn = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *WirelessDeviceImportTask) SetCreationTime(v time.Time) *WirelessDeviceImportTask {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDestinationName sets the DestinationName field's value.
+func (s *WirelessDeviceImportTask) SetDestinationName(v string) *WirelessDeviceImportTask {
+	s.DestinationName = &v
+	return s
+}
+
+// SetFailedImportedDeviceCount sets the FailedImportedDeviceCount field's value.
+func (s *WirelessDeviceImportTask) SetFailedImportedDeviceCount(v int64) *WirelessDeviceImportTask {
+	s.FailedImportedDeviceCount = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *WirelessDeviceImportTask) SetId(v string) *WirelessDeviceImportTask {
+	s.Id = &v
+	return s
+}
+
+// SetInitializedImportedDeviceCount sets the InitializedImportedDeviceCount field's value.
+func (s *WirelessDeviceImportTask) SetInitializedImportedDeviceCount(v int64) *WirelessDeviceImportTask {
+	s.InitializedImportedDeviceCount = &v
+	return s
+}
+
+// SetOnboardedImportedDeviceCount sets the OnboardedImportedDeviceCount field's value.
+func (s *WirelessDeviceImportTask) SetOnboardedImportedDeviceCount(v int64) *WirelessDeviceImportTask {
+	s.OnboardedImportedDeviceCount = &v
+	return s
+}
+
+// SetPendingImportedDeviceCount sets the PendingImportedDeviceCount field's value.
+func (s *WirelessDeviceImportTask) SetPendingImportedDeviceCount(v int64) *WirelessDeviceImportTask {
+	s.PendingImportedDeviceCount = &v
+	return s
+}
+
+// SetSidewalk sets the Sidewalk field's value.
+func (s *WirelessDeviceImportTask) SetSidewalk(v *SidewalkGetStartImportInfo) *WirelessDeviceImportTask {
+	s.Sidewalk = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *WirelessDeviceImportTask) SetStatus(v string) *WirelessDeviceImportTask {
+	s.Status = &v
+	return s
+}
+
+// SetStatusReason sets the StatusReason field's value.
+func (s *WirelessDeviceImportTask) SetStatusReason(v string) *WirelessDeviceImportTask {
+	s.StatusReason = &v
 	return s
 }
 
@@ -24426,6 +30969,8 @@ type WirelessDeviceStatistics struct {
 	Id *string `type:"string"`
 
 	// The date and time when the most recent uplink was received.
+	//
+	// Theis value is only valid for 3 months.
 	LastUplinkReceivedAt *string `type:"string"`
 
 	// LoRaWAN device info.
@@ -24695,6 +31240,8 @@ type WirelessGatewayStatistics struct {
 	Id *string `type:"string"`
 
 	// The date and time when the most recent uplink was received.
+	//
+	// This value is only valid for 3 months.
 	LastUplinkReceivedAt *string `type:"string"`
 
 	// LoRaWAN gateway info.
@@ -24814,6 +31361,38 @@ func (s *WirelessMetadata) SetSidewalk(v *SidewalkSendDataToDevice) *WirelessMet
 	return s
 }
 
+const (
+	// AggregationPeriodOneHour is a AggregationPeriod enum value
+	AggregationPeriodOneHour = "OneHour"
+
+	// AggregationPeriodOneDay is a AggregationPeriod enum value
+	AggregationPeriodOneDay = "OneDay"
+
+	// AggregationPeriodOneWeek is a AggregationPeriod enum value
+	AggregationPeriodOneWeek = "OneWeek"
+)
+
+// AggregationPeriod_Values returns all elements of the AggregationPeriod enum
+func AggregationPeriod_Values() []string {
+	return []string{
+		AggregationPeriodOneHour,
+		AggregationPeriodOneDay,
+		AggregationPeriodOneWeek,
+	}
+}
+
+const (
+	// ApplicationConfigTypeSemtechGeolocation is a ApplicationConfigType enum value
+	ApplicationConfigTypeSemtechGeolocation = "SemtechGeolocation"
+)
+
+// ApplicationConfigType_Values returns all elements of the ApplicationConfigType enum
+func ApplicationConfigType_Values() []string {
+	return []string{
+		ApplicationConfigTypeSemtechGeolocation,
+	}
+}
+
 // Sidewalk device battery level.
 const (
 	// BatteryLevelNormal is a BatteryLevel enum value
@@ -24851,6 +31430,22 @@ func ConnectionStatus_Values() []string {
 	}
 }
 
+const (
+	// DeviceProfileTypeSidewalk is a DeviceProfileType enum value
+	DeviceProfileTypeSidewalk = "Sidewalk"
+
+	// DeviceProfileTypeLoRaWan is a DeviceProfileType enum value
+	DeviceProfileTypeLoRaWan = "LoRaWAN"
+)
+
+// DeviceProfileType_Values returns all elements of the DeviceProfileType enum
+func DeviceProfileType_Values() []string {
+	return []string{
+		DeviceProfileTypeSidewalk,
+		DeviceProfileTypeLoRaWan,
+	}
+}
+
 // Device state defines the device status of sidewalk device.
 const (
 	// DeviceStateProvisioned is a DeviceState enum value
@@ -24876,6 +31471,22 @@ func DeviceState_Values() []string {
 	}
 }
 
+const (
+	// DimensionNameDeviceId is a DimensionName enum value
+	DimensionNameDeviceId = "DeviceId"
+
+	// DimensionNameGatewayId is a DimensionName enum value
+	DimensionNameGatewayId = "GatewayId"
+)
+
+// DimensionName_Values returns all elements of the DimensionName enum
+func DimensionName_Values() []string {
+	return []string{
+		DimensionNameDeviceId,
+		DimensionNameGatewayId,
+	}
+}
+
 // DlClass for LoRaWAM, valid values are ClassB and ClassC.
 const (
 	// DlClassClassB is a DlClass enum value
@@ -24890,6 +31501,26 @@ func DlClass_Values() []string {
 	return []string{
 		DlClassClassB,
 		DlClassClassC,
+	}
+}
+
+const (
+	// DownlinkModeSequential is a DownlinkMode enum value
+	DownlinkModeSequential = "SEQUENTIAL"
+
+	// DownlinkModeConcurrent is a DownlinkMode enum value
+	DownlinkModeConcurrent = "CONCURRENT"
+
+	// DownlinkModeUsingUplinkGateway is a DownlinkMode enum value
+	DownlinkModeUsingUplinkGateway = "USING_UPLINK_GATEWAY"
+)
+
+// DownlinkMode_Values returns all elements of the DownlinkMode enum
+func DownlinkMode_Values() []string {
+	return []string{
+		DownlinkModeSequential,
+		DownlinkModeConcurrent,
+		DownlinkModeUsingUplinkGateway,
 	}
 }
 
@@ -25020,6 +31651,9 @@ const (
 
 	// FuotaDeviceStatusSuccessful is a FuotaDeviceStatus enum value
 	FuotaDeviceStatusSuccessful = "Successful"
+
+	// FuotaDeviceStatusDeviceExistInConflictFuotaTask is a FuotaDeviceStatus enum value
+	FuotaDeviceStatusDeviceExistInConflictFuotaTask = "Device_exist_in_conflict_fuota_task"
 )
 
 // FuotaDeviceStatus_Values returns all elements of the FuotaDeviceStatus enum
@@ -25036,6 +31670,7 @@ func FuotaDeviceStatus_Values() []string {
 		FuotaDeviceStatusMemoryError,
 		FuotaDeviceStatusMicerror,
 		FuotaDeviceStatusSuccessful,
+		FuotaDeviceStatusDeviceExistInConflictFuotaTask,
 	}
 }
 
@@ -25096,6 +31731,38 @@ func IdentifierType_Values() []string {
 	}
 }
 
+const (
+	// ImportTaskStatusInitializing is a ImportTaskStatus enum value
+	ImportTaskStatusInitializing = "INITIALIZING"
+
+	// ImportTaskStatusInitialized is a ImportTaskStatus enum value
+	ImportTaskStatusInitialized = "INITIALIZED"
+
+	// ImportTaskStatusPending is a ImportTaskStatus enum value
+	ImportTaskStatusPending = "PENDING"
+
+	// ImportTaskStatusComplete is a ImportTaskStatus enum value
+	ImportTaskStatusComplete = "COMPLETE"
+
+	// ImportTaskStatusFailed is a ImportTaskStatus enum value
+	ImportTaskStatusFailed = "FAILED"
+
+	// ImportTaskStatusDeleting is a ImportTaskStatus enum value
+	ImportTaskStatusDeleting = "DELETING"
+)
+
+// ImportTaskStatus_Values returns all elements of the ImportTaskStatus enum
+func ImportTaskStatus_Values() []string {
+	return []string{
+		ImportTaskStatusInitializing,
+		ImportTaskStatusInitialized,
+		ImportTaskStatusPending,
+		ImportTaskStatusComplete,
+		ImportTaskStatusFailed,
+		ImportTaskStatusDeleting,
+	}
+}
+
 // The log level for a log message. The log levels can be disabled, or set to
 // ERROR to display less verbose logs containing only error information, or
 // to INFO for more detailed logs.
@@ -25141,6 +31808,201 @@ func MessageType_Values() []string {
 		MessageTypeCustomCommandIdGet,
 		MessageTypeCustomCommandIdSet,
 		MessageTypeCustomCommandIdResp,
+	}
+}
+
+const (
+	// MetricNameDeviceRssi is a MetricName enum value
+	MetricNameDeviceRssi = "DeviceRSSI"
+
+	// MetricNameDeviceSnr is a MetricName enum value
+	MetricNameDeviceSnr = "DeviceSNR"
+
+	// MetricNameDeviceRoamingRssi is a MetricName enum value
+	MetricNameDeviceRoamingRssi = "DeviceRoamingRSSI"
+
+	// MetricNameDeviceRoamingSnr is a MetricName enum value
+	MetricNameDeviceRoamingSnr = "DeviceRoamingSNR"
+
+	// MetricNameDeviceUplinkCount is a MetricName enum value
+	MetricNameDeviceUplinkCount = "DeviceUplinkCount"
+
+	// MetricNameDeviceDownlinkCount is a MetricName enum value
+	MetricNameDeviceDownlinkCount = "DeviceDownlinkCount"
+
+	// MetricNameDeviceUplinkLostCount is a MetricName enum value
+	MetricNameDeviceUplinkLostCount = "DeviceUplinkLostCount"
+
+	// MetricNameDeviceUplinkLostRate is a MetricName enum value
+	MetricNameDeviceUplinkLostRate = "DeviceUplinkLostRate"
+
+	// MetricNameDeviceJoinRequestCount is a MetricName enum value
+	MetricNameDeviceJoinRequestCount = "DeviceJoinRequestCount"
+
+	// MetricNameDeviceJoinAcceptCount is a MetricName enum value
+	MetricNameDeviceJoinAcceptCount = "DeviceJoinAcceptCount"
+
+	// MetricNameDeviceRoamingUplinkCount is a MetricName enum value
+	MetricNameDeviceRoamingUplinkCount = "DeviceRoamingUplinkCount"
+
+	// MetricNameDeviceRoamingDownlinkCount is a MetricName enum value
+	MetricNameDeviceRoamingDownlinkCount = "DeviceRoamingDownlinkCount"
+
+	// MetricNameGatewayUpTime is a MetricName enum value
+	MetricNameGatewayUpTime = "GatewayUpTime"
+
+	// MetricNameGatewayDownTime is a MetricName enum value
+	MetricNameGatewayDownTime = "GatewayDownTime"
+
+	// MetricNameGatewayRssi is a MetricName enum value
+	MetricNameGatewayRssi = "GatewayRSSI"
+
+	// MetricNameGatewaySnr is a MetricName enum value
+	MetricNameGatewaySnr = "GatewaySNR"
+
+	// MetricNameGatewayUplinkCount is a MetricName enum value
+	MetricNameGatewayUplinkCount = "GatewayUplinkCount"
+
+	// MetricNameGatewayDownlinkCount is a MetricName enum value
+	MetricNameGatewayDownlinkCount = "GatewayDownlinkCount"
+
+	// MetricNameGatewayJoinRequestCount is a MetricName enum value
+	MetricNameGatewayJoinRequestCount = "GatewayJoinRequestCount"
+
+	// MetricNameGatewayJoinAcceptCount is a MetricName enum value
+	MetricNameGatewayJoinAcceptCount = "GatewayJoinAcceptCount"
+
+	// MetricNameAwsAccountUplinkCount is a MetricName enum value
+	MetricNameAwsAccountUplinkCount = "AwsAccountUplinkCount"
+
+	// MetricNameAwsAccountDownlinkCount is a MetricName enum value
+	MetricNameAwsAccountDownlinkCount = "AwsAccountDownlinkCount"
+
+	// MetricNameAwsAccountUplinkLostCount is a MetricName enum value
+	MetricNameAwsAccountUplinkLostCount = "AwsAccountUplinkLostCount"
+
+	// MetricNameAwsAccountUplinkLostRate is a MetricName enum value
+	MetricNameAwsAccountUplinkLostRate = "AwsAccountUplinkLostRate"
+
+	// MetricNameAwsAccountJoinRequestCount is a MetricName enum value
+	MetricNameAwsAccountJoinRequestCount = "AwsAccountJoinRequestCount"
+
+	// MetricNameAwsAccountJoinAcceptCount is a MetricName enum value
+	MetricNameAwsAccountJoinAcceptCount = "AwsAccountJoinAcceptCount"
+
+	// MetricNameAwsAccountRoamingUplinkCount is a MetricName enum value
+	MetricNameAwsAccountRoamingUplinkCount = "AwsAccountRoamingUplinkCount"
+
+	// MetricNameAwsAccountRoamingDownlinkCount is a MetricName enum value
+	MetricNameAwsAccountRoamingDownlinkCount = "AwsAccountRoamingDownlinkCount"
+
+	// MetricNameAwsAccountDeviceCount is a MetricName enum value
+	MetricNameAwsAccountDeviceCount = "AwsAccountDeviceCount"
+
+	// MetricNameAwsAccountGatewayCount is a MetricName enum value
+	MetricNameAwsAccountGatewayCount = "AwsAccountGatewayCount"
+
+	// MetricNameAwsAccountActiveDeviceCount is a MetricName enum value
+	MetricNameAwsAccountActiveDeviceCount = "AwsAccountActiveDeviceCount"
+
+	// MetricNameAwsAccountActiveGatewayCount is a MetricName enum value
+	MetricNameAwsAccountActiveGatewayCount = "AwsAccountActiveGatewayCount"
+)
+
+// MetricName_Values returns all elements of the MetricName enum
+func MetricName_Values() []string {
+	return []string{
+		MetricNameDeviceRssi,
+		MetricNameDeviceSnr,
+		MetricNameDeviceRoamingRssi,
+		MetricNameDeviceRoamingSnr,
+		MetricNameDeviceUplinkCount,
+		MetricNameDeviceDownlinkCount,
+		MetricNameDeviceUplinkLostCount,
+		MetricNameDeviceUplinkLostRate,
+		MetricNameDeviceJoinRequestCount,
+		MetricNameDeviceJoinAcceptCount,
+		MetricNameDeviceRoamingUplinkCount,
+		MetricNameDeviceRoamingDownlinkCount,
+		MetricNameGatewayUpTime,
+		MetricNameGatewayDownTime,
+		MetricNameGatewayRssi,
+		MetricNameGatewaySnr,
+		MetricNameGatewayUplinkCount,
+		MetricNameGatewayDownlinkCount,
+		MetricNameGatewayJoinRequestCount,
+		MetricNameGatewayJoinAcceptCount,
+		MetricNameAwsAccountUplinkCount,
+		MetricNameAwsAccountDownlinkCount,
+		MetricNameAwsAccountUplinkLostCount,
+		MetricNameAwsAccountUplinkLostRate,
+		MetricNameAwsAccountJoinRequestCount,
+		MetricNameAwsAccountJoinAcceptCount,
+		MetricNameAwsAccountRoamingUplinkCount,
+		MetricNameAwsAccountRoamingDownlinkCount,
+		MetricNameAwsAccountDeviceCount,
+		MetricNameAwsAccountGatewayCount,
+		MetricNameAwsAccountActiveDeviceCount,
+		MetricNameAwsAccountActiveGatewayCount,
+	}
+}
+
+const (
+	// MetricQueryStatusSucceeded is a MetricQueryStatus enum value
+	MetricQueryStatusSucceeded = "Succeeded"
+
+	// MetricQueryStatusFailed is a MetricQueryStatus enum value
+	MetricQueryStatusFailed = "Failed"
+)
+
+// MetricQueryStatus_Values returns all elements of the MetricQueryStatus enum
+func MetricQueryStatus_Values() []string {
+	return []string{
+		MetricQueryStatusSucceeded,
+		MetricQueryStatusFailed,
+	}
+}
+
+// FrameInfo of your multicast group resources for the trace content. Use FrameInfo
+// to debug the multicast communication between your multicast groups and the
+// network server.
+const (
+	// MulticastFrameInfoEnabled is a MulticastFrameInfo enum value
+	MulticastFrameInfoEnabled = "ENABLED"
+
+	// MulticastFrameInfoDisabled is a MulticastFrameInfo enum value
+	MulticastFrameInfoDisabled = "DISABLED"
+)
+
+// MulticastFrameInfo_Values returns all elements of the MulticastFrameInfo enum
+func MulticastFrameInfo_Values() []string {
+	return []string{
+		MulticastFrameInfoEnabled,
+		MulticastFrameInfoDisabled,
+	}
+}
+
+const (
+	// OnboardStatusInitialized is a OnboardStatus enum value
+	OnboardStatusInitialized = "INITIALIZED"
+
+	// OnboardStatusPending is a OnboardStatus enum value
+	OnboardStatusPending = "PENDING"
+
+	// OnboardStatusOnboarded is a OnboardStatus enum value
+	OnboardStatusOnboarded = "ONBOARDED"
+
+	// OnboardStatusFailed is a OnboardStatus enum value
+	OnboardStatusFailed = "FAILED"
+)
+
+// OnboardStatus_Values returns all elements of the OnboardStatus enum
+func OnboardStatus_Values() []string {
+	return []string{
+		OnboardStatusInitialized,
+		OnboardStatusPending,
+		OnboardStatusOnboarded,
+		OnboardStatusFailed,
 	}
 }
 
@@ -25228,6 +32090,22 @@ func PositionSolverType_Values() []string {
 	}
 }
 
+const (
+	// PositioningConfigStatusEnabled is a PositioningConfigStatus enum value
+	PositioningConfigStatusEnabled = "Enabled"
+
+	// PositioningConfigStatusDisabled is a PositioningConfigStatus enum value
+	PositioningConfigStatusDisabled = "Disabled"
+)
+
+// PositioningConfigStatus_Values returns all elements of the PositioningConfigStatus enum
+func PositioningConfigStatus_Values() []string {
+	return []string{
+		PositioningConfigStatusEnabled,
+		PositioningConfigStatusDisabled,
+	}
+}
+
 // The certificate chain algorithm provided by sidewalk.
 const (
 	// SigningAlgEd25519 is a SigningAlg enum value
@@ -25245,6 +32123,22 @@ func SigningAlg_Values() []string {
 	}
 }
 
+const (
+	// SummaryMetricConfigurationStatusEnabled is a SummaryMetricConfigurationStatus enum value
+	SummaryMetricConfigurationStatusEnabled = "Enabled"
+
+	// SummaryMetricConfigurationStatusDisabled is a SummaryMetricConfigurationStatus enum value
+	SummaryMetricConfigurationStatusDisabled = "Disabled"
+)
+
+// SummaryMetricConfigurationStatus_Values returns all elements of the SummaryMetricConfigurationStatus enum
+func SummaryMetricConfigurationStatus_Values() []string {
+	return []string{
+		SummaryMetricConfigurationStatusEnabled,
+		SummaryMetricConfigurationStatusDisabled,
+	}
+}
+
 // Supported RfRegions
 const (
 	// SupportedRfRegionEu868 is a SupportedRfRegion enum value
@@ -25258,6 +32152,33 @@ const (
 
 	// SupportedRfRegionAs9231 is a SupportedRfRegion enum value
 	SupportedRfRegionAs9231 = "AS923-1"
+
+	// SupportedRfRegionAs9232 is a SupportedRfRegion enum value
+	SupportedRfRegionAs9232 = "AS923-2"
+
+	// SupportedRfRegionAs9233 is a SupportedRfRegion enum value
+	SupportedRfRegionAs9233 = "AS923-3"
+
+	// SupportedRfRegionAs9234 is a SupportedRfRegion enum value
+	SupportedRfRegionAs9234 = "AS923-4"
+
+	// SupportedRfRegionEu433 is a SupportedRfRegion enum value
+	SupportedRfRegionEu433 = "EU433"
+
+	// SupportedRfRegionCn470 is a SupportedRfRegion enum value
+	SupportedRfRegionCn470 = "CN470"
+
+	// SupportedRfRegionCn779 is a SupportedRfRegion enum value
+	SupportedRfRegionCn779 = "CN779"
+
+	// SupportedRfRegionRu864 is a SupportedRfRegion enum value
+	SupportedRfRegionRu864 = "RU864"
+
+	// SupportedRfRegionKr920 is a SupportedRfRegion enum value
+	SupportedRfRegionKr920 = "KR920"
+
+	// SupportedRfRegionIn865 is a SupportedRfRegion enum value
+	SupportedRfRegionIn865 = "IN865"
 )
 
 // SupportedRfRegion_Values returns all elements of the SupportedRfRegion enum
@@ -25267,6 +32188,15 @@ func SupportedRfRegion_Values() []string {
 		SupportedRfRegionUs915,
 		SupportedRfRegionAu915,
 		SupportedRfRegionAs9231,
+		SupportedRfRegionAs9232,
+		SupportedRfRegionAs9233,
+		SupportedRfRegionAs9234,
+		SupportedRfRegionEu433,
+		SupportedRfRegionCn470,
+		SupportedRfRegionCn779,
+		SupportedRfRegionRu864,
+		SupportedRfRegionKr920,
+		SupportedRfRegionIn865,
 	}
 }
 
@@ -25339,6 +32269,30 @@ func WirelessDeviceIdType_Values() []string {
 		WirelessDeviceIdTypeDevEui,
 		WirelessDeviceIdTypeThingName,
 		WirelessDeviceIdTypeSidewalkManufacturingSn,
+	}
+}
+
+const (
+	// WirelessDeviceSidewalkStatusProvisioned is a WirelessDeviceSidewalkStatus enum value
+	WirelessDeviceSidewalkStatusProvisioned = "PROVISIONED"
+
+	// WirelessDeviceSidewalkStatusRegistered is a WirelessDeviceSidewalkStatus enum value
+	WirelessDeviceSidewalkStatusRegistered = "REGISTERED"
+
+	// WirelessDeviceSidewalkStatusActivated is a WirelessDeviceSidewalkStatus enum value
+	WirelessDeviceSidewalkStatusActivated = "ACTIVATED"
+
+	// WirelessDeviceSidewalkStatusUnknown is a WirelessDeviceSidewalkStatus enum value
+	WirelessDeviceSidewalkStatusUnknown = "UNKNOWN"
+)
+
+// WirelessDeviceSidewalkStatus_Values returns all elements of the WirelessDeviceSidewalkStatus enum
+func WirelessDeviceSidewalkStatus_Values() []string {
+	return []string{
+		WirelessDeviceSidewalkStatusProvisioned,
+		WirelessDeviceSidewalkStatusRegistered,
+		WirelessDeviceSidewalkStatusActivated,
+		WirelessDeviceSidewalkStatusUnknown,
 	}
 }
 

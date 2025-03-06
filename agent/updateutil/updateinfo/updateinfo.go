@@ -84,6 +84,11 @@ func (i *updateInfoImpl) GetPlatform() string {
 	return i.platform
 }
 
+// GetPlatformVersion returns the version of the current platform
+func (i *updateInfoImpl) GetPlatformVersion() string {
+	return i.platformVersion
+}
+
 func getMinimumVersionForSystemD() (systemDMap *map[string]string) {
 	once.Do(func() {
 		isUsingSystemD = make(map[string]string)
@@ -91,6 +96,7 @@ func getMinimumVersionForSystemD() (systemDMap *map[string]string) {
 		isUsingSystemD[updateconstants.PlatformRedHat] = "7"
 		isUsingSystemD[updateconstants.PlatformOracleLinux] = "7"
 		isUsingSystemD[updateconstants.PlatformRockyLinux] = "7"
+		isUsingSystemD[updateconstants.PlatformAlmaLinux] = "8"
 		isUsingSystemD[updateconstants.PlatformUbuntu] = "15"
 		isUsingSystemD[updateconstants.PlatformSuseOS] = "12"
 		isUsingSystemD[updateconstants.PlatformDebian] = "8"
@@ -112,6 +118,28 @@ func (i *updateInfoImpl) GenerateCompressedFileName(packageName string) string {
 	fileName = strings.Replace(fileName, updateconstants.CompressedHolder, i.compressFormat, -1)
 
 	return fileName
+}
+
+// GeneratePlatformBasedFolderName generates platform based folder name where artifacts are present
+func (i *updateInfoImpl) GeneratePlatformBasedFolderName() string {
+	platformReplacement := i.platform
+	if i.downloadPlatformOverride != "" {
+		platformReplacement = i.downloadPlatformOverride
+	}
+	const nanoStr = "nano"
+	folderName := "{Platform}_{Arch}"
+	// nano folder name should be "windows_nano"
+	if strings.Contains(platformReplacement, updateconstants.PlatformWindowsNano) {
+		folderName = strings.Replace(folderName, updateconstants.PlatformHolder, updateconstants.PlatformWindows, -1)
+		folderName = strings.Replace(folderName, updateconstants.ArchHolder, nanoStr, -1)
+		return folderName
+	}
+	if strings.Contains(platformReplacement, updateconstants.PlatformUbuntu) {
+		platformReplacement = updateconstants.PlatformDebian
+	}
+	folderName = strings.Replace(folderName, updateconstants.PlatformHolder, platformReplacement, -1)
+	folderName = strings.Replace(folderName, updateconstants.ArchHolder, i.arch, -1)
+	return folderName
 }
 
 var getPlatformName = platform.PlatformName
@@ -177,6 +205,14 @@ func newInner(context context.T) (updateInfo *updateInfoImpl, err error) {
 		log.Info("Detected platform Rocky Linux")
 		platformName = updateconstants.PlatformRockyLinux
 		downloadPlatformOverride = updateconstants.PlatformLinux
+	} else if strings.Contains(platformName, updateconstants.PlatformAlmaLinux) {
+		log.Info("Detected platform AlmaLinux")
+		platformName = updateconstants.PlatformAlmaLinux
+		downloadPlatformOverride = updateconstants.PlatformLinux
+	} else if strings.Contains(platformName, updateconstants.PlatformFlatcar) {
+		log.Info("Detected platform Flatcar")
+		platformName = updateconstants.PlatformFlatcar
+		downloadPlatformOverride = updateconstants.PlatformLinux
 	} else if strings.Contains(platformName, updateconstants.PlatformSuseOS) {
 		log.Info("Detected platform SuseOS")
 		platformName = updateconstants.PlatformSuseOS
@@ -227,5 +263,4 @@ func isAgentInstalledUsingSnap(log log.T) (result bool, err error) {
 	}
 	log.Debug("Agent is installed using snap")
 	return true, nil
-
 }

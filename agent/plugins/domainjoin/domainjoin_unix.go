@@ -192,7 +192,13 @@ func (p *Plugin) runCommands(pluginID string, pluginInput DomainJoinPluginInput,
 	}
 
 	log.Infof("command line is : %v", command)
-	commandParts := strings.Fields(command)
+
+	var commandParts []string
+	if commandParts, err = makeCommandParts(command); err != nil {
+		out.MarkAsFailed(fmt.Errorf("Failed to parse domain join command because : %v", err.Error()))
+		return
+	}
+
 	out.SetStatus(contracts.ResultStatusInProgress)
 	var output string
 	output, err = utilExe(log,
@@ -220,22 +226,6 @@ func (p *Plugin) runCommands(pluginID string, pluginInput DomainJoinPluginInput,
 
 	out.MarkAsSucceeded()
 	return
-}
-
-func isShellInjection(arg string) bool {
-	var backtick, _ = regexp.Compile("`")
-	matched := backtick.MatchString(arg)
-	if matched == true {
-		return true
-	}
-
-	var shellCmd, _ = regexp.Compile(`\$\(`)
-	matched = shellCmd.MatchString(arg)
-	if matched == true {
-		return true
-	}
-
-	return false
 }
 
 func isMatchingIPAddress(arg string) bool {
@@ -292,7 +282,12 @@ func makeArguments(context context.T, scriptPath string, pluginInput DomainJoinP
 	if len(pluginInput.DirectoryOU) != 0 {
 		log.Debugf("Customized directory OU parameter provided: %v", pluginInput.DirectoryOU)
 		buffer.WriteString(DirectoryOUArg)
-		buffer.WriteString(pluginInput.DirectoryOU)
+		// when using OU name with spaces, we should expect users passing in the OU parameter within quotation marks
+		// need to remove such quotation marks for UNIX shell script
+		// adding outer single quotes to indicate the lexical parser this is a single token
+		buffer.WriteString("'")
+		buffer.WriteString(strings.Trim(pluginInput.DirectoryOU, "\""))
+		buffer.WriteString("'")
 	}
 
 	if isShellInjection(pluginInput.DirectoryOU) {
@@ -318,6 +313,11 @@ func makeArguments(context context.T, scriptPath string, pluginInput DomainJoinP
 		}
 	}
 
+	if pluginInput.KeepHostName {
+		buffer.WriteString(KeepHostNameArgs)
+		buffer.WriteString(" ")
+	}
+
 	if len(pluginInput.DnsIpAddresses) == 0 {
 		log.Debug("Do not provide dns addresses.")
 		return buffer.String(), nil
@@ -338,11 +338,6 @@ func makeArguments(context context.T, scriptPath string, pluginInput DomainJoinP
 		} else {
 			return "", fmt.Errorf("Invalid DNS IP address " + pluginInput.DnsIpAddresses[index])
 		}
-	}
-
-	if pluginInput.KeepHostName {
-		buffer.WriteString(KeepHostNameArgs)
-		buffer.WriteString(" ")
 	}
 
 	return buffer.String(), nil

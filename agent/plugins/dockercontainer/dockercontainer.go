@@ -125,7 +125,7 @@ func (p *Plugin) runCommands(pluginID string, pluginInput DockerContainerPluginI
 	var err error
 
 	// TODO:MF: This subdirectory is only needed because we could be running multiple sets of properties for the same plugin - otherwise the orchestration directory would already be unique
-	orchestrationDir := fileutil.BuildPath(orchestrationDirectory, pluginInput.ID)
+	orchestrationDir := fileutil.BuildSafePath(orchestrationDirectory, pluginInput.ID)
 	log.Debugf("OrchestrationDir %v ", orchestrationDir)
 
 	if err = validateInputs(pluginInput); err != nil {
@@ -308,11 +308,11 @@ func (p *Plugin) runCommands(pluginID string, pluginInput DockerContainerPluginI
 func validateInputs(pluginInput DockerContainerPluginInput) (err error) {
 	validContainerName := regexp.MustCompile(`^[a-zA-Z0-9_\-\\\/]*$`)
 	if !validContainerName.MatchString(pluginInput.Container) {
-		return errors.New("Invalid container name, only [a-zA-Z0-9_-] are allowed")
+		return errors.New("Invalid container name, only [a-zA-Z0-9_-\\/] are allowed")
 	}
-	validImageValue := regexp.MustCompile(`^[a-zA-Z0-9_\-\\\/]*$`)
+	validImageValue := regexp.MustCompile(`^[a-zA-Z0-9.:_\-\\\/]*$`)
 	if !validImageValue.MatchString(pluginInput.Image) {
-		return errors.New("Invalid image value, only [a-zA-Z0-9_-] are allowed")
+		return errors.New("Invalid image value, only [a-zA-Z0-9.:_-\\/] are allowed")
 	}
 	validUserValue := regexp.MustCompile(`^[a-zA-Z0-9_-]*$`)
 	if !validUserValue.MatchString(pluginInput.User) {
@@ -330,7 +330,7 @@ func validateInputs(pluginInput DockerContainerPluginInput) (err error) {
 	}
 	validMemoryValue := regexp.MustCompile(`^[0-9]*[bkmg]?$`)
 	if !validMemoryValue.MatchString(pluginInput.Memory) {
-		return errors.New("Invalid CpuShares value")
+		return errors.New("Invalid Memory value")
 	}
 	validPublishValue := regexp.MustCompile(`^[0-9a-zA-Z:\-\/.]*$`)
 	if !validPublishValue.MatchString(pluginInput.Publish) {

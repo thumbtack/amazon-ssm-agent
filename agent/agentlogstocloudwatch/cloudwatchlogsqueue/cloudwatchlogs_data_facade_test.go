@@ -16,10 +16,13 @@
 package cloudwatchlogsqueue
 
 import (
+	"strings"
 	"sync"
+	"sync/atomic"
 	"testing"
 	"time"
 
+	"github.com/aws/amazon-ssm-agent/agent/appconfig"
 	"github.com/aws/aws-sdk-go/service/cloudwatchlogs"
 	"github.com/cihub/seelog"
 	"github.com/stretchr/testify/assert"
@@ -40,7 +43,7 @@ func TestFacade(t *testing.T) {
 
 	messages, err := Dequeue(time.Millisecond)
 	assert.NoError(t, err, "Unexpected Error in Dequeueing From Queue")
-	assert.Nil(t, messages, "No Messages should be present")
+	assert.Len(t, messages, 0, "No Messages should be present")
 
 	message := &cloudwatchlogs.InputLogEvent{}
 
@@ -53,7 +56,7 @@ func TestFacade(t *testing.T) {
 
 	messages, err = Dequeue(time.Millisecond)
 	assert.NoError(t, err, "Unexpected Error in Dequeueing From Queue")
-	assert.Nil(t, messages, "No Messages should be present")
+	assert.Len(t, messages, 0, "No Messages should be present")
 
 	Enqueue(message)
 
@@ -61,11 +64,22 @@ func TestFacade(t *testing.T) {
 	assert.NoError(t, err, "Unexpected Error in Dequeueing From Queue")
 	assert.NotNil(t, messages, "Messages should be present")
 
+	s := strings.Repeat("A", batchByteSizeMax/2)
+	message = &cloudwatchlogs.InputLogEvent{
+		Message: &s,
+	}
+	Enqueue(message)
+	Enqueue(message)
+	messages, err = Dequeue(time.Millisecond)
+	assert.Equal(t, "cw batch byte size exceeded the limit", err.Error())
+	assert.Len(t, messages, 1, "No Messages should be present")
+
 	DestroyCloudWatchDataInstance()
 
 	messages, err = Dequeue(time.Millisecond)
 	assert.Error(t, err, "No Error in Dequeueing From Destroyed Queue")
-	assert.Nil(t, messages, "No Messages should be present")
+	assert.Len(t, messages, 0, "No Messages should be present")
+
 }
 
 func TestParallelAccessOfQueue(t *testing.T) {
@@ -82,16 +96,16 @@ func TestParallelAccessOfQueue(t *testing.T) {
 
 	message := &cloudwatchlogs.InputLogEvent{}
 
-	counter := 0
+	var counter atomic.Int32
 
 	dequeued := make(chan bool, 6)
 	done := make(chan bool, 3)
-	enqueuesComplete := false
+	var enqueuesComplete atomic.Bool
 
 	go func() {
 		for i := 0; i < 500; i++ {
 			Enqueue(message)
-			counter++
+			counter.Add(1)
 			if i == 100 || i == 300 {
 				// Block on dequeued which unblocks only when something dequeues to ensure dequeuer is running while enqueueing
 				<-dequeued
@@ -104,7 +118,7 @@ func TestParallelAccessOfQueue(t *testing.T) {
 	go func() {
 		for i := 0; i < 1000; i++ {
 			Enqueue(message)
-			counter++
+			counter.Add(1)
 			if i == 100 || i == 500 {
 				// Block on dequeued which unblocks only when something dequeues to ensure dequeuer is running while enqueueing
 				<-dequeued
@@ -117,12 +131,12 @@ func TestParallelAccessOfQueue(t *testing.T) {
 	go func() {
 		for {
 			messages, _ := Dequeue(time.Millisecond)
-			counter -= len(messages)
+			counter.Add(int32(-len(messages)))
 			if len(messages) == 0 {
 				// Unblock Enqueuers to continue enqueueing
 				dequeued <- true
 			}
-			if enqueuesComplete {
+			if enqueuesComplete.Load() {
 				break
 			}
 			time.Sleep(time.Millisecond)
@@ -132,10 +146,10 @@ func TestParallelAccessOfQueue(t *testing.T) {
 
 	<-done
 	<-done
-	enqueuesComplete = true
+	enqueuesComplete.Store(true)
 	<-done
 
-	assert.Equal(t, 0, counter, "Message loss while enqueueing and dequeueing from go routines")
+	assert.Equal(t, 0, int(counter.Load()), "Message loss while enqueueing and dequeueing from go routines")
 
 }
 
@@ -158,4 +172,90 @@ func TestOverflow(t *testing.T) {
 	}
 
 	assert.Equal(t, queueLimit, logDataFacadeInstance.messageQueue.Len(), "No. of messages in Queue do not match queuelimit on enqueueing more than limit")
+}
+
+func TestFacadeCWGroupNameTest(t *testing.T) {
+
+	xmlArgs := make(map[string]string)
+	xmlArgs["log-stream"] = "LogStream"
+
+	initArgs := seelog.CustomReceiverInitArgs{
+		XmlCustomAttrs: xmlArgs,
+	}
+
+	var args = []string{appconfig.DefaultDocumentWorker}
+	initArgs.XmlCustomAttrs[agentWorkerLogGroupSeelogAttrib] = ""
+	err := verifyLogGroupName(initArgs, args)
+	assert.Error(t, err)
+
+	verifiedLogGroupName = ""
+	args = []string{appconfig.DefaultDocumentWorker}
+	initArgs.XmlCustomAttrs[agentWorkerLogGroupSeelogAttrib] = "test"
+	err = verifyLogGroupName(initArgs, args)
+	assert.Error(t, err)
+	assert.Equal(t, "", verifiedLogGroupName)
+
+	verifiedLogGroupName = ""
+	args = []string{appconfig.DefaultDocumentWorker}
+	initArgs.XmlCustomAttrs[docWorkerLogGroupSeelogAttrib] = "test1"
+	err = verifyLogGroupName(initArgs, args)
+	assert.NoError(t, err)
+	assert.Equal(t, "test1", verifiedLogGroupName)
+
+	verifiedLogGroupName = ""
+	args = []string{appconfig.DefaultSessionWorker}
+	initArgs.XmlCustomAttrs[docWorkerLogGroupSeelogAttrib] = "test2"
+	err = verifyLogGroupName(initArgs, args)
+	assert.Error(t, err)
+	assert.Equal(t, "", verifiedLogGroupName)
+
+	verifiedLogGroupName = ""
+	initArgs.XmlCustomAttrs[sessionWorkerLogGroupSeelogAttrib] = "test3"
+	err = verifyLogGroupName(initArgs, args)
+	assert.NoError(t, err)
+	assert.Equal(t, "test3", verifiedLogGroupName)
+}
+
+func TestGetLogGroup_ReturnsEmptyString_WhenNotActive(t *testing.T) {
+	if IsActive() {
+		DestroyCloudWatchDataInstance()
+	}
+
+	actualLogGroup := GetLogGroup()
+	assert.Equal(t, "", actualLogGroup)
+}
+
+func TestGetSharingDestination_ReturnsEmptyString_WhenNotActive(t *testing.T) {
+	if IsActive() {
+		DestroyCloudWatchDataInstance()
+	}
+
+	actualSharingDestination := GetSharingDestination()
+	assert.Equal(t, "", actualSharingDestination)
+}
+
+func TestIsLogSharingEnabled_ReturnsFalse_WhenNotActive(t *testing.T) {
+	if IsActive() {
+		DestroyCloudWatchDataInstance()
+	}
+
+	assert.False(t, IsLogSharingEnabled())
+}
+
+func TestEnqueue_ReturnsError_WhenNotActive(t *testing.T) {
+	if IsActive() {
+		DestroyCloudWatchDataInstance()
+	}
+
+	err := Enqueue(&cloudwatchlogs.InputLogEvent{})
+	assert.Error(t, err)
+}
+
+func TestDequeue_ReturnsError_WhenNotActive(t *testing.T) {
+	if IsActive() {
+		DestroyCloudWatchDataInstance()
+	}
+
+	_, err := Dequeue(1000 * time.Millisecond)
+	assert.Error(t, err)
 }

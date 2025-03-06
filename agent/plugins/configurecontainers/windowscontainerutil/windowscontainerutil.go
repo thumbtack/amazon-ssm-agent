@@ -31,9 +31,13 @@ import (
 )
 
 const (
-	DOCKER_DOWNLOAD_URL         = "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip"
-	DOCKER_UNCOMPRESS_DIRECTORY = "C:\\Program Files"
-	DOCKER_INSTALLED_DIRECTORY  = DOCKER_UNCOMPRESS_DIRECTORY + "\\docker"
+	DOCKER_DOWNLOAD_URL = "https://download.docker.com/win/static/stable/x86_64/docker-27.3.1.zip"
+)
+
+var (
+	PROGRAM_FILES_DIRECTORY    = os.Getenv("ProgramFiles")
+	DOCKER_INSTALLED_DIRECTORY = PROGRAM_FILES_DIRECTORY + "\\docker"
+	PROGRAM_DATA_DIRECTORY     = os.Getenv("ProgramData")
 )
 
 func RunInstallCommands(context context.T, orchestrationDirectory string, out iohandler.IOHandler) {
@@ -55,7 +59,7 @@ func RunInstallCommands(context context.T, orchestrationDirectory string, out io
 	}
 	log.Debug("Platform Version:", platformVersion)
 	if !strings.HasPrefix(platformVersion, "10") {
-		out.MarkAsFailed(errors.New("ConfigureDocker is only supported on Microsoft Windows Server 2016."))
+		out.MarkAsFailed(errors.New("ConfigureDocker is only supported on Microsoft Windows Server 2016 and above."))
 		return
 	}
 
@@ -164,12 +168,8 @@ func RunInstallCommands(context context.T, orchestrationDirectory string, out io
 	}
 
 	//Create docker config if it does not exist
-	daemonConfigPath := os.Getenv("ProgramData") + "\\docker\\config\\daemon.json"
-	daemonConfigContent := `
-{
-    "fixed-cidr": "172.17.0.0/16"
-}
-`
+	daemonConfigPath := PROGRAM_DATA_DIRECTORY + "\\docker\\config\\daemon.json"
+	daemonConfigContent := `{}`
 
 	if err := dep.SetDaemonConfig(daemonConfigPath, daemonConfigContent); err != nil {
 		log.Error("Error writing Docker daemon config file", err)
@@ -181,7 +181,8 @@ func RunInstallCommands(context context.T, orchestrationDirectory string, out io
 	var downloadOutput artifact.DownloadOutput
 	downloadOutput, err = dep.ArtifactDownload(context, artifact.DownloadInput{SourceURL: DOCKER_DOWNLOAD_URL, DestinationDirectory: appconfig.DownloadRoot})
 	if err != nil {
-		log.Errorf("failed to download file from %v: %v", DOCKER_DOWNLOAD_URL, err)
+		log.Errorf("Failed to download Docker Engine file from %v: %v", DOCKER_DOWNLOAD_URL, err)
+		out.MarkAsFailed(fmt.Errorf("Failed to download Docker Engine file from %v: %v", DOCKER_DOWNLOAD_URL, err))
 		return
 	}
 	log.Debugf("Zip file downloaded to %v", downloadOutput.LocalFilePath)
@@ -190,7 +191,7 @@ func RunInstallCommands(context context.T, orchestrationDirectory string, out io
 	if downloadOutput.IsUpdated || installedErr != nil {
 		out.AppendInfo("Unzipping Docker to program files directory.")
 		//uncompress docker zip
-		fileutil.Uncompress(log, downloadOutput.LocalFilePath, DOCKER_UNCOMPRESS_DIRECTORY)
+		fileutil.Uncompress(log, downloadOutput.LocalFilePath, PROGRAM_FILES_DIRECTORY)
 	}
 
 	// delete downloaded file, if it exists
@@ -324,7 +325,7 @@ func RunUninstallCommands(context context.T, orchestrationDirectory string, out 
 	}
 	log.Debug("Platform Version:", platformVersion)
 	if !strings.HasPrefix(platformVersion, "10") {
-		out.MarkAsFailed(errors.New("ConfigureDocker is only supported on Microsoft Windows Server 2016."))
+		out.MarkAsFailed(errors.New("ConfigureDocker is only supported on Microsoft Windows Server 2016 and above."))
 		return
 	}
 
@@ -359,10 +360,11 @@ func RunUninstallCommands(context context.T, orchestrationDirectory string, out 
 	//Unregister Service
 	if len(strings.TrimSpace(dockerServiceStatusOutput)) > 0 {
 		out.AppendInfo("Unregistering dockerd service.")
-		command = "(Get-WmiObject -Class Win32_Service -Filter \"Name='docker'\").delete()"
 
-		parameters = make([]string, 0)
-		dockerServiceStatusOutput, err = dep.UpdateUtilExeCommandOutput(context, 120, log, command, parameters, DOCKER_INSTALLED_DIRECTORY, "", "", "", true)
+		command = `dockerd`
+		log.Debug("dockerd cmd:", command)
+		parameters = []string{"--unregister-service"}
+		dockerServiceStatusOutput, err = dep.UpdateUtilExeCommandOutput(context, 120, log, command, parameters, "", "", "", "", true)
 		if err != nil {
 			log.Error("Error unregistering Docker service", err)
 			out.MarkAsFailed(fmt.Errorf("Error unregistering Docker service: %v", err))

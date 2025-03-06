@@ -23,37 +23,37 @@ import (
 // can be stubbed out for unit testing your code with the SDK without needing
 // to inject custom request handlers into the SDK's request pipeline.
 //
-//    // myFunc uses an SDK service client to make a request to
-//    // Amazon Personalize.
-//    func myFunc(svc personalizeiface.PersonalizeAPI) bool {
-//        // Make svc.CreateBatchInferenceJob request
-//    }
+//	// myFunc uses an SDK service client to make a request to
+//	// Amazon Personalize.
+//	func myFunc(svc personalizeiface.PersonalizeAPI) bool {
+//	    // Make svc.CreateBatchInferenceJob request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := personalize.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := personalize.New(sess)
 //
-//        myFunc(svc)
-//    }
+//	    myFunc(svc)
+//	}
 //
 // In your _test.go file:
 //
-//    // Define a mock struct to be used in your unit tests of myFunc.
-//    type mockPersonalizeClient struct {
-//        personalizeiface.PersonalizeAPI
-//    }
-//    func (m *mockPersonalizeClient) CreateBatchInferenceJob(input *personalize.CreateBatchInferenceJobInput) (*personalize.CreateBatchInferenceJobOutput, error) {
-//        // mock response/functionality
-//    }
+//	// Define a mock struct to be used in your unit tests of myFunc.
+//	type mockPersonalizeClient struct {
+//	    personalizeiface.PersonalizeAPI
+//	}
+//	func (m *mockPersonalizeClient) CreateBatchInferenceJob(input *personalize.CreateBatchInferenceJobInput) (*personalize.CreateBatchInferenceJobOutput, error) {
+//	    // mock response/functionality
+//	}
 //
-//    func TestMyFunc(t *testing.T) {
-//        // Setup Test
-//        mockSvc := &mockPersonalizeClient{}
+//	func TestMyFunc(t *testing.T) {
+//	    // Setup Test
+//	    mockSvc := &mockPersonalizeClient{}
 //
-//        myfunc(mockSvc)
+//	    myfunc(mockSvc)
 //
-//        // Verify myFunc's functionality
-//    }
+//	    // Verify myFunc's functionality
+//	}
 //
 // It is important to note that this interface will have breaking changes
 // when the service model is updated and adds new API operations, paginators,
@@ -71,6 +71,10 @@ type PersonalizeAPI interface {
 	CreateCampaign(*personalize.CreateCampaignInput) (*personalize.CreateCampaignOutput, error)
 	CreateCampaignWithContext(aws.Context, *personalize.CreateCampaignInput, ...request.Option) (*personalize.CreateCampaignOutput, error)
 	CreateCampaignRequest(*personalize.CreateCampaignInput) (*request.Request, *personalize.CreateCampaignOutput)
+
+	CreateDataDeletionJob(*personalize.CreateDataDeletionJobInput) (*personalize.CreateDataDeletionJobOutput, error)
+	CreateDataDeletionJobWithContext(aws.Context, *personalize.CreateDataDeletionJobInput, ...request.Option) (*personalize.CreateDataDeletionJobOutput, error)
+	CreateDataDeletionJobRequest(*personalize.CreateDataDeletionJobInput) (*request.Request, *personalize.CreateDataDeletionJobOutput)
 
 	CreateDataset(*personalize.CreateDatasetInput) (*personalize.CreateDatasetOutput, error)
 	CreateDatasetWithContext(aws.Context, *personalize.CreateDatasetInput, ...request.Option) (*personalize.CreateDatasetOutput, error)
@@ -95,6 +99,10 @@ type PersonalizeAPI interface {
 	CreateFilter(*personalize.CreateFilterInput) (*personalize.CreateFilterOutput, error)
 	CreateFilterWithContext(aws.Context, *personalize.CreateFilterInput, ...request.Option) (*personalize.CreateFilterOutput, error)
 	CreateFilterRequest(*personalize.CreateFilterInput) (*request.Request, *personalize.CreateFilterOutput)
+
+	CreateMetricAttribution(*personalize.CreateMetricAttributionInput) (*personalize.CreateMetricAttributionOutput, error)
+	CreateMetricAttributionWithContext(aws.Context, *personalize.CreateMetricAttributionInput, ...request.Option) (*personalize.CreateMetricAttributionOutput, error)
+	CreateMetricAttributionRequest(*personalize.CreateMetricAttributionInput) (*request.Request, *personalize.CreateMetricAttributionOutput)
 
 	CreateRecommender(*personalize.CreateRecommenderInput) (*personalize.CreateRecommenderOutput, error)
 	CreateRecommenderWithContext(aws.Context, *personalize.CreateRecommenderInput, ...request.Option) (*personalize.CreateRecommenderOutput, error)
@@ -132,6 +140,10 @@ type PersonalizeAPI interface {
 	DeleteFilterWithContext(aws.Context, *personalize.DeleteFilterInput, ...request.Option) (*personalize.DeleteFilterOutput, error)
 	DeleteFilterRequest(*personalize.DeleteFilterInput) (*request.Request, *personalize.DeleteFilterOutput)
 
+	DeleteMetricAttribution(*personalize.DeleteMetricAttributionInput) (*personalize.DeleteMetricAttributionOutput, error)
+	DeleteMetricAttributionWithContext(aws.Context, *personalize.DeleteMetricAttributionInput, ...request.Option) (*personalize.DeleteMetricAttributionOutput, error)
+	DeleteMetricAttributionRequest(*personalize.DeleteMetricAttributionInput) (*request.Request, *personalize.DeleteMetricAttributionOutput)
+
 	DeleteRecommender(*personalize.DeleteRecommenderInput) (*personalize.DeleteRecommenderOutput, error)
 	DeleteRecommenderWithContext(aws.Context, *personalize.DeleteRecommenderInput, ...request.Option) (*personalize.DeleteRecommenderOutput, error)
 	DeleteRecommenderRequest(*personalize.DeleteRecommenderInput) (*request.Request, *personalize.DeleteRecommenderOutput)
@@ -160,6 +172,10 @@ type PersonalizeAPI interface {
 	DescribeCampaignWithContext(aws.Context, *personalize.DescribeCampaignInput, ...request.Option) (*personalize.DescribeCampaignOutput, error)
 	DescribeCampaignRequest(*personalize.DescribeCampaignInput) (*request.Request, *personalize.DescribeCampaignOutput)
 
+	DescribeDataDeletionJob(*personalize.DescribeDataDeletionJobInput) (*personalize.DescribeDataDeletionJobOutput, error)
+	DescribeDataDeletionJobWithContext(aws.Context, *personalize.DescribeDataDeletionJobInput, ...request.Option) (*personalize.DescribeDataDeletionJobOutput, error)
+	DescribeDataDeletionJobRequest(*personalize.DescribeDataDeletionJobInput) (*request.Request, *personalize.DescribeDataDeletionJobOutput)
+
 	DescribeDataset(*personalize.DescribeDatasetInput) (*personalize.DescribeDatasetOutput, error)
 	DescribeDatasetWithContext(aws.Context, *personalize.DescribeDatasetInput, ...request.Option) (*personalize.DescribeDatasetOutput, error)
 	DescribeDatasetRequest(*personalize.DescribeDatasetInput) (*request.Request, *personalize.DescribeDatasetOutput)
@@ -187,6 +203,10 @@ type PersonalizeAPI interface {
 	DescribeFilter(*personalize.DescribeFilterInput) (*personalize.DescribeFilterOutput, error)
 	DescribeFilterWithContext(aws.Context, *personalize.DescribeFilterInput, ...request.Option) (*personalize.DescribeFilterOutput, error)
 	DescribeFilterRequest(*personalize.DescribeFilterInput) (*request.Request, *personalize.DescribeFilterOutput)
+
+	DescribeMetricAttribution(*personalize.DescribeMetricAttributionInput) (*personalize.DescribeMetricAttributionOutput, error)
+	DescribeMetricAttributionWithContext(aws.Context, *personalize.DescribeMetricAttributionInput, ...request.Option) (*personalize.DescribeMetricAttributionOutput, error)
+	DescribeMetricAttributionRequest(*personalize.DescribeMetricAttributionInput) (*request.Request, *personalize.DescribeMetricAttributionOutput)
 
 	DescribeRecipe(*personalize.DescribeRecipeInput) (*personalize.DescribeRecipeOutput, error)
 	DescribeRecipeWithContext(aws.Context, *personalize.DescribeRecipeInput, ...request.Option) (*personalize.DescribeRecipeOutput, error)
@@ -233,6 +253,10 @@ type PersonalizeAPI interface {
 	ListCampaignsPages(*personalize.ListCampaignsInput, func(*personalize.ListCampaignsOutput, bool) bool) error
 	ListCampaignsPagesWithContext(aws.Context, *personalize.ListCampaignsInput, func(*personalize.ListCampaignsOutput, bool) bool, ...request.Option) error
 
+	ListDataDeletionJobs(*personalize.ListDataDeletionJobsInput) (*personalize.ListDataDeletionJobsOutput, error)
+	ListDataDeletionJobsWithContext(aws.Context, *personalize.ListDataDeletionJobsInput, ...request.Option) (*personalize.ListDataDeletionJobsOutput, error)
+	ListDataDeletionJobsRequest(*personalize.ListDataDeletionJobsInput) (*request.Request, *personalize.ListDataDeletionJobsOutput)
+
 	ListDatasetExportJobs(*personalize.ListDatasetExportJobsInput) (*personalize.ListDatasetExportJobsOutput, error)
 	ListDatasetExportJobsWithContext(aws.Context, *personalize.ListDatasetExportJobsInput, ...request.Option) (*personalize.ListDatasetExportJobsOutput, error)
 	ListDatasetExportJobsRequest(*personalize.ListDatasetExportJobsInput) (*request.Request, *personalize.ListDatasetExportJobsOutput)
@@ -274,6 +298,20 @@ type PersonalizeAPI interface {
 
 	ListFiltersPages(*personalize.ListFiltersInput, func(*personalize.ListFiltersOutput, bool) bool) error
 	ListFiltersPagesWithContext(aws.Context, *personalize.ListFiltersInput, func(*personalize.ListFiltersOutput, bool) bool, ...request.Option) error
+
+	ListMetricAttributionMetrics(*personalize.ListMetricAttributionMetricsInput) (*personalize.ListMetricAttributionMetricsOutput, error)
+	ListMetricAttributionMetricsWithContext(aws.Context, *personalize.ListMetricAttributionMetricsInput, ...request.Option) (*personalize.ListMetricAttributionMetricsOutput, error)
+	ListMetricAttributionMetricsRequest(*personalize.ListMetricAttributionMetricsInput) (*request.Request, *personalize.ListMetricAttributionMetricsOutput)
+
+	ListMetricAttributionMetricsPages(*personalize.ListMetricAttributionMetricsInput, func(*personalize.ListMetricAttributionMetricsOutput, bool) bool) error
+	ListMetricAttributionMetricsPagesWithContext(aws.Context, *personalize.ListMetricAttributionMetricsInput, func(*personalize.ListMetricAttributionMetricsOutput, bool) bool, ...request.Option) error
+
+	ListMetricAttributions(*personalize.ListMetricAttributionsInput) (*personalize.ListMetricAttributionsOutput, error)
+	ListMetricAttributionsWithContext(aws.Context, *personalize.ListMetricAttributionsInput, ...request.Option) (*personalize.ListMetricAttributionsOutput, error)
+	ListMetricAttributionsRequest(*personalize.ListMetricAttributionsInput) (*request.Request, *personalize.ListMetricAttributionsOutput)
+
+	ListMetricAttributionsPages(*personalize.ListMetricAttributionsInput, func(*personalize.ListMetricAttributionsOutput, bool) bool) error
+	ListMetricAttributionsPagesWithContext(aws.Context, *personalize.ListMetricAttributionsInput, func(*personalize.ListMetricAttributionsOutput, bool) bool, ...request.Option) error
 
 	ListRecipes(*personalize.ListRecipesInput) (*personalize.ListRecipesOutput, error)
 	ListRecipesWithContext(aws.Context, *personalize.ListRecipesInput, ...request.Option) (*personalize.ListRecipesOutput, error)
@@ -337,6 +375,14 @@ type PersonalizeAPI interface {
 	UpdateCampaign(*personalize.UpdateCampaignInput) (*personalize.UpdateCampaignOutput, error)
 	UpdateCampaignWithContext(aws.Context, *personalize.UpdateCampaignInput, ...request.Option) (*personalize.UpdateCampaignOutput, error)
 	UpdateCampaignRequest(*personalize.UpdateCampaignInput) (*request.Request, *personalize.UpdateCampaignOutput)
+
+	UpdateDataset(*personalize.UpdateDatasetInput) (*personalize.UpdateDatasetOutput, error)
+	UpdateDatasetWithContext(aws.Context, *personalize.UpdateDatasetInput, ...request.Option) (*personalize.UpdateDatasetOutput, error)
+	UpdateDatasetRequest(*personalize.UpdateDatasetInput) (*request.Request, *personalize.UpdateDatasetOutput)
+
+	UpdateMetricAttribution(*personalize.UpdateMetricAttributionInput) (*personalize.UpdateMetricAttributionOutput, error)
+	UpdateMetricAttributionWithContext(aws.Context, *personalize.UpdateMetricAttributionInput, ...request.Option) (*personalize.UpdateMetricAttributionOutput, error)
+	UpdateMetricAttributionRequest(*personalize.UpdateMetricAttributionInput) (*request.Request, *personalize.UpdateMetricAttributionOutput)
 
 	UpdateRecommender(*personalize.UpdateRecommenderInput) (*personalize.UpdateRecommenderOutput, error)
 	UpdateRecommenderWithContext(aws.Context, *personalize.UpdateRecommenderInput, ...request.Option) (*personalize.UpdateRecommenderOutput, error)

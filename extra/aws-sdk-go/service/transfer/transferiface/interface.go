@@ -23,37 +23,37 @@ import (
 // can be stubbed out for unit testing your code with the SDK without needing
 // to inject custom request handlers into the SDK's request pipeline.
 //
-//    // myFunc uses an SDK service client to make a request to
-//    // AWS Transfer Family.
-//    func myFunc(svc transferiface.TransferAPI) bool {
-//        // Make svc.CreateAccess request
-//    }
+//	// myFunc uses an SDK service client to make a request to
+//	// AWS Transfer Family.
+//	func myFunc(svc transferiface.TransferAPI) bool {
+//	    // Make svc.CreateAccess request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := transfer.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := transfer.New(sess)
 //
-//        myFunc(svc)
-//    }
+//	    myFunc(svc)
+//	}
 //
 // In your _test.go file:
 //
-//    // Define a mock struct to be used in your unit tests of myFunc.
-//    type mockTransferClient struct {
-//        transferiface.TransferAPI
-//    }
-//    func (m *mockTransferClient) CreateAccess(input *transfer.CreateAccessInput) (*transfer.CreateAccessOutput, error) {
-//        // mock response/functionality
-//    }
+//	// Define a mock struct to be used in your unit tests of myFunc.
+//	type mockTransferClient struct {
+//	    transferiface.TransferAPI
+//	}
+//	func (m *mockTransferClient) CreateAccess(input *transfer.CreateAccessInput) (*transfer.CreateAccessOutput, error) {
+//	    // mock response/functionality
+//	}
 //
-//    func TestMyFunc(t *testing.T) {
-//        // Setup Test
-//        mockSvc := &mockTransferClient{}
+//	func TestMyFunc(t *testing.T) {
+//	    // Setup Test
+//	    mockSvc := &mockTransferClient{}
 //
-//        myfunc(mockSvc)
+//	    myfunc(mockSvc)
 //
-//        // Verify myFunc's functionality
-//    }
+//	    // Verify myFunc's functionality
+//	}
 //
 // It is important to note that this interface will have breaking changes
 // when the service model is updated and adds new API operations, paginators,
@@ -104,6 +104,10 @@ type TransferAPI interface {
 	DeleteConnectorWithContext(aws.Context, *transfer.DeleteConnectorInput, ...request.Option) (*transfer.DeleteConnectorOutput, error)
 	DeleteConnectorRequest(*transfer.DeleteConnectorInput) (*request.Request, *transfer.DeleteConnectorOutput)
 
+	DeleteHostKey(*transfer.DeleteHostKeyInput) (*transfer.DeleteHostKeyOutput, error)
+	DeleteHostKeyWithContext(aws.Context, *transfer.DeleteHostKeyInput, ...request.Option) (*transfer.DeleteHostKeyOutput, error)
+	DeleteHostKeyRequest(*transfer.DeleteHostKeyInput) (*request.Request, *transfer.DeleteHostKeyOutput)
+
 	DeleteProfile(*transfer.DeleteProfileInput) (*transfer.DeleteProfileOutput, error)
 	DeleteProfileWithContext(aws.Context, *transfer.DeleteProfileInput, ...request.Option) (*transfer.DeleteProfileOutput, error)
 	DeleteProfileRequest(*transfer.DeleteProfileInput) (*request.Request, *transfer.DeleteProfileOutput)
@@ -144,6 +148,10 @@ type TransferAPI interface {
 	DescribeExecutionWithContext(aws.Context, *transfer.DescribeExecutionInput, ...request.Option) (*transfer.DescribeExecutionOutput, error)
 	DescribeExecutionRequest(*transfer.DescribeExecutionInput) (*request.Request, *transfer.DescribeExecutionOutput)
 
+	DescribeHostKey(*transfer.DescribeHostKeyInput) (*transfer.DescribeHostKeyOutput, error)
+	DescribeHostKeyWithContext(aws.Context, *transfer.DescribeHostKeyInput, ...request.Option) (*transfer.DescribeHostKeyOutput, error)
+	DescribeHostKeyRequest(*transfer.DescribeHostKeyInput) (*request.Request, *transfer.DescribeHostKeyOutput)
+
 	DescribeProfile(*transfer.DescribeProfileInput) (*transfer.DescribeProfileOutput, error)
 	DescribeProfileWithContext(aws.Context, *transfer.DescribeProfileInput, ...request.Option) (*transfer.DescribeProfileOutput, error)
 	DescribeProfileRequest(*transfer.DescribeProfileInput) (*request.Request, *transfer.DescribeProfileOutput)
@@ -167,6 +175,10 @@ type TransferAPI interface {
 	ImportCertificate(*transfer.ImportCertificateInput) (*transfer.ImportCertificateOutput, error)
 	ImportCertificateWithContext(aws.Context, *transfer.ImportCertificateInput, ...request.Option) (*transfer.ImportCertificateOutput, error)
 	ImportCertificateRequest(*transfer.ImportCertificateInput) (*request.Request, *transfer.ImportCertificateOutput)
+
+	ImportHostKey(*transfer.ImportHostKeyInput) (*transfer.ImportHostKeyOutput, error)
+	ImportHostKeyWithContext(aws.Context, *transfer.ImportHostKeyInput, ...request.Option) (*transfer.ImportHostKeyOutput, error)
+	ImportHostKeyRequest(*transfer.ImportHostKeyInput) (*request.Request, *transfer.ImportHostKeyOutput)
 
 	ImportSshPublicKey(*transfer.ImportSshPublicKeyInput) (*transfer.ImportSshPublicKeyOutput, error)
 	ImportSshPublicKeyWithContext(aws.Context, *transfer.ImportSshPublicKeyInput, ...request.Option) (*transfer.ImportSshPublicKeyOutput, error)
@@ -206,6 +218,10 @@ type TransferAPI interface {
 
 	ListExecutionsPages(*transfer.ListExecutionsInput, func(*transfer.ListExecutionsOutput, bool) bool) error
 	ListExecutionsPagesWithContext(aws.Context, *transfer.ListExecutionsInput, func(*transfer.ListExecutionsOutput, bool) bool, ...request.Option) error
+
+	ListHostKeys(*transfer.ListHostKeysInput) (*transfer.ListHostKeysOutput, error)
+	ListHostKeysWithContext(aws.Context, *transfer.ListHostKeysInput, ...request.Option) (*transfer.ListHostKeysOutput, error)
+	ListHostKeysRequest(*transfer.ListHostKeysInput) (*request.Request, *transfer.ListHostKeysOutput)
 
 	ListProfiles(*transfer.ListProfilesInput) (*transfer.ListProfilesOutput, error)
 	ListProfilesWithContext(aws.Context, *transfer.ListProfilesInput, ...request.Option) (*transfer.ListProfilesOutput, error)
@@ -253,6 +269,10 @@ type TransferAPI interface {
 	SendWorkflowStepStateWithContext(aws.Context, *transfer.SendWorkflowStepStateInput, ...request.Option) (*transfer.SendWorkflowStepStateOutput, error)
 	SendWorkflowStepStateRequest(*transfer.SendWorkflowStepStateInput) (*request.Request, *transfer.SendWorkflowStepStateOutput)
 
+	StartDirectoryListing(*transfer.StartDirectoryListingInput) (*transfer.StartDirectoryListingOutput, error)
+	StartDirectoryListingWithContext(aws.Context, *transfer.StartDirectoryListingInput, ...request.Option) (*transfer.StartDirectoryListingOutput, error)
+	StartDirectoryListingRequest(*transfer.StartDirectoryListingInput) (*request.Request, *transfer.StartDirectoryListingOutput)
+
 	StartFileTransfer(*transfer.StartFileTransferInput) (*transfer.StartFileTransferOutput, error)
 	StartFileTransferWithContext(aws.Context, *transfer.StartFileTransferInput, ...request.Option) (*transfer.StartFileTransferOutput, error)
 	StartFileTransferRequest(*transfer.StartFileTransferInput) (*request.Request, *transfer.StartFileTransferOutput)
@@ -268,6 +288,10 @@ type TransferAPI interface {
 	TagResource(*transfer.TagResourceInput) (*transfer.TagResourceOutput, error)
 	TagResourceWithContext(aws.Context, *transfer.TagResourceInput, ...request.Option) (*transfer.TagResourceOutput, error)
 	TagResourceRequest(*transfer.TagResourceInput) (*request.Request, *transfer.TagResourceOutput)
+
+	TestConnection(*transfer.TestConnectionInput) (*transfer.TestConnectionOutput, error)
+	TestConnectionWithContext(aws.Context, *transfer.TestConnectionInput, ...request.Option) (*transfer.TestConnectionOutput, error)
+	TestConnectionRequest(*transfer.TestConnectionInput) (*request.Request, *transfer.TestConnectionOutput)
 
 	TestIdentityProvider(*transfer.TestIdentityProviderInput) (*transfer.TestIdentityProviderOutput, error)
 	TestIdentityProviderWithContext(aws.Context, *transfer.TestIdentityProviderInput, ...request.Option) (*transfer.TestIdentityProviderOutput, error)
@@ -292,6 +316,10 @@ type TransferAPI interface {
 	UpdateConnector(*transfer.UpdateConnectorInput) (*transfer.UpdateConnectorOutput, error)
 	UpdateConnectorWithContext(aws.Context, *transfer.UpdateConnectorInput, ...request.Option) (*transfer.UpdateConnectorOutput, error)
 	UpdateConnectorRequest(*transfer.UpdateConnectorInput) (*request.Request, *transfer.UpdateConnectorOutput)
+
+	UpdateHostKey(*transfer.UpdateHostKeyInput) (*transfer.UpdateHostKeyOutput, error)
+	UpdateHostKeyWithContext(aws.Context, *transfer.UpdateHostKeyInput, ...request.Option) (*transfer.UpdateHostKeyOutput, error)
+	UpdateHostKeyRequest(*transfer.UpdateHostKeyInput) (*request.Request, *transfer.UpdateHostKeyOutput)
 
 	UpdateProfile(*transfer.UpdateProfileInput) (*transfer.UpdateProfileOutput, error)
 	UpdateProfileWithContext(aws.Context, *transfer.UpdateProfileInput, ...request.Option) (*transfer.UpdateProfileOutput, error)
